@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of secrets for a GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsSecrets({
- *     name: "example",
- * });
- * ```
  */
 export function getActionsSecrets(args?: GetActionsSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsSecretsResult> {
     args = args || {};
@@ -64,17 +53,6 @@ export interface GetActionsSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of secrets for a GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsSecrets({
- *     name: "example",
- * });
- * ```
  */
 export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsSecretsResult> {
     return pulumi.output(args).apply((a: any) => getActionsSecrets(a, opts))

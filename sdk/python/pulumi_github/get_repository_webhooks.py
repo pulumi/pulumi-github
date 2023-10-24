@@ -71,17 +71,6 @@ def get_repository_webhooks(repository: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryWebhooksResult:
     """
     Use this data source to retrieve webhooks for a given repository.
-
-    ## Example Usage
-
-    To retrieve webhooks of a repository:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    repo = github.get_repository_webhooks(repository="foo")
-    ```
     """
     __args__ = dict()
     __args__['repository'] = repository
@@ -99,16 +88,5 @@ def get_repository_webhooks_output(repository: Optional[pulumi.Input[str]] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryWebhooksResult]:
     """
     Use this data source to retrieve webhooks for a given repository.
-
-    ## Example Usage
-
-    To retrieve webhooks of a repository:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    repo = github.get_repository_webhooks(repository="foo")
-    ```
     """
     ...

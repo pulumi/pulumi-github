@@ -31,9 +31,17 @@ class TeamSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: pulumi.Input[str],
+             team_id: Optional[pulumi.Input[str]] = None,
              review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+
         _setter("team_id", team_id)
         if review_request_delegation is not None:
             _setter("review_request_delegation", review_request_delegation)
@@ -91,7 +99,17 @@ class _TeamSettingsState:
              team_id: Optional[pulumi.Input[str]] = None,
              team_slug: Optional[pulumi.Input[str]] = None,
              team_uid: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_uid is None and 'teamUid' in kwargs:
+            team_uid = kwargs['teamUid']
+
         if review_request_delegation is not None:
             _setter("review_request_delegation", review_request_delegation)
         if team_id is not None:
@@ -167,23 +185,6 @@ class TeamSettings(pulumi.CustomResource):
 
         > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        code_review_settings = github.TeamSettings("codeReviewSettings",
-            team_id=some_team.id,
-            review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
-                algorithm="ROUND_ROBIN",
-                member_count=1,
-                notify=True,
-            ))
-        ```
-
         ## Import
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
@@ -216,23 +217,6 @@ class TeamSettings(pulumi.CustomResource):
         The team must both belong to the same organization configured in the provider on GitHub.
 
         > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        code_review_settings = github.TeamSettings("codeReviewSettings",
-            team_id=some_team.id,
-            review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
-                algorithm="ROUND_ROBIN",
-                member_count=1,
-                notify=True,
-            ))
-        ```
 
         ## Import
 
@@ -277,11 +261,7 @@ class TeamSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TeamSettingsArgs.__new__(TeamSettingsArgs)
 
-            if review_request_delegation is not None and not isinstance(review_request_delegation, TeamSettingsReviewRequestDelegationArgs):
-                review_request_delegation = review_request_delegation or {}
-                def _setter(key, value):
-                    review_request_delegation[key] = value
-                TeamSettingsReviewRequestDelegationArgs._configure(_setter, **review_request_delegation)
+            review_request_delegation = _utilities.configure(review_request_delegation, TeamSettingsReviewRequestDelegationArgs, True)
             __props__.__dict__["review_request_delegation"] = review_request_delegation
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")

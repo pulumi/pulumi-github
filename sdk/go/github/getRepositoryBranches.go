@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about branches in a repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetRepositoryBranches(ctx, &github.GetRepositoryBranchesArgs{
-//				Repository: "example-repository",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRepositoryBranches(ctx *pulumi.Context, args *GetRepositoryBranchesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryBranchesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryBranchesResult

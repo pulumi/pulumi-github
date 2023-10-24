@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve autolink references for a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryAutolinkReferences({
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryAutolinkReferences(args: GetRepositoryAutolinkReferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAutolinkReferencesResult> {
 
@@ -54,17 +43,6 @@ export interface GetRepositoryAutolinkReferencesResult {
 }
 /**
  * Use this data source to retrieve autolink references for a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryAutolinkReferences({
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryAutolinkReferencesOutput(args: GetRepositoryAutolinkReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAutolinkReferencesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryAutolinkReferences(a, opts))

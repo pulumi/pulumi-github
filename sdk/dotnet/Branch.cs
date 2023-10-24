@@ -15,25 +15,6 @@ namespace Pulumi.Github
     /// Additional constraints can be applied to ensure your branch is created from
     /// another branch or commit.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var development = new Github.Branch("development", new()
-    ///     {
-    ///         BranchName = "development",
-    ///         Repository = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.

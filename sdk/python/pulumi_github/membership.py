@@ -36,10 +36,16 @@ class MembershipArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
              downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
         _setter("username", username)
         if downgrade_on_destroy is not None:
             _setter("downgrade_on_destroy", downgrade_on_destroy)
@@ -118,7 +124,11 @@ class _MembershipState:
              etag: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
         if downgrade_on_destroy is not None:
             _setter("downgrade_on_destroy", downgrade_on_destroy)
         if etag is not None:
@@ -194,18 +204,6 @@ class Membership(pulumi.CustomResource):
         an invitation will be sent to the user to become part of the organization. When
         destroyed, either the invitation will be cancelled or the user will be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
-        ```
-
         ## Import
 
         GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
@@ -236,18 +234,6 @@ class Membership(pulumi.CustomResource):
         This resource allows you to add/remove users from your organization. When applied,
         an invitation will be sent to the user to become part of the organization. When
         destroyed, either the invitation will be cancelled or the user will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
-        ```
 
         ## Import
 

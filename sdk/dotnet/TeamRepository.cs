@@ -26,34 +26,6 @@ namespace Pulumi.Github
     /// This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators
     /// instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a repository to the team
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///     });
-    /// 
-    ///     var someRepo = new Github.Repository("someRepo");
-    /// 
-    ///     var someTeamRepo = new Github.TeamRepository("someTeamRepo", new()
-    ///     {
-    ///         TeamId = someTeam.Id,
-    ///         Repository = someRepo.Name,
-    ///         Permission = "pull",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.

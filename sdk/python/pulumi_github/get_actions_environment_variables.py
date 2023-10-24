@@ -94,16 +94,6 @@ def get_actions_environment_variables(environment: Optional[str] = None,
     """
     Use this data source to retrieve the list of variables of the repository environment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_environment_variables(environment="exampleEnvironment",
-        name="exampleRepo")
-    ```
-
 
     :param str name: Name of the variable
     """
@@ -129,16 +119,6 @@ def get_actions_environment_variables_output(environment: Optional[pulumi.Input[
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsEnvironmentVariablesResult]:
     """
     Use this data source to retrieve the list of variables of the repository environment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_environment_variables(environment="exampleEnvironment",
-        name="exampleRepo")
-    ```
 
 
     :param str name: Name of the variable

@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about a specific GitHub milestone in a repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepositoryMilestone(ctx, &github.LookupRepositoryMilestoneArgs{
-//				Number:     1,
-//				Owner:      "example-owner",
-//				Repository: "example-repository",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepositoryMilestone(ctx *pulumi.Context, args *LookupRepositoryMilestoneArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryMilestoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryMilestoneResult

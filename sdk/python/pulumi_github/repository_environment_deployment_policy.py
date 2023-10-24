@@ -32,10 +32,20 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch_pattern: pulumi.Input[str],
-             environment: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             branch_pattern: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_pattern is None and 'branchPattern' in kwargs:
+            branch_pattern = kwargs['branchPattern']
+        if branch_pattern is None:
+            raise TypeError("Missing 'branch_pattern' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("branch_pattern", branch_pattern)
         _setter("environment", environment)
         _setter("repository", repository)
@@ -101,7 +111,11 @@ class _RepositoryEnvironmentDeploymentPolicyState:
              branch_pattern: Optional[pulumi.Input[str]] = None,
              environment: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_pattern is None and 'branchPattern' in kwargs:
+            branch_pattern = kwargs['branchPattern']
+
         if branch_pattern is not None:
             _setter("branch_pattern", branch_pattern)
         if environment is not None:
@@ -158,31 +172,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         """
         This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        test_repository = github.Repository("testRepository")
-        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
-            repository=test_repository.name,
-            environment="environment/test",
-            wait_timer=10000,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
-        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
-            repository=test_repository.name,
-            environment=test_repository_environment.environment,
-            branch_pattern="releases/*")
-        ```
-
         ## Import
 
         GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
@@ -205,31 +194,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        test_repository = github.Repository("testRepository")
-        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
-            repository=test_repository.name,
-            environment="environment/test",
-            wait_timer=10000,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
-        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
-            repository=test_repository.name,
-            environment=test_repository_environment.environment,
-            branch_pattern="releases/*")
-        ```
 
         ## Import
 

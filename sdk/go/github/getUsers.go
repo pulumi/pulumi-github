@@ -13,38 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about multiple GitHub users at once.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.GetUsers(ctx, &github.GetUsersArgs{
-//				Usernames: []string{
-//					"example1",
-//					"example2",
-//					"example3",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("validUsers", example.Logins)
-//			ctx.Export("invalidUsers", example.UnknownLogins)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult

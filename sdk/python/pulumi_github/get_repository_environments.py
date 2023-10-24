@@ -71,15 +71,6 @@ def get_repository_environments(repository: Optional[str] = None,
     """
     Use this data source to retrieve information about environments for a repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_environments(repository="example-repository")
-    ```
-
 
     :param str repository: Name of the repository to retrieve the environments from.
     """
@@ -99,15 +90,6 @@ def get_repository_environments_output(repository: Optional[pulumi.Input[str]] =
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryEnvironmentsResult]:
     """
     Use this data source to retrieve information about environments for a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_environments(repository="example-repository")
-    ```
 
 
     :param str repository: Name of the repository to retrieve the environments from.

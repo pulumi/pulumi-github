@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsRepositoryOidcSubjectClaimCustomizationTemplate({
- *     name: "example_repository",
- * });
- * ```
  */
 export function getActionsRepositoryOidcSubjectClaimCustomizationTemplate(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
 
@@ -56,17 +45,6 @@ export interface GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult
 }
 /**
  * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsRepositoryOidcSubjectClaimCustomizationTemplate({
- *     name: "example_repository",
- * });
- * ```
  */
 export function getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
     return pulumi.output(args).apply((a: any) => getActionsRepositoryOidcSubjectClaimCustomizationTemplate(a, opts))

@@ -10,44 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
-    ///     {
-    ///         FullName = "my-org/repo",
-    ///     });
-    /// 
-    ///     var exampleSecretCodespacesUserSecret = new Github.CodespacesUserSecret("exampleSecretCodespacesUserSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         PlaintextValue = @var.Some_secret_string,
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSecretIndex_codespacesUserSecretCodespacesUserSecret = new Github.CodespacesUserSecret("exampleSecretIndex/codespacesUserSecretCodespacesUserSecret", new()
-    ///     {
-    ///         SecretName = "example_secret_name",
-    ///         EncryptedValue = @var.Some_encrypted_secret_string,
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the secret name

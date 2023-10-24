@@ -25,37 +25,6 @@ import (
 // by the following the instructions at this
 // [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewAppInstallationRepository(ctx, "someAppRepo", &github.AppInstallationRepositoryArgs{
-//				InstallationId: pulumi.String("1234567"),
-//				Repository:     someRepo.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.

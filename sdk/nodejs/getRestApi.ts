@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub resource through REST API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRestApi({
- *     endpoint: "repos/example_repo/git/refs/heads/main",
- * });
- * ```
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
 
@@ -64,17 +53,6 @@ export interface GetRestApiResult {
 }
 /**
  * Use this data source to retrieve information about a GitHub resource through REST API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRestApi({
- *     endpoint: "repos/example_repo/git/refs/heads/main",
- * });
- * ```
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
     return pulumi.output(args).apply((a: any) => getRestApi(a, opts))

@@ -94,15 +94,6 @@ def get_github_app(slug: Optional[str] = None,
     """
     Use this data source to retrieve information about an app.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    foobar = github.get_github_app(slug="foobar")
-    ```
-
 
     :param str slug: The URL-friendly name of your GitHub App.
     """
@@ -124,15 +115,6 @@ def get_github_app_output(slug: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGithubAppResult]:
     """
     Use this data source to retrieve information about an app.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    foobar = github.get_github_app(slug="foobar")
-    ```
 
 
     :param str slug: The URL-friendly name of your GitHub App.

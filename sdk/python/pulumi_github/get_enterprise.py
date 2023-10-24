@@ -109,15 +109,6 @@ def get_enterprise(slug: Optional[str] = None,
     """
     Use this data source to retrieve basic information about a GitHub enterprise.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_enterprise(slug="example-co")
-    ```
-
 
     :param str slug: The URL slug identifying the enterprise.
     """
@@ -140,15 +131,6 @@ def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseResult]:
     """
     Use this data source to retrieve basic information about a GitHub enterprise.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_enterprise(slug="example-co")
-    ```
 
 
     :param str slug: The URL slug identifying the enterprise.

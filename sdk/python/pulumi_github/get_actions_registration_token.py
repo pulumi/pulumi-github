@@ -82,15 +82,6 @@ def get_actions_registration_token(repository: Optional[str] = None,
     """
     Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_registration_token(repository="example_repo")
-    ```
-
 
     :param str repository: Name of the repository to get a GitHub Actions registration token for.
     """
@@ -111,15 +102,6 @@ def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsRegistrationTokenResult]:
     """
     Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_registration_token(repository="example_repo")
-    ```
 
 
     :param str repository: Name of the repository to get a GitHub Actions registration token for.

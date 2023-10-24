@@ -139,10 +139,20 @@ class ActionsOrganizationPermissionsAllowedActionsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             github_owned_allowed: bool,
+             github_owned_allowed: Optional[bool] = None,
              patterns_alloweds: Optional[Sequence[str]] = None,
              verified_allowed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if github_owned_allowed is None and 'githubOwnedAllowed' in kwargs:
+            github_owned_allowed = kwargs['githubOwnedAllowed']
+        if github_owned_allowed is None:
+            raise TypeError("Missing 'github_owned_allowed' argument")
+        if patterns_alloweds is None and 'patternsAlloweds' in kwargs:
+            patterns_alloweds = kwargs['patternsAlloweds']
+        if verified_allowed is None and 'verifiedAllowed' in kwargs:
+            verified_allowed = kwargs['verifiedAllowed']
+
         _setter("github_owned_allowed", github_owned_allowed)
         if patterns_alloweds is not None:
             _setter("patterns_alloweds", patterns_alloweds)
@@ -205,8 +215,14 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository_ids: Sequence[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             repository_ids: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+        if repository_ids is None:
+            raise TypeError("Missing 'repository_ids' argument")
+
         _setter("repository_ids", repository_ids)
 
     @property
@@ -259,10 +275,20 @@ class ActionsRepositoryPermissionsAllowedActionsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             github_owned_allowed: bool,
+             github_owned_allowed: Optional[bool] = None,
              patterns_alloweds: Optional[Sequence[str]] = None,
              verified_allowed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if github_owned_allowed is None and 'githubOwnedAllowed' in kwargs:
+            github_owned_allowed = kwargs['githubOwnedAllowed']
+        if github_owned_allowed is None:
+            raise TypeError("Missing 'github_owned_allowed' argument")
+        if patterns_alloweds is None and 'patternsAlloweds' in kwargs:
+            patterns_alloweds = kwargs['patternsAlloweds']
+        if verified_allowed is None and 'verifiedAllowed' in kwargs:
+            verified_allowed = kwargs['verifiedAllowed']
+
         _setter("github_owned_allowed", github_owned_allowed)
         if patterns_alloweds is not None:
             _setter("patterns_alloweds", patterns_alloweds)
@@ -363,7 +389,23 @@ class BranchProtectionRequiredPullRequestReview(dict):
              require_last_push_approval: Optional[bool] = None,
              required_approving_review_count: Optional[int] = None,
              restrict_dismissals: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dismiss_stale_reviews is None and 'dismissStaleReviews' in kwargs:
+            dismiss_stale_reviews = kwargs['dismissStaleReviews']
+        if dismissal_restrictions is None and 'dismissalRestrictions' in kwargs:
+            dismissal_restrictions = kwargs['dismissalRestrictions']
+        if pull_request_bypassers is None and 'pullRequestBypassers' in kwargs:
+            pull_request_bypassers = kwargs['pullRequestBypassers']
+        if require_code_owner_reviews is None and 'requireCodeOwnerReviews' in kwargs:
+            require_code_owner_reviews = kwargs['requireCodeOwnerReviews']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if restrict_dismissals is None and 'restrictDismissals' in kwargs:
+            restrict_dismissals = kwargs['restrictDismissals']
+
         if dismiss_stale_reviews is not None:
             _setter("dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
@@ -456,7 +498,9 @@ class BranchProtectionRequiredStatusCheck(dict):
              _setter: Callable[[Any, Any], None],
              contexts: Optional[Sequence[str]] = None,
              strict: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if contexts is not None:
             _setter("contexts", contexts)
         if strict is not None:
@@ -547,7 +591,23 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
              include_admins: Optional[bool] = None,
              require_code_owner_reviews: Optional[bool] = None,
              required_approving_review_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bypass_pull_request_allowances is None and 'bypassPullRequestAllowances' in kwargs:
+            bypass_pull_request_allowances = kwargs['bypassPullRequestAllowances']
+        if dismiss_stale_reviews is None and 'dismissStaleReviews' in kwargs:
+            dismiss_stale_reviews = kwargs['dismissStaleReviews']
+        if dismissal_teams is None and 'dismissalTeams' in kwargs:
+            dismissal_teams = kwargs['dismissalTeams']
+        if dismissal_users is None and 'dismissalUsers' in kwargs:
+            dismissal_users = kwargs['dismissalUsers']
+        if include_admins is None and 'includeAdmins' in kwargs:
+            include_admins = kwargs['includeAdmins']
+        if require_code_owner_reviews is None and 'requireCodeOwnerReviews' in kwargs:
+            require_code_owner_reviews = kwargs['requireCodeOwnerReviews']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+
         if bypass_pull_request_allowances is not None:
             _setter("bypass_pull_request_allowances", bypass_pull_request_allowances)
         if dismiss_stale_reviews is not None:
@@ -644,7 +704,9 @@ class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances(di
              apps: Optional[Sequence[str]] = None,
              teams: Optional[Sequence[str]] = None,
              users: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if apps is not None:
             _setter("apps", apps)
         if teams is not None:
@@ -720,7 +782,11 @@ class BranchProtectionV3RequiredStatusChecks(dict):
              contexts: Optional[Sequence[str]] = None,
              include_admins: Optional[bool] = None,
              strict: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_admins is None and 'includeAdmins' in kwargs:
+            include_admins = kwargs['includeAdmins']
+
         if checks is not None:
             _setter("checks", checks)
         if contexts is not None:
@@ -792,7 +858,9 @@ class BranchProtectionV3Restrictions(dict):
              apps: Optional[Sequence[str]] = None,
              teams: Optional[Sequence[str]] = None,
              users: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if apps is not None:
             _setter("apps", apps)
         if teams is not None:
@@ -871,10 +939,24 @@ class OrganizationRulesetBypassActor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actor_id: int,
-             actor_type: str,
-             bypass_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             actor_id: Optional[int] = None,
+             actor_type: Optional[str] = None,
+             bypass_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actor_id is None and 'actorId' in kwargs:
+            actor_id = kwargs['actorId']
+        if actor_id is None:
+            raise TypeError("Missing 'actor_id' argument")
+        if actor_type is None and 'actorType' in kwargs:
+            actor_type = kwargs['actorType']
+        if actor_type is None:
+            raise TypeError("Missing 'actor_type' argument")
+        if bypass_mode is None and 'bypassMode' in kwargs:
+            bypass_mode = kwargs['bypassMode']
+        if bypass_mode is None:
+            raise TypeError("Missing 'bypass_mode' argument")
+
         _setter("actor_id", actor_id)
         _setter("actor_type", actor_type)
         _setter("bypass_mode", bypass_mode)
@@ -949,10 +1031,20 @@ class OrganizationRulesetConditions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ref_name: 'outputs.OrganizationRulesetConditionsRefName',
+             ref_name: Optional['outputs.OrganizationRulesetConditionsRefName'] = None,
              repository_id: Optional[int] = None,
              repository_name: Optional['outputs.OrganizationRulesetConditionsRepositoryName'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ref_name is None and 'refName' in kwargs:
+            ref_name = kwargs['refName']
+        if ref_name is None:
+            raise TypeError("Missing 'ref_name' argument")
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         _setter("ref_name", ref_name)
         if repository_id is not None:
             _setter("repository_id", repository_id)
@@ -1003,9 +1095,15 @@ class OrganizationRulesetConditionsRefName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             excludes: Sequence[str],
-             includes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
         _setter("excludes", excludes)
         _setter("includes", includes)
 
@@ -1045,10 +1143,16 @@ class OrganizationRulesetConditionsRepositoryName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             excludes: Sequence[str],
-             includes: Sequence[str],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
              protected: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
         _setter("excludes", excludes)
         _setter("includes", includes)
         if protected is not None:
@@ -1174,7 +1278,29 @@ class OrganizationRulesetRules(dict):
              required_status_checks: Optional['outputs.OrganizationRulesetRulesRequiredStatusChecks'] = None,
              tag_name_pattern: Optional['outputs.OrganizationRulesetRulesTagNamePattern'] = None,
              update: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_name_pattern is None and 'branchNamePattern' in kwargs:
+            branch_name_pattern = kwargs['branchNamePattern']
+        if commit_author_email_pattern is None and 'commitAuthorEmailPattern' in kwargs:
+            commit_author_email_pattern = kwargs['commitAuthorEmailPattern']
+        if commit_message_pattern is None and 'commitMessagePattern' in kwargs:
+            commit_message_pattern = kwargs['commitMessagePattern']
+        if committer_email_pattern is None and 'committerEmailPattern' in kwargs:
+            committer_email_pattern = kwargs['committerEmailPattern']
+        if non_fast_forward is None and 'nonFastForward' in kwargs:
+            non_fast_forward = kwargs['nonFastForward']
+        if pull_request is None and 'pullRequest' in kwargs:
+            pull_request = kwargs['pullRequest']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_signatures is None and 'requiredSignatures' in kwargs:
+            required_signatures = kwargs['requiredSignatures']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+        if tag_name_pattern is None and 'tagNamePattern' in kwargs:
+            tag_name_pattern = kwargs['tagNamePattern']
+
         if branch_name_pattern is not None:
             _setter("branch_name_pattern", branch_name_pattern)
         if commit_author_email_pattern is not None:
@@ -1330,11 +1456,17 @@ class OrganizationRulesetRulesBranchNamePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -1398,11 +1530,17 @@ class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -1466,11 +1604,17 @@ class OrganizationRulesetRulesCommitMessagePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -1534,11 +1678,17 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -1635,7 +1785,19 @@ class OrganizationRulesetRulesPullRequest(dict):
              require_last_push_approval: Optional[bool] = None,
              required_approving_review_count: Optional[int] = None,
              required_review_thread_resolution: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dismiss_stale_reviews_on_push is None and 'dismissStaleReviewsOnPush' in kwargs:
+            dismiss_stale_reviews_on_push = kwargs['dismissStaleReviewsOnPush']
+        if require_code_owner_review is None and 'requireCodeOwnerReview' in kwargs:
+            require_code_owner_review = kwargs['requireCodeOwnerReview']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if required_review_thread_resolution is None and 'requiredReviewThreadResolution' in kwargs:
+            required_review_thread_resolution = kwargs['requiredReviewThreadResolution']
+
         if dismiss_stale_reviews_on_push is not None:
             _setter("dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
@@ -1724,9 +1886,17 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             required_checks: Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck'],
+             required_checks: Optional[Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck']] = None,
              strict_required_status_checks_policy: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_checks is None and 'requiredChecks' in kwargs:
+            required_checks = kwargs['requiredChecks']
+        if required_checks is None:
+            raise TypeError("Missing 'required_checks' argument")
+        if strict_required_status_checks_policy is None and 'strictRequiredStatusChecksPolicy' in kwargs:
+            strict_required_status_checks_policy = kwargs['strictRequiredStatusChecksPolicy']
+
         _setter("required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
             _setter("strict_required_status_checks_policy", strict_required_status_checks_policy)
@@ -1782,9 +1952,15 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             context: str,
+             context: Optional[str] = None,
              integration_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if context is None:
+            raise TypeError("Missing 'context' argument")
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
         _setter("context", context)
         if integration_id is not None:
             _setter("integration_id", integration_id)
@@ -1829,11 +2005,17 @@ class OrganizationRulesetRulesTagNamePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -1913,11 +2095,19 @@ class OrganizationWebhookConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              content_type: Optional[str] = None,
              insecure_ssl: Optional[bool] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+
         _setter("url", url)
         if content_type is not None:
             _setter("content_type", content_type)
@@ -1986,9 +2176,15 @@ class RepositoryCollaboratorsTeam(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: str,
+             team_id: Optional[str] = None,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
         _setter("team_id", team_id)
         if permission is not None:
             _setter("permission", permission)
@@ -2031,9 +2227,13 @@ class RepositoryCollaboratorsUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: str,
+             username: Optional[str] = None,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("username", username)
         if permission is not None:
             _setter("permission", permission)
@@ -2093,9 +2293,19 @@ class RepositoryEnvironmentDeploymentBranchPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_branch_policies: bool,
-             protected_branches: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_branch_policies: Optional[bool] = None,
+             protected_branches: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_branch_policies is None and 'customBranchPolicies' in kwargs:
+            custom_branch_policies = kwargs['customBranchPolicies']
+        if custom_branch_policies is None:
+            raise TypeError("Missing 'custom_branch_policies' argument")
+        if protected_branches is None and 'protectedBranches' in kwargs:
+            protected_branches = kwargs['protectedBranches']
+        if protected_branches is None:
+            raise TypeError("Missing 'protected_branches' argument")
+
         _setter("custom_branch_policies", custom_branch_policies)
         _setter("protected_branches", protected_branches)
 
@@ -2135,7 +2345,9 @@ class RepositoryEnvironmentReviewer(dict):
              _setter: Callable[[Any, Any], None],
              teams: Optional[Sequence[int]] = None,
              users: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if teams is not None:
             _setter("teams", teams)
         if users is not None:
@@ -2215,7 +2427,13 @@ class RepositoryPages(dict):
              source: Optional['outputs.RepositoryPagesSource'] = None,
              status: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if build_type is not None:
             _setter("build_type", build_type)
         if cname is not None:
@@ -2302,9 +2520,13 @@ class RepositoryPagesSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch: str,
+             branch: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+
         _setter("branch", branch)
         if path is not None:
             _setter("path", path)
@@ -2369,10 +2591,24 @@ class RepositoryRulesetBypassActor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actor_id: int,
-             actor_type: str,
-             bypass_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             actor_id: Optional[int] = None,
+             actor_type: Optional[str] = None,
+             bypass_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actor_id is None and 'actorId' in kwargs:
+            actor_id = kwargs['actorId']
+        if actor_id is None:
+            raise TypeError("Missing 'actor_id' argument")
+        if actor_type is None and 'actorType' in kwargs:
+            actor_type = kwargs['actorType']
+        if actor_type is None:
+            raise TypeError("Missing 'actor_type' argument")
+        if bypass_mode is None and 'bypassMode' in kwargs:
+            bypass_mode = kwargs['bypassMode']
+        if bypass_mode is None:
+            raise TypeError("Missing 'bypass_mode' argument")
+
         _setter("actor_id", actor_id)
         _setter("actor_type", actor_type)
         _setter("bypass_mode", bypass_mode)
@@ -2435,8 +2671,14 @@ class RepositoryRulesetConditions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ref_name: 'outputs.RepositoryRulesetConditionsRefName',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ref_name: Optional['outputs.RepositoryRulesetConditionsRefName'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ref_name is None and 'refName' in kwargs:
+            ref_name = kwargs['refName']
+        if ref_name is None:
+            raise TypeError("Missing 'ref_name' argument")
+
         _setter("ref_name", ref_name)
 
     @property
@@ -2465,9 +2707,15 @@ class RepositoryRulesetConditionsRefName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             excludes: Sequence[str],
-             includes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
         _setter("excludes", excludes)
         _setter("includes", includes)
 
@@ -2598,7 +2846,33 @@ class RepositoryRulesetRules(dict):
              tag_name_pattern: Optional['outputs.RepositoryRulesetRulesTagNamePattern'] = None,
              update: Optional[bool] = None,
              update_allows_fetch_and_merge: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_name_pattern is None and 'branchNamePattern' in kwargs:
+            branch_name_pattern = kwargs['branchNamePattern']
+        if commit_author_email_pattern is None and 'commitAuthorEmailPattern' in kwargs:
+            commit_author_email_pattern = kwargs['commitAuthorEmailPattern']
+        if commit_message_pattern is None and 'commitMessagePattern' in kwargs:
+            commit_message_pattern = kwargs['commitMessagePattern']
+        if committer_email_pattern is None and 'committerEmailPattern' in kwargs:
+            committer_email_pattern = kwargs['committerEmailPattern']
+        if non_fast_forward is None and 'nonFastForward' in kwargs:
+            non_fast_forward = kwargs['nonFastForward']
+        if pull_request is None and 'pullRequest' in kwargs:
+            pull_request = kwargs['pullRequest']
+        if required_deployments is None and 'requiredDeployments' in kwargs:
+            required_deployments = kwargs['requiredDeployments']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_signatures is None and 'requiredSignatures' in kwargs:
+            required_signatures = kwargs['requiredSignatures']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+        if tag_name_pattern is None and 'tagNamePattern' in kwargs:
+            tag_name_pattern = kwargs['tagNamePattern']
+        if update_allows_fetch_and_merge is None and 'updateAllowsFetchAndMerge' in kwargs:
+            update_allows_fetch_and_merge = kwargs['updateAllowsFetchAndMerge']
+
         if branch_name_pattern is not None:
             _setter("branch_name_pattern", branch_name_pattern)
         if commit_author_email_pattern is not None:
@@ -2774,11 +3048,17 @@ class RepositoryRulesetRulesBranchNamePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -2842,11 +3122,17 @@ class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -2910,11 +3196,17 @@ class RepositoryRulesetRulesCommitMessagePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -2978,11 +3270,17 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -3079,7 +3377,19 @@ class RepositoryRulesetRulesPullRequest(dict):
              require_last_push_approval: Optional[bool] = None,
              required_approving_review_count: Optional[int] = None,
              required_review_thread_resolution: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dismiss_stale_reviews_on_push is None and 'dismissStaleReviewsOnPush' in kwargs:
+            dismiss_stale_reviews_on_push = kwargs['dismissStaleReviewsOnPush']
+        if require_code_owner_review is None and 'requireCodeOwnerReview' in kwargs:
+            require_code_owner_review = kwargs['requireCodeOwnerReview']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if required_review_thread_resolution is None and 'requiredReviewThreadResolution' in kwargs:
+            required_review_thread_resolution = kwargs['requiredReviewThreadResolution']
+
         if dismiss_stale_reviews_on_push is not None:
             _setter("dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
@@ -3163,8 +3473,14 @@ class RepositoryRulesetRulesRequiredDeployments(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             required_deployment_environments: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             required_deployment_environments: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_deployment_environments is None and 'requiredDeploymentEnvironments' in kwargs:
+            required_deployment_environments = kwargs['requiredDeploymentEnvironments']
+        if required_deployment_environments is None:
+            raise TypeError("Missing 'required_deployment_environments' argument")
+
         _setter("required_deployment_environments", required_deployment_environments)
 
     @property
@@ -3212,9 +3528,17 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             required_checks: Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck'],
+             required_checks: Optional[Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck']] = None,
              strict_required_status_checks_policy: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_checks is None and 'requiredChecks' in kwargs:
+            required_checks = kwargs['requiredChecks']
+        if required_checks is None:
+            raise TypeError("Missing 'required_checks' argument")
+        if strict_required_status_checks_policy is None and 'strictRequiredStatusChecksPolicy' in kwargs:
+            strict_required_status_checks_policy = kwargs['strictRequiredStatusChecksPolicy']
+
         _setter("required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
             _setter("strict_required_status_checks_policy", strict_required_status_checks_policy)
@@ -3270,9 +3594,15 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             context: str,
+             context: Optional[str] = None,
              integration_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if context is None:
+            raise TypeError("Missing 'context' argument")
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
         _setter("context", context)
         if integration_id is not None:
             _setter("integration_id", integration_id)
@@ -3317,11 +3647,17 @@ class RepositoryRulesetRulesTagNamePattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             pattern: str,
+             operator: Optional[str] = None,
+             pattern: Optional[str] = None,
              name: Optional[str] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("operator", operator)
         _setter("pattern", pattern)
         if name is not None:
@@ -3406,7 +3742,15 @@ class RepositorySecurityAndAnalysis(dict):
              advanced_security: Optional['outputs.RepositorySecurityAndAnalysisAdvancedSecurity'] = None,
              secret_scanning: Optional['outputs.RepositorySecurityAndAnalysisSecretScanning'] = None,
              secret_scanning_push_protection: Optional['outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if advanced_security is None and 'advancedSecurity' in kwargs:
+            advanced_security = kwargs['advancedSecurity']
+        if secret_scanning is None and 'secretScanning' in kwargs:
+            secret_scanning = kwargs['secretScanning']
+        if secret_scanning_push_protection is None and 'secretScanningPushProtection' in kwargs:
+            secret_scanning_push_protection = kwargs['secretScanningPushProtection']
+
         if advanced_security is not None:
             _setter("advanced_security", advanced_security)
         if secret_scanning is not None:
@@ -3453,8 +3797,12 @@ class RepositorySecurityAndAnalysisAdvancedSecurity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("status", status)
 
     @property
@@ -3480,8 +3828,12 @@ class RepositorySecurityAndAnalysisSecretScanning(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("status", status)
 
     @property
@@ -3507,8 +3859,12 @@ class RepositorySecurityAndAnalysisSecretScanningPushProtection(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("status", status)
 
     @property
@@ -3557,10 +3913,18 @@ class RepositoryTemplate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: str,
-             repository: str,
+             owner: Optional[str] = None,
+             repository: Optional[str] = None,
              include_all_branches: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if include_all_branches is None and 'includeAllBranches' in kwargs:
+            include_all_branches = kwargs['includeAllBranches']
+
         _setter("owner", owner)
         _setter("repository", repository)
         if include_all_branches is not None:
@@ -3633,11 +3997,19 @@ class RepositoryWebhookConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              content_type: Optional[str] = None,
              insecure_ssl: Optional[bool] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+
         _setter("url", url)
         if content_type is not None:
             _setter("content_type", content_type)
@@ -3697,9 +4069,13 @@ class TeamMembersMember(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: str,
+             username: Optional[str] = None,
              role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("username", username)
         if role is not None:
             _setter("role", role)
@@ -3762,7 +4138,11 @@ class TeamSettingsReviewRequestDelegation(dict):
              algorithm: Optional[str] = None,
              member_count: Optional[int] = None,
              notify: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_count is None and 'memberCount' in kwargs:
+            member_count = kwargs['memberCount']
+
         if algorithm is not None:
             _setter("algorithm", algorithm)
         if member_count is not None:
@@ -3836,10 +4216,24 @@ class TeamSyncGroupMappingGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_description: str,
-             group_id: str,
-             group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_description: Optional[str] = None,
+             group_id: Optional[str] = None,
+             group_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_description is None and 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+
         _setter("group_description", group_description)
         _setter("group_id", group_id)
         _setter("group_name", group_name)
@@ -3889,10 +4283,22 @@ class GetActionsEnvironmentSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -3945,11 +4351,25 @@ class GetActionsEnvironmentVariablesVariableResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4011,11 +4431,25 @@ class GetActionsOrganizationSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             visibility: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4080,12 +4514,28 @@ class GetActionsOrganizationVariablesVariableResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             value: str,
-             visibility: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             value: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4153,10 +4603,22 @@ class GetActionsSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4209,11 +4671,25 @@ class GetActionsVariablesVariableResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4266,8 +4742,12 @@ class GetBranchProtectionRulesRuleResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pattern: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("pattern", pattern)
 
     @property
@@ -4302,11 +4782,25 @@ class GetCodespacesOrganizationSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             visibility: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4365,10 +4859,22 @@ class GetCodespacesSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4421,11 +4927,25 @@ class GetCodespacesUserSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             visibility: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4523,23 +5043,79 @@ class GetCollaboratorsCollaboratorResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events_url: str,
-             followers_url: str,
-             following_url: str,
-             gists_url: str,
-             html_url: str,
-             id: int,
-             login: str,
-             organizations_url: str,
-             permission: str,
-             received_events_url: str,
-             repos_url: str,
-             site_admin: bool,
-             starred_url: str,
-             subscriptions_url: str,
-             type: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             events_url: Optional[str] = None,
+             followers_url: Optional[str] = None,
+             following_url: Optional[str] = None,
+             gists_url: Optional[str] = None,
+             html_url: Optional[str] = None,
+             id: Optional[int] = None,
+             login: Optional[str] = None,
+             organizations_url: Optional[str] = None,
+             permission: Optional[str] = None,
+             received_events_url: Optional[str] = None,
+             repos_url: Optional[str] = None,
+             site_admin: Optional[bool] = None,
+             starred_url: Optional[str] = None,
+             subscriptions_url: Optional[str] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events_url is None and 'eventsUrl' in kwargs:
+            events_url = kwargs['eventsUrl']
+        if events_url is None:
+            raise TypeError("Missing 'events_url' argument")
+        if followers_url is None and 'followersUrl' in kwargs:
+            followers_url = kwargs['followersUrl']
+        if followers_url is None:
+            raise TypeError("Missing 'followers_url' argument")
+        if following_url is None and 'followingUrl' in kwargs:
+            following_url = kwargs['followingUrl']
+        if following_url is None:
+            raise TypeError("Missing 'following_url' argument")
+        if gists_url is None and 'gistsUrl' in kwargs:
+            gists_url = kwargs['gistsUrl']
+        if gists_url is None:
+            raise TypeError("Missing 'gists_url' argument")
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if html_url is None:
+            raise TypeError("Missing 'html_url' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if organizations_url is None and 'organizationsUrl' in kwargs:
+            organizations_url = kwargs['organizationsUrl']
+        if organizations_url is None:
+            raise TypeError("Missing 'organizations_url' argument")
+        if permission is None:
+            raise TypeError("Missing 'permission' argument")
+        if received_events_url is None and 'receivedEventsUrl' in kwargs:
+            received_events_url = kwargs['receivedEventsUrl']
+        if received_events_url is None:
+            raise TypeError("Missing 'received_events_url' argument")
+        if repos_url is None and 'reposUrl' in kwargs:
+            repos_url = kwargs['reposUrl']
+        if repos_url is None:
+            raise TypeError("Missing 'repos_url' argument")
+        if site_admin is None and 'siteAdmin' in kwargs:
+            site_admin = kwargs['siteAdmin']
+        if site_admin is None:
+            raise TypeError("Missing 'site_admin' argument")
+        if starred_url is None and 'starredUrl' in kwargs:
+            starred_url = kwargs['starredUrl']
+        if starred_url is None:
+            raise TypeError("Missing 'starred_url' argument")
+        if subscriptions_url is None and 'subscriptionsUrl' in kwargs:
+            subscriptions_url = kwargs['subscriptionsUrl']
+        if subscriptions_url is None:
+            raise TypeError("Missing 'subscriptions_url' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("events_url", events_url)
         _setter("followers_url", followers_url)
         _setter("following_url", following_url)
@@ -4709,11 +5285,25 @@ class GetDependabotOrganizationSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             visibility: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4772,10 +5362,22 @@ class GetDependabotSecretsSecretResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             created_at: str,
-             name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             created_at: Optional[str] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("created_at", created_at)
         _setter("name", name)
         _setter("updated_at", updated_at)
@@ -4825,10 +5427,24 @@ class GetExternalGroupsExternalGroupResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: int,
-             group_name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_id: Optional[int] = None,
+             group_name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("group_id", group_id)
         _setter("group_name", group_name)
         _setter("updated_at", updated_at)
@@ -4881,11 +5497,21 @@ class GetIssueLabelsLabelResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             color: str,
-             description: str,
-             name: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             color: Optional[str] = None,
+             description: Optional[str] = None,
+             name: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if color is None:
+            raise TypeError("Missing 'color' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("color", color)
         _setter("description", description)
         _setter("name", name)
@@ -4946,10 +5572,22 @@ class GetOrganizationExternalIdentitiesIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: str,
-             saml_identity: Mapping[str, str],
-             scim_identity: Mapping[str, str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             login: Optional[str] = None,
+             saml_identity: Optional[Mapping[str, str]] = None,
+             scim_identity: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if saml_identity is None and 'samlIdentity' in kwargs:
+            saml_identity = kwargs['samlIdentity']
+        if saml_identity is None:
+            raise TypeError("Missing 'saml_identity' argument")
+        if scim_identity is None and 'scimIdentity' in kwargs:
+            scim_identity = kwargs['scimIdentity']
+        if scim_identity is None:
+            raise TypeError("Missing 'scim_identity' argument")
+
         _setter("login", login)
         _setter("saml_identity", saml_identity)
         _setter("scim_identity", scim_identity)
@@ -5010,13 +5648,35 @@ class GetOrganizationIpAllowListIpAllowListResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_list_value: str,
-             created_at: str,
-             id: str,
-             is_active: bool,
-             name: str,
-             updated_at: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allow_list_value: Optional[str] = None,
+             created_at: Optional[str] = None,
+             id: Optional[str] = None,
+             is_active: Optional[bool] = None,
+             name: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_list_value is None and 'allowListValue' in kwargs:
+            allow_list_value = kwargs['allowListValue']
+        if allow_list_value is None:
+            raise TypeError("Missing 'allow_list_value' argument")
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if is_active is None:
+            raise TypeError("Missing 'is_active' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("allow_list_value", allow_list_value)
         _setter("created_at", created_at)
         _setter("id", id)
@@ -5093,10 +5753,24 @@ class GetOrganizationTeamSyncGroupsGroupResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_description: str,
-             group_id: str,
-             group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_description: Optional[str] = None,
+             group_id: Optional[str] = None,
+             group_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_description is None and 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+
         _setter("group_description", group_description)
         _setter("group_id", group_id)
         _setter("group_name", group_name)
@@ -5164,16 +5838,38 @@ class GetOrganizationTeamsTeamResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             id: int,
-             members: Sequence[str],
-             name: str,
-             node_id: str,
-             parent: Mapping[str, str],
-             privacy: str,
-             repositories: Sequence[str],
-             slug: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             description: Optional[str] = None,
+             id: Optional[int] = None,
+             members: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             node_id: Optional[str] = None,
+             parent: Optional[Mapping[str, str]] = None,
+             privacy: Optional[str] = None,
+             repositories: Optional[Sequence[str]] = None,
+             slug: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if node_id is None:
+            raise TypeError("Missing 'node_id' argument")
+        if parent is None:
+            raise TypeError("Missing 'parent' argument")
+        if privacy is None:
+            raise TypeError("Missing 'privacy' argument")
+        if repositories is None:
+            raise TypeError("Missing 'repositories' argument")
+        if slug is None:
+            raise TypeError("Missing 'slug' argument")
+
         _setter("description", description)
         _setter("id", id)
         _setter("members", members)
@@ -5283,12 +5979,24 @@ class GetOrganizationWebhooksWebhookResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active: bool,
-             id: int,
-             name: str,
-             type: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             active: Optional[bool] = None,
+             id: Optional[int] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active is None:
+            raise TypeError("Missing 'active' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("active", active)
         _setter("id", id)
         _setter("name", name)
@@ -5377,17 +6085,49 @@ class GetReleaseAssetResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             browser_download_url: str,
-             content_type: str,
-             created_at: str,
-             id: int,
-             label: str,
-             name: str,
-             node_id: str,
-             size: int,
-             updated_at: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             browser_download_url: Optional[str] = None,
+             content_type: Optional[str] = None,
+             created_at: Optional[str] = None,
+             id: Optional[int] = None,
+             label: Optional[str] = None,
+             name: Optional[str] = None,
+             node_id: Optional[str] = None,
+             size: Optional[int] = None,
+             updated_at: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if browser_download_url is None and 'browserDownloadUrl' in kwargs:
+            browser_download_url = kwargs['browserDownloadUrl']
+        if browser_download_url is None:
+            raise TypeError("Missing 'browser_download_url' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if node_id is None:
+            raise TypeError("Missing 'node_id' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("browser_download_url", browser_download_url)
         _setter("content_type", content_type)
         _setter("created_at", created_at)
@@ -5500,10 +6240,24 @@ class GetRepositoryAutolinkReferencesAutolinkReferenceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_alphanumeric: bool,
-             key_prefix: str,
-             target_url_template: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             is_alphanumeric: Optional[bool] = None,
+             key_prefix: Optional[str] = None,
+             target_url_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_alphanumeric is None and 'isAlphanumeric' in kwargs:
+            is_alphanumeric = kwargs['isAlphanumeric']
+        if is_alphanumeric is None:
+            raise TypeError("Missing 'is_alphanumeric' argument")
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+        if key_prefix is None:
+            raise TypeError("Missing 'key_prefix' argument")
+        if target_url_template is None and 'targetUrlTemplate' in kwargs:
+            target_url_template = kwargs['targetUrlTemplate']
+        if target_url_template is None:
+            raise TypeError("Missing 'target_url_template' argument")
+
         _setter("is_alphanumeric", is_alphanumeric)
         _setter("key_prefix", key_prefix)
         _setter("target_url_template", target_url_template)
@@ -5550,9 +6304,15 @@ class GetRepositoryBranchesBranchResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             protected: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             protected: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protected is None:
+            raise TypeError("Missing 'protected' argument")
+
         _setter("name", name)
         _setter("protected", protected)
 
@@ -5596,11 +6356,21 @@ class GetRepositoryDeployKeysKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: int,
-             key: str,
-             title: str,
-             verified: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[int] = None,
+             key: Optional[str] = None,
+             title: Optional[str] = None,
+             verified: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if verified is None:
+            raise TypeError("Missing 'verified' argument")
+
         _setter("id", id)
         _setter("key", key)
         _setter("title", title)
@@ -5656,9 +6426,15 @@ class GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("id", id)
         _setter("name", name)
 
@@ -5696,9 +6472,17 @@ class GetRepositoryEnvironmentsEnvironmentResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             node_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             node_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if node_id is None:
+            raise TypeError("Missing 'node_id' argument")
+
         _setter("name", name)
         _setter("node_id", node_id)
 
@@ -5745,14 +6529,34 @@ class GetRepositoryPageResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             build_type: str,
-             cname: str,
-             custom404: bool,
-             html_url: str,
-             sources: Sequence['outputs.GetRepositoryPageSourceResult'],
-             status: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             build_type: Optional[str] = None,
+             cname: Optional[str] = None,
+             custom404: Optional[bool] = None,
+             html_url: Optional[str] = None,
+             sources: Optional[Sequence['outputs.GetRepositoryPageSourceResult']] = None,
+             status: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if build_type is None:
+            raise TypeError("Missing 'build_type' argument")
+        if cname is None:
+            raise TypeError("Missing 'cname' argument")
+        if custom404 is None:
+            raise TypeError("Missing 'custom404' argument")
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if html_url is None:
+            raise TypeError("Missing 'html_url' argument")
+        if sources is None:
+            raise TypeError("Missing 'sources' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("build_type", build_type)
         _setter("cname", cname)
         _setter("custom404", custom404)
@@ -5813,9 +6617,15 @@ class GetRepositoryPageSourceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch: str,
-             path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             branch: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
         _setter("branch", branch)
         _setter("path", path)
 
@@ -5889,23 +6699,77 @@ class GetRepositoryPullRequestsResultResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_ref: str,
-             base_sha: str,
-             body: str,
-             draft: bool,
-             head_owner: str,
-             head_ref: str,
-             head_repository: str,
-             head_sha: str,
-             labels: Sequence[str],
-             maintainer_can_modify: bool,
-             number: int,
-             opened_at: int,
-             opened_by: str,
-             state: str,
-             title: str,
-             updated_at: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             base_ref: Optional[str] = None,
+             base_sha: Optional[str] = None,
+             body: Optional[str] = None,
+             draft: Optional[bool] = None,
+             head_owner: Optional[str] = None,
+             head_ref: Optional[str] = None,
+             head_repository: Optional[str] = None,
+             head_sha: Optional[str] = None,
+             labels: Optional[Sequence[str]] = None,
+             maintainer_can_modify: Optional[bool] = None,
+             number: Optional[int] = None,
+             opened_at: Optional[int] = None,
+             opened_by: Optional[str] = None,
+             state: Optional[str] = None,
+             title: Optional[str] = None,
+             updated_at: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_ref is None and 'baseRef' in kwargs:
+            base_ref = kwargs['baseRef']
+        if base_ref is None:
+            raise TypeError("Missing 'base_ref' argument")
+        if base_sha is None and 'baseSha' in kwargs:
+            base_sha = kwargs['baseSha']
+        if base_sha is None:
+            raise TypeError("Missing 'base_sha' argument")
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if draft is None:
+            raise TypeError("Missing 'draft' argument")
+        if head_owner is None and 'headOwner' in kwargs:
+            head_owner = kwargs['headOwner']
+        if head_owner is None:
+            raise TypeError("Missing 'head_owner' argument")
+        if head_ref is None and 'headRef' in kwargs:
+            head_ref = kwargs['headRef']
+        if head_ref is None:
+            raise TypeError("Missing 'head_ref' argument")
+        if head_repository is None and 'headRepository' in kwargs:
+            head_repository = kwargs['headRepository']
+        if head_repository is None:
+            raise TypeError("Missing 'head_repository' argument")
+        if head_sha is None and 'headSha' in kwargs:
+            head_sha = kwargs['headSha']
+        if head_sha is None:
+            raise TypeError("Missing 'head_sha' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if maintainer_can_modify is None and 'maintainerCanModify' in kwargs:
+            maintainer_can_modify = kwargs['maintainerCanModify']
+        if maintainer_can_modify is None:
+            raise TypeError("Missing 'maintainer_can_modify' argument")
+        if number is None:
+            raise TypeError("Missing 'number' argument")
+        if opened_at is None and 'openedAt' in kwargs:
+            opened_at = kwargs['openedAt']
+        if opened_at is None:
+            raise TypeError("Missing 'opened_at' argument")
+        if opened_by is None and 'openedBy' in kwargs:
+            opened_by = kwargs['openedBy']
+        if opened_by is None:
+            raise TypeError("Missing 'opened_by' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+
         _setter("base_ref", base_ref)
         _setter("base_sha", base_sha)
         _setter("body", body)
@@ -6072,10 +6936,18 @@ class GetRepositoryTeamsTeamResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             permission: str,
-             slug: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             permission: Optional[str] = None,
+             slug: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if permission is None:
+            raise TypeError("Missing 'permission' argument")
+        if slug is None:
+            raise TypeError("Missing 'slug' argument")
+
         _setter("name", name)
         _setter("permission", permission)
         _setter("slug", slug)
@@ -6118,9 +6990,15 @@ class GetRepositoryTemplateResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: str,
-             repository: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             owner: Optional[str] = None,
+             repository: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("owner", owner)
         _setter("repository", repository)
 
@@ -6161,12 +7039,24 @@ class GetRepositoryWebhooksWebhookResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active: bool,
-             id: int,
-             name: str,
-             type: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             active: Optional[bool] = None,
+             id: Optional[int] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active is None:
+            raise TypeError("Missing 'active' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("active", active)
         _setter("id", id)
         _setter("name", name)
@@ -6227,9 +7117,19 @@ class GetTeamRepositoriesDetailedResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repo_id: int,
-             role_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             repo_id: Optional[int] = None,
+             role_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+        if repo_id is None:
+            raise TypeError("Missing 'repo_id' argument")
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+
         _setter("repo_id", repo_id)
         _setter("role_name", role_name)
 
@@ -6263,12 +7163,24 @@ class GetTreeEntryResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: str,
-             path: str,
-             sha: str,
-             size: int,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             mode: Optional[str] = None,
+             path: Optional[str] = None,
+             sha: Optional[str] = None,
+             size: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if sha is None:
+            raise TypeError("Missing 'sha' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("mode", mode)
         _setter("path", path)
         _setter("sha", sha)

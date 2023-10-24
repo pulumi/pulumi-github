@@ -15,41 +15,6 @@ import (
 
 // This resource allows you to create and manage an autolink reference for a single repository.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
-//				Description: pulumi.String("GitHub repo managed by Terraform"),
-//				Private:     pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryAutolinkReference(ctx, "autolink", &github.RepositoryAutolinkReferenceArgs{
-//				Repository:        repo.Name,
-//				KeyPrefix:         pulumi.String("TICKET-"),
-//				TargetUrlTemplate: pulumi.String("https://example.com/TICKET?query=<num>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ### Import by key prefix

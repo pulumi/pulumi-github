@@ -29,9 +29,15 @@ class RepositoryTopicsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             topics: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             repository: Optional[pulumi.Input[str]] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if topics is None:
+            raise TypeError("Missing 'topics' argument")
+
         _setter("repository", repository)
         _setter("topics", topics)
 
@@ -80,7 +86,9 @@ class _RepositoryTopicsState:
              _setter: Callable[[Any, Any], None],
              repository: Optional[pulumi.Input[str]] = None,
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if repository is not None:
             _setter("repository", repository)
         if topics is not None:
@@ -120,21 +128,6 @@ class RepositoryTopics(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test_repository = github.get_repository(name="test")
-        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
-            repository=github_repository["test"]["name"],
-            topics=[
-                "topic-1",
-                "topic-2",
-            ])
-        ```
-
         ## Import
 
         Repository topics can be imported using the `name` of the repository.
@@ -155,21 +148,6 @@ class RepositoryTopics(pulumi.CustomResource):
                  args: RepositoryTopicsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test_repository = github.get_repository(name="test")
-        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
-            repository=github_repository["test"]["name"],
-            topics=[
-                "topic-1",
-                "topic-2",
-            ])
-        ```
-
         ## Import
 
         Repository topics can be imported using the `name` of the repository.

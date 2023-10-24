@@ -7,57 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleUser = github.getUser({
- *     username: "example",
- * });
- * const exampleTeam = new github.Team("exampleTeam", {});
- * // Protect the main branch of the foo repository. Additionally, require that
- * // the "ci/travis" context to be passing and only allow the engineers team merge
- * // to the branch.
- * const exampleBranchProtection = new github.BranchProtection("exampleBranchProtection", {
- *     repositoryId: exampleRepository.nodeId,
- *     pattern: "main",
- *     enforceAdmins: true,
- *     allowsDeletions: true,
- *     requiredStatusChecks: [{
- *         strict: false,
- *         contexts: ["ci/travis"],
- *     }],
- *     requiredPullRequestReviews: [{
- *         dismissStaleReviews: true,
- *         restrictDismissals: true,
- *         dismissalRestrictions: [
- *             exampleUser.then(exampleUser => exampleUser.nodeId),
- *             exampleTeam.nodeId,
- *             "/exampleuser",
- *             "exampleorganization/exampleteam",
- *         ],
- *     }],
- *     pushRestrictions: [
- *         exampleUser.then(exampleUser => exampleUser.nodeId),
- *         "/exampleuser",
- *         "exampleorganization/exampleteam",
- *     ],
- *     forcePushBypassers: [
- *         exampleUser.then(exampleUser => exampleUser.nodeId),
- *         "/exampleuser",
- *         "exampleorganization/exampleteam",
- *     ],
- * });
- * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
- *     teamId: exampleTeam.id,
- *     repository: exampleRepository.name,
- *     permission: "pull",
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.

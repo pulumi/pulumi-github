@@ -106,21 +106,6 @@ def get_users(usernames: Optional[Sequence[str]] = None,
     """
     Use this data source to retrieve information about multiple GitHub users at once.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_users(usernames=[
-        "example1",
-        "example2",
-        "example3",
-    ])
-    pulumi.export("validUsers", example.logins)
-    pulumi.export("invalidUsers", example.unknown_logins)
-    ```
-
 
     :param Sequence[str] usernames: List of usernames.
     """
@@ -143,21 +128,6 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve information about multiple GitHub users at once.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_users(usernames=[
-        "example1",
-        "example2",
-        "example3",
-    ])
-    pulumi.export("validUsers", example.logins)
-    pulumi.export("invalidUsers", example.unknown_logins)
-    ```
 
 
     :param Sequence[str] usernames: List of usernames.

@@ -29,44 +29,6 @@ import (
 // This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
 // instead.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-//				Description: pulumi.String("Some cool team"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
-//				TeamId:     someTeam.ID(),
-//				Repository: someRepo.Name,
-//				Permission: pulumi.String("pull"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.

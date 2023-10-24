@@ -15,38 +15,6 @@ import (
 
 // This resource allows you to create and manage a GitHub enterprise organization.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewEnterpriseOrganization(ctx, "org", &github.EnterpriseOrganizationArgs{
-//				EnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),
-//				DisplayName:  pulumi.String("Some Awesome Org"),
-//				Description:  pulumi.String("Organization created with terraform"),
-//				BillingEmail: pulumi.String("jon@winteriscoming.com"),
-//				AdminLogins: pulumi.StringArray{
-//					pulumi.String("jon-snow"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.

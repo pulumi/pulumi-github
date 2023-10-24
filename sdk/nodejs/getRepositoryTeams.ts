@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of teams which have access to a GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryTeams({
- *     name: "example",
- * });
- * ```
  */
 export function getRepositoryTeams(args?: GetRepositoryTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryTeamsResult> {
     args = args || {};
@@ -64,17 +53,6 @@ export interface GetRepositoryTeamsResult {
 }
 /**
  * Use this data source to retrieve the list of teams which have access to a GitHub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryTeams({
- *     name: "example",
- * });
- * ```
  */
 export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryTeamsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryTeams(a, opts))

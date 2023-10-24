@@ -14,36 +14,6 @@ import (
 )
 
 // This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryPullRequest(ctx, "example", &github.RepositoryPullRequestArgs{
-//				BaseRef:        pulumi.String("main"),
-//				BaseRepository: pulumi.String("example-repository"),
-//				Body:           pulumi.String("This will change everything"),
-//				HeadRef:        pulumi.String("feature-branch"),
-//				Title:          pulumi.String("My newest feature"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RepositoryPullRequest struct {
 	pulumi.CustomResourceState
 

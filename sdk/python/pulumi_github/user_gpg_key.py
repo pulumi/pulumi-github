@@ -27,8 +27,14 @@ class UserGpgKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             armored_public_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             armored_public_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if armored_public_key is None and 'armoredPublicKey' in kwargs:
+            armored_public_key = kwargs['armoredPublicKey']
+        if armored_public_key is None:
+            raise TypeError("Missing 'armored_public_key' argument")
+
         _setter("armored_public_key", armored_public_key)
 
     @property
@@ -69,7 +75,13 @@ class _UserGpgKeyState:
              armored_public_key: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if armored_public_key is None and 'armoredPublicKey' in kwargs:
+            armored_public_key = kwargs['armoredPublicKey']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         if armored_public_key is not None:
             _setter("armored_public_key", armored_public_key)
         if etag is not None:
@@ -124,18 +136,6 @@ class UserGpgKey(pulumi.CustomResource):
 
         This resource allows you to add/remove GPG keys from your user account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
-        ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
-        ```
-
         ## Import
 
         GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
@@ -155,18 +155,6 @@ class UserGpgKey(pulumi.CustomResource):
         Provides a GitHub user's GPG key resource.
 
         This resource allows you to add/remove GPG keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
-        ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
-        ```
 
         ## Import
 

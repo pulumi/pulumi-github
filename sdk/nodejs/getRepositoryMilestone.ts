@@ -6,19 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a specific GitHub milestone in a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryMilestone({
- *     number: 1,
- *     owner: "example-owner",
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryMilestone(args: GetRepositoryMilestoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryMilestoneResult> {
 
@@ -78,19 +65,6 @@ export interface GetRepositoryMilestoneResult {
 }
 /**
  * Use this data source to retrieve information about a specific GitHub milestone in a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryMilestone({
- *     number: 1,
- *     owner: "example-owner",
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryMilestoneResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryMilestone(a, opts))

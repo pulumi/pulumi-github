@@ -8,19 +8,6 @@ import * as utilities from "./utilities";
  * This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
  * You must have admin access to a repository to use this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {visibility: "private"});
- * const test = new github.ActionsRepositoryAccessLevel("test", {
- *     accessLevel: "user",
- *     repository: example.name,
- * });
- * ```
- *
  * ## Import
  *
  * This resource can be imported using the name of the GitHub repository:

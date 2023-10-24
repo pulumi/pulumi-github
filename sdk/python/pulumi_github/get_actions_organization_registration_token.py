@@ -71,15 +71,6 @@ class AwaitableGetActionsOrganizationRegistrationTokenResult(GetActionsOrganizat
 def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsOrganizationRegistrationTokenResult:
     """
     Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_registration_token()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -95,14 +86,5 @@ def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOpti
 def get_actions_organization_registration_token_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationRegistrationTokenResult]:
     """
     Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_registration_token()
-    ```
     """
     ...

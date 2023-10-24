@@ -29,9 +29,15 @@ class UserSshKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             title: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("key", key)
         _setter("title", title)
 
@@ -87,7 +93,9 @@ class _UserSshKeyState:
              key: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if etag is not None:
             _setter("etag", etag)
         if key is not None:
@@ -156,17 +164,6 @@ class UserSshKey(pulumi.CustomResource):
 
         This resource allows you to add/remove SSH keys from your user account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserSshKey("example",
-            title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
-
         ## Import
 
         SSH keys can be imported using their ID e.g.
@@ -190,17 +187,6 @@ class UserSshKey(pulumi.CustomResource):
         Provides a GitHub user's SSH key resource.
 
         This resource allows you to add/remove SSH keys from your user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.UserSshKey("example",
-            title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
 
         ## Import
 

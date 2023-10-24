@@ -13,38 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someTeamTeam, err := github.NewTeam(ctx, "someTeamTeam", &github.TeamArgs{
-//				Description: pulumi.String("Some cool team"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewOrganizationSecurityManager(ctx, "someTeamOrganizationSecurityManager", &github.OrganizationSecurityManagerArgs{
-//				TeamSlug: someTeamTeam.Slug,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Security Manager Teams can be imported using the GitHub team ID e.g.

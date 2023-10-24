@@ -13,58 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
-        ///     {
-        ///         BaseRepository = "example_repository",
-        ///         Number = 1,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryPullRequestResult> InvokeAsync(GetRepositoryPullRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequest.Invoke(new()
-        ///     {
-        ///         BaseRepository = "example_repository",
-        ///         Number = 1,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryPullRequestResult> Invoke(GetRepositoryPullRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithDefaults());

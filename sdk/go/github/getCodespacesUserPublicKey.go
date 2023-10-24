@@ -4,36 +4,16 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
 // Note that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetCodespacesUserPublicKey(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCodespacesUserPublicKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCodespacesUserPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesUserPublicKeyResult
@@ -52,4 +32,55 @@ type GetCodespacesUserPublicKeyResult struct {
 	Key string `pulumi:"key"`
 	// ID of the key that has been retrieved.
 	KeyId string `pulumi:"keyId"`
+}
+
+func GetCodespacesUserPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesUserPublicKeyResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesUserPublicKeyResult, error) {
+		r, err := GetCodespacesUserPublicKey(ctx, opts...)
+		var s GetCodespacesUserPublicKeyResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetCodespacesUserPublicKeyResultOutput)
+}
+
+// A collection of values returned by getCodespacesUserPublicKey.
+type GetCodespacesUserPublicKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesUserPublicKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesUserPublicKeyResult)(nil)).Elem()
+}
+
+func (o GetCodespacesUserPublicKeyResultOutput) ToGetCodespacesUserPublicKeyResultOutput() GetCodespacesUserPublicKeyResultOutput {
+	return o
+}
+
+func (o GetCodespacesUserPublicKeyResultOutput) ToGetCodespacesUserPublicKeyResultOutputWithContext(ctx context.Context) GetCodespacesUserPublicKeyResultOutput {
+	return o
+}
+
+func (o GetCodespacesUserPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesUserPublicKeyResult] {
+	return pulumix.Output[GetCodespacesUserPublicKeyResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCodespacesUserPublicKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserPublicKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Actual key retrieved.
+func (o GetCodespacesUserPublicKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserPublicKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// ID of the key that has been retrieved.
+func (o GetCodespacesUserPublicKeyResultOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserPublicKeyResult) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCodespacesUserPublicKeyResultOutput{})
 }

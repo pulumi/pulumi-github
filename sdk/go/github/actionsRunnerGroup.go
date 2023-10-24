@@ -16,39 +16,6 @@ import (
 // This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
 // You must have admin access to an organization to use this resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsRunnerGroup(ctx, "exampleActionsRunnerGroup", &github.ActionsRunnerGroupArgs{
-//				Visibility: pulumi.String("selected"),
-//				SelectedRepositoryIds: pulumi.IntArray{
-//					exampleRepository.RepoId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource can be imported using the ID of the runner group:

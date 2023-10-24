@@ -16,45 +16,6 @@ import (
 // This resource allows you to create and manage files within a
 // GitHub repository.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
-//				AutoInit: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
-//				Repository:        fooRepository.Name,
-//				Branch:            pulumi.String("main"),
-//				File:              pulumi.String(".gitignore"),
-//				Content:           pulumi.String("**/*.tfstate"),
-//				CommitMessage:     pulumi.String("Managed by Terraform"),
-//				CommitAuthor:      pulumi.String("Terraform User"),
-//				CommitEmail:       pulumi.String("terraform@example.com"),
-//				OverwriteOnCreate: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Repository files can be imported using a combination of the `repo` and `file`, e.g.

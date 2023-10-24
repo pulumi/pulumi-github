@@ -13,36 +13,6 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage files within a
     /// GitHub repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooRepository = new Github.Repository("fooRepository", new()
-    ///     {
-    ///         AutoInit = true,
-    ///     });
-    /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new()
-    ///     {
-    ///         Repository = fooRepository.Name,
-    ///         Branch = "main",
-    ///         File = ".gitignore",
-    ///         Content = "**/*.tfstate",
-    ///         CommitMessage = "Managed by Terraform",
-    ///         CommitAuthor = "Terraform User",
-    ///         CommitEmail = "terraform@example.com",
-    ///         OverwriteOnCreate = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Repository files can be imported using a combination of the `repo` and `file`, e.g.

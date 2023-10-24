@@ -6,18 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryPullRequest({
- *     baseRepository: "example_repository",
- *     number: 1,
- * });
- * ```
  */
 export function getRepositoryPullRequest(args: GetRepositoryPullRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestResult> {
 
@@ -118,18 +106,6 @@ export interface GetRepositoryPullRequestResult {
 }
 /**
  * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryPullRequest({
- *     baseRepository: "example_repository",
- *     number: 1,
- * });
- * ```
  */
 export function getRepositoryPullRequestOutput(args: GetRepositoryPullRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryPullRequest(a, opts))

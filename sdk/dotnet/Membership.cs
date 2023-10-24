@@ -16,26 +16,6 @@ namespace Pulumi.Github
     /// an invitation will be sent to the user to become part of the organization. When
     /// destroyed, either the invitation will be cancelled or the user will be removed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
-    ///     {
-    ///         Role = "member",
-    ///         Username = "SomeUser",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.

@@ -13,64 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
-        ///     {
-        ///         BaseRef = "main",
-        ///         BaseRepository = "example-repository",
-        ///         SortBy = "updated",
-        ///         SortDirection = "desc",
-        ///         State = "open",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryPullRequestsResult> InvokeAsync(GetRepositoryPullRequestsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
-        ///     {
-        ///         BaseRef = "main",
-        ///         BaseRepository = "example-repository",
-        ///         SortBy = "updated",
-        ///         SortDirection = "desc",
-        ///         State = "open",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryPullRequestsResult> Invoke(GetRepositoryPullRequestsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsInvokeArgs(), options.WithDefaults());

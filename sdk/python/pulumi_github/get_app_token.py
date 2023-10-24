@@ -90,17 +90,6 @@ def get_app_token(app_id: Optional[str] = None,
     """
     Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    this = github.get_app_token(app_id="123456",
-        installation_id="78910",
-        pem_file=(lambda path: open(path).read())("foo/bar.pem"))
-    ```
-
 
     :param str app_id: This is the ID of the GitHub App.
     :param str installation_id: This is the ID of the GitHub App installation.
@@ -128,17 +117,6 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppTokenResult]:
     """
     Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    this = github.get_app_token(app_id="123456",
-        installation_id="78910",
-        pem_file=(lambda path: open(path).read())("foo/bar.pem"))
-    ```
 
 
     :param str app_id: This is the ID of the GitHub App.

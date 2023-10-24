@@ -102,17 +102,6 @@ def get_ref(owner: Optional[str] = None,
     """
     Use this data source to retrieve information about a repository ref.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    development = github.get_ref(owner="example",
-        ref="heads/development",
-        repository="example")
-    ```
-
 
     :param str owner: Owner of the repository.
     :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
@@ -141,17 +130,6 @@ def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRefResult]:
     """
     Use this data source to retrieve information about a repository ref.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    development = github.get_ref(owner="example",
-        ref="heads/development",
-        repository="example")
-    ```
 
 
     :param str owner: Owner of the repository.

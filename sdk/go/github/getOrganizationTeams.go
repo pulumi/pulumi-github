@@ -13,58 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about all GitHub teams in an organization.
-//
-// ## Example Usage
-//
-// To retrieve *all* teams of the organization:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetOrganizationTeams(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To retrieve only the team's at the root of the organization:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetOrganizationTeams(ctx, &github.GetOrganizationTeamsArgs{
-//				RootTeamsOnly: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationTeamsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationTeamsResult

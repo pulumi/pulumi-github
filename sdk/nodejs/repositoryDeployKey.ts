@@ -16,21 +16,6 @@ import * as utilities from "./utilities";
  * Further documentation on GitHub repository deploy keys:
  * - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a deploy key
- * const exampleRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKey", {
- *     key: "ssh-rsa AAA...",
- *     readOnly: false,
- *     repository: "test-repo",
- *     title: "Repository test key",
- * });
- * ```
- *
  * ## Import
  *
  * Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.

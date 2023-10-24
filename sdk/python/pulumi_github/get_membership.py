@@ -110,15 +110,6 @@ def get_membership(organization: Optional[str] = None,
     If the user's membership in the organization is pending their acceptance of an invite,
     the role they would have once they accept will be returned.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    membership_for_some_user = github.get_membership(username="SomeUser")
-    ```
-
 
     :param str organization: The organization to check for the above username.
     :param str username: The username to lookup in the organization.
@@ -147,15 +138,6 @@ def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = 
     as what role they have within it.
     If the user's membership in the organization is pending their acceptance of an invite,
     the role they would have once they accept will be returned.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    membership_for_some_user = github.get_membership(username="SomeUser")
-    ```
 
 
     :param str organization: The organization to check for the above username.

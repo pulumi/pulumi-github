@@ -22,28 +22,6 @@ namespace Pulumi.Github
     /// by the following the instructions at this
     /// [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a repository.
-    ///     var someRepo = new Github.Repository("someRepo");
-    /// 
-    ///     var someAppRepo = new Github.AppInstallationRepository("someAppRepo", new()
-    ///     {
-    ///         InstallationId = "1234567",
-    ///         Repository = someRepo.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.

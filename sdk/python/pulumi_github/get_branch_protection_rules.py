@@ -71,15 +71,6 @@ def get_branch_protection_rules(repository: Optional[str] = None,
     """
     Use this data source to retrieve a list of repository branch protection rules.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_branch_protection_rules(repository="example")
-    ```
-
 
     :param str repository: The GitHub repository name.
     """
@@ -99,15 +90,6 @@ def get_branch_protection_rules_output(repository: Optional[pulumi.Input[str]] =
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchProtectionRulesResult]:
     """
     Use this data source to retrieve a list of repository branch protection rules.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_branch_protection_rules(repository="example")
-    ```
 
 
     :param str repository: The GitHub repository name.

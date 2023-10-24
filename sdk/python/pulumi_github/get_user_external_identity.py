@@ -100,15 +100,6 @@ def get_user_external_identity(username: Optional[str] = None,
     Use this data source to retrieve a specific organization member's SAML or SCIM user
     attributes.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example_user = github.get_user_external_identity(username="example-user")
-    ```
-
 
     :param str username: The username of the member to fetch external identity for.
     """
@@ -131,15 +122,6 @@ def get_user_external_identity_output(username: Optional[pulumi.Input[str]] = No
     """
     Use this data source to retrieve a specific organization member's SAML or SCIM user
     attributes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example_user = github.get_user_external_identity(username="example-user")
-    ```
 
 
     :param str username: The username of the member to fetch external identity for.

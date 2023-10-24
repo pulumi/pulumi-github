@@ -21,43 +21,6 @@ import (
 //
 // > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-//				Description: pulumi.String("Some cool team"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewTeamSettings(ctx, "codeReviewSettings", &github.TeamSettingsArgs{
-//				TeamId: someTeam.ID(),
-//				ReviewRequestDelegation: &github.TeamSettingsReviewRequestDelegationArgs{
-//					Algorithm:   pulumi.String("ROUND_ROBIN"),
-//					MemberCount: pulumi.Int(1),
-//					Notify:      pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.

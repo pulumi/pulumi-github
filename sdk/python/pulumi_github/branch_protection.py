@@ -67,8 +67,8 @@ class BranchProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: pulumi.Input[str],
-             repository_id: pulumi.Input[str],
+             pattern: Optional[pulumi.Input[str]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
              allows_deletions: Optional[pulumi.Input[bool]] = None,
              allows_force_pushes: Optional[pulumi.Input[bool]] = None,
              blocks_creations: Optional[pulumi.Input[bool]] = None,
@@ -81,7 +81,39 @@ class BranchProtectionArgs:
              required_linear_history: Optional[pulumi.Input[bool]] = None,
              required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
              required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_id is None:
+            raise TypeError("Missing 'repository_id' argument")
+        if allows_deletions is None and 'allowsDeletions' in kwargs:
+            allows_deletions = kwargs['allowsDeletions']
+        if allows_force_pushes is None and 'allowsForcePushes' in kwargs:
+            allows_force_pushes = kwargs['allowsForcePushes']
+        if blocks_creations is None and 'blocksCreations' in kwargs:
+            blocks_creations = kwargs['blocksCreations']
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if force_push_bypassers is None and 'forcePushBypassers' in kwargs:
+            force_push_bypassers = kwargs['forcePushBypassers']
+        if lock_branch is None and 'lockBranch' in kwargs:
+            lock_branch = kwargs['lockBranch']
+        if push_restrictions is None and 'pushRestrictions' in kwargs:
+            push_restrictions = kwargs['pushRestrictions']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         _setter("pattern", pattern)
         _setter("repository_id", repository_id)
         if allows_deletions is not None:
@@ -346,7 +378,35 @@ class _BranchProtectionState:
              required_linear_history: Optional[pulumi.Input[bool]] = None,
              required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredPullRequestReviewArgs']]]] = None,
              required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input['BranchProtectionRequiredStatusCheckArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allows_deletions is None and 'allowsDeletions' in kwargs:
+            allows_deletions = kwargs['allowsDeletions']
+        if allows_force_pushes is None and 'allowsForcePushes' in kwargs:
+            allows_force_pushes = kwargs['allowsForcePushes']
+        if blocks_creations is None and 'blocksCreations' in kwargs:
+            blocks_creations = kwargs['blocksCreations']
+        if enforce_admins is None and 'enforceAdmins' in kwargs:
+            enforce_admins = kwargs['enforceAdmins']
+        if force_push_bypassers is None and 'forcePushBypassers' in kwargs:
+            force_push_bypassers = kwargs['forcePushBypassers']
+        if lock_branch is None and 'lockBranch' in kwargs:
+            lock_branch = kwargs['lockBranch']
+        if push_restrictions is None and 'pushRestrictions' in kwargs:
+            push_restrictions = kwargs['pushRestrictions']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if require_conversation_resolution is None and 'requireConversationResolution' in kwargs:
+            require_conversation_resolution = kwargs['requireConversationResolution']
+        if require_signed_commits is None and 'requireSignedCommits' in kwargs:
+            require_signed_commits = kwargs['requireSignedCommits']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_pull_request_reviews is None and 'requiredPullRequestReviews' in kwargs:
+            required_pull_request_reviews = kwargs['requiredPullRequestReviews']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+
         if allows_deletions is not None:
             _setter("allows_deletions", allows_deletions)
         if allows_force_pushes is not None:
@@ -566,53 +626,6 @@ class BranchProtection(pulumi.CustomResource):
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
-            repository_id=example_repository.node_id,
-            pattern="main",
-            enforce_admins=True,
-            allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
-                    example_user.node_id,
-                    example_team.node_id,
-                    "/exampleuser",
-                    "exampleorganization/exampleteam",
-                ],
-            )],
-            push_restrictions=[
-                example_user.node_id,
-                "/exampleuser",
-                "exampleorganization/exampleteam",
-            ],
-            force_push_bypassers=[
-                example_user.node_id,
-                "/exampleuser",
-                "exampleorganization/exampleteam",
-            ])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
@@ -645,53 +658,6 @@ class BranchProtection(pulumi.CustomResource):
                  args: BranchProtectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/travis" context to be passing and only allow the engineers team merge
-        # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
-            repository_id=example_repository.node_id,
-            pattern="main",
-            enforce_admins=True,
-            allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
-                    example_user.node_id,
-                    example_team.node_id,
-                    "/exampleuser",
-                    "exampleorganization/exampleteam",
-                ],
-            )],
-            push_restrictions=[
-                example_user.node_id,
-                "/exampleuser",
-                "exampleorganization/exampleteam",
-            ],
-            force_push_bypassers=[
-                example_user.node_id,
-                "/exampleuser",
-                "exampleorganization/exampleteam",
-            ])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.

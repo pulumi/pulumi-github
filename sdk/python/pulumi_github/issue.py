@@ -41,13 +41,21 @@ class IssueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             title: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              assignees: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              body: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              milestone_number: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if milestone_number is None and 'milestoneNumber' in kwargs:
+            milestone_number = kwargs['milestoneNumber']
+
         _setter("repository", repository)
         _setter("title", title)
         if assignees is not None:
@@ -179,7 +187,13 @@ class _IssueState:
              number: Optional[pulumi.Input[int]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if issue_id is None and 'issueId' in kwargs:
+            issue_id = kwargs['issueId']
+        if milestone_number is None and 'milestoneNumber' in kwargs:
+            milestone_number = kwargs['milestoneNumber']
+
         if assignees is not None:
             _setter("assignees", assignees)
         if body is not None:
@@ -323,50 +337,6 @@ class Issue(pulumi.CustomResource):
         This resource allows you to create and manage issue within your
         GitHub repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a simple issue
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue title",
-            body="The body of my issue")
-        ```
-        ### With Milestone And Project Assignment
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create an issue with milestone and project assignment
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
-            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
-            repository=test_repository.name,
-            title="v1.0.0",
-            description="General Availability",
-            due_date="2022-11-22",
-            state="open")
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue",
-            body="My issue body",
-            labels=[
-                "bug",
-                "documentation",
-            ],
-            assignees=["bob-github"],
-            milestone_number=test_repository_milestone.number)
-        ```
-
         ## Import
 
         GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
@@ -395,50 +365,6 @@ class Issue(pulumi.CustomResource):
 
         This resource allows you to create and manage issue within your
         GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a simple issue
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue title",
-            body="The body of my issue")
-        ```
-        ### With Milestone And Project Assignment
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create an issue with milestone and project assignment
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
-            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
-            repository=test_repository.name,
-            title="v1.0.0",
-            description="General Availability",
-            due_date="2022-11-22",
-            state="open")
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue",
-            body="My issue body",
-            labels=[
-                "bug",
-                "documentation",
-            ],
-            assignees=["bob-github"],
-            milestone_number=test_repository_milestone.number)
-        ```
 
         ## Import
 

@@ -10,30 +10,6 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
  * You must have admin access to an organization to use this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {});
- * const test = new github.ActionsOrganizationPermissions("test", {
- *     allowedActions: "selected",
- *     enabledRepositories: "selected",
- *     allowedActionsConfig: {
- *         githubOwnedAllowed: true,
- *         patternsAlloweds: [
- *             "actions/cache@*",
- *             "actions/checkout@*",
- *         ],
- *         verifiedAllowed: true,
- *     },
- *     enabledRepositoriesConfig: {
- *         repositoryIds: [example.repoId],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * This resource can be imported using the ID of the GitHub organization:

@@ -29,9 +29,17 @@ class ActionsRepositoryAccessLevelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_level: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             access_level: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_level is None and 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+        if access_level is None:
+            raise TypeError("Missing 'access_level' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("access_level", access_level)
         _setter("repository", repository)
 
@@ -80,7 +88,11 @@ class _ActionsRepositoryAccessLevelState:
              _setter: Callable[[Any, Any], None],
              access_level: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_level is None and 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+
         if access_level is not None:
             _setter("access_level", access_level)
         if repository is not None:
@@ -123,18 +135,6 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
         You must have admin access to a repository to use this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example", visibility="private")
-        test = github.ActionsRepositoryAccessLevel("test",
-            access_level="user",
-            repository=example.name)
-        ```
-
         ## Import
 
         This resource can be imported using the name of the GitHub repository:
@@ -157,18 +157,6 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         """
         This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
         You must have admin access to a repository to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example", visibility="private")
-        test = github.ActionsRepositoryAccessLevel("test",
-            access_level="user",
-            repository=example.name)
-        ```
 
         ## Import
 
