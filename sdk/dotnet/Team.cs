@@ -15,26 +15,6 @@ namespace Pulumi.Github
     /// This resource allows you to add/remove teams from your organization. When applied,
     /// a new team will be created. When destroyed, that team will be removed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a team to the organization
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///         Privacy = "closed",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Teams can be imported using the GitHub team ID or name e.g.

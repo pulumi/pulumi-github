@@ -35,11 +35,25 @@ class RepositoryAutolinkReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_prefix: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             target_url_template: pulumi.Input[str],
+             key_prefix: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             target_url_template: Optional[pulumi.Input[str]] = None,
              is_alphanumeric: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+        if key_prefix is None:
+            raise TypeError("Missing 'key_prefix' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if target_url_template is None and 'targetUrlTemplate' in kwargs:
+            target_url_template = kwargs['targetUrlTemplate']
+        if target_url_template is None:
+            raise TypeError("Missing 'target_url_template' argument")
+        if is_alphanumeric is None and 'isAlphanumeric' in kwargs:
+            is_alphanumeric = kwargs['isAlphanumeric']
+
         _setter("key_prefix", key_prefix)
         _setter("repository", repository)
         _setter("target_url_template", target_url_template)
@@ -127,7 +141,15 @@ class _RepositoryAutolinkReferenceState:
              key_prefix: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              target_url_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_alphanumeric is None and 'isAlphanumeric' in kwargs:
+            is_alphanumeric = kwargs['isAlphanumeric']
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+        if target_url_template is None and 'targetUrlTemplate' in kwargs:
+            target_url_template = kwargs['targetUrlTemplate']
+
         if etag is not None:
             _setter("etag", etag)
         if is_alphanumeric is not None:
@@ -213,21 +235,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         """
         This resource allows you to create and manage an autolink reference for a single repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        autolink = github.RepositoryAutolinkReference("autolink",
-            repository=repo.name,
-            key_prefix="TICKET-",
-            target_url_template="https://example.com/TICKET?query=<num>")
-        ```
-
         ## Import
 
         ### Import by key prefix
@@ -251,21 +258,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage an autolink reference for a single repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        autolink = github.RepositoryAutolinkReference("autolink",
-            repository=repo.name,
-            key_prefix="TICKET-",
-            target_url_template="https://example.com/TICKET?query=<num>")
-        ```
 
         ## Import
 

@@ -26,8 +26,14 @@ class OrganizationSecurityManagerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_slug: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             team_slug: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_slug is None:
+            raise TypeError("Missing 'team_slug' argument")
+
         _setter("team_slug", team_slug)
 
     @property
@@ -59,7 +65,11 @@ class _OrganizationSecurityManagerState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+
         if team_slug is not None:
             _setter("team_slug", team_slug)
 
@@ -84,16 +94,6 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  team_slug: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        some_team_team = github.Team("someTeamTeam", description="Some cool team")
-        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
-        ```
-
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
@@ -113,16 +113,6 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  args: OrganizationSecurityManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        some_team_team = github.Team("someTeamTeam", description="Some cool team")
-        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
-        ```
-
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.

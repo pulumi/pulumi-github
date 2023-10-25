@@ -38,34 +38,6 @@ import (
 // - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
 // - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
-//				Permission: pulumi.String("admin"),
-//				Repository: pulumi.String("our-cool-repo"),
-//				Username:   pulumi.String("SomeUser"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.

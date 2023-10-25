@@ -29,9 +29,17 @@ class AppInstallationRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             installation_id: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             installation_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("installation_id", installation_id)
         _setter("repository", repository)
 
@@ -83,7 +91,13 @@ class _AppInstallationRepositoryState:
              installation_id: Optional[pulumi.Input[str]] = None,
              repo_id: Optional[pulumi.Input[int]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+
         if installation_id is not None:
             _setter("installation_id", installation_id)
         if repo_id is not None:
@@ -146,19 +160,6 @@ class AppInstallationRepository(pulumi.CustomResource):
         by the following the instructions at this
         [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
-            installation_id="1234567",
-            repository=some_repo.name)
-        ```
-
         ## Import
 
         GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
@@ -190,19 +191,6 @@ class AppInstallationRepository(pulumi.CustomResource):
         organization on GitHub. Note: you can review your organization's installations
         by the following the instructions at this
         [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
-            installation_id="1234567",
-            repository=some_repo.name)
-        ```
 
         ## Import
 

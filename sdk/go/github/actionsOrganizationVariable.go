@@ -16,69 +16,6 @@ import (
 // This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
 // You must have write access to a repository to use this resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsOrganizationVariable(ctx, "exampleVariable", &github.ActionsOrganizationVariableArgs{
-//				Value:        pulumi.String("example_variable_value"),
-//				VariableName: pulumi.String("example_variable_name"),
-//				Visibility:   pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
-//				FullName: pulumi.StringRef("my-org/repo"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsOrganizationVariable(ctx, "exampleVariable", &github.ActionsOrganizationVariableArgs{
-//				VariableName: pulumi.String("example_variable_name"),
-//				Visibility:   pulumi.String("selected"),
-//				Value:        pulumi.String("example_variable_value"),
-//				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource can be imported using an ID made up of the variable name:

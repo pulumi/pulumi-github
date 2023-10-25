@@ -13,30 +13,6 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
     /// You must have admin access to an organization to use this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository");
-    /// 
-    ///     var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup("exampleActionsRunnerGroup", new()
-    ///     {
-    ///         Visibility = "selected",
-    ///         SelectedRepositoryIds = new[]
-    ///         {
-    ///             exampleRepository.RepoId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the ID of the runner group:

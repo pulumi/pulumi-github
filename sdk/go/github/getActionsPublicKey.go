@@ -14,32 +14,6 @@ import (
 
 // Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
 // Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsPublicKey(ctx, &github.GetActionsPublicKeyArgs{
-//				Repository: "example_repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetActionsPublicKey(ctx *pulumi.Context, args *GetActionsPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetActionsPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsPublicKeyResult

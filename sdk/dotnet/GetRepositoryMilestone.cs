@@ -13,60 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
-        ///     {
-        ///         Number = 1,
-        ///         Owner = "example-owner",
-        ///         Repository = "example-repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryMilestoneResult> InvokeAsync(GetRepositoryMilestoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub milestone in a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryMilestone.Invoke(new()
-        ///     {
-        ///         Number = 1,
-        ///         Owner = "example-owner",
-        ///         Repository = "example-repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryMilestoneResult> Invoke(GetRepositoryMilestoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryMilestoneResult>("github:index/getRepositoryMilestone:getRepositoryMilestone", args ?? new GetRepositoryMilestoneInvokeArgs(), options.WithDefaults());

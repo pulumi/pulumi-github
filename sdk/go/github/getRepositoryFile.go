@@ -14,34 +14,6 @@ import (
 
 // This data source allows you to read files within a
 // GitHub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepositoryFile(ctx, &github.LookupRepositoryFileArgs{
-//				Repository: github_repository.Foo.Name,
-//				Branch:     pulumi.StringRef("main"),
-//				File:       ".gitignore",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepositoryFile(ctx *pulumi.Context, args *LookupRepositoryFileArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryFileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryFileResult

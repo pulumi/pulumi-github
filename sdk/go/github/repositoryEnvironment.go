@@ -15,56 +15,6 @@ import (
 
 // This resource allows you to create and manage environments for a GitHub repository.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := github.GetUser(ctx, &github.GetUserArgs{
-//				Username: "",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
-//				Description: pulumi.String("My awesome codebase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
-//				Environment: pulumi.String("example"),
-//				Repository:  exampleRepository.Name,
-//				Reviewers: github.RepositoryEnvironmentReviewerArray{
-//					&github.RepositoryEnvironmentReviewerArgs{
-//						Users: pulumi.IntArray{
-//							*pulumi.String(current.Id),
-//						},
-//					},
-//				},
-//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
-//					ProtectedBranches:    pulumi.Bool(true),
-//					CustomBranchPolicies: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.

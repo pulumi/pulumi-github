@@ -298,17 +298,6 @@ def get_user(username: Optional[str] = None,
     """
     Use this data source to retrieve information about a GitHub user.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_user(username="example")
-    current = github.get_user(username="")
-    pulumi.export("currentGithubLogin", current.login)
-    ```
-
 
     :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.
     """
@@ -347,17 +336,6 @@ def get_user_output(username: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about a GitHub user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_user(username="example")
-    current = github.get_user(username="")
-    pulumi.export("currentGithubLogin", current.login)
-    ```
 
 
     :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.

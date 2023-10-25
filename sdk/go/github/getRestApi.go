@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about a GitHub resource through REST API.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetRestApi(ctx, &github.GetRestApiArgs{
-//				Endpoint: "repos/example_repo/git/refs/heads/main",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRestApi(ctx *pulumi.Context, args *GetRestApiArgs, opts ...pulumi.InvokeOption) (*GetRestApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRestApiResult

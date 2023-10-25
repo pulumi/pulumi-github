@@ -13,26 +13,6 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
     /// You must have write access to a repository to use this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVariable = new Github.ActionsVariable("exampleVariable", new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///         Value = "example_variable_value",
-    ///         VariableName = "example_variable_name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.

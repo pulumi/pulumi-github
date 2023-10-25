@@ -71,15 +71,6 @@ def get_repository_deploy_keys(repository: Optional[str] = None,
     """
     Use this data source to retrieve all deploy keys of a repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_deploy_keys(repository="example-repository")
-    ```
-
 
     :param str repository: Name of the repository to retrieve the branches from.
     """
@@ -99,15 +90,6 @@ def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeployKeysResult]:
     """
     Use this data source to retrieve all deploy keys of a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_deploy_keys(repository="example-repository")
-    ```
 
 
     :param str repository: Name of the repository to retrieve the branches from.

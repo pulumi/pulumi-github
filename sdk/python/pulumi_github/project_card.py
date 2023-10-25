@@ -38,11 +38,21 @@ class ProjectCardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_id: pulumi.Input[str],
+             column_id: Optional[pulumi.Input[str]] = None,
              content_id: Optional[pulumi.Input[int]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              note: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if column_id is None:
+            raise TypeError("Missing 'column_id' argument")
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("column_id", column_id)
         if content_id is not None:
             _setter("content_id", content_id)
@@ -141,7 +151,17 @@ class _ProjectCardState:
              content_type: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              note: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if card_id is None and 'cardId' in kwargs:
+            card_id = kwargs['cardId']
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if card_id is not None:
             _setter("card_id", card_id)
         if column_id is not None:
@@ -241,41 +261,6 @@ class ProjectCard(pulumi.CustomResource):
         """
         This resource allows you to create and manage cards for GitHub projects.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
-        card = github.ProjectCard("card",
-            column_id=column.column_id,
-            note="## Unaccepted 👇")
-        ```
-        ### Adding An Issue To A Project
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test_repository = github.Repository("testRepository",
-            has_projects=True,
-            has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.id,
-            title="Test issue title",
-            body="Test issue body")
-        test_repository_project = github.RepositoryProject("testRepositoryProject",
-            repository=test_repository.name,
-            body="this is a test project")
-        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
-        test_project_card = github.ProjectCard("testProjectCard",
-            column_id=test_project_column.column_id,
-            content_id=test_issue.issue_id,
-            content_type="Issue")
-        ```
-
         ## Import
 
         A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):
@@ -302,41 +287,6 @@ class ProjectCard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage cards for GitHub projects.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
-        card = github.ProjectCard("card",
-            column_id=column.column_id,
-            note="## Unaccepted 👇")
-        ```
-        ### Adding An Issue To A Project
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test_repository = github.Repository("testRepository",
-            has_projects=True,
-            has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.id,
-            title="Test issue title",
-            body="Test issue body")
-        test_repository_project = github.RepositoryProject("testRepositoryProject",
-            repository=test_repository.name,
-            body="this is a test project")
-        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
-        test_project_card = github.ProjectCard("testProjectCard",
-            column_id=test_project_column.column_id,
-            content_id=test_issue.issue_id,
-            content_type="Issue")
-        ```
 
         ## Import
 

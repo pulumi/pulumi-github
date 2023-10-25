@@ -13,33 +13,6 @@ import (
 )
 
 // Use this data source to retrieve the list of secrets of the repository environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsEnvironmentSecrets(ctx, &github.GetActionsEnvironmentSecretsArgs{
-//				Environment: "exampleEnvironment",
-//				Name:        pulumi.StringRef("exampleRepo"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetActionsEnvironmentSecrets(ctx *pulumi.Context, args *GetActionsEnvironmentSecretsArgs, opts ...pulumi.InvokeOption) (*GetActionsEnvironmentSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsEnvironmentSecretsResult

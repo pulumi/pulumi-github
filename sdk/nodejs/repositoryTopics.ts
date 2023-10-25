@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const testRepository = github.getRepository({
- *     name: "test",
- * });
- * const testRepositoryTopics = new github.RepositoryTopics("testRepositoryTopics", {
- *     repository: github_repository.test.name,
- *     topics: [
- *         "topic-1",
- *         "topic-2",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Repository topics can be imported using the `name` of the repository.

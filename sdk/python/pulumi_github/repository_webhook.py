@@ -37,11 +37,17 @@ class RepositoryWebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
-             repository: pulumi.Input[str],
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("events", events)
         _setter("repository", repository)
         if active is not None:
@@ -133,7 +139,9 @@ class _RepositoryWebhookState:
              events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
         if configuration is not None:
@@ -231,27 +239,6 @@ class RepositoryWebhook(pulumi.CustomResource):
         This resource allows you to create and manage webhooks for repositories within your
         GitHub organization or personal account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="Terraform acceptance tests",
-            homepage_url="http://example.com/",
-            visibility="public")
-        foo = github.RepositoryWebhook("foo",
-            repository=repo.name,
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url="https://google.de/",
-                content_type="form",
-                insecure_ssl=False,
-            ),
-            active=False,
-            events=["issues"])
-        ```
-
         ## Import
 
         Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
@@ -279,27 +266,6 @@ class RepositoryWebhook(pulumi.CustomResource):
         """
         This resource allows you to create and manage webhooks for repositories within your
         GitHub organization or personal account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="Terraform acceptance tests",
-            homepage_url="http://example.com/",
-            visibility="public")
-        foo = github.RepositoryWebhook("foo",
-            repository=repo.name,
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url="https://google.de/",
-                content_type="form",
-                insecure_ssl=False,
-            ),
-            active=False,
-            events=["issues"])
-        ```
 
         ## Import
 
@@ -345,11 +311,7 @@ class RepositoryWebhook(pulumi.CustomResource):
             __props__ = RepositoryWebhookArgs.__new__(RepositoryWebhookArgs)
 
             __props__.__dict__["active"] = active
-            if configuration is not None and not isinstance(configuration, RepositoryWebhookConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                RepositoryWebhookConfigurationArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, RepositoryWebhookConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")

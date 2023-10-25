@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about GitHub's SSH keys.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetSshKeys(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSshKeys(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSshKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSshKeysResult
@@ -49,4 +29,50 @@ type GetSshKeysResult struct {
 	Id string `pulumi:"id"`
 	// An array of GitHub's SSH public keys.
 	Keys []string `pulumi:"keys"`
+}
+
+func GetSshKeysOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSshKeysResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSshKeysResult, error) {
+		r, err := GetSshKeys(ctx, opts...)
+		var s GetSshKeysResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSshKeysResultOutput)
+}
+
+// A collection of values returned by getSshKeys.
+type GetSshKeysResultOutput struct{ *pulumi.OutputState }
+
+func (GetSshKeysResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSshKeysResult)(nil)).Elem()
+}
+
+func (o GetSshKeysResultOutput) ToGetSshKeysResultOutput() GetSshKeysResultOutput {
+	return o
+}
+
+func (o GetSshKeysResultOutput) ToGetSshKeysResultOutputWithContext(ctx context.Context) GetSshKeysResultOutput {
+	return o
+}
+
+func (o GetSshKeysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSshKeysResult] {
+	return pulumix.Output[GetSshKeysResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSshKeysResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSshKeysResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An array of GitHub's SSH public keys.
+func (o GetSshKeysResultOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSshKeysResult) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSshKeysResultOutput{})
 }

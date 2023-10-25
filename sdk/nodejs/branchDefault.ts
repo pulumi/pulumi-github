@@ -11,45 +11,6 @@ import * as utilities from "./utilities";
  *
  * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome codebase",
- *     autoInit: true,
- * });
- * const development = new github.Branch("development", {
- *     repository: example.name,
- *     branch: "development",
- * });
- * const _default = new github.BranchDefault("default", {
- *     repository: example.name,
- *     branch: development.branch,
- * });
- * ```
- *
- * Renaming to a branch that doesn't exist:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome codebase",
- *     autoInit: true,
- * });
- * const _default = new github.BranchDefault("default", {
- *     repository: example.name,
- *     branch: "development",
- *     rename: true,
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.

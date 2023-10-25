@@ -37,11 +37,21 @@ class RepositoryDeployKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             title: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              read_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+
         _setter("key", key)
         _setter("repository", repository)
         _setter("title", title)
@@ -132,7 +142,11 @@ class _RepositoryDeployKeyState:
              read_only: Optional[pulumi.Input[bool]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+
         if etag is not None:
             _setter("etag", etag)
         if key is not None:
@@ -226,20 +240,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
         Further documentation on GitHub repository deploy keys:
         - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a deploy key
-        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
-            key="ssh-rsa AAA...",
-            read_only=False,
-            repository="test-repo",
-            title="Repository test key")
-        ```
-
         ## Import
 
         Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
@@ -274,20 +274,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         Further documentation on GitHub repository deploy keys:
         - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a deploy key
-        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
-            key="ssh-rsa AAA...",
-            read_only=False,
-            repository="test-repo",
-            title="Repository test key")
-        ```
 
         ## Import
 

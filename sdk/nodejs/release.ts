@@ -8,42 +8,6 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage a release in a specific
  * GitHub repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = new github.Repository("repo", {
- *     description: "GitHub repo managed by Terraform",
- *     "private": false,
- * });
- * const example = new github.Release("example", {
- *     repository: repo.name,
- *     tagName: "v1.0.0",
- * });
- * ```
- * ### On Non-Default Branch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleRepository = new github.Repository("exampleRepository", {autoInit: true});
- * const exampleBranch = new github.Branch("exampleBranch", {
- *     repository: exampleRepository.name,
- *     branch: "branch_name",
- *     sourceBranch: exampleRepository.defaultBranch,
- * });
- * const exampleRelease = new github.Release("exampleRelease", {
- *     repository: exampleRepository.name,
- *     tagName: "v1.0.0",
- *     targetCommitish: exampleBranch.branch,
- *     draft: false,
- *     prerelease: false,
- * });
- * ```
- *
  * ## Import
  *
  * This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.

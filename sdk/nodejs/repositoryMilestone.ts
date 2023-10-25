@@ -9,20 +9,6 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create a milestone for a repository
- * const example = new github.RepositoryMilestone("example", {
- *     owner: "example-owner",
- *     repository: "example-repository",
- *     title: "v1.1.0",
- * });
- * ```
- *
  * ## Import
  *
  * A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.

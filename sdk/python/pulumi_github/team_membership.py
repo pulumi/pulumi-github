@@ -33,10 +33,18 @@ class TeamMembershipArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: pulumi.Input[str],
-             username: pulumi.Input[str],
+             team_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("team_id", team_id)
         _setter("username", username)
         if role is not None:
@@ -108,7 +116,11 @@ class _TeamMembershipState:
              role: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if etag is not None:
             _setter("etag", etag)
         if role is not None:
@@ -186,23 +198,6 @@ class TeamMembership(pulumi.CustomResource):
 
         > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            username="SomeUser",
-            role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_membership = github.TeamMembership("someTeamMembership",
-            team_id=some_team.id,
-            username="SomeUser",
-            role="member")
-        ```
-
         ## Import
 
         GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.
@@ -239,23 +234,6 @@ class TeamMembership(pulumi.CustomResource):
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
         > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            username="SomeUser",
-            role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_membership = github.TeamMembership("someTeamMembership",
-            team_id=some_team.id,
-            username="SomeUser",
-            role="member")
-        ```
 
         ## Import
 

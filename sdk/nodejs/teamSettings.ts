@@ -15,24 +15,6 @@ import * as utilities from "./utilities";
  *
  * > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a repository to the team
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const codeReviewSettings = new github.TeamSettings("codeReviewSettings", {
- *     teamId: someTeam.id,
- *     reviewRequestDelegation: {
- *         algorithm: "ROUND_ROBIN",
- *         memberCount: 1,
- *         notify: true,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.

@@ -14,40 +14,6 @@ import * as utilities from "./utilities";
  * the `contents:write` permission or else the `allowMergeCommit`, `allowRebaseMerge`,
  * and `allowSquashMerge` attributes will be ignored, causing confusing diffs.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome codebase",
- *     template: {
- *         includeAllBranches: true,
- *         owner: "github",
- *         repository: "terraform-template-module",
- *     },
- *     visibility: "public",
- * });
- * ```
- * ### With GitHub Pages Enabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     description: "My awesome web page",
- *     pages: {
- *         source: {
- *             branch: "master",
- *             path: "/docs",
- *         },
- *     },
- *     "private": false,
- * });
- * ```
- *
  * ## Import
  *
  * Repositories can be imported using the `name`, e.g.

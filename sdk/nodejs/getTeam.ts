@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub team.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getTeam({
- *     slug: "example",
- * });
- * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
 
@@ -100,17 +89,6 @@ export interface GetTeamResult {
 }
 /**
  * Use this data source to retrieve information about a GitHub team.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getTeam({
- *     slug: "example",
- * });
- * ```
  */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
     return pulumi.output(args).apply((a: any) => getTeam(a, opts))

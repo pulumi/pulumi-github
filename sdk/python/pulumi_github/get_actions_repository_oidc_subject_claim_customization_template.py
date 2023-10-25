@@ -82,15 +82,6 @@ def get_actions_repository_oidc_subject_claim_customization_template(name: Optio
     """
     Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_repository_oidc_subject_claim_customization_template(name="example_repository")
-    ```
-
 
     :param str name: Name of the repository to get the OpenID Connect subject claim customization template for.
     """
@@ -111,15 +102,6 @@ def get_actions_repository_oidc_subject_claim_customization_template_output(name
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult]:
     """
     Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_repository_oidc_subject_claim_customization_template(name="example_repository")
-    ```
 
 
     :param str name: Name of the repository to get the OpenID Connect subject claim customization template for.

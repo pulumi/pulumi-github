@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of codespaces secrets of the organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesOrganizationSecrets({});
- * ```
  */
 export function getCodespacesOrganizationSecrets(opts?: pulumi.InvokeOptions): Promise<GetCodespacesOrganizationSecretsResult> {
 
@@ -40,15 +31,6 @@ export interface GetCodespacesOrganizationSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of codespaces secrets of the organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesOrganizationSecrets({});
- * ```
  */
 export function getCodespacesOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationSecretsResult> {
     return pulumi.output(getCodespacesOrganizationSecrets(opts))

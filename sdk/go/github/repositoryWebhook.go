@@ -16,49 +16,6 @@ import (
 // This resource allows you to create and manage webhooks for repositories within your
 // GitHub organization or personal account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
-//				Description: pulumi.String("Terraform acceptance tests"),
-//				HomepageUrl: pulumi.String("http://example.com/"),
-//				Visibility:  pulumi.String("public"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "foo", &github.RepositoryWebhookArgs{
-//				Repository: repo.Name,
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         pulumi.String("https://google.de/"),
-//					ContentType: pulumi.String("form"),
-//					InsecureSsl: pulumi.Bool(false),
-//				},
-//				Active: pulumi.Bool(false),
-//				Events: pulumi.StringArray{
-//					pulumi.String("issues"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.

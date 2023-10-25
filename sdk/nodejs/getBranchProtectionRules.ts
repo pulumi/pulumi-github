@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve a list of repository branch protection rules.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getBranchProtectionRules({
- *     repository: "example",
- * });
- * ```
  */
 export function getBranchProtectionRules(args: GetBranchProtectionRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchProtectionRulesResult> {
 
@@ -54,17 +43,6 @@ export interface GetBranchProtectionRulesResult {
 }
 /**
  * Use this data source to retrieve a list of repository branch protection rules.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getBranchProtectionRules({
- *     repository: "example",
- * });
- * ```
  */
 export function getBranchProtectionRulesOutput(args: GetBranchProtectionRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchProtectionRulesResult> {
     return pulumi.output(args).apply((a: any) => getBranchProtectionRules(a, opts))

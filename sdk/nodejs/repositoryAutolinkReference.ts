@@ -7,23 +7,6 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage an autolink reference for a single repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = new github.Repository("repo", {
- *     description: "GitHub repo managed by Terraform",
- *     "private": false,
- * });
- * const autolink = new github.RepositoryAutolinkReference("autolink", {
- *     repository: repo.name,
- *     keyPrefix: "TICKET-",
- *     targetUrlTemplate: "https://example.com/TICKET?query=<num>",
- * });
- * ```
- *
  * ## Import
  *
  * ### Import by key prefix

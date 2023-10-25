@@ -12,50 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage environments for a GitHub repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Github.GetUser.Invoke(new()
-    ///     {
-    ///         Username = "",
-    ///     });
-    /// 
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
-    ///     {
-    ///         Description = "My awesome codebase",
-    ///     });
-    /// 
-    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("exampleRepositoryEnvironment", new()
-    ///     {
-    ///         Environment = "example",
-    ///         Repository = exampleRepository.Name,
-    ///         Reviewers = new[]
-    ///         {
-    ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
-    ///             {
-    ///                 Users = new[]
-    ///                 {
-    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
-    ///                 },
-    ///             },
-    ///         },
-    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
-    ///         {
-    ///             ProtectedBranches = true,
-    ///             CustomBranchPolicies = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.

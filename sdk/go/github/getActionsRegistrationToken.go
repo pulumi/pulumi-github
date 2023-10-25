@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsRegistrationToken(ctx, &github.GetActionsRegistrationTokenArgs{
-//				Repository: "example_repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetActionsRegistrationToken(ctx *pulumi.Context, args *GetActionsRegistrationTokenArgs, opts ...pulumi.InvokeOption) (*GetActionsRegistrationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsRegistrationTokenResult

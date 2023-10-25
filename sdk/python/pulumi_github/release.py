@@ -50,8 +50,8 @@ class ReleaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             tag_name: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              discussion_category_name: Optional[pulumi.Input[str]] = None,
              draft: Optional[pulumi.Input[bool]] = None,
@@ -59,7 +59,21 @@ class ReleaseArgs:
              name: Optional[pulumi.Input[str]] = None,
              prerelease: Optional[pulumi.Input[bool]] = None,
              target_commitish: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if tag_name is None:
+            raise TypeError("Missing 'tag_name' argument")
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
         _setter("repository", repository)
         _setter("tag_name", tag_name)
         if body is not None:
@@ -237,7 +251,17 @@ class _ReleaseState:
              repository: Optional[pulumi.Input[str]] = None,
              tag_name: Optional[pulumi.Input[str]] = None,
              target_commitish: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
         if body is not None:
             _setter("body", body)
         if discussion_category_name is not None:
@@ -396,38 +420,6 @@ class Release(pulumi.CustomResource):
         This resource allows you to create and manage a release in a specific
         GitHub repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        example = github.Release("example",
-            repository=repo.name,
-            tag_name="v1.0.0")
-        ```
-        ### On Non-Default Branch
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository", auto_init=True)
-        example_branch = github.Branch("exampleBranch",
-            repository=example_repository.name,
-            branch="branch_name",
-            source_branch=example_repository.default_branch)
-        example_release = github.Release("exampleRelease",
-            repository=example_repository.name,
-            tag_name="v1.0.0",
-            target_commitish=example_branch.branch,
-            draft=False,
-            prerelease=False)
-        ```
-
         ## Import
 
         This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
@@ -457,38 +449,6 @@ class Release(pulumi.CustomResource):
         """
         This resource allows you to create and manage a release in a specific
         GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.Repository("repo",
-            description="GitHub repo managed by Terraform",
-            private=False)
-        example = github.Release("example",
-            repository=repo.name,
-            tag_name="v1.0.0")
-        ```
-        ### On Non-Default Branch
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository", auto_init=True)
-        example_branch = github.Branch("exampleBranch",
-            repository=example_repository.name,
-            branch="branch_name",
-            source_branch=example_repository.default_branch)
-        example_release = github.Release("exampleRelease",
-            repository=example_repository.name,
-            tag_name="v1.0.0",
-            target_commitish=example_branch.branch,
-            draft=False,
-            prerelease=False)
-        ```
 
         ## Import
 

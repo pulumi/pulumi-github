@@ -17,54 +17,6 @@ import (
 //
 // > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewOrganizationCustomRole(ctx, "example", &github.OrganizationCustomRoleArgs{
-//				BaseRole:    pulumi.String("read"),
-//				Description: pulumi.String("Example custom role that uses the read role as its base"),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("add_assignee"),
-//					pulumi.String("add_label"),
-//					pulumi.String("bypass_branch_protection"),
-//					pulumi.String("close_issue"),
-//					pulumi.String("close_pull_request"),
-//					pulumi.String("mark_as_duplicate"),
-//					pulumi.String("create_tag"),
-//					pulumi.String("delete_issue"),
-//					pulumi.String("delete_tag"),
-//					pulumi.String("manage_deploy_keys"),
-//					pulumi.String("push_protected_branch"),
-//					pulumi.String("read_code_scanning"),
-//					pulumi.String("reopen_issue"),
-//					pulumi.String("reopen_pull_request"),
-//					pulumi.String("request_pr_review"),
-//					pulumi.String("resolve_dependabot_alerts"),
-//					pulumi.String("resolve_secret_scanning_alerts"),
-//					pulumi.String("view_secret_scanning_alerts"),
-//					pulumi.String("write_code_scanning"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Custom roles can be imported using the `id` of the role. The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.

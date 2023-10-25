@@ -14,28 +14,6 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetCodespacesPublicKey.Invoke(new()
-        ///     {
-        ///         Repository = "example_repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCodespacesPublicKeyResult> InvokeAsync(GetCodespacesPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodespacesPublicKeyResult>("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args ?? new GetCodespacesPublicKeyArgs(), options.WithDefaults());
@@ -43,28 +21,6 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetCodespacesPublicKey.Invoke(new()
-        ///     {
-        ///         Repository = "example_repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCodespacesPublicKeyResult> Invoke(GetCodespacesPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesPublicKeyResult>("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args ?? new GetCodespacesPublicKeyInvokeArgs(), options.WithDefaults());

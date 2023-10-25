@@ -8,19 +8,6 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
  * You must have write access to a repository to use this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleVariable = new github.ActionsVariable("exampleVariable", {
- *     repository: "example_repository",
- *     value: "example_variable_value",
- *     variableName: "example_variable_name",
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.

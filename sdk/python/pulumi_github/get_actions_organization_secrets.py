@@ -60,15 +60,6 @@ class AwaitableGetActionsOrganizationSecretsResult(GetActionsOrganizationSecrets
 def get_actions_organization_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsOrganizationSecretsResult:
     """
     Use this data source to retrieve the list of secrets of the organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_secrets()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,14 +74,5 @@ def get_actions_organization_secrets(opts: Optional[pulumi.InvokeOptions] = None
 def get_actions_organization_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationSecretsResult]:
     """
     Use this data source to retrieve the list of secrets of the organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_secrets()
-    ```
     """
     ...

@@ -11,29 +11,6 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage columns for GitHub projects.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new Github.OrganizationProject("project", new()
-    ///     {
-    ///         Body = "This is an organization project.",
-    ///     });
-    /// 
-    ///     var column = new Github.ProjectColumn("column", new()
-    ///     {
-    ///         ProjectId = project.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/projectColumn:ProjectColumn")]
     public partial class ProjectColumn : global::Pulumi.CustomResource

@@ -39,12 +39,26 @@ class CodespacesOrganizationSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_name: pulumi.Input[str],
-             visibility: pulumi.Input[str],
+             secret_name: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
              encrypted_value: Optional[pulumi.Input[str]] = None,
              plaintext_value: Optional[pulumi.Input[str]] = None,
              selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+        if encrypted_value is None and 'encryptedValue' in kwargs:
+            encrypted_value = kwargs['encryptedValue']
+        if plaintext_value is None and 'plaintextValue' in kwargs:
+            plaintext_value = kwargs['plaintextValue']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+
         _setter("secret_name", secret_name)
         _setter("visibility", visibility)
         if encrypted_value is not None:
@@ -157,7 +171,21 @@ class _CodespacesOrganizationSecretState:
              selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              updated_at: Optional[pulumi.Input[str]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if encrypted_value is None and 'encryptedValue' in kwargs:
+            encrypted_value = kwargs['encryptedValue']
+        if plaintext_value is None and 'plaintextValue' in kwargs:
+            plaintext_value = kwargs['plaintextValue']
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if encrypted_value is not None:
@@ -271,39 +299,6 @@ class CodespacesOrganizationSecret(pulumi.CustomResource):
                  visibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-
         ## Import
 
         This resource can be imported using an ID made up of the secret name
@@ -330,39 +325,6 @@ class CodespacesOrganizationSecret(pulumi.CustomResource):
                  args: CodespacesOrganizationSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-
         ## Import
 
         This resource can be imported using an ID made up of the secret name

@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about GitHub's IP addresses.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetIpRanges(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpRangesResult
@@ -95,4 +75,165 @@ type GetIpRangesResult struct {
 	WebIpv6s []string `pulumi:"webIpv6s"`
 	// An Array of IP addresses in CIDR format for GitHub Web.
 	Webs []string `pulumi:"webs"`
+}
+
+func GetIpRangesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetIpRangesResult, error) {
+		r, err := GetIpRanges(ctx, opts...)
+		var s GetIpRangesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetIpRangesResultOutput)
+}
+
+// A collection of values returned by getIpRanges.
+type GetIpRangesResultOutput struct{ *pulumi.OutputState }
+
+func (GetIpRangesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpRangesResult)(nil)).Elem()
+}
+
+func (o GetIpRangesResultOutput) ToGetIpRangesResultOutput() GetIpRangesResultOutput {
+	return o
+}
+
+func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx context.Context) GetIpRangesResultOutput {
+	return o
+}
+
+func (o GetIpRangesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpRangesResult] {
+	return pulumix.Output[GetIpRangesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+func (o GetIpRangesResultOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) ActionsIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) ActionsIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) ApiIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApiIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) ApiIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApiIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format for the GitHub API.
+func (o GetIpRangesResultOutput) Apis() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Apis }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) DependabotIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) DependabotIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An array of IP addresses in CIDR format specifying the A records for dependabot.
+func (o GetIpRangesResultOutput) Dependabots() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Dependabots }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) GitIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GitIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) GitIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GitIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format specifying the Git servers.
+func (o GetIpRangesResultOutput) Gits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Gits }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
+func (o GetIpRangesResultOutput) Hooks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Hooks }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) HooksIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.HooksIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) HooksIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.HooksIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) ImporterIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ImporterIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) ImporterIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ImporterIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
+func (o GetIpRangesResultOutput) Importers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Importers }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
+func (o GetIpRangesResultOutput) Pages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Pages }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) PagesIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.PagesIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) PagesIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.PagesIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) WebIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.WebIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) WebIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.WebIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format for GitHub Web.
+func (o GetIpRangesResultOutput) Webs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Webs }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIpRangesResultOutput{})
 }

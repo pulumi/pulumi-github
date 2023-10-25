@@ -13,36 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepositoryPullRequests(ctx, &github.LookupRepositoryPullRequestsArgs{
-//				BaseRef:        pulumi.StringRef("main"),
-//				BaseRepository: "example-repository",
-//				SortBy:         pulumi.StringRef("updated"),
-//				SortDirection:  pulumi.StringRef("desc"),
-//				State:          pulumi.StringRef("open"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepositoryPullRequests(ctx *pulumi.Context, args *LookupRepositoryPullRequestsArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryPullRequestsResult

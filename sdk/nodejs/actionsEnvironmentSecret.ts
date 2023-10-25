@@ -5,43 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret", {
- *     environment: "example_environment",
- *     secretName: "example_secret_name",
- *     plaintextValue: _var.some_secret_string,
- * });
- * const exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", {
- *     environment: "example_environment",
- *     secretName: "example_secret_name",
- *     encryptedValue: _var.some_encrypted_secret_string,
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = github.getRepository({
- *     fullName: "my-org/repo",
- * });
- * const repoEnvironment = new github.RepositoryEnvironment("repoEnvironment", {
- *     repository: repo.then(repo => repo.name),
- *     environment: "example_environment",
- * });
- * const testSecret = new github.ActionsEnvironmentSecret("testSecret", {
- *     repository: repo.then(repo => repo.name),
- *     environment: repoEnvironment.environment,
- *     secretName: "test_secret_name",
- *     plaintextValue: "%s",
- * });
- * ```
- *
  * ## Import
  *
  * This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!

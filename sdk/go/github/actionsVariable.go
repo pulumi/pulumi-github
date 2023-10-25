@@ -16,34 +16,6 @@ import (
 // This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
 // You must have write access to a repository to use this resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsVariable(ctx, "exampleVariable", &github.ActionsVariableArgs{
-//				Repository:   pulumi.String("example_repository"),
-//				Value:        pulumi.String("example_variable_value"),
-//				VariableName: pulumi.String("example_variable_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.

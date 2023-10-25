@@ -9,17 +9,6 @@ import * as utilities from "./utilities";
  * as what role they have within it.
  * If the user's membership in the organization is pending their acceptance of an invite,
  * the role they would have once they accept will be returned.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const membershipForSomeUser = github.getMembership({
- *     username: "SomeUser",
- * });
- * ```
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
 
@@ -75,17 +64,6 @@ export interface GetMembershipResult {
  * as what role they have within it.
  * If the user's membership in the organization is pending their acceptance of an invite,
  * the role they would have once they accept will be returned.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const membershipForSomeUser = github.getMembership({
- *     username: "SomeUser",
- * });
- * ```
  */
 export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
     return pulumi.output(args).apply((a: any) => getMembership(a, opts))

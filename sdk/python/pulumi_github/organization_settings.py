@@ -101,7 +101,7 @@ class OrganizationSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             billing_email: pulumi.Input[str],
+             billing_email: Optional[pulumi.Input[str]] = None,
              advanced_security_enabled_for_new_repositories: Optional[pulumi.Input[bool]] = None,
              blog: Optional[pulumi.Input[str]] = None,
              company: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,51 @@ class OrganizationSettingsArgs:
              secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[bool]] = None,
              twitter_username: Optional[pulumi.Input[str]] = None,
              web_commit_signoff_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_email is None and 'billingEmail' in kwargs:
+            billing_email = kwargs['billingEmail']
+        if billing_email is None:
+            raise TypeError("Missing 'billing_email' argument")
+        if advanced_security_enabled_for_new_repositories is None and 'advancedSecurityEnabledForNewRepositories' in kwargs:
+            advanced_security_enabled_for_new_repositories = kwargs['advancedSecurityEnabledForNewRepositories']
+        if default_repository_permission is None and 'defaultRepositoryPermission' in kwargs:
+            default_repository_permission = kwargs['defaultRepositoryPermission']
+        if dependabot_alerts_enabled_for_new_repositories is None and 'dependabotAlertsEnabledForNewRepositories' in kwargs:
+            dependabot_alerts_enabled_for_new_repositories = kwargs['dependabotAlertsEnabledForNewRepositories']
+        if dependabot_security_updates_enabled_for_new_repositories is None and 'dependabotSecurityUpdatesEnabledForNewRepositories' in kwargs:
+            dependabot_security_updates_enabled_for_new_repositories = kwargs['dependabotSecurityUpdatesEnabledForNewRepositories']
+        if dependency_graph_enabled_for_new_repositories is None and 'dependencyGraphEnabledForNewRepositories' in kwargs:
+            dependency_graph_enabled_for_new_repositories = kwargs['dependencyGraphEnabledForNewRepositories']
+        if has_organization_projects is None and 'hasOrganizationProjects' in kwargs:
+            has_organization_projects = kwargs['hasOrganizationProjects']
+        if has_repository_projects is None and 'hasRepositoryProjects' in kwargs:
+            has_repository_projects = kwargs['hasRepositoryProjects']
+        if members_can_create_internal_repositories is None and 'membersCanCreateInternalRepositories' in kwargs:
+            members_can_create_internal_repositories = kwargs['membersCanCreateInternalRepositories']
+        if members_can_create_pages is None and 'membersCanCreatePages' in kwargs:
+            members_can_create_pages = kwargs['membersCanCreatePages']
+        if members_can_create_private_pages is None and 'membersCanCreatePrivatePages' in kwargs:
+            members_can_create_private_pages = kwargs['membersCanCreatePrivatePages']
+        if members_can_create_private_repositories is None and 'membersCanCreatePrivateRepositories' in kwargs:
+            members_can_create_private_repositories = kwargs['membersCanCreatePrivateRepositories']
+        if members_can_create_public_pages is None and 'membersCanCreatePublicPages' in kwargs:
+            members_can_create_public_pages = kwargs['membersCanCreatePublicPages']
+        if members_can_create_public_repositories is None and 'membersCanCreatePublicRepositories' in kwargs:
+            members_can_create_public_repositories = kwargs['membersCanCreatePublicRepositories']
+        if members_can_create_repositories is None and 'membersCanCreateRepositories' in kwargs:
+            members_can_create_repositories = kwargs['membersCanCreateRepositories']
+        if members_can_fork_private_repositories is None and 'membersCanForkPrivateRepositories' in kwargs:
+            members_can_fork_private_repositories = kwargs['membersCanForkPrivateRepositories']
+        if secret_scanning_enabled_for_new_repositories is None and 'secretScanningEnabledForNewRepositories' in kwargs:
+            secret_scanning_enabled_for_new_repositories = kwargs['secretScanningEnabledForNewRepositories']
+        if secret_scanning_push_protection_enabled_for_new_repositories is None and 'secretScanningPushProtectionEnabledForNewRepositories' in kwargs:
+            secret_scanning_push_protection_enabled_for_new_repositories = kwargs['secretScanningPushProtectionEnabledForNewRepositories']
+        if twitter_username is None and 'twitterUsername' in kwargs:
+            twitter_username = kwargs['twitterUsername']
+        if web_commit_signoff_required is None and 'webCommitSignoffRequired' in kwargs:
+            web_commit_signoff_required = kwargs['webCommitSignoffRequired']
+
         _setter("billing_email", billing_email)
         if advanced_security_enabled_for_new_repositories is not None:
             _setter("advanced_security_enabled_for_new_repositories", advanced_security_enabled_for_new_repositories)
@@ -609,7 +653,49 @@ class _OrganizationSettingsState:
              secret_scanning_push_protection_enabled_for_new_repositories: Optional[pulumi.Input[bool]] = None,
              twitter_username: Optional[pulumi.Input[str]] = None,
              web_commit_signoff_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if advanced_security_enabled_for_new_repositories is None and 'advancedSecurityEnabledForNewRepositories' in kwargs:
+            advanced_security_enabled_for_new_repositories = kwargs['advancedSecurityEnabledForNewRepositories']
+        if billing_email is None and 'billingEmail' in kwargs:
+            billing_email = kwargs['billingEmail']
+        if default_repository_permission is None and 'defaultRepositoryPermission' in kwargs:
+            default_repository_permission = kwargs['defaultRepositoryPermission']
+        if dependabot_alerts_enabled_for_new_repositories is None and 'dependabotAlertsEnabledForNewRepositories' in kwargs:
+            dependabot_alerts_enabled_for_new_repositories = kwargs['dependabotAlertsEnabledForNewRepositories']
+        if dependabot_security_updates_enabled_for_new_repositories is None and 'dependabotSecurityUpdatesEnabledForNewRepositories' in kwargs:
+            dependabot_security_updates_enabled_for_new_repositories = kwargs['dependabotSecurityUpdatesEnabledForNewRepositories']
+        if dependency_graph_enabled_for_new_repositories is None and 'dependencyGraphEnabledForNewRepositories' in kwargs:
+            dependency_graph_enabled_for_new_repositories = kwargs['dependencyGraphEnabledForNewRepositories']
+        if has_organization_projects is None and 'hasOrganizationProjects' in kwargs:
+            has_organization_projects = kwargs['hasOrganizationProjects']
+        if has_repository_projects is None and 'hasRepositoryProjects' in kwargs:
+            has_repository_projects = kwargs['hasRepositoryProjects']
+        if members_can_create_internal_repositories is None and 'membersCanCreateInternalRepositories' in kwargs:
+            members_can_create_internal_repositories = kwargs['membersCanCreateInternalRepositories']
+        if members_can_create_pages is None and 'membersCanCreatePages' in kwargs:
+            members_can_create_pages = kwargs['membersCanCreatePages']
+        if members_can_create_private_pages is None and 'membersCanCreatePrivatePages' in kwargs:
+            members_can_create_private_pages = kwargs['membersCanCreatePrivatePages']
+        if members_can_create_private_repositories is None and 'membersCanCreatePrivateRepositories' in kwargs:
+            members_can_create_private_repositories = kwargs['membersCanCreatePrivateRepositories']
+        if members_can_create_public_pages is None and 'membersCanCreatePublicPages' in kwargs:
+            members_can_create_public_pages = kwargs['membersCanCreatePublicPages']
+        if members_can_create_public_repositories is None and 'membersCanCreatePublicRepositories' in kwargs:
+            members_can_create_public_repositories = kwargs['membersCanCreatePublicRepositories']
+        if members_can_create_repositories is None and 'membersCanCreateRepositories' in kwargs:
+            members_can_create_repositories = kwargs['membersCanCreateRepositories']
+        if members_can_fork_private_repositories is None and 'membersCanForkPrivateRepositories' in kwargs:
+            members_can_fork_private_repositories = kwargs['membersCanForkPrivateRepositories']
+        if secret_scanning_enabled_for_new_repositories is None and 'secretScanningEnabledForNewRepositories' in kwargs:
+            secret_scanning_enabled_for_new_repositories = kwargs['secretScanningEnabledForNewRepositories']
+        if secret_scanning_push_protection_enabled_for_new_repositories is None and 'secretScanningPushProtectionEnabledForNewRepositories' in kwargs:
+            secret_scanning_push_protection_enabled_for_new_repositories = kwargs['secretScanningPushProtectionEnabledForNewRepositories']
+        if twitter_username is None and 'twitterUsername' in kwargs:
+            twitter_username = kwargs['twitterUsername']
+        if web_commit_signoff_required is None and 'webCommitSignoffRequired' in kwargs:
+            web_commit_signoff_required = kwargs['webCommitSignoffRequired']
+
         if advanced_security_enabled_for_new_repositories is not None:
             _setter("advanced_security_enabled_for_new_repositories", advanced_security_enabled_for_new_repositories)
         if billing_email is not None:
@@ -1011,40 +1097,6 @@ class OrganizationSettings(pulumi.CustomResource):
         """
         This resource allows you to create and manage settings for a GitHub Organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test = github.OrganizationSettings("test",
-            advanced_security_enabled_for_new_repositories=False,
-            billing_email="test@example.com",
-            blog="https://example.com",
-            company="Test Company",
-            default_repository_permission="read",
-            dependabot_alerts_enabled_for_new_repositories=False,
-            dependabot_security_updates_enabled_for_new_repositories=False,
-            dependency_graph_enabled_for_new_repositories=False,
-            description="Test Description",
-            email="test@example.com",
-            has_organization_projects=True,
-            has_repository_projects=True,
-            location="Test Location",
-            members_can_create_internal_repositories=True,
-            members_can_create_pages=True,
-            members_can_create_private_pages=True,
-            members_can_create_private_repositories=True,
-            members_can_create_public_pages=True,
-            members_can_create_public_repositories=True,
-            members_can_create_repositories=True,
-            members_can_fork_private_repositories=True,
-            secret_scanning_enabled_for_new_repositories=False,
-            secret_scanning_push_protection_enabled_for_new_repositories=False,
-            twitter_username="Test",
-            web_commit_signoff_required=True)
-        ```
-
         ## Import
 
         Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.
@@ -1090,40 +1142,6 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage settings for a GitHub Organization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        test = github.OrganizationSettings("test",
-            advanced_security_enabled_for_new_repositories=False,
-            billing_email="test@example.com",
-            blog="https://example.com",
-            company="Test Company",
-            default_repository_permission="read",
-            dependabot_alerts_enabled_for_new_repositories=False,
-            dependabot_security_updates_enabled_for_new_repositories=False,
-            dependency_graph_enabled_for_new_repositories=False,
-            description="Test Description",
-            email="test@example.com",
-            has_organization_projects=True,
-            has_repository_projects=True,
-            location="Test Location",
-            members_can_create_internal_repositories=True,
-            members_can_create_pages=True,
-            members_can_create_private_pages=True,
-            members_can_create_private_repositories=True,
-            members_can_create_public_pages=True,
-            members_can_create_public_repositories=True,
-            members_can_create_repositories=True,
-            members_can_fork_private_repositories=True,
-            secret_scanning_enabled_for_new_repositories=False,
-            secret_scanning_push_protection_enabled_for_new_repositories=False,
-            twitter_username="Test",
-            web_commit_signoff_required=True)
-        ```
 
         ## Import
 

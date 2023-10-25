@@ -10,55 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
-    ///     {
-    ///         Username = "SomeUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    ///     var membershipForAnotherUser = new Github.Membership("membershipForAnotherUser", new()
-    ///     {
-    ///         Username = "AnotherUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///     });
-    /// 
-    ///     var someTeamMembers = new Github.TeamMembers("someTeamMembers", new()
-    ///     {
-    ///         TeamId = someTeam.Id,
-    ///         Members = new[]
-    ///         {
-    ///             new Github.Inputs.TeamMembersMemberArgs
-    ///             {
-    ///                 Username = "SomeUser",
-    ///                 Role = "maintainer",
-    ///             },
-    ///             new Github.Inputs.TeamMembersMemberArgs
-    ///             {
-    ///                 Username = "AnotherUser",
-    ///                 Role = "member",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.

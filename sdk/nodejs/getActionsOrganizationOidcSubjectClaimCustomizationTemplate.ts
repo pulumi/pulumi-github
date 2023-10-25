@@ -6,15 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
- * ```
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
 
@@ -38,15 +29,6 @@ export interface GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResu
 }
 /**
  * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
- * ```
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
     return pulumi.output(getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts))

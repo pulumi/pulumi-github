@@ -8,28 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about all GitHub teams in an organization.
- *
- * ## Example Usage
- *
- * To retrieve *all* teams of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const all = github.getOrganizationTeams({});
- * ```
- *
- * To retrieve only the team's at the root of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const rootTeams = github.getOrganizationTeams({
- *     rootTeamsOnly: true,
- * });
- * ```
  */
 export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamsResult> {
     args = args || {};
@@ -87,28 +65,6 @@ export interface GetOrganizationTeamsResult {
 }
 /**
  * Use this data source to retrieve information about all GitHub teams in an organization.
- *
- * ## Example Usage
- *
- * To retrieve *all* teams of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const all = github.getOrganizationTeams({});
- * ```
- *
- * To retrieve only the team's at the root of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const rootTeams = github.getOrganizationTeams({
- *     rootTeamsOnly: true,
- * });
- * ```
  */
 export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamsResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationTeams(a, opts))

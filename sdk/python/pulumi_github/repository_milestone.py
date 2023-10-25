@@ -41,13 +41,23 @@ class RepositoryMilestoneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             title: pulumi.Input[str],
+             owner: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              due_date: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if due_date is None and 'dueDate' in kwargs:
+            due_date = kwargs['dueDate']
+
         _setter("owner", owner)
         _setter("repository", repository)
         _setter("title", title)
@@ -171,7 +181,11 @@ class _RepositoryMilestoneState:
              repository: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if due_date is None and 'dueDate' in kwargs:
+            due_date = kwargs['dueDate']
+
         if description is not None:
             _setter("description", description)
         if due_date is not None:
@@ -289,19 +303,6 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a milestone for a repository
-        example = github.RepositoryMilestone("example",
-            owner="example-owner",
-            repository="example-repository",
-            title="v1.1.0")
-        ```
-
         ## Import
 
         A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
@@ -329,19 +330,6 @@ class RepositoryMilestone(pulumi.CustomResource):
         Provides a GitHub repository milestone resource.
 
         This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create a milestone for a repository
-        example = github.RepositoryMilestone("example",
-            owner="example-owner",
-            repository="example-repository",
-            title="v1.1.0")
-        ```
 
         ## Import
 

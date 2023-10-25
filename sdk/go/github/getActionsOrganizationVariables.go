@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of variables of the organization.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsOrganizationVariables(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetActionsOrganizationVariables(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationVariablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsOrganizationVariablesResult
@@ -49,4 +29,52 @@ type GetActionsOrganizationVariablesResult struct {
 	Id string `pulumi:"id"`
 	// list of variables for the repository
 	Variables []GetActionsOrganizationVariablesVariable `pulumi:"variables"`
+}
+
+func GetActionsOrganizationVariablesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationVariablesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationVariablesResult, error) {
+		r, err := GetActionsOrganizationVariables(ctx, opts...)
+		var s GetActionsOrganizationVariablesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetActionsOrganizationVariablesResultOutput)
+}
+
+// A collection of values returned by getActionsOrganizationVariables.
+type GetActionsOrganizationVariablesResultOutput struct{ *pulumi.OutputState }
+
+func (GetActionsOrganizationVariablesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsOrganizationVariablesResult)(nil)).Elem()
+}
+
+func (o GetActionsOrganizationVariablesResultOutput) ToGetActionsOrganizationVariablesResultOutput() GetActionsOrganizationVariablesResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationVariablesResultOutput) ToGetActionsOrganizationVariablesResultOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationVariablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationVariablesResult] {
+	return pulumix.Output[GetActionsOrganizationVariablesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetActionsOrganizationVariablesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// list of variables for the repository
+func (o GetActionsOrganizationVariablesResultOutput) Variables() GetActionsOrganizationVariablesVariableArrayOutput {
+	return o.ApplyT(func(v GetActionsOrganizationVariablesResult) []GetActionsOrganizationVariablesVariable {
+		return v.Variables
+	}).(GetActionsOrganizationVariablesVariableArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetActionsOrganizationVariablesResultOutput{})
 }

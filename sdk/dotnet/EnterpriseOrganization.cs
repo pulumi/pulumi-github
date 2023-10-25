@@ -12,31 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage a GitHub enterprise organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var org = new Github.EnterpriseOrganization("org", new()
-    ///     {
-    ///         EnterpriseId = data.Github_enterprise.Enterprise.Id,
-    ///         DisplayName = "Some Awesome Org",
-    ///         Description = "Organization created with terraform",
-    ///         BillingEmail = "jon@winteriscoming.com",
-    ///         AdminLogins = new[]
-    ///         {
-    ///             "jon-snow",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.

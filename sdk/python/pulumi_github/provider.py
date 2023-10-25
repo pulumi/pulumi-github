@@ -63,7 +63,19 @@ class ProviderArgs:
              read_delay_ms: Optional[pulumi.Input[int]] = None,
              token: Optional[pulumi.Input[str]] = None,
              write_delay_ms: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_auth is None and 'appAuth' in kwargs:
+            app_auth = kwargs['appAuth']
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if parallel_requests is None and 'parallelRequests' in kwargs:
+            parallel_requests = kwargs['parallelRequests']
+        if read_delay_ms is None and 'readDelayMs' in kwargs:
+            read_delay_ms = kwargs['readDelayMs']
+        if write_delay_ms is None and 'writeDelayMs' in kwargs:
+            write_delay_ms = kwargs['writeDelayMs']
+
         if app_auth is not None:
             _setter("app_auth", app_auth)
         if base_url is None:
@@ -288,11 +300,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            if app_auth is not None and not isinstance(app_auth, ProviderAppAuthArgs):
-                app_auth = app_auth or {}
-                def _setter(key, value):
-                    app_auth[key] = value
-                ProviderAppAuthArgs._configure(_setter, **app_auth)
+            app_auth = _utilities.configure(app_auth, ProviderAppAuthArgs, True)
             __props__.__dict__["app_auth"] = pulumi.Output.from_input(app_auth).apply(pulumi.runtime.to_json) if app_auth is not None else None
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')

@@ -16,50 +16,6 @@ import (
 // This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
 // You must have admin access to an organization to use this resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.NewRepository(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsOrganizationPermissions(ctx, "test", &github.ActionsOrganizationPermissionsArgs{
-//				AllowedActions:      pulumi.String("selected"),
-//				EnabledRepositories: pulumi.String("selected"),
-//				AllowedActionsConfig: &github.ActionsOrganizationPermissionsAllowedActionsConfigArgs{
-//					GithubOwnedAllowed: pulumi.Bool(true),
-//					PatternsAlloweds: pulumi.StringArray{
-//						pulumi.String("actions/cache@*"),
-//						pulumi.String("actions/checkout@*"),
-//					},
-//					VerifiedAllowed: pulumi.Bool(true),
-//				},
-//				EnabledRepositoriesConfig: &github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{
-//					RepositoryIds: pulumi.IntArray{
-//						example.RepoId,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource can be imported using the ID of the GitHub organization:

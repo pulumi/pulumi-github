@@ -15,56 +15,6 @@ import (
 
 // This resource allows you to create and manage settings for a GitHub Organization.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewOrganizationSettings(ctx, "test", &github.OrganizationSettingsArgs{
-//				AdvancedSecurityEnabledForNewRepositories: pulumi.Bool(false),
-//				BillingEmail:                pulumi.String("test@example.com"),
-//				Blog:                        pulumi.String("https://example.com"),
-//				Company:                     pulumi.String("Test Company"),
-//				DefaultRepositoryPermission: pulumi.String("read"),
-//				DependabotAlertsEnabledForNewRepositories:             pulumi.Bool(false),
-//				DependabotSecurityUpdatesEnabledForNewRepositories:    pulumi.Bool(false),
-//				DependencyGraphEnabledForNewRepositories:              pulumi.Bool(false),
-//				Description:                                           pulumi.String("Test Description"),
-//				Email:                                                 pulumi.String("test@example.com"),
-//				HasOrganizationProjects:                               pulumi.Bool(true),
-//				HasRepositoryProjects:                                 pulumi.Bool(true),
-//				Location:                                              pulumi.String("Test Location"),
-//				MembersCanCreateInternalRepositories:                  pulumi.Bool(true),
-//				MembersCanCreatePages:                                 pulumi.Bool(true),
-//				MembersCanCreatePrivatePages:                          pulumi.Bool(true),
-//				MembersCanCreatePrivateRepositories:                   pulumi.Bool(true),
-//				MembersCanCreatePublicPages:                           pulumi.Bool(true),
-//				MembersCanCreatePublicRepositories:                    pulumi.Bool(true),
-//				MembersCanCreateRepositories:                          pulumi.Bool(true),
-//				MembersCanForkPrivateRepositories:                     pulumi.Bool(true),
-//				SecretScanningEnabledForNewRepositories:               pulumi.Bool(false),
-//				SecretScanningPushProtectionEnabledForNewRepositories: pulumi.Bool(false),
-//				TwitterUsername:                                       pulumi.String("Test"),
-//				WebCommitSignoffRequired:                              pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.

@@ -4,36 +4,16 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
 // Note that the provider `token` must have admin rights to an organization to retrieve it's Dependabot public key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetDependabotOrganizationPublicKey(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDependabotOrganizationPublicKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDependabotOrganizationPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDependabotOrganizationPublicKeyResult
@@ -52,4 +32,55 @@ type GetDependabotOrganizationPublicKeyResult struct {
 	Key string `pulumi:"key"`
 	// ID of the key that has been retrieved.
 	KeyId string `pulumi:"keyId"`
+}
+
+func GetDependabotOrganizationPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDependabotOrganizationPublicKeyResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationPublicKeyResult, error) {
+		r, err := GetDependabotOrganizationPublicKey(ctx, opts...)
+		var s GetDependabotOrganizationPublicKeyResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetDependabotOrganizationPublicKeyResultOutput)
+}
+
+// A collection of values returned by getDependabotOrganizationPublicKey.
+type GetDependabotOrganizationPublicKeyResultOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotOrganizationPublicKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotOrganizationPublicKeyResult)(nil)).Elem()
+}
+
+func (o GetDependabotOrganizationPublicKeyResultOutput) ToGetDependabotOrganizationPublicKeyResultOutput() GetDependabotOrganizationPublicKeyResultOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationPublicKeyResultOutput) ToGetDependabotOrganizationPublicKeyResultOutputWithContext(ctx context.Context) GetDependabotOrganizationPublicKeyResultOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotOrganizationPublicKeyResult] {
+	return pulumix.Output[GetDependabotOrganizationPublicKeyResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDependabotOrganizationPublicKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationPublicKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Actual key retrieved.
+func (o GetDependabotOrganizationPublicKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationPublicKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// ID of the key that has been retrieved.
+func (o GetDependabotOrganizationPublicKeyResultOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationPublicKeyResult) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDependabotOrganizationPublicKeyResultOutput{})
 }

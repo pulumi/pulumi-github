@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of secrets of the repository environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsEnvironmentSecrets({
- *     environment: "exampleEnvironment",
- *     name: "exampleRepo",
- * });
- * ```
  */
 export function getActionsEnvironmentSecrets(args: GetActionsEnvironmentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsEnvironmentSecretsResult> {
 
@@ -64,18 +52,6 @@ export interface GetActionsEnvironmentSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of secrets of the repository environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsEnvironmentSecrets({
- *     environment: "exampleEnvironment",
- *     name: "exampleRepo",
- * });
- * ```
  */
 export function getActionsEnvironmentSecretsOutput(args: GetActionsEnvironmentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsEnvironmentSecretsResult> {
     return pulumi.output(args).apply((a: any) => getActionsEnvironmentSecrets(a, opts))
