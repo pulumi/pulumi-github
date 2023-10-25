@@ -13,56 +13,6 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
     /// You must have write access to a repository to use this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("exampleVariable", new()
-    ///     {
-    ///         Environment = "example_environment",
-    ///         Value = "example_variable_value",
-    ///         VariableName = "example_variable_name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
-    ///     {
-    ///         FullName = "my-org/repo",
-    ///     });
-    /// 
-    ///     var repoEnvironment = new Github.RepositoryEnvironment("repoEnvironment", new()
-    ///     {
-    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-    ///         Environment = "example_environment",
-    ///     });
-    /// 
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("exampleVariable", new()
-    ///     {
-    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-    ///         Environment = repoEnvironment.Environment,
-    ///         VariableName = "example_variable_name",
-    ///         Value = "example_variable_value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the repository name, environment name, and variable name:

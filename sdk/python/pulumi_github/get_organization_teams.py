@@ -100,26 +100,6 @@ def get_organization_teams(results_per_page: Optional[int] = None,
     """
     Use this data source to retrieve information about all GitHub teams in an organization.
 
-    ## Example Usage
-
-    To retrieve *all* teams of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    all = github.get_organization_teams()
-    ```
-
-    To retrieve only the team's at the root of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    root_teams = github.get_organization_teams(root_teams_only=True)
-    ```
-
 
     :param int results_per_page: (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
     :param bool root_teams_only: (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
@@ -147,26 +127,6 @@ def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Option
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
     """
     Use this data source to retrieve information about all GitHub teams in an organization.
-
-    ## Example Usage
-
-    To retrieve *all* teams of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    all = github.get_organization_teams()
-    ```
-
-    To retrieve only the team's at the root of the organization:
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    root_teams = github.get_organization_teams(root_teams_only=True)
-    ```
 
 
     :param int results_per_page: (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.

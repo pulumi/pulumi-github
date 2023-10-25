@@ -71,15 +71,6 @@ def get_repository_autolink_references(repository: Optional[str] = None,
     """
     Use this data source to retrieve autolink references for a repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_autolink_references(repository="example-repository")
-    ```
-
 
     :param str repository: Name of the repository to retrieve the autolink references from.
     """
@@ -99,15 +90,6 @@ def get_repository_autolink_references_output(repository: Optional[pulumi.Input[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAutolinkReferencesResult]:
     """
     Use this data source to retrieve autolink references for a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_autolink_references(repository="example-repository")
-    ```
 
 
     :param str repository: Name of the repository to retrieve the autolink references from.

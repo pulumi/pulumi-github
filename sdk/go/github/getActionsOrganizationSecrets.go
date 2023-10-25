@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of secrets of the organization.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetActionsOrganizationSecrets(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetActionsOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsOrganizationSecretsResult
@@ -49,4 +29,50 @@ type GetActionsOrganizationSecretsResult struct {
 	Id string `pulumi:"id"`
 	// list of secrets for the repository
 	Secrets []GetActionsOrganizationSecretsSecret `pulumi:"secrets"`
+}
+
+func GetActionsOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationSecretsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationSecretsResult, error) {
+		r, err := GetActionsOrganizationSecrets(ctx, opts...)
+		var s GetActionsOrganizationSecretsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetActionsOrganizationSecretsResultOutput)
+}
+
+// A collection of values returned by getActionsOrganizationSecrets.
+type GetActionsOrganizationSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (GetActionsOrganizationSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionsOrganizationSecretsResult)(nil)).Elem()
+}
+
+func (o GetActionsOrganizationSecretsResultOutput) ToGetActionsOrganizationSecretsResultOutput() GetActionsOrganizationSecretsResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationSecretsResultOutput) ToGetActionsOrganizationSecretsResultOutputWithContext(ctx context.Context) GetActionsOrganizationSecretsResultOutput {
+	return o
+}
+
+func (o GetActionsOrganizationSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationSecretsResult] {
+	return pulumix.Output[GetActionsOrganizationSecretsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetActionsOrganizationSecretsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionsOrganizationSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// list of secrets for the repository
+func (o GetActionsOrganizationSecretsResultOutput) Secrets() GetActionsOrganizationSecretsSecretArrayOutput {
+	return o.ApplyT(func(v GetActionsOrganizationSecretsResult) []GetActionsOrganizationSecretsSecret { return v.Secrets }).(GetActionsOrganizationSecretsSecretArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetActionsOrganizationSecretsResultOutput{})
 }

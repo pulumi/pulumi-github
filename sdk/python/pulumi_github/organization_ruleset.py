@@ -43,13 +43,23 @@ class OrganizationRulesetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enforcement: pulumi.Input[str],
-             rules: pulumi.Input['OrganizationRulesetRulesArgs'],
-             target: pulumi.Input[str],
+             enforcement: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input['OrganizationRulesetRulesArgs']] = None,
+             target: Optional[pulumi.Input[str]] = None,
              bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]]] = None,
              conditions: Optional[pulumi.Input['OrganizationRulesetConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enforcement is None:
+            raise TypeError("Missing 'enforcement' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+
         _setter("enforcement", enforcement)
         _setter("rules", rules)
         _setter("target", target)
@@ -181,7 +191,15 @@ class _OrganizationRulesetState:
              rules: Optional[pulumi.Input['OrganizationRulesetRulesArgs']] = None,
              ruleset_id: Optional[pulumi.Input[int]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if ruleset_id is None and 'rulesetId' in kwargs:
+            ruleset_id = kwargs['rulesetId']
+
         if bypass_actors is not None:
             _setter("bypass_actors", bypass_actors)
         if conditions is not None:
@@ -398,21 +416,13 @@ class OrganizationRuleset(pulumi.CustomResource):
             __props__ = OrganizationRulesetArgs.__new__(OrganizationRulesetArgs)
 
             __props__.__dict__["bypass_actors"] = bypass_actors
-            if conditions is not None and not isinstance(conditions, OrganizationRulesetConditionsArgs):
-                conditions = conditions or {}
-                def _setter(key, value):
-                    conditions[key] = value
-                OrganizationRulesetConditionsArgs._configure(_setter, **conditions)
+            conditions = _utilities.configure(conditions, OrganizationRulesetConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             if enforcement is None and not opts.urn:
                 raise TypeError("Missing required property 'enforcement'")
             __props__.__dict__["enforcement"] = enforcement
             __props__.__dict__["name"] = name
-            if rules is not None and not isinstance(rules, OrganizationRulesetRulesArgs):
-                rules = rules or {}
-                def _setter(key, value):
-                    rules[key] = value
-                OrganizationRulesetRulesArgs._configure(_setter, **rules)
+            rules = _utilities.configure(rules, OrganizationRulesetRulesArgs, True)
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules

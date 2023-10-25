@@ -31,9 +31,17 @@ class TeamMembersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             members: pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]],
-             team_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
         _setter("members", members)
         _setter("team_id", team_id)
 
@@ -82,7 +90,11 @@ class _TeamMembersState:
              _setter: Callable[[Any, Any], None],
              members: Optional[pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if members is not None:
             _setter("members", members)
         if team_id is not None:
@@ -122,34 +134,6 @@ class TeamMembers(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            username="SomeUser",
-            role="member")
-        membership_for_another_user = github.Membership("membershipForAnotherUser",
-            username="AnotherUser",
-            role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_members = github.TeamMembers("someTeamMembers",
-            team_id=some_team.id,
-            members=[
-                github.TeamMembersMemberArgs(
-                    username="SomeUser",
-                    role="maintainer",
-                ),
-                github.TeamMembersMemberArgs(
-                    username="AnotherUser",
-                    role="member",
-                ),
-            ])
-        ```
-
         ## Import
 
         GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
@@ -174,34 +158,6 @@ class TeamMembers(pulumi.CustomResource):
                  args: TeamMembersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            username="SomeUser",
-            role="member")
-        membership_for_another_user = github.Membership("membershipForAnotherUser",
-            username="AnotherUser",
-            role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_members = github.TeamMembers("someTeamMembers",
-            team_id=some_team.id,
-            members=[
-                github.TeamMembersMemberArgs(
-                    username="SomeUser",
-                    role="maintainer",
-                ),
-                github.TeamMembersMemberArgs(
-                    username="AnotherUser",
-                    role="member",
-                ),
-            ])
-        ```
-
         ## Import
 
         GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.

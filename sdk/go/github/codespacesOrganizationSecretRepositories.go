@@ -19,41 +19,6 @@ import (
 //
 // This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
-//				FullName: pulumi.StringRef("my-org/repo"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewCodespacesOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.CodespacesOrganizationSecretRepositoriesArgs{
-//				SecretName: pulumi.String("existing_secret_name"),
-//				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource can be imported using an ID made up of the secret name:

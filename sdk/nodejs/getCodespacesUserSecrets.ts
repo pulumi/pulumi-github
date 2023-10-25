@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of codespaces secrets of the user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesUserSecrets({});
- * ```
  */
 export function getCodespacesUserSecrets(opts?: pulumi.InvokeOptions): Promise<GetCodespacesUserSecretsResult> {
 
@@ -40,15 +31,6 @@ export interface GetCodespacesUserSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of codespaces secrets of the user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesUserSecrets({});
- * ```
  */
 export function getCodespacesUserSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserSecretsResult> {
     return pulumi.output(getCodespacesUserSecrets(opts))

@@ -14,66 +14,6 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
-    ///     {
-    ///         Description = "Example repository",
-    ///     });
-    /// 
-    ///     var exampleRepositoryRuleset = new Github.RepositoryRuleset("exampleRepositoryRuleset", new()
-    ///     {
-    ///         Repository = exampleRepository.Name,
-    ///         Target = "branch",
-    ///         Enforcement = "active",
-    ///         Conditions = new Github.Inputs.RepositoryRulesetConditionsArgs
-    ///         {
-    ///             RefName = new Github.Inputs.RepositoryRulesetConditionsRefNameArgs
-    ///             {
-    ///                 Includes = new[]
-    ///                 {
-    ///                     "~ALL",
-    ///                 },
-    ///                 Excludes = new[] {},
-    ///             },
-    ///         },
-    ///         BypassActors = new[]
-    ///         {
-    ///             new Github.Inputs.RepositoryRulesetBypassActorArgs
-    ///             {
-    ///                 ActorId = 13473,
-    ///                 ActorType = "Integration",
-    ///                 BypassMode = "always",
-    ///             },
-    ///         },
-    ///         Rules = new Github.Inputs.RepositoryRulesetRulesArgs
-    ///         {
-    ///             Creation = true,
-    ///             Update = true,
-    ///             Deletion = true,
-    ///             RequiredLinearHistory = true,
-    ///             RequiredSignatures = true,
-    ///             RequiredDeployments = new Github.Inputs.RepositoryRulesetRulesRequiredDeploymentsArgs
-    ///             {
-    ///                 RequiredDeploymentEnvironments = new[]
-    ///                 {
-    ///                     "test",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.

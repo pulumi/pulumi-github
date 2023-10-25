@@ -12,34 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage webhooks for GitHub organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Github.OrganizationWebhook("foo", new()
-    ///     {
-    ///         Active = false,
-    ///         Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
-    ///         {
-    ///             ContentType = "form",
-    ///             InsecureSsl = false,
-    ///             Url = "https://google.de/",
-    ///         },
-    ///         Events = new[]
-    ///         {
-    ///             "issues",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.

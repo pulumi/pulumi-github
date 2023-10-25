@@ -40,12 +40,22 @@ class RepositoryEnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             environment: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             environment: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
              reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
              wait_timer: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if deployment_branch_policy is None and 'deploymentBranchPolicy' in kwargs:
+            deployment_branch_policy = kwargs['deploymentBranchPolicy']
+        if wait_timer is None and 'waitTimer' in kwargs:
+            wait_timer = kwargs['waitTimer']
+
         _setter("environment", environment)
         _setter("repository", repository)
         if deployment_branch_policy is not None:
@@ -148,7 +158,13 @@ class _RepositoryEnvironmentState:
              repository: Optional[pulumi.Input[str]] = None,
              reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
              wait_timer: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_branch_policy is None and 'deploymentBranchPolicy' in kwargs:
+            deployment_branch_policy = kwargs['deploymentBranchPolicy']
+        if wait_timer is None and 'waitTimer' in kwargs:
+            wait_timer = kwargs['waitTimer']
+
         if deployment_branch_policy is not None:
             _setter("deployment_branch_policy", deployment_branch_policy)
         if environment is not None:
@@ -235,26 +251,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
         """
         This resource allows you to create and manage environments for a GitHub repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
-            environment="example",
-            repository=example_repository.name,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=True,
-                custom_branch_policies=False,
-            ))
-        ```
-
         ## Import
 
         GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
@@ -279,26 +275,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage environments for a GitHub repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
-            environment="example",
-            repository=example_repository.name,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=True,
-                custom_branch_policies=False,
-            ))
-        ```
 
         ## Import
 
@@ -341,11 +317,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryEnvironmentArgs.__new__(RepositoryEnvironmentArgs)
 
-            if deployment_branch_policy is not None and not isinstance(deployment_branch_policy, RepositoryEnvironmentDeploymentBranchPolicyArgs):
-                deployment_branch_policy = deployment_branch_policy or {}
-                def _setter(key, value):
-                    deployment_branch_policy[key] = value
-                RepositoryEnvironmentDeploymentBranchPolicyArgs._configure(_setter, **deployment_branch_policy)
+            deployment_branch_policy = _utilities.configure(deployment_branch_policy, RepositoryEnvironmentDeploymentBranchPolicyArgs, True)
             __props__.__dict__["deployment_branch_policy"] = deployment_branch_policy
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")

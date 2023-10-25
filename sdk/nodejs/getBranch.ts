@@ -6,18 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a repository branch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const development = github.getBranch({
- *     branch: "development",
- *     repository: "example",
- * });
- * ```
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
 
@@ -67,18 +55,6 @@ export interface GetBranchResult {
 }
 /**
  * Use this data source to retrieve information about a repository branch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const development = github.getBranch({
- *     branch: "development",
- *     repository: "example",
- * });
- * ```
  */
 export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
     return pulumi.output(args).apply((a: any) => getBranch(a, opts))

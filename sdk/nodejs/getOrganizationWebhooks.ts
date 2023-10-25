@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve all webhooks of the organization.
- *
- * ## Example Usage
- *
- * To retrieve *all* webhooks of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const all = github.getOrganizationWebhooks({});
- * ```
  */
 export function getOrganizationWebhooks(opts?: pulumi.InvokeOptions): Promise<GetOrganizationWebhooksResult> {
 
@@ -43,17 +32,6 @@ export interface GetOrganizationWebhooksResult {
 }
 /**
  * Use this data source to retrieve all webhooks of the organization.
- *
- * ## Example Usage
- *
- * To retrieve *all* webhooks of the organization:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const all = github.getOrganizationWebhooks({});
- * ```
  */
 export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationWebhooksResult> {
     return pulumi.output(getOrganizationWebhooks(opts))

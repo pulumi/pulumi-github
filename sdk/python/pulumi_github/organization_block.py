@@ -26,8 +26,12 @@ class OrganizationBlockArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("username", username)
 
     @property
@@ -62,7 +66,9 @@ class _OrganizationBlockState:
              _setter: Callable[[Any, Any], None],
              etag: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if etag is not None:
             _setter("etag", etag)
         if username is not None:
@@ -100,15 +106,6 @@ class OrganizationBlock(pulumi.CustomResource):
         """
         This resource allows you to create and manage blocks for GitHub organizations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.OrganizationBlock("example", username="paultyng")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] username: The name of the user to block.
@@ -121,15 +118,6 @@ class OrganizationBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage blocks for GitHub organizations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.OrganizationBlock("example", username="paultyng")
-        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationBlockArgs args: The arguments to use to populate this resource's properties.

@@ -33,10 +33,18 @@ class TeamRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             team_id: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
              permission: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
         _setter("repository", repository)
         _setter("team_id", team_id)
         if permission is not None:
@@ -108,7 +116,11 @@ class _TeamRepositoryState:
              permission: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if etag is not None:
             _setter("etag", etag)
         if permission is not None:
@@ -191,21 +203,6 @@ class TeamRepository(pulumi.CustomResource):
         This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
         instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
-            team_id=some_team.id,
-            repository=some_repo.name,
-            permission="pull")
-        ```
-
         ## Import
 
         GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.
@@ -247,21 +244,6 @@ class TeamRepository(pulumi.CustomResource):
 
         This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
         instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
-            team_id=some_team.id,
-            repository=some_repo.name,
-            permission="pull")
-        ```
 
         ## Import
 

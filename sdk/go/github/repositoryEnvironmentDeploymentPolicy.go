@@ -15,63 +15,6 @@ import (
 
 // This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := github.GetUser(ctx, &github.GetUserArgs{
-//				Username: "",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testRepository, err := github.NewRepository(ctx, "testRepository", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "testRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
-//				Repository:  testRepository.Name,
-//				Environment: pulumi.String("environment/test"),
-//				WaitTimer:   pulumi.Int(10000),
-//				Reviewers: github.RepositoryEnvironmentReviewerArray{
-//					&github.RepositoryEnvironmentReviewerArgs{
-//						Users: pulumi.IntArray{
-//							*pulumi.String(current.Id),
-//						},
-//					},
-//				},
-//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
-//					ProtectedBranches:    pulumi.Bool(false),
-//					CustomBranchPolicies: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryEnvironmentDeploymentPolicy(ctx, "testRepositoryEnvironmentDeploymentPolicy", &github.RepositoryEnvironmentDeploymentPolicyArgs{
-//				Repository:    testRepository.Name,
-//				Environment:   testRepositoryEnvironment.Environment,
-//				BranchPattern: pulumi.String("releases/*"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.

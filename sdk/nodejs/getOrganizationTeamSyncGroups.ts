@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the identity provider (IdP) groups for an organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const test = github.getOrganizationTeamSyncGroups({});
- * ```
  */
 export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamSyncGroupsResult> {
 
@@ -40,15 +31,6 @@ export interface GetOrganizationTeamSyncGroupsResult {
 }
 /**
  * Use this data source to retrieve the identity provider (IdP) groups for an organization.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const test = github.getOrganizationTeamSyncGroups({});
- * ```
  */
 export function getOrganizationTeamSyncGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamSyncGroupsResult> {
     return pulumi.output(getOrganizationTeamSyncGroups(opts))

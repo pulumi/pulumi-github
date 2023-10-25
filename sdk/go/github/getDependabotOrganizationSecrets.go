@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of dependabot secrets of the organization.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetDependabotOrganizationSecrets(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDependabotOrganizationSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDependabotOrganizationSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDependabotOrganizationSecretsResult
@@ -49,4 +29,52 @@ type GetDependabotOrganizationSecretsResult struct {
 	Id string `pulumi:"id"`
 	// list of secrets for the repository
 	Secrets []GetDependabotOrganizationSecretsSecret `pulumi:"secrets"`
+}
+
+func GetDependabotOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDependabotOrganizationSecretsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationSecretsResult, error) {
+		r, err := GetDependabotOrganizationSecrets(ctx, opts...)
+		var s GetDependabotOrganizationSecretsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetDependabotOrganizationSecretsResultOutput)
+}
+
+// A collection of values returned by getDependabotOrganizationSecrets.
+type GetDependabotOrganizationSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (GetDependabotOrganizationSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDependabotOrganizationSecretsResult)(nil)).Elem()
+}
+
+func (o GetDependabotOrganizationSecretsResultOutput) ToGetDependabotOrganizationSecretsResultOutput() GetDependabotOrganizationSecretsResultOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsResultOutput) ToGetDependabotOrganizationSecretsResultOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsResultOutput {
+	return o
+}
+
+func (o GetDependabotOrganizationSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotOrganizationSecretsResult] {
+	return pulumix.Output[GetDependabotOrganizationSecretsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDependabotOrganizationSecretsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// list of secrets for the repository
+func (o GetDependabotOrganizationSecretsResultOutput) Secrets() GetDependabotOrganizationSecretsSecretArrayOutput {
+	return o.ApplyT(func(v GetDependabotOrganizationSecretsResult) []GetDependabotOrganizationSecretsSecret {
+		return v.Secrets
+	}).(GetDependabotOrganizationSecretsSecretArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDependabotOrganizationSecretsResultOutput{})
 }

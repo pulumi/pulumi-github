@@ -7,15 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
  * Note that the provider `token` must have admin rights to an organization to retrieve it's Codespaces public key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesOrganizationPublicKey({});
- * ```
  */
 export function getCodespacesOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetCodespacesOrganizationPublicKeyResult> {
 
@@ -44,15 +35,6 @@ export interface GetCodespacesOrganizationPublicKeyResult {
 /**
  * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
  * Note that the provider `token` must have admin rights to an organization to retrieve it's Codespaces public key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getCodespacesOrganizationPublicKey({});
- * ```
  */
 export function getCodespacesOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationPublicKeyResult> {
     return pulumi.output(getCodespacesOrganizationPublicKey(opts))

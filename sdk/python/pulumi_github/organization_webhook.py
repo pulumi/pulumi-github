@@ -34,10 +34,14 @@ class OrganizationWebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
         _setter("events", events)
         if active is not None:
             _setter("active", active)
@@ -112,7 +116,9 @@ class _OrganizationWebhookState:
              etag: Optional[pulumi.Input[str]] = None,
              events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
         if configuration is not None:
@@ -194,22 +200,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
-
         ## Import
 
         Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
@@ -233,22 +223,6 @@ class OrganizationWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
 
         ## Import
 
@@ -291,11 +265,7 @@ class OrganizationWebhook(pulumi.CustomResource):
             __props__ = OrganizationWebhookArgs.__new__(OrganizationWebhookArgs)
 
             __props__.__dict__["active"] = active
-            if configuration is not None and not isinstance(configuration, OrganizationWebhookConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                OrganizationWebhookConfigurationArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, OrganizationWebhookConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")

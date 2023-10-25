@@ -29,9 +29,19 @@ class ActionsOrganizationSecretRepositoriesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_name: pulumi.Input[str],
-             selected_repository_ids: pulumi.Input[Sequence[pulumi.Input[int]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             secret_name: Optional[pulumi.Input[str]] = None,
+             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+        if selected_repository_ids is None:
+            raise TypeError("Missing 'selected_repository_ids' argument")
+
         _setter("secret_name", secret_name)
         _setter("selected_repository_ids", selected_repository_ids)
 
@@ -80,7 +90,13 @@ class _ActionsOrganizationSecretRepositoriesState:
              _setter: Callable[[Any, Any], None],
              secret_name: Optional[pulumi.Input[str]] = None,
              selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+
         if secret_name is not None:
             _setter("secret_name", secret_name)
         if selected_repository_ids is not None:
@@ -125,18 +141,6 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
-            secret_name="existing_secret_name",
-            selected_repository_ids=[repo.repo_id])
-        ```
-
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
@@ -161,18 +165,6 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
-            secret_name="existing_secret_name",
-            selected_repository_ids=[repo.repo_id])
-        ```
 
         ## Import
 

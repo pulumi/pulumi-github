@@ -4,35 +4,15 @@
 package github
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of codespaces secrets of the user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetCodespacesUserSecrets(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCodespacesUserSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCodespacesUserSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesUserSecretsResult
@@ -49,4 +29,50 @@ type GetCodespacesUserSecretsResult struct {
 	Id string `pulumi:"id"`
 	// list of secrets for the repository
 	Secrets []GetCodespacesUserSecretsSecret `pulumi:"secrets"`
+}
+
+func GetCodespacesUserSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesUserSecretsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesUserSecretsResult, error) {
+		r, err := GetCodespacesUserSecrets(ctx, opts...)
+		var s GetCodespacesUserSecretsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetCodespacesUserSecretsResultOutput)
+}
+
+// A collection of values returned by getCodespacesUserSecrets.
+type GetCodespacesUserSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (GetCodespacesUserSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCodespacesUserSecretsResult)(nil)).Elem()
+}
+
+func (o GetCodespacesUserSecretsResultOutput) ToGetCodespacesUserSecretsResultOutput() GetCodespacesUserSecretsResultOutput {
+	return o
+}
+
+func (o GetCodespacesUserSecretsResultOutput) ToGetCodespacesUserSecretsResultOutputWithContext(ctx context.Context) GetCodespacesUserSecretsResultOutput {
+	return o
+}
+
+func (o GetCodespacesUserSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesUserSecretsResult] {
+	return pulumix.Output[GetCodespacesUserSecretsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCodespacesUserSecretsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// list of secrets for the repository
+func (o GetCodespacesUserSecretsResultOutput) Secrets() GetCodespacesUserSecretsSecretArrayOutput {
+	return o.ApplyT(func(v GetCodespacesUserSecretsResult) []GetCodespacesUserSecretsSecret { return v.Secrets }).(GetCodespacesUserSecretsSecretArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCodespacesUserSecretsResultOutput{})
 }

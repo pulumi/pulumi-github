@@ -46,14 +46,24 @@ class RepositoryRulesetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enforcement: pulumi.Input[str],
-             rules: pulumi.Input['RepositoryRulesetRulesArgs'],
-             target: pulumi.Input[str],
+             enforcement: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
+             target: Optional[pulumi.Input[str]] = None,
              bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
              conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enforcement is None:
+            raise TypeError("Missing 'enforcement' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+
         _setter("enforcement", enforcement)
         _setter("rules", rules)
         _setter("target", target)
@@ -203,7 +213,15 @@ class _RepositoryRulesetState:
              rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
              ruleset_id: Optional[pulumi.Input[int]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bypass_actors is None and 'bypassActors' in kwargs:
+            bypass_actors = kwargs['bypassActors']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if ruleset_id is None and 'rulesetId' in kwargs:
+            ruleset_id = kwargs['rulesetId']
+
         if bypass_actors is not None:
             _setter("bypass_actors", bypass_actors)
         if conditions is not None:
@@ -364,40 +382,6 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository", description="Example repository")
-        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
-            repository=example_repository.name,
-            target="branch",
-            enforcement="active",
-            conditions=github.RepositoryRulesetConditionsArgs(
-                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.RepositoryRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
-                    required_deployment_environments=["test"],
-                ),
-            ))
-        ```
-
         ## Import
 
         GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
@@ -426,40 +410,6 @@ class RepositoryRuleset(pulumi.CustomResource):
         Creates a GitHub repository ruleset.
 
         This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository", description="Example repository")
-        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
-            repository=example_repository.name,
-            target="branch",
-            enforcement="active",
-            conditions=github.RepositoryRulesetConditionsArgs(
-                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.RepositoryRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
-                    required_deployment_environments=["test"],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -505,22 +455,14 @@ class RepositoryRuleset(pulumi.CustomResource):
             __props__ = RepositoryRulesetArgs.__new__(RepositoryRulesetArgs)
 
             __props__.__dict__["bypass_actors"] = bypass_actors
-            if conditions is not None and not isinstance(conditions, RepositoryRulesetConditionsArgs):
-                conditions = conditions or {}
-                def _setter(key, value):
-                    conditions[key] = value
-                RepositoryRulesetConditionsArgs._configure(_setter, **conditions)
+            conditions = _utilities.configure(conditions, RepositoryRulesetConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             if enforcement is None and not opts.urn:
                 raise TypeError("Missing required property 'enforcement'")
             __props__.__dict__["enforcement"] = enforcement
             __props__.__dict__["name"] = name
             __props__.__dict__["repository"] = repository
-            if rules is not None and not isinstance(rules, RepositoryRulesetRulesArgs):
-                rules = rules or {}
-                def _setter(key, value):
-                    rules[key] = value
-                RepositoryRulesetRulesArgs._configure(_setter, **rules)
+            rules = _utilities.configure(rules, RepositoryRulesetRulesArgs, True)
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules

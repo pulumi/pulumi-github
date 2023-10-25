@@ -14,40 +14,6 @@ import (
 )
 
 // This resource allows you to create and manage projects for GitHub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-//				Description: pulumi.String("My awesome codebase"),
-//				HasProjects: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryProject(ctx, "project", &github.RepositoryProjectArgs{
-//				Body:       pulumi.String("This is a repository project."),
-//				Repository: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RepositoryProject struct {
 	pulumi.CustomResourceState
 

@@ -17,33 +17,6 @@ import (
 // This resource allows you to add/remove teams from your organization. When applied,
 // a new team will be created. When destroyed, that team will be removed.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
-//				Description: pulumi.String("Some cool team"),
-//				Privacy:     pulumi.String("closed"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // GitHub Teams can be imported using the GitHub team ID or name e.g.

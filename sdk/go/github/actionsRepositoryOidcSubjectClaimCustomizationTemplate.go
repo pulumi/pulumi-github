@@ -27,42 +27,6 @@ import (
 // | `false`       | Set                  | `includeClaimKeys`                                      |
 // | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.NewRepository(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx, "exampleTemplate", &github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs{
-//				Repository: example.Name,
-//				UseDefault: pulumi.Bool(false),
-//				IncludeClaimKeys: pulumi.StringArray{
-//					pulumi.String("actor"),
-//					pulumi.String("context"),
-//					pulumi.String("repository_owner"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource can be imported using the repository's name.

@@ -37,11 +37,19 @@ class RepositoryCollaboratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository: pulumi.Input[str],
-             username: pulumi.Input[str],
+             repository: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              permission: Optional[pulumi.Input[str]] = None,
              permission_diff_suppression: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if permission_diff_suppression is None and 'permissionDiffSuppression' in kwargs:
+            permission_diff_suppression = kwargs['permissionDiffSuppression']
+
         _setter("repository", repository)
         _setter("username", username)
         if permission is not None:
@@ -134,7 +142,13 @@ class _RepositoryCollaboratorState:
              permission_diff_suppression: Optional[pulumi.Input[bool]] = None,
              repository: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+        if permission_diff_suppression is None and 'permissionDiffSuppression' in kwargs:
+            permission_diff_suppression = kwargs['permissionDiffSuppression']
+
         if invitation_id is not None:
             _setter("invitation_id", invitation_id)
         if permission is not None:
@@ -245,19 +259,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a collaborator to a repository
-        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
-            permission="admin",
-            repository="our-cool-repo",
-            username="SomeUser")
-        ```
-
         ## Import
 
         GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
@@ -306,19 +307,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
         - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Add a collaborator to a repository
-        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
-            permission="admin",
-            repository="our-cool-repo",
-            username="SomeUser")
-        ```
 
         ## Import
 

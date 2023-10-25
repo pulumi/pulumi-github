@@ -11,19 +11,6 @@ import * as utilities from "./utilities";
  * an invitation will be sent to the user to become part of the organization. When
  * destroyed, either the invitation will be cancelled or the user will be removed.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     role: "member",
- *     username: "SomeUser",
- * });
- * ```
- *
  * ## Import
  *
  * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.

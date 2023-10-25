@@ -21,38 +21,6 @@ namespace Pulumi.Github
     /// 
     /// &gt; **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
-    ///     {
-    ///         Username = "SomeUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///     });
-    /// 
-    ///     var someTeamMembership = new Github.TeamMembership("someTeamMembership", new()
-    ///     {
-    ///         TeamId = someTeam.Id,
-    ///         Username = "SomeUser",
-    ///         Role = "member",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.

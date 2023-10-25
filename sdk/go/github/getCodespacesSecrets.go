@@ -13,38 +13,6 @@ import (
 )
 
 // Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetCodespacesSecrets(ctx, &github.GetCodespacesSecretsArgs{
-//				Name: pulumi.StringRef("example_repository"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.GetCodespacesSecrets(ctx, &github.GetCodespacesSecretsArgs{
-//				FullName: pulumi.StringRef("org/example_repository"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCodespacesSecrets(ctx *pulumi.Context, args *GetCodespacesSecretsArgs, opts ...pulumi.InvokeOption) (*GetCodespacesSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesSecretsResult

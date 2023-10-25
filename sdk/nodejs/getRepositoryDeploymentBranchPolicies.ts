@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve deployment branch policies for a repository / environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryDeploymentBranchPolicies(args: GetRepositoryDeploymentBranchPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeploymentBranchPoliciesResult> {
 
@@ -61,18 +49,6 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
 }
 /**
  * Use this data source to retrieve deployment branch policies for a repository / environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
- *     repository: "example-repository",
- * });
- * ```
  */
 export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryDeploymentBranchPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeploymentBranchPoliciesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryDeploymentBranchPolicies(a, opts))

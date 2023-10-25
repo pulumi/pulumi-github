@@ -37,11 +37,23 @@ class ActionsOrganizationPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled_repositories: pulumi.Input[str],
+             enabled_repositories: Optional[pulumi.Input[str]] = None,
              allowed_actions: Optional[pulumi.Input[str]] = None,
              allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
              enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled_repositories is None and 'enabledRepositories' in kwargs:
+            enabled_repositories = kwargs['enabledRepositories']
+        if enabled_repositories is None:
+            raise TypeError("Missing 'enabled_repositories' argument")
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+        if enabled_repositories_config is None and 'enabledRepositoriesConfig' in kwargs:
+            enabled_repositories_config = kwargs['enabledRepositoriesConfig']
+
         _setter("enabled_repositories", enabled_repositories)
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
@@ -127,7 +139,17 @@ class _ActionsOrganizationPermissionsState:
              allowed_actions_config: Optional[pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs']] = None,
              enabled_repositories: Optional[pulumi.Input[str]] = None,
              enabled_repositories_config: Optional[pulumi.Input['ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+        if enabled_repositories is None and 'enabledRepositories' in kwargs:
+            enabled_repositories = kwargs['enabledRepositories']
+        if enabled_repositories_config is None and 'enabledRepositoriesConfig' in kwargs:
+            enabled_repositories_config = kwargs['enabledRepositoriesConfig']
+
         if allowed_actions is not None:
             _setter("allowed_actions", allowed_actions)
         if allowed_actions_config is not None:
@@ -200,29 +222,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example")
-        test = github.ActionsOrganizationPermissions("test",
-            allowed_actions="selected",
-            enabled_repositories="selected",
-            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
-                    "actions/cache@*",
-                    "actions/checkout@*",
-                ],
-                verified_allowed=True,
-            ),
-            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
-                repository_ids=[example.repo_id],
-            ))
-        ```
-
         ## Import
 
         This resource can be imported using the ID of the GitHub organization:
@@ -247,29 +246,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example")
-        test = github.ActionsOrganizationPermissions("test",
-            allowed_actions="selected",
-            enabled_repositories="selected",
-            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
-                    "actions/cache@*",
-                    "actions/checkout@*",
-                ],
-                verified_allowed=True,
-            ),
-            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
-                repository_ids=[example.repo_id],
-            ))
-        ```
 
         ## Import
 
@@ -312,20 +288,12 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
             __props__ = ActionsOrganizationPermissionsArgs.__new__(ActionsOrganizationPermissionsArgs)
 
             __props__.__dict__["allowed_actions"] = allowed_actions
-            if allowed_actions_config is not None and not isinstance(allowed_actions_config, ActionsOrganizationPermissionsAllowedActionsConfigArgs):
-                allowed_actions_config = allowed_actions_config or {}
-                def _setter(key, value):
-                    allowed_actions_config[key] = value
-                ActionsOrganizationPermissionsAllowedActionsConfigArgs._configure(_setter, **allowed_actions_config)
+            allowed_actions_config = _utilities.configure(allowed_actions_config, ActionsOrganizationPermissionsAllowedActionsConfigArgs, True)
             __props__.__dict__["allowed_actions_config"] = allowed_actions_config
             if enabled_repositories is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled_repositories'")
             __props__.__dict__["enabled_repositories"] = enabled_repositories
-            if enabled_repositories_config is not None and not isinstance(enabled_repositories_config, ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs):
-                enabled_repositories_config = enabled_repositories_config or {}
-                def _setter(key, value):
-                    enabled_repositories_config[key] = value
-                ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs._configure(_setter, **enabled_repositories_config)
+            enabled_repositories_config = _utilities.configure(enabled_repositories_config, ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs, True)
             __props__.__dict__["enabled_repositories_config"] = enabled_repositories_config
         super(ActionsOrganizationPermissions, __self__).__init__(
             'github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions',

@@ -8,38 +8,6 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
  * You must have write access to a repository to use this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleVariable = new github.ActionsEnvironmentVariable("exampleVariable", {
- *     environment: "example_environment",
- *     value: "example_variable_value",
- *     variableName: "example_variable_name",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = github.getRepository({
- *     fullName: "my-org/repo",
- * });
- * const repoEnvironment = new github.RepositoryEnvironment("repoEnvironment", {
- *     repository: repo.then(repo => repo.name),
- *     environment: "example_environment",
- * });
- * const exampleVariable = new github.ActionsEnvironmentVariable("exampleVariable", {
- *     repository: repo.then(repo => repo.name),
- *     environment: repoEnvironment.environment,
- *     variableName: "example_variable_name",
- *     value: "example_variable_value",
- * });
- * ```
- *
  * ## Import
  *
  * This resource can be imported using an ID made up of the repository name, environment name, and variable name:

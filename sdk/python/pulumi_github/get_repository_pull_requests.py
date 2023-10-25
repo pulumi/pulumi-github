@@ -140,19 +140,6 @@ def get_repository_pull_requests(base_ref: Optional[str] = None,
     """
     Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_pull_requests(base_ref="main",
-        base_repository="example-repository",
-        sort_by="updated",
-        sort_direction="desc",
-        state="open")
-    ```
-
 
     :param str base_ref: If set, filters Pull Requests by base branch name.
     :param str base_repository: Name of the base repository to retrieve the Pull Requests from.
@@ -196,19 +183,6 @@ def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestsResult]:
     """
     Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_repository_pull_requests(base_ref="main",
-        base_repository="example-repository",
-        sort_by="updated",
-        sort_direction="desc",
-        state="open")
-    ```
 
 
     :param str base_ref: If set, filters Pull Requests by base branch name.

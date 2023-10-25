@@ -18,36 +18,6 @@ namespace Pulumi.Github
     /// 
     /// &gt; **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Add a repository to the team
-    ///     var someTeam = new Github.Team("someTeam", new()
-    ///     {
-    ///         Description = "Some cool team",
-    ///     });
-    /// 
-    ///     var codeReviewSettings = new Github.TeamSettings("codeReviewSettings", new()
-    ///     {
-    ///         TeamId = someTeam.Id,
-    ///         ReviewRequestDelegation = new Github.Inputs.TeamSettingsReviewRequestDelegationArgs
-    ///         {
-    ///             Algorithm = "ROUND_ROBIN",
-    ///             MemberCount = 1,
-    ///             Notify = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.

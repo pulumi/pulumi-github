@@ -17,57 +17,6 @@ namespace Pulumi.Github
     /// the `contents:write` permission or else the `allow_merge_commit`, `allow_rebase_merge`,
     /// and `allow_squash_merge` attributes will be ignored, causing confusing diffs.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.Repository("example", new()
-    ///     {
-    ///         Description = "My awesome codebase",
-    ///         Template = new Github.Inputs.RepositoryTemplateArgs
-    ///         {
-    ///             IncludeAllBranches = true,
-    ///             Owner = "github",
-    ///             Repository = "terraform-template-module",
-    ///         },
-    ///         Visibility = "public",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With GitHub Pages Enabled
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.Repository("example", new()
-    ///     {
-    ///         Description = "My awesome web page",
-    ///         Pages = new Github.Inputs.RepositoryPagesArgs
-    ///         {
-    ///             Source = new Github.Inputs.RepositoryPagesSourceArgs
-    ///             {
-    ///                 Branch = "master",
-    ///                 Path = "/docs",
-    ///             },
-    ///         },
-    ///         Private = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Repositories can be imported using the `name`, e.g.

@@ -6,15 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about GitHub's IP addresses.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const test = github.getIpRanges({});
- * ```
  */
 export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
 
@@ -130,15 +121,6 @@ export interface GetIpRangesResult {
 }
 /**
  * Use this data source to retrieve information about GitHub's IP addresses.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const test = github.getIpRanges({});
- * ```
  */
 export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
     return pulumi.output(getIpRanges(opts))

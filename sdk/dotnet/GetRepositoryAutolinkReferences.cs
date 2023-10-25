@@ -13,56 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve autolink references for a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryAutolinkReferences.Invoke(new()
-        ///     {
-        ///         Repository = "example-repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryAutolinkReferencesResult> InvokeAsync(GetRepositoryAutolinkReferencesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve autolink references for a repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetRepositoryAutolinkReferences.Invoke(new()
-        ///     {
-        ///         Repository = "example-repository",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryAutolinkReferencesResult> Invoke(GetRepositoryAutolinkReferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesInvokeArgs(), options.WithDefaults());

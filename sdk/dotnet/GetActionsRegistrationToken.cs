@@ -13,56 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetActionsRegistrationToken.Invoke(new()
-        ///     {
-        ///         Repository = "example_repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionsRegistrationTokenResult> InvokeAsync(GetActionsRegistrationTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsRegistrationTokenResult>("github:index/getActionsRegistrationToken:getActionsRegistrationToken", args ?? new GetActionsRegistrationTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Github.GetActionsRegistrationToken.Invoke(new()
-        ///     {
-        ///         Repository = "example_repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionsRegistrationTokenResult> Invoke(GetActionsRegistrationTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsRegistrationTokenResult>("github:index/getActionsRegistrationToken:getActionsRegistrationToken", args ?? new GetActionsRegistrationTokenInvokeArgs(), options.WithDefaults());

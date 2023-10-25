@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of variables of the repository environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsEnvironmentVariables({
- *     environment: "exampleEnvironment",
- *     name: "exampleRepo",
- * });
- * ```
  */
 export function getActionsEnvironmentVariables(args: GetActionsEnvironmentVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsEnvironmentVariablesResult> {
 
@@ -64,18 +52,6 @@ export interface GetActionsEnvironmentVariablesResult {
 }
 /**
  * Use this data source to retrieve the list of variables of the repository environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = github.getActionsEnvironmentVariables({
- *     environment: "exampleEnvironment",
- *     name: "exampleRepo",
- * });
- * ```
  */
 export function getActionsEnvironmentVariablesOutput(args: GetActionsEnvironmentVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsEnvironmentVariablesResult> {
     return pulumi.output(args).apply((a: any) => getActionsEnvironmentVariables(a, opts))

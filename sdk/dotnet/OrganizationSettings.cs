@@ -12,48 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage settings for a GitHub Organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Github.OrganizationSettings("test", new()
-    ///     {
-    ///         AdvancedSecurityEnabledForNewRepositories = false,
-    ///         BillingEmail = "test@example.com",
-    ///         Blog = "https://example.com",
-    ///         Company = "Test Company",
-    ///         DefaultRepositoryPermission = "read",
-    ///         DependabotAlertsEnabledForNewRepositories = false,
-    ///         DependabotSecurityUpdatesEnabledForNewRepositories = false,
-    ///         DependencyGraphEnabledForNewRepositories = false,
-    ///         Description = "Test Description",
-    ///         Email = "test@example.com",
-    ///         HasOrganizationProjects = true,
-    ///         HasRepositoryProjects = true,
-    ///         Location = "Test Location",
-    ///         MembersCanCreateInternalRepositories = true,
-    ///         MembersCanCreatePages = true,
-    ///         MembersCanCreatePrivatePages = true,
-    ///         MembersCanCreatePrivateRepositories = true,
-    ///         MembersCanCreatePublicPages = true,
-    ///         MembersCanCreatePublicRepositories = true,
-    ///         MembersCanCreateRepositories = true,
-    ///         MembersCanForkPrivateRepositories = true,
-    ///         SecretScanningEnabledForNewRepositories = false,
-    ///         SecretScanningPushProtectionEnabledForNewRepositories = false,
-    ///         TwitterUsername = "Test",
-    ///         WebCommitSignoffRequired = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.

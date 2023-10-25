@@ -376,15 +376,6 @@ def get_organization(name: Optional[str] = None,
     """
     Use this data source to retrieve basic information about a GitHub Organization.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_organization(name="github")
-    ```
-
 
     :param str name: The organization's public profile name
     """
@@ -429,15 +420,6 @@ def get_organization_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Use this data source to retrieve basic information about a GitHub Organization.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_organization(name="github")
-    ```
 
 
     :param str name: The organization's public profile name

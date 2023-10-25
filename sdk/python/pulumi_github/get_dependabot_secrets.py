@@ -84,15 +84,6 @@ def get_dependabot_secrets(full_name: Optional[str] = None,
     """
     Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_dependabot_secrets(name="example")
-    ```
-
 
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str name: The name of the repository.
@@ -116,15 +107,6 @@ def get_dependabot_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotSecretsResult]:
     """
     Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_dependabot_secrets(name="example")
-    ```
 
 
     :param str full_name: Full name of the repository (in `org/name` format).

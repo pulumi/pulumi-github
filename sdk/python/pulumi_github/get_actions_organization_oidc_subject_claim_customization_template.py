@@ -59,15 +59,6 @@ class AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult
 def get_actions_organization_oidc_subject_claim_customization_template(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult:
     """
     Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_oidc_subject_claim_customization_template()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -82,14 +73,5 @@ def get_actions_organization_oidc_subject_claim_customization_template(opts: Opt
 def get_actions_organization_oidc_subject_claim_customization_template_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult]:
     """
     Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_github as github
-
-    example = github.get_actions_organization_oidc_subject_claim_customization_template()
-    ```
     """
     ...

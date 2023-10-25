@@ -11,24 +11,6 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage projects for GitHub organization.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new Github.OrganizationProject("project", new()
-    ///     {
-    ///         Body = "This is a organization project.",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationProject:OrganizationProject")]
     public partial class OrganizationProject : global::Pulumi.CustomResource

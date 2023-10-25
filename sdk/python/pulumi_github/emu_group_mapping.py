@@ -29,9 +29,19 @@ class EmuGroupMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[int],
-             team_slug: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_id: Optional[pulumi.Input[int]] = None,
+             team_slug: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_slug is None:
+            raise TypeError("Missing 'team_slug' argument")
+
         _setter("group_id", group_id)
         _setter("team_slug", team_slug)
 
@@ -83,7 +93,13 @@ class _EmuGroupMappingState:
              etag: Optional[pulumi.Input[str]] = None,
              group_id: Optional[pulumi.Input[int]] = None,
              team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+
         if etag is not None:
             _setter("etag", etag)
         if group_id is not None:
@@ -136,18 +152,6 @@ class EmuGroupMapping(pulumi.CustomResource):
         """
         This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
-        ```
-
         ## Import
 
         GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
@@ -169,18 +173,6 @@ class EmuGroupMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
-        ```
 
         ## Import
 

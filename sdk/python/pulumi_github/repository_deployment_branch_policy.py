@@ -32,10 +32,18 @@ class RepositoryDeploymentBranchPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             environment_name: pulumi.Input[str],
-             repository: pulumi.Input[str],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if environment_name is None:
+            raise TypeError("Missing 'environment_name' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("environment_name", environment_name)
         _setter("repository", repository)
         if name is not None:
@@ -106,7 +114,11 @@ class _RepositoryDeploymentBranchPolicyState:
              etag: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+
         if environment_name is not None:
             _setter("environment_name", environment_name)
         if etag is not None:
@@ -177,25 +189,6 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         """
         This resource allows you to create and manage deployment branch policies.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        env = github.RepositoryEnvironment("env",
-            repository="my_repo",
-            environment="my_env",
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
-        foo = github.RepositoryDeploymentBranchPolicy("foo",
-            repository="my_repo",
-            environment_name="my_env",
-            opts=pulumi.ResourceOptions(depends_on=[env]))
-        ```
-
         ## Import
 
         ```sh
@@ -216,25 +209,6 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage deployment branch policies.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        env = github.RepositoryEnvironment("env",
-            repository="my_repo",
-            environment="my_env",
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
-        foo = github.RepositoryDeploymentBranchPolicy("foo",
-            repository="my_repo",
-            environment_name="my_env",
-            opts=pulumi.ResourceOptions(depends_on=[env]))
-        ```
 
         ## Import
 

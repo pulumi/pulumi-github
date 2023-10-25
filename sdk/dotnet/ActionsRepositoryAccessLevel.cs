@@ -13,30 +13,6 @@ namespace Pulumi.Github
     /// This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
     /// You must have admin access to a repository to use this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.Repository("example", new()
-    ///     {
-    ///         Visibility = "private",
-    ///     });
-    /// 
-    ///     var test = new Github.ActionsRepositoryAccessLevel("test", new()
-    ///     {
-    ///         AccessLevel = "user",
-    ///         Repository = example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the name of the GitHub repository:
