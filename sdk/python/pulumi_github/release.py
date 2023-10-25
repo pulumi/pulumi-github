@@ -420,6 +420,38 @@ class Release(pulumi.CustomResource):
         This resource allows you to create and manage a release in a specific
         GitHub repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False)
+        example = github.Release("example",
+            repository=repo.name,
+            tag_name="v1.0.0")
+        ```
+        ### On Non-Default Branch
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository", auto_init=True)
+        example_branch = github.Branch("exampleBranch",
+            repository=example_repository.name,
+            branch="branch_name",
+            source_branch=example_repository.default_branch)
+        example_release = github.Release("exampleRelease",
+            repository=example_repository.name,
+            tag_name="v1.0.0",
+            target_commitish=example_branch.branch,
+            draft=False,
+            prerelease=False)
+        ```
+
         ## Import
 
         This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
@@ -449,6 +481,38 @@ class Release(pulumi.CustomResource):
         """
         This resource allows you to create and manage a release in a specific
         GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False)
+        example = github.Release("example",
+            repository=repo.name,
+            tag_name="v1.0.0")
+        ```
+        ### On Non-Default Branch
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository", auto_init=True)
+        example_branch = github.Branch("exampleBranch",
+            repository=example_repository.name,
+            branch="branch_name",
+            source_branch=example_repository.default_branch)
+        example_release = github.Release("exampleRelease",
+            repository=example_repository.name,
+            tag_name="v1.0.0",
+            target_commitish=example_branch.branch,
+            draft=False,
+            prerelease=False)
+        ```
 
         ## Import
 

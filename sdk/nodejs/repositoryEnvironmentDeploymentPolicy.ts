@@ -7,6 +7,35 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const current = github.getUser({
+ *     username: "",
+ * });
+ * const testRepository = new github.Repository("testRepository", {});
+ * const testRepositoryEnvironment = new github.RepositoryEnvironment("testRepositoryEnvironment", {
+ *     repository: testRepository.name,
+ *     environment: "environment/test",
+ *     waitTimer: 10000,
+ *     reviewers: [{
+ *         users: [current.then(current => current.id)],
+ *     }],
+ *     deploymentBranchPolicy: {
+ *         protectedBranches: false,
+ *         customBranchPolicies: true,
+ *     },
+ * });
+ * const testRepositoryEnvironmentDeploymentPolicy = new github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", {
+ *     repository: testRepository.name,
+ *     environment: testRepositoryEnvironment.environment,
+ *     branchPattern: "releases/*",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.

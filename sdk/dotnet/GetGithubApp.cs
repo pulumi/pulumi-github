@@ -13,12 +13,56 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about an app.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     {
+        ///         Slug = "foobar",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGithubAppResult> InvokeAsync(GetGithubAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an app.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     {
+        ///         Slug = "foobar",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetGithubAppResult> Invoke(GetGithubAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppInvokeArgs(), options.WithDefaults());

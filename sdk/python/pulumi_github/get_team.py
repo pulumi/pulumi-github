@@ -185,6 +185,15 @@ def get_team(membership_type: Optional[str] = None,
     """
     Use this data source to retrieve information about a GitHub team.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_team(slug="example")
+    ```
+
 
     :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
     :param int results_per_page: Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
@@ -223,6 +232,15 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to retrieve information about a GitHub team.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_team(slug="example")
+    ```
 
 
     :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"

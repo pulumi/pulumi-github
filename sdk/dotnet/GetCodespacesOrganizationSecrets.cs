@@ -13,12 +13,50 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets of the organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesOrganizationSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCodespacesOrganizationSecretsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodespacesOrganizationSecretsResult>("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets of the organization.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesOrganizationSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCodespacesOrganizationSecretsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesOrganizationSecretsResult>("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());

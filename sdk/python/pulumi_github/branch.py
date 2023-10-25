@@ -269,6 +269,17 @@ class Branch(pulumi.CustomResource):
         Additional constraints can be applied to ensure your branch is created from
         another branch or commit.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        development = github.Branch("development",
+            branch="development",
+            repository="example")
+        ```
+
         ## Import
 
         GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
@@ -305,6 +316,17 @@ class Branch(pulumi.CustomResource):
 
         Additional constraints can be applied to ensure your branch is created from
         another branch or commit.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        development = github.Branch("development",
+            branch="development",
+            repository="example")
+        ```
 
         ## Import
 

@@ -295,6 +295,20 @@ class EnterpriseOrganization(pulumi.CustomResource):
         """
         This resource allows you to create and manage a GitHub enterprise organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        org = github.EnterpriseOrganization("org",
+            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            display_name="Some Awesome Org",
+            description="Organization created with terraform",
+            billing_email="jon@winteriscoming.com",
+            admin_logins=["jon-snow"])
+        ```
+
         ## Import
 
         GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
@@ -320,6 +334,20 @@ class EnterpriseOrganization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage a GitHub enterprise organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        org = github.EnterpriseOrganization("org",
+            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            display_name="Some Awesome Org",
+            description="Organization created with terraform",
+            billing_email="jon@winteriscoming.com",
+            admin_logins=["jon-snow"])
+        ```
 
         ## Import
 

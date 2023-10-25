@@ -13,12 +13,58 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve deployment branch policies for a repository / environment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryDeploymentBranchPolicies.Invoke(new()
+        ///     {
+        ///         EnvironmentName = "env_name",
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryDeploymentBranchPoliciesResult> InvokeAsync(GetRepositoryDeploymentBranchPoliciesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve deployment branch policies for a repository / environment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryDeploymentBranchPolicies.Invoke(new()
+        ///     {
+        ///         EnvironmentName = "env_name",
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryDeploymentBranchPoliciesResult> Invoke(GetRepositoryDeploymentBranchPoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesInvokeArgs(), options.WithDefaults());

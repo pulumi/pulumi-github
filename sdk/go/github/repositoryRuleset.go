@@ -17,6 +17,67 @@ import (
 //
 // This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+//				Description: pulumi.String("Example repository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryRuleset(ctx, "exampleRepositoryRuleset", &github.RepositoryRulesetArgs{
+//				Repository:  exampleRepository.Name,
+//				Target:      pulumi.String("branch"),
+//				Enforcement: pulumi.String("active"),
+//				Conditions: &github.RepositoryRulesetConditionsArgs{
+//					RefName: &github.RepositoryRulesetConditionsRefNameArgs{
+//						Includes: pulumi.StringArray{
+//							pulumi.String("~ALL"),
+//						},
+//						Excludes: pulumi.StringArray{},
+//					},
+//				},
+//				BypassActors: github.RepositoryRulesetBypassActorArray{
+//					&github.RepositoryRulesetBypassActorArgs{
+//						ActorId:    pulumi.Int(13473),
+//						ActorType:  pulumi.String("Integration"),
+//						BypassMode: pulumi.String("always"),
+//					},
+//				},
+//				Rules: &github.RepositoryRulesetRulesArgs{
+//					Creation:              pulumi.Bool(true),
+//					Update:                pulumi.Bool(true),
+//					Deletion:              pulumi.Bool(true),
+//					RequiredLinearHistory: pulumi.Bool(true),
+//					RequiredSignatures:    pulumi.Bool(true),
+//					RequiredDeployments: &github.RepositoryRulesetRulesRequiredDeploymentsArgs{
+//						RequiredDeploymentEnvironments: pulumi.StringArray{
+//							pulumi.String("test"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.

@@ -13,12 +13,56 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about branches in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryBranches.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryBranchesResult> InvokeAsync(GetRepositoryBranchesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about branches in a repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryBranches.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryBranchesResult> Invoke(GetRepositoryBranchesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesInvokeArgs(), options.WithDefaults());

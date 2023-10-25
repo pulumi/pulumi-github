@@ -16,6 +16,28 @@ namespace Pulumi.Github
         /// as what role they have within it.
         /// If the user's membership in the organization is pending their acceptance of an invite,
         /// the role they would have once they accept will be returned.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     {
+        ///         Username = "SomeUser",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMembershipResult> InvokeAsync(GetMembershipArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipArgs(), options.WithDefaults());
@@ -25,6 +47,28 @@ namespace Pulumi.Github
         /// as what role they have within it.
         /// If the user's membership in the organization is pending their acceptance of an invite,
         /// the role they would have once they accept will be returned.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     {
+        ///         Username = "SomeUser",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());

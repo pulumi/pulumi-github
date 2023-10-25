@@ -94,6 +94,16 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
     """
     Use this data source to retrieve the list of secrets of the repository environment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
+        name="exampleRepo")
+    ```
+
 
     :param str name: Name of the secret
     """
@@ -119,6 +129,16 @@ def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[st
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsEnvironmentSecretsResult]:
     """
     Use this data source to retrieve the list of secrets of the repository environment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
+        name="exampleRepo")
+    ```
 
 
     :param str name: Name of the secret

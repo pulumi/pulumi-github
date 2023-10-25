@@ -13,6 +13,32 @@ import (
 )
 
 // Use this data source to retrieve external groups belonging to an organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleExternalGroups, err := github.GetExternalGroups(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			localGroups := exampleExternalGroups
+//			ctx.Export("groups", localGroups)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetExternalGroups(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetExternalGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalGroupsResult

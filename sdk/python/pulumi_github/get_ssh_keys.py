@@ -59,6 +59,15 @@ class AwaitableGetSshKeysResult(GetSshKeysResult):
 def get_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeysResult:
     """
     Use this data source to retrieve information about GitHub's SSH keys.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ssh_keys()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -73,5 +82,14 @@ def get_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsh
 def get_ssh_keys_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeysResult]:
     """
     Use this data source to retrieve information about GitHub's SSH keys.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ssh_keys()
+    ```
     """
     ...

@@ -18,6 +18,33 @@ import (
 // Additional constraints can be applied to ensure your branch is created from
 // another branch or commit.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewBranch(ctx, "development", &github.BranchArgs{
+//				Branch:     pulumi.String("development"),
+//				Repository: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.

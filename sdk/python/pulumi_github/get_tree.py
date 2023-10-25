@@ -91,6 +91,21 @@ def get_tree(recursive: Optional[bool] = None,
     """
     Use this data source to retrieve information about a single tree.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    this_repository = github.get_repository(name="example")
+    this_branch = github.get_branch(branch=this_repository.default_branch,
+        repository=this_repository.name)
+    this_tree = github.get_tree(recursive=False,
+        repository=this_repository.name,
+        tree_sha=this_branch.sha)
+    pulumi.export("entries", this_tree.entries)
+    ```
+
 
     :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
     :param str repository: The name of the repository.
@@ -118,6 +133,21 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTreeResult]:
     """
     Use this data source to retrieve information about a single tree.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    this_repository = github.get_repository(name="example")
+    this_branch = github.get_branch(branch=this_repository.default_branch,
+        repository=this_repository.name)
+    this_tree = github.get_tree(recursive=False,
+        repository=this_repository.name,
+        tree_sha=this_branch.sha)
+    pulumi.export("entries", this_tree.entries)
+    ```
 
 
     :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.

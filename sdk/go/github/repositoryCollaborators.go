@@ -38,6 +38,54 @@ import (
 // - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
 // - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryCollaborators(ctx, "someRepoCollaborators", &github.RepositoryCollaboratorsArgs{
+//				Repository: someRepo.Name,
+//				Users: github.RepositoryCollaboratorsUserArray{
+//					&github.RepositoryCollaboratorsUserArgs{
+//						Permission: pulumi.String("admin"),
+//						Username:   pulumi.String("SomeUser"),
+//					},
+//				},
+//				Teams: github.RepositoryCollaboratorsTeamArray{
+//					&github.RepositoryCollaboratorsTeamArgs{
+//						Permission: pulumi.String("pull"),
+//						TeamId:     someTeam.Slug,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Repository Collaborators can be imported using the name `name`, e.g.

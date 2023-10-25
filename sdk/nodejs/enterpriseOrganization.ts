@@ -7,6 +7,21 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage a GitHub enterprise organization.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const org = new github.EnterpriseOrganization("org", {
+ *     enterpriseId: data.github_enterprise.enterprise.id,
+ *     displayName: "Some Awesome Org",
+ *     description: "Organization created with terraform",
+ *     billingEmail: "jon@winteriscoming.com",
+ *     adminLogins: ["jon-snow"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.

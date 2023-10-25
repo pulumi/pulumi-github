@@ -15,6 +15,100 @@ import (
 
 // This resource allows you to create and manage cards for GitHub projects.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is an organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			column, err := github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
+//				ProjectId: project.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProjectCard(ctx, "card", &github.ProjectCardArgs{
+//				ColumnId: column.ColumnId,
+//				Note:     pulumi.String("## Unaccepted 👇"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Adding An Issue To A Project
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//				HasProjects: pulumi.Bool(true),
+//				HasIssues:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testIssue, err := github.NewIssue(ctx, "testIssue", &github.IssueArgs{
+//				Repository: testRepository.ID(),
+//				Title:      pulumi.String("Test issue title"),
+//				Body:       pulumi.String("Test issue body"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRepositoryProject, err := github.NewRepositoryProject(ctx, "testRepositoryProject", &github.RepositoryProjectArgs{
+//				Repository: testRepository.Name,
+//				Body:       pulumi.String("this is a test project"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testProjectColumn, err := github.NewProjectColumn(ctx, "testProjectColumn", &github.ProjectColumnArgs{
+//				ProjectId: testRepositoryProject.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProjectCard(ctx, "testProjectCard", &github.ProjectCardArgs{
+//				ColumnId:    testProjectColumn.ColumnId,
+//				ContentId:   testIssue.IssueId,
+//				ContentType: pulumi.String("Issue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):

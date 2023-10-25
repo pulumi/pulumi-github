@@ -15,6 +15,33 @@ import (
 
 // This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryTagProtection(ctx, "example", &github.RepositoryTagProtectionArgs{
+//				Pattern:    pulumi.String("v*"),
+//				Repository: pulumi.String("example-repository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).

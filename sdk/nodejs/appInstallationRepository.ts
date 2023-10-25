@@ -17,6 +17,20 @@ import * as utilities from "./utilities";
  * by the following the instructions at this
  * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Create a repository.
+ * const someRepo = new github.Repository("someRepo", {});
+ * const someAppRepo = new github.AppInstallationRepository("someAppRepo", {
+ *     installationId: "1234567",
+ *     repository: someRepo.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.

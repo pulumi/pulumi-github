@@ -10,6 +10,84 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
+    /// 
+    ///     var exampleUser = Github.GetUser.Invoke(new()
+    ///     {
+    ///         Username = "example",
+    ///     });
+    /// 
+    ///     var exampleTeam = new Github.Team("exampleTeam");
+    /// 
+    ///     // Protect the main branch of the foo repository. Additionally, require that
+    ///     // the "ci/travis" context to be passing and only allow the engineers team merge
+    ///     // to the branch.
+    ///     var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new()
+    ///     {
+    ///         RepositoryId = exampleRepository.NodeId,
+    ///         Pattern = "main",
+    ///         EnforceAdmins = true,
+    ///         AllowsDeletions = true,
+    ///         RequiredStatusChecks = new[]
+    ///         {
+    ///             new Github.Inputs.BranchProtectionRequiredStatusCheckArgs
+    ///             {
+    ///                 Strict = false,
+    ///                 Contexts = new[]
+    ///                 {
+    ///                     "ci/travis",
+    ///                 },
+    ///             },
+    ///         },
+    ///         RequiredPullRequestReviews = new[]
+    ///         {
+    ///             new Github.Inputs.BranchProtectionRequiredPullRequestReviewArgs
+    ///             {
+    ///                 DismissStaleReviews = true,
+    ///                 RestrictDismissals = true,
+    ///                 DismissalRestrictions = new[]
+    ///                 {
+    ///                     exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///                     exampleTeam.NodeId,
+    ///                     "/exampleuser",
+    ///                     "exampleorganization/exampleteam",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PushRestrictions = new[]
+    ///         {
+    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///             "/exampleuser",
+    ///             "exampleorganization/exampleteam",
+    ///         },
+    ///         ForcePushBypassers = new[]
+    ///         {
+    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///             "/exampleuser",
+    ///             "exampleorganization/exampleteam",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new()
+    ///     {
+    ///         TeamId = exampleTeam.Id,
+    ///         Repository = exampleRepository.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.

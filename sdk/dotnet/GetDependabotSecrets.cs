@@ -13,12 +13,56 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetDependabotSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDependabotSecretsResult> InvokeAsync(GetDependabotSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDependabotSecretsResult>("github:index/getDependabotSecrets:getDependabotSecrets", args ?? new GetDependabotSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetDependabotSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDependabotSecretsResult> Invoke(GetDependabotSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDependabotSecretsResult>("github:index/getDependabotSecrets:getDependabotSecrets", args ?? new GetDependabotSecretsInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,26 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleEmuGroupMapping = new Github.EmuGroupMapping("exampleEmuGroupMapping", new()
+    ///     {
+    ///         GroupId = 28836,
+    ///         TeamSlug = "emu-test-team",
+    ///     });
+    /// 
+    ///     // The GitHub team name to modify
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.

@@ -128,6 +128,21 @@ class RepositoryTopics(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test_repository = github.get_repository(name="test")
+        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
+            repository=github_repository["test"]["name"],
+            topics=[
+                "topic-1",
+                "topic-2",
+            ])
+        ```
+
         ## Import
 
         Repository topics can be imported using the `name` of the repository.
@@ -148,6 +163,21 @@ class RepositoryTopics(pulumi.CustomResource):
                  args: RepositoryTopicsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test_repository = github.get_repository(name="test")
+        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
+            repository=github_repository["test"]["name"],
+            topics=[
+                "topic-1",
+                "topic-2",
+            ])
+        ```
+
         ## Import
 
         Repository topics can be imported using the `name` of the repository.

@@ -10,6 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var someTeamTeam = new Github.Team("someTeamTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someTeamOrganizationSecurityManager = new Github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", new()
+    ///     {
+    ///         TeamSlug = someTeamTeam.Slug,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Security Manager Teams can be imported using the GitHub team ID e.g.

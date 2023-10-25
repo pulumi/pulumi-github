@@ -61,6 +61,17 @@ class AwaitableGetOrganizationWebhooksResult(GetOrganizationWebhooksResult):
 def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationWebhooksResult:
     """
     Use this data source to retrieve all webhooks of the organization.
+
+    ## Example Usage
+
+    To retrieve *all* webhooks of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_webhooks()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -75,5 +86,16 @@ def get_organization_webhooks(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
 def get_organization_webhooks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationWebhooksResult]:
     """
     Use this data source to retrieve all webhooks of the organization.
+
+    ## Example Usage
+
+    To retrieve *all* webhooks of the organization:
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_webhooks()
+    ```
     """
     ...

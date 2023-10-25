@@ -13,6 +13,62 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+ * const example = new github.BranchProtectionV3("example", {
+ *     repository: github_repository.example.name,
+ *     branch: "main",
+ *     restrictions: {
+ *         users: ["foo-user"],
+ *     },
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleTeam = new github.Team("exampleTeam", {});
+ * // Protect the main branch of the foo repository. Additionally, require that
+ * // the "ci/check" check ran by the Github Actions app is passing and only allow
+ * // the engineers team merge to the branch.
+ * const exampleBranchProtectionV3 = new github.BranchProtectionV3("exampleBranchProtectionV3", {
+ *     repository: exampleRepository.name,
+ *     branch: "main",
+ *     enforceAdmins: true,
+ *     requiredStatusChecks: {
+ *         strict: false,
+ *         checks: ["ci/check:824642007264"],
+ *     },
+ *     requiredPullRequestReviews: {
+ *         dismissStaleReviews: true,
+ *         dismissalUsers: ["foo-user"],
+ *         dismissalTeams: [exampleTeam.slug],
+ *         bypassPullRequestAllowances: {
+ *             users: ["foo-user"],
+ *             teams: [exampleTeam.slug],
+ *             apps: ["foo-app"],
+ *         },
+ *     },
+ *     restrictions: {
+ *         users: ["foo-user"],
+ *         teams: [exampleTeam.slug],
+ *         apps: ["foo-app"],
+ *     },
+ * });
+ * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
+ *     teamId: exampleTeam.id,
+ *     repository: exampleRepository.name,
+ *     permission: "pull",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.

@@ -213,6 +213,18 @@ class ActionsVariable(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
         You must have write access to a repository to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsVariable("exampleVariable",
+            repository="example_repository",
+            value="example_variable_value",
+            variable_name="example_variable_name")
+        ```
+
         ## Import
 
         GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
@@ -236,6 +248,18 @@ class ActionsVariable(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions variables within your GitHub repositories.
         You must have write access to a repository to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsVariable("exampleVariable",
+            repository="example_repository",
+            value="example_variable_value",
+            variable_name="example_variable_name")
+        ```
 
         ## Import
 

@@ -15,6 +15,40 @@ import (
 
 // This resource allows you to create and manage webhooks for GitHub organization.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationWebhook(ctx, "foo", &github.OrganizationWebhookArgs{
+//				Active: pulumi.Bool(false),
+//				Configuration: &github.OrganizationWebhookConfigurationArgs{
+//					ContentType: pulumi.String("form"),
+//					InsecureSsl: pulumi.Bool(false),
+//					Url:         pulumi.String("https://google.de/"),
+//				},
+//				Events: pulumi.StringArray{
+//					pulumi.String("issues"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.

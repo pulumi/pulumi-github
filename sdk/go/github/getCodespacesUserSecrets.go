@@ -13,6 +13,30 @@ import (
 )
 
 // Use this data source to retrieve the list of codespaces secrets of the user.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetCodespacesUserSecrets(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCodespacesUserSecrets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCodespacesUserSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesUserSecretsResult

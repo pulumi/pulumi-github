@@ -72,6 +72,15 @@ def get_dependabot_organization_public_key(opts: Optional[pulumi.InvokeOptions] 
     """
     Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to an organization to retrieve it's Dependabot public key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_organization_public_key()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -88,5 +97,14 @@ def get_dependabot_organization_public_key_output(opts: Optional[pulumi.InvokeOp
     """
     Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to an organization to retrieve it's Dependabot public key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_organization_public_key()
+    ```
     """
     ...

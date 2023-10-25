@@ -9,6 +9,18 @@ import * as utilities from "./utilities";
  * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
  *
  * Use this data source to retrieve a list of GitHub repositories using a search query.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositories({
+ *     includeRepoId: true,
+ *     query: "org:hashicorp language:Go",
+ * });
+ * ```
  */
 export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
 
@@ -67,6 +79,18 @@ export interface GetRepositoriesResult {
  * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
  *
  * Use this data source to retrieve a list of GitHub repositories using a search query.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositories({
+ *     includeRepoId: true,
+ *     query: "org:hashicorp language:Go",
+ * });
+ * ```
  */
 export function getRepositoriesOutput(args: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => getRepositories(a, opts))

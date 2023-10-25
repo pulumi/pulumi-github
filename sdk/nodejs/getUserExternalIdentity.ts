@@ -7,6 +7,17 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve a specific organization member's SAML or SCIM user
  * attributes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleUser = github.getUserExternalIdentity({
+ *     username: "example-user",
+ * });
+ * ```
  */
 export function getUserExternalIdentity(args: GetUserExternalIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserExternalIdentityResult> {
 
@@ -56,6 +67,17 @@ export interface GetUserExternalIdentityResult {
 /**
  * Use this data source to retrieve a specific organization member's SAML or SCIM user
  * attributes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleUser = github.getUserExternalIdentity({
+ *     username: "example-user",
+ * });
+ * ```
  */
 export function getUserExternalIdentityOutput(args: GetUserExternalIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserExternalIdentityResult> {
     return pulumi.output(args).apply((a: any) => getUserExternalIdentity(a, opts))

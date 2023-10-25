@@ -91,6 +91,16 @@ def get_collaborators(affiliation: Optional[str] = None,
     """
     Use this data source to retrieve the collaborators for a given repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_collaborators(owner="example_owner",
+        repository="example_repository")
+    ```
+
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
     :param str owner: The organization that owns the repository.
@@ -118,6 +128,16 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaboratorsResult]:
     """
     Use this data source to retrieve the collaborators for a given repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_collaborators(owner="example_owner",
+        repository="example_repository")
+    ```
 
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.

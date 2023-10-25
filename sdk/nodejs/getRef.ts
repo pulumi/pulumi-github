@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a repository ref.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const development = github.getRef({
+ *     owner: "example",
+ *     ref: "heads/development",
+ *     repository: "example",
+ * });
+ * ```
  */
 export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<GetRefResult> {
 
@@ -57,6 +70,19 @@ export interface GetRefResult {
 }
 /**
  * Use this data source to retrieve information about a repository ref.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const development = github.getRef({
+ *     owner: "example",
+ *     ref: "heads/development",
+ *     repository: "example",
+ * });
+ * ```
  */
 export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRefResult> {
     return pulumi.output(args).apply((a: any) => getRef(a, opts))

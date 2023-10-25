@@ -10,6 +10,29 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage webhooks for repositories within your
  * GitHub organization or personal account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = new github.Repository("repo", {
+ *     description: "Terraform acceptance tests",
+ *     homepageUrl: "http://example.com/",
+ *     visibility: "public",
+ * });
+ * const foo = new github.RepositoryWebhook("foo", {
+ *     repository: repo.name,
+ *     configuration: {
+ *         url: "https://google.de/",
+ *         contentType: "form",
+ *         insecureSsl: false,
+ *     },
+ *     active: false,
+ *     events: ["issues"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.

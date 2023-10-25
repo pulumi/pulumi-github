@@ -15,6 +15,28 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a custom role in a GitHub Organization.
         /// 
         /// &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetOrganizationCustomRole.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationCustomRoleResult> InvokeAsync(GetOrganizationCustomRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationCustomRoleResult>("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args ?? new GetOrganizationCustomRoleArgs(), options.WithDefaults());
@@ -23,6 +45,28 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a custom role in a GitHub Organization.
         /// 
         /// &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetOrganizationCustomRole.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrganizationCustomRoleResult> Invoke(GetOrganizationCustomRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationCustomRoleResult>("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args ?? new GetOrganizationCustomRoleInvokeArgs(), options.WithDefaults());

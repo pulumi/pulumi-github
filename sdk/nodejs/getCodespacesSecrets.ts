@@ -8,6 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getCodespacesSecrets({
+ *     name: "example_repository",
+ * });
+ * const example2 = github.getCodespacesSecrets({
+ *     fullName: "org/example_repository",
+ * });
+ * ```
  */
 export function getCodespacesSecrets(args?: GetCodespacesSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetCodespacesSecretsResult> {
     args = args || {};
@@ -53,6 +67,20 @@ export interface GetCodespacesSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getCodespacesSecrets({
+ *     name: "example_repository",
+ * });
+ * const example2 = github.getCodespacesSecrets({
+ *     fullName: "org/example_repository",
+ * });
+ * ```
  */
 export function getCodespacesSecretsOutput(args?: GetCodespacesSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesSecretsResult> {
     return pulumi.output(args).apply((a: any) => getCodespacesSecrets(a, opts))

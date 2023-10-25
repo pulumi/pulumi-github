@@ -626,6 +626,53 @@ class BranchProtection(pulumi.CustomResource):
                  required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_user = github.get_user(username="example")
+        example_team = github.Team("exampleTeam")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/travis" context to be passing and only allow the engineers team merge
+        # to the branch.
+        example_branch_protection = github.BranchProtection("exampleBranchProtection",
+            repository_id=example_repository.node_id,
+            pattern="main",
+            enforce_admins=True,
+            allows_deletions=True,
+            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
+                strict=False,
+                contexts=["ci/travis"],
+            )],
+            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
+                dismiss_stale_reviews=True,
+                restrict_dismissals=True,
+                dismissal_restrictions=[
+                    example_user.node_id,
+                    example_team.node_id,
+                    "/exampleuser",
+                    "exampleorganization/exampleteam",
+                ],
+            )],
+            push_restrictions=[
+                example_user.node_id,
+                "/exampleuser",
+                "exampleorganization/exampleteam",
+            ],
+            force_push_bypassers=[
+                example_user.node_id,
+                "/exampleuser",
+                "exampleorganization/exampleteam",
+            ])
+        example_team_repository = github.TeamRepository("exampleTeamRepository",
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
+        ```
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
@@ -658,6 +705,53 @@ class BranchProtection(pulumi.CustomResource):
                  args: BranchProtectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_user = github.get_user(username="example")
+        example_team = github.Team("exampleTeam")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/travis" context to be passing and only allow the engineers team merge
+        # to the branch.
+        example_branch_protection = github.BranchProtection("exampleBranchProtection",
+            repository_id=example_repository.node_id,
+            pattern="main",
+            enforce_admins=True,
+            allows_deletions=True,
+            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
+                strict=False,
+                contexts=["ci/travis"],
+            )],
+            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
+                dismiss_stale_reviews=True,
+                restrict_dismissals=True,
+                dismissal_restrictions=[
+                    example_user.node_id,
+                    example_team.node_id,
+                    "/exampleuser",
+                    "exampleorganization/exampleteam",
+                ],
+            )],
+            push_restrictions=[
+                example_user.node_id,
+                "/exampleuser",
+                "exampleorganization/exampleteam",
+            ],
+            force_push_bypassers=[
+                example_user.node_id,
+                "/exampleuser",
+                "exampleorganization/exampleteam",
+            ])
+        example_team_repository = github.TeamRepository("exampleTeamRepository",
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
+        ```
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.

@@ -11,6 +11,28 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.RepositoryPullRequest("example", new()
+    ///     {
+    ///         BaseRef = "main",
+    ///         BaseRepository = "example-repository",
+    ///         Body = "This will change everything",
+    ///         HeadRef = "feature-branch",
+    ///         Title = "My newest feature",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryPullRequest:RepositoryPullRequest")]
     public partial class RepositoryPullRequest : global::Pulumi.CustomResource

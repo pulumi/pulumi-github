@@ -9,6 +9,39 @@ import * as utilities from "./utilities";
  *
  * > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.OrganizationCustomRole("example", {
+ *     baseRole: "read",
+ *     description: "Example custom role that uses the read role as its base",
+ *     permissions: [
+ *         "add_assignee",
+ *         "add_label",
+ *         "bypass_branch_protection",
+ *         "close_issue",
+ *         "close_pull_request",
+ *         "mark_as_duplicate",
+ *         "create_tag",
+ *         "delete_issue",
+ *         "delete_tag",
+ *         "manage_deploy_keys",
+ *         "push_protected_branch",
+ *         "read_code_scanning",
+ *         "reopen_issue",
+ *         "reopen_pull_request",
+ *         "request_pr_review",
+ *         "resolve_dependabot_alerts",
+ *         "resolve_secret_scanning_alerts",
+ *         "view_secret_scanning_alerts",
+ *         "write_code_scanning",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Custom roles can be imported using the `id` of the role. The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.

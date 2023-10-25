@@ -141,6 +141,18 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+            secret_name="existing_secret_name",
+            selected_repository_ids=[repo.repo_id])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
@@ -165,6 +177,18 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+            secret_name="existing_secret_name",
+            selected_repository_ids=[repo.repo_id])
+        ```
 
         ## Import
 

@@ -13,6 +13,64 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage a release in a specific
     /// GitHub repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = new Github.Repository("repo", new()
+    ///     {
+    ///         Description = "GitHub repo managed by Terraform",
+    ///         Private = false,
+    ///     });
+    /// 
+    ///     var example = new Github.Release("example", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         TagName = "v1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### On Non-Default Branch
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var exampleBranch = new Github.Branch("exampleBranch", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         BranchName = "branch_name",
+    ///         SourceBranch = exampleRepository.DefaultBranch,
+    ///     });
+    /// 
+    ///     var exampleRelease = new Github.Release("exampleRelease", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         TagName = "v1.0.0",
+    ///         TargetCommitish = exampleBranch.BranchName,
+    ///         Draft = false,
+    ///         Prerelease = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.

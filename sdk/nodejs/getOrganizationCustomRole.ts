@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about a custom role in a GitHub Organization.
  *
  * > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getOrganizationCustomRole({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getOrganizationCustomRole(args: GetOrganizationCustomRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationCustomRoleResult> {
 
@@ -53,6 +64,17 @@ export interface GetOrganizationCustomRoleResult {
  * Use this data source to retrieve information about a custom role in a GitHub Organization.
  *
  * > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getOrganizationCustomRole({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getOrganizationCustomRoleOutput(args: GetOrganizationCustomRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationCustomRoleResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationCustomRole(a, opts))

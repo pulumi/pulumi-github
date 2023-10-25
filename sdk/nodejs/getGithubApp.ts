@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an app.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foobar = github.getGithubApp({
+ *     slug: "foobar",
+ * });
+ * ```
  */
 export function getGithubApp(args: GetGithubAppArgs, opts?: pulumi.InvokeOptions): Promise<GetGithubAppResult> {
 
@@ -49,6 +60,17 @@ export interface GetGithubAppResult {
 }
 /**
  * Use this data source to retrieve information about an app.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foobar = github.getGithubApp({
+ *     slug: "foobar",
+ * });
+ * ```
  */
 export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGithubAppResult> {
     return pulumi.output(args).apply((a: any) => getGithubApp(a, opts))

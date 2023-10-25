@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepository({
+ *     fullName: "hashicorp/terraform",
+ * });
+ * ```
  */
 export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     args = args || {};
@@ -184,6 +195,17 @@ export interface GetRepositoryResult {
 }
 /**
  * Use this data source to retrieve information about a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepository({
+ *     fullName: "hashicorp/terraform",
+ * });
+ * ```
  */
 export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))

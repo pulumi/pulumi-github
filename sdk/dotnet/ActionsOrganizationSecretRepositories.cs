@@ -15,6 +15,33 @@ namespace Pulumi.Github
     /// 
     /// This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var orgSecretRepos = new Github.ActionsOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     {
+    ///         SecretName = "existing_secret_name",
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the secret name:

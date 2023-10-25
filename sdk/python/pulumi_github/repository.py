@@ -1620,6 +1620,38 @@ class Repository(pulumi.CustomResource):
         the `contents:write` permission or else the `allow_merge_commit`, `allow_rebase_merge`,
         and `allow_squash_merge` attributes will be ignored, causing confusing diffs.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            template=github.RepositoryTemplateArgs(
+                include_all_branches=True,
+                owner="github",
+                repository="terraform-template-module",
+            ),
+            visibility="public")
+        ```
+        ### With GitHub Pages Enabled
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome web page",
+            pages=github.RepositoryPagesArgs(
+                source=github.RepositoryPagesSourceArgs(
+                    branch="master",
+                    path="/docs",
+                ),
+            ),
+            private=False)
+        ```
+
         ## Import
 
         Repositories can be imported using the `name`, e.g.
@@ -1682,6 +1714,38 @@ class Repository(pulumi.CustomResource):
         > Note: When used with GitHub App authentication, even GET requests must have
         the `contents:write` permission or else the `allow_merge_commit`, `allow_rebase_merge`,
         and `allow_squash_merge` attributes will be ignored, causing confusing diffs.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            template=github.RepositoryTemplateArgs(
+                include_all_branches=True,
+                owner="github",
+                repository="terraform-template-module",
+            ),
+            visibility="public")
+        ```
+        ### With GitHub Pages Enabled
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome web page",
+            pages=github.RepositoryPagesArgs(
+                source=github.RepositoryPagesSourceArgs(
+                    branch="master",
+                    path="/docs",
+                ),
+            ),
+            private=False)
+        ```
 
         ## Import
 

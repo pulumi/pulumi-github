@@ -335,6 +335,15 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
     Use this data source to retrieve information about GitHub's IP addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ip_ranges()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -372,5 +381,14 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
 def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to retrieve information about GitHub's IP addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    test = github.get_ip_ranges()
+    ```
     """
     ...

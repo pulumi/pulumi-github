@@ -160,6 +160,19 @@ class AppInstallationRepository(pulumi.CustomResource):
         by the following the instructions at this
         [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a repository.
+        some_repo = github.Repository("someRepo")
+        some_app_repo = github.AppInstallationRepository("someAppRepo",
+            installation_id="1234567",
+            repository=some_repo.name)
+        ```
+
         ## Import
 
         GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
@@ -191,6 +204,19 @@ class AppInstallationRepository(pulumi.CustomResource):
         organization on GitHub. Note: you can review your organization's installations
         by the following the instructions at this
         [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a repository.
+        some_repo = github.Repository("someRepo")
+        some_app_repo = github.AppInstallationRepository("someAppRepo",
+            installation_id="1234567",
+            repository=some_repo.name)
+        ```
 
         ## Import
 

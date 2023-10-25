@@ -13,6 +13,48 @@ import (
 )
 
 // Use this data source to retrieve information about a single tree.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisRepository, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisBranch, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
+//				Branch:     thisRepository.DefaultBranch,
+//				Repository: thisRepository.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisTree, err := github.GetTree(ctx, &github.GetTreeArgs{
+//				Recursive:  pulumi.BoolRef(false),
+//				Repository: thisRepository.Name,
+//				TreeSha:    thisBranch.Sha,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("entries", thisTree.Entries)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTreeResult

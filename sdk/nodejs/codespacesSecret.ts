@@ -5,6 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const examplePublicKey = github.getCodespacesPublicKey({
+ *     repository: "example_repository",
+ * });
+ * const exampleSecretCodespacesSecret = new github.CodespacesSecret("exampleSecretCodespacesSecret", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     plaintextValue: _var.some_secret_string,
+ * });
+ * const exampleSecretIndex_codespacesSecretCodespacesSecret = new github.CodespacesSecret("exampleSecretIndex/codespacesSecretCodespacesSecret", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     encryptedValue: _var.some_encrypted_secret_string,
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using an ID made up of the `repository` and `secret_name`:

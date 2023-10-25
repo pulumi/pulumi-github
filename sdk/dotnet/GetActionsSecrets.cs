@@ -13,12 +13,56 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the list of secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionsSecretsResult> InvokeAsync(GetActionsSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionsSecretsResult> Invoke(GetActionsSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsSecretsResult>("github:index/getActionsSecrets:getActionsSecrets", args ?? new GetActionsSecretsInvokeArgs(), options.WithDefaults());

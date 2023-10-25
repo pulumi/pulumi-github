@@ -21,6 +21,28 @@ namespace Pulumi.Github
     /// Further documentation on GitHub repository deploy keys:
     /// - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Add a deploy key
+    ///     var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new()
+    ///     {
+    ///         Key = "ssh-rsa AAA...",
+    ///         ReadOnly = false,
+    ///         Repository = "test-repo",
+    ///         Title = "Repository test key",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.

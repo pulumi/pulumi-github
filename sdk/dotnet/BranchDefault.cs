@@ -16,6 +16,65 @@ namespace Pulumi.Github
     /// 
     /// Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Basic usage:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example", new()
+    ///     {
+    ///         Description = "My awesome codebase",
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var development = new Github.Branch("development", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         BranchName = "development",
+    ///     });
+    /// 
+    ///     var @default = new Github.BranchDefault("default", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         Branch = development.BranchName,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Renaming to a branch that doesn't exist:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example", new()
+    ///     {
+    ///         Description = "My awesome codebase",
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var @default = new Github.BranchDefault("default", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         Branch = "development",
+    ///         Rename = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.

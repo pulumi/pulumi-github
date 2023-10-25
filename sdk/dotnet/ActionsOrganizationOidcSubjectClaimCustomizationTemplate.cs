@@ -16,6 +16,29 @@ namespace Pulumi.Github
     /// More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
     /// available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTemplate = new Github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", new()
+    ///     {
+    ///         IncludeClaimKeys = new[]
+    ///         {
+    ///             "actor",
+    ///             "context",
+    ///             "repository_owner",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the organization's name.

@@ -8,6 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve webhooks for a given repository.
+ *
+ * ## Example Usage
+ *
+ * To retrieve webhooks of a repository:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepositoryWebhooks({
+ *     repository: "foo",
+ * });
+ * ```
  */
 export function getRepositoryWebhooks(args: GetRepositoryWebhooksArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryWebhooksResult> {
 
@@ -41,6 +54,19 @@ export interface GetRepositoryWebhooksResult {
 }
 /**
  * Use this data source to retrieve webhooks for a given repository.
+ *
+ * ## Example Usage
+ *
+ * To retrieve webhooks of a repository:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepositoryWebhooks({
+ *     repository: "foo",
+ * });
+ * ```
  */
 export function getRepositoryWebhooksOutput(args: GetRepositoryWebhooksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryWebhooksResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryWebhooks(a, opts))

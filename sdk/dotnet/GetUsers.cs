@@ -13,12 +13,76 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about multiple GitHub users at once.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetUsers.Invoke(new()
+        ///     {
+        ///         Usernames = new[]
+        ///         {
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about multiple GitHub users at once.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetUsers.Invoke(new()
+        ///     {
+        ///         Usernames = new[]
+        ///         {
+        ///             "example1",
+        ///             "example2",
+        ///             "example3",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["validUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.Logins),
+        ///         ["invalidUsers"] = example.Apply(getUsersResult =&gt; getUsersResult.UnknownLogins),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("github:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

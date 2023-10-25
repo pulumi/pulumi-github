@@ -12,6 +12,55 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Github.GetUser.Invoke(new()
+    ///     {
+    ///         Username = "",
+    ///     });
+    /// 
+    ///     var testRepository = new Github.Repository("testRepository");
+    /// 
+    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("testRepositoryEnvironment", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Environment = "environment/test",
+    ///         WaitTimer = 10000,
+    ///         Reviewers = new[]
+    ///         {
+    ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
+    ///             {
+    ///                 Users = new[]
+    ///                 {
+    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
+    ///                 },
+    ///             },
+    ///         },
+    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
+    ///         {
+    ///             ProtectedBranches = false,
+    ///             CustomBranchPolicies = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Environment = testRepositoryEnvironment.Environment,
+    ///         BranchPattern = "releases/*",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.

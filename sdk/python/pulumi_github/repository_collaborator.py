@@ -259,6 +259,19 @@ class RepositoryCollaborator(pulumi.CustomResource):
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a collaborator to a repository
+        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
+            permission="admin",
+            repository="our-cool-repo",
+            username="SomeUser")
+        ```
+
         ## Import
 
         GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
@@ -307,6 +320,19 @@ class RepositoryCollaborator(pulumi.CustomResource):
         - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a collaborator to a repository
+        a_repo_collaborator = github.RepositoryCollaborator("aRepoCollaborator",
+            permission="admin",
+            repository="our-cool-repo",
+            username="SomeUser")
+        ```
 
         ## Import
 

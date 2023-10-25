@@ -13,12 +13,60 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve webhooks for a given repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// To retrieve webhooks of a repository:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var repo = Github.GetRepositoryWebhooks.Invoke(new()
+        ///     {
+        ///         Repository = "foo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryWebhooksResult> InvokeAsync(GetRepositoryWebhooksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryWebhooksResult>("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args ?? new GetRepositoryWebhooksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve webhooks for a given repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// To retrieve webhooks of a repository:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var repo = Github.GetRepositoryWebhooks.Invoke(new()
+        ///     {
+        ///         Repository = "foo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryWebhooksResult> Invoke(GetRepositoryWebhooksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryWebhooksResult>("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args ?? new GetRepositoryWebhooksInvokeArgs(), options.WithDefaults());

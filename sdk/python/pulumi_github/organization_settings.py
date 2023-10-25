@@ -1097,6 +1097,40 @@ class OrganizationSettings(pulumi.CustomResource):
         """
         This resource allows you to create and manage settings for a GitHub Organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test = github.OrganizationSettings("test",
+            advanced_security_enabled_for_new_repositories=False,
+            billing_email="test@example.com",
+            blog="https://example.com",
+            company="Test Company",
+            default_repository_permission="read",
+            dependabot_alerts_enabled_for_new_repositories=False,
+            dependabot_security_updates_enabled_for_new_repositories=False,
+            dependency_graph_enabled_for_new_repositories=False,
+            description="Test Description",
+            email="test@example.com",
+            has_organization_projects=True,
+            has_repository_projects=True,
+            location="Test Location",
+            members_can_create_internal_repositories=True,
+            members_can_create_pages=True,
+            members_can_create_private_pages=True,
+            members_can_create_private_repositories=True,
+            members_can_create_public_pages=True,
+            members_can_create_public_repositories=True,
+            members_can_create_repositories=True,
+            members_can_fork_private_repositories=True,
+            secret_scanning_enabled_for_new_repositories=False,
+            secret_scanning_push_protection_enabled_for_new_repositories=False,
+            twitter_username="Test",
+            web_commit_signoff_required=True)
+        ```
+
         ## Import
 
         Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.
@@ -1142,6 +1176,40 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage settings for a GitHub Organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        test = github.OrganizationSettings("test",
+            advanced_security_enabled_for_new_repositories=False,
+            billing_email="test@example.com",
+            blog="https://example.com",
+            company="Test Company",
+            default_repository_permission="read",
+            dependabot_alerts_enabled_for_new_repositories=False,
+            dependabot_security_updates_enabled_for_new_repositories=False,
+            dependency_graph_enabled_for_new_repositories=False,
+            description="Test Description",
+            email="test@example.com",
+            has_organization_projects=True,
+            has_repository_projects=True,
+            location="Test Location",
+            members_can_create_internal_repositories=True,
+            members_can_create_pages=True,
+            members_can_create_private_pages=True,
+            members_can_create_private_repositories=True,
+            members_can_create_public_pages=True,
+            members_can_create_public_repositories=True,
+            members_can_create_repositories=True,
+            members_can_fork_private_repositories=True,
+            secret_scanning_enabled_for_new_repositories=False,
+            secret_scanning_push_protection_enabled_for_new_repositories=False,
+            twitter_username="Test",
+            web_commit_signoff_required=True)
+        ```
 
         ## Import
 

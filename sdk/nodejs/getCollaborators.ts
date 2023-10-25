@@ -8,6 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the collaborators for a given repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = github.getCollaborators({
+ *     owner: "example_owner",
+ *     repository: "example_repository",
+ * });
+ * ```
  */
 export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaboratorsResult> {
 
@@ -55,6 +67,18 @@ export interface GetCollaboratorsResult {
 }
 /**
  * Use this data source to retrieve the collaborators for a given repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = github.getCollaborators({
+ *     owner: "example_owner",
+ *     repository: "example_repository",
+ * });
+ * ```
  */
 export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaboratorsResult> {
     return pulumi.output(args).apply((a: any) => getCollaborators(a, opts))

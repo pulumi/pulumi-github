@@ -106,6 +106,15 @@ def get_rest_api(endpoint: Optional[str] = None,
     """
     Use this data source to retrieve information about a GitHub resource through REST API.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_rest_api(endpoint="repos/example_repo/git/refs/heads/main")
+    ```
+
 
     :param str endpoint: REST API endpoint to send the GET request to.
     """
@@ -128,6 +137,15 @@ def get_rest_api_output(endpoint: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
     Use this data source to retrieve information about a GitHub resource through REST API.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_rest_api(endpoint="repos/example_repo/git/refs/heads/main")
+    ```
 
 
     :param str endpoint: REST API endpoint to send the GET request to.

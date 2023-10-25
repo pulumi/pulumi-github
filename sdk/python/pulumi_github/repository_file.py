@@ -430,6 +430,24 @@ class RepositoryFile(pulumi.CustomResource):
         This resource allows you to create and manage files within a
         GitHub repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        foo_repository = github.Repository("fooRepository", auto_init=True)
+        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
+            repository=foo_repository.name,
+            branch="main",
+            file=".gitignore",
+            content="**/*.tfstate",
+            commit_message="Managed by Terraform",
+            commit_author="Terraform User",
+            commit_email="terraform@example.com",
+            overwrite_on_create=True)
+        ```
+
         ## Import
 
         Repository files can be imported using a combination of the `repo` and `file`, e.g.
@@ -464,6 +482,24 @@ class RepositoryFile(pulumi.CustomResource):
         """
         This resource allows you to create and manage files within a
         GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        foo_repository = github.Repository("fooRepository", auto_init=True)
+        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
+            repository=foo_repository.name,
+            branch="main",
+            file=".gitignore",
+            content="**/*.tfstate",
+            commit_message="Managed by Terraform",
+            commit_author="Terraform User",
+            commit_email="terraform@example.com",
+            overwrite_on_create=True)
+        ```
 
         ## Import
 

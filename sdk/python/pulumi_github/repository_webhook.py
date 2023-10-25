@@ -239,6 +239,27 @@ class RepositoryWebhook(pulumi.CustomResource):
         This resource allows you to create and manage webhooks for repositories within your
         GitHub organization or personal account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="Terraform acceptance tests",
+            homepage_url="http://example.com/",
+            visibility="public")
+        foo = github.RepositoryWebhook("foo",
+            repository=repo.name,
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
+                content_type="form",
+                insecure_ssl=False,
+            ),
+            active=False,
+            events=["issues"])
+        ```
+
         ## Import
 
         Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
@@ -266,6 +287,27 @@ class RepositoryWebhook(pulumi.CustomResource):
         """
         This resource allows you to create and manage webhooks for repositories within your
         GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="Terraform acceptance tests",
+            homepage_url="http://example.com/",
+            visibility="public")
+        foo = github.RepositoryWebhook("foo",
+            repository=repo.name,
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url="https://google.de/",
+                content_type="form",
+                insecure_ssl=False,
+            ),
+            active=False,
+            events=["issues"])
+        ```
 
         ## Import
 

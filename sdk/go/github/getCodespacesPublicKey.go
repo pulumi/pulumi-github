@@ -14,6 +14,32 @@ import (
 
 // Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
 // Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetCodespacesPublicKey(ctx, &github.GetCodespacesPublicKeyArgs{
+//				Repository: "example_repo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCodespacesPublicKey(ctx *pulumi.Context, args *GetCodespacesPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetCodespacesPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesPublicKeyResult

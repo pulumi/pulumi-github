@@ -7,6 +7,18 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.RepositoryTagProtection("example", {
+ *     pattern: "v*",
+ *     repository: "example-repository",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).

@@ -11,6 +11,21 @@ import * as utilities from "./utilities";
  *
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const orgSecretRepos = new github.CodespacesOrganizationSecretRepositories("orgSecretRepos", {
+ *     secretName: "existing_secret_name",
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using an ID made up of the secret name:

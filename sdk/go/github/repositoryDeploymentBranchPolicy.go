@@ -15,6 +15,46 @@ import (
 
 // This resource allows you to create and manage deployment branch policies.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			env, err := github.NewRepositoryEnvironment(ctx, "env", &github.RepositoryEnvironmentArgs{
+//				Repository:  pulumi.String("my_repo"),
+//				Environment: pulumi.String("my_env"),
+//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
+//					ProtectedBranches:    pulumi.Bool(false),
+//					CustomBranchPolicies: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, "foo", &github.RepositoryDeploymentBranchPolicyArgs{
+//				Repository:      pulumi.String("my_repo"),
+//				EnvironmentName: pulumi.String("my_env"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				env,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

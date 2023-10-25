@@ -9,6 +9,29 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage environments for a GitHub repository.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const current = github.getUser({
+ *     username: "",
+ * });
+ * const exampleRepository = new github.Repository("exampleRepository", {description: "My awesome codebase"});
+ * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("exampleRepositoryEnvironment", {
+ *     environment: "example",
+ *     repository: exampleRepository.name,
+ *     reviewers: [{
+ *         users: [current.then(current => current.id)],
+ *     }],
+ *     deploymentBranchPolicy: {
+ *         protectedBranches: true,
+ *         customBranchPolicies: false,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.

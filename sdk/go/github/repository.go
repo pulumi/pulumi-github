@@ -19,6 +19,70 @@ import (
 // the `contents:write` permission or else the `allowMergeCommit`, `allowRebaseMerge`,
 // and `allowSquashMerge` attributes will be ignored, causing confusing diffs.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome codebase"),
+//				Template: &github.RepositoryTemplateArgs{
+//					IncludeAllBranches: pulumi.Bool(true),
+//					Owner:              pulumi.String("github"),
+//					Repository:         pulumi.String("terraform-template-module"),
+//				},
+//				Visibility: pulumi.String("public"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With GitHub Pages Enabled
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Description: pulumi.String("My awesome web page"),
+//				Pages: &github.RepositoryPagesArgs{
+//					Source: &github.RepositoryPagesSourceArgs{
+//						Branch: pulumi.String("master"),
+//						Path:   pulumi.String("/docs"),
+//					},
+//				},
+//				Private: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Repositories can be imported using the `name`, e.g.

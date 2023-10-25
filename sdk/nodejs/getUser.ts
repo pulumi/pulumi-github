@@ -6,6 +6,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getUser({
+ *     username: "example",
+ * });
+ * const current = github.getUser({
+ *     username: "",
+ * });
+ * export const currentGithubLogin = current.then(current => current.login);
+ * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -117,6 +132,21 @@ export interface GetUserResult {
 }
 /**
  * Use this data source to retrieve information about a GitHub user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getUser({
+ *     username: "example",
+ * });
+ * const current = github.getUser({
+ *     username: "",
+ * });
+ * export const currentGithubLogin = current.then(current => current.login);
+ * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

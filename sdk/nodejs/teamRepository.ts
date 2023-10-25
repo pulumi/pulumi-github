@@ -21,6 +21,22 @@ import * as utilities from "./utilities";
  * This resource is non-authoritative, for managing ALL collaborators of a repo, use github.RepositoryCollaborators
  * instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Add a repository to the team
+ * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
+ * const someRepo = new github.Repository("someRepo", {});
+ * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
+ *     teamId: someTeam.id,
+ *     repository: someRepo.name,
+ *     permission: "pull",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Team Repository can be imported using an ID made up of `team_id:repository` or `team_name:repository`, e.g.

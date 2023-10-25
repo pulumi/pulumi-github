@@ -254,6 +254,23 @@ class CodespacesSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_codespaces_public_key(repository="example_repository")
+        example_secret_codespaces_secret = github.CodespacesSecret("exampleSecretCodespacesSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_codespaces_secret_codespaces_secret = github.CodespacesSecret("exampleSecretIndex/codespacesSecretCodespacesSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:
@@ -277,6 +294,23 @@ class CodespacesSecret(pulumi.CustomResource):
                  args: CodespacesSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_codespaces_public_key(repository="example_repository")
+        example_secret_codespaces_secret = github.CodespacesSecret("exampleSecretCodespacesSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_codespaces_secret_codespaces_secret = github.CodespacesSecret("exampleSecretIndex/codespacesSecretCodespacesSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:

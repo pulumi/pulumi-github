@@ -13,6 +13,32 @@ import (
 )
 
 // Use this data source to retrieve the list of teams which have access to a GitHub repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositoryTeams(ctx, &github.GetRepositoryTeamsArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryTeams(ctx *pulumi.Context, args *GetRepositoryTeamsArgs, opts ...pulumi.InvokeOption) (*GetRepositoryTeamsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryTeamsResult

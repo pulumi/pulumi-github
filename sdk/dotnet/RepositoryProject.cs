@@ -11,6 +11,31 @@ namespace Pulumi.Github
 {
     /// <summary>
     /// This resource allows you to create and manage projects for GitHub repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example", new()
+    ///     {
+    ///         Description = "My awesome codebase",
+    ///         HasProjects = true,
+    ///     });
+    /// 
+    ///     var project = new Github.RepositoryProject("project", new()
+    ///     {
+    ///         Body = "This is a repository project.",
+    ///         Repository = example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryProject:RepositoryProject")]
     public partial class RepositoryProject : global::Pulumi.CustomResource

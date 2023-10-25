@@ -13,6 +13,32 @@ import (
 )
 
 // Use this data source to retrieve all webhooks of the organization.
+//
+// ## Example Usage
+//
+// To retrieve *all* webhooks of the organization:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationWebhooks(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrganizationWebhooks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationWebhooksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationWebhooksResult

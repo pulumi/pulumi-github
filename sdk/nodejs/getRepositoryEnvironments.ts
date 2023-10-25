@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about environments for a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryEnvironments({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryEnvironments(args: GetRepositoryEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEnvironmentsResult> {
 
@@ -43,6 +54,17 @@ export interface GetRepositoryEnvironmentsResult {
 }
 /**
  * Use this data source to retrieve information about environments for a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryEnvironments({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryEnvironmentsOutput(args: GetRepositoryEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEnvironmentsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryEnvironments(a, opts))

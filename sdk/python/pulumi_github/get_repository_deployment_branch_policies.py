@@ -81,6 +81,16 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
     """
     Use this data source to retrieve deployment branch policies for a repository / environment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_deployment_branch_policies(environment_name="env_name",
+        repository="example-repository")
+    ```
+
 
     :param str environment_name: Name of the environment to retrieve the deployment branch policies  from.
     :param str repository: Name of the repository to retrieve the deployment branch policies from.
@@ -104,6 +114,16 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
     """
     Use this data source to retrieve deployment branch policies for a repository / environment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_deployment_branch_policies(environment_name="env_name",
+        repository="example-repository")
+    ```
 
 
     :param str environment_name: Name of the environment to retrieve the deployment branch policies  from.

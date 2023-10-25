@@ -198,6 +198,23 @@ class TeamMembership(pulumi.CustomResource):
 
         > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            username="SomeUser",
+            role="member")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            team_id=some_team.id,
+            username="SomeUser",
+            role="member")
+        ```
+
         ## Import
 
         GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.
@@ -234,6 +251,23 @@ class TeamMembership(pulumi.CustomResource):
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
         > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a user to the organization
+        membership_for_some_user = github.Membership("membershipForSomeUser",
+            username="SomeUser",
+            role="member")
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_team_membership = github.TeamMembership("someTeamMembership",
+            team_id=some_team.id,
+            username="SomeUser",
+            role="member")
+        ```
 
         ## Import
 

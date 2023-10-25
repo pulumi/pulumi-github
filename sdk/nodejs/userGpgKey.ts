@@ -9,6 +9,18 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to add/remove GPG keys from your user account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.UserGpgKey("example", {armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----
+ * ...
+ * -----END PGP PUBLIC KEY BLOCK-----
+ * `});
+ * ```
+ *
  * ## Import
  *
  * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.

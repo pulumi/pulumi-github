@@ -198,6 +198,20 @@ class RepositoryProject(pulumi.CustomResource):
         """
         This resource allows you to create and manage projects for GitHub repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            has_projects=True)
+        project = github.RepositoryProject("project",
+            body="This is a repository project.",
+            repository=example.name)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The body of the project.
@@ -212,6 +226,20 @@ class RepositoryProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage projects for GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            has_projects=True)
+        project = github.RepositoryProject("project",
+            body="This is a repository project.",
+            repository=example.name)
+        ```
 
         :param str resource_name: The name of the resource.
         :param RepositoryProjectArgs args: The arguments to use to populate this resource's properties.

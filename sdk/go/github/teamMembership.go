@@ -24,6 +24,47 @@ import (
 //
 // > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//				Username: pulumi.String("SomeUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
+//				TeamId:   someTeam.ID(),
+//				Username: pulumi.String("SomeUser"),
+//				Role:     pulumi.String("member"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.

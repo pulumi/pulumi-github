@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve basic information about a GitHub enterprise.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getEnterprise({
+ *     slug: "example-co",
+ * });
+ * ```
  */
 export function getEnterprise(args: GetEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseResult> {
 
@@ -56,6 +67,17 @@ export interface GetEnterpriseResult {
 }
 /**
  * Use this data source to retrieve basic information about a GitHub enterprise.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getEnterprise({
+ *     slug: "example-co",
+ * });
+ * ```
  */
 export function getEnterpriseOutput(args: GetEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseResult> {
     return pulumi.output(args).apply((a: any) => getEnterprise(a, opts))
