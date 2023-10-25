@@ -13,6 +13,33 @@ import (
 )
 
 // Use this data source to retrieve deployment branch policies for a repository / environment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetRepositoryDeploymentBranchPolicies(ctx, &github.GetRepositoryDeploymentBranchPoliciesArgs{
+//				EnvironmentName: "env_name",
+//				Repository:      "example-repository",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryDeploymentBranchPolicies(ctx *pulumi.Context, args *GetRepositoryDeploymentBranchPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryDeploymentBranchPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryDeploymentBranchPoliciesResult

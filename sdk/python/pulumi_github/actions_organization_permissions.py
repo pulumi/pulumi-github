@@ -222,6 +222,29 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        test = github.ActionsOrganizationPermissions("test",
+            allowed_actions="selected",
+            enabled_repositories="selected",
+            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
+                github_owned_allowed=True,
+                patterns_alloweds=[
+                    "actions/cache@*",
+                    "actions/checkout@*",
+                ],
+                verified_allowed=True,
+            ),
+            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
+                repository_ids=[example.repo_id],
+            ))
+        ```
+
         ## Import
 
         This resource can be imported using the ID of the GitHub organization:
@@ -246,6 +269,29 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        test = github.ActionsOrganizationPermissions("test",
+            allowed_actions="selected",
+            enabled_repositories="selected",
+            allowed_actions_config=github.ActionsOrganizationPermissionsAllowedActionsConfigArgs(
+                github_owned_allowed=True,
+                patterns_alloweds=[
+                    "actions/cache@*",
+                    "actions/checkout@*",
+                ],
+                verified_allowed=True,
+            ),
+            enabled_repositories_config=github.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs(
+                repository_ids=[example.repo_id],
+            ))
+        ```
 
         ## Import
 

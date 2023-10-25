@@ -13,12 +13,58 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Github.GetCollaborators.Invoke(new()
+        ///     {
+        ///         Owner = "example_owner",
+        ///         Repository = "example_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCollaboratorsResult> InvokeAsync(GetCollaboratorsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the collaborators for a given repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Github.GetCollaborators.Invoke(new()
+        ///     {
+        ///         Owner = "example_owner",
+        ///         Repository = "example_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCollaboratorsResult> Invoke(GetCollaboratorsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollaboratorsResult>("github:index/getCollaborators:getCollaborators", args ?? new GetCollaboratorsInvokeArgs(), options.WithDefaults());

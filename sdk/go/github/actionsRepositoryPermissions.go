@@ -16,6 +16,45 @@ import (
 // This resource allows you to enable and manage GitHub Actions permissions for a given repository.
 // You must have admin access to an repository to use this resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := github.NewRepository(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsRepositoryPermissions(ctx, "test", &github.ActionsRepositoryPermissionsArgs{
+//				AllowedActions: pulumi.String("selected"),
+//				AllowedActionsConfig: &github.ActionsRepositoryPermissionsAllowedActionsConfigArgs{
+//					GithubOwnedAllowed: pulumi.Bool(true),
+//					PatternsAlloweds: pulumi.StringArray{
+//						pulumi.String("actions/cache@*"),
+//						pulumi.String("actions/checkout@*"),
+//					},
+//					VerifiedAllowed: pulumi.Bool(true),
+//				},
+//				Repository: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // This resource can be imported using the name of the GitHub repository:

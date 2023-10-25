@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * This data source allows you to read files within a
  * GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foo = github.getRepositoryFile({
+ *     repository: github_repository.foo.name,
+ *     branch: "main",
+ *     file: ".gitignore",
+ * });
+ * ```
  */
 export function getRepositoryFile(args: GetRepositoryFileArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryFileResult> {
 
@@ -79,6 +92,19 @@ export interface GetRepositoryFileResult {
 /**
  * This data source allows you to read files within a
  * GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foo = github.getRepositoryFile({
+ *     repository: github_repository.foo.name,
+ *     branch: "main",
+ *     file: ".gitignore",
+ * });
+ * ```
  */
 export function getRepositoryFileOutput(args: GetRepositoryFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryFileResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryFile(a, opts))

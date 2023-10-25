@@ -303,6 +303,19 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a milestone for a repository
+        example = github.RepositoryMilestone("example",
+            owner="example-owner",
+            repository="example-repository",
+            title="v1.1.0")
+        ```
+
         ## Import
 
         A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
@@ -330,6 +343,19 @@ class RepositoryMilestone(pulumi.CustomResource):
         Provides a GitHub repository milestone resource.
 
         This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Create a milestone for a repository
+        example = github.RepositoryMilestone("example",
+            owner="example-owner",
+            repository="example-repository",
+            title="v1.1.0")
+        ```
 
         ## Import
 

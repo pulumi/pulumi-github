@@ -13,6 +13,53 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
     /// You must have write access to a repository to use this resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVariable = new Github.ActionsOrganizationVariable("exampleVariable", new()
+    ///     {
+    ///         Value = "example_variable_value",
+    ///         VariableName = "example_variable_name",
+    ///         Visibility = "private",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var exampleVariable = new Github.ActionsOrganizationVariable("exampleVariable", new()
+    ///     {
+    ///         VariableName = "example_variable_name",
+    ///         Visibility = "selected",
+    ///         Value = "example_variable_value",
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the variable name:

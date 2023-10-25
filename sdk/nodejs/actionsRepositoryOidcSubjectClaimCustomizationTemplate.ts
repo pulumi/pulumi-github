@@ -19,6 +19,24 @@ import * as utilities from "./utilities";
  * | `false`       | Set                  | `includeClaimKeys`                                      |
  * | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {});
+ * const exampleTemplate = new github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", {
+ *     repository: example.name,
+ *     useDefault: false,
+ *     includeClaimKeys: [
+ *         "actor",
+ *         "context",
+ *         "repository_owner",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using the repository's name.

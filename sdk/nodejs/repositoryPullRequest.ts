@@ -6,6 +6,21 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.RepositoryPullRequest("example", {
+ *     baseRef: "main",
+ *     baseRepository: "example-repository",
+ *     body: "This will change everything",
+ *     headRef: "feature-branch",
+ *     title: "My newest feature",
+ * });
+ * ```
  */
 export class RepositoryPullRequest extends pulumi.CustomResource {
     /**

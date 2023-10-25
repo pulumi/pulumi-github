@@ -121,6 +121,16 @@ def get_repositories(include_repo_id: Optional[bool] = None,
 
     Use this data source to retrieve a list of GitHub repositories using a search query.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repositories(include_repo_id=True,
+        query="org:hashicorp language:Go")
+    ```
+
 
     :param bool include_repo_id: Returns a list of found repository IDs
     :param str query: Search query. See [documentation for the search syntax](https://help.github.com/articles/understanding-the-search-syntax/).
@@ -157,6 +167,16 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
     	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
 
     Use this data source to retrieve a list of GitHub repositories using a search query.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repositories(include_repo_id=True,
+        query="org:hashicorp language:Go")
+    ```
 
 
     :param bool include_repo_id: Returns a list of found repository IDs

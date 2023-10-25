@@ -11,6 +11,41 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {description: "Example repository"});
+ * const exampleRepositoryRuleset = new github.RepositoryRuleset("exampleRepositoryRuleset", {
+ *     repository: exampleRepository.name,
+ *     target: "branch",
+ *     enforcement: "active",
+ *     conditions: {
+ *         refName: {
+ *             includes: ["~ALL"],
+ *             excludes: [],
+ *         },
+ *     },
+ *     bypassActors: [{
+ *         actorId: 13473,
+ *         actorType: "Integration",
+ *         bypassMode: "always",
+ *     }],
+ *     rules: {
+ *         creation: true,
+ *         update: true,
+ *         deletion: true,
+ *         requiredLinearHistory: true,
+ *         requiredSignatures: true,
+ *         requiredDeployments: {
+ *             requiredDeploymentEnvironments: ["test"],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.

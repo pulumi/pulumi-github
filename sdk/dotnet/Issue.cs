@@ -15,6 +15,79 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage issue within your
     /// GitHub repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a simple issue
+    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue title",
+    ///         Body = "The body of my issue",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Milestone And Project Assignment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create an issue with milestone and project assignment
+    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     {
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testRepositoryMilestone = new Github.RepositoryMilestone("testRepositoryMilestone", new()
+    ///     {
+    ///         Owner = testRepository.FullName.Apply(fullName =&gt; fullName.Split("/")).Apply(split =&gt; split[0]),
+    ///         Repository = testRepository.Name,
+    ///         Title = "v1.0.0",
+    ///         Description = "General Availability",
+    ///         DueDate = "2022-11-22",
+    ///         State = "open",
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     {
+    ///         Repository = testRepository.Name,
+    ///         Title = "My issue",
+    ///         Body = "My issue body",
+    ///         Labels = new[]
+    ///         {
+    ///             "bug",
+    ///             "documentation",
+    ///         },
+    ///         Assignees = new[]
+    ///         {
+    ///             "bob-github",
+    ///         },
+    ///         MilestoneNumber = testRepositoryMilestone.Number,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

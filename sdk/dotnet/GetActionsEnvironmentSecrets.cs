@@ -13,12 +13,58 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the list of secrets of the repository environment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsEnvironmentSecrets.Invoke(new()
+        ///     {
+        ///         Environment = "exampleEnvironment",
+        ///         Name = "exampleRepo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionsEnvironmentSecretsResult> InvokeAsync(GetActionsEnvironmentSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsEnvironmentSecretsResult>("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args ?? new GetActionsEnvironmentSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of secrets of the repository environment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsEnvironmentSecrets.Invoke(new()
+        ///     {
+        ///         Environment = "exampleEnvironment",
+        ///         Name = "exampleRepo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionsEnvironmentSecretsResult> Invoke(GetActionsEnvironmentSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentSecretsResult>("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args ?? new GetActionsEnvironmentSecretsInvokeArgs(), options.WithDefaults());

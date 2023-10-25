@@ -7,6 +7,46 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage cards for GitHub projects.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
+ * const column = new github.ProjectColumn("column", {projectId: project.id});
+ * const card = new github.ProjectCard("card", {
+ *     columnId: column.columnId,
+ *     note: "## Unaccepted 👇",
+ * });
+ * ```
+ * ### Adding An Issue To A Project
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const testRepository = new github.Repository("testRepository", {
+ *     hasProjects: true,
+ *     hasIssues: true,
+ * });
+ * const testIssue = new github.Issue("testIssue", {
+ *     repository: testRepository.id,
+ *     title: "Test issue title",
+ *     body: "Test issue body",
+ * });
+ * const testRepositoryProject = new github.RepositoryProject("testRepositoryProject", {
+ *     repository: testRepository.name,
+ *     body: "this is a test project",
+ * });
+ * const testProjectColumn = new github.ProjectColumn("testProjectColumn", {projectId: testRepositoryProject.id});
+ * const testProjectCard = new github.ProjectCard("testProjectCard", {
+ *     columnId: testProjectColumn.columnId,
+ *     contentId: testIssue.issueId,
+ *     contentType: "Issue",
+ * });
+ * ```
+ *
  * ## Import
  *
  * A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):

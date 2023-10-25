@@ -18,6 +18,98 @@ import (
 // This resource allows you to create and manage issue within your
 // GitHub repository.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//				AutoInit:  pulumi.Bool(true),
+//				HasIssues: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
+//				Repository: testRepository.Name,
+//				Title:      pulumi.String("My issue title"),
+//				Body:       pulumi.String("The body of my issue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Milestone And Project Assignment
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//				AutoInit:  pulumi.Bool(true),
+//				HasIssues: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "testRepositoryMilestone", &github.RepositoryMilestoneArgs{
+//				Owner: testRepository.FullName.ApplyT(func(fullName string) (pulumi.StringArray, error) {
+//					return pulumi.StringArray("TODO: call split"), nil
+//				}).(pulumi.StringArrayOutput).ApplyT(func(split []string) (string, error) {
+//					return split[0], nil
+//				}).(pulumi.StringOutput),
+//				Repository:  testRepository.Name,
+//				Title:       pulumi.String("v1.0.0"),
+//				Description: pulumi.String("General Availability"),
+//				DueDate:     pulumi.String("2022-11-22"),
+//				State:       pulumi.String("open"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
+//				Repository: testRepository.Name,
+//				Title:      pulumi.String("My issue"),
+//				Body:       pulumi.String("My issue body"),
+//				Labels: pulumi.StringArray{
+//					pulumi.String("bug"),
+//					pulumi.String("documentation"),
+//				},
+//				Assignees: pulumi.StringArray{
+//					pulumi.String("bob-github"),
+//				},
+//				MilestoneNumber: testRepositoryMilestone.Number,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

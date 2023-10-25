@@ -14,6 +14,38 @@ import (
 )
 
 // This resource allows you to create and manage columns for GitHub projects.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Body: pulumi.String("This is an organization project."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
+//				ProjectId: project.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ProjectColumn struct {
 	pulumi.CustomResourceState
 

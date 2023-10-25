@@ -13,12 +13,66 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example_repository",
+        ///     });
+        /// 
+        ///     var example2 = Github.GetCodespacesSecrets.Invoke(new()
+        ///     {
+        ///         FullName = "org/example_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCodespacesSecretsResult> InvokeAsync(GetCodespacesSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodespacesSecretsResult>("github:index/getCodespacesSecrets:getCodespacesSecrets", args ?? new GetCodespacesSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesSecrets.Invoke(new()
+        ///     {
+        ///         Name = "example_repository",
+        ///     });
+        /// 
+        ///     var example2 = Github.GetCodespacesSecrets.Invoke(new()
+        ///     {
+        ///         FullName = "org/example_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCodespacesSecretsResult> Invoke(GetCodespacesSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesSecretsResult>("github:index/getCodespacesSecrets:getCodespacesSecrets", args ?? new GetCodespacesSecretsInvokeArgs(), options.WithDefaults());

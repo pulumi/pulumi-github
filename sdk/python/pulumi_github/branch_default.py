@@ -171,6 +171,40 @@ class BranchDefault(pulumi.CustomResource):
 
         Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
 
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        development = github.Branch("development",
+            repository=example.name,
+            branch="development")
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch=development.branch)
+        ```
+
+        Renaming to a branch that doesn't exist:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch="development",
+            rename=True)
+        ```
+
         ## Import
 
         GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
@@ -197,6 +231,40 @@ class BranchDefault(pulumi.CustomResource):
         This resource allows you to set the default branch for a given repository.
 
         Note that use of this resource is incompatible with the `default_branch` option of the `Repository` resource.  Using both will result in plans always showing a diff.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        development = github.Branch("development",
+            repository=example.name,
+            branch="development")
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch=development.branch)
+        ```
+
+        Renaming to a branch that doesn't exist:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example",
+            description="My awesome codebase",
+            auto_init=True)
+        default = github.BranchDefault("default",
+            repository=example.name,
+            branch="development",
+            rename=True)
+        ```
 
         ## Import
 

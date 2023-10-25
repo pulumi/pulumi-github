@@ -455,6 +455,15 @@ def get_repository(description: Optional[str] = None,
     """
     Use this data source to retrieve information about a GitHub repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository(full_name="hashicorp/terraform")
+    ```
+
 
     :param str description: A description of the repository.
     :param str full_name: Full name of the repository (in `org/name` format).
@@ -515,6 +524,15 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     Use this data source to retrieve information about a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository(full_name="hashicorp/terraform")
+    ```
 
 
     :param str description: A description of the repository.

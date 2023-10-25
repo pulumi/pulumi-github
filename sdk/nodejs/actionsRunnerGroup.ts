@@ -8,6 +8,19 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
  * You must have admin access to an organization to use this resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleActionsRunnerGroup = new github.ActionsRunnerGroup("exampleActionsRunnerGroup", {
+ *     visibility: "selected",
+ *     selectedRepositoryIds: [exampleRepository.repoId],
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using the ID of the runner group:

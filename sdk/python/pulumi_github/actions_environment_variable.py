@@ -251,6 +251,33 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
         You must have write access to a repository to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+            environment="example_environment",
+            value="example_variable_value",
+            variable_name="example_variable_name")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+            repository=repo.name,
+            environment="example_environment")
+        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+            repository=repo.name,
+            environment=repo_environment.environment,
+            variable_name="example_variable_name",
+            value="example_variable_value")
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the repository name, environment name, and variable name:
@@ -275,6 +302,33 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
         You must have write access to a repository to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+            environment="example_environment",
+            value="example_variable_value",
+            variable_name="example_variable_name")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+            repository=repo.name,
+            environment="example_environment")
+        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+            repository=repo.name,
+            environment=repo_environment.environment,
+            variable_name="example_variable_name",
+            value="example_variable_value")
+        ```
 
         ## Import
 

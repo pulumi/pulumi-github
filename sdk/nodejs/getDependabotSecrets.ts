@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotSecrets({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getDependabotSecrets(args?: GetDependabotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotSecretsResult> {
     args = args || {};
@@ -53,6 +64,17 @@ export interface GetDependabotSecretsResult {
 }
 /**
  * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotSecrets({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getDependabotSecretsOutput(args?: GetDependabotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotSecretsResult> {
     return pulumi.output(args).apply((a: any) => getDependabotSecrets(a, opts))

@@ -14,6 +14,27 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to add/remove GPG keys from your user account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.UserGpgKey("example", new()
+    ///     {
+    ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
+    /// ...
+    /// -----END PGP PUBLIC KEY BLOCK-----
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.

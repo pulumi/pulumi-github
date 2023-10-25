@@ -382,6 +382,40 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository", description="Example repository")
+        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
+            repository=example_repository.name,
+            target="branch",
+            enforcement="active",
+            conditions=github.RepositoryRulesetConditionsArgs(
+                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
+                    includes=["~ALL"],
+                    excludes=[],
+                ),
+            ),
+            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
+                actor_id=13473,
+                actor_type="Integration",
+                bypass_mode="always",
+            )],
+            rules=github.RepositoryRulesetRulesArgs(
+                creation=True,
+                update=True,
+                deletion=True,
+                required_linear_history=True,
+                required_signatures=True,
+                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
+                    required_deployment_environments=["test"],
+                ),
+            ))
+        ```
+
         ## Import
 
         GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
@@ -410,6 +444,40 @@ class RepositoryRuleset(pulumi.CustomResource):
         Creates a GitHub repository ruleset.
 
         This resource allows you to create and manage rulesets on the repository level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository", description="Example repository")
+        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
+            repository=example_repository.name,
+            target="branch",
+            enforcement="active",
+            conditions=github.RepositoryRulesetConditionsArgs(
+                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
+                    includes=["~ALL"],
+                    excludes=[],
+                ),
+            ),
+            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
+                actor_id=13473,
+                actor_type="Integration",
+                bypass_mode="always",
+            )],
+            rules=github.RepositoryRulesetRulesArgs(
+                creation=True,
+                update=True,
+                deletion=True,
+                required_linear_history=True,
+                required_signatures=True,
+                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
+                    required_deployment_environments=["test"],
+                ),
+            ))
+        ```
 
         ## Import
 

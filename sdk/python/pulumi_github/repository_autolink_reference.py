@@ -235,6 +235,21 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         """
         This resource allows you to create and manage an autolink reference for a single repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False)
+        autolink = github.RepositoryAutolinkReference("autolink",
+            repository=repo.name,
+            key_prefix="TICKET-",
+            target_url_template="https://example.com/TICKET?query=<num>")
+        ```
+
         ## Import
 
         ### Import by key prefix
@@ -258,6 +273,21 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage an autolink reference for a single repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False)
+        autolink = github.RepositoryAutolinkReference("autolink",
+            repository=repo.name,
+            key_prefix="TICKET-",
+            target_url_template="https://example.com/TICKET?query=<num>")
+        ```
 
         ## Import
 

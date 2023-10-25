@@ -251,6 +251,26 @@ class RepositoryEnvironment(pulumi.CustomResource):
         """
         This resource allows you to create and manage environments for a GitHub repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        current = github.get_user(username="")
+        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
+        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
+            environment="example",
+            repository=example_repository.name,
+            reviewers=[github.RepositoryEnvironmentReviewerArgs(
+                users=[current.id],
+            )],
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=True,
+                custom_branch_policies=False,
+            ))
+        ```
+
         ## Import
 
         GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
@@ -275,6 +295,26 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage environments for a GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        current = github.get_user(username="")
+        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
+        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
+            environment="example",
+            repository=example_repository.name,
+            reviewers=[github.RepositoryEnvironmentReviewerArgs(
+                users=[current.id],
+            )],
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=True,
+                custom_branch_policies=False,
+            ))
+        ```
 
         ## Import
 

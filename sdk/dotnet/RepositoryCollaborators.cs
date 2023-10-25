@@ -35,6 +35,48 @@ namespace Pulumi.Github
     /// - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
     /// - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Add collaborators to a repository
+    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     {
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var someRepo = new Github.Repository("someRepo");
+    /// 
+    ///     var someRepoCollaborators = new Github.RepositoryCollaborators("someRepoCollaborators", new()
+    ///     {
+    ///         Repository = someRepo.Name,
+    ///         Users = new[]
+    ///         {
+    ///             new Github.Inputs.RepositoryCollaboratorsUserArgs
+    ///             {
+    ///                 Permission = "admin",
+    ///                 Username = "SomeUser",
+    ///             },
+    ///         },
+    ///         Teams = new[]
+    ///         {
+    ///             new Github.Inputs.RepositoryCollaboratorsTeamArgs
+    ///             {
+    ///                 Permission = "pull",
+    ///                 TeamId = someTeam.Slug,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Repository Collaborators can be imported using the name `name`, e.g.

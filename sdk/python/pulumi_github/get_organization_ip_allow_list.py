@@ -63,6 +63,15 @@ def get_organization_ip_allow_list(opts: Optional[pulumi.InvokeOptions] = None) 
     Use this data source to retrieve information about the IP allow list of an organization.
     The allow list for IP addresses will block access to private resources via the web, API,
     and Git from any IP addresses that are not on the allow list.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_ip_allow_list()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -79,5 +88,14 @@ def get_organization_ip_allow_list_output(opts: Optional[pulumi.InvokeOptions] =
     Use this data source to retrieve information about the IP allow list of an organization.
     The allow list for IP addresses will block access to private resources via the web, API,
     and Git from any IP addresses that are not on the allow list.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    all = github.get_organization_ip_allow_list()
+    ```
     """
     ...

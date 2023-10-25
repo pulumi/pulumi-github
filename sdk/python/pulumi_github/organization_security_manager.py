@@ -94,6 +94,16 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  team_slug: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        some_team_team = github.Team("someTeamTeam", description="Some cool team")
+        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
+        ```
+
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
@@ -113,6 +123,16 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  args: OrganizationSecurityManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        some_team_team = github.Team("someTeamTeam", description="Some cool team")
+        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
+        ```
+
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.

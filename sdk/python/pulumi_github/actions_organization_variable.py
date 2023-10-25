@@ -258,6 +258,30 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
         You must have write access to a repository to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+            value="example_variable_value",
+            variable_name="example_variable_name",
+            visibility="private")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+            variable_name="example_variable_name",
+            visibility="selected",
+            value="example_variable_value",
+            selected_repository_ids=[repo.repo_id])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the variable name:
@@ -283,6 +307,30 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions variables within your GitHub organization.
         You must have write access to a repository to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+            value="example_variable_value",
+            variable_name="example_variable_name",
+            visibility="private")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+            variable_name="example_variable_name",
+            visibility="selected",
+            value="example_variable_value",
+            selected_repository_ids=[repo.repo_id])
+        ```
 
         ## Import
 

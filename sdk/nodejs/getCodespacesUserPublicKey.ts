@@ -7,6 +7,15 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
  * Note that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getCodespacesUserPublicKey({});
+ * ```
  */
 export function getCodespacesUserPublicKey(opts?: pulumi.InvokeOptions): Promise<GetCodespacesUserPublicKeyResult> {
 
@@ -35,6 +44,15 @@ export interface GetCodespacesUserPublicKeyResult {
 /**
  * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
  * Note that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getCodespacesUserPublicKey({});
+ * ```
  */
 export function getCodespacesUserPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserPublicKeyResult> {
     return pulumi.output(getCodespacesUserPublicKey(opts))

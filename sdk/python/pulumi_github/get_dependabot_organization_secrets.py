@@ -60,6 +60,15 @@ class AwaitableGetDependabotOrganizationSecretsResult(GetDependabotOrganizationS
 def get_dependabot_organization_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDependabotOrganizationSecretsResult:
     """
     Use this data source to retrieve the list of dependabot secrets of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_organization_secrets()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -74,5 +83,14 @@ def get_dependabot_organization_secrets(opts: Optional[pulumi.InvokeOptions] = N
 def get_dependabot_organization_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotOrganizationSecretsResult]:
     """
     Use this data source to retrieve the list of dependabot secrets of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_dependabot_organization_secrets()
+    ```
     """
     ...

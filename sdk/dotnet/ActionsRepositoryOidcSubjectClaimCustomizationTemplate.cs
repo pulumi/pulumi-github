@@ -24,6 +24,33 @@ namespace Pulumi.Github
     /// | `false`       | Set                  | `include_claim_keys`                                      |
     /// | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example");
+    /// 
+    ///     var exampleTemplate = new Github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", new()
+    ///     {
+    ///         Repository = example.Name,
+    ///         UseDefault = false,
+    ///         IncludeClaimKeys = new[]
+    ///         {
+    ///             "actor",
+    ///             "context",
+    ///             "repository_owner",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the repository's name.

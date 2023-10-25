@@ -13,6 +13,42 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//				Name: pulumi.StringRef("test"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryTopics(ctx, "testRepositoryTopics", &github.RepositoryTopicsArgs{
+//				Repository: pulumi.Any(github_repository.Test.Name),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("topic-1"),
+//					pulumi.String("topic-2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Repository topics can be imported using the `name` of the repository.

@@ -214,6 +214,26 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         This resource allows you to enable and manage GitHub Actions permissions for a given repository.
         You must have admin access to an repository to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        test = github.ActionsRepositoryPermissions("test",
+            allowed_actions="selected",
+            allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
+                github_owned_allowed=True,
+                patterns_alloweds=[
+                    "actions/cache@*",
+                    "actions/checkout@*",
+                ],
+                verified_allowed=True,
+            ),
+            repository=example.name)
+        ```
+
         ## Import
 
         This resource can be imported using the name of the GitHub repository:
@@ -238,6 +258,26 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         """
         This resource allows you to enable and manage GitHub Actions permissions for a given repository.
         You must have admin access to an repository to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        test = github.ActionsRepositoryPermissions("test",
+            allowed_actions="selected",
+            allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
+                github_owned_allowed=True,
+                patterns_alloweds=[
+                    "actions/cache@*",
+                    "actions/checkout@*",
+                ],
+                verified_allowed=True,
+            ),
+            repository=example.name)
+        ```
 
         ## Import
 

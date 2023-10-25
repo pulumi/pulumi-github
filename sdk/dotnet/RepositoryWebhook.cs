@@ -13,6 +13,42 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage webhooks for repositories within your
     /// GitHub organization or personal account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = new Github.Repository("repo", new()
+    ///     {
+    ///         Description = "Terraform acceptance tests",
+    ///         HomepageUrl = "http://example.com/",
+    ///         Visibility = "public",
+    ///     });
+    /// 
+    ///     var foo = new Github.RepositoryWebhook("foo", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         {
+    ///             Url = "https://google.de/",
+    ///             ContentType = "form",
+    ///             InsecureSsl = false,
+    ///         },
+    ///         Active = false,
+    ///         Events = new[]
+    ///         {
+    ///             "issues",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.

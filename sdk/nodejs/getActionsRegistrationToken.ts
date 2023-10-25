@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsRegistrationToken({
+ *     repository: "example_repo",
+ * });
+ * ```
  */
 export function getActionsRegistrationToken(args: GetActionsRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsRegistrationTokenResult> {
 
@@ -45,6 +56,17 @@ export interface GetActionsRegistrationTokenResult {
 }
 /**
  * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsRegistrationToken({
+ *     repository: "example_repo",
+ * });
+ * ```
  */
 export function getActionsRegistrationTokenOutput(args: GetActionsRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRegistrationTokenResult> {
     return pulumi.output(args).apply((a: any) => getActionsRegistrationToken(a, opts))

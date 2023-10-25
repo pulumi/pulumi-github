@@ -60,6 +60,15 @@ class AwaitableGetActionsOrganizationVariablesResult(GetActionsOrganizationVaria
 def get_actions_organization_variables(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionsOrganizationVariablesResult:
     """
     Use this data source to retrieve the list of variables of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_variables()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -74,5 +83,14 @@ def get_actions_organization_variables(opts: Optional[pulumi.InvokeOptions] = No
 def get_actions_organization_variables_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationVariablesResult]:
     """
     Use this data source to retrieve the list of variables of the organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_organization_variables()
+    ```
     """
     ...

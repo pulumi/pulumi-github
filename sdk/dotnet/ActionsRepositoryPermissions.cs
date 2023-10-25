@@ -13,6 +13,37 @@ namespace Pulumi.Github
     /// This resource allows you to enable and manage GitHub Actions permissions for a given repository.
     /// You must have admin access to an repository to use this resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.Repository("example");
+    /// 
+    ///     var test = new Github.ActionsRepositoryPermissions("test", new()
+    ///     {
+    ///         AllowedActions = "selected",
+    ///         AllowedActionsConfig = new Github.Inputs.ActionsRepositoryPermissionsAllowedActionsConfigArgs
+    ///         {
+    ///             GithubOwnedAllowed = true,
+    ///             PatternsAlloweds = new[]
+    ///             {
+    ///                 "actions/cache@*",
+    ///                 "actions/checkout@*",
+    ///             },
+    ///             VerifiedAllowed = true,
+    ///         },
+    ///         Repository = example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource can be imported using the name of the GitHub repository:

@@ -14,6 +14,27 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a milestone for a repository
+    ///     var example = new Github.RepositoryMilestone("example", new()
+    ///     {
+    ///         Owner = "example-owner",
+    ///         Repository = "example-repository",
+    ///         Title = "v1.1.0",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.

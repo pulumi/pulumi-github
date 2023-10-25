@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about branches in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryBranches({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryBranches(args: GetRepositoryBranchesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryBranchesResult> {
 
@@ -55,6 +66,17 @@ export interface GetRepositoryBranchesResult {
 }
 /**
  * Use this data source to retrieve information about branches in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryBranches({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryBranchesOutput(args: GetRepositoryBranchesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryBranchesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryBranches(a, opts))

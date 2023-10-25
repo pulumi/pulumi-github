@@ -84,6 +84,16 @@ def get_codespaces_secrets(full_name: Optional[str] = None,
     """
     Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_codespaces_secrets(name="example_repository")
+    example2 = github.get_codespaces_secrets(full_name="org/example_repository")
+    ```
+
 
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str name: The name of the repository.
@@ -107,6 +117,16 @@ def get_codespaces_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesSecretsResult]:
     """
     Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_codespaces_secrets(name="example_repository")
+    example2 = github.get_codespaces_secrets(full_name="org/example_repository")
+    ```
 
 
     :param str full_name: Full name of the repository (in `org/name` format).

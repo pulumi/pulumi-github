@@ -6,6 +6,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
+ * import * as github from "@pulumi/github";
+ *
+ * const this = github.getAppToken({
+ *     appId: "123456",
+ *     installationId: "78910",
+ *     pemFile: fs.readFileSync("foo/bar.pem"),
+ * });
+ * ```
  */
 export function getAppToken(args: GetAppTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAppTokenResult> {
 
@@ -53,6 +67,20 @@ export interface GetAppTokenResult {
 }
 /**
  * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
+ * import * as github from "@pulumi/github";
+ *
+ * const this = github.getAppToken({
+ *     appId: "123456",
+ *     installationId: "78910",
+ *     pemFile: fs.readFileSync("foo/bar.pem"),
+ * });
+ * ```
  */
 export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppTokenResult> {
     return pulumi.output(args).apply((a: any) => getAppToken(a, opts))

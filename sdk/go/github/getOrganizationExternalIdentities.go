@@ -14,6 +14,30 @@ import (
 
 // Use this data source to retrieve each organization member's SAML or SCIM user
 // attributes.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetOrganizationExternalIdentities(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrganizationExternalIdentities(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationExternalIdentitiesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationExternalIdentitiesResult

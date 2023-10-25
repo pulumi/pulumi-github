@@ -388,6 +388,18 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
+            visibility="selected",
+            selected_repository_ids=[example_repository.repo_id])
+        ```
+
         ## Import
 
         This resource can be imported using the ID of the runner group:
@@ -414,6 +426,18 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         """
         This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
         You must have admin access to an organization to use this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
+            visibility="selected",
+            selected_repository_ids=[example_repository.repo_id])
+        ```
 
         ## Import
 

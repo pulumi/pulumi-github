@@ -213,6 +213,27 @@ class RepositoryCollaborators(pulumi.CustomResource):
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add collaborators to a repository
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_repo = github.Repository("someRepo")
+        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
+            repository=some_repo.name,
+            users=[github.RepositoryCollaboratorsUserArgs(
+                permission="admin",
+                username="SomeUser",
+            )],
+            teams=[github.RepositoryCollaboratorsTeamArgs(
+                permission="pull",
+                team_id=some_team.slug,
+            )])
+        ```
+
         ## Import
 
         GitHub Repository Collaborators can be imported using the name `name`, e.g.
@@ -258,6 +279,27 @@ class RepositoryCollaborators(pulumi.CustomResource):
         - [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)
         - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
         - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add collaborators to a repository
+        some_team = github.Team("someTeam", description="Some cool team")
+        some_repo = github.Repository("someRepo")
+        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
+            repository=some_repo.name,
+            users=[github.RepositoryCollaboratorsUserArgs(
+                permission="admin",
+                username="SomeUser",
+            )],
+            teams=[github.RepositoryCollaboratorsTeamArgs(
+                permission="pull",
+                team_id=some_team.slug,
+            )])
+        ```
 
         ## Import
 

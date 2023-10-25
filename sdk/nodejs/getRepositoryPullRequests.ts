@@ -8,6 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryPullRequests({
+ *     baseRef: "main",
+ *     baseRepository: "example-repository",
+ *     sortBy: "updated",
+ *     sortDirection: "desc",
+ *     state: "open",
+ * });
+ * ```
  */
 export function getRepositoryPullRequests(args: GetRepositoryPullRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestsResult> {
 
@@ -88,6 +103,21 @@ export interface GetRepositoryPullRequestsResult {
 }
 /**
  * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryPullRequests({
+ *     baseRef: "main",
+ *     baseRepository: "example-repository",
+ *     sortBy: "updated",
+ *     sortDirection: "desc",
+ *     state: "open",
+ * });
+ * ```
  */
 export function getRepositoryPullRequestsOutput(args: GetRepositoryPullRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryPullRequests(a, opts))

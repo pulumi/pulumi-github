@@ -84,6 +84,15 @@ def get_actions_secrets(full_name: Optional[str] = None,
     """
     Use this data source to retrieve the list of secrets for a GitHub repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_secrets(name="example")
+    ```
+
 
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str name: The name of the repository.
@@ -107,6 +116,15 @@ def get_actions_secrets_output(full_name: Optional[pulumi.Input[Optional[str]]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsSecretsResult]:
     """
     Use this data source to retrieve the list of secrets for a GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_actions_secrets(name="example")
+    ```
 
 
     :param str full_name: Full name of the repository (in `org/name` format).

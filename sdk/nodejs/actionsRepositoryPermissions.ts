@@ -10,6 +10,27 @@ import * as utilities from "./utilities";
  * This resource allows you to enable and manage GitHub Actions permissions for a given repository.
  * You must have admin access to an repository to use this resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {});
+ * const test = new github.ActionsRepositoryPermissions("test", {
+ *     allowedActions: "selected",
+ *     allowedActionsConfig: {
+ *         githubOwnedAllowed: true,
+ *         patternsAlloweds: [
+ *             "actions/cache@*",
+ *             "actions/checkout@*",
+ *         ],
+ *         verifiedAllowed: true,
+ *     },
+ *     repository: example.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using the name of the GitHub repository:

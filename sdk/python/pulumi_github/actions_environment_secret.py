@@ -292,6 +292,37 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
+            environment="example_environment",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
+            environment="example_environment",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+            repository=repo.name,
+            environment="example_environment")
+        test_secret = github.ActionsEnvironmentSecret("testSecret",
+            repository=repo.name,
+            environment=repo_environment.environment,
+            secret_name="test_secret_name",
+            plaintext_value="%s")
+        ```
+
         ## Import
 
         This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
@@ -311,6 +342,37 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  args: ActionsEnvironmentSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
+            environment="example_environment",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
+            environment="example_environment",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+            repository=repo.name,
+            environment="example_environment")
+        test_secret = github.ActionsEnvironmentSecret("testSecret",
+            repository=repo.name,
+            environment=repo_environment.environment,
+            secret_name="test_secret_name",
+            plaintext_value="%s")
+        ```
+
         ## Import
 
         This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!

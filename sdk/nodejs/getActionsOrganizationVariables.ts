@@ -8,6 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of variables of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationVariables({});
+ * ```
  */
 export function getActionsOrganizationVariables(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationVariablesResult> {
 
@@ -31,6 +40,15 @@ export interface GetActionsOrganizationVariablesResult {
 }
 /**
  * Use this data source to retrieve the list of variables of the organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsOrganizationVariables({});
+ * ```
  */
 export function getActionsOrganizationVariablesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationVariablesResult> {
     return pulumi.output(getActionsOrganizationVariables(opts))

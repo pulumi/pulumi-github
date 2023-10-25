@@ -17,6 +17,34 @@ import (
 //
 // This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepositoryMilestone(ctx, "example", &github.RepositoryMilestoneArgs{
+//				Owner:      pulumi.String("example-owner"),
+//				Repository: pulumi.String("example-repository"),
+//				Title:      pulumi.String("v1.1.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.

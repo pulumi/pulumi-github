@@ -7,6 +7,41 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage settings for a GitHub Organization.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const test = new github.OrganizationSettings("test", {
+ *     advancedSecurityEnabledForNewRepositories: false,
+ *     billingEmail: "test@example.com",
+ *     blog: "https://example.com",
+ *     company: "Test Company",
+ *     defaultRepositoryPermission: "read",
+ *     dependabotAlertsEnabledForNewRepositories: false,
+ *     dependabotSecurityUpdatesEnabledForNewRepositories: false,
+ *     dependencyGraphEnabledForNewRepositories: false,
+ *     description: "Test Description",
+ *     email: "test@example.com",
+ *     hasOrganizationProjects: true,
+ *     hasRepositoryProjects: true,
+ *     location: "Test Location",
+ *     membersCanCreateInternalRepositories: true,
+ *     membersCanCreatePages: true,
+ *     membersCanCreatePrivatePages: true,
+ *     membersCanCreatePrivateRepositories: true,
+ *     membersCanCreatePublicPages: true,
+ *     membersCanCreatePublicRepositories: true,
+ *     membersCanCreateRepositories: true,
+ *     membersCanForkPrivateRepositories: true,
+ *     secretScanningEnabledForNewRepositories: false,
+ *     secretScanningPushProtectionEnabledForNewRepositories: false,
+ *     twitterUsername: "Test",
+ *     webCommitSignoffRequired: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.

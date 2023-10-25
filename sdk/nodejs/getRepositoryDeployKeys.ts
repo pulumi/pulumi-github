@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve all deploy keys of a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryDeployKeys({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryDeployKeys(args: GetRepositoryDeployKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeployKeysResult> {
 
@@ -43,6 +54,17 @@ export interface GetRepositoryDeployKeysResult {
 }
 /**
  * Use this data source to retrieve all deploy keys of a repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRepositoryDeployKeys({
+ *     repository: "example-repository",
+ * });
+ * ```
  */
 export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryDeployKeys(a, opts))

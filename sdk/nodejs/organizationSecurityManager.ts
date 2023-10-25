@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const someTeamTeam = new github.Team("someTeamTeam", {description: "Some cool team"});
+ * const someTeamOrganizationSecurityManager = new github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", {teamSlug: someTeamTeam.slug});
+ * ```
+ *
  * ## Import
  *
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.

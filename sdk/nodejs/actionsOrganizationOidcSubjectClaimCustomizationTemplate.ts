@@ -11,6 +11,19 @@ import * as utilities from "./utilities";
  * More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
  * available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleTemplate = new github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", {includeClaimKeys: [
+ *     "actor",
+ *     "context",
+ *     "repository_owner",
+ * ]});
+ * ```
+ *
  * ## Import
  *
  * This resource can be imported using the organization's name.

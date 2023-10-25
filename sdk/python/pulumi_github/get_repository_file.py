@@ -163,6 +163,17 @@ def get_repository_file(branch: Optional[str] = None,
     This data source allows you to read files within a
     GitHub repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+        branch="main",
+        file=".gitignore")
+    ```
+
 
     :param str branch: Git branch. Defaults to the repository's default branch.
     :param str file: The path of the file to read.
@@ -197,6 +208,17 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     """
     This data source allows you to read files within a
     GitHub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    foo = github.get_repository_file(repository=github_repository["foo"]["name"],
+        branch="main",
+        file=".gitignore")
+    ```
 
 
     :param str branch: Git branch. Defaults to the repository's default branch.

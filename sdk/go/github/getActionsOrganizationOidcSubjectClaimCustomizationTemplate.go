@@ -13,6 +13,30 @@ import (
 )
 
 // Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult

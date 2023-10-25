@@ -32,6 +32,28 @@ import * as utilities from "./utilities";
  * - [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)
  * - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Add collaborators to a repository
+ * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
+ * const someRepo = new github.Repository("someRepo", {});
+ * const someRepoCollaborators = new github.RepositoryCollaborators("someRepoCollaborators", {
+ *     repository: someRepo.name,
+ *     users: [{
+ *         permission: "admin",
+ *         username: "SomeUser",
+ *     }],
+ *     teams: [{
+ *         permission: "pull",
+ *         teamId: someTeam.slug,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Repository Collaborators can be imported using the name `name`, e.g.

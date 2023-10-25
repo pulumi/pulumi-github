@@ -255,6 +255,16 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
     """
     Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_pull_request(base_repository="example_repository",
+        number=1)
+    ```
+
 
     :param str base_repository: Name of the base repository to retrieve the Pull Request from.
     :param int number: The number of the Pull Request within the repository.
@@ -296,6 +306,16 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestResult]:
     """
     Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_repository_pull_request(base_repository="example_repository",
+        number=1)
+    ```
 
 
     :param str base_repository: Name of the base repository to retrieve the Pull Request from.

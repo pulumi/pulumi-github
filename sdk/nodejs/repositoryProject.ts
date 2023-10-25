@@ -6,6 +6,22 @@ import * as utilities from "./utilities";
 
 /**
  * This resource allows you to create and manage projects for GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.Repository("example", {
+ *     description: "My awesome codebase",
+ *     hasProjects: true,
+ * });
+ * const project = new github.RepositoryProject("project", {
+ *     body: "This is a repository project.",
+ *     repository: example.name,
+ * });
+ * ```
  */
 export class RepositoryProject extends pulumi.CustomResource {
     /**

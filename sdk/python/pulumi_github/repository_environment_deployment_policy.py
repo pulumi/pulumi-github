@@ -172,6 +172,31 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         """
         This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        current = github.get_user(username="")
+        test_repository = github.Repository("testRepository")
+        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
+            repository=test_repository.name,
+            environment="environment/test",
+            wait_timer=10000,
+            reviewers=[github.RepositoryEnvironmentReviewerArgs(
+                users=[current.id],
+            )],
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=False,
+                custom_branch_policies=True,
+            ))
+        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
+            repository=test_repository.name,
+            environment=test_repository_environment.environment,
+            branch_pattern="releases/*")
+        ```
+
         ## Import
 
         GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
@@ -194,6 +219,31 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        current = github.get_user(username="")
+        test_repository = github.Repository("testRepository")
+        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
+            repository=test_repository.name,
+            environment="environment/test",
+            wait_timer=10000,
+            reviewers=[github.RepositoryEnvironmentReviewerArgs(
+                users=[current.id],
+            )],
+            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
+                protected_branches=False,
+                custom_branch_policies=True,
+            ))
+        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
+            repository=test_repository.name,
+            environment=test_repository_environment.environment,
+            branch_pattern="releases/*")
+        ```
 
         ## Import
 

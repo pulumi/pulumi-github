@@ -14,6 +14,28 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve a specific organization member's SAML or SCIM user
         /// attributes.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUser = Github.GetUserExternalIdentity.Invoke(new()
+        ///     {
+        ///         Username = "example-user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserExternalIdentityResult> InvokeAsync(GetUserExternalIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserExternalIdentityResult>("github:index/getUserExternalIdentity:getUserExternalIdentity", args ?? new GetUserExternalIdentityArgs(), options.WithDefaults());
@@ -21,6 +43,28 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve a specific organization member's SAML or SCIM user
         /// attributes.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUser = Github.GetUserExternalIdentity.Invoke(new()
+        ///     {
+        ///         Username = "example-user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserExternalIdentityResult> Invoke(GetUserExternalIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserExternalIdentityResult>("github:index/getUserExternalIdentity:getUserExternalIdentity", args ?? new GetUserExternalIdentityInvokeArgs(), options.WithDefaults());

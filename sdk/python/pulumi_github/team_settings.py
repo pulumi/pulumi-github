@@ -185,6 +185,23 @@ class TeamSettings(pulumi.CustomResource):
 
         > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a repository to the team
+        some_team = github.Team("someTeam", description="Some cool team")
+        code_review_settings = github.TeamSettings("codeReviewSettings",
+            team_id=some_team.id,
+            review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
+                algorithm="ROUND_ROBIN",
+                member_count=1,
+                notify=True,
+            ))
+        ```
+
         ## Import
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
@@ -217,6 +234,23 @@ class TeamSettings(pulumi.CustomResource):
         The team must both belong to the same organization configured in the provider on GitHub.
 
         > **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Add a repository to the team
+        some_team = github.Team("someTeam", description="Some cool team")
+        code_review_settings = github.TeamSettings("codeReviewSettings",
+            team_id=some_team.id,
+            review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
+                algorithm="ROUND_ROBIN",
+                member_count=1,
+                notify=True,
+            ))
+        ```
 
         ## Import
 

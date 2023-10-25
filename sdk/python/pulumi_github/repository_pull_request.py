@@ -505,6 +505,20 @@ class RepositoryPullRequest(pulumi.CustomResource):
         """
         This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.RepositoryPullRequest("example",
+            base_ref="main",
+            base_repository="example-repository",
+            body="This will change everything",
+            head_ref="feature-branch",
+            title="My newest feature")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_ref: Name of the branch serving as the base of the Pull Request.
@@ -523,6 +537,20 @@ class RepositoryPullRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.RepositoryPullRequest("example",
+            base_ref="main",
+            base_repository="example-repository",
+            body="This will change everything",
+            head_ref="feature-branch",
+            title="My newest feature")
+        ```
 
         :param str resource_name: The name of the resource.
         :param RepositoryPullRequestArgs args: The arguments to use to populate this resource's properties.

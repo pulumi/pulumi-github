@@ -19,6 +19,36 @@ import (
 // More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
 // available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, "exampleTemplate", &github.ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs{
+//				IncludeClaimKeys: pulumi.StringArray{
+//					pulumi.String("actor"),
+//					pulumi.String("context"),
+//					pulumi.String("repository_owner"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // This resource can be imported using the organization's name.

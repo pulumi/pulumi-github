@@ -96,6 +96,15 @@ def get_organization_custom_role(name: Optional[str] = None,
 
     > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_organization_custom_role(name="example")
+    ```
+
 
     :param str name: The name of the custom role.
     """
@@ -119,6 +128,15 @@ def get_organization_custom_role_output(name: Optional[pulumi.Input[str]] = None
     Use this data source to retrieve information about a custom role in a GitHub Organization.
 
     > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_organization_custom_role(name="example")
+    ```
 
 
     :param str name: The name of the custom role.

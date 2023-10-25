@@ -10,6 +10,63 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret", new()
+    ///     {
+    ///         Environment = "example_environment",
+    ///         SecretName = "example_secret_name",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_actionsEnvironmentSecretActionsEnvironmentSecret = new Github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret", new()
+    ///     {
+    ///         Environment = "example_environment",
+    ///         SecretName = "example_secret_name",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var repoEnvironment = new Github.RepositoryEnvironment("repoEnvironment", new()
+    ///     {
+    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Environment = "example_environment",
+    ///     });
+    /// 
+    ///     var testSecret = new Github.ActionsEnvironmentSecret("testSecret", new()
+    ///     {
+    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Environment = repoEnvironment.Environment,
+    ///         SecretName = "test_secret_name",
+    ///         PlaintextValue = "%s",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!

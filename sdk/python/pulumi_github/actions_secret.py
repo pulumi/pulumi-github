@@ -254,6 +254,23 @@ class ActionsSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_actions_public_key(repository="example_repository")
+        example_secret_actions_secret = github.ActionsSecret("exampleSecretActionsSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_actions_secret_actions_secret = github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:
@@ -277,6 +294,23 @@ class ActionsSecret(pulumi.CustomResource):
                  args: ActionsSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_actions_public_key(repository="example_repository")
+        example_secret_actions_secret = github.ActionsSecret("exampleSecretActionsSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_actions_secret_actions_secret = github.ActionsSecret("exampleSecretIndex/actionsSecretActionsSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:

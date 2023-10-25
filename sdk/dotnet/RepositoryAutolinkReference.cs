@@ -12,6 +12,32 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage an autolink reference for a single repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = new Github.Repository("repo", new()
+    ///     {
+    ///         Description = "GitHub repo managed by Terraform",
+    ///         Private = false,
+    ///     });
+    /// 
+    ///     var autolink = new Github.RepositoryAutolinkReference("autolink", new()
+    ///     {
+    ///         Repository = repo.Name,
+    ///         KeyPrefix = "TICKET-",
+    ///         TargetUrlTemplate = "https://example.com/TICKET?query=&lt;num&gt;",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Import by key prefix

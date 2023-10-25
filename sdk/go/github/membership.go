@@ -19,6 +19,33 @@ import (
 // an invitation will be sent to the user to become part of the organization. When
 // destroyed, either the invitation will be cancelled or the user will be removed.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//				Role:     pulumi.String("member"),
+//				Username: pulumi.String("SomeUser"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Membership can be imported using an ID made up of `organization:username`, e.g.

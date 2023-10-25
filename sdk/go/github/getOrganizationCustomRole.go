@@ -15,6 +15,32 @@ import (
 // Use this data source to retrieve information about a custom role in a GitHub Organization.
 //
 // > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupOrganizationCustomRole(ctx, &github.LookupOrganizationCustomRoleArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupOrganizationCustomRole(ctx *pulumi.Context, args *LookupOrganizationCustomRoleArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationCustomRoleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationCustomRoleResult

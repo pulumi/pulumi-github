@@ -6,6 +6,23 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about multiple GitHub users at once.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getUsers({
+ *     usernames: [
+ *         "example1",
+ *         "example2",
+ *         "example3",
+ *     ],
+ * });
+ * export const validUsers = example.then(example => example.logins);
+ * export const invalidUsers = example.then(example => example.unknownLogins);
+ * ```
  */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
 
@@ -53,6 +70,23 @@ export interface GetUsersResult {
 }
 /**
  * Use this data source to retrieve information about multiple GitHub users at once.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getUsers({
+ *     usernames: [
+ *         "example1",
+ *         "example2",
+ *         "example3",
+ *     ],
+ * });
+ * export const validUsers = example.then(example => example.logins);
+ * export const invalidUsers = example.then(example => example.unknownLogins);
+ * ```
  */
 export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

@@ -191,6 +191,23 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         | `false`       | Set                  | `include_claim_keys`                                      |
         | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate",
+            repository=example.name,
+            use_default=False,
+            include_claim_keys=[
+                "actor",
+                "context",
+                "repository_owner",
+            ])
+        ```
+
         ## Import
 
         This resource can be imported using the repository's name.
@@ -226,6 +243,23 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         | `true`        | Unset                | GitHub's default                                          |
         | `false`       | Set                  | `include_claim_keys`                                      |
         | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.Repository("example")
+        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate",
+            repository=example.name,
+            use_default=False,
+            include_claim_keys=[
+                "actor",
+                "context",
+                "repository_owner",
+            ])
+        ```
 
         ## Import
 

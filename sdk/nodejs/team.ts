@@ -10,6 +10,19 @@ import * as utilities from "./utilities";
  * This resource allows you to add/remove teams from your organization. When applied,
  * a new team will be created. When destroyed, that team will be removed.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * // Add a team to the organization
+ * const someTeam = new github.Team("someTeam", {
+ *     description: "Some cool team",
+ *     privacy: "closed",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Teams can be imported using the GitHub team ID or name e.g.

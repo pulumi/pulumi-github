@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of variables for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsVariables({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getActionsVariables(args?: GetActionsVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsVariablesResult> {
     args = args || {};
@@ -53,6 +64,17 @@ export interface GetActionsVariablesResult {
 }
 /**
  * Use this data source to retrieve the list of variables for a GitHub repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getActionsVariables({
+ *     name: "example",
+ * });
+ * ```
  */
 export function getActionsVariablesOutput(args?: GetActionsVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsVariablesResult> {
     return pulumi.output(args).apply((a: any) => getActionsVariables(a, opts))

@@ -100,6 +100,19 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
         available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", include_claim_keys=[
+            "actor",
+            "context",
+            "repository_owner",
+        ])
+        ```
+
         ## Import
 
         This resource can be imported using the organization's name.
@@ -124,6 +137,19 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
 
         More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
         available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", include_claim_keys=[
+            "actor",
+            "context",
+            "repository_owner",
+        ])
+        ```
 
         ## Import
 

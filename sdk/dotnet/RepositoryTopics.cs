@@ -10,6 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testRepository = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         Name = "test",
+    ///     });
+    /// 
+    ///     var testRepositoryTopics = new Github.RepositoryTopics("testRepositoryTopics", new()
+    ///     {
+    ///         Repository = github_repository.Test.Name,
+    ///         Topics = new[]
+    ///         {
+    ///             "topic-1",
+    ///             "topic-2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Repository topics can be imported using the `name` of the repository.
