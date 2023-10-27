@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppInstallationRepositoriesArgs', 'AppInstallationRepositories']
@@ -23,29 +23,8 @@ class AppInstallationRepositoriesArgs:
                
                > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
-        AppInstallationRepositoriesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            installation_id=installation_id,
-            selected_repositories=selected_repositories,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             installation_id: Optional[pulumi.Input[str]] = None,
-             selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if installation_id is None and 'installationId' in kwargs:
-            installation_id = kwargs['installationId']
-        if installation_id is None:
-            raise TypeError("Missing 'installation_id' argument")
-        if selected_repositories is None and 'selectedRepositories' in kwargs:
-            selected_repositories = kwargs['selectedRepositories']
-        if selected_repositories is None:
-            raise TypeError("Missing 'selected_repositories' argument")
-
-        _setter("installation_id", installation_id)
-        _setter("selected_repositories", selected_repositories)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "selected_repositories", selected_repositories)
 
     @property
     @pulumi.getter(name="installationId")
@@ -86,27 +65,10 @@ class _AppInstallationRepositoriesState:
                
                > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
         """
-        _AppInstallationRepositoriesState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            installation_id=installation_id,
-            selected_repositories=selected_repositories,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             installation_id: Optional[pulumi.Input[str]] = None,
-             selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if installation_id is None and 'installationId' in kwargs:
-            installation_id = kwargs['installationId']
-        if selected_repositories is None and 'selectedRepositories' in kwargs:
-            selected_repositories = kwargs['selectedRepositories']
-
         if installation_id is not None:
-            _setter("installation_id", installation_id)
+            pulumi.set(__self__, "installation_id", installation_id)
         if selected_repositories is not None:
-            _setter("selected_repositories", selected_repositories)
+            pulumi.set(__self__, "selected_repositories", selected_repositories)
 
     @property
     @pulumi.getter(name="installationId")
@@ -208,10 +170,6 @@ class AppInstallationRepositories(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AppInstallationRepositoriesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

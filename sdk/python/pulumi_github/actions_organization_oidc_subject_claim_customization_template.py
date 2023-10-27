@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs', 'ActionsOrganizationOidcSubjectClaimCustomizationTemplate']
@@ -19,22 +19,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs:
         The set of arguments for constructing a ActionsOrganizationOidcSubjectClaimCustomizationTemplate resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
         """
-        ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            include_claim_keys=include_claim_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
-            include_claim_keys = kwargs['includeClaimKeys']
-        if include_claim_keys is None:
-            raise TypeError("Missing 'include_claim_keys' argument")
-
-        _setter("include_claim_keys", include_claim_keys)
+        pulumi.set(__self__, "include_claim_keys", include_claim_keys)
 
     @property
     @pulumi.getter(name="includeClaimKeys")
@@ -57,21 +42,8 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
         Input properties used for looking up and filtering ActionsOrganizationOidcSubjectClaimCustomizationTemplate resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
         """
-        _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            include_claim_keys=include_claim_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
-            include_claim_keys = kwargs['includeClaimKeys']
-
         if include_claim_keys is not None:
-            _setter("include_claim_keys", include_claim_keys)
+            pulumi.set(__self__, "include_claim_keys", include_claim_keys)
 
     @property
     @pulumi.getter(name="includeClaimKeys")
@@ -169,10 +141,6 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

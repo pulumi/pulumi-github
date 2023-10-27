@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsOrganizationSecretRepositoriesArgs', 'ActionsOrganizationSecretRepositories']
@@ -21,29 +21,8 @@ class ActionsOrganizationSecretRepositoriesArgs:
         :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
-        ActionsOrganizationSecretRepositoriesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-            selected_repository_ids=selected_repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-        if selected_repository_ids is None:
-            raise TypeError("Missing 'selected_repository_ids' argument")
-
-        _setter("secret_name", secret_name)
-        _setter("selected_repository_ids", selected_repository_ids)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
 
     @property
     @pulumi.getter(name="secretName")
@@ -80,27 +59,10 @@ class _ActionsOrganizationSecretRepositoriesState:
         :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
-        _ActionsOrganizationSecretRepositoriesState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-            selected_repository_ids=selected_repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-
         if secret_name is not None:
-            _setter("secret_name", secret_name)
+            pulumi.set(__self__, "secret_name", secret_name)
         if selected_repository_ids is not None:
-            _setter("selected_repository_ids", selected_repository_ids)
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
 
     @property
     @pulumi.getter(name="secretName")
@@ -208,10 +170,6 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsOrganizationSecretRepositoriesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

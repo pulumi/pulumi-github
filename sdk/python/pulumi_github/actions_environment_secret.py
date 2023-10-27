@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsEnvironmentSecretArgs', 'ActionsEnvironmentSecret']
@@ -27,44 +27,13 @@ class ActionsEnvironmentSecretArgs:
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
         """
-        ActionsEnvironmentSecretArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            environment=environment,
-            repository=repository,
-            secret_name=secret_name,
-            encrypted_value=encrypted_value,
-            plaintext_value=plaintext_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             environment: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             secret_name: Optional[pulumi.Input[str]] = None,
-             encrypted_value: Optional[pulumi.Input[str]] = None,
-             plaintext_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if environment is None:
-            raise TypeError("Missing 'environment' argument")
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-        if encrypted_value is None and 'encryptedValue' in kwargs:
-            encrypted_value = kwargs['encryptedValue']
-        if plaintext_value is None and 'plaintextValue' in kwargs:
-            plaintext_value = kwargs['plaintextValue']
-
-        _setter("environment", environment)
-        _setter("repository", repository)
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "secret_name", secret_name)
         if encrypted_value is not None:
-            _setter("encrypted_value", encrypted_value)
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
-            _setter("plaintext_value", plaintext_value)
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
 
     @property
     @pulumi.getter
@@ -147,53 +116,20 @@ class _ActionsEnvironmentSecretState:
         :param pulumi.Input[str] secret_name: Name of the secret.
         :param pulumi.Input[str] updated_at: Date of actions_environment_secret update.
         """
-        _ActionsEnvironmentSecretState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_at=created_at,
-            encrypted_value=encrypted_value,
-            environment=environment,
-            plaintext_value=plaintext_value,
-            repository=repository,
-            secret_name=secret_name,
-            updated_at=updated_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_at: Optional[pulumi.Input[str]] = None,
-             encrypted_value: Optional[pulumi.Input[str]] = None,
-             environment: Optional[pulumi.Input[str]] = None,
-             plaintext_value: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             secret_name: Optional[pulumi.Input[str]] = None,
-             updated_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if encrypted_value is None and 'encryptedValue' in kwargs:
-            encrypted_value = kwargs['encryptedValue']
-        if plaintext_value is None and 'plaintextValue' in kwargs:
-            plaintext_value = kwargs['plaintextValue']
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if encrypted_value is not None:
-            _setter("encrypted_value", encrypted_value)
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if plaintext_value is not None:
-            _setter("plaintext_value", plaintext_value)
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if secret_name is not None:
-            _setter("secret_name", secret_name)
+            pulumi.set(__self__, "secret_name", secret_name)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -387,10 +323,6 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsEnvironmentSecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

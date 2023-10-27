@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs', 'ActionsRepositoryOidcSubjectClaimCustomizationTemplate']
@@ -24,33 +24,10 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
                be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_claim_keys: A list of OpenID Connect claims.
         """
-        ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository=repository,
-            use_default=use_default,
-            include_claim_keys=include_claim_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository: Optional[pulumi.Input[str]] = None,
-             use_default: Optional[pulumi.Input[bool]] = None,
-             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if use_default is None and 'useDefault' in kwargs:
-            use_default = kwargs['useDefault']
-        if use_default is None:
-            raise TypeError("Missing 'use_default' argument")
-        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
-            include_claim_keys = kwargs['includeClaimKeys']
-
-        _setter("repository", repository)
-        _setter("use_default", use_default)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "use_default", use_default)
         if include_claim_keys is not None:
-            _setter("include_claim_keys", include_claim_keys)
+            pulumi.set(__self__, "include_claim_keys", include_claim_keys)
 
     @property
     @pulumi.getter
@@ -103,31 +80,12 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
         :param pulumi.Input[bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
         """
-        _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            include_claim_keys=include_claim_keys,
-            repository=repository,
-            use_default=use_default,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             use_default: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if include_claim_keys is None and 'includeClaimKeys' in kwargs:
-            include_claim_keys = kwargs['includeClaimKeys']
-        if use_default is None and 'useDefault' in kwargs:
-            use_default = kwargs['useDefault']
-
         if include_claim_keys is not None:
-            _setter("include_claim_keys", include_claim_keys)
+            pulumi.set(__self__, "include_claim_keys", include_claim_keys)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if use_default is not None:
-            _setter("use_default", use_default)
+            pulumi.set(__self__, "use_default", use_default)
 
     @property
     @pulumi.getter(name="includeClaimKeys")
@@ -279,10 +237,6 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
