@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,28 +25,11 @@ class OrganizationWebhookArgs:
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
         :param pulumi.Input['OrganizationWebhookConfigurationArgs'] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         """
-        OrganizationWebhookArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-            active=active,
-            configuration=configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             active: Optional[pulumi.Input[bool]] = None,
-             configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if events is None:
-            raise TypeError("Missing 'events' argument")
-
-        _setter("events", events)
+        pulumi.set(__self__, "events", events)
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
 
     @property
     @pulumi.getter
@@ -100,35 +83,16 @@ class _OrganizationWebhookState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         :param pulumi.Input[str] url: URL of the webhook
         """
-        _OrganizationWebhookState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            configuration=configuration,
-            etag=etag,
-            events=events,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             configuration: Optional[pulumi.Input['OrganizationWebhookConfigurationArgs']] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -275,10 +239,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrganizationWebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,7 +257,6 @@ class OrganizationWebhook(pulumi.CustomResource):
             __props__ = OrganizationWebhookArgs.__new__(OrganizationWebhookArgs)
 
             __props__.__dict__["active"] = active
-            configuration = _utilities.configure(configuration, OrganizationWebhookConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")

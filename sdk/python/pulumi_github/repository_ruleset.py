@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,48 +33,17 @@ class RepositoryRulesetArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[str] repository: (String) Name of the repository to apply rulset to.
         """
-        RepositoryRulesetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enforcement=enforcement,
-            rules=rules,
-            target=target,
-            bypass_actors=bypass_actors,
-            conditions=conditions,
-            name=name,
-            repository=repository,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enforcement: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
-             conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enforcement is None:
-            raise TypeError("Missing 'enforcement' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-        if bypass_actors is None and 'bypassActors' in kwargs:
-            bypass_actors = kwargs['bypassActors']
-
-        _setter("enforcement", enforcement)
-        _setter("rules", rules)
-        _setter("target", target)
+        pulumi.set(__self__, "enforcement", enforcement)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "target", target)
         if bypass_actors is not None:
-            _setter("bypass_actors", bypass_actors)
+            pulumi.set(__self__, "bypass_actors", bypass_actors)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
 
     @property
     @pulumi.getter
@@ -187,61 +156,26 @@ class _RepositoryRulesetState:
         :param pulumi.Input[int] ruleset_id: (Number) GitHub ID for the ruleset.
         :param pulumi.Input[str] target: (String) Possible values are `branch` and `tag`.
         """
-        _RepositoryRulesetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bypass_actors=bypass_actors,
-            conditions=conditions,
-            enforcement=enforcement,
-            etag=etag,
-            name=name,
-            node_id=node_id,
-            repository=repository,
-            rules=rules,
-            ruleset_id=ruleset_id,
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
-             conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
-             enforcement: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_id: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input['RepositoryRulesetRulesArgs']] = None,
-             ruleset_id: Optional[pulumi.Input[int]] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bypass_actors is None and 'bypassActors' in kwargs:
-            bypass_actors = kwargs['bypassActors']
-        if node_id is None and 'nodeId' in kwargs:
-            node_id = kwargs['nodeId']
-        if ruleset_id is None and 'rulesetId' in kwargs:
-            ruleset_id = kwargs['rulesetId']
-
         if bypass_actors is not None:
-            _setter("bypass_actors", bypass_actors)
+            pulumi.set(__self__, "bypass_actors", bypass_actors)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if enforcement is not None:
-            _setter("enforcement", enforcement)
+            pulumi.set(__self__, "enforcement", enforcement)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_id is not None:
-            _setter("node_id", node_id)
+            pulumi.set(__self__, "node_id", node_id)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if ruleset_id is not None:
-            _setter("ruleset_id", ruleset_id)
+            pulumi.set(__self__, "ruleset_id", ruleset_id)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter(name="bypassActors")
@@ -497,10 +431,6 @@ class RepositoryRuleset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryRulesetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -523,14 +453,12 @@ class RepositoryRuleset(pulumi.CustomResource):
             __props__ = RepositoryRulesetArgs.__new__(RepositoryRulesetArgs)
 
             __props__.__dict__["bypass_actors"] = bypass_actors
-            conditions = _utilities.configure(conditions, RepositoryRulesetConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             if enforcement is None and not opts.urn:
                 raise TypeError("Missing required property 'enforcement'")
             __props__.__dict__["enforcement"] = enforcement
             __props__.__dict__["name"] = name
             __props__.__dict__["repository"] = repository
-            rules = _utilities.configure(rules, RepositoryRulesetRulesArgs, True)
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules

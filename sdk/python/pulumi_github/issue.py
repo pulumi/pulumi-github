@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IssueArgs', 'Issue']
@@ -29,43 +29,16 @@ class IssueArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels to attach to the issue
         :param pulumi.Input[int] milestone_number: Milestone number to assign to the issue
         """
-        IssueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository=repository,
-            title=title,
-            assignees=assignees,
-            body=body,
-            labels=labels,
-            milestone_number=milestone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             assignees: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             milestone_number: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-        if milestone_number is None and 'milestoneNumber' in kwargs:
-            milestone_number = kwargs['milestoneNumber']
-
-        _setter("repository", repository)
-        _setter("title", title)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "title", title)
         if assignees is not None:
-            _setter("assignees", assignees)
+            pulumi.set(__self__, "assignees", assignees)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if milestone_number is not None:
-            _setter("milestone_number", milestone_number)
+            pulumi.set(__self__, "milestone_number", milestone_number)
 
     @property
     @pulumi.getter
@@ -163,55 +136,24 @@ class _IssueState:
         :param pulumi.Input[str] repository: The GitHub repository name
         :param pulumi.Input[str] title: Title of the issue
         """
-        _IssueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignees=assignees,
-            body=body,
-            etag=etag,
-            issue_id=issue_id,
-            labels=labels,
-            milestone_number=milestone_number,
-            number=number,
-            repository=repository,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignees: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             issue_id: Optional[pulumi.Input[int]] = None,
-             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             milestone_number: Optional[pulumi.Input[int]] = None,
-             number: Optional[pulumi.Input[int]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if issue_id is None and 'issueId' in kwargs:
-            issue_id = kwargs['issueId']
-        if milestone_number is None and 'milestoneNumber' in kwargs:
-            milestone_number = kwargs['milestoneNumber']
-
         if assignees is not None:
-            _setter("assignees", assignees)
+            pulumi.set(__self__, "assignees", assignees)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if issue_id is not None:
-            _setter("issue_id", issue_id)
+            pulumi.set(__self__, "issue_id", issue_id)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if milestone_number is not None:
-            _setter("milestone_number", milestone_number)
+            pulumi.set(__self__, "milestone_number", milestone_number)
         if number is not None:
-            _setter("number", number)
+            pulumi.set(__self__, "number", number)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -472,10 +414,6 @@ class Issue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IssueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

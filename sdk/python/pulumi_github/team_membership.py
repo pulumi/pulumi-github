@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamMembershipArgs', 'TeamMembership']
@@ -24,31 +24,10 @@ class TeamMembershipArgs:
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
         """
-        TeamMembershipArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            team_id=team_id,
-            username=username,
-            role=role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             team_id: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-
-        _setter("team_id", team_id)
-        _setter("username", username)
+        pulumi.set(__self__, "team_id", team_id)
+        pulumi.set(__self__, "username", username)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter(name="teamId")
@@ -102,33 +81,14 @@ class _TeamMembershipState:
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[str] username: The user to add to the team.
         """
-        _TeamMembershipState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            etag=etag,
-            role=role,
-            team_id=team_id,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             etag: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if team_id is not None:
-            _setter("team_id", team_id)
+            pulumi.set(__self__, "team_id", team_id)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -291,10 +251,6 @@ class TeamMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
@@ -39,66 +39,29 @@ class ProviderArgs:
         :param pulumi.Input[str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
-        ProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_auth=app_auth,
-            base_url=base_url,
-            insecure=insecure,
-            organization=organization,
-            owner=owner,
-            parallel_requests=parallel_requests,
-            read_delay_ms=read_delay_ms,
-            token=token,
-            write_delay_ms=write_delay_ms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_auth: Optional[pulumi.Input['ProviderAppAuthArgs']] = None,
-             base_url: Optional[pulumi.Input[str]] = None,
-             insecure: Optional[pulumi.Input[bool]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             parallel_requests: Optional[pulumi.Input[bool]] = None,
-             read_delay_ms: Optional[pulumi.Input[int]] = None,
-             token: Optional[pulumi.Input[str]] = None,
-             write_delay_ms: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_auth is None and 'appAuth' in kwargs:
-            app_auth = kwargs['appAuth']
-        if base_url is None and 'baseUrl' in kwargs:
-            base_url = kwargs['baseUrl']
-        if parallel_requests is None and 'parallelRequests' in kwargs:
-            parallel_requests = kwargs['parallelRequests']
-        if read_delay_ms is None and 'readDelayMs' in kwargs:
-            read_delay_ms = kwargs['readDelayMs']
-        if write_delay_ms is None and 'writeDelayMs' in kwargs:
-            write_delay_ms = kwargs['writeDelayMs']
-
         if app_auth is not None:
-            _setter("app_auth", app_auth)
+            pulumi.set(__self__, "app_auth", app_auth)
         if base_url is None:
             base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')
         if base_url is not None:
-            _setter("base_url", base_url)
+            pulumi.set(__self__, "base_url", base_url)
         if insecure is not None:
-            _setter("insecure", insecure)
+            pulumi.set(__self__, "insecure", insecure)
         if organization is not None:
             warnings.warn("""Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""", DeprecationWarning)
             pulumi.log.warn("""organization is deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)""")
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if parallel_requests is not None:
-            _setter("parallel_requests", parallel_requests)
+            pulumi.set(__self__, "parallel_requests", parallel_requests)
         if read_delay_ms is not None:
-            _setter("read_delay_ms", read_delay_ms)
+            pulumi.set(__self__, "read_delay_ms", read_delay_ms)
         if token is not None:
-            _setter("token", token)
+            pulumi.set(__self__, "token", token)
         if write_delay_ms is not None:
-            _setter("write_delay_ms", write_delay_ms)
+            pulumi.set(__self__, "write_delay_ms", write_delay_ms)
 
     @property
     @pulumi.getter(name="appAuth")
@@ -273,10 +236,6 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -300,7 +259,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            app_auth = _utilities.configure(app_auth, ProviderAppAuthArgs, True)
             __props__.__dict__["app_auth"] = pulumi.Output.from_input(app_auth).apply(pulumi.runtime.to_json) if app_auth is not None else None
             if base_url is None:
                 base_url = (_utilities.get_env('GITHUB_BASE_URL') or 'https://api.github.com/')

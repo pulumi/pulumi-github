@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsOrganizationVariableArgs', 'ActionsOrganizationVariable']
@@ -26,38 +26,11 @@ class ActionsOrganizationVariableArgs:
                Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization variable.
         """
-        ActionsOrganizationVariableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            variable_name=variable_name,
-            visibility=visibility,
-            selected_repository_ids=selected_repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[pulumi.Input[str]] = None,
-             variable_name: Optional[pulumi.Input[str]] = None,
-             visibility: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if variable_name is None and 'variableName' in kwargs:
-            variable_name = kwargs['variableName']
-        if variable_name is None:
-            raise TypeError("Missing 'variable_name' argument")
-        if visibility is None:
-            raise TypeError("Missing 'visibility' argument")
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-
-        _setter("value", value)
-        _setter("variable_name", variable_name)
-        _setter("visibility", visibility)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "variable_name", variable_name)
+        pulumi.set(__self__, "visibility", visibility)
         if selected_repository_ids is not None:
-            _setter("selected_repository_ids", selected_repository_ids)
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
 
     @property
     @pulumi.getter
@@ -128,47 +101,18 @@ class _ActionsOrganizationVariableState:
         :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization variable.
                Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
-        _ActionsOrganizationVariableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_at=created_at,
-            selected_repository_ids=selected_repository_ids,
-            updated_at=updated_at,
-            value=value,
-            variable_name=variable_name,
-            visibility=visibility,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_at: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             updated_at: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             variable_name: Optional[pulumi.Input[str]] = None,
-             visibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-        if variable_name is None and 'variableName' in kwargs:
-            variable_name = kwargs['variableName']
-
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if selected_repository_ids is not None:
-            _setter("selected_repository_ids", selected_repository_ids)
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if variable_name is not None:
-            _setter("variable_name", variable_name)
+            pulumi.set(__self__, "variable_name", variable_name)
         if visibility is not None:
-            _setter("visibility", visibility)
+            pulumi.set(__self__, "visibility", visibility)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -350,10 +294,6 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsOrganizationVariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

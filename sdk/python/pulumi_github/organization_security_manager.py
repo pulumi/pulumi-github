@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrganizationSecurityManagerArgs', 'OrganizationSecurityManager']
@@ -19,22 +19,7 @@ class OrganizationSecurityManagerArgs:
         The set of arguments for constructing a OrganizationSecurityManager resource.
         :param pulumi.Input[str] team_slug: The slug of the team to manage.
         """
-        OrganizationSecurityManagerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            team_slug=team_slug,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_slug is None and 'teamSlug' in kwargs:
-            team_slug = kwargs['teamSlug']
-        if team_slug is None:
-            raise TypeError("Missing 'team_slug' argument")
-
-        _setter("team_slug", team_slug)
+        pulumi.set(__self__, "team_slug", team_slug)
 
     @property
     @pulumi.getter(name="teamSlug")
@@ -57,21 +42,8 @@ class _OrganizationSecurityManagerState:
         Input properties used for looking up and filtering OrganizationSecurityManager resources.
         :param pulumi.Input[str] team_slug: The slug of the team to manage.
         """
-        _OrganizationSecurityManagerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            team_slug=team_slug,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_slug is None and 'teamSlug' in kwargs:
-            team_slug = kwargs['teamSlug']
-
         if team_slug is not None:
-            _setter("team_slug", team_slug)
+            pulumi.set(__self__, "team_slug", team_slug)
 
     @property
     @pulumi.getter(name="teamSlug")
@@ -151,10 +123,6 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrganizationSecurityManagerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
