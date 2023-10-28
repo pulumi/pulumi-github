@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserSshKeyArgs', 'UserSshKey']
@@ -21,25 +21,8 @@ class UserSshKeyArgs:
         :param pulumi.Input[str] key: The public SSH key to add to your GitHub account.
         :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         """
-        UserSshKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-
-        _setter("key", key)
-        _setter("title", title)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -79,31 +62,14 @@ class _UserSshKeyState:
         :param pulumi.Input[str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         :param pulumi.Input[str] url: The URL of the SSH key
         """
-        _UserSshKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            etag=etag,
-            key=key,
-            title=title,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             etag: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -228,10 +194,6 @@ class UserSshKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserSshKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

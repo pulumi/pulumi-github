@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsOrganizationSecretArgs', 'ActionsOrganizationSecret']
@@ -28,45 +28,14 @@ class ActionsOrganizationSecretArgs:
         :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
-        ActionsOrganizationSecretArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-            visibility=visibility,
-            encrypted_value=encrypted_value,
-            plaintext_value=plaintext_value,
-            selected_repository_ids=selected_repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[pulumi.Input[str]] = None,
-             visibility: Optional[pulumi.Input[str]] = None,
-             encrypted_value: Optional[pulumi.Input[str]] = None,
-             plaintext_value: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-        if visibility is None:
-            raise TypeError("Missing 'visibility' argument")
-        if encrypted_value is None and 'encryptedValue' in kwargs:
-            encrypted_value = kwargs['encryptedValue']
-        if plaintext_value is None and 'plaintextValue' in kwargs:
-            plaintext_value = kwargs['plaintextValue']
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-
-        _setter("secret_name", secret_name)
-        _setter("visibility", visibility)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "visibility", visibility)
         if encrypted_value is not None:
-            _setter("encrypted_value", encrypted_value)
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
-            _setter("plaintext_value", plaintext_value)
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
         if selected_repository_ids is not None:
-            _setter("selected_repository_ids", selected_repository_ids)
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
 
     @property
     @pulumi.getter(name="secretName")
@@ -151,55 +120,20 @@ class _ActionsOrganizationSecretState:
         :param pulumi.Input[str] visibility: Configures the access that repositories have to the organization secret.
                Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         """
-        _ActionsOrganizationSecretState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_at=created_at,
-            encrypted_value=encrypted_value,
-            plaintext_value=plaintext_value,
-            secret_name=secret_name,
-            selected_repository_ids=selected_repository_ids,
-            updated_at=updated_at,
-            visibility=visibility,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_at: Optional[pulumi.Input[str]] = None,
-             encrypted_value: Optional[pulumi.Input[str]] = None,
-             plaintext_value: Optional[pulumi.Input[str]] = None,
-             secret_name: Optional[pulumi.Input[str]] = None,
-             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             updated_at: Optional[pulumi.Input[str]] = None,
-             visibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if encrypted_value is None and 'encryptedValue' in kwargs:
-            encrypted_value = kwargs['encryptedValue']
-        if plaintext_value is None and 'plaintextValue' in kwargs:
-            plaintext_value = kwargs['plaintextValue']
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
-            selected_repository_ids = kwargs['selectedRepositoryIds']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if encrypted_value is not None:
-            _setter("encrypted_value", encrypted_value)
+            pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
-            _setter("plaintext_value", plaintext_value)
+            pulumi.set(__self__, "plaintext_value", plaintext_value)
         if secret_name is not None:
-            _setter("secret_name", secret_name)
+            pulumi.set(__self__, "secret_name", secret_name)
         if selected_repository_ids is not None:
-            _setter("selected_repository_ids", selected_repository_ids)
+            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
         if visibility is not None:
-            _setter("visibility", visibility)
+            pulumi.set(__self__, "visibility", visibility)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -409,10 +343,6 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ActionsOrganizationSecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

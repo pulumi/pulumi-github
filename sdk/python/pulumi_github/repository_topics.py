@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryTopicsArgs', 'RepositoryTopics']
@@ -21,25 +21,8 @@ class RepositoryTopicsArgs:
         :param pulumi.Input[str] repository: The repository name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: A list of topics to add to the repository.
         """
-        RepositoryTopicsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository=repository,
-            topics=topics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository: Optional[pulumi.Input[str]] = None,
-             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if topics is None:
-            raise TypeError("Missing 'topics' argument")
-
-        _setter("repository", repository)
-        _setter("topics", topics)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "topics", topics)
 
     @property
     @pulumi.getter
@@ -76,23 +59,10 @@ class _RepositoryTopicsState:
         :param pulumi.Input[str] repository: The repository name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: A list of topics to add to the repository.
         """
-        _RepositoryTopicsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository=repository,
-            topics=topics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository: Optional[pulumi.Input[str]] = None,
-             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if topics is not None:
-            _setter("topics", topics)
+            pulumi.set(__self__, "topics", topics)
 
     @property
     @pulumi.getter
@@ -196,10 +166,6 @@ class RepositoryTopics(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryTopicsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

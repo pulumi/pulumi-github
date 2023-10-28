@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,26 +26,9 @@ class TeamSyncGroupMappingArgs:
                
                The `group` block consists of:
         """
-        TeamSyncGroupMappingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            team_slug=team_slug,
-            groups=groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             team_slug: Optional[pulumi.Input[str]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_slug is None and 'teamSlug' in kwargs:
-            team_slug = kwargs['teamSlug']
-        if team_slug is None:
-            raise TypeError("Missing 'team_slug' argument")
-
-        _setter("team_slug", team_slug)
+        pulumi.set(__self__, "team_slug", team_slug)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
 
     @property
     @pulumi.getter(name="teamSlug")
@@ -89,29 +72,12 @@ class _TeamSyncGroupMappingState:
                The `group` block consists of:
         :param pulumi.Input[str] team_slug: Slug of the team
         """
-        _TeamSyncGroupMappingState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            etag=etag,
-            groups=groups,
-            team_slug=team_slug,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             etag: Optional[pulumi.Input[str]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None,
-             team_slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_slug is None and 'teamSlug' in kwargs:
-            team_slug = kwargs['teamSlug']
-
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if team_slug is not None:
-            _setter("team_slug", team_slug)
+            pulumi.set(__self__, "team_slug", team_slug)
 
     @property
     @pulumi.getter
@@ -212,10 +178,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamSyncGroupMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

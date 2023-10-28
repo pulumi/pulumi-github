@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BranchArgs', 'Branch']
@@ -25,37 +25,12 @@ class BranchArgs:
         :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
-        BranchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch=branch,
-            repository=repository,
-            source_branch=source_branch,
-            source_sha=source_sha,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             source_branch: Optional[pulumi.Input[str]] = None,
-             source_sha: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch is None:
-            raise TypeError("Missing 'branch' argument")
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if source_branch is None and 'sourceBranch' in kwargs:
-            source_branch = kwargs['sourceBranch']
-        if source_sha is None and 'sourceSha' in kwargs:
-            source_sha = kwargs['sourceSha']
-
-        _setter("branch", branch)
-        _setter("repository", repository)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "repository", repository)
         if source_branch is not None:
-            _setter("source_branch", source_branch)
+            pulumi.set(__self__, "source_branch", source_branch)
         if source_sha is not None:
-            _setter("source_sha", source_sha)
+            pulumi.set(__self__, "source_sha", source_sha)
 
     @property
     @pulumi.getter
@@ -126,47 +101,20 @@ class _BranchState:
         :param pulumi.Input[str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
-        _BranchState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch=branch,
-            etag=etag,
-            ref=ref,
-            repository=repository,
-            sha=sha,
-            source_branch=source_branch,
-            source_sha=source_sha,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             ref: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             sha: Optional[pulumi.Input[str]] = None,
-             source_branch: Optional[pulumi.Input[str]] = None,
-             source_sha: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_branch is None and 'sourceBranch' in kwargs:
-            source_branch = kwargs['sourceBranch']
-        if source_sha is None and 'sourceSha' in kwargs:
-            source_sha = kwargs['sourceSha']
-
         if branch is not None:
-            _setter("branch", branch)
+            pulumi.set(__self__, "branch", branch)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if ref is not None:
-            _setter("ref", ref)
+            pulumi.set(__self__, "ref", ref)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if sha is not None:
-            _setter("sha", sha)
+            pulumi.set(__self__, "sha", sha)
         if source_branch is not None:
-            _setter("source_branch", source_branch)
+            pulumi.set(__self__, "source_branch", source_branch)
         if source_sha is not None:
-            _setter("source_sha", source_sha)
+            pulumi.set(__self__, "source_sha", source_sha)
 
     @property
     @pulumi.getter
@@ -356,10 +304,6 @@ class Branch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BranchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

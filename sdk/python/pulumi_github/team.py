@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
@@ -34,57 +34,22 @@ class TeamArgs:
         :param pulumi.Input[str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
                Defaults to `secret`.
         """
-        TeamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_default_maintainer=create_default_maintainer,
-            description=description,
-            ldap_dn=ldap_dn,
-            name=name,
-            parent_team_id=parent_team_id,
-            parent_team_read_id=parent_team_read_id,
-            parent_team_read_slug=parent_team_read_slug,
-            privacy=privacy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_default_maintainer: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ldap_dn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_team_id: Optional[pulumi.Input[str]] = None,
-             parent_team_read_id: Optional[pulumi.Input[str]] = None,
-             parent_team_read_slug: Optional[pulumi.Input[str]] = None,
-             privacy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_default_maintainer is None and 'createDefaultMaintainer' in kwargs:
-            create_default_maintainer = kwargs['createDefaultMaintainer']
-        if ldap_dn is None and 'ldapDn' in kwargs:
-            ldap_dn = kwargs['ldapDn']
-        if parent_team_id is None and 'parentTeamId' in kwargs:
-            parent_team_id = kwargs['parentTeamId']
-        if parent_team_read_id is None and 'parentTeamReadId' in kwargs:
-            parent_team_read_id = kwargs['parentTeamReadId']
-        if parent_team_read_slug is None and 'parentTeamReadSlug' in kwargs:
-            parent_team_read_slug = kwargs['parentTeamReadSlug']
-
         if create_default_maintainer is not None:
-            _setter("create_default_maintainer", create_default_maintainer)
+            pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ldap_dn is not None:
-            _setter("ldap_dn", ldap_dn)
+            pulumi.set(__self__, "ldap_dn", ldap_dn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_team_id is not None:
-            _setter("parent_team_id", parent_team_id)
+            pulumi.set(__self__, "parent_team_id", parent_team_id)
         if parent_team_read_id is not None:
-            _setter("parent_team_read_id", parent_team_read_id)
+            pulumi.set(__self__, "parent_team_read_id", parent_team_read_id)
         if parent_team_read_slug is not None:
-            _setter("parent_team_read_slug", parent_team_read_slug)
+            pulumi.set(__self__, "parent_team_read_slug", parent_team_read_slug)
         if privacy is not None:
-            _setter("privacy", privacy)
+            pulumi.set(__self__, "privacy", privacy)
 
     @property
     @pulumi.getter(name="createDefaultMaintainer")
@@ -215,77 +180,30 @@ class _TeamState:
                depending on whether `name` contains "URL-unsafe" characters.
                Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         """
-        _TeamState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_default_maintainer=create_default_maintainer,
-            description=description,
-            etag=etag,
-            ldap_dn=ldap_dn,
-            members_count=members_count,
-            name=name,
-            node_id=node_id,
-            parent_team_id=parent_team_id,
-            parent_team_read_id=parent_team_read_id,
-            parent_team_read_slug=parent_team_read_slug,
-            privacy=privacy,
-            slug=slug,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_default_maintainer: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             ldap_dn: Optional[pulumi.Input[str]] = None,
-             members_count: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             node_id: Optional[pulumi.Input[str]] = None,
-             parent_team_id: Optional[pulumi.Input[str]] = None,
-             parent_team_read_id: Optional[pulumi.Input[str]] = None,
-             parent_team_read_slug: Optional[pulumi.Input[str]] = None,
-             privacy: Optional[pulumi.Input[str]] = None,
-             slug: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_default_maintainer is None and 'createDefaultMaintainer' in kwargs:
-            create_default_maintainer = kwargs['createDefaultMaintainer']
-        if ldap_dn is None and 'ldapDn' in kwargs:
-            ldap_dn = kwargs['ldapDn']
-        if members_count is None and 'membersCount' in kwargs:
-            members_count = kwargs['membersCount']
-        if node_id is None and 'nodeId' in kwargs:
-            node_id = kwargs['nodeId']
-        if parent_team_id is None and 'parentTeamId' in kwargs:
-            parent_team_id = kwargs['parentTeamId']
-        if parent_team_read_id is None and 'parentTeamReadId' in kwargs:
-            parent_team_read_id = kwargs['parentTeamReadId']
-        if parent_team_read_slug is None and 'parentTeamReadSlug' in kwargs:
-            parent_team_read_slug = kwargs['parentTeamReadSlug']
-
         if create_default_maintainer is not None:
-            _setter("create_default_maintainer", create_default_maintainer)
+            pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if ldap_dn is not None:
-            _setter("ldap_dn", ldap_dn)
+            pulumi.set(__self__, "ldap_dn", ldap_dn)
         if members_count is not None:
-            _setter("members_count", members_count)
+            pulumi.set(__self__, "members_count", members_count)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if node_id is not None:
-            _setter("node_id", node_id)
+            pulumi.set(__self__, "node_id", node_id)
         if parent_team_id is not None:
-            _setter("parent_team_id", parent_team_id)
+            pulumi.set(__self__, "parent_team_id", parent_team_id)
         if parent_team_read_id is not None:
-            _setter("parent_team_read_id", parent_team_read_id)
+            pulumi.set(__self__, "parent_team_read_id", parent_team_read_id)
         if parent_team_read_slug is not None:
-            _setter("parent_team_read_slug", parent_team_read_slug)
+            pulumi.set(__self__, "parent_team_read_slug", parent_team_read_slug)
         if privacy is not None:
-            _setter("privacy", privacy)
+            pulumi.set(__self__, "privacy", privacy)
         if slug is not None:
-            _setter("slug", slug)
+            pulumi.set(__self__, "slug", slug)
 
     @property
     @pulumi.getter(name="createDefaultMaintainer")
@@ -531,10 +449,6 @@ class Team(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

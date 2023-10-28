@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryMilestoneArgs', 'RepositoryMilestone']
@@ -29,44 +29,15 @@ class RepositoryMilestoneArgs:
         :param pulumi.Input[str] due_date: The milestone due date. In `yyyy-mm-dd` format.
         :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         """
-        RepositoryMilestoneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-            repository=repository,
-            title=title,
-            description=description,
-            due_date=due_date,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             due_date: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-        if repository is None:
-            raise TypeError("Missing 'repository' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-        if due_date is None and 'dueDate' in kwargs:
-            due_date = kwargs['dueDate']
-
-        _setter("owner", owner)
-        _setter("repository", repository)
-        _setter("title", title)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "repository", repository)
+        pulumi.set(__self__, "title", title)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if due_date is not None:
-            _setter("due_date", due_date)
+            pulumi.set(__self__, "due_date", due_date)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -161,45 +132,20 @@ class _RepositoryMilestoneState:
         :param pulumi.Input[str] state: The state of the milestone. Either `open` or `closed`. Default: `open`
         :param pulumi.Input[str] title: The title of the milestone.
         """
-        _RepositoryMilestoneState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            due_date=due_date,
-            number=number,
-            owner=owner,
-            repository=repository,
-            state=state,
-            title=title,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             due_date: Optional[pulumi.Input[str]] = None,
-             number: Optional[pulumi.Input[int]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             repository: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if due_date is None and 'dueDate' in kwargs:
-            due_date = kwargs['dueDate']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if due_date is not None:
-            _setter("due_date", due_date)
+            pulumi.set(__self__, "due_date", due_date)
         if number is not None:
-            _setter("number", number)
+            pulumi.set(__self__, "number", number)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if repository is not None:
-            _setter("repository", repository)
+            pulumi.set(__self__, "repository", repository)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter
@@ -375,10 +321,6 @@ class RepositoryMilestone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryMilestoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
