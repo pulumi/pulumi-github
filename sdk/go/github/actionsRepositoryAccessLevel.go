@@ -55,7 +55,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test <github_repository_name>
+//	$ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
 //
 // ```
 type ActionsRepositoryAccessLevel struct {
