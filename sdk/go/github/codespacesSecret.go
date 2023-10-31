@@ -61,7 +61,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret <repository>/<secret_name>
+//	$ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret example_repository/example_secret_name
 //
 // ```
 //

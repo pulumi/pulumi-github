@@ -118,7 +118,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         This resource can be imported using the name of the GitHub repository:
 
         ```sh
-         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test <github_repository_name>
+         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,7 +153,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         This resource can be imported using the name of the GitHub repository:
 
         ```sh
-         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test <github_repository_name>
+         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
         ```
 
         :param str resource_name: The name of the resource.

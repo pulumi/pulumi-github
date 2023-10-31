@@ -68,10 +68,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using the ID of the GitHub organization:
+ * This resource can be imported using the name of the GitHub organization:
  * 
  * ```sh
- *  $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test &lt;github_organization_name&gt;
+ *  $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
  * ```
  * 
  */
