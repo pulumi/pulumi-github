@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub repository milestone resource.
@@ -203,12 +202,6 @@ func (i *RepositoryMilestone) ToRepositoryMilestoneOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneOutput)
 }
 
-func (i *RepositoryMilestone) ToOutput(ctx context.Context) pulumix.Output[*RepositoryMilestone] {
-	return pulumix.Output[*RepositoryMilestone]{
-		OutputState: i.ToRepositoryMilestoneOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryMilestoneArrayInput is an input type that accepts RepositoryMilestoneArray and RepositoryMilestoneArrayOutput values.
 // You can construct a concrete instance of `RepositoryMilestoneArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutput() RepositoryM
 
 func (i RepositoryMilestoneArray) ToRepositoryMilestoneArrayOutputWithContext(ctx context.Context) RepositoryMilestoneArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneArrayOutput)
-}
-
-func (i RepositoryMilestoneArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryMilestone] {
-	return pulumix.Output[[]*RepositoryMilestone]{
-		OutputState: i.ToRepositoryMilestoneArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryMilestoneMapInput is an input type that accepts RepositoryMilestoneMap and RepositoryMilestoneMapOutput values.
@@ -265,12 +252,6 @@ func (i RepositoryMilestoneMap) ToRepositoryMilestoneMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryMilestoneMapOutput)
 }
 
-func (i RepositoryMilestoneMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryMilestone] {
-	return pulumix.Output[map[string]*RepositoryMilestone]{
-		OutputState: i.ToRepositoryMilestoneMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryMilestoneOutput struct{ *pulumi.OutputState }
 
 func (RepositoryMilestoneOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutput() RepositoryMiles
 
 func (o RepositoryMilestoneOutput) ToRepositoryMilestoneOutputWithContext(ctx context.Context) RepositoryMilestoneOutput {
 	return o
-}
-
-func (o RepositoryMilestoneOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryMilestone] {
-	return pulumix.Output[*RepositoryMilestone]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the milestone.
@@ -340,12 +315,6 @@ func (o RepositoryMilestoneArrayOutput) ToRepositoryMilestoneArrayOutputWithCont
 	return o
 }
 
-func (o RepositoryMilestoneArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryMilestone] {
-	return pulumix.Output[[]*RepositoryMilestone]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryMilestoneArrayOutput) Index(i pulumi.IntInput) RepositoryMilestoneOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryMilestone {
 		return vs[0].([]*RepositoryMilestone)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutput() Repositor
 
 func (o RepositoryMilestoneMapOutput) ToRepositoryMilestoneMapOutputWithContext(ctx context.Context) RepositoryMilestoneMapOutput {
 	return o
-}
-
-func (o RepositoryMilestoneMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryMilestone] {
-	return pulumix.Output[map[string]*RepositoryMilestone]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryMilestoneMapOutput) MapIndex(k pulumi.StringInput) RepositoryMilestoneOutput {

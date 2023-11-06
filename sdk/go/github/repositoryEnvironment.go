@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage environments for a GitHub repository.
@@ -204,12 +203,6 @@ func (i *RepositoryEnvironment) ToRepositoryEnvironmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentOutput)
 }
 
-func (i *RepositoryEnvironment) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironment] {
-	return pulumix.Output[*RepositoryEnvironment]{
-		OutputState: i.ToRepositoryEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryEnvironmentArrayInput is an input type that accepts RepositoryEnvironmentArray and RepositoryEnvironmentArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentArrayInput` via:
 //
@@ -233,12 +226,6 @@ func (i RepositoryEnvironmentArray) ToRepositoryEnvironmentArrayOutput() Reposit
 
 func (i RepositoryEnvironmentArray) ToRepositoryEnvironmentArrayOutputWithContext(ctx context.Context) RepositoryEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentArrayOutput)
-}
-
-func (i RepositoryEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryEnvironment] {
-	return pulumix.Output[[]*RepositoryEnvironment]{
-		OutputState: i.ToRepositoryEnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryEnvironmentMapInput is an input type that accepts RepositoryEnvironmentMap and RepositoryEnvironmentMapOutput values.
@@ -266,12 +253,6 @@ func (i RepositoryEnvironmentMap) ToRepositoryEnvironmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentMapOutput)
 }
 
-func (i RepositoryEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryEnvironment] {
-	return pulumix.Output[map[string]*RepositoryEnvironment]{
-		OutputState: i.ToRepositoryEnvironmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentOutput) ElementType() reflect.Type {
@@ -284,12 +265,6 @@ func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutput() RepositoryE
 
 func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutputWithContext(ctx context.Context) RepositoryEnvironmentOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironment] {
-	return pulumix.Output[*RepositoryEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The deployment branch policy configuration
@@ -333,12 +308,6 @@ func (o RepositoryEnvironmentArrayOutput) ToRepositoryEnvironmentArrayOutputWith
 	return o
 }
 
-func (o RepositoryEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryEnvironment] {
-	return pulumix.Output[[]*RepositoryEnvironment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryEnvironmentArrayOutput) Index(i pulumi.IntInput) RepositoryEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryEnvironment {
 		return vs[0].([]*RepositoryEnvironment)[vs[1].(int)]
@@ -357,12 +326,6 @@ func (o RepositoryEnvironmentMapOutput) ToRepositoryEnvironmentMapOutput() Repos
 
 func (o RepositoryEnvironmentMapOutput) ToRepositoryEnvironmentMapOutputWithContext(ctx context.Context) RepositoryEnvironmentMapOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryEnvironment] {
-	return pulumix.Output[map[string]*RepositoryEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEnvironmentMapOutput) MapIndex(k pulumi.StringInput) RepositoryEnvironmentOutput {

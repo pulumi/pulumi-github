@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
@@ -102,12 +101,6 @@ func (o LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput
 
 func (o LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput) ToLookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutputWithContext(ctx context.Context) LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput {
 	return o
-}
-
-func (o LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult] {
-	return pulumix.Output[LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage blocks for GitHub organizations.
@@ -130,12 +129,6 @@ func (i *OrganizationBlock) ToOrganizationBlockOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockOutput)
 }
 
-func (i *OrganizationBlock) ToOutput(ctx context.Context) pulumix.Output[*OrganizationBlock] {
-	return pulumix.Output[*OrganizationBlock]{
-		OutputState: i.ToOrganizationBlockOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationBlockArrayInput is an input type that accepts OrganizationBlockArray and OrganizationBlockArrayOutput values.
 // You can construct a concrete instance of `OrganizationBlockArrayInput` via:
 //
@@ -159,12 +152,6 @@ func (i OrganizationBlockArray) ToOrganizationBlockArrayOutput() OrganizationBlo
 
 func (i OrganizationBlockArray) ToOrganizationBlockArrayOutputWithContext(ctx context.Context) OrganizationBlockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockArrayOutput)
-}
-
-func (i OrganizationBlockArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationBlock] {
-	return pulumix.Output[[]*OrganizationBlock]{
-		OutputState: i.ToOrganizationBlockArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationBlockMapInput is an input type that accepts OrganizationBlockMap and OrganizationBlockMapOutput values.
@@ -192,12 +179,6 @@ func (i OrganizationBlockMap) ToOrganizationBlockMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationBlockMapOutput)
 }
 
-func (i OrganizationBlockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationBlock] {
-	return pulumix.Output[map[string]*OrganizationBlock]{
-		OutputState: i.ToOrganizationBlockMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationBlockOutput struct{ *pulumi.OutputState }
 
 func (OrganizationBlockOutput) ElementType() reflect.Type {
@@ -210,12 +191,6 @@ func (o OrganizationBlockOutput) ToOrganizationBlockOutput() OrganizationBlockOu
 
 func (o OrganizationBlockOutput) ToOrganizationBlockOutputWithContext(ctx context.Context) OrganizationBlockOutput {
 	return o
-}
-
-func (o OrganizationBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationBlock] {
-	return pulumix.Output[*OrganizationBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationBlockOutput) Etag() pulumi.StringOutput {
@@ -241,12 +216,6 @@ func (o OrganizationBlockArrayOutput) ToOrganizationBlockArrayOutputWithContext(
 	return o
 }
 
-func (o OrganizationBlockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationBlock] {
-	return pulumix.Output[[]*OrganizationBlock]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationBlockArrayOutput) Index(i pulumi.IntInput) OrganizationBlockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationBlock {
 		return vs[0].([]*OrganizationBlock)[vs[1].(int)]
@@ -265,12 +234,6 @@ func (o OrganizationBlockMapOutput) ToOrganizationBlockMapOutput() OrganizationB
 
 func (o OrganizationBlockMapOutput) ToOrganizationBlockMapOutputWithContext(ctx context.Context) OrganizationBlockMapOutput {
 	return o
-}
-
-func (o OrganizationBlockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationBlock] {
-	return pulumix.Output[map[string]*OrganizationBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationBlockMapOutput) MapIndex(k pulumi.StringInput) OrganizationBlockOutput {

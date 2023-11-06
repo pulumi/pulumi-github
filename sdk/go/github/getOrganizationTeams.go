@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about all GitHub teams in an organization.
@@ -139,12 +138,6 @@ func (o GetOrganizationTeamsResultOutput) ToGetOrganizationTeamsResultOutput() G
 
 func (o GetOrganizationTeamsResultOutput) ToGetOrganizationTeamsResultOutputWithContext(ctx context.Context) GetOrganizationTeamsResultOutput {
 	return o
-}
-
-func (o GetOrganizationTeamsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamsResult] {
-	return pulumix.Output[GetOrganizationTeamsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -184,12 +183,6 @@ func (i *TeamMembers) ToTeamMembersOutputWithContext(ctx context.Context) TeamMe
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersOutput)
 }
 
-func (i *TeamMembers) ToOutput(ctx context.Context) pulumix.Output[*TeamMembers] {
-	return pulumix.Output[*TeamMembers]{
-		OutputState: i.ToTeamMembersOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamMembersArrayInput is an input type that accepts TeamMembersArray and TeamMembersArrayOutput values.
 // You can construct a concrete instance of `TeamMembersArrayInput` via:
 //
@@ -213,12 +206,6 @@ func (i TeamMembersArray) ToTeamMembersArrayOutput() TeamMembersArrayOutput {
 
 func (i TeamMembersArray) ToTeamMembersArrayOutputWithContext(ctx context.Context) TeamMembersArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersArrayOutput)
-}
-
-func (i TeamMembersArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamMembers] {
-	return pulumix.Output[[]*TeamMembers]{
-		OutputState: i.ToTeamMembersArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamMembersMapInput is an input type that accepts TeamMembersMap and TeamMembersMapOutput values.
@@ -246,12 +233,6 @@ func (i TeamMembersMap) ToTeamMembersMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersMapOutput)
 }
 
-func (i TeamMembersMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamMembers] {
-	return pulumix.Output[map[string]*TeamMembers]{
-		OutputState: i.ToTeamMembersMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamMembersOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersOutput) ElementType() reflect.Type {
@@ -264,12 +245,6 @@ func (o TeamMembersOutput) ToTeamMembersOutput() TeamMembersOutput {
 
 func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) TeamMembersOutput {
 	return o
-}
-
-func (o TeamMembersOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamMembers] {
-	return pulumix.Output[*TeamMembers]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of team members. See Members below for details.
@@ -296,12 +271,6 @@ func (o TeamMembersArrayOutput) ToTeamMembersArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o TeamMembersArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamMembers] {
-	return pulumix.Output[[]*TeamMembers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamMembersArrayOutput) Index(i pulumi.IntInput) TeamMembersOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamMembers {
 		return vs[0].([]*TeamMembers)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o TeamMembersMapOutput) ToTeamMembersMapOutput() TeamMembersMapOutput {
 
 func (o TeamMembersMapOutput) ToTeamMembersMapOutputWithContext(ctx context.Context) TeamMembersMapOutput {
 	return o
-}
-
-func (o TeamMembersMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamMembers] {
-	return pulumix.Output[map[string]*TeamMembers]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamMembersMapOutput) MapIndex(k pulumi.StringInput) TeamMembersOutput {

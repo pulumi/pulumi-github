@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to set the access level of a non-public repositories actions and reusable workflows for use in other repositories.
@@ -158,12 +157,6 @@ func (i *ActionsRepositoryAccessLevel) ToActionsRepositoryAccessLevelOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryAccessLevelOutput)
 }
 
-func (i *ActionsRepositoryAccessLevel) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[*ActionsRepositoryAccessLevel]{
-		OutputState: i.ToActionsRepositoryAccessLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsRepositoryAccessLevelArrayInput is an input type that accepts ActionsRepositoryAccessLevelArray and ActionsRepositoryAccessLevelArrayOutput values.
 // You can construct a concrete instance of `ActionsRepositoryAccessLevelArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i ActionsRepositoryAccessLevelArray) ToActionsRepositoryAccessLevelArrayOu
 
 func (i ActionsRepositoryAccessLevelArray) ToActionsRepositoryAccessLevelArrayOutputWithContext(ctx context.Context) ActionsRepositoryAccessLevelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryAccessLevelArrayOutput)
-}
-
-func (i ActionsRepositoryAccessLevelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[[]*ActionsRepositoryAccessLevel]{
-		OutputState: i.ToActionsRepositoryAccessLevelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsRepositoryAccessLevelMapInput is an input type that accepts ActionsRepositoryAccessLevelMap and ActionsRepositoryAccessLevelMapOutput values.
@@ -220,12 +207,6 @@ func (i ActionsRepositoryAccessLevelMap) ToActionsRepositoryAccessLevelMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryAccessLevelMapOutput)
 }
 
-func (i ActionsRepositoryAccessLevelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[map[string]*ActionsRepositoryAccessLevel]{
-		OutputState: i.ToActionsRepositoryAccessLevelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsRepositoryAccessLevelOutput struct{ *pulumi.OutputState }
 
 func (ActionsRepositoryAccessLevelOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o ActionsRepositoryAccessLevelOutput) ToActionsRepositoryAccessLevelOutput
 
 func (o ActionsRepositoryAccessLevelOutput) ToActionsRepositoryAccessLevelOutputWithContext(ctx context.Context) ActionsRepositoryAccessLevelOutput {
 	return o
-}
-
-func (o ActionsRepositoryAccessLevelOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[*ActionsRepositoryAccessLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
@@ -270,12 +245,6 @@ func (o ActionsRepositoryAccessLevelArrayOutput) ToActionsRepositoryAccessLevelA
 	return o
 }
 
-func (o ActionsRepositoryAccessLevelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[[]*ActionsRepositoryAccessLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsRepositoryAccessLevelArrayOutput) Index(i pulumi.IntInput) ActionsRepositoryAccessLevelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsRepositoryAccessLevel {
 		return vs[0].([]*ActionsRepositoryAccessLevel)[vs[1].(int)]
@@ -294,12 +263,6 @@ func (o ActionsRepositoryAccessLevelMapOutput) ToActionsRepositoryAccessLevelMap
 
 func (o ActionsRepositoryAccessLevelMapOutput) ToActionsRepositoryAccessLevelMapOutputWithContext(ctx context.Context) ActionsRepositoryAccessLevelMapOutput {
 	return o
-}
-
-func (o ActionsRepositoryAccessLevelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRepositoryAccessLevel] {
-	return pulumix.Output[map[string]*ActionsRepositoryAccessLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsRepositoryAccessLevelMapOutput) MapIndex(k pulumi.StringInput) ActionsRepositoryAccessLevelOutput {

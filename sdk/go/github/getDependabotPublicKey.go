@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetDependabotPublicKey(ctx *pulumi.Context, args *GetDependabotPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetDependabotPublicKeyResult, error) {
@@ -71,12 +70,6 @@ func (o GetDependabotPublicKeyResultOutput) ToGetDependabotPublicKeyResultOutput
 
 func (o GetDependabotPublicKeyResultOutput) ToGetDependabotPublicKeyResultOutputWithContext(ctx context.Context) GetDependabotPublicKeyResultOutput {
 	return o
-}
-
-func (o GetDependabotPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotPublicKeyResult] {
-	return pulumix.Output[GetDependabotPublicKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

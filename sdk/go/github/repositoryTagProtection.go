@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
@@ -159,12 +158,6 @@ func (i *RepositoryTagProtection) ToRepositoryTagProtectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagProtectionOutput)
 }
 
-func (i *RepositoryTagProtection) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTagProtection] {
-	return pulumix.Output[*RepositoryTagProtection]{
-		OutputState: i.ToRepositoryTagProtectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryTagProtectionArrayInput is an input type that accepts RepositoryTagProtectionArray and RepositoryTagProtectionArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagProtectionArrayInput` via:
 //
@@ -188,12 +181,6 @@ func (i RepositoryTagProtectionArray) ToRepositoryTagProtectionArrayOutput() Rep
 
 func (i RepositoryTagProtectionArray) ToRepositoryTagProtectionArrayOutputWithContext(ctx context.Context) RepositoryTagProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagProtectionArrayOutput)
-}
-
-func (i RepositoryTagProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryTagProtection] {
-	return pulumix.Output[[]*RepositoryTagProtection]{
-		OutputState: i.ToRepositoryTagProtectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryTagProtectionMapInput is an input type that accepts RepositoryTagProtectionMap and RepositoryTagProtectionMapOutput values.
@@ -221,12 +208,6 @@ func (i RepositoryTagProtectionMap) ToRepositoryTagProtectionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagProtectionMapOutput)
 }
 
-func (i RepositoryTagProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryTagProtection] {
-	return pulumix.Output[map[string]*RepositoryTagProtection]{
-		OutputState: i.ToRepositoryTagProtectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryTagProtectionOutput struct{ *pulumi.OutputState }
 
 func (RepositoryTagProtectionOutput) ElementType() reflect.Type {
@@ -239,12 +220,6 @@ func (o RepositoryTagProtectionOutput) ToRepositoryTagProtectionOutput() Reposit
 
 func (o RepositoryTagProtectionOutput) ToRepositoryTagProtectionOutputWithContext(ctx context.Context) RepositoryTagProtectionOutput {
 	return o
-}
-
-func (o RepositoryTagProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTagProtection] {
-	return pulumix.Output[*RepositoryTagProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The pattern of the tag to protect.
@@ -276,12 +251,6 @@ func (o RepositoryTagProtectionArrayOutput) ToRepositoryTagProtectionArrayOutput
 	return o
 }
 
-func (o RepositoryTagProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryTagProtection] {
-	return pulumix.Output[[]*RepositoryTagProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryTagProtectionArrayOutput) Index(i pulumi.IntInput) RepositoryTagProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryTagProtection {
 		return vs[0].([]*RepositoryTagProtection)[vs[1].(int)]
@@ -300,12 +269,6 @@ func (o RepositoryTagProtectionMapOutput) ToRepositoryTagProtectionMapOutput() R
 
 func (o RepositoryTagProtectionMapOutput) ToRepositoryTagProtectionMapOutputWithContext(ctx context.Context) RepositoryTagProtectionMapOutput {
 	return o
-}
-
-func (o RepositoryTagProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryTagProtection] {
-	return pulumix.Output[map[string]*RepositoryTagProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTagProtectionMapOutput) MapIndex(k pulumi.StringInput) RepositoryTagProtectionOutput {

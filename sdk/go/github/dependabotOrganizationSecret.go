@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DependabotOrganizationSecret struct {
@@ -171,12 +170,6 @@ func (i *DependabotOrganizationSecret) ToDependabotOrganizationSecretOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretOutput)
 }
 
-func (i *DependabotOrganizationSecret) ToOutput(ctx context.Context) pulumix.Output[*DependabotOrganizationSecret] {
-	return pulumix.Output[*DependabotOrganizationSecret]{
-		OutputState: i.ToDependabotOrganizationSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DependabotOrganizationSecretArrayInput is an input type that accepts DependabotOrganizationSecretArray and DependabotOrganizationSecretArrayOutput values.
 // You can construct a concrete instance of `DependabotOrganizationSecretArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i DependabotOrganizationSecretArray) ToDependabotOrganizationSecretArrayOu
 
 func (i DependabotOrganizationSecretArray) ToDependabotOrganizationSecretArrayOutputWithContext(ctx context.Context) DependabotOrganizationSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretArrayOutput)
-}
-
-func (i DependabotOrganizationSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotOrganizationSecret] {
-	return pulumix.Output[[]*DependabotOrganizationSecret]{
-		OutputState: i.ToDependabotOrganizationSecretArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DependabotOrganizationSecretMapInput is an input type that accepts DependabotOrganizationSecretMap and DependabotOrganizationSecretMapOutput values.
@@ -233,12 +220,6 @@ func (i DependabotOrganizationSecretMap) ToDependabotOrganizationSecretMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretMapOutput)
 }
 
-func (i DependabotOrganizationSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotOrganizationSecret] {
-	return pulumix.Output[map[string]*DependabotOrganizationSecret]{
-		OutputState: i.ToDependabotOrganizationSecretMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DependabotOrganizationSecretOutput struct{ *pulumi.OutputState }
 
 func (DependabotOrganizationSecretOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o DependabotOrganizationSecretOutput) ToDependabotOrganizationSecretOutput
 
 func (o DependabotOrganizationSecretOutput) ToDependabotOrganizationSecretOutputWithContext(ctx context.Context) DependabotOrganizationSecretOutput {
 	return o
-}
-
-func (o DependabotOrganizationSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*DependabotOrganizationSecret] {
-	return pulumix.Output[*DependabotOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date of 'dependabot_secret' creation.
@@ -309,12 +284,6 @@ func (o DependabotOrganizationSecretArrayOutput) ToDependabotOrganizationSecretA
 	return o
 }
 
-func (o DependabotOrganizationSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotOrganizationSecret] {
-	return pulumix.Output[[]*DependabotOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DependabotOrganizationSecretArrayOutput) Index(i pulumi.IntInput) DependabotOrganizationSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DependabotOrganizationSecret {
 		return vs[0].([]*DependabotOrganizationSecret)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o DependabotOrganizationSecretMapOutput) ToDependabotOrganizationSecretMap
 
 func (o DependabotOrganizationSecretMapOutput) ToDependabotOrganizationSecretMapOutputWithContext(ctx context.Context) DependabotOrganizationSecretMapOutput {
 	return o
-}
-
-func (o DependabotOrganizationSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotOrganizationSecret] {
-	return pulumix.Output[map[string]*DependabotOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DependabotOrganizationSecretMapOutput) MapIndex(k pulumi.StringInput) DependabotOrganizationSecretOutput {

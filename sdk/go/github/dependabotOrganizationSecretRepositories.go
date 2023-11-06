@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DependabotOrganizationSecretRepositories struct {
@@ -113,12 +112,6 @@ func (i *DependabotOrganizationSecretRepositories) ToDependabotOrganizationSecre
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretRepositoriesOutput)
 }
 
-func (i *DependabotOrganizationSecretRepositories) ToOutput(ctx context.Context) pulumix.Output[*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[*DependabotOrganizationSecretRepositories]{
-		OutputState: i.ToDependabotOrganizationSecretRepositoriesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DependabotOrganizationSecretRepositoriesArrayInput is an input type that accepts DependabotOrganizationSecretRepositoriesArray and DependabotOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `DependabotOrganizationSecretRepositoriesArrayInput` via:
 //
@@ -142,12 +135,6 @@ func (i DependabotOrganizationSecretRepositoriesArray) ToDependabotOrganizationS
 
 func (i DependabotOrganizationSecretRepositoriesArray) ToDependabotOrganizationSecretRepositoriesArrayOutputWithContext(ctx context.Context) DependabotOrganizationSecretRepositoriesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretRepositoriesArrayOutput)
-}
-
-func (i DependabotOrganizationSecretRepositoriesArray) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[[]*DependabotOrganizationSecretRepositories]{
-		OutputState: i.ToDependabotOrganizationSecretRepositoriesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DependabotOrganizationSecretRepositoriesMapInput is an input type that accepts DependabotOrganizationSecretRepositoriesMap and DependabotOrganizationSecretRepositoriesMapOutput values.
@@ -175,12 +162,6 @@ func (i DependabotOrganizationSecretRepositoriesMap) ToDependabotOrganizationSec
 	return pulumi.ToOutputWithContext(ctx, i).(DependabotOrganizationSecretRepositoriesMapOutput)
 }
 
-func (i DependabotOrganizationSecretRepositoriesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[map[string]*DependabotOrganizationSecretRepositories]{
-		OutputState: i.ToDependabotOrganizationSecretRepositoriesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DependabotOrganizationSecretRepositoriesOutput struct{ *pulumi.OutputState }
 
 func (DependabotOrganizationSecretRepositoriesOutput) ElementType() reflect.Type {
@@ -193,12 +174,6 @@ func (o DependabotOrganizationSecretRepositoriesOutput) ToDependabotOrganization
 
 func (o DependabotOrganizationSecretRepositoriesOutput) ToDependabotOrganizationSecretRepositoriesOutputWithContext(ctx context.Context) DependabotOrganizationSecretRepositoriesOutput {
 	return o
-}
-
-func (o DependabotOrganizationSecretRepositoriesOutput) ToOutput(ctx context.Context) pulumix.Output[*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[*DependabotOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the existing secret.
@@ -227,12 +202,6 @@ func (o DependabotOrganizationSecretRepositoriesArrayOutput) ToDependabotOrganiz
 	return o
 }
 
-func (o DependabotOrganizationSecretRepositoriesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[[]*DependabotOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DependabotOrganizationSecretRepositoriesArrayOutput) Index(i pulumi.IntInput) DependabotOrganizationSecretRepositoriesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DependabotOrganizationSecretRepositories {
 		return vs[0].([]*DependabotOrganizationSecretRepositories)[vs[1].(int)]
@@ -251,12 +220,6 @@ func (o DependabotOrganizationSecretRepositoriesMapOutput) ToDependabotOrganizat
 
 func (o DependabotOrganizationSecretRepositoriesMapOutput) ToDependabotOrganizationSecretRepositoriesMapOutputWithContext(ctx context.Context) DependabotOrganizationSecretRepositoriesMapOutput {
 	return o
-}
-
-func (o DependabotOrganizationSecretRepositoriesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DependabotOrganizationSecretRepositories] {
-	return pulumix.Output[map[string]*DependabotOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DependabotOrganizationSecretRepositoriesMapOutput) MapIndex(k pulumi.StringInput) DependabotOrganizationSecretRepositoriesOutput {

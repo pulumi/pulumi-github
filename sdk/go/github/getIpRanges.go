@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about GitHub's IP addresses.
@@ -125,12 +124,6 @@ func (o GetIpRangesResultOutput) ToGetIpRangesResultOutput() GetIpRangesResultOu
 
 func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx context.Context) GetIpRangesResultOutput {
 	return o
-}
-
-func (o GetIpRangesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpRangesResult] {
-	return pulumix.Output[GetIpRangesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.

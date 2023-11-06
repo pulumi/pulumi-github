@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note**: This resource is not compatible with the GitHub App Installation authentication method.
@@ -168,12 +167,6 @@ func (i *AppInstallationRepository) ToAppInstallationRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryOutput)
 }
 
-func (i *AppInstallationRepository) ToOutput(ctx context.Context) pulumix.Output[*AppInstallationRepository] {
-	return pulumix.Output[*AppInstallationRepository]{
-		OutputState: i.ToAppInstallationRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppInstallationRepositoryArrayInput is an input type that accepts AppInstallationRepositoryArray and AppInstallationRepositoryArrayOutput values.
 // You can construct a concrete instance of `AppInstallationRepositoryArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i AppInstallationRepositoryArray) ToAppInstallationRepositoryArrayOutput()
 
 func (i AppInstallationRepositoryArray) ToAppInstallationRepositoryArrayOutputWithContext(ctx context.Context) AppInstallationRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryArrayOutput)
-}
-
-func (i AppInstallationRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppInstallationRepository] {
-	return pulumix.Output[[]*AppInstallationRepository]{
-		OutputState: i.ToAppInstallationRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppInstallationRepositoryMapInput is an input type that accepts AppInstallationRepositoryMap and AppInstallationRepositoryMapOutput values.
@@ -230,12 +217,6 @@ func (i AppInstallationRepositoryMap) ToAppInstallationRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppInstallationRepositoryMapOutput)
 }
 
-func (i AppInstallationRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppInstallationRepository] {
-	return pulumix.Output[map[string]*AppInstallationRepository]{
-		OutputState: i.ToAppInstallationRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppInstallationRepositoryOutput struct{ *pulumi.OutputState }
 
 func (AppInstallationRepositoryOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutput() App
 
 func (o AppInstallationRepositoryOutput) ToAppInstallationRepositoryOutputWithContext(ctx context.Context) AppInstallationRepositoryOutput {
 	return o
-}
-
-func (o AppInstallationRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*AppInstallationRepository] {
-	return pulumix.Output[*AppInstallationRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The GitHub app installation id.
@@ -284,12 +259,6 @@ func (o AppInstallationRepositoryArrayOutput) ToAppInstallationRepositoryArrayOu
 	return o
 }
 
-func (o AppInstallationRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppInstallationRepository] {
-	return pulumix.Output[[]*AppInstallationRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppInstallationRepositoryArrayOutput) Index(i pulumi.IntInput) AppInstallationRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppInstallationRepository {
 		return vs[0].([]*AppInstallationRepository)[vs[1].(int)]
@@ -308,12 +277,6 @@ func (o AppInstallationRepositoryMapOutput) ToAppInstallationRepositoryMapOutput
 
 func (o AppInstallationRepositoryMapOutput) ToAppInstallationRepositoryMapOutputWithContext(ctx context.Context) AppInstallationRepositoryMapOutput {
 	return o
-}
-
-func (o AppInstallationRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppInstallationRepository] {
-	return pulumix.Output[map[string]*AppInstallationRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppInstallationRepositoryMapOutput) MapIndex(k pulumi.StringInput) AppInstallationRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
@@ -200,12 +199,6 @@ func (i *TeamRepository) ToTeamRepositoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryOutput)
 }
 
-func (i *TeamRepository) ToOutput(ctx context.Context) pulumix.Output[*TeamRepository] {
-	return pulumix.Output[*TeamRepository]{
-		OutputState: i.ToTeamRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamRepositoryArrayInput is an input type that accepts TeamRepositoryArray and TeamRepositoryArrayOutput values.
 // You can construct a concrete instance of `TeamRepositoryArrayInput` via:
 //
@@ -229,12 +222,6 @@ func (i TeamRepositoryArray) ToTeamRepositoryArrayOutput() TeamRepositoryArrayOu
 
 func (i TeamRepositoryArray) ToTeamRepositoryArrayOutputWithContext(ctx context.Context) TeamRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryArrayOutput)
-}
-
-func (i TeamRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamRepository] {
-	return pulumix.Output[[]*TeamRepository]{
-		OutputState: i.ToTeamRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamRepositoryMapInput is an input type that accepts TeamRepositoryMap and TeamRepositoryMapOutput values.
@@ -262,12 +249,6 @@ func (i TeamRepositoryMap) ToTeamRepositoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamRepositoryMapOutput)
 }
 
-func (i TeamRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamRepository] {
-	return pulumix.Output[map[string]*TeamRepository]{
-		OutputState: i.ToTeamRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamRepositoryOutput struct{ *pulumi.OutputState }
 
 func (TeamRepositoryOutput) ElementType() reflect.Type {
@@ -280,12 +261,6 @@ func (o TeamRepositoryOutput) ToTeamRepositoryOutput() TeamRepositoryOutput {
 
 func (o TeamRepositoryOutput) ToTeamRepositoryOutputWithContext(ctx context.Context) TeamRepositoryOutput {
 	return o
-}
-
-func (o TeamRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamRepository] {
-	return pulumix.Output[*TeamRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRepositoryOutput) Etag() pulumi.StringOutput {
@@ -322,12 +297,6 @@ func (o TeamRepositoryArrayOutput) ToTeamRepositoryArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o TeamRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamRepository] {
-	return pulumix.Output[[]*TeamRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamRepositoryArrayOutput) Index(i pulumi.IntInput) TeamRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamRepository {
 		return vs[0].([]*TeamRepository)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutput() TeamRepositoryMapOu
 
 func (o TeamRepositoryMapOutput) ToTeamRepositoryMapOutputWithContext(ctx context.Context) TeamRepositoryMapOutput {
 	return o
-}
-
-func (o TeamRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamRepository] {
-	return pulumix.Output[map[string]*TeamRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamRepositoryMapOutput) MapIndex(k pulumi.StringInput) TeamRepositoryOutput {

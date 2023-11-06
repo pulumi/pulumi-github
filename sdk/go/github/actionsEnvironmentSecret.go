@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -248,12 +247,6 @@ func (i *ActionsEnvironmentSecret) ToActionsEnvironmentSecretOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretOutput)
 }
 
-func (i *ActionsEnvironmentSecret) ToOutput(ctx context.Context) pulumix.Output[*ActionsEnvironmentSecret] {
-	return pulumix.Output[*ActionsEnvironmentSecret]{
-		OutputState: i.ToActionsEnvironmentSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsEnvironmentSecretArrayInput is an input type that accepts ActionsEnvironmentSecretArray and ActionsEnvironmentSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentSecretArrayInput` via:
 //
@@ -277,12 +270,6 @@ func (i ActionsEnvironmentSecretArray) ToActionsEnvironmentSecretArrayOutput() A
 
 func (i ActionsEnvironmentSecretArray) ToActionsEnvironmentSecretArrayOutputWithContext(ctx context.Context) ActionsEnvironmentSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretArrayOutput)
-}
-
-func (i ActionsEnvironmentSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsEnvironmentSecret] {
-	return pulumix.Output[[]*ActionsEnvironmentSecret]{
-		OutputState: i.ToActionsEnvironmentSecretArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsEnvironmentSecretMapInput is an input type that accepts ActionsEnvironmentSecretMap and ActionsEnvironmentSecretMapOutput values.
@@ -310,12 +297,6 @@ func (i ActionsEnvironmentSecretMap) ToActionsEnvironmentSecretMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentSecretMapOutput)
 }
 
-func (i ActionsEnvironmentSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsEnvironmentSecret] {
-	return pulumix.Output[map[string]*ActionsEnvironmentSecret]{
-		OutputState: i.ToActionsEnvironmentSecretMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsEnvironmentSecretOutput struct{ *pulumi.OutputState }
 
 func (ActionsEnvironmentSecretOutput) ElementType() reflect.Type {
@@ -328,12 +309,6 @@ func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutput() Actio
 
 func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutputWithContext(ctx context.Context) ActionsEnvironmentSecretOutput {
 	return o
-}
-
-func (o ActionsEnvironmentSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsEnvironmentSecret] {
-	return pulumix.Output[*ActionsEnvironmentSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date of actionsEnvironmentSecret creation.
@@ -385,12 +360,6 @@ func (o ActionsEnvironmentSecretArrayOutput) ToActionsEnvironmentSecretArrayOutp
 	return o
 }
 
-func (o ActionsEnvironmentSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsEnvironmentSecret] {
-	return pulumix.Output[[]*ActionsEnvironmentSecret]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsEnvironmentSecretArrayOutput) Index(i pulumi.IntInput) ActionsEnvironmentSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsEnvironmentSecret {
 		return vs[0].([]*ActionsEnvironmentSecret)[vs[1].(int)]
@@ -409,12 +378,6 @@ func (o ActionsEnvironmentSecretMapOutput) ToActionsEnvironmentSecretMapOutput()
 
 func (o ActionsEnvironmentSecretMapOutput) ToActionsEnvironmentSecretMapOutputWithContext(ctx context.Context) ActionsEnvironmentSecretMapOutput {
 	return o
-}
-
-func (o ActionsEnvironmentSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsEnvironmentSecret] {
-	return pulumix.Output[map[string]*ActionsEnvironmentSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsEnvironmentSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsEnvironmentSecretOutput {
