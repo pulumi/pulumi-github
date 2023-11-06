@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserGpgKeyArgs', 'UserGpgKey']
@@ -20,7 +20,22 @@ class UserGpgKeyArgs:
         :param pulumi.Input[str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
                See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         """
-        pulumi.set(__self__, "armored_public_key", armored_public_key)
+        UserGpgKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            armored_public_key=armored_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             armored_public_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if armored_public_key is None and 'armoredPublicKey' in kwargs:
+            armored_public_key = kwargs['armoredPublicKey']
+        if armored_public_key is None:
+            raise TypeError("Missing 'armored_public_key' argument")
+
+        _setter("armored_public_key", armored_public_key)
 
     @property
     @pulumi.getter(name="armoredPublicKey")
@@ -48,12 +63,31 @@ class _UserGpgKeyState:
                See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         :param pulumi.Input[str] key_id: The key ID of the GPG key, e.g. `3262EFF25BA0D270`
         """
+        _UserGpgKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            armored_public_key=armored_public_key,
+            etag=etag,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             armored_public_key: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if armored_public_key is None and 'armoredPublicKey' in kwargs:
+            armored_public_key = kwargs['armoredPublicKey']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         if armored_public_key is not None:
-            pulumi.set(__self__, "armored_public_key", armored_public_key)
+            _setter("armored_public_key", armored_public_key)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter(name="armoredPublicKey")
@@ -160,6 +194,10 @@ class UserGpgKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGpgKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

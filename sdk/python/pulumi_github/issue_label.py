@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IssueLabelArgs', 'IssueLabel']
@@ -25,12 +25,33 @@ class IssueLabelArgs:
         :param pulumi.Input[str] description: A short description of the label.
         :param pulumi.Input[str] name: The name of the label.
         """
-        pulumi.set(__self__, "color", color)
-        pulumi.set(__self__, "repository", repository)
+        IssueLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            color=color,
+            repository=repository,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             color: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if color is None:
+            raise TypeError("Missing 'color' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("color", color)
+        _setter("repository", repository)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -98,18 +119,39 @@ class _IssueLabelState:
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[str] url: The URL to the issue label
         """
+        _IssueLabelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            color=color,
+            description=description,
+            etag=etag,
+            name=name,
+            repository=repository,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             color: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -256,6 +298,10 @@ class IssueLabel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IssueLabelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

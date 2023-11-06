@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProjectColumnArgs', 'ProjectColumn']
@@ -21,9 +21,26 @@ class ProjectColumnArgs:
         :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         :param pulumi.Input[str] name: The name of the column.
         """
-        pulumi.set(__self__, "project_id", project_id)
+        ProjectColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("project_id", project_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -63,14 +80,35 @@ class _ProjectColumnState:
         :param pulumi.Input[str] name: The name of the column.
         :param pulumi.Input[str] project_id: The ID of an existing project that the column will be created in.
         """
+        _ProjectColumnState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_id=column_id,
+            etag=etag,
+            name=name,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_id: Optional[pulumi.Input[int]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if column_id is not None:
-            pulumi.set(__self__, "column_id", column_id)
+            _setter("column_id", column_id)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="columnId")
@@ -173,6 +211,10 @@ class ProjectColumn(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectColumnArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ActionsRunnerGroupArgs', 'ActionsRunnerGroup']
@@ -29,17 +29,48 @@ class ActionsRunnerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: IDs of the repositories which should be added to the runner group
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         """
-        pulumi.set(__self__, "visibility", visibility)
+        ActionsRunnerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            visibility=visibility,
+            allows_public_repositories=allows_public_repositories,
+            name=name,
+            restricted_to_workflows=restricted_to_workflows,
+            selected_repository_ids=selected_repository_ids,
+            selected_workflows=selected_workflows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             visibility: Optional[pulumi.Input[str]] = None,
+             allows_public_repositories: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
+             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if visibility is None:
+            raise TypeError("Missing 'visibility' argument")
+        if allows_public_repositories is None and 'allowsPublicRepositories' in kwargs:
+            allows_public_repositories = kwargs['allowsPublicRepositories']
+        if restricted_to_workflows is None and 'restrictedToWorkflows' in kwargs:
+            restricted_to_workflows = kwargs['restrictedToWorkflows']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+        if selected_workflows is None and 'selectedWorkflows' in kwargs:
+            selected_workflows = kwargs['selectedWorkflows']
+
+        _setter("visibility", visibility)
         if allows_public_repositories is not None:
-            pulumi.set(__self__, "allows_public_repositories", allows_public_repositories)
+            _setter("allows_public_repositories", allows_public_repositories)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if restricted_to_workflows is not None:
-            pulumi.set(__self__, "restricted_to_workflows", restricted_to_workflows)
+            _setter("restricted_to_workflows", restricted_to_workflows)
         if selected_repository_ids is not None:
-            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
+            _setter("selected_repository_ids", selected_repository_ids)
         if selected_workflows is not None:
-            pulumi.set(__self__, "selected_workflows", selected_workflows)
+            _setter("selected_workflows", selected_workflows)
 
     @property
     @pulumi.getter
@@ -142,28 +173,71 @@ class _ActionsRunnerGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
         :param pulumi.Input[str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         """
+        _ActionsRunnerGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allows_public_repositories=allows_public_repositories,
+            default=default,
+            etag=etag,
+            inherited=inherited,
+            name=name,
+            restricted_to_workflows=restricted_to_workflows,
+            runners_url=runners_url,
+            selected_repositories_url=selected_repositories_url,
+            selected_repository_ids=selected_repository_ids,
+            selected_workflows=selected_workflows,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allows_public_repositories: Optional[pulumi.Input[bool]] = None,
+             default: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             inherited: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             restricted_to_workflows: Optional[pulumi.Input[bool]] = None,
+             runners_url: Optional[pulumi.Input[str]] = None,
+             selected_repositories_url: Optional[pulumi.Input[str]] = None,
+             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allows_public_repositories is None and 'allowsPublicRepositories' in kwargs:
+            allows_public_repositories = kwargs['allowsPublicRepositories']
+        if restricted_to_workflows is None and 'restrictedToWorkflows' in kwargs:
+            restricted_to_workflows = kwargs['restrictedToWorkflows']
+        if runners_url is None and 'runnersUrl' in kwargs:
+            runners_url = kwargs['runnersUrl']
+        if selected_repositories_url is None and 'selectedRepositoriesUrl' in kwargs:
+            selected_repositories_url = kwargs['selectedRepositoriesUrl']
+        if selected_repository_ids is None and 'selectedRepositoryIds' in kwargs:
+            selected_repository_ids = kwargs['selectedRepositoryIds']
+        if selected_workflows is None and 'selectedWorkflows' in kwargs:
+            selected_workflows = kwargs['selectedWorkflows']
+
         if allows_public_repositories is not None:
-            pulumi.set(__self__, "allows_public_repositories", allows_public_repositories)
+            _setter("allows_public_repositories", allows_public_repositories)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if inherited is not None:
-            pulumi.set(__self__, "inherited", inherited)
+            _setter("inherited", inherited)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if restricted_to_workflows is not None:
-            pulumi.set(__self__, "restricted_to_workflows", restricted_to_workflows)
+            _setter("restricted_to_workflows", restricted_to_workflows)
         if runners_url is not None:
-            pulumi.set(__self__, "runners_url", runners_url)
+            _setter("runners_url", runners_url)
         if selected_repositories_url is not None:
-            pulumi.set(__self__, "selected_repositories_url", selected_repositories_url)
+            _setter("selected_repositories_url", selected_repositories_url)
         if selected_repository_ids is not None:
-            pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
+            _setter("selected_repository_ids", selected_repository_ids)
         if selected_workflows is not None:
-            pulumi.set(__self__, "selected_workflows", selected_workflows)
+            _setter("selected_workflows", selected_workflows)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter(name="allowsPublicRepositories")
@@ -383,6 +457,10 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionsRunnerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

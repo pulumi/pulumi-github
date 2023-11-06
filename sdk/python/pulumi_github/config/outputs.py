@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -19,9 +19,34 @@ class AppAuth(dict):
                  id: str,
                  installation_id: str,
                  pem_file: str):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "installation_id", installation_id)
-        pulumi.set(__self__, "pem_file", pem_file)
+        AppAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            installation_id=installation_id,
+            pem_file=pem_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             installation_id: Optional[str] = None,
+             pem_file: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if pem_file is None and 'pemFile' in kwargs:
+            pem_file = kwargs['pemFile']
+        if pem_file is None:
+            raise TypeError("Missing 'pem_file' argument")
+
+        _setter("id", id)
+        _setter("installation_id", installation_id)
+        _setter("pem_file", pem_file)
 
     @property
     @pulumi.getter

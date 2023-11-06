@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,28 @@ class RepositoryCollaboratorsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users
         """
-        pulumi.set(__self__, "repository", repository)
+        RepositoryCollaboratorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            teams=teams,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[pulumi.Input[str]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("repository", repository)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -83,14 +100,33 @@ class _RepositoryCollaboratorsState:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users
         """
+        _RepositoryCollaboratorsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invitation_ids=invitation_ids,
+            repository=repository,
+            teams=teams,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invitation_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if invitation_ids is None and 'invitationIds' in kwargs:
+            invitation_ids = kwargs['invitationIds']
+
         if invitation_ids is not None:
-            pulumi.set(__self__, "invitation_ids", invitation_ids)
+            _setter("invitation_ids", invitation_ids)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="invitationIds")
@@ -283,6 +319,10 @@ class RepositoryCollaborators(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryCollaboratorsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

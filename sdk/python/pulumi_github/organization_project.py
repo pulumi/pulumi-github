@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['OrganizationProjectArgs', 'OrganizationProject']
@@ -21,10 +21,23 @@ class OrganizationProjectArgs:
         :param pulumi.Input[str] body: The body of the project.
         :param pulumi.Input[str] name: The name of the project.
         """
+        OrganizationProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -64,14 +77,31 @@ class _OrganizationProjectState:
         :param pulumi.Input[str] name: The name of the project.
         :param pulumi.Input[str] url: URL of the project
         """
+        _OrganizationProjectState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            etag=etag,
+            name=name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -172,6 +202,10 @@ class OrganizationProject(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

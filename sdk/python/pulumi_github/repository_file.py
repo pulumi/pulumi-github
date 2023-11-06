@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryFileArgs', 'RepositoryFile']
@@ -34,19 +34,58 @@ class RepositoryFileArgs:
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            file=file,
+            repository=repository,
+            branch=branch,
+            commit_author=commit_author,
+            commit_email=commit_email,
+            commit_message=commit_message,
+            overwrite_on_create=overwrite_on_create,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             file: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             commit_author: Optional[pulumi.Input[str]] = None,
+             commit_email: Optional[pulumi.Input[str]] = None,
+             commit_message: Optional[pulumi.Input[str]] = None,
+             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if file is None:
+            raise TypeError("Missing 'file' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if commit_author is None and 'commitAuthor' in kwargs:
+            commit_author = kwargs['commitAuthor']
+        if commit_email is None and 'commitEmail' in kwargs:
+            commit_email = kwargs['commitEmail']
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+
+        _setter("content", content)
+        _setter("file", file)
+        _setter("repository", repository)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit_author is not None:
-            pulumi.set(__self__, "commit_author", commit_author)
+            _setter("commit_author", commit_author)
         if commit_email is not None:
-            pulumi.set(__self__, "commit_email", commit_email)
+            _setter("commit_email", commit_email)
         if commit_message is not None:
-            pulumi.set(__self__, "commit_message", commit_message)
+            _setter("commit_message", commit_message)
         if overwrite_on_create is not None:
-            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+            _setter("overwrite_on_create", overwrite_on_create)
 
     @property
     @pulumi.getter
@@ -175,28 +214,69 @@ class _RepositoryFileState:
         :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
         """
+        _RepositoryFileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            commit_author=commit_author,
+            commit_email=commit_email,
+            commit_message=commit_message,
+            commit_sha=commit_sha,
+            content=content,
+            file=file,
+            overwrite_on_create=overwrite_on_create,
+            ref=ref,
+            repository=repository,
+            sha=sha,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             commit_author: Optional[pulumi.Input[str]] = None,
+             commit_email: Optional[pulumi.Input[str]] = None,
+             commit_message: Optional[pulumi.Input[str]] = None,
+             commit_sha: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             file: Optional[pulumi.Input[str]] = None,
+             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+             ref: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             sha: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commit_author is None and 'commitAuthor' in kwargs:
+            commit_author = kwargs['commitAuthor']
+        if commit_email is None and 'commitEmail' in kwargs:
+            commit_email = kwargs['commitEmail']
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if commit_sha is None and 'commitSha' in kwargs:
+            commit_sha = kwargs['commitSha']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit_author is not None:
-            pulumi.set(__self__, "commit_author", commit_author)
+            _setter("commit_author", commit_author)
         if commit_email is not None:
-            pulumi.set(__self__, "commit_email", commit_email)
+            _setter("commit_email", commit_email)
         if commit_message is not None:
-            pulumi.set(__self__, "commit_message", commit_message)
+            _setter("commit_message", commit_message)
         if commit_sha is not None:
-            pulumi.set(__self__, "commit_sha", commit_sha)
+            _setter("commit_sha", commit_sha)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if overwrite_on_create is not None:
-            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+            _setter("overwrite_on_create", overwrite_on_create)
         if ref is not None:
-            pulumi.set(__self__, "ref", ref)
+            _setter("ref", ref)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if sha is not None:
-            pulumi.set(__self__, "sha", sha)
+            _setter("sha", sha)
 
     @property
     @pulumi.getter
@@ -444,6 +524,10 @@ class RepositoryFile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryFileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

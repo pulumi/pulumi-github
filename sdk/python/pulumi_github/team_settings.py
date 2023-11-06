@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,28 @@ class TeamSettingsArgs:
         :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         """
-        pulumi.set(__self__, "team_id", team_id)
+        TeamSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            team_id=team_id,
+            review_request_delegation=review_request_delegation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             team_id: Optional[pulumi.Input[str]] = None,
+             review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+
+        _setter("team_id", team_id)
         if review_request_delegation is not None:
-            pulumi.set(__self__, "review_request_delegation", review_request_delegation)
+            _setter("review_request_delegation", review_request_delegation)
 
     @property
     @pulumi.getter(name="teamId")
@@ -66,14 +85,39 @@ class _TeamSettingsState:
         :param pulumi.Input[str] team_slug: The slug of the Team within the Organization.
         :param pulumi.Input[str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
         """
+        _TeamSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            review_request_delegation=review_request_delegation,
+            team_id=team_id,
+            team_slug=team_slug,
+            team_uid=team_uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             team_slug: Optional[pulumi.Input[str]] = None,
+             team_uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if review_request_delegation is None and 'reviewRequestDelegation' in kwargs:
+            review_request_delegation = kwargs['reviewRequestDelegation']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_uid is None and 'teamUid' in kwargs:
+            team_uid = kwargs['teamUid']
+
         if review_request_delegation is not None:
-            pulumi.set(__self__, "review_request_delegation", review_request_delegation)
+            _setter("review_request_delegation", review_request_delegation)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if team_slug is not None:
-            pulumi.set(__self__, "team_slug", team_slug)
+            _setter("team_slug", team_slug)
         if team_uid is not None:
-            pulumi.set(__self__, "team_uid", team_uid)
+            _setter("team_uid", team_uid)
 
     @property
     @pulumi.getter(name="reviewRequestDelegation")
@@ -231,6 +275,10 @@ class TeamSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,6 +295,11 @@ class TeamSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TeamSettingsArgs.__new__(TeamSettingsArgs)
 
+            if review_request_delegation is not None and not isinstance(review_request_delegation, TeamSettingsReviewRequestDelegationArgs):
+                review_request_delegation = review_request_delegation or {}
+                def _setter(key, value):
+                    review_request_delegation[key] = value
+                TeamSettingsReviewRequestDelegationArgs._configure(_setter, **review_request_delegation)
             __props__.__dict__["review_request_delegation"] = review_request_delegation
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")

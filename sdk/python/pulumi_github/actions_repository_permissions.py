@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,36 @@ class ActionsRepositoryPermissionsArgs:
         :param pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[bool] enabled: Should GitHub actions be enabled on this repository?
         """
-        pulumi.set(__self__, "repository", repository)
+        ActionsRepositoryPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            allowed_actions=allowed_actions,
+            allowed_actions_config=allowed_actions_config,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[pulumi.Input[str]] = None,
+             allowed_actions: Optional[pulumi.Input[str]] = None,
+             allowed_actions_config: Optional[pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+
+        _setter("repository", repository)
         if allowed_actions is not None:
-            pulumi.set(__self__, "allowed_actions", allowed_actions)
+            _setter("allowed_actions", allowed_actions)
         if allowed_actions_config is not None:
-            pulumi.set(__self__, "allowed_actions_config", allowed_actions_config)
+            _setter("allowed_actions_config", allowed_actions_config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -98,14 +121,35 @@ class _ActionsRepositoryPermissionsState:
         :param pulumi.Input[bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[str] repository: The GitHub repository
         """
+        _ActionsRepositoryPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_actions=allowed_actions,
+            allowed_actions_config=allowed_actions_config,
+            enabled=enabled,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_actions: Optional[pulumi.Input[str]] = None,
+             allowed_actions_config: Optional[pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_actions_config is None and 'allowedActionsConfig' in kwargs:
+            allowed_actions_config = kwargs['allowedActionsConfig']
+
         if allowed_actions is not None:
-            pulumi.set(__self__, "allowed_actions", allowed_actions)
+            _setter("allowed_actions", allowed_actions)
         if allowed_actions_config is not None:
-            pulumi.set(__self__, "allowed_actions_config", allowed_actions_config)
+            _setter("allowed_actions_config", allowed_actions_config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -253,6 +297,10 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionsRepositoryPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -272,6 +320,11 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             __props__ = ActionsRepositoryPermissionsArgs.__new__(ActionsRepositoryPermissionsArgs)
 
             __props__.__dict__["allowed_actions"] = allowed_actions
+            if allowed_actions_config is not None and not isinstance(allowed_actions_config, ActionsRepositoryPermissionsAllowedActionsConfigArgs):
+                allowed_actions_config = allowed_actions_config or {}
+                def _setter(key, value):
+                    allowed_actions_config[key] = value
+                ActionsRepositoryPermissionsAllowedActionsConfigArgs._configure(_setter, **allowed_actions_config)
             __props__.__dict__["allowed_actions_config"] = allowed_actions_config
             __props__.__dict__["enabled"] = enabled
             if repository is None and not opts.urn:

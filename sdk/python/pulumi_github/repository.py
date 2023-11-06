@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,78 +90,203 @@ class RepositoryArgs:
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_auto_merge=allow_auto_merge,
+            allow_merge_commit=allow_merge_commit,
+            allow_rebase_merge=allow_rebase_merge,
+            allow_squash_merge=allow_squash_merge,
+            allow_update_branch=allow_update_branch,
+            archive_on_destroy=archive_on_destroy,
+            archived=archived,
+            auto_init=auto_init,
+            default_branch=default_branch,
+            delete_branch_on_merge=delete_branch_on_merge,
+            description=description,
+            gitignore_template=gitignore_template,
+            has_discussions=has_discussions,
+            has_downloads=has_downloads,
+            has_issues=has_issues,
+            has_projects=has_projects,
+            has_wiki=has_wiki,
+            homepage_url=homepage_url,
+            ignore_vulnerability_alerts_during_read=ignore_vulnerability_alerts_during_read,
+            is_template=is_template,
+            license_template=license_template,
+            merge_commit_message=merge_commit_message,
+            merge_commit_title=merge_commit_title,
+            name=name,
+            pages=pages,
+            private=private,
+            security_and_analysis=security_and_analysis,
+            squash_merge_commit_message=squash_merge_commit_message,
+            squash_merge_commit_title=squash_merge_commit_title,
+            template=template,
+            topics=topics,
+            visibility=visibility,
+            vulnerability_alerts=vulnerability_alerts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_auto_merge: Optional[pulumi.Input[bool]] = None,
+             allow_merge_commit: Optional[pulumi.Input[bool]] = None,
+             allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
+             allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+             allow_update_branch: Optional[pulumi.Input[bool]] = None,
+             archive_on_destroy: Optional[pulumi.Input[bool]] = None,
+             archived: Optional[pulumi.Input[bool]] = None,
+             auto_init: Optional[pulumi.Input[bool]] = None,
+             default_branch: Optional[pulumi.Input[str]] = None,
+             delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             gitignore_template: Optional[pulumi.Input[str]] = None,
+             has_discussions: Optional[pulumi.Input[bool]] = None,
+             has_downloads: Optional[pulumi.Input[bool]] = None,
+             has_issues: Optional[pulumi.Input[bool]] = None,
+             has_projects: Optional[pulumi.Input[bool]] = None,
+             has_wiki: Optional[pulumi.Input[bool]] = None,
+             homepage_url: Optional[pulumi.Input[str]] = None,
+             ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
+             is_template: Optional[pulumi.Input[bool]] = None,
+             license_template: Optional[pulumi.Input[str]] = None,
+             merge_commit_message: Optional[pulumi.Input[str]] = None,
+             merge_commit_title: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
+             private: Optional[pulumi.Input[bool]] = None,
+             security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
+             squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
+             squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_auto_merge is None and 'allowAutoMerge' in kwargs:
+            allow_auto_merge = kwargs['allowAutoMerge']
+        if allow_merge_commit is None and 'allowMergeCommit' in kwargs:
+            allow_merge_commit = kwargs['allowMergeCommit']
+        if allow_rebase_merge is None and 'allowRebaseMerge' in kwargs:
+            allow_rebase_merge = kwargs['allowRebaseMerge']
+        if allow_squash_merge is None and 'allowSquashMerge' in kwargs:
+            allow_squash_merge = kwargs['allowSquashMerge']
+        if allow_update_branch is None and 'allowUpdateBranch' in kwargs:
+            allow_update_branch = kwargs['allowUpdateBranch']
+        if archive_on_destroy is None and 'archiveOnDestroy' in kwargs:
+            archive_on_destroy = kwargs['archiveOnDestroy']
+        if auto_init is None and 'autoInit' in kwargs:
+            auto_init = kwargs['autoInit']
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if delete_branch_on_merge is None and 'deleteBranchOnMerge' in kwargs:
+            delete_branch_on_merge = kwargs['deleteBranchOnMerge']
+        if gitignore_template is None and 'gitignoreTemplate' in kwargs:
+            gitignore_template = kwargs['gitignoreTemplate']
+        if has_discussions is None and 'hasDiscussions' in kwargs:
+            has_discussions = kwargs['hasDiscussions']
+        if has_downloads is None and 'hasDownloads' in kwargs:
+            has_downloads = kwargs['hasDownloads']
+        if has_issues is None and 'hasIssues' in kwargs:
+            has_issues = kwargs['hasIssues']
+        if has_projects is None and 'hasProjects' in kwargs:
+            has_projects = kwargs['hasProjects']
+        if has_wiki is None and 'hasWiki' in kwargs:
+            has_wiki = kwargs['hasWiki']
+        if homepage_url is None and 'homepageUrl' in kwargs:
+            homepage_url = kwargs['homepageUrl']
+        if ignore_vulnerability_alerts_during_read is None and 'ignoreVulnerabilityAlertsDuringRead' in kwargs:
+            ignore_vulnerability_alerts_during_read = kwargs['ignoreVulnerabilityAlertsDuringRead']
+        if is_template is None and 'isTemplate' in kwargs:
+            is_template = kwargs['isTemplate']
+        if license_template is None and 'licenseTemplate' in kwargs:
+            license_template = kwargs['licenseTemplate']
+        if merge_commit_message is None and 'mergeCommitMessage' in kwargs:
+            merge_commit_message = kwargs['mergeCommitMessage']
+        if merge_commit_title is None and 'mergeCommitTitle' in kwargs:
+            merge_commit_title = kwargs['mergeCommitTitle']
+        if security_and_analysis is None and 'securityAndAnalysis' in kwargs:
+            security_and_analysis = kwargs['securityAndAnalysis']
+        if squash_merge_commit_message is None and 'squashMergeCommitMessage' in kwargs:
+            squash_merge_commit_message = kwargs['squashMergeCommitMessage']
+        if squash_merge_commit_title is None and 'squashMergeCommitTitle' in kwargs:
+            squash_merge_commit_title = kwargs['squashMergeCommitTitle']
+        if vulnerability_alerts is None and 'vulnerabilityAlerts' in kwargs:
+            vulnerability_alerts = kwargs['vulnerabilityAlerts']
+
         if allow_auto_merge is not None:
-            pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
+            _setter("allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:
-            pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
+            _setter("allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
-            pulumi.set(__self__, "allow_rebase_merge", allow_rebase_merge)
+            _setter("allow_rebase_merge", allow_rebase_merge)
         if allow_squash_merge is not None:
-            pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+            _setter("allow_squash_merge", allow_squash_merge)
         if allow_update_branch is not None:
-            pulumi.set(__self__, "allow_update_branch", allow_update_branch)
+            _setter("allow_update_branch", allow_update_branch)
         if archive_on_destroy is not None:
-            pulumi.set(__self__, "archive_on_destroy", archive_on_destroy)
+            _setter("archive_on_destroy", archive_on_destroy)
         if archived is not None:
-            pulumi.set(__self__, "archived", archived)
+            _setter("archived", archived)
         if auto_init is not None:
-            pulumi.set(__self__, "auto_init", auto_init)
+            _setter("auto_init", auto_init)
         if default_branch is not None:
             warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
             pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
         if default_branch is not None:
-            pulumi.set(__self__, "default_branch", default_branch)
+            _setter("default_branch", default_branch)
         if delete_branch_on_merge is not None:
-            pulumi.set(__self__, "delete_branch_on_merge", delete_branch_on_merge)
+            _setter("delete_branch_on_merge", delete_branch_on_merge)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gitignore_template is not None:
-            pulumi.set(__self__, "gitignore_template", gitignore_template)
+            _setter("gitignore_template", gitignore_template)
         if has_discussions is not None:
-            pulumi.set(__self__, "has_discussions", has_discussions)
+            _setter("has_discussions", has_discussions)
         if has_downloads is not None:
-            pulumi.set(__self__, "has_downloads", has_downloads)
+            _setter("has_downloads", has_downloads)
         if has_issues is not None:
-            pulumi.set(__self__, "has_issues", has_issues)
+            _setter("has_issues", has_issues)
         if has_projects is not None:
-            pulumi.set(__self__, "has_projects", has_projects)
+            _setter("has_projects", has_projects)
         if has_wiki is not None:
-            pulumi.set(__self__, "has_wiki", has_wiki)
+            _setter("has_wiki", has_wiki)
         if homepage_url is not None:
-            pulumi.set(__self__, "homepage_url", homepage_url)
+            _setter("homepage_url", homepage_url)
         if ignore_vulnerability_alerts_during_read is not None:
-            pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
+            _setter("ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
-            pulumi.set(__self__, "is_template", is_template)
+            _setter("is_template", is_template)
         if license_template is not None:
-            pulumi.set(__self__, "license_template", license_template)
+            _setter("license_template", license_template)
         if merge_commit_message is not None:
-            pulumi.set(__self__, "merge_commit_message", merge_commit_message)
+            _setter("merge_commit_message", merge_commit_message)
         if merge_commit_title is not None:
-            pulumi.set(__self__, "merge_commit_title", merge_commit_title)
+            _setter("merge_commit_title", merge_commit_title)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pages is not None:
-            pulumi.set(__self__, "pages", pages)
+            _setter("pages", pages)
         if private is not None:
             warnings.warn("""use visibility instead""", DeprecationWarning)
             pulumi.log.warn("""private is deprecated: use visibility instead""")
         if private is not None:
-            pulumi.set(__self__, "private", private)
+            _setter("private", private)
         if security_and_analysis is not None:
-            pulumi.set(__self__, "security_and_analysis", security_and_analysis)
+            _setter("security_and_analysis", security_and_analysis)
         if squash_merge_commit_message is not None:
-            pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
+            _setter("squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
-            pulumi.set(__self__, "squash_merge_commit_title", squash_merge_commit_title)
+            _setter("squash_merge_commit_title", squash_merge_commit_title)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if topics is not None:
-            pulumi.set(__self__, "topics", topics)
+            _setter("topics", topics)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if vulnerability_alerts is not None:
-            pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+            _setter("vulnerability_alerts", vulnerability_alerts)
 
     @property
     @pulumi.getter(name="allowAutoMerge")
@@ -667,98 +792,261 @@ class _RepositoryState:
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
+        _RepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_auto_merge=allow_auto_merge,
+            allow_merge_commit=allow_merge_commit,
+            allow_rebase_merge=allow_rebase_merge,
+            allow_squash_merge=allow_squash_merge,
+            allow_update_branch=allow_update_branch,
+            archive_on_destroy=archive_on_destroy,
+            archived=archived,
+            auto_init=auto_init,
+            default_branch=default_branch,
+            delete_branch_on_merge=delete_branch_on_merge,
+            description=description,
+            etag=etag,
+            full_name=full_name,
+            git_clone_url=git_clone_url,
+            gitignore_template=gitignore_template,
+            has_discussions=has_discussions,
+            has_downloads=has_downloads,
+            has_issues=has_issues,
+            has_projects=has_projects,
+            has_wiki=has_wiki,
+            homepage_url=homepage_url,
+            html_url=html_url,
+            http_clone_url=http_clone_url,
+            ignore_vulnerability_alerts_during_read=ignore_vulnerability_alerts_during_read,
+            is_template=is_template,
+            license_template=license_template,
+            merge_commit_message=merge_commit_message,
+            merge_commit_title=merge_commit_title,
+            name=name,
+            node_id=node_id,
+            pages=pages,
+            primary_language=primary_language,
+            private=private,
+            repo_id=repo_id,
+            security_and_analysis=security_and_analysis,
+            squash_merge_commit_message=squash_merge_commit_message,
+            squash_merge_commit_title=squash_merge_commit_title,
+            ssh_clone_url=ssh_clone_url,
+            svn_url=svn_url,
+            template=template,
+            topics=topics,
+            visibility=visibility,
+            vulnerability_alerts=vulnerability_alerts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_auto_merge: Optional[pulumi.Input[bool]] = None,
+             allow_merge_commit: Optional[pulumi.Input[bool]] = None,
+             allow_rebase_merge: Optional[pulumi.Input[bool]] = None,
+             allow_squash_merge: Optional[pulumi.Input[bool]] = None,
+             allow_update_branch: Optional[pulumi.Input[bool]] = None,
+             archive_on_destroy: Optional[pulumi.Input[bool]] = None,
+             archived: Optional[pulumi.Input[bool]] = None,
+             auto_init: Optional[pulumi.Input[bool]] = None,
+             default_branch: Optional[pulumi.Input[str]] = None,
+             delete_branch_on_merge: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             full_name: Optional[pulumi.Input[str]] = None,
+             git_clone_url: Optional[pulumi.Input[str]] = None,
+             gitignore_template: Optional[pulumi.Input[str]] = None,
+             has_discussions: Optional[pulumi.Input[bool]] = None,
+             has_downloads: Optional[pulumi.Input[bool]] = None,
+             has_issues: Optional[pulumi.Input[bool]] = None,
+             has_projects: Optional[pulumi.Input[bool]] = None,
+             has_wiki: Optional[pulumi.Input[bool]] = None,
+             homepage_url: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             http_clone_url: Optional[pulumi.Input[str]] = None,
+             ignore_vulnerability_alerts_during_read: Optional[pulumi.Input[bool]] = None,
+             is_template: Optional[pulumi.Input[bool]] = None,
+             license_template: Optional[pulumi.Input[str]] = None,
+             merge_commit_message: Optional[pulumi.Input[str]] = None,
+             merge_commit_title: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_id: Optional[pulumi.Input[str]] = None,
+             pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
+             primary_language: Optional[pulumi.Input[str]] = None,
+             private: Optional[pulumi.Input[bool]] = None,
+             repo_id: Optional[pulumi.Input[int]] = None,
+             security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
+             squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
+             squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
+             ssh_clone_url: Optional[pulumi.Input[str]] = None,
+             svn_url: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_auto_merge is None and 'allowAutoMerge' in kwargs:
+            allow_auto_merge = kwargs['allowAutoMerge']
+        if allow_merge_commit is None and 'allowMergeCommit' in kwargs:
+            allow_merge_commit = kwargs['allowMergeCommit']
+        if allow_rebase_merge is None and 'allowRebaseMerge' in kwargs:
+            allow_rebase_merge = kwargs['allowRebaseMerge']
+        if allow_squash_merge is None and 'allowSquashMerge' in kwargs:
+            allow_squash_merge = kwargs['allowSquashMerge']
+        if allow_update_branch is None and 'allowUpdateBranch' in kwargs:
+            allow_update_branch = kwargs['allowUpdateBranch']
+        if archive_on_destroy is None and 'archiveOnDestroy' in kwargs:
+            archive_on_destroy = kwargs['archiveOnDestroy']
+        if auto_init is None and 'autoInit' in kwargs:
+            auto_init = kwargs['autoInit']
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if delete_branch_on_merge is None and 'deleteBranchOnMerge' in kwargs:
+            delete_branch_on_merge = kwargs['deleteBranchOnMerge']
+        if full_name is None and 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+        if git_clone_url is None and 'gitCloneUrl' in kwargs:
+            git_clone_url = kwargs['gitCloneUrl']
+        if gitignore_template is None and 'gitignoreTemplate' in kwargs:
+            gitignore_template = kwargs['gitignoreTemplate']
+        if has_discussions is None and 'hasDiscussions' in kwargs:
+            has_discussions = kwargs['hasDiscussions']
+        if has_downloads is None and 'hasDownloads' in kwargs:
+            has_downloads = kwargs['hasDownloads']
+        if has_issues is None and 'hasIssues' in kwargs:
+            has_issues = kwargs['hasIssues']
+        if has_projects is None and 'hasProjects' in kwargs:
+            has_projects = kwargs['hasProjects']
+        if has_wiki is None and 'hasWiki' in kwargs:
+            has_wiki = kwargs['hasWiki']
+        if homepage_url is None and 'homepageUrl' in kwargs:
+            homepage_url = kwargs['homepageUrl']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if http_clone_url is None and 'httpCloneUrl' in kwargs:
+            http_clone_url = kwargs['httpCloneUrl']
+        if ignore_vulnerability_alerts_during_read is None and 'ignoreVulnerabilityAlertsDuringRead' in kwargs:
+            ignore_vulnerability_alerts_during_read = kwargs['ignoreVulnerabilityAlertsDuringRead']
+        if is_template is None and 'isTemplate' in kwargs:
+            is_template = kwargs['isTemplate']
+        if license_template is None and 'licenseTemplate' in kwargs:
+            license_template = kwargs['licenseTemplate']
+        if merge_commit_message is None and 'mergeCommitMessage' in kwargs:
+            merge_commit_message = kwargs['mergeCommitMessage']
+        if merge_commit_title is None and 'mergeCommitTitle' in kwargs:
+            merge_commit_title = kwargs['mergeCommitTitle']
+        if node_id is None and 'nodeId' in kwargs:
+            node_id = kwargs['nodeId']
+        if primary_language is None and 'primaryLanguage' in kwargs:
+            primary_language = kwargs['primaryLanguage']
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+        if security_and_analysis is None and 'securityAndAnalysis' in kwargs:
+            security_and_analysis = kwargs['securityAndAnalysis']
+        if squash_merge_commit_message is None and 'squashMergeCommitMessage' in kwargs:
+            squash_merge_commit_message = kwargs['squashMergeCommitMessage']
+        if squash_merge_commit_title is None and 'squashMergeCommitTitle' in kwargs:
+            squash_merge_commit_title = kwargs['squashMergeCommitTitle']
+        if ssh_clone_url is None and 'sshCloneUrl' in kwargs:
+            ssh_clone_url = kwargs['sshCloneUrl']
+        if svn_url is None and 'svnUrl' in kwargs:
+            svn_url = kwargs['svnUrl']
+        if vulnerability_alerts is None and 'vulnerabilityAlerts' in kwargs:
+            vulnerability_alerts = kwargs['vulnerabilityAlerts']
+
         if allow_auto_merge is not None:
-            pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
+            _setter("allow_auto_merge", allow_auto_merge)
         if allow_merge_commit is not None:
-            pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
+            _setter("allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
-            pulumi.set(__self__, "allow_rebase_merge", allow_rebase_merge)
+            _setter("allow_rebase_merge", allow_rebase_merge)
         if allow_squash_merge is not None:
-            pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+            _setter("allow_squash_merge", allow_squash_merge)
         if allow_update_branch is not None:
-            pulumi.set(__self__, "allow_update_branch", allow_update_branch)
+            _setter("allow_update_branch", allow_update_branch)
         if archive_on_destroy is not None:
-            pulumi.set(__self__, "archive_on_destroy", archive_on_destroy)
+            _setter("archive_on_destroy", archive_on_destroy)
         if archived is not None:
-            pulumi.set(__self__, "archived", archived)
+            _setter("archived", archived)
         if auto_init is not None:
-            pulumi.set(__self__, "auto_init", auto_init)
+            _setter("auto_init", auto_init)
         if default_branch is not None:
             warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
             pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
         if default_branch is not None:
-            pulumi.set(__self__, "default_branch", default_branch)
+            _setter("default_branch", default_branch)
         if delete_branch_on_merge is not None:
-            pulumi.set(__self__, "delete_branch_on_merge", delete_branch_on_merge)
+            _setter("delete_branch_on_merge", delete_branch_on_merge)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
+            _setter("full_name", full_name)
         if git_clone_url is not None:
-            pulumi.set(__self__, "git_clone_url", git_clone_url)
+            _setter("git_clone_url", git_clone_url)
         if gitignore_template is not None:
-            pulumi.set(__self__, "gitignore_template", gitignore_template)
+            _setter("gitignore_template", gitignore_template)
         if has_discussions is not None:
-            pulumi.set(__self__, "has_discussions", has_discussions)
+            _setter("has_discussions", has_discussions)
         if has_downloads is not None:
-            pulumi.set(__self__, "has_downloads", has_downloads)
+            _setter("has_downloads", has_downloads)
         if has_issues is not None:
-            pulumi.set(__self__, "has_issues", has_issues)
+            _setter("has_issues", has_issues)
         if has_projects is not None:
-            pulumi.set(__self__, "has_projects", has_projects)
+            _setter("has_projects", has_projects)
         if has_wiki is not None:
-            pulumi.set(__self__, "has_wiki", has_wiki)
+            _setter("has_wiki", has_wiki)
         if homepage_url is not None:
-            pulumi.set(__self__, "homepage_url", homepage_url)
+            _setter("homepage_url", homepage_url)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if http_clone_url is not None:
-            pulumi.set(__self__, "http_clone_url", http_clone_url)
+            _setter("http_clone_url", http_clone_url)
         if ignore_vulnerability_alerts_during_read is not None:
-            pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
+            _setter("ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
-            pulumi.set(__self__, "is_template", is_template)
+            _setter("is_template", is_template)
         if license_template is not None:
-            pulumi.set(__self__, "license_template", license_template)
+            _setter("license_template", license_template)
         if merge_commit_message is not None:
-            pulumi.set(__self__, "merge_commit_message", merge_commit_message)
+            _setter("merge_commit_message", merge_commit_message)
         if merge_commit_title is not None:
-            pulumi.set(__self__, "merge_commit_title", merge_commit_title)
+            _setter("merge_commit_title", merge_commit_title)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_id is not None:
-            pulumi.set(__self__, "node_id", node_id)
+            _setter("node_id", node_id)
         if pages is not None:
-            pulumi.set(__self__, "pages", pages)
+            _setter("pages", pages)
         if primary_language is not None:
-            pulumi.set(__self__, "primary_language", primary_language)
+            _setter("primary_language", primary_language)
         if private is not None:
             warnings.warn("""use visibility instead""", DeprecationWarning)
             pulumi.log.warn("""private is deprecated: use visibility instead""")
         if private is not None:
-            pulumi.set(__self__, "private", private)
+            _setter("private", private)
         if repo_id is not None:
-            pulumi.set(__self__, "repo_id", repo_id)
+            _setter("repo_id", repo_id)
         if security_and_analysis is not None:
-            pulumi.set(__self__, "security_and_analysis", security_and_analysis)
+            _setter("security_and_analysis", security_and_analysis)
         if squash_merge_commit_message is not None:
-            pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
+            _setter("squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
-            pulumi.set(__self__, "squash_merge_commit_title", squash_merge_commit_title)
+            _setter("squash_merge_commit_title", squash_merge_commit_title)
         if ssh_clone_url is not None:
-            pulumi.set(__self__, "ssh_clone_url", ssh_clone_url)
+            _setter("ssh_clone_url", ssh_clone_url)
         if svn_url is not None:
-            pulumi.set(__self__, "svn_url", svn_url)
+            _setter("svn_url", svn_url)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if topics is not None:
-            pulumi.set(__self__, "topics", topics)
+            _setter("topics", topics)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if vulnerability_alerts is not None:
-            pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+            _setter("vulnerability_alerts", vulnerability_alerts)
 
     @property
     @pulumi.getter(name="allowAutoMerge")
@@ -1477,6 +1765,10 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1548,11 +1840,26 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["merge_commit_message"] = merge_commit_message
             __props__.__dict__["merge_commit_title"] = merge_commit_title
             __props__.__dict__["name"] = name
+            if pages is not None and not isinstance(pages, RepositoryPagesArgs):
+                pages = pages or {}
+                def _setter(key, value):
+                    pages[key] = value
+                RepositoryPagesArgs._configure(_setter, **pages)
             __props__.__dict__["pages"] = pages
             __props__.__dict__["private"] = private
+            if security_and_analysis is not None and not isinstance(security_and_analysis, RepositorySecurityAndAnalysisArgs):
+                security_and_analysis = security_and_analysis or {}
+                def _setter(key, value):
+                    security_and_analysis[key] = value
+                RepositorySecurityAndAnalysisArgs._configure(_setter, **security_and_analysis)
             __props__.__dict__["security_and_analysis"] = security_and_analysis
             __props__.__dict__["squash_merge_commit_message"] = squash_merge_commit_message
             __props__.__dict__["squash_merge_commit_title"] = squash_merge_commit_title
+            if template is not None and not isinstance(template, RepositoryTemplateArgs):
+                template = template or {}
+                def _setter(key, value):
+                    template[key] = value
+                RepositoryTemplateArgs._configure(_setter, **template)
             __props__.__dict__["template"] = template
             __props__.__dict__["topics"] = topics
             __props__.__dict__["visibility"] = visibility

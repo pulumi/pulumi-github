@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EmuGroupMappingArgs', 'EmuGroupMapping']
@@ -21,8 +21,29 @@ class EmuGroupMappingArgs:
         :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
         :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "team_slug", team_slug)
+        EmuGroupMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            team_slug=team_slug,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[int]] = None,
+             team_slug: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+        if team_slug is None:
+            raise TypeError("Missing 'team_slug' argument")
+
+        _setter("group_id", group_id)
+        _setter("team_slug", team_slug)
 
     @property
     @pulumi.getter(name="groupId")
@@ -60,12 +81,31 @@ class _EmuGroupMappingState:
         :param pulumi.Input[int] group_id: Integer corresponding to the external group ID to be linked
         :param pulumi.Input[str] team_slug: Slug of the GitHub team
         """
+        _EmuGroupMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            group_id=group_id,
+            team_slug=team_slug,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[int]] = None,
+             team_slug: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if team_slug is None and 'teamSlug' in kwargs:
+            team_slug = kwargs['teamSlug']
+
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if team_slug is not None:
-            pulumi.set(__self__, "team_slug", team_slug)
+            _setter("team_slug", team_slug)
 
     @property
     @pulumi.getter
@@ -176,6 +216,10 @@ class EmuGroupMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmuGroupMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

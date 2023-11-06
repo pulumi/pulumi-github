@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AppInstallationRepositoryArgs', 'AppInstallationRepository']
@@ -21,8 +21,27 @@ class AppInstallationRepositoryArgs:
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[str] repository: The repository to install the app on.
         """
-        pulumi.set(__self__, "installation_id", installation_id)
-        pulumi.set(__self__, "repository", repository)
+        AppInstallationRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            installation_id=installation_id,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             installation_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("installation_id", installation_id)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter(name="installationId")
@@ -60,12 +79,31 @@ class _AppInstallationRepositoryState:
         :param pulumi.Input[str] installation_id: The GitHub app installation id.
         :param pulumi.Input[str] repository: The repository to install the app on.
         """
+        _AppInstallationRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            installation_id=installation_id,
+            repo_id=repo_id,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             installation_id: Optional[pulumi.Input[str]] = None,
+             repo_id: Optional[pulumi.Input[int]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+
         if installation_id is not None:
-            pulumi.set(__self__, "installation_id", installation_id)
+            _setter("installation_id", installation_id)
         if repo_id is not None:
-            pulumi.set(__self__, "repo_id", repo_id)
+            _setter("repo_id", repo_id)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter(name="installationId")
@@ -198,6 +236,10 @@ class AppInstallationRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppInstallationRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

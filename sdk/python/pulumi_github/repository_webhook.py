@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,33 @@ class RepositoryWebhookArgs:
         :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
         :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: Configuration block for the webhook. Detailed below.
         """
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryWebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            repository=repository,
+            active=active,
+            configuration=configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("events", events)
+        _setter("repository", repository)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
 
     @property
     @pulumi.getter
@@ -100,18 +121,39 @@ class _RepositoryWebhookState:
         :param pulumi.Input[str] repository: The repository of the webhook.
         :param pulumi.Input[str] url: The URL of the webhook.
         """
+        _RepositoryWebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+            configuration=configuration,
+            etag=etag,
+            events=events,
+            repository=repository,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[pulumi.Input[bool]] = None,
+             configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -288,6 +330,10 @@ class RepositoryWebhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryWebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,6 +353,11 @@ class RepositoryWebhook(pulumi.CustomResource):
             __props__ = RepositoryWebhookArgs.__new__(RepositoryWebhookArgs)
 
             __props__.__dict__["active"] = active
+            if configuration is not None and not isinstance(configuration, RepositoryWebhookConfigurationArgs):
+                configuration = configuration or {}
+                def _setter(key, value):
+                    configuration[key] = value
+                RepositoryWebhookConfigurationArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")

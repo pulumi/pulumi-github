@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ReleaseArgs', 'Release']
@@ -35,22 +35,61 @@ class ReleaseArgs:
         :param pulumi.Input[bool] prerelease: Set to `false` to identify the release as a full release.
         :param pulumi.Input[str] target_commitish: The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         """
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "tag_name", tag_name)
+        ReleaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            tag_name=tag_name,
+            body=body,
+            discussion_category_name=discussion_category_name,
+            draft=draft,
+            generate_release_notes=generate_release_notes,
+            name=name,
+            prerelease=prerelease,
+            target_commitish=target_commitish,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[pulumi.Input[str]] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             discussion_category_name: Optional[pulumi.Input[str]] = None,
+             draft: Optional[pulumi.Input[bool]] = None,
+             generate_release_notes: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             prerelease: Optional[pulumi.Input[bool]] = None,
+             target_commitish: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if tag_name is None:
+            raise TypeError("Missing 'tag_name' argument")
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
+        _setter("repository", repository)
+        _setter("tag_name", tag_name)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if discussion_category_name is not None:
-            pulumi.set(__self__, "discussion_category_name", discussion_category_name)
+            _setter("discussion_category_name", discussion_category_name)
         if draft is not None:
-            pulumi.set(__self__, "draft", draft)
+            _setter("draft", draft)
         if generate_release_notes is not None:
-            pulumi.set(__self__, "generate_release_notes", generate_release_notes)
+            _setter("generate_release_notes", generate_release_notes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if prerelease is not None:
-            pulumi.set(__self__, "prerelease", prerelease)
+            _setter("prerelease", prerelease)
         if target_commitish is not None:
-            pulumi.set(__self__, "target_commitish", target_commitish)
+            _setter("target_commitish", target_commitish)
 
     @property
     @pulumi.getter
@@ -186,26 +225,63 @@ class _ReleaseState:
         :param pulumi.Input[str] tag_name: The name of the tag.
         :param pulumi.Input[str] target_commitish: The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         """
+        _ReleaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            discussion_category_name=discussion_category_name,
+            draft=draft,
+            etag=etag,
+            generate_release_notes=generate_release_notes,
+            name=name,
+            prerelease=prerelease,
+            repository=repository,
+            tag_name=tag_name,
+            target_commitish=target_commitish,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             discussion_category_name: Optional[pulumi.Input[str]] = None,
+             draft: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             generate_release_notes: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             prerelease: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
+             target_commitish: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if discussion_category_name is None and 'discussionCategoryName' in kwargs:
+            discussion_category_name = kwargs['discussionCategoryName']
+        if generate_release_notes is None and 'generateReleaseNotes' in kwargs:
+            generate_release_notes = kwargs['generateReleaseNotes']
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if target_commitish is None and 'targetCommitish' in kwargs:
+            target_commitish = kwargs['targetCommitish']
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if discussion_category_name is not None:
-            pulumi.set(__self__, "discussion_category_name", discussion_category_name)
+            _setter("discussion_category_name", discussion_category_name)
         if draft is not None:
-            pulumi.set(__self__, "draft", draft)
+            _setter("draft", draft)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if generate_release_notes is not None:
-            pulumi.set(__self__, "generate_release_notes", generate_release_notes)
+            _setter("generate_release_notes", generate_release_notes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if prerelease is not None:
-            pulumi.set(__self__, "prerelease", prerelease)
+            _setter("prerelease", prerelease)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tag_name is not None:
-            pulumi.set(__self__, "tag_name", tag_name)
+            _setter("tag_name", tag_name)
         if target_commitish is not None:
-            pulumi.set(__self__, "target_commitish", target_commitish)
+            _setter("target_commitish", target_commitish)
 
     @property
     @pulumi.getter
@@ -456,6 +532,10 @@ class Release(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReleaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

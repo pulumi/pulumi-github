@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -75,11 +75,34 @@ class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
         :param pulumi.Input[bool] verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
         """
-        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        ActionsOrganizationPermissionsAllowedActionsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            github_owned_allowed=github_owned_allowed,
+            patterns_alloweds=patterns_alloweds,
+            verified_allowed=verified_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             github_owned_allowed: Optional[pulumi.Input[bool]] = None,
+             patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verified_allowed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if github_owned_allowed is None and 'githubOwnedAllowed' in kwargs:
+            github_owned_allowed = kwargs['githubOwnedAllowed']
+        if github_owned_allowed is None:
+            raise TypeError("Missing 'github_owned_allowed' argument")
+        if patterns_alloweds is None and 'patternsAlloweds' in kwargs:
+            patterns_alloweds = kwargs['patternsAlloweds']
+        if verified_allowed is None and 'verifiedAllowed' in kwargs:
+            verified_allowed = kwargs['verifiedAllowed']
+
+        _setter("github_owned_allowed", github_owned_allowed)
         if patterns_alloweds is not None:
-            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+            _setter("patterns_alloweds", patterns_alloweds)
         if verified_allowed is not None:
-            pulumi.set(__self__, "verified_allowed", verified_allowed)
+            _setter("verified_allowed", verified_allowed)
 
     @property
     @pulumi.getter(name="githubOwnedAllowed")
@@ -125,7 +148,22 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] repository_ids: List of repository IDs to enable for GitHub Actions.
         """
-        pulumi.set(__self__, "repository_ids", repository_ids)
+        ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_ids=repository_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+        if repository_ids is None:
+            raise TypeError("Missing 'repository_ids' argument")
+
+        _setter("repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="repositoryIds")
@@ -151,11 +189,34 @@ class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
         :param pulumi.Input[bool] verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
         """
-        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        ActionsRepositoryPermissionsAllowedActionsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            github_owned_allowed=github_owned_allowed,
+            patterns_alloweds=patterns_alloweds,
+            verified_allowed=verified_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             github_owned_allowed: Optional[pulumi.Input[bool]] = None,
+             patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verified_allowed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if github_owned_allowed is None and 'githubOwnedAllowed' in kwargs:
+            github_owned_allowed = kwargs['githubOwnedAllowed']
+        if github_owned_allowed is None:
+            raise TypeError("Missing 'github_owned_allowed' argument")
+        if patterns_alloweds is None and 'patternsAlloweds' in kwargs:
+            patterns_alloweds = kwargs['patternsAlloweds']
+        if verified_allowed is None and 'verifiedAllowed' in kwargs:
+            verified_allowed = kwargs['verifiedAllowed']
+
+        _setter("github_owned_allowed", github_owned_allowed)
         if patterns_alloweds is not None:
-            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+            _setter("patterns_alloweds", patterns_alloweds)
         if verified_allowed is not None:
-            pulumi.set(__self__, "verified_allowed", verified_allowed)
+            _setter("verified_allowed", verified_allowed)
 
     @property
     @pulumi.getter(name="githubOwnedAllowed")
@@ -214,20 +275,57 @@ class BranchProtectionRequiredPullRequestReviewArgs:
                (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         :param pulumi.Input[bool] restrict_dismissals: Restrict pull request review dismissals.
         """
+        BranchProtectionRequiredPullRequestReviewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dismiss_stale_reviews=dismiss_stale_reviews,
+            dismissal_restrictions=dismissal_restrictions,
+            pull_request_bypassers=pull_request_bypassers,
+            require_code_owner_reviews=require_code_owner_reviews,
+            require_last_push_approval=require_last_push_approval,
+            required_approving_review_count=required_approving_review_count,
+            restrict_dismissals=restrict_dismissals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
+             dismissal_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pull_request_bypassers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
+             require_last_push_approval: Optional[pulumi.Input[bool]] = None,
+             required_approving_review_count: Optional[pulumi.Input[int]] = None,
+             restrict_dismissals: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dismiss_stale_reviews is None and 'dismissStaleReviews' in kwargs:
+            dismiss_stale_reviews = kwargs['dismissStaleReviews']
+        if dismissal_restrictions is None and 'dismissalRestrictions' in kwargs:
+            dismissal_restrictions = kwargs['dismissalRestrictions']
+        if pull_request_bypassers is None and 'pullRequestBypassers' in kwargs:
+            pull_request_bypassers = kwargs['pullRequestBypassers']
+        if require_code_owner_reviews is None and 'requireCodeOwnerReviews' in kwargs:
+            require_code_owner_reviews = kwargs['requireCodeOwnerReviews']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if restrict_dismissals is None and 'restrictDismissals' in kwargs:
+            restrict_dismissals = kwargs['restrictDismissals']
+
         if dismiss_stale_reviews is not None:
-            pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
+            _setter("dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_restrictions is not None:
-            pulumi.set(__self__, "dismissal_restrictions", dismissal_restrictions)
+            _setter("dismissal_restrictions", dismissal_restrictions)
         if pull_request_bypassers is not None:
-            pulumi.set(__self__, "pull_request_bypassers", pull_request_bypassers)
+            _setter("pull_request_bypassers", pull_request_bypassers)
         if require_code_owner_reviews is not None:
-            pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+            _setter("require_code_owner_reviews", require_code_owner_reviews)
         if require_last_push_approval is not None:
-            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
+            _setter("require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
-            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+            _setter("required_approving_review_count", required_approving_review_count)
         if restrict_dismissals is not None:
-            pulumi.set(__self__, "restrict_dismissals", restrict_dismissals)
+            _setter("restrict_dismissals", restrict_dismissals)
 
     @property
     @pulumi.getter(name="dismissStaleReviews")
@@ -324,10 +422,23 @@ class BranchProtectionRequiredStatusCheckArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
         :param pulumi.Input[bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
+        BranchProtectionRequiredStatusCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contexts=contexts,
+            strict=strict,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contexts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             strict: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if contexts is not None:
-            pulumi.set(__self__, "contexts", contexts)
+            _setter("contexts", contexts)
         if strict is not None:
-            pulumi.set(__self__, "strict", strict)
+            _setter("strict", strict)
 
     @property
     @pulumi.getter
@@ -373,23 +484,60 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
         :param pulumi.Input[bool] require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         :param pulumi.Input[int] required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
+        BranchProtectionV3RequiredPullRequestReviewsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass_pull_request_allowances=bypass_pull_request_allowances,
+            dismiss_stale_reviews=dismiss_stale_reviews,
+            dismissal_teams=dismissal_teams,
+            dismissal_users=dismissal_users,
+            include_admins=include_admins,
+            require_code_owner_reviews=require_code_owner_reviews,
+            required_approving_review_count=required_approving_review_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass_pull_request_allowances: Optional[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs']] = None,
+             dismiss_stale_reviews: Optional[pulumi.Input[bool]] = None,
+             dismissal_teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dismissal_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             include_admins: Optional[pulumi.Input[bool]] = None,
+             require_code_owner_reviews: Optional[pulumi.Input[bool]] = None,
+             required_approving_review_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bypass_pull_request_allowances is None and 'bypassPullRequestAllowances' in kwargs:
+            bypass_pull_request_allowances = kwargs['bypassPullRequestAllowances']
+        if dismiss_stale_reviews is None and 'dismissStaleReviews' in kwargs:
+            dismiss_stale_reviews = kwargs['dismissStaleReviews']
+        if dismissal_teams is None and 'dismissalTeams' in kwargs:
+            dismissal_teams = kwargs['dismissalTeams']
+        if dismissal_users is None and 'dismissalUsers' in kwargs:
+            dismissal_users = kwargs['dismissalUsers']
+        if include_admins is None and 'includeAdmins' in kwargs:
+            include_admins = kwargs['includeAdmins']
+        if require_code_owner_reviews is None and 'requireCodeOwnerReviews' in kwargs:
+            require_code_owner_reviews = kwargs['requireCodeOwnerReviews']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+
         if bypass_pull_request_allowances is not None:
-            pulumi.set(__self__, "bypass_pull_request_allowances", bypass_pull_request_allowances)
+            _setter("bypass_pull_request_allowances", bypass_pull_request_allowances)
         if dismiss_stale_reviews is not None:
-            pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
+            _setter("dismiss_stale_reviews", dismiss_stale_reviews)
         if dismissal_teams is not None:
-            pulumi.set(__self__, "dismissal_teams", dismissal_teams)
+            _setter("dismissal_teams", dismissal_teams)
         if dismissal_users is not None:
-            pulumi.set(__self__, "dismissal_users", dismissal_users)
+            _setter("dismissal_users", dismissal_users)
         if include_admins is not None:
             warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
             pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
         if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
+            _setter("include_admins", include_admins)
         if require_code_owner_reviews is not None:
-            pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+            _setter("require_code_owner_reviews", require_code_owner_reviews)
         if required_approving_review_count is not None:
-            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+            _setter("required_approving_review_count", required_approving_review_count)
 
     @property
     @pulumi.getter(name="bypassPullRequestAllowances")
@@ -488,12 +636,27 @@ class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArg
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The list of team slugs allowed to bypass pull request requirements.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of user logins allowed to bypass pull request requirements.
         """
+        BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apps=apps,
+            teams=teams,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if apps is not None:
-            pulumi.set(__self__, "apps", apps)
+            _setter("apps", apps)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -544,20 +707,39 @@ class BranchProtectionV3RequiredStatusChecksArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
         :param pulumi.Input[bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
+        BranchProtectionV3RequiredStatusChecksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            checks=checks,
+            contexts=contexts,
+            include_admins=include_admins,
+            strict=strict,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             checks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             contexts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             include_admins: Optional[pulumi.Input[bool]] = None,
+             strict: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_admins is None and 'includeAdmins' in kwargs:
+            include_admins = kwargs['includeAdmins']
+
         if checks is not None:
-            pulumi.set(__self__, "checks", checks)
+            _setter("checks", checks)
         if contexts is not None:
             warnings.warn("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""", DeprecationWarning)
             pulumi.log.warn("""contexts is deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
         if contexts is not None:
-            pulumi.set(__self__, "contexts", contexts)
+            _setter("contexts", contexts)
         if include_admins is not None:
             warnings.warn("""Use enforce_admins instead""", DeprecationWarning)
             pulumi.log.warn("""include_admins is deprecated: Use enforce_admins instead""")
         if include_admins is not None:
-            pulumi.set(__self__, "include_admins", include_admins)
+            _setter("include_admins", include_admins)
         if strict is not None:
-            pulumi.set(__self__, "strict", strict)
+            _setter("strict", strict)
 
     @property
     @pulumi.getter
@@ -625,12 +807,27 @@ class BranchProtectionV3RestrictionsArgs:
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The list of user logins with push access.
         """
+        BranchProtectionV3RestrictionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apps=apps,
+            teams=teams,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if apps is not None:
-            pulumi.set(__self__, "apps", apps)
+            _setter("apps", apps)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -685,9 +882,36 @@ class OrganizationRulesetBypassActorArgs:
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
-        pulumi.set(__self__, "actor_id", actor_id)
-        pulumi.set(__self__, "actor_type", actor_type)
-        pulumi.set(__self__, "bypass_mode", bypass_mode)
+        OrganizationRulesetBypassActorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actor_id=actor_id,
+            actor_type=actor_type,
+            bypass_mode=bypass_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actor_id: Optional[pulumi.Input[int]] = None,
+             actor_type: Optional[pulumi.Input[str]] = None,
+             bypass_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if actor_id is None and 'actorId' in kwargs:
+            actor_id = kwargs['actorId']
+        if actor_id is None:
+            raise TypeError("Missing 'actor_id' argument")
+        if actor_type is None and 'actorType' in kwargs:
+            actor_type = kwargs['actorType']
+        if actor_type is None:
+            raise TypeError("Missing 'actor_type' argument")
+        if bypass_mode is None and 'bypassMode' in kwargs:
+            bypass_mode = kwargs['bypassMode']
+        if bypass_mode is None:
+            raise TypeError("Missing 'bypass_mode' argument")
+
+        _setter("actor_id", actor_id)
+        _setter("actor_type", actor_type)
+        _setter("bypass_mode", bypass_mode)
 
     @property
     @pulumi.getter(name="actorId")
@@ -741,11 +965,34 @@ class OrganizationRulesetConditionsArgs:
                
                One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
         """
-        pulumi.set(__self__, "ref_name", ref_name)
+        OrganizationRulesetConditionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ref_name=ref_name,
+            repository_id=repository_id,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ref_name: Optional[pulumi.Input['OrganizationRulesetConditionsRefNameArgs']] = None,
+             repository_id: Optional[pulumi.Input[int]] = None,
+             repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ref_name is None and 'refName' in kwargs:
+            ref_name = kwargs['refName']
+        if ref_name is None:
+            raise TypeError("Missing 'ref_name' argument")
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
+        _setter("ref_name", ref_name)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="refName")
@@ -795,8 +1042,25 @@ class OrganizationRulesetConditionsRefNameArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        OrganizationRulesetConditionsRefNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -833,10 +1097,29 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        OrganizationRulesetConditionsRepositoryNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+            protected=protected,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             protected: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
         if protected is not None:
-            pulumi.set(__self__, "protected", protected)
+            _setter("protected", protected)
 
     @property
     @pulumi.getter
@@ -903,32 +1186,87 @@ class OrganizationRulesetRulesArgs:
         :param pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs'] tag_name_pattern: (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
         :param pulumi.Input[bool] update: (Boolean) Only allow users with bypass permission to update matching refs.
         """
+        OrganizationRulesetRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name_pattern=branch_name_pattern,
+            commit_author_email_pattern=commit_author_email_pattern,
+            commit_message_pattern=commit_message_pattern,
+            committer_email_pattern=committer_email_pattern,
+            creation=creation,
+            deletion=deletion,
+            non_fast_forward=non_fast_forward,
+            pull_request=pull_request,
+            required_linear_history=required_linear_history,
+            required_signatures=required_signatures,
+            required_status_checks=required_status_checks,
+            tag_name_pattern=tag_name_pattern,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name_pattern: Optional[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgs']] = None,
+             commit_author_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']] = None,
+             commit_message_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs']] = None,
+             committer_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']] = None,
+             creation: Optional[pulumi.Input[bool]] = None,
+             deletion: Optional[pulumi.Input[bool]] = None,
+             non_fast_forward: Optional[pulumi.Input[bool]] = None,
+             pull_request: Optional[pulumi.Input['OrganizationRulesetRulesPullRequestArgs']] = None,
+             required_linear_history: Optional[pulumi.Input[bool]] = None,
+             required_signatures: Optional[pulumi.Input[bool]] = None,
+             required_status_checks: Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']] = None,
+             tag_name_pattern: Optional[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs']] = None,
+             update: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch_name_pattern is None and 'branchNamePattern' in kwargs:
+            branch_name_pattern = kwargs['branchNamePattern']
+        if commit_author_email_pattern is None and 'commitAuthorEmailPattern' in kwargs:
+            commit_author_email_pattern = kwargs['commitAuthorEmailPattern']
+        if commit_message_pattern is None and 'commitMessagePattern' in kwargs:
+            commit_message_pattern = kwargs['commitMessagePattern']
+        if committer_email_pattern is None and 'committerEmailPattern' in kwargs:
+            committer_email_pattern = kwargs['committerEmailPattern']
+        if non_fast_forward is None and 'nonFastForward' in kwargs:
+            non_fast_forward = kwargs['nonFastForward']
+        if pull_request is None and 'pullRequest' in kwargs:
+            pull_request = kwargs['pullRequest']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_signatures is None and 'requiredSignatures' in kwargs:
+            required_signatures = kwargs['requiredSignatures']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+        if tag_name_pattern is None and 'tagNamePattern' in kwargs:
+            tag_name_pattern = kwargs['tagNamePattern']
+
         if branch_name_pattern is not None:
-            pulumi.set(__self__, "branch_name_pattern", branch_name_pattern)
+            _setter("branch_name_pattern", branch_name_pattern)
         if commit_author_email_pattern is not None:
-            pulumi.set(__self__, "commit_author_email_pattern", commit_author_email_pattern)
+            _setter("commit_author_email_pattern", commit_author_email_pattern)
         if commit_message_pattern is not None:
-            pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
+            _setter("commit_message_pattern", commit_message_pattern)
         if committer_email_pattern is not None:
-            pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+            _setter("committer_email_pattern", committer_email_pattern)
         if creation is not None:
-            pulumi.set(__self__, "creation", creation)
+            _setter("creation", creation)
         if deletion is not None:
-            pulumi.set(__self__, "deletion", deletion)
+            _setter("deletion", deletion)
         if non_fast_forward is not None:
-            pulumi.set(__self__, "non_fast_forward", non_fast_forward)
+            _setter("non_fast_forward", non_fast_forward)
         if pull_request is not None:
-            pulumi.set(__self__, "pull_request", pull_request)
+            _setter("pull_request", pull_request)
         if required_linear_history is not None:
-            pulumi.set(__self__, "required_linear_history", required_linear_history)
+            _setter("required_linear_history", required_linear_history)
         if required_signatures is not None:
-            pulumi.set(__self__, "required_signatures", required_signatures)
+            _setter("required_signatures", required_signatures)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
         if tag_name_pattern is not None:
-            pulumi.set(__self__, "tag_name_pattern", tag_name_pattern)
+            _setter("tag_name_pattern", tag_name_pattern)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter(name="branchNamePattern")
@@ -1100,12 +1438,33 @@ class OrganizationRulesetRulesBranchNamePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        OrganizationRulesetRulesBranchNamePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1169,12 +1528,33 @@ class OrganizationRulesetRulesCommitAuthorEmailPatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        OrganizationRulesetRulesCommitAuthorEmailPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1238,12 +1618,33 @@ class OrganizationRulesetRulesCommitMessagePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        OrganizationRulesetRulesCommitMessagePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1307,12 +1708,33 @@ class OrganizationRulesetRulesCommitterEmailPatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        OrganizationRulesetRulesCommitterEmailPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1378,16 +1800,45 @@ class OrganizationRulesetRulesPullRequestArgs:
         :param pulumi.Input[int] required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param pulumi.Input[bool] required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
+        OrganizationRulesetRulesPullRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dismiss_stale_reviews_on_push=dismiss_stale_reviews_on_push,
+            require_code_owner_review=require_code_owner_review,
+            require_last_push_approval=require_last_push_approval,
+            required_approving_review_count=required_approving_review_count,
+            required_review_thread_resolution=required_review_thread_resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dismiss_stale_reviews_on_push: Optional[pulumi.Input[bool]] = None,
+             require_code_owner_review: Optional[pulumi.Input[bool]] = None,
+             require_last_push_approval: Optional[pulumi.Input[bool]] = None,
+             required_approving_review_count: Optional[pulumi.Input[int]] = None,
+             required_review_thread_resolution: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dismiss_stale_reviews_on_push is None and 'dismissStaleReviewsOnPush' in kwargs:
+            dismiss_stale_reviews_on_push = kwargs['dismissStaleReviewsOnPush']
+        if require_code_owner_review is None and 'requireCodeOwnerReview' in kwargs:
+            require_code_owner_review = kwargs['requireCodeOwnerReview']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if required_review_thread_resolution is None and 'requiredReviewThreadResolution' in kwargs:
+            required_review_thread_resolution = kwargs['requiredReviewThreadResolution']
+
         if dismiss_stale_reviews_on_push is not None:
-            pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
+            _setter("dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
-            pulumi.set(__self__, "require_code_owner_review", require_code_owner_review)
+            _setter("require_code_owner_review", require_code_owner_review)
         if require_last_push_approval is not None:
-            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
+            _setter("require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
-            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+            _setter("required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
-            pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+            _setter("required_review_thread_resolution", required_review_thread_resolution)
 
     @property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
@@ -1459,9 +1910,28 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
         :param pulumi.Input[bool] strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
-        pulumi.set(__self__, "required_checks", required_checks)
+        OrganizationRulesetRulesRequiredStatusChecksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_checks=required_checks,
+            strict_required_status_checks_policy=strict_required_status_checks_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_checks: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]]] = None,
+             strict_required_status_checks_policy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if required_checks is None and 'requiredChecks' in kwargs:
+            required_checks = kwargs['requiredChecks']
+        if required_checks is None:
+            raise TypeError("Missing 'required_checks' argument")
+        if strict_required_status_checks_policy is None and 'strictRequiredStatusChecksPolicy' in kwargs:
+            strict_required_status_checks_policy = kwargs['strictRequiredStatusChecksPolicy']
+
+        _setter("required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
-            pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
+            _setter("strict_required_status_checks_policy", strict_required_status_checks_policy)
 
     @property
     @pulumi.getter(name="requiredChecks")
@@ -1497,9 +1967,26 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
         :param pulumi.Input[str] context: (String) The status check context name that must be present on the commit.
         :param pulumi.Input[int] integration_id: (Number) The optional integration ID that this status check must originate from.
         """
-        pulumi.set(__self__, "context", context)
+        OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context=context,
+            integration_id=integration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context: Optional[pulumi.Input[str]] = None,
+             integration_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if context is None:
+            raise TypeError("Missing 'context' argument")
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
+        _setter("context", context)
         if integration_id is not None:
-            pulumi.set(__self__, "integration_id", integration_id)
+            _setter("integration_id", integration_id)
 
     @property
     @pulumi.getter
@@ -1539,12 +2026,33 @@ class OrganizationRulesetRulesTagNamePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        OrganizationRulesetRulesTagNamePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1605,13 +2113,36 @@ class OrganizationWebhookConfigurationArgs:
         """
         :param pulumi.Input[str] url: URL of the webhook
         """
-        pulumi.set(__self__, "url", url)
+        OrganizationWebhookConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            content_type=content_type,
+            insecure_ssl=insecure_ssl,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             insecure_ssl: Optional[pulumi.Input[bool]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+
+        _setter("url", url)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if insecure_ssl is not None:
-            pulumi.set(__self__, "insecure_ssl", insecure_ssl)
+            _setter("insecure_ssl", insecure_ssl)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1659,9 +2190,34 @@ class ProviderAppAuthArgs:
                  id: pulumi.Input[str],
                  installation_id: pulumi.Input[str],
                  pem_file: pulumi.Input[str]):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "installation_id", installation_id)
-        pulumi.set(__self__, "pem_file", pem_file)
+        ProviderAppAuthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            installation_id=installation_id,
+            pem_file=pem_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             installation_id: Optional[pulumi.Input[str]] = None,
+             pem_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if installation_id is None and 'installationId' in kwargs:
+            installation_id = kwargs['installationId']
+        if installation_id is None:
+            raise TypeError("Missing 'installation_id' argument")
+        if pem_file is None and 'pemFile' in kwargs:
+            pem_file = kwargs['pemFile']
+        if pem_file is None:
+            raise TypeError("Missing 'pem_file' argument")
+
+        _setter("id", id)
+        _setter("installation_id", installation_id)
+        _setter("pem_file", pem_file)
 
     @property
     @pulumi.getter
@@ -1702,9 +2258,26 @@ class RepositoryCollaboratorsTeamArgs:
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
                Must be `push` for personal repositories. Defaults to `push`.
         """
-        pulumi.set(__self__, "team_id", team_id)
+        RepositoryCollaboratorsTeamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            team_id=team_id,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             team_id: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
+        _setter("team_id", team_id)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter(name="teamId")
@@ -1744,9 +2317,24 @@ class RepositoryCollaboratorsUserArgs:
                Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
                Must be `push` for personal repositories. Defaults to `push`.
         """
-        pulumi.set(__self__, "username", username)
+        RepositoryCollaboratorsUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("username", username)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
 
     @property
     @pulumi.getter
@@ -1784,8 +2372,29 @@ class RepositoryEnvironmentDeploymentBranchPolicyArgs:
         :param pulumi.Input[bool] custom_branch_policies: Whether only branches that match the specified name patterns can deploy to this environment.
         :param pulumi.Input[bool] protected_branches: Whether only branches with branch protection rules can deploy to this environment.
         """
-        pulumi.set(__self__, "custom_branch_policies", custom_branch_policies)
-        pulumi.set(__self__, "protected_branches", protected_branches)
+        RepositoryEnvironmentDeploymentBranchPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_branch_policies=custom_branch_policies,
+            protected_branches=protected_branches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_branch_policies: Optional[pulumi.Input[bool]] = None,
+             protected_branches: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_branch_policies is None and 'customBranchPolicies' in kwargs:
+            custom_branch_policies = kwargs['customBranchPolicies']
+        if custom_branch_policies is None:
+            raise TypeError("Missing 'custom_branch_policies' argument")
+        if protected_branches is None and 'protectedBranches' in kwargs:
+            protected_branches = kwargs['protectedBranches']
+        if protected_branches is None:
+            raise TypeError("Missing 'protected_branches' argument")
+
+        _setter("custom_branch_policies", custom_branch_policies)
+        _setter("protected_branches", protected_branches)
 
     @property
     @pulumi.getter(name="customBranchPolicies")
@@ -1821,10 +2430,23 @@ class RepositoryEnvironmentReviewerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] teams: Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] users: Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
         """
+        RepositoryEnvironmentReviewerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            teams=teams,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -1869,20 +2491,47 @@ class RepositoryPagesArgs:
         :param pulumi.Input['RepositoryPagesSourceArgs'] source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
         :param pulumi.Input[str] status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
+        RepositoryPagesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_type=build_type,
+            cname=cname,
+            custom404=custom404,
+            html_url=html_url,
+            source=source,
+            status=status,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_type: Optional[pulumi.Input[str]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             custom404: Optional[pulumi.Input[bool]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['RepositoryPagesSourceArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if build_type is not None:
-            pulumi.set(__self__, "build_type", build_type)
+            _setter("build_type", build_type)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if custom404 is not None:
-            pulumi.set(__self__, "custom404", custom404)
+            _setter("custom404", custom404)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="buildType")
@@ -1975,9 +2624,24 @@ class RepositoryPagesSourceArgs:
         :param pulumi.Input[str] branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
         :param pulumi.Input[str] path: The repository directory from which the site publishes (Default: `/`).
         """
-        pulumi.set(__self__, "branch", branch)
+        RepositoryPagesSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+
+        _setter("branch", branch)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2017,9 +2681,36 @@ class RepositoryRulesetBypassActorArgs:
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         """
-        pulumi.set(__self__, "actor_id", actor_id)
-        pulumi.set(__self__, "actor_type", actor_type)
-        pulumi.set(__self__, "bypass_mode", bypass_mode)
+        RepositoryRulesetBypassActorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actor_id=actor_id,
+            actor_type=actor_type,
+            bypass_mode=bypass_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actor_id: Optional[pulumi.Input[int]] = None,
+             actor_type: Optional[pulumi.Input[str]] = None,
+             bypass_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if actor_id is None and 'actorId' in kwargs:
+            actor_id = kwargs['actorId']
+        if actor_id is None:
+            raise TypeError("Missing 'actor_id' argument")
+        if actor_type is None and 'actorType' in kwargs:
+            actor_type = kwargs['actorType']
+        if actor_type is None:
+            raise TypeError("Missing 'actor_type' argument")
+        if bypass_mode is None and 'bypassMode' in kwargs:
+            bypass_mode = kwargs['bypassMode']
+        if bypass_mode is None:
+            raise TypeError("Missing 'bypass_mode' argument")
+
+        _setter("actor_id", actor_id)
+        _setter("actor_type", actor_type)
+        _setter("bypass_mode", bypass_mode)
 
     @property
     @pulumi.getter(name="actorId")
@@ -2067,7 +2758,22 @@ class RepositoryRulesetConditionsArgs:
         """
         :param pulumi.Input['RepositoryRulesetConditionsRefNameArgs'] ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
         """
-        pulumi.set(__self__, "ref_name", ref_name)
+        RepositoryRulesetConditionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ref_name=ref_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ref_name: Optional[pulumi.Input['RepositoryRulesetConditionsRefNameArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ref_name is None and 'refName' in kwargs:
+            ref_name = kwargs['refName']
+        if ref_name is None:
+            raise TypeError("Missing 'ref_name' argument")
+
+        _setter("ref_name", ref_name)
 
     @property
     @pulumi.getter(name="refName")
@@ -2091,8 +2797,25 @@ class RepositoryRulesetConditionsRefNameArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        RepositoryRulesetConditionsRefNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -2154,36 +2877,99 @@ class RepositoryRulesetRulesArgs:
         :param pulumi.Input[bool] update: (Boolean) Only allow users with bypass permission to update matching refs.
         :param pulumi.Input[bool] update_allows_fetch_and_merge: (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
         """
+        RepositoryRulesetRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name_pattern=branch_name_pattern,
+            commit_author_email_pattern=commit_author_email_pattern,
+            commit_message_pattern=commit_message_pattern,
+            committer_email_pattern=committer_email_pattern,
+            creation=creation,
+            deletion=deletion,
+            non_fast_forward=non_fast_forward,
+            pull_request=pull_request,
+            required_deployments=required_deployments,
+            required_linear_history=required_linear_history,
+            required_signatures=required_signatures,
+            required_status_checks=required_status_checks,
+            tag_name_pattern=tag_name_pattern,
+            update=update,
+            update_allows_fetch_and_merge=update_allows_fetch_and_merge,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name_pattern: Optional[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgs']] = None,
+             commit_author_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']] = None,
+             commit_message_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs']] = None,
+             committer_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']] = None,
+             creation: Optional[pulumi.Input[bool]] = None,
+             deletion: Optional[pulumi.Input[bool]] = None,
+             non_fast_forward: Optional[pulumi.Input[bool]] = None,
+             pull_request: Optional[pulumi.Input['RepositoryRulesetRulesPullRequestArgs']] = None,
+             required_deployments: Optional[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgs']] = None,
+             required_linear_history: Optional[pulumi.Input[bool]] = None,
+             required_signatures: Optional[pulumi.Input[bool]] = None,
+             required_status_checks: Optional[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgs']] = None,
+             tag_name_pattern: Optional[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgs']] = None,
+             update: Optional[pulumi.Input[bool]] = None,
+             update_allows_fetch_and_merge: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch_name_pattern is None and 'branchNamePattern' in kwargs:
+            branch_name_pattern = kwargs['branchNamePattern']
+        if commit_author_email_pattern is None and 'commitAuthorEmailPattern' in kwargs:
+            commit_author_email_pattern = kwargs['commitAuthorEmailPattern']
+        if commit_message_pattern is None and 'commitMessagePattern' in kwargs:
+            commit_message_pattern = kwargs['commitMessagePattern']
+        if committer_email_pattern is None and 'committerEmailPattern' in kwargs:
+            committer_email_pattern = kwargs['committerEmailPattern']
+        if non_fast_forward is None and 'nonFastForward' in kwargs:
+            non_fast_forward = kwargs['nonFastForward']
+        if pull_request is None and 'pullRequest' in kwargs:
+            pull_request = kwargs['pullRequest']
+        if required_deployments is None and 'requiredDeployments' in kwargs:
+            required_deployments = kwargs['requiredDeployments']
+        if required_linear_history is None and 'requiredLinearHistory' in kwargs:
+            required_linear_history = kwargs['requiredLinearHistory']
+        if required_signatures is None and 'requiredSignatures' in kwargs:
+            required_signatures = kwargs['requiredSignatures']
+        if required_status_checks is None and 'requiredStatusChecks' in kwargs:
+            required_status_checks = kwargs['requiredStatusChecks']
+        if tag_name_pattern is None and 'tagNamePattern' in kwargs:
+            tag_name_pattern = kwargs['tagNamePattern']
+        if update_allows_fetch_and_merge is None and 'updateAllowsFetchAndMerge' in kwargs:
+            update_allows_fetch_and_merge = kwargs['updateAllowsFetchAndMerge']
+
         if branch_name_pattern is not None:
-            pulumi.set(__self__, "branch_name_pattern", branch_name_pattern)
+            _setter("branch_name_pattern", branch_name_pattern)
         if commit_author_email_pattern is not None:
-            pulumi.set(__self__, "commit_author_email_pattern", commit_author_email_pattern)
+            _setter("commit_author_email_pattern", commit_author_email_pattern)
         if commit_message_pattern is not None:
-            pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
+            _setter("commit_message_pattern", commit_message_pattern)
         if committer_email_pattern is not None:
-            pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+            _setter("committer_email_pattern", committer_email_pattern)
         if creation is not None:
-            pulumi.set(__self__, "creation", creation)
+            _setter("creation", creation)
         if deletion is not None:
-            pulumi.set(__self__, "deletion", deletion)
+            _setter("deletion", deletion)
         if non_fast_forward is not None:
-            pulumi.set(__self__, "non_fast_forward", non_fast_forward)
+            _setter("non_fast_forward", non_fast_forward)
         if pull_request is not None:
-            pulumi.set(__self__, "pull_request", pull_request)
+            _setter("pull_request", pull_request)
         if required_deployments is not None:
-            pulumi.set(__self__, "required_deployments", required_deployments)
+            _setter("required_deployments", required_deployments)
         if required_linear_history is not None:
-            pulumi.set(__self__, "required_linear_history", required_linear_history)
+            _setter("required_linear_history", required_linear_history)
         if required_signatures is not None:
-            pulumi.set(__self__, "required_signatures", required_signatures)
+            _setter("required_signatures", required_signatures)
         if required_status_checks is not None:
-            pulumi.set(__self__, "required_status_checks", required_status_checks)
+            _setter("required_status_checks", required_status_checks)
         if tag_name_pattern is not None:
-            pulumi.set(__self__, "tag_name_pattern", tag_name_pattern)
+            _setter("tag_name_pattern", tag_name_pattern)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
         if update_allows_fetch_and_merge is not None:
-            pulumi.set(__self__, "update_allows_fetch_and_merge", update_allows_fetch_and_merge)
+            _setter("update_allows_fetch_and_merge", update_allows_fetch_and_merge)
 
     @property
     @pulumi.getter(name="branchNamePattern")
@@ -2379,12 +3165,33 @@ class RepositoryRulesetRulesBranchNamePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        RepositoryRulesetRulesBranchNamePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -2448,12 +3255,33 @@ class RepositoryRulesetRulesCommitAuthorEmailPatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        RepositoryRulesetRulesCommitAuthorEmailPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -2517,12 +3345,33 @@ class RepositoryRulesetRulesCommitMessagePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        RepositoryRulesetRulesCommitMessagePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -2586,12 +3435,33 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        RepositoryRulesetRulesCommitterEmailPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -2657,16 +3527,45 @@ class RepositoryRulesetRulesPullRequestArgs:
         :param pulumi.Input[int] required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param pulumi.Input[bool] required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
+        RepositoryRulesetRulesPullRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dismiss_stale_reviews_on_push=dismiss_stale_reviews_on_push,
+            require_code_owner_review=require_code_owner_review,
+            require_last_push_approval=require_last_push_approval,
+            required_approving_review_count=required_approving_review_count,
+            required_review_thread_resolution=required_review_thread_resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dismiss_stale_reviews_on_push: Optional[pulumi.Input[bool]] = None,
+             require_code_owner_review: Optional[pulumi.Input[bool]] = None,
+             require_last_push_approval: Optional[pulumi.Input[bool]] = None,
+             required_approving_review_count: Optional[pulumi.Input[int]] = None,
+             required_review_thread_resolution: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dismiss_stale_reviews_on_push is None and 'dismissStaleReviewsOnPush' in kwargs:
+            dismiss_stale_reviews_on_push = kwargs['dismissStaleReviewsOnPush']
+        if require_code_owner_review is None and 'requireCodeOwnerReview' in kwargs:
+            require_code_owner_review = kwargs['requireCodeOwnerReview']
+        if require_last_push_approval is None and 'requireLastPushApproval' in kwargs:
+            require_last_push_approval = kwargs['requireLastPushApproval']
+        if required_approving_review_count is None and 'requiredApprovingReviewCount' in kwargs:
+            required_approving_review_count = kwargs['requiredApprovingReviewCount']
+        if required_review_thread_resolution is None and 'requiredReviewThreadResolution' in kwargs:
+            required_review_thread_resolution = kwargs['requiredReviewThreadResolution']
+
         if dismiss_stale_reviews_on_push is not None:
-            pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
+            _setter("dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
-            pulumi.set(__self__, "require_code_owner_review", require_code_owner_review)
+            _setter("require_code_owner_review", require_code_owner_review)
         if require_last_push_approval is not None:
-            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
+            _setter("require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
-            pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
+            _setter("required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
-            pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+            _setter("required_review_thread_resolution", required_review_thread_resolution)
 
     @property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
@@ -2736,7 +3635,22 @@ class RepositoryRulesetRulesRequiredDeploymentsArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] required_deployment_environments: (List of String) The environments that must be successfully deployed to before branches can be merged.
         """
-        pulumi.set(__self__, "required_deployment_environments", required_deployment_environments)
+        RepositoryRulesetRulesRequiredDeploymentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_deployment_environments=required_deployment_environments,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_deployment_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if required_deployment_environments is None and 'requiredDeploymentEnvironments' in kwargs:
+            required_deployment_environments = kwargs['requiredDeploymentEnvironments']
+        if required_deployment_environments is None:
+            raise TypeError("Missing 'required_deployment_environments' argument")
+
+        _setter("required_deployment_environments", required_deployment_environments)
 
     @property
     @pulumi.getter(name="requiredDeploymentEnvironments")
@@ -2760,9 +3674,28 @@ class RepositoryRulesetRulesRequiredStatusChecksArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
         :param pulumi.Input[bool] strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
-        pulumi.set(__self__, "required_checks", required_checks)
+        RepositoryRulesetRulesRequiredStatusChecksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_checks=required_checks,
+            strict_required_status_checks_policy=strict_required_status_checks_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_checks: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]]] = None,
+             strict_required_status_checks_policy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if required_checks is None and 'requiredChecks' in kwargs:
+            required_checks = kwargs['requiredChecks']
+        if required_checks is None:
+            raise TypeError("Missing 'required_checks' argument")
+        if strict_required_status_checks_policy is None and 'strictRequiredStatusChecksPolicy' in kwargs:
+            strict_required_status_checks_policy = kwargs['strictRequiredStatusChecksPolicy']
+
+        _setter("required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
-            pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
+            _setter("strict_required_status_checks_policy", strict_required_status_checks_policy)
 
     @property
     @pulumi.getter(name="requiredChecks")
@@ -2798,9 +3731,26 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs:
         :param pulumi.Input[str] context: (String) The status check context name that must be present on the commit.
         :param pulumi.Input[int] integration_id: (Number) The optional integration ID that this status check must originate from.
         """
-        pulumi.set(__self__, "context", context)
+        RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context=context,
+            integration_id=integration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context: Optional[pulumi.Input[str]] = None,
+             integration_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if context is None:
+            raise TypeError("Missing 'context' argument")
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+
+        _setter("context", context)
         if integration_id is not None:
-            pulumi.set(__self__, "integration_id", integration_id)
+            _setter("integration_id", integration_id)
 
     @property
     @pulumi.getter
@@ -2840,12 +3790,33 @@ class RepositoryRulesetRulesTagNamePatternArgs:
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[bool] negate: (Boolean) If true, the rule will fail if the pattern matches.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "pattern", pattern)
+        RepositoryRulesetRulesTagNamePatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            pattern=pattern,
+            name=name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             negate: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("operator", operator)
+        _setter("pattern", pattern)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -2907,12 +3878,33 @@ class RepositorySecurityAndAnalysisArgs:
         :param pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs'] secret_scanning: The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         :param pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs'] secret_scanning_push_protection: The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
+        RepositorySecurityAndAnalysisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_security=advanced_security,
+            secret_scanning=secret_scanning,
+            secret_scanning_push_protection=secret_scanning_push_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_security: Optional[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgs']] = None,
+             secret_scanning: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgs']] = None,
+             secret_scanning_push_protection: Optional[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if advanced_security is None and 'advancedSecurity' in kwargs:
+            advanced_security = kwargs['advancedSecurity']
+        if secret_scanning is None and 'secretScanning' in kwargs:
+            secret_scanning = kwargs['secretScanning']
+        if secret_scanning_push_protection is None and 'secretScanningPushProtection' in kwargs:
+            secret_scanning_push_protection = kwargs['secretScanningPushProtection']
+
         if advanced_security is not None:
-            pulumi.set(__self__, "advanced_security", advanced_security)
+            _setter("advanced_security", advanced_security)
         if secret_scanning is not None:
-            pulumi.set(__self__, "secret_scanning", secret_scanning)
+            _setter("secret_scanning", secret_scanning)
         if secret_scanning_push_protection is not None:
-            pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
+            _setter("secret_scanning_push_protection", secret_scanning_push_protection)
 
     @property
     @pulumi.getter(name="advancedSecurity")
@@ -2958,7 +3950,20 @@ class RepositorySecurityAndAnalysisAdvancedSecurityArgs:
         """
         :param pulumi.Input[str] status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
-        pulumi.set(__self__, "status", status)
+        RepositorySecurityAndAnalysisAdvancedSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -2980,7 +3985,20 @@ class RepositorySecurityAndAnalysisSecretScanningArgs:
         """
         :param pulumi.Input[str] status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
-        pulumi.set(__self__, "status", status)
+        RepositorySecurityAndAnalysisSecretScanningArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -3002,7 +4020,20 @@ class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs:
         """
         :param pulumi.Input[str] status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
         """
-        pulumi.set(__self__, "status", status)
+        RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -3028,10 +4059,31 @@ class RepositoryTemplateArgs:
         :param pulumi.Input[str] repository: The name of the template repository.
         :param pulumi.Input[bool] include_all_branches: Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
         """
-        pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner=owner,
+            repository=repository,
+            include_all_branches=include_all_branches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             include_all_branches: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if include_all_branches is None and 'includeAllBranches' in kwargs:
+            include_all_branches = kwargs['includeAllBranches']
+
+        _setter("owner", owner)
+        _setter("repository", repository)
         if include_all_branches is not None:
-            pulumi.set(__self__, "include_all_branches", include_all_branches)
+            _setter("include_all_branches", include_all_branches)
 
     @property
     @pulumi.getter
@@ -3083,13 +4135,36 @@ class RepositoryWebhookConfigurationArgs:
         :param pulumi.Input[bool] insecure_ssl: Insecure SSL boolean toggle. Defaults to `false`.
         :param pulumi.Input[str] secret: The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
         """
-        pulumi.set(__self__, "url", url)
+        RepositoryWebhookConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            content_type=content_type,
+            insecure_ssl=insecure_ssl,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             insecure_ssl: Optional[pulumi.Input[bool]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+
+        _setter("url", url)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if insecure_ssl is not None:
-            pulumi.set(__self__, "insecure_ssl", insecure_ssl)
+            _setter("insecure_ssl", insecure_ssl)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3150,9 +4225,24 @@ class TeamMembersMemberArgs:
         :param pulumi.Input[str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
         """
-        pulumi.set(__self__, "username", username)
+        TeamMembersMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("username", username)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -3191,12 +4281,29 @@ class TeamSettingsReviewRequestDelegationArgs:
         :param pulumi.Input[int] member_count: The number of team members to assign to a pull request
         :param pulumi.Input[bool] notify: whether to notify the entire team when at least one member is also assigned to the pull request
         """
+        TeamSettingsReviewRequestDelegationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            member_count=member_count,
+            notify=notify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[pulumi.Input[str]] = None,
+             member_count: Optional[pulumi.Input[int]] = None,
+             notify: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if member_count is None and 'memberCount' in kwargs:
+            member_count = kwargs['memberCount']
+
         if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
+            _setter("algorithm", algorithm)
         if member_count is not None:
-            pulumi.set(__self__, "member_count", member_count)
+            _setter("member_count", member_count)
         if notify is not None:
-            pulumi.set(__self__, "notify", notify)
+            _setter("notify", notify)
 
     @property
     @pulumi.getter
@@ -3246,9 +4353,36 @@ class TeamSyncGroupMappingGroupArgs:
         :param pulumi.Input[str] group_id: The ID of the IdP group.
         :param pulumi.Input[str] group_name: The name of the IdP group.
         """
-        pulumi.set(__self__, "group_description", group_description)
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "group_name", group_name)
+        TeamSyncGroupMappingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_description=group_description,
+            group_id=group_id,
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_description: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_description is None and 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+
+        _setter("group_description", group_description)
+        _setter("group_id", group_id)
+        _setter("group_name", group_name)
 
     @property
     @pulumi.getter(name="groupDescription")

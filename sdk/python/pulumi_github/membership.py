@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['MembershipArgs', 'Membership']
@@ -27,11 +27,30 @@ class MembershipArgs:
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
         """
-        pulumi.set(__self__, "username", username)
+        MembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            downgrade_on_destroy=downgrade_on_destroy,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: Optional[pulumi.Input[str]] = None,
+             downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
+        _setter("username", username)
         if downgrade_on_destroy is not None:
-            pulumi.set(__self__, "downgrade_on_destroy", downgrade_on_destroy)
+            _setter("downgrade_on_destroy", downgrade_on_destroy)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -91,14 +110,33 @@ class _MembershipState:
                Must be one of `member` or `admin`. Defaults to `member`.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
+        _MembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downgrade_on_destroy=downgrade_on_destroy,
+            etag=etag,
+            role=role,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downgrade_on_destroy: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if downgrade_on_destroy is None and 'downgradeOnDestroy' in kwargs:
+            downgrade_on_destroy = kwargs['downgradeOnDestroy']
+
         if downgrade_on_destroy is not None:
-            pulumi.set(__self__, "downgrade_on_destroy", downgrade_on_destroy)
+            _setter("downgrade_on_destroy", downgrade_on_destroy)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="downgradeOnDestroy")
@@ -239,6 +277,10 @@ class Membership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProjectCardArgs', 'ProjectCard']
@@ -28,13 +28,38 @@ class ProjectCardArgs:
                See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
-        pulumi.set(__self__, "column_id", column_id)
+        ProjectCardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_id=column_id,
+            content_id=content_id,
+            content_type=content_type,
+            note=note,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_id: Optional[pulumi.Input[str]] = None,
+             content_id: Optional[pulumi.Input[int]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             note: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if column_id is None:
+            raise TypeError("Missing 'column_id' argument")
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
+        _setter("column_id", column_id)
         if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
+            _setter("content_id", content_id)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
 
     @property
     @pulumi.getter(name="columnId")
@@ -108,18 +133,47 @@ class _ProjectCardState:
                See note example or issue example for more information.
         :param pulumi.Input[str] note: The note contents of the card. Markdown supported.
         """
+        _ProjectCardState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            card_id=card_id,
+            column_id=column_id,
+            content_id=content_id,
+            content_type=content_type,
+            etag=etag,
+            note=note,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             card_id: Optional[pulumi.Input[int]] = None,
+             column_id: Optional[pulumi.Input[str]] = None,
+             content_id: Optional[pulumi.Input[int]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             note: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if card_id is None and 'cardId' in kwargs:
+            card_id = kwargs['cardId']
+        if column_id is None and 'columnId' in kwargs:
+            column_id = kwargs['columnId']
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if card_id is not None:
-            pulumi.set(__self__, "card_id", card_id)
+            _setter("card_id", card_id)
         if column_id is not None:
-            pulumi.set(__self__, "column_id", column_id)
+            _setter("column_id", column_id)
         if content_id is not None:
-            pulumi.set(__self__, "content_id", content_id)
+            _setter("content_id", content_id)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
 
     @property
     @pulumi.getter(name="cardId")
@@ -322,6 +376,10 @@ class ProjectCard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectCardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

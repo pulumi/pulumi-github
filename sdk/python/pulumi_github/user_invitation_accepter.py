@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserInvitationAccepterArgs', 'UserInvitationAccepter']
@@ -21,10 +21,27 @@ class UserInvitationAccepterArgs:
         :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
+        UserInvitationAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_empty_id=allow_empty_id,
+            invitation_id=invitation_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_empty_id: Optional[pulumi.Input[bool]] = None,
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_empty_id is None and 'allowEmptyId' in kwargs:
+            allow_empty_id = kwargs['allowEmptyId']
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         if allow_empty_id is not None:
-            pulumi.set(__self__, "allow_empty_id", allow_empty_id)
+            _setter("allow_empty_id", allow_empty_id)
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
 
     @property
     @pulumi.getter(name="allowEmptyId")
@@ -61,10 +78,27 @@ class _UserInvitationAccepterState:
         :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         :param pulumi.Input[str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
+        _UserInvitationAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_empty_id=allow_empty_id,
+            invitation_id=invitation_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_empty_id: Optional[pulumi.Input[bool]] = None,
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_empty_id is None and 'allowEmptyId' in kwargs:
+            allow_empty_id = kwargs['allowEmptyId']
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         if allow_empty_id is not None:
-            pulumi.set(__self__, "allow_empty_id", allow_empty_id)
+            _setter("allow_empty_id", allow_empty_id)
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
 
     @property
     @pulumi.getter(name="allowEmptyId")
@@ -124,6 +158,10 @@ class UserInvitationAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserInvitationAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

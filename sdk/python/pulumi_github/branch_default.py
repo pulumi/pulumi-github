@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BranchDefaultArgs', 'BranchDefault']
@@ -23,10 +23,29 @@ class BranchDefaultArgs:
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         """
-        pulumi.set(__self__, "branch", branch)
-        pulumi.set(__self__, "repository", repository)
+        BranchDefaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            repository=repository,
+            rename=rename,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             rename: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("branch", branch)
+        _setter("repository", repository)
         if rename is not None:
-            pulumi.set(__self__, "rename", rename)
+            _setter("rename", rename)
 
     @property
     @pulumi.getter
@@ -77,12 +96,27 @@ class _BranchDefaultState:
         :param pulumi.Input[bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
         """
+        _BranchDefaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            rename=rename,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             rename: Optional[pulumi.Input[bool]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if rename is not None:
-            pulumi.set(__self__, "rename", rename)
+            _setter("rename", rename)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -250,6 +284,10 @@ class BranchDefault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BranchDefaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

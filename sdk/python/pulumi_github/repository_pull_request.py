@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryPullRequestArgs', 'RepositoryPullRequest']
@@ -31,16 +31,55 @@ class RepositoryPullRequestArgs:
         :param pulumi.Input[bool] maintainer_can_modify: Controls whether the base repository maintainers can modify the Pull Request. Default: false.
         :param pulumi.Input[str] owner: Owner of the repository. If not provided, the provider's default owner is used.
         """
-        pulumi.set(__self__, "base_ref", base_ref)
-        pulumi.set(__self__, "base_repository", base_repository)
-        pulumi.set(__self__, "head_ref", head_ref)
-        pulumi.set(__self__, "title", title)
+        RepositoryPullRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_ref=base_ref,
+            base_repository=base_repository,
+            head_ref=head_ref,
+            title=title,
+            body=body,
+            maintainer_can_modify=maintainer_can_modify,
+            owner=owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_ref: Optional[pulumi.Input[str]] = None,
+             base_repository: Optional[pulumi.Input[str]] = None,
+             head_ref: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             maintainer_can_modify: Optional[pulumi.Input[bool]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_ref is None and 'baseRef' in kwargs:
+            base_ref = kwargs['baseRef']
+        if base_ref is None:
+            raise TypeError("Missing 'base_ref' argument")
+        if base_repository is None and 'baseRepository' in kwargs:
+            base_repository = kwargs['baseRepository']
+        if base_repository is None:
+            raise TypeError("Missing 'base_repository' argument")
+        if head_ref is None and 'headRef' in kwargs:
+            head_ref = kwargs['headRef']
+        if head_ref is None:
+            raise TypeError("Missing 'head_ref' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if maintainer_can_modify is None and 'maintainerCanModify' in kwargs:
+            maintainer_can_modify = kwargs['maintainerCanModify']
+
+        _setter("base_ref", base_ref)
+        _setter("base_repository", base_repository)
+        _setter("head_ref", head_ref)
+        _setter("title", title)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if maintainer_can_modify is not None:
-            pulumi.set(__self__, "maintainer_can_modify", maintainer_can_modify)
+            _setter("maintainer_can_modify", maintainer_can_modify)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
 
     @property
     @pulumi.getter(name="baseRef")
@@ -165,38 +204,97 @@ class _RepositoryPullRequestState:
         :param pulumi.Input[str] title: The title of the Pull Request.
         :param pulumi.Input[int] updated_at: The timestamp of the last Pull Request update.
         """
+        _RepositoryPullRequestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_ref=base_ref,
+            base_repository=base_repository,
+            base_sha=base_sha,
+            body=body,
+            draft=draft,
+            head_ref=head_ref,
+            head_sha=head_sha,
+            labels=labels,
+            maintainer_can_modify=maintainer_can_modify,
+            number=number,
+            opened_at=opened_at,
+            opened_by=opened_by,
+            owner=owner,
+            state=state,
+            title=title,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_ref: Optional[pulumi.Input[str]] = None,
+             base_repository: Optional[pulumi.Input[str]] = None,
+             base_sha: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             draft: Optional[pulumi.Input[bool]] = None,
+             head_ref: Optional[pulumi.Input[str]] = None,
+             head_sha: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             maintainer_can_modify: Optional[pulumi.Input[bool]] = None,
+             number: Optional[pulumi.Input[int]] = None,
+             opened_at: Optional[pulumi.Input[int]] = None,
+             opened_by: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             updated_at: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_ref is None and 'baseRef' in kwargs:
+            base_ref = kwargs['baseRef']
+        if base_repository is None and 'baseRepository' in kwargs:
+            base_repository = kwargs['baseRepository']
+        if base_sha is None and 'baseSha' in kwargs:
+            base_sha = kwargs['baseSha']
+        if head_ref is None and 'headRef' in kwargs:
+            head_ref = kwargs['headRef']
+        if head_sha is None and 'headSha' in kwargs:
+            head_sha = kwargs['headSha']
+        if maintainer_can_modify is None and 'maintainerCanModify' in kwargs:
+            maintainer_can_modify = kwargs['maintainerCanModify']
+        if opened_at is None and 'openedAt' in kwargs:
+            opened_at = kwargs['openedAt']
+        if opened_by is None and 'openedBy' in kwargs:
+            opened_by = kwargs['openedBy']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if base_ref is not None:
-            pulumi.set(__self__, "base_ref", base_ref)
+            _setter("base_ref", base_ref)
         if base_repository is not None:
-            pulumi.set(__self__, "base_repository", base_repository)
+            _setter("base_repository", base_repository)
         if base_sha is not None:
-            pulumi.set(__self__, "base_sha", base_sha)
+            _setter("base_sha", base_sha)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if draft is not None:
-            pulumi.set(__self__, "draft", draft)
+            _setter("draft", draft)
         if head_ref is not None:
-            pulumi.set(__self__, "head_ref", head_ref)
+            _setter("head_ref", head_ref)
         if head_sha is not None:
-            pulumi.set(__self__, "head_sha", head_sha)
+            _setter("head_sha", head_sha)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if maintainer_can_modify is not None:
-            pulumi.set(__self__, "maintainer_can_modify", maintainer_can_modify)
+            _setter("maintainer_can_modify", maintainer_can_modify)
         if number is not None:
-            pulumi.set(__self__, "number", number)
+            _setter("number", number)
         if opened_at is not None:
-            pulumi.set(__self__, "opened_at", opened_at)
+            _setter("opened_at", opened_at)
         if opened_by is not None:
-            pulumi.set(__self__, "opened_by", opened_by)
+            _setter("opened_by", opened_by)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="baseRef")
@@ -464,6 +562,10 @@ class RepositoryPullRequest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryPullRequestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
