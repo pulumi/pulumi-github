@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to manage repository allow list for existing GitHub Codespaces secrets within your GitHub organization.
@@ -163,12 +162,6 @@ func (i *CodespacesOrganizationSecretRepositories) ToCodespacesOrganizationSecre
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretRepositoriesOutput)
 }
 
-func (i *CodespacesOrganizationSecretRepositories) ToOutput(ctx context.Context) pulumix.Output[*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[*CodespacesOrganizationSecretRepositories]{
-		OutputState: i.ToCodespacesOrganizationSecretRepositoriesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CodespacesOrganizationSecretRepositoriesArrayInput is an input type that accepts CodespacesOrganizationSecretRepositoriesArray and CodespacesOrganizationSecretRepositoriesArrayOutput values.
 // You can construct a concrete instance of `CodespacesOrganizationSecretRepositoriesArrayInput` via:
 //
@@ -192,12 +185,6 @@ func (i CodespacesOrganizationSecretRepositoriesArray) ToCodespacesOrganizationS
 
 func (i CodespacesOrganizationSecretRepositoriesArray) ToCodespacesOrganizationSecretRepositoriesArrayOutputWithContext(ctx context.Context) CodespacesOrganizationSecretRepositoriesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretRepositoriesArrayOutput)
-}
-
-func (i CodespacesOrganizationSecretRepositoriesArray) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[[]*CodespacesOrganizationSecretRepositories]{
-		OutputState: i.ToCodespacesOrganizationSecretRepositoriesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CodespacesOrganizationSecretRepositoriesMapInput is an input type that accepts CodespacesOrganizationSecretRepositoriesMap and CodespacesOrganizationSecretRepositoriesMapOutput values.
@@ -225,12 +212,6 @@ func (i CodespacesOrganizationSecretRepositoriesMap) ToCodespacesOrganizationSec
 	return pulumi.ToOutputWithContext(ctx, i).(CodespacesOrganizationSecretRepositoriesMapOutput)
 }
 
-func (i CodespacesOrganizationSecretRepositoriesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[map[string]*CodespacesOrganizationSecretRepositories]{
-		OutputState: i.ToCodespacesOrganizationSecretRepositoriesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CodespacesOrganizationSecretRepositoriesOutput struct{ *pulumi.OutputState }
 
 func (CodespacesOrganizationSecretRepositoriesOutput) ElementType() reflect.Type {
@@ -243,12 +224,6 @@ func (o CodespacesOrganizationSecretRepositoriesOutput) ToCodespacesOrganization
 
 func (o CodespacesOrganizationSecretRepositoriesOutput) ToCodespacesOrganizationSecretRepositoriesOutputWithContext(ctx context.Context) CodespacesOrganizationSecretRepositoriesOutput {
 	return o
-}
-
-func (o CodespacesOrganizationSecretRepositoriesOutput) ToOutput(ctx context.Context) pulumix.Output[*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[*CodespacesOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the existing secret
@@ -277,12 +252,6 @@ func (o CodespacesOrganizationSecretRepositoriesArrayOutput) ToCodespacesOrganiz
 	return o
 }
 
-func (o CodespacesOrganizationSecretRepositoriesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[[]*CodespacesOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CodespacesOrganizationSecretRepositoriesArrayOutput) Index(i pulumi.IntInput) CodespacesOrganizationSecretRepositoriesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodespacesOrganizationSecretRepositories {
 		return vs[0].([]*CodespacesOrganizationSecretRepositories)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o CodespacesOrganizationSecretRepositoriesMapOutput) ToCodespacesOrganizat
 
 func (o CodespacesOrganizationSecretRepositoriesMapOutput) ToCodespacesOrganizationSecretRepositoriesMapOutputWithContext(ctx context.Context) CodespacesOrganizationSecretRepositoriesMapOutput {
 	return o
-}
-
-func (o CodespacesOrganizationSecretRepositoriesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodespacesOrganizationSecretRepositories] {
-	return pulumix.Output[map[string]*CodespacesOrganizationSecretRepositories]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CodespacesOrganizationSecretRepositoriesMapOutput) MapIndex(k pulumi.StringInput) CodespacesOrganizationSecretRepositoriesOutput {

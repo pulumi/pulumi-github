@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsAllowedActionsConfigOutput)
 }
 
-func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ActionsOrganizationPermissionsAllowedActionsConfig] {
-	return pulumix.Output[ActionsOrganizationPermissionsAllowedActionsConfig]{
-		OutputState: i.ToActionsOrganizationPermissionsAllowedActionsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionsOrganizationPermissionsAllowedActionsConfigArgs) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutput() ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
 	return i.ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *actionsOrganizationPermissionsAllowedActionsConfigPtrType) ToActionsOrg
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
 }
 
-func (i *actionsOrganizationPermissionsAllowedActionsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissionsAllowedActionsConfig] {
-	return pulumix.Output[*ActionsOrganizationPermissionsAllowedActionsConfig]{
-		OutputState: i.ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsOrganizationPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToActionsOrgan
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsOrganizationPermissionsAllowedActionsConfig) *ActionsOrganizationPermissionsAllowedActionsConfig {
 		return &v
 	}).(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput)
-}
-
-func (o ActionsOrganizationPermissionsAllowedActionsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ActionsOrganizationPermissionsAllowedActionsConfig] {
-	return pulumix.Output[ActionsOrganizationPermissionsAllowedActionsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether GitHub-owned actions are allowed in the organization.
@@ -165,12 +146,6 @@ func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ToActionsOr
 
 func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ToActionsOrganizationPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput {
 	return o
-}
-
-func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissionsAllowedActionsConfig] {
-	return pulumix.Output[*ActionsOrganizationPermissionsAllowedActionsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput) Elem() ActionsOrganizationPermissionsAllowedActionsConfigOutput {
@@ -246,12 +221,6 @@ func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOr
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput)
 }
 
-func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ActionsOrganizationPermissionsEnabledRepositoriesConfig] {
-	return pulumix.Output[ActionsOrganizationPermissionsEnabledRepositoriesConfig]{
-		OutputState: i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput() ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
 	return i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(context.Background())
 }
@@ -293,12 +262,6 @@ func (i *actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType) ToActio
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
 }
 
-func (i *actionsOrganizationPermissionsEnabledRepositoriesConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissionsEnabledRepositoriesConfig] {
-	return pulumix.Output[*ActionsOrganizationPermissionsEnabledRepositoriesConfig]{
-		OutputState: i.ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ElementType() reflect.Type {
@@ -323,12 +286,6 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToActions
 	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
 }
 
-func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ActionsOrganizationPermissionsEnabledRepositoriesConfig] {
-	return pulumix.Output[ActionsOrganizationPermissionsEnabledRepositoriesConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of repository IDs to enable for GitHub Actions.
 func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput) RepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ActionsOrganizationPermissionsEnabledRepositoriesConfig) []int { return v.RepositoryIds }).(pulumi.IntArrayOutput)
@@ -346,12 +303,6 @@ func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ToActi
 
 func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ToActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutputWithContext(ctx context.Context) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
 	return o
-}
-
-func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationPermissionsEnabledRepositoriesConfig] {
-	return pulumix.Output[*ActionsOrganizationPermissionsEnabledRepositoriesConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput) Elem() ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput {
@@ -415,12 +366,6 @@ func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositor
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigOutput)
 }
 
-func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ActionsRepositoryPermissionsAllowedActionsConfig] {
-	return pulumix.Output[ActionsRepositoryPermissionsAllowedActionsConfig]{
-		OutputState: i.ToActionsRepositoryPermissionsAllowedActionsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionsRepositoryPermissionsAllowedActionsConfigArgs) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutput() ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
 	return i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
 }
@@ -462,12 +407,6 @@ func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToActionsRepos
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
 }
 
-func (i *actionsRepositoryPermissionsAllowedActionsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryPermissionsAllowedActionsConfig] {
-	return pulumix.Output[*ActionsRepositoryPermissionsAllowedActionsConfig]{
-		OutputState: i.ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsRepositoryPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
 
 func (ActionsRepositoryPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
@@ -490,12 +429,6 @@ func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToActionsReposit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsRepositoryPermissionsAllowedActionsConfig) *ActionsRepositoryPermissionsAllowedActionsConfig {
 		return &v
 	}).(ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput)
-}
-
-func (o ActionsRepositoryPermissionsAllowedActionsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ActionsRepositoryPermissionsAllowedActionsConfig] {
-	return pulumix.Output[ActionsRepositoryPermissionsAllowedActionsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether GitHub-owned actions are allowed in the repository.
@@ -525,12 +458,6 @@ func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepo
 
 func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToActionsRepositoryPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput {
 	return o
-}
-
-func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsRepositoryPermissionsAllowedActionsConfig] {
-	return pulumix.Output[*ActionsRepositoryPermissionsAllowedActionsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsRepositoryPermissionsAllowedActionsConfigPtrOutput) Elem() ActionsRepositoryPermissionsAllowedActionsConfigOutput {
@@ -632,12 +559,6 @@ func (i BranchProtectionRequiredPullRequestReviewArgs) ToBranchProtectionRequire
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewOutput)
 }
 
-func (i BranchProtectionRequiredPullRequestReviewArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionRequiredPullRequestReview] {
-	return pulumix.Output[BranchProtectionRequiredPullRequestReview]{
-		OutputState: i.ToBranchProtectionRequiredPullRequestReviewOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchProtectionRequiredPullRequestReviewArrayInput is an input type that accepts BranchProtectionRequiredPullRequestReviewArray and BranchProtectionRequiredPullRequestReviewArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredPullRequestReviewArrayInput` via:
 //
@@ -663,12 +584,6 @@ func (i BranchProtectionRequiredPullRequestReviewArray) ToBranchProtectionRequir
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredPullRequestReviewArrayOutput)
 }
 
-func (i BranchProtectionRequiredPullRequestReviewArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchProtectionRequiredPullRequestReview] {
-	return pulumix.Output[[]BranchProtectionRequiredPullRequestReview]{
-		OutputState: i.ToBranchProtectionRequiredPullRequestReviewArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionRequiredPullRequestReviewOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionRequiredPullRequestReviewOutput) ElementType() reflect.Type {
@@ -681,12 +596,6 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) ToBranchProtectionRequi
 
 func (o BranchProtectionRequiredPullRequestReviewOutput) ToBranchProtectionRequiredPullRequestReviewOutputWithContext(ctx context.Context) BranchProtectionRequiredPullRequestReviewOutput {
 	return o
-}
-
-func (o BranchProtectionRequiredPullRequestReviewOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionRequiredPullRequestReview] {
-	return pulumix.Output[BranchProtectionRequiredPullRequestReview]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
@@ -739,12 +648,6 @@ func (o BranchProtectionRequiredPullRequestReviewArrayOutput) ToBranchProtection
 	return o
 }
 
-func (o BranchProtectionRequiredPullRequestReviewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchProtectionRequiredPullRequestReview] {
-	return pulumix.Output[[]BranchProtectionRequiredPullRequestReview]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchProtectionRequiredPullRequestReviewArrayOutput) Index(i pulumi.IntInput) BranchProtectionRequiredPullRequestReviewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionRequiredPullRequestReview {
 		return vs[0].([]BranchProtectionRequiredPullRequestReview)[vs[1].(int)]
@@ -788,12 +691,6 @@ func (i BranchProtectionRequiredStatusCheckArgs) ToBranchProtectionRequiredStatu
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusCheckOutput)
 }
 
-func (i BranchProtectionRequiredStatusCheckArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionRequiredStatusCheck] {
-	return pulumix.Output[BranchProtectionRequiredStatusCheck]{
-		OutputState: i.ToBranchProtectionRequiredStatusCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchProtectionRequiredStatusCheckArrayInput is an input type that accepts BranchProtectionRequiredStatusCheckArray and BranchProtectionRequiredStatusCheckArrayOutput values.
 // You can construct a concrete instance of `BranchProtectionRequiredStatusCheckArrayInput` via:
 //
@@ -819,12 +716,6 @@ func (i BranchProtectionRequiredStatusCheckArray) ToBranchProtectionRequiredStat
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRequiredStatusCheckArrayOutput)
 }
 
-func (i BranchProtectionRequiredStatusCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchProtectionRequiredStatusCheck] {
-	return pulumix.Output[[]BranchProtectionRequiredStatusCheck]{
-		OutputState: i.ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionRequiredStatusCheckOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionRequiredStatusCheckOutput) ElementType() reflect.Type {
@@ -837,12 +728,6 @@ func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredSta
 
 func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredStatusCheckOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckOutput {
 	return o
-}
-
-func (o BranchProtectionRequiredStatusCheckOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionRequiredStatusCheck] {
-	return pulumix.Output[BranchProtectionRequiredStatusCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of status checks to require in order to merge into this branch. No status checks are required by default.
@@ -867,12 +752,6 @@ func (o BranchProtectionRequiredStatusCheckArrayOutput) ToBranchProtectionRequir
 
 func (o BranchProtectionRequiredStatusCheckArrayOutput) ToBranchProtectionRequiredStatusCheckArrayOutputWithContext(ctx context.Context) BranchProtectionRequiredStatusCheckArrayOutput {
 	return o
-}
-
-func (o BranchProtectionRequiredStatusCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchProtectionRequiredStatusCheck] {
-	return pulumix.Output[[]BranchProtectionRequiredStatusCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput) BranchProtectionRequiredStatusCheckOutput {
@@ -940,12 +819,6 @@ func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3Re
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsOutput)
 }
 
-func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredPullRequestReviews] {
-	return pulumix.Output[BranchProtectionV3RequiredPullRequestReviews]{
-		OutputState: i.ToBranchProtectionV3RequiredPullRequestReviewsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchProtectionV3RequiredPullRequestReviewsArgs) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutput() BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
 	return i.ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(context.Background())
 }
@@ -987,12 +860,6 @@ func (i *branchProtectionV3RequiredPullRequestReviewsPtrType) ToBranchProtection
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
 }
 
-func (i *branchProtectionV3RequiredPullRequestReviewsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredPullRequestReviews] {
-	return pulumix.Output[*BranchProtectionV3RequiredPullRequestReviews]{
-		OutputState: i.ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionV3RequiredPullRequestReviewsOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3RequiredPullRequestReviewsOutput) ElementType() reflect.Type {
@@ -1015,12 +882,6 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToBranchProtectionV3
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredPullRequestReviews) *BranchProtectionV3RequiredPullRequestReviews {
 		return &v
 	}).(BranchProtectionV3RequiredPullRequestReviewsPtrOutput)
-}
-
-func (o BranchProtectionV3RequiredPullRequestReviewsOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredPullRequestReviews] {
-	return pulumix.Output[BranchProtectionV3RequiredPullRequestReviews]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
@@ -1073,12 +934,6 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToBranchProtectio
 
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsPtrOutput {
 	return o
-}
-
-func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredPullRequestReviews] {
-	return pulumix.Output[*BranchProtectionV3RequiredPullRequestReviews]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) Elem() BranchProtectionV3RequiredPullRequestReviewsOutput {
@@ -1203,12 +1058,6 @@ func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesA
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput)
 }
 
-func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances] {
-	return pulumix.Output[BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances]{
-		OutputState: i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
 	return i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(context.Background())
 }
@@ -1250,12 +1099,6 @@ func (i *branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
 }
 
-func (i *branchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances] {
-	return pulumix.Output[*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances]{
-		OutputState: i.ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ElementType() reflect.Type {
@@ -1278,12 +1121,6 @@ func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances) *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances {
 		return &v
 	}).(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput)
-}
-
-func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances] {
-	return pulumix.Output[BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of app slugs allowed to bypass pull request requirements.
@@ -1319,12 +1156,6 @@ func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesP
 
 func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) ToBranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput {
 	return o
-}
-
-func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances] {
-	return pulumix.Output[*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrOutput) Elem() BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput {
@@ -1416,12 +1247,6 @@ func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3Required
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredStatusChecksOutput)
 }
 
-func (i BranchProtectionV3RequiredStatusChecksArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredStatusChecks] {
-	return pulumix.Output[BranchProtectionV3RequiredStatusChecks]{
-		OutputState: i.ToBranchProtectionV3RequiredStatusChecksOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchProtectionV3RequiredStatusChecksArgs) ToBranchProtectionV3RequiredStatusChecksPtrOutput() BranchProtectionV3RequiredStatusChecksPtrOutput {
 	return i.ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(context.Background())
 }
@@ -1463,12 +1288,6 @@ func (i *branchProtectionV3RequiredStatusChecksPtrType) ToBranchProtectionV3Requ
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RequiredStatusChecksPtrOutput)
 }
 
-func (i *branchProtectionV3RequiredStatusChecksPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredStatusChecks] {
-	return pulumix.Output[*BranchProtectionV3RequiredStatusChecks]{
-		OutputState: i.ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionV3RequiredStatusChecksOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3RequiredStatusChecksOutput) ElementType() reflect.Type {
@@ -1491,12 +1310,6 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) ToBranchProtectionV3Requir
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3RequiredStatusChecks) *BranchProtectionV3RequiredStatusChecks {
 		return &v
 	}).(BranchProtectionV3RequiredStatusChecksPtrOutput)
-}
-
-func (o BranchProtectionV3RequiredStatusChecksOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3RequiredStatusChecks] {
-	return pulumix.Output[BranchProtectionV3RequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
@@ -1533,12 +1346,6 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToBranchProtectionV3Req
 
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToBranchProtectionV3RequiredStatusChecksPtrOutputWithContext(ctx context.Context) BranchProtectionV3RequiredStatusChecksPtrOutput {
 	return o
-}
-
-func (o BranchProtectionV3RequiredStatusChecksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3RequiredStatusChecks] {
-	return pulumix.Output[*BranchProtectionV3RequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Elem() BranchProtectionV3RequiredStatusChecksOutput {
@@ -1640,12 +1447,6 @@ func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RestrictionsOutput)
 }
 
-func (i BranchProtectionV3RestrictionsArgs) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3Restrictions] {
-	return pulumix.Output[BranchProtectionV3Restrictions]{
-		OutputState: i.ToBranchProtectionV3RestrictionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchProtectionV3RestrictionsArgs) ToBranchProtectionV3RestrictionsPtrOutput() BranchProtectionV3RestrictionsPtrOutput {
 	return i.ToBranchProtectionV3RestrictionsPtrOutputWithContext(context.Background())
 }
@@ -1687,12 +1488,6 @@ func (i *branchProtectionV3RestrictionsPtrType) ToBranchProtectionV3Restrictions
 	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionV3RestrictionsPtrOutput)
 }
 
-func (i *branchProtectionV3RestrictionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3Restrictions] {
-	return pulumix.Output[*BranchProtectionV3Restrictions]{
-		OutputState: i.ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchProtectionV3RestrictionsOutput struct{ *pulumi.OutputState }
 
 func (BranchProtectionV3RestrictionsOutput) ElementType() reflect.Type {
@@ -1715,12 +1510,6 @@ func (o BranchProtectionV3RestrictionsOutput) ToBranchProtectionV3RestrictionsPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchProtectionV3Restrictions) *BranchProtectionV3Restrictions {
 		return &v
 	}).(BranchProtectionV3RestrictionsPtrOutput)
-}
-
-func (o BranchProtectionV3RestrictionsOutput) ToOutput(ctx context.Context) pulumix.Output[BranchProtectionV3Restrictions] {
-	return pulumix.Output[BranchProtectionV3Restrictions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of app slugs with push access.
@@ -1753,12 +1542,6 @@ func (o BranchProtectionV3RestrictionsPtrOutput) ToBranchProtectionV3Restriction
 
 func (o BranchProtectionV3RestrictionsPtrOutput) ToBranchProtectionV3RestrictionsPtrOutputWithContext(ctx context.Context) BranchProtectionV3RestrictionsPtrOutput {
 	return o
-}
-
-func (o BranchProtectionV3RestrictionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchProtectionV3Restrictions] {
-	return pulumix.Output[*BranchProtectionV3Restrictions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchProtectionV3RestrictionsPtrOutput) Elem() BranchProtectionV3RestrictionsOutput {
@@ -1849,12 +1632,6 @@ func (i OrganizationRulesetBypassActorArgs) ToOrganizationRulesetBypassActorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetBypassActorOutput)
 }
 
-func (i OrganizationRulesetBypassActorArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetBypassActor] {
-	return pulumix.Output[OrganizationRulesetBypassActor]{
-		OutputState: i.ToOrganizationRulesetBypassActorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationRulesetBypassActorArrayInput is an input type that accepts OrganizationRulesetBypassActorArray and OrganizationRulesetBypassActorArrayOutput values.
 // You can construct a concrete instance of `OrganizationRulesetBypassActorArrayInput` via:
 //
@@ -1880,12 +1657,6 @@ func (i OrganizationRulesetBypassActorArray) ToOrganizationRulesetBypassActorArr
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetBypassActorArrayOutput)
 }
 
-func (i OrganizationRulesetBypassActorArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetBypassActor] {
-	return pulumix.Output[[]OrganizationRulesetBypassActor]{
-		OutputState: i.ToOrganizationRulesetBypassActorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetBypassActorOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetBypassActorOutput) ElementType() reflect.Type {
@@ -1898,12 +1669,6 @@ func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOu
 
 func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorOutput {
 	return o
-}
-
-func (o OrganizationRulesetBypassActorOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetBypassActor] {
-	return pulumix.Output[OrganizationRulesetBypassActor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Number) The ID of the actor that can bypass a ruleset.
@@ -1935,12 +1700,6 @@ func (o OrganizationRulesetBypassActorArrayOutput) ToOrganizationRulesetBypassAc
 
 func (o OrganizationRulesetBypassActorArrayOutput) ToOrganizationRulesetBypassActorArrayOutputWithContext(ctx context.Context) OrganizationRulesetBypassActorArrayOutput {
 	return o
-}
-
-func (o OrganizationRulesetBypassActorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetBypassActor] {
-	return pulumix.Output[[]OrganizationRulesetBypassActor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetBypassActorOutput {
@@ -1994,12 +1753,6 @@ func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsOutput)
 }
 
-func (i OrganizationRulesetConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditions] {
-	return pulumix.Output[OrganizationRulesetConditions]{
-		OutputState: i.ToOrganizationRulesetConditionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetConditionsArgs) ToOrganizationRulesetConditionsPtrOutput() OrganizationRulesetConditionsPtrOutput {
 	return i.ToOrganizationRulesetConditionsPtrOutputWithContext(context.Background())
 }
@@ -2041,12 +1794,6 @@ func (i *organizationRulesetConditionsPtrType) ToOrganizationRulesetConditionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsPtrOutput)
 }
 
-func (i *organizationRulesetConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditions] {
-	return pulumix.Output[*OrganizationRulesetConditions]{
-		OutputState: i.ToOrganizationRulesetConditionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetConditionsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetConditionsOutput) ElementType() reflect.Type {
@@ -2069,12 +1816,6 @@ func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditions) *OrganizationRulesetConditions {
 		return &v
 	}).(OrganizationRulesetConditionsPtrOutput)
-}
-
-func (o OrganizationRulesetConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditions] {
-	return pulumix.Output[OrganizationRulesetConditions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block List, Min: 1, Max: 1) (see below for nested schema)
@@ -2108,12 +1849,6 @@ func (o OrganizationRulesetConditionsPtrOutput) ToOrganizationRulesetConditionsP
 
 func (o OrganizationRulesetConditionsPtrOutput) ToOrganizationRulesetConditionsPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditions] {
-	return pulumix.Output[*OrganizationRulesetConditions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetConditionsPtrOutput) Elem() OrganizationRulesetConditionsOutput {
@@ -2195,12 +1930,6 @@ func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetCondition
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRefNameOutput)
 }
 
-func (i OrganizationRulesetConditionsRefNameArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRefName] {
-	return pulumix.Output[OrganizationRulesetConditionsRefName]{
-		OutputState: i.ToOrganizationRulesetConditionsRefNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetConditionsRefNameArgs) ToOrganizationRulesetConditionsRefNamePtrOutput() OrganizationRulesetConditionsRefNamePtrOutput {
 	return i.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(context.Background())
 }
@@ -2242,12 +1971,6 @@ func (i *organizationRulesetConditionsRefNamePtrType) ToOrganizationRulesetCondi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-func (i *organizationRulesetConditionsRefNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRefName] {
-	return pulumix.Output[*OrganizationRulesetConditionsRefName]{
-		OutputState: i.ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetConditionsRefNameOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetConditionsRefNameOutput) ElementType() reflect.Type {
@@ -2272,12 +1995,6 @@ func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditi
 	}).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-func (o OrganizationRulesetConditionsRefNameOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRefName] {
-	return pulumix.Output[OrganizationRulesetConditionsRefName]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
@@ -2300,12 +2017,6 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOrganizationRulesetCond
 
 func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOrganizationRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRefNamePtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetConditionsRefNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRefName] {
-	return pulumix.Output[*OrganizationRulesetConditionsRefName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetConditionsRefNamePtrOutput) Elem() OrganizationRulesetConditionsRefNameOutput {
@@ -2377,12 +2088,6 @@ func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryNameOutput)
 }
 
-func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRepositoryName] {
-	return pulumix.Output[OrganizationRulesetConditionsRepositoryName]{
-		OutputState: i.ToOrganizationRulesetConditionsRepositoryNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetConditionsRepositoryNameArgs) ToOrganizationRulesetConditionsRepositoryNamePtrOutput() OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return i.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(context.Background())
 }
@@ -2424,12 +2129,6 @@ func (i *organizationRulesetConditionsRepositoryNamePtrType) ToOrganizationRules
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
 }
 
-func (i *organizationRulesetConditionsRepositoryNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRepositoryName] {
-	return pulumix.Output[*OrganizationRulesetConditionsRepositoryName]{
-		OutputState: i.ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetConditionsRepositoryNameOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetConditionsRepositoryNameOutput) ElementType() reflect.Type {
@@ -2452,12 +2151,6 @@ func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRuleset
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditionsRepositoryName) *OrganizationRulesetConditionsRepositoryName {
 		return &v
 	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
-}
-
-func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetConditionsRepositoryName] {
-	return pulumix.Output[OrganizationRulesetConditionsRepositoryName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
@@ -2486,12 +2179,6 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOrganizationRule
 
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOrganizationRulesetConditionsRepositoryNamePtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetConditionsRepositoryName] {
-	return pulumix.Output[*OrganizationRulesetConditionsRepositoryName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Elem() OrganizationRulesetConditionsRepositoryNameOutput {
@@ -2614,12 +2301,6 @@ func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesOutput)
 }
 
-func (i OrganizationRulesetRulesArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRules] {
-	return pulumix.Output[OrganizationRulesetRules]{
-		OutputState: i.ToOrganizationRulesetRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesArgs) ToOrganizationRulesetRulesPtrOutput() OrganizationRulesetRulesPtrOutput {
 	return i.ToOrganizationRulesetRulesPtrOutputWithContext(context.Background())
 }
@@ -2661,12 +2342,6 @@ func (i *organizationRulesetRulesPtrType) ToOrganizationRulesetRulesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPtrOutput)
 }
 
-func (i *organizationRulesetRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRules] {
-	return pulumix.Output[*OrganizationRulesetRules]{
-		OutputState: i.ToOrganizationRulesetRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesOutput) ElementType() reflect.Type {
@@ -2689,12 +2364,6 @@ func (o OrganizationRulesetRulesOutput) ToOrganizationRulesetRulesPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRules) *OrganizationRulesetRules {
 		return &v
 	}).(OrganizationRulesetRulesPtrOutput)
-}
-
-func (o OrganizationRulesetRulesOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRules] {
-	return pulumix.Output[OrganizationRulesetRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
@@ -2784,12 +2453,6 @@ func (o OrganizationRulesetRulesPtrOutput) ToOrganizationRulesetRulesPtrOutput()
 
 func (o OrganizationRulesetRulesPtrOutput) ToOrganizationRulesetRulesPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRules] {
-	return pulumix.Output[*OrganizationRulesetRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesPtrOutput) Elem() OrganizationRulesetRulesOutput {
@@ -2977,12 +2640,6 @@ func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRule
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesBranchNamePatternOutput)
 }
 
-func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesBranchNamePattern] {
-	return pulumix.Output[OrganizationRulesetRulesBranchNamePattern]{
-		OutputState: i.ToOrganizationRulesetRulesBranchNamePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesBranchNamePatternArgs) ToOrganizationRulesetRulesBranchNamePatternPtrOutput() OrganizationRulesetRulesBranchNamePatternPtrOutput {
 	return i.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
 }
@@ -3024,12 +2681,6 @@ func (i *organizationRulesetRulesBranchNamePatternPtrType) ToOrganizationRuleset
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
 }
 
-func (i *organizationRulesetRulesBranchNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesBranchNamePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesBranchNamePattern]{
-		OutputState: i.ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesBranchNamePatternOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesBranchNamePatternOutput) ElementType() reflect.Type {
@@ -3052,12 +2703,6 @@ func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOrganizationRulesetRu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesBranchNamePattern) *OrganizationRulesetRulesBranchNamePattern {
 		return &v
 	}).(OrganizationRulesetRulesBranchNamePatternPtrOutput)
-}
-
-func (o OrganizationRulesetRulesBranchNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesBranchNamePattern] {
-	return pulumix.Output[OrganizationRulesetRulesBranchNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -3092,12 +2737,6 @@ func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOrganizationRulese
 
 func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOrganizationRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesBranchNamePatternPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesBranchNamePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesBranchNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Elem() OrganizationRulesetRulesBranchNamePatternOutput {
@@ -3195,12 +2834,6 @@ func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRule
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitAuthorEmailPatternOutput)
 }
 
-func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesCommitAuthorEmailPatternArgs) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput() OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
 	return i.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
 }
@@ -3242,12 +2875,6 @@ func (i *organizationRulesetRulesCommitAuthorEmailPatternPtrType) ToOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
 }
 
-func (i *organizationRulesetRulesCommitAuthorEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesCommitAuthorEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ElementType() reflect.Type {
@@ -3270,12 +2897,6 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOrganizationRu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitAuthorEmailPattern) *OrganizationRulesetRulesCommitAuthorEmailPattern {
 		return &v
 	}).(OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput)
-}
-
-func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -3310,12 +2931,6 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOrganizatio
 
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Elem() OrganizationRulesetRulesCommitAuthorEmailPatternOutput {
@@ -3413,12 +3028,6 @@ func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetR
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitMessagePatternOutput)
 }
 
-func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitMessagePattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitMessagePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesCommitMessagePatternArgs) ToOrganizationRulesetRulesCommitMessagePatternPtrOutput() OrganizationRulesetRulesCommitMessagePatternPtrOutput {
 	return i.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
 }
@@ -3460,12 +3069,6 @@ func (i *organizationRulesetRulesCommitMessagePatternPtrType) ToOrganizationRule
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
 }
 
-func (i *organizationRulesetRulesCommitMessagePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesCommitMessagePatternOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesCommitMessagePatternOutput) ElementType() reflect.Type {
@@ -3488,12 +3091,6 @@ func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOrganizationRulese
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitMessagePattern) *OrganizationRulesetRulesCommitMessagePattern {
 		return &v
 	}).(OrganizationRulesetRulesCommitMessagePatternPtrOutput)
-}
-
-func (o OrganizationRulesetRulesCommitMessagePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitMessagePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -3528,12 +3125,6 @@ func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOrganizationRul
 
 func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOrganizationRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitMessagePatternPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitMessagePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Elem() OrganizationRulesetRulesCommitMessagePatternOutput {
@@ -3631,12 +3222,6 @@ func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRuleset
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitterEmailPatternOutput)
 }
 
-func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitterEmailPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesCommitterEmailPatternArgs) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutput() OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
 	return i.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
 }
@@ -3678,12 +3263,6 @@ func (i *organizationRulesetRulesCommitterEmailPatternPtrType) ToOrganizationRul
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
 }
 
-func (i *organizationRulesetRulesCommitterEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern]{
-		OutputState: i.ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesCommitterEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesCommitterEmailPatternOutput) ElementType() reflect.Type {
@@ -3706,12 +3285,6 @@ func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOrganizationRules
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCommitterEmailPattern) *OrganizationRulesetRulesCommitterEmailPattern {
 		return &v
 	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
-}
-
-func (o OrganizationRulesetRulesCommitterEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[OrganizationRulesetRulesCommitterEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -3746,12 +3319,6 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOrganizationRu
 
 func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOrganizationRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCommitterEmailPatternPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[*OrganizationRulesetRulesCommitterEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Elem() OrganizationRulesetRulesCommitterEmailPatternOutput {
@@ -3853,12 +3420,6 @@ func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullR
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestOutput)
 }
 
-func (i OrganizationRulesetRulesPullRequestArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesPullRequest] {
-	return pulumix.Output[OrganizationRulesetRulesPullRequest]{
-		OutputState: i.ToOrganizationRulesetRulesPullRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesPullRequestArgs) ToOrganizationRulesetRulesPullRequestPtrOutput() OrganizationRulesetRulesPullRequestPtrOutput {
 	return i.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(context.Background())
 }
@@ -3900,12 +3461,6 @@ func (i *organizationRulesetRulesPullRequestPtrType) ToOrganizationRulesetRulesP
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestPtrOutput)
 }
 
-func (i *organizationRulesetRulesPullRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesPullRequest] {
-	return pulumix.Output[*OrganizationRulesetRulesPullRequest]{
-		OutputState: i.ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesPullRequestOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesPullRequestOutput) ElementType() reflect.Type {
@@ -3928,12 +3483,6 @@ func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesPullRequest) *OrganizationRulesetRulesPullRequest {
 		return &v
 	}).(OrganizationRulesetRulesPullRequestPtrOutput)
-}
-
-func (o OrganizationRulesetRulesPullRequestOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesPullRequest] {
-	return pulumix.Output[OrganizationRulesetRulesPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -3973,12 +3522,6 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOrganizationRulesetRules
 
 func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOrganizationRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesPullRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesPullRequest] {
-	return pulumix.Output[*OrganizationRulesetRulesPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesPullRequestPtrOutput) Elem() OrganizationRulesetRulesPullRequestOutput {
@@ -4078,12 +3621,6 @@ func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetR
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksOutput)
 }
 
-func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks]{
-		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesRequiredStatusChecksArgs) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutput() OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
 	return i.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
 }
@@ -4125,12 +3662,6 @@ func (i *organizationRulesetRulesRequiredStatusChecksPtrType) ToOrganizationRule
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
-func (i *organizationRulesetRulesRequiredStatusChecksPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks]{
-		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesRequiredStatusChecksOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesRequiredStatusChecksOutput) ElementType() reflect.Type {
@@ -4153,12 +3684,6 @@ func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulese
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesRequiredStatusChecks) *OrganizationRulesetRulesRequiredStatusChecks {
 		return &v
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
-}
-
-func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
@@ -4185,12 +3710,6 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOrganizationRul
 
 func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOrganizationRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[*OrganizationRulesetRulesRequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) Elem() OrganizationRulesetRulesRequiredStatusChecksOutput {
@@ -4260,12 +3779,6 @@ func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput)
 }
 
-func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput is an input type that accepts OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray and OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput values.
 // You can construct a concrete instance of `OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput` via:
 //
@@ -4291,12 +3804,6 @@ func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOrgani
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-func (i OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: i.ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ElementType() reflect.Type {
@@ -4309,12 +3816,6 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOrgan
 
 func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The status check context name that must be present on the commit.
@@ -4339,12 +3840,6 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) To
 
 func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[[]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput {
@@ -4398,12 +3893,6 @@ func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTa
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesTagNamePatternOutput)
 }
 
-func (i OrganizationRulesetRulesTagNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesTagNamePattern] {
-	return pulumix.Output[OrganizationRulesetRulesTagNamePattern]{
-		OutputState: i.ToOrganizationRulesetRulesTagNamePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationRulesetRulesTagNamePatternArgs) ToOrganizationRulesetRulesTagNamePatternPtrOutput() OrganizationRulesetRulesTagNamePatternPtrOutput {
 	return i.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
 }
@@ -4445,12 +3934,6 @@ func (i *organizationRulesetRulesTagNamePatternPtrType) ToOrganizationRulesetRul
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesTagNamePatternPtrOutput)
 }
 
-func (i *organizationRulesetRulesTagNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesTagNamePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesTagNamePattern]{
-		OutputState: i.ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetRulesTagNamePatternOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesTagNamePatternOutput) ElementType() reflect.Type {
@@ -4473,12 +3956,6 @@ func (o OrganizationRulesetRulesTagNamePatternOutput) ToOrganizationRulesetRules
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesTagNamePattern) *OrganizationRulesetRulesTagNamePattern {
 		return &v
 	}).(OrganizationRulesetRulesTagNamePatternPtrOutput)
-}
-
-func (o OrganizationRulesetRulesTagNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRulesetRulesTagNamePattern] {
-	return pulumix.Output[OrganizationRulesetRulesTagNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -4513,12 +3990,6 @@ func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOrganizationRulesetRu
 
 func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOrganizationRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesTagNamePatternPtrOutput {
 	return o
-}
-
-func (o OrganizationRulesetRulesTagNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRulesetRulesTagNamePattern] {
-	return pulumix.Output[*OrganizationRulesetRulesTagNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Elem() OrganizationRulesetRulesTagNamePatternOutput {
@@ -4610,12 +4081,6 @@ func (i OrganizationWebhookConfigurationArgs) ToOrganizationWebhookConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookConfigurationOutput)
 }
 
-func (i OrganizationWebhookConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationWebhookConfiguration] {
-	return pulumix.Output[OrganizationWebhookConfiguration]{
-		OutputState: i.ToOrganizationWebhookConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrganizationWebhookConfigurationArgs) ToOrganizationWebhookConfigurationPtrOutput() OrganizationWebhookConfigurationPtrOutput {
 	return i.ToOrganizationWebhookConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4657,12 +4122,6 @@ func (i *organizationWebhookConfigurationPtrType) ToOrganizationWebhookConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationWebhookConfigurationPtrOutput)
 }
 
-func (i *organizationWebhookConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrganizationWebhookConfiguration] {
-	return pulumix.Output[*OrganizationWebhookConfiguration]{
-		OutputState: i.ToOrganizationWebhookConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationWebhookConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationWebhookConfigurationOutput) ElementType() reflect.Type {
@@ -4685,12 +4144,6 @@ func (o OrganizationWebhookConfigurationOutput) ToOrganizationWebhookConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationWebhookConfiguration) *OrganizationWebhookConfiguration {
 		return &v
 	}).(OrganizationWebhookConfigurationPtrOutput)
-}
-
-func (o OrganizationWebhookConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationWebhookConfiguration] {
-	return pulumix.Output[OrganizationWebhookConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
@@ -4722,12 +4175,6 @@ func (o OrganizationWebhookConfigurationPtrOutput) ToOrganizationWebhookConfigur
 
 func (o OrganizationWebhookConfigurationPtrOutput) ToOrganizationWebhookConfigurationPtrOutputWithContext(ctx context.Context) OrganizationWebhookConfigurationPtrOutput {
 	return o
-}
-
-func (o OrganizationWebhookConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationWebhookConfiguration] {
-	return pulumix.Output[*OrganizationWebhookConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationWebhookConfigurationPtrOutput) Elem() OrganizationWebhookConfigurationOutput {
@@ -4812,12 +4259,6 @@ func (i ProviderAppAuthArgs) ToProviderAppAuthOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAppAuthOutput)
 }
 
-func (i ProviderAppAuthArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderAppAuth] {
-	return pulumix.Output[ProviderAppAuth]{
-		OutputState: i.ToProviderAppAuthOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProviderAppAuthArgs) ToProviderAppAuthPtrOutput() ProviderAppAuthPtrOutput {
 	return i.ToProviderAppAuthPtrOutputWithContext(context.Background())
 }
@@ -4859,12 +4300,6 @@ func (i *providerAppAuthPtrType) ToProviderAppAuthPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAppAuthPtrOutput)
 }
 
-func (i *providerAppAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderAppAuth] {
-	return pulumix.Output[*ProviderAppAuth]{
-		OutputState: i.ToProviderAppAuthPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProviderAppAuthOutput struct{ *pulumi.OutputState }
 
 func (ProviderAppAuthOutput) ElementType() reflect.Type {
@@ -4887,12 +4322,6 @@ func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAppAuth) *ProviderAppAuth {
 		return &v
 	}).(ProviderAppAuthPtrOutput)
-}
-
-func (o ProviderAppAuthOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderAppAuth] {
-	return pulumix.Output[ProviderAppAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProviderAppAuthOutput) Id() pulumi.StringOutput {
@@ -4919,12 +4348,6 @@ func (o ProviderAppAuthPtrOutput) ToProviderAppAuthPtrOutput() ProviderAppAuthPt
 
 func (o ProviderAppAuthPtrOutput) ToProviderAppAuthPtrOutputWithContext(ctx context.Context) ProviderAppAuthPtrOutput {
 	return o
-}
-
-func (o ProviderAppAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderAppAuth] {
-	return pulumix.Output[*ProviderAppAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProviderAppAuthPtrOutput) Elem() ProviderAppAuthOutput {
@@ -5005,12 +4428,6 @@ func (i RepositoryCollaboratorsTeamArgs) ToRepositoryCollaboratorsTeamOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsTeamOutput)
 }
 
-func (i RepositoryCollaboratorsTeamArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryCollaboratorsTeam] {
-	return pulumix.Output[RepositoryCollaboratorsTeam]{
-		OutputState: i.ToRepositoryCollaboratorsTeamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryCollaboratorsTeamArrayInput is an input type that accepts RepositoryCollaboratorsTeamArray and RepositoryCollaboratorsTeamArrayOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorsTeamArrayInput` via:
 //
@@ -5036,12 +4453,6 @@ func (i RepositoryCollaboratorsTeamArray) ToRepositoryCollaboratorsTeamArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsTeamArrayOutput)
 }
 
-func (i RepositoryCollaboratorsTeamArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryCollaboratorsTeam] {
-	return pulumix.Output[[]RepositoryCollaboratorsTeam]{
-		OutputState: i.ToRepositoryCollaboratorsTeamArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryCollaboratorsTeamOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCollaboratorsTeamOutput) ElementType() reflect.Type {
@@ -5054,12 +4465,6 @@ func (o RepositoryCollaboratorsTeamOutput) ToRepositoryCollaboratorsTeamOutput()
 
 func (o RepositoryCollaboratorsTeamOutput) ToRepositoryCollaboratorsTeamOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamOutput {
 	return o
-}
-
-func (o RepositoryCollaboratorsTeamOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryCollaboratorsTeam] {
-	return pulumix.Output[RepositoryCollaboratorsTeam]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The permission of the outside collaborators for the repository.
@@ -5086,12 +4491,6 @@ func (o RepositoryCollaboratorsTeamArrayOutput) ToRepositoryCollaboratorsTeamArr
 
 func (o RepositoryCollaboratorsTeamArrayOutput) ToRepositoryCollaboratorsTeamArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsTeamArrayOutput {
 	return o
-}
-
-func (o RepositoryCollaboratorsTeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryCollaboratorsTeam] {
-	return pulumix.Output[[]RepositoryCollaboratorsTeam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryCollaboratorsTeamArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorsTeamOutput {
@@ -5141,12 +4540,6 @@ func (i RepositoryCollaboratorsUserArgs) ToRepositoryCollaboratorsUserOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsUserOutput)
 }
 
-func (i RepositoryCollaboratorsUserArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryCollaboratorsUser] {
-	return pulumix.Output[RepositoryCollaboratorsUser]{
-		OutputState: i.ToRepositoryCollaboratorsUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryCollaboratorsUserArrayInput is an input type that accepts RepositoryCollaboratorsUserArray and RepositoryCollaboratorsUserArrayOutput values.
 // You can construct a concrete instance of `RepositoryCollaboratorsUserArrayInput` via:
 //
@@ -5172,12 +4565,6 @@ func (i RepositoryCollaboratorsUserArray) ToRepositoryCollaboratorsUserArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsUserArrayOutput)
 }
 
-func (i RepositoryCollaboratorsUserArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryCollaboratorsUser] {
-	return pulumix.Output[[]RepositoryCollaboratorsUser]{
-		OutputState: i.ToRepositoryCollaboratorsUserArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryCollaboratorsUserOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCollaboratorsUserOutput) ElementType() reflect.Type {
@@ -5190,12 +4577,6 @@ func (o RepositoryCollaboratorsUserOutput) ToRepositoryCollaboratorsUserOutput()
 
 func (o RepositoryCollaboratorsUserOutput) ToRepositoryCollaboratorsUserOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserOutput {
 	return o
-}
-
-func (o RepositoryCollaboratorsUserOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryCollaboratorsUser] {
-	return pulumix.Output[RepositoryCollaboratorsUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The permission of the outside collaborators for the repository.
@@ -5222,12 +4603,6 @@ func (o RepositoryCollaboratorsUserArrayOutput) ToRepositoryCollaboratorsUserArr
 
 func (o RepositoryCollaboratorsUserArrayOutput) ToRepositoryCollaboratorsUserArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsUserArrayOutput {
 	return o
-}
-
-func (o RepositoryCollaboratorsUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryCollaboratorsUser] {
-	return pulumix.Output[[]RepositoryCollaboratorsUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryCollaboratorsUserArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorsUserOutput {
@@ -5273,12 +4648,6 @@ func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentBranchPolicyOutput)
 }
 
-func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryEnvironmentDeploymentBranchPolicy] {
-	return pulumix.Output[RepositoryEnvironmentDeploymentBranchPolicy]{
-		OutputState: i.ToRepositoryEnvironmentDeploymentBranchPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryEnvironmentDeploymentBranchPolicyArgs) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutput() RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
 	return i.ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(context.Background())
 }
@@ -5320,12 +4689,6 @@ func (i *repositoryEnvironmentDeploymentBranchPolicyPtrType) ToRepositoryEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
 }
 
-func (i *repositoryEnvironmentDeploymentBranchPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironmentDeploymentBranchPolicy] {
-	return pulumix.Output[*RepositoryEnvironmentDeploymentBranchPolicy]{
-		OutputState: i.ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryEnvironmentDeploymentBranchPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentDeploymentBranchPolicyOutput) ElementType() reflect.Type {
@@ -5350,12 +4713,6 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToRepositoryEnvironme
 	}).(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput)
 }
 
-func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEnvironmentDeploymentBranchPolicy] {
-	return pulumix.Output[RepositoryEnvironmentDeploymentBranchPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether only branches that match the specified name patterns can deploy to this environment.
 func (o RepositoryEnvironmentDeploymentBranchPolicyOutput) CustomBranchPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryEnvironmentDeploymentBranchPolicy) bool { return v.CustomBranchPolicies }).(pulumi.BoolOutput)
@@ -5378,12 +4735,6 @@ func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToRepositoryEnviro
 
 func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToRepositoryEnvironmentDeploymentBranchPolicyPtrOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentBranchPolicyPtrOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironmentDeploymentBranchPolicy] {
-	return pulumix.Output[*RepositoryEnvironmentDeploymentBranchPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEnvironmentDeploymentBranchPolicyPtrOutput) Elem() RepositoryEnvironmentDeploymentBranchPolicyOutput {
@@ -5453,12 +4804,6 @@ func (i RepositoryEnvironmentReviewerArgs) ToRepositoryEnvironmentReviewerOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentReviewerOutput)
 }
 
-func (i RepositoryEnvironmentReviewerArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryEnvironmentReviewer] {
-	return pulumix.Output[RepositoryEnvironmentReviewer]{
-		OutputState: i.ToRepositoryEnvironmentReviewerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryEnvironmentReviewerArrayInput is an input type that accepts RepositoryEnvironmentReviewerArray and RepositoryEnvironmentReviewerArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentReviewerArrayInput` via:
 //
@@ -5484,12 +4829,6 @@ func (i RepositoryEnvironmentReviewerArray) ToRepositoryEnvironmentReviewerArray
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentReviewerArrayOutput)
 }
 
-func (i RepositoryEnvironmentReviewerArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryEnvironmentReviewer] {
-	return pulumix.Output[[]RepositoryEnvironmentReviewer]{
-		OutputState: i.ToRepositoryEnvironmentReviewerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryEnvironmentReviewerOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentReviewerOutput) ElementType() reflect.Type {
@@ -5502,12 +4841,6 @@ func (o RepositoryEnvironmentReviewerOutput) ToRepositoryEnvironmentReviewerOutp
 
 func (o RepositoryEnvironmentReviewerOutput) ToRepositoryEnvironmentReviewerOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentReviewerOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEnvironmentReviewer] {
-	return pulumix.Output[RepositoryEnvironmentReviewer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
@@ -5532,12 +4865,6 @@ func (o RepositoryEnvironmentReviewerArrayOutput) ToRepositoryEnvironmentReviewe
 
 func (o RepositoryEnvironmentReviewerArrayOutput) ToRepositoryEnvironmentReviewerArrayOutputWithContext(ctx context.Context) RepositoryEnvironmentReviewerArrayOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentReviewerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryEnvironmentReviewer] {
-	return pulumix.Output[[]RepositoryEnvironmentReviewer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEnvironmentReviewerArrayOutput) Index(i pulumi.IntInput) RepositoryEnvironmentReviewerOutput {
@@ -5601,12 +4928,6 @@ func (i RepositoryPagesArgs) ToRepositoryPagesOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesOutput)
 }
 
-func (i RepositoryPagesArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryPages] {
-	return pulumix.Output[RepositoryPages]{
-		OutputState: i.ToRepositoryPagesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
 	return i.ToRepositoryPagesPtrOutputWithContext(context.Background())
 }
@@ -5648,12 +4969,6 @@ func (i *repositoryPagesPtrType) ToRepositoryPagesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesPtrOutput)
 }
 
-func (i *repositoryPagesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPages] {
-	return pulumix.Output[*RepositoryPages]{
-		OutputState: i.ToRepositoryPagesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPagesOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPagesOutput) ElementType() reflect.Type {
@@ -5676,12 +4991,6 @@ func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPages) *RepositoryPages {
 		return &v
 	}).(RepositoryPagesPtrOutput)
-}
-
-func (o RepositoryPagesOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryPages] {
-	return pulumix.Output[RepositoryPages]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
@@ -5730,12 +5039,6 @@ func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPt
 
 func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
 	return o
-}
-
-func (o RepositoryPagesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPages] {
-	return pulumix.Output[*RepositoryPages]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
@@ -5854,12 +5157,6 @@ func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesSourceOutput)
 }
 
-func (i RepositoryPagesSourceArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryPagesSource] {
-	return pulumix.Output[RepositoryPagesSource]{
-		OutputState: i.ToRepositoryPagesSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryPagesSourceArgs) ToRepositoryPagesSourcePtrOutput() RepositoryPagesSourcePtrOutput {
 	return i.ToRepositoryPagesSourcePtrOutputWithContext(context.Background())
 }
@@ -5901,12 +5198,6 @@ func (i *repositoryPagesSourcePtrType) ToRepositoryPagesSourcePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesSourcePtrOutput)
 }
 
-func (i *repositoryPagesSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPagesSource] {
-	return pulumix.Output[*RepositoryPagesSource]{
-		OutputState: i.ToRepositoryPagesSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPagesSourceOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPagesSourceOutput) ElementType() reflect.Type {
@@ -5931,12 +5222,6 @@ func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutputWithContext
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
-func (o RepositoryPagesSourceOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryPagesSource] {
-	return pulumix.Output[RepositoryPagesSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
 func (o RepositoryPagesSourceOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryPagesSource) string { return v.Branch }).(pulumi.StringOutput)
@@ -5959,12 +5244,6 @@ func (o RepositoryPagesSourcePtrOutput) ToRepositoryPagesSourcePtrOutput() Repos
 
 func (o RepositoryPagesSourcePtrOutput) ToRepositoryPagesSourcePtrOutputWithContext(ctx context.Context) RepositoryPagesSourcePtrOutput {
 	return o
-}
-
-func (o RepositoryPagesSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPagesSource] {
-	return pulumix.Output[*RepositoryPagesSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPagesSourcePtrOutput) Elem() RepositoryPagesSourceOutput {
@@ -6042,12 +5321,6 @@ func (i RepositoryRulesetBypassActorArgs) ToRepositoryRulesetBypassActorOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetBypassActorOutput)
 }
 
-func (i RepositoryRulesetBypassActorArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetBypassActor] {
-	return pulumix.Output[RepositoryRulesetBypassActor]{
-		OutputState: i.ToRepositoryRulesetBypassActorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryRulesetBypassActorArrayInput is an input type that accepts RepositoryRulesetBypassActorArray and RepositoryRulesetBypassActorArrayOutput values.
 // You can construct a concrete instance of `RepositoryRulesetBypassActorArrayInput` via:
 //
@@ -6073,12 +5346,6 @@ func (i RepositoryRulesetBypassActorArray) ToRepositoryRulesetBypassActorArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetBypassActorArrayOutput)
 }
 
-func (i RepositoryRulesetBypassActorArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetBypassActor] {
-	return pulumix.Output[[]RepositoryRulesetBypassActor]{
-		OutputState: i.ToRepositoryRulesetBypassActorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetBypassActorOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetBypassActorOutput) ElementType() reflect.Type {
@@ -6091,12 +5358,6 @@ func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutput
 
 func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorOutput {
 	return o
-}
-
-func (o RepositoryRulesetBypassActorOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetBypassActor] {
-	return pulumix.Output[RepositoryRulesetBypassActor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Number) The ID of the actor that can bypass a ruleset.
@@ -6128,12 +5389,6 @@ func (o RepositoryRulesetBypassActorArrayOutput) ToRepositoryRulesetBypassActorA
 
 func (o RepositoryRulesetBypassActorArrayOutput) ToRepositoryRulesetBypassActorArrayOutputWithContext(ctx context.Context) RepositoryRulesetBypassActorArrayOutput {
 	return o
-}
-
-func (o RepositoryRulesetBypassActorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetBypassActor] {
-	return pulumix.Output[[]RepositoryRulesetBypassActor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetBypassActorOutput {
@@ -6173,12 +5428,6 @@ func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsOutput() R
 
 func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsOutputWithContext(ctx context.Context) RepositoryRulesetConditionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsOutput)
-}
-
-func (i RepositoryRulesetConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditions] {
-	return pulumix.Output[RepositoryRulesetConditions]{
-		OutputState: i.ToRepositoryRulesetConditionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RepositoryRulesetConditionsArgs) ToRepositoryRulesetConditionsPtrOutput() RepositoryRulesetConditionsPtrOutput {
@@ -6222,12 +5471,6 @@ func (i *repositoryRulesetConditionsPtrType) ToRepositoryRulesetConditionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsPtrOutput)
 }
 
-func (i *repositoryRulesetConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditions] {
-	return pulumix.Output[*RepositoryRulesetConditions]{
-		OutputState: i.ToRepositoryRulesetConditionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetConditionsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetConditionsOutput) ElementType() reflect.Type {
@@ -6252,12 +5495,6 @@ func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsPtrOutpu
 	}).(RepositoryRulesetConditionsPtrOutput)
 }
 
-func (o RepositoryRulesetConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditions] {
-	return pulumix.Output[RepositoryRulesetConditions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (Block List, Min: 1, Max: 1) (see below for nested schema)
 func (o RepositoryRulesetConditionsOutput) RefName() RepositoryRulesetConditionsRefNameOutput {
 	return o.ApplyT(func(v RepositoryRulesetConditions) RepositoryRulesetConditionsRefName { return v.RefName }).(RepositoryRulesetConditionsRefNameOutput)
@@ -6275,12 +5512,6 @@ func (o RepositoryRulesetConditionsPtrOutput) ToRepositoryRulesetConditionsPtrOu
 
 func (o RepositoryRulesetConditionsPtrOutput) ToRepositoryRulesetConditionsPtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditions] {
-	return pulumix.Output[*RepositoryRulesetConditions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetConditionsPtrOutput) Elem() RepositoryRulesetConditionsOutput {
@@ -6340,12 +5571,6 @@ func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRef
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsRefNameOutput)
 }
 
-func (i RepositoryRulesetConditionsRefNameArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditionsRefName] {
-	return pulumix.Output[RepositoryRulesetConditionsRefName]{
-		OutputState: i.ToRepositoryRulesetConditionsRefNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetConditionsRefNameArgs) ToRepositoryRulesetConditionsRefNamePtrOutput() RepositoryRulesetConditionsRefNamePtrOutput {
 	return i.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(context.Background())
 }
@@ -6387,12 +5612,6 @@ func (i *repositoryRulesetConditionsRefNamePtrType) ToRepositoryRulesetCondition
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetConditionsRefNamePtrOutput)
 }
 
-func (i *repositoryRulesetConditionsRefNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditionsRefName] {
-	return pulumix.Output[*RepositoryRulesetConditionsRefName]{
-		OutputState: i.ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetConditionsRefNameOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetConditionsRefNameOutput) ElementType() reflect.Type {
@@ -6417,12 +5636,6 @@ func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsR
 	}).(RepositoryRulesetConditionsRefNamePtrOutput)
 }
 
-func (o RepositoryRulesetConditionsRefNameOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetConditionsRefName] {
-	return pulumix.Output[RepositoryRulesetConditionsRefName]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o RepositoryRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
@@ -6445,12 +5658,6 @@ func (o RepositoryRulesetConditionsRefNamePtrOutput) ToRepositoryRulesetConditio
 
 func (o RepositoryRulesetConditionsRefNamePtrOutput) ToRepositoryRulesetConditionsRefNamePtrOutputWithContext(ctx context.Context) RepositoryRulesetConditionsRefNamePtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetConditionsRefNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetConditionsRefName] {
-	return pulumix.Output[*RepositoryRulesetConditionsRefName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetConditionsRefNamePtrOutput) Elem() RepositoryRulesetConditionsRefNameOutput {
@@ -6572,12 +5779,6 @@ func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesOutput)
 }
 
-func (i RepositoryRulesetRulesArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRules] {
-	return pulumix.Output[RepositoryRulesetRules]{
-		OutputState: i.ToRepositoryRulesetRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesArgs) ToRepositoryRulesetRulesPtrOutput() RepositoryRulesetRulesPtrOutput {
 	return i.ToRepositoryRulesetRulesPtrOutputWithContext(context.Background())
 }
@@ -6619,12 +5820,6 @@ func (i *repositoryRulesetRulesPtrType) ToRepositoryRulesetRulesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPtrOutput)
 }
 
-func (i *repositoryRulesetRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRules] {
-	return pulumix.Output[*RepositoryRulesetRules]{
-		OutputState: i.ToRepositoryRulesetRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesOutput) ElementType() reflect.Type {
@@ -6647,12 +5842,6 @@ func (o RepositoryRulesetRulesOutput) ToRepositoryRulesetRulesPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRules) *RepositoryRulesetRules {
 		return &v
 	}).(RepositoryRulesetRulesPtrOutput)
-}
-
-func (o RepositoryRulesetRulesOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRules] {
-	return pulumix.Output[RepositoryRulesetRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
@@ -6752,12 +5941,6 @@ func (o RepositoryRulesetRulesPtrOutput) ToRepositoryRulesetRulesPtrOutput() Rep
 
 func (o RepositoryRulesetRulesPtrOutput) ToRepositoryRulesetRulesPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRules] {
-	return pulumix.Output[*RepositoryRulesetRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesPtrOutput) Elem() RepositoryRulesetRulesOutput {
@@ -6965,12 +6148,6 @@ func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBra
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesBranchNamePatternOutput)
 }
 
-func (i RepositoryRulesetRulesBranchNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesBranchNamePattern] {
-	return pulumix.Output[RepositoryRulesetRulesBranchNamePattern]{
-		OutputState: i.ToRepositoryRulesetRulesBranchNamePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesBranchNamePatternArgs) ToRepositoryRulesetRulesBranchNamePatternPtrOutput() RepositoryRulesetRulesBranchNamePatternPtrOutput {
 	return i.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(context.Background())
 }
@@ -7012,12 +6189,6 @@ func (i *repositoryRulesetRulesBranchNamePatternPtrType) ToRepositoryRulesetRule
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
 }
 
-func (i *repositoryRulesetRulesBranchNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesBranchNamePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesBranchNamePattern]{
-		OutputState: i.ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesBranchNamePatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesBranchNamePatternOutput) ElementType() reflect.Type {
@@ -7040,12 +6211,6 @@ func (o RepositoryRulesetRulesBranchNamePatternOutput) ToRepositoryRulesetRulesB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesBranchNamePattern) *RepositoryRulesetRulesBranchNamePattern {
 		return &v
 	}).(RepositoryRulesetRulesBranchNamePatternPtrOutput)
-}
-
-func (o RepositoryRulesetRulesBranchNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesBranchNamePattern] {
-	return pulumix.Output[RepositoryRulesetRulesBranchNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -7080,12 +6245,6 @@ func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToRepositoryRulesetRul
 
 func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToRepositoryRulesetRulesBranchNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesBranchNamePatternPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesBranchNamePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesBranchNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Elem() RepositoryRulesetRulesBranchNamePatternOutput {
@@ -7183,12 +6342,6 @@ func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetR
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitAuthorEmailPatternOutput)
 }
 
-func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitAuthorEmailPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesCommitAuthorEmailPatternArgs) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput() RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
 	return i.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(context.Background())
 }
@@ -7230,12 +6383,6 @@ func (i *repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ToRepositoryRule
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
 }
 
-func (i *repositoryRulesetRulesCommitAuthorEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesCommitAuthorEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ElementType() reflect.Type {
@@ -7258,12 +6405,6 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToRepositoryRulese
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitAuthorEmailPattern) *RepositoryRulesetRulesCommitAuthorEmailPattern {
 		return &v
 	}).(RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput)
-}
-
-func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -7298,12 +6439,6 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToRepositoryRul
 
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Elem() RepositoryRulesetRulesCommitAuthorEmailPatternOutput {
@@ -7401,12 +6536,6 @@ func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRules
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitMessagePatternOutput)
 }
 
-func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitMessagePattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitMessagePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesCommitMessagePatternArgs) ToRepositoryRulesetRulesCommitMessagePatternPtrOutput() RepositoryRulesetRulesCommitMessagePatternPtrOutput {
 	return i.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(context.Background())
 }
@@ -7448,12 +6577,6 @@ func (i *repositoryRulesetRulesCommitMessagePatternPtrType) ToRepositoryRulesetR
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
 }
 
-func (i *repositoryRulesetRulesCommitMessagePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesCommitMessagePatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesCommitMessagePatternOutput) ElementType() reflect.Type {
@@ -7476,12 +6599,6 @@ func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToRepositoryRulesetRul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitMessagePattern) *RepositoryRulesetRulesCommitMessagePattern {
 		return &v
 	}).(RepositoryRulesetRulesCommitMessagePatternPtrOutput)
-}
-
-func (o RepositoryRulesetRulesCommitMessagePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitMessagePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -7516,12 +6633,6 @@ func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToRepositoryRuleset
 
 func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToRepositoryRulesetRulesCommitMessagePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitMessagePatternPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitMessagePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Elem() RepositoryRulesetRulesCommitMessagePatternOutput {
@@ -7619,12 +6730,6 @@ func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRule
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitterEmailPatternOutput)
 }
 
-func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitterEmailPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesCommitterEmailPatternArgs) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutput() RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
 	return i.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(context.Background())
 }
@@ -7666,12 +6771,6 @@ func (i *repositoryRulesetRulesCommitterEmailPatternPtrType) ToRepositoryRuleset
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
 }
 
-func (i *repositoryRulesetRulesCommitterEmailPatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern]{
-		OutputState: i.ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesCommitterEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesCommitterEmailPatternOutput) ElementType() reflect.Type {
@@ -7694,12 +6793,6 @@ func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToRepositoryRulesetRu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCommitterEmailPattern) *RepositoryRulesetRulesCommitterEmailPattern {
 		return &v
 	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
-}
-
-func (o RepositoryRulesetRulesCommitterEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[RepositoryRulesetRulesCommitterEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -7734,12 +6827,6 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToRepositoryRulese
 
 func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToRepositoryRulesetRulesCommitterEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCommitterEmailPatternPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern] {
-	return pulumix.Output[*RepositoryRulesetRulesCommitterEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Elem() RepositoryRulesetRulesCommitterEmailPatternOutput {
@@ -7841,12 +6928,6 @@ func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullReque
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestOutput)
 }
 
-func (i RepositoryRulesetRulesPullRequestArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesPullRequest] {
-	return pulumix.Output[RepositoryRulesetRulesPullRequest]{
-		OutputState: i.ToRepositoryRulesetRulesPullRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesPullRequestArgs) ToRepositoryRulesetRulesPullRequestPtrOutput() RepositoryRulesetRulesPullRequestPtrOutput {
 	return i.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(context.Background())
 }
@@ -7888,12 +6969,6 @@ func (i *repositoryRulesetRulesPullRequestPtrType) ToRepositoryRulesetRulesPullR
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestPtrOutput)
 }
 
-func (i *repositoryRulesetRulesPullRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesPullRequest] {
-	return pulumix.Output[*RepositoryRulesetRulesPullRequest]{
-		OutputState: i.ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesPullRequestOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesPullRequestOutput) ElementType() reflect.Type {
@@ -7916,12 +6991,6 @@ func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullReq
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesPullRequest) *RepositoryRulesetRulesPullRequest {
 		return &v
 	}).(RepositoryRulesetRulesPullRequestPtrOutput)
-}
-
-func (o RepositoryRulesetRulesPullRequestOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesPullRequest] {
-	return pulumix.Output[RepositoryRulesetRulesPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -7961,12 +7030,6 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) ToRepositoryRulesetRulesPull
 
 func (o RepositoryRulesetRulesPullRequestPtrOutput) ToRepositoryRulesetRulesPullRequestPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesPullRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesPullRequest] {
-	return pulumix.Output[*RepositoryRulesetRulesPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesPullRequestPtrOutput) Elem() RepositoryRulesetRulesPullRequestOutput {
@@ -8062,12 +7125,6 @@ func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesR
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredDeploymentsOutput)
 }
 
-func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredDeployments] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredDeployments]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredDeploymentsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesRequiredDeploymentsArgs) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutput() RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
 	return i.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(context.Background())
 }
@@ -8109,12 +7166,6 @@ func (i *repositoryRulesetRulesRequiredDeploymentsPtrType) ToRepositoryRulesetRu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
 }
 
-func (i *repositoryRulesetRulesRequiredDeploymentsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredDeployments] {
-	return pulumix.Output[*RepositoryRulesetRulesRequiredDeployments]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesRequiredDeploymentsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesRequiredDeploymentsOutput) ElementType() reflect.Type {
@@ -8139,12 +7190,6 @@ func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRule
 	}).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
 }
 
-func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredDeployments] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredDeployments]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (List of String) The environments that must be successfully deployed to before branches can be merged.
 func (o RepositoryRulesetRulesRequiredDeploymentsOutput) RequiredDeploymentEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredDeployments) []string { return v.RequiredDeploymentEnvironments }).(pulumi.StringArrayOutput)
@@ -8162,12 +7207,6 @@ func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToRepositoryRulesetR
 
 func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToRepositoryRulesetRulesRequiredDeploymentsPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredDeploymentsPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredDeployments] {
-	return pulumix.Output[*RepositoryRulesetRulesRequiredDeployments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) Elem() RepositoryRulesetRulesRequiredDeploymentsOutput {
@@ -8227,12 +7266,6 @@ func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRules
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksOutput)
 }
 
-func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesRequiredStatusChecksArgs) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutput() RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
 	return i.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(context.Background())
 }
@@ -8274,12 +7307,6 @@ func (i *repositoryRulesetRulesRequiredStatusChecksPtrType) ToRepositoryRulesetR
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
-func (i *repositoryRulesetRulesRequiredStatusChecksPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesRequiredStatusChecksOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesRequiredStatusChecksOutput) ElementType() reflect.Type {
@@ -8302,12 +7329,6 @@ func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesRequiredStatusChecks) *RepositoryRulesetRulesRequiredStatusChecks {
 		return &v
 	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
-}
-
-func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
@@ -8334,12 +7355,6 @@ func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToRepositoryRuleset
 
 func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToRepositoryRulesetRulesRequiredStatusChecksPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks] {
-	return pulumix.Output[*RepositoryRulesetRulesRequiredStatusChecks]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) Elem() RepositoryRulesetRulesRequiredStatusChecksOutput {
@@ -8409,12 +7424,6 @@ func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToRepositor
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput)
 }
 
-func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput is an input type that accepts RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray and RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput values.
 // You can construct a concrete instance of `RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput` via:
 //
@@ -8440,12 +7449,6 @@ func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ToReposito
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-func (i RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: i.ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ElementType() reflect.Type {
@@ -8458,12 +7461,6 @@ func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToReposit
 
 func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The status check context name that must be present on the commit.
@@ -8488,12 +7485,6 @@ func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToRe
 
 func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToRepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck] {
-	return pulumix.Output[[]RepositoryRulesetRulesRequiredStatusChecksRequiredCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput {
@@ -8547,12 +7538,6 @@ func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNam
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesTagNamePatternOutput)
 }
 
-func (i RepositoryRulesetRulesTagNamePatternArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesTagNamePattern] {
-	return pulumix.Output[RepositoryRulesetRulesTagNamePattern]{
-		OutputState: i.ToRepositoryRulesetRulesTagNamePatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryRulesetRulesTagNamePatternArgs) ToRepositoryRulesetRulesTagNamePatternPtrOutput() RepositoryRulesetRulesTagNamePatternPtrOutput {
 	return i.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(context.Background())
 }
@@ -8594,12 +7579,6 @@ func (i *repositoryRulesetRulesTagNamePatternPtrType) ToRepositoryRulesetRulesTa
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesTagNamePatternPtrOutput)
 }
 
-func (i *repositoryRulesetRulesTagNamePatternPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesTagNamePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesTagNamePattern]{
-		OutputState: i.ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetRulesTagNamePatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesTagNamePatternOutput) ElementType() reflect.Type {
@@ -8622,12 +7601,6 @@ func (o RepositoryRulesetRulesTagNamePatternOutput) ToRepositoryRulesetRulesTagN
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesTagNamePattern) *RepositoryRulesetRulesTagNamePattern {
 		return &v
 	}).(RepositoryRulesetRulesTagNamePatternPtrOutput)
-}
-
-func (o RepositoryRulesetRulesTagNamePatternOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryRulesetRulesTagNamePattern] {
-	return pulumix.Output[RepositoryRulesetRulesTagNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (String) The name of the ruleset.
@@ -8662,12 +7635,6 @@ func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToRepositoryRulesetRulesT
 
 func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToRepositoryRulesetRulesTagNamePatternPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesTagNamePatternPtrOutput {
 	return o
-}
-
-func (o RepositoryRulesetRulesTagNamePatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRulesetRulesTagNamePattern] {
-	return pulumix.Output[*RepositoryRulesetRulesTagNamePattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Elem() RepositoryRulesetRulesTagNamePatternOutput {
@@ -8761,12 +7728,6 @@ func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisOutput)
 }
 
-func (i RepositorySecurityAndAnalysisArgs) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysis] {
-	return pulumix.Output[RepositorySecurityAndAnalysis]{
-		OutputState: i.ToRepositorySecurityAndAnalysisOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositorySecurityAndAnalysisArgs) ToRepositorySecurityAndAnalysisPtrOutput() RepositorySecurityAndAnalysisPtrOutput {
 	return i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(context.Background())
 }
@@ -8808,12 +7769,6 @@ func (i *repositorySecurityAndAnalysisPtrType) ToRepositorySecurityAndAnalysisPt
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisPtrOutput)
 }
 
-func (i *repositorySecurityAndAnalysisPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysis] {
-	return pulumix.Output[*RepositorySecurityAndAnalysis]{
-		OutputState: i.ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositorySecurityAndAnalysisOutput struct{ *pulumi.OutputState }
 
 func (RepositorySecurityAndAnalysisOutput) ElementType() reflect.Type {
@@ -8836,12 +7791,6 @@ func (o RepositorySecurityAndAnalysisOutput) ToRepositorySecurityAndAnalysisPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysis {
 		return &v
 	}).(RepositorySecurityAndAnalysisPtrOutput)
-}
-
-func (o RepositorySecurityAndAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysis] {
-	return pulumix.Output[RepositorySecurityAndAnalysis]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
@@ -8877,12 +7826,6 @@ func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisP
 
 func (o RepositorySecurityAndAnalysisPtrOutput) ToRepositorySecurityAndAnalysisPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisPtrOutput {
 	return o
-}
-
-func (o RepositorySecurityAndAnalysisPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysis] {
-	return pulumix.Output[*RepositorySecurityAndAnalysis]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositorySecurityAndAnalysisPtrOutput) Elem() RepositorySecurityAndAnalysisOutput {
@@ -8958,12 +7901,6 @@ func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityA
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityOutput)
 }
 
-func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisAdvancedSecurity] {
-	return pulumix.Output[RepositorySecurityAndAnalysisAdvancedSecurity]{
-		OutputState: i.ToRepositorySecurityAndAnalysisAdvancedSecurityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositorySecurityAndAnalysisAdvancedSecurityArgs) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutput() RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
 	return i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(context.Background())
 }
@@ -9005,12 +7942,6 @@ func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToRepositorySecur
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
-func (i *repositorySecurityAndAnalysisAdvancedSecurityPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisAdvancedSecurity] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisAdvancedSecurity]{
-		OutputState: i.ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositorySecurityAndAnalysisAdvancedSecurityOutput struct{ *pulumi.OutputState }
 
 func (RepositorySecurityAndAnalysisAdvancedSecurityOutput) ElementType() reflect.Type {
@@ -9035,12 +7966,6 @@ func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToRepositorySecurit
 	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
-func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisAdvancedSecurity] {
-	return pulumix.Output[RepositorySecurityAndAnalysisAdvancedSecurity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 func (o RepositorySecurityAndAnalysisAdvancedSecurityOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisAdvancedSecurity) string { return v.Status }).(pulumi.StringOutput)
@@ -9058,12 +7983,6 @@ func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecu
 
 func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToRepositorySecurityAndAnalysisAdvancedSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput {
 	return o
-}
-
-func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisAdvancedSecurity] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisAdvancedSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Elem() RepositorySecurityAndAnalysisAdvancedSecurityOutput {
@@ -9119,12 +8038,6 @@ func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAnd
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningOutput)
 }
 
-func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisSecretScanning] {
-	return pulumix.Output[RepositorySecurityAndAnalysisSecretScanning]{
-		OutputState: i.ToRepositorySecurityAndAnalysisSecretScanningOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositorySecurityAndAnalysisSecretScanningArgs) ToRepositorySecurityAndAnalysisSecretScanningPtrOutput() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
 	return i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(context.Background())
 }
@@ -9166,12 +8079,6 @@ func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToRepositorySecurit
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
 }
 
-func (i *repositorySecurityAndAnalysisSecretScanningPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisSecretScanning] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisSecretScanning]{
-		OutputState: i.ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositorySecurityAndAnalysisSecretScanningOutput struct{ *pulumi.OutputState }
 
 func (RepositorySecurityAndAnalysisSecretScanningOutput) ElementType() reflect.Type {
@@ -9196,12 +8103,6 @@ func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityA
 	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
 }
 
-func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisSecretScanning] {
-	return pulumix.Output[RepositorySecurityAndAnalysisSecretScanning]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 func (o RepositorySecurityAndAnalysisSecretScanningOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanning) string { return v.Status }).(pulumi.StringOutput)
@@ -9219,12 +8120,6 @@ func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecuri
 
 func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPtrOutput {
 	return o
-}
-
-func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisSecretScanning] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisSecretScanning]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningOutput {
@@ -9280,12 +8175,6 @@ func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToReposit
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
 }
 
-func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisSecretScanningPushProtection] {
-	return pulumix.Output[RepositorySecurityAndAnalysisSecretScanningPushProtection]{
-		OutputState: i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
 	return i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(context.Background())
 }
@@ -9327,12 +8216,6 @@ func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToRep
 	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
 }
 
-func (i *repositorySecurityAndAnalysisSecretScanningPushProtectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisSecretScanningPushProtection] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisSecretScanningPushProtection]{
-		OutputState: i.ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput struct{ *pulumi.OutputState }
 
 func (RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ElementType() reflect.Type {
@@ -9357,12 +8240,6 @@ func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepos
 	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
 }
 
-func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[RepositorySecurityAndAnalysisSecretScanningPushProtection] {
-	return pulumix.Output[RepositorySecurityAndAnalysisSecretScanningPushProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
 func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningPushProtection) string { return v.Status }).(pulumi.StringOutput)
@@ -9380,12 +8257,6 @@ func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRe
 
 func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput {
 	return o
-}
-
-func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositorySecurityAndAnalysisSecretScanningPushProtection] {
-	return pulumix.Output[*RepositorySecurityAndAnalysisSecretScanningPushProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput {
@@ -9449,12 +8320,6 @@ func (i RepositoryTemplateArgs) ToRepositoryTemplateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTemplateOutput)
 }
 
-func (i RepositoryTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryTemplate] {
-	return pulumix.Output[RepositoryTemplate]{
-		OutputState: i.ToRepositoryTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryTemplateArgs) ToRepositoryTemplatePtrOutput() RepositoryTemplatePtrOutput {
 	return i.ToRepositoryTemplatePtrOutputWithContext(context.Background())
 }
@@ -9496,12 +8361,6 @@ func (i *repositoryTemplatePtrType) ToRepositoryTemplatePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTemplatePtrOutput)
 }
 
-func (i *repositoryTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTemplate] {
-	return pulumix.Output[*RepositoryTemplate]{
-		OutputState: i.ToRepositoryTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryTemplateOutput struct{ *pulumi.OutputState }
 
 func (RepositoryTemplateOutput) ElementType() reflect.Type {
@@ -9524,12 +8383,6 @@ func (o RepositoryTemplateOutput) ToRepositoryTemplatePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryTemplate) *RepositoryTemplate {
 		return &v
 	}).(RepositoryTemplatePtrOutput)
-}
-
-func (o RepositoryTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryTemplate] {
-	return pulumix.Output[RepositoryTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
@@ -9559,12 +8412,6 @@ func (o RepositoryTemplatePtrOutput) ToRepositoryTemplatePtrOutput() RepositoryT
 
 func (o RepositoryTemplatePtrOutput) ToRepositoryTemplatePtrOutputWithContext(ctx context.Context) RepositoryTemplatePtrOutput {
 	return o
-}
-
-func (o RepositoryTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTemplate] {
-	return pulumix.Output[*RepositoryTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTemplatePtrOutput) Elem() RepositoryTemplateOutput {
@@ -9652,12 +8499,6 @@ func (i RepositoryWebhookConfigurationArgs) ToRepositoryWebhookConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookConfigurationOutput)
 }
 
-func (i RepositoryWebhookConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryWebhookConfiguration] {
-	return pulumix.Output[RepositoryWebhookConfiguration]{
-		OutputState: i.ToRepositoryWebhookConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryWebhookConfigurationArgs) ToRepositoryWebhookConfigurationPtrOutput() RepositoryWebhookConfigurationPtrOutput {
 	return i.ToRepositoryWebhookConfigurationPtrOutputWithContext(context.Background())
 }
@@ -9699,12 +8540,6 @@ func (i *repositoryWebhookConfigurationPtrType) ToRepositoryWebhookConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryWebhookConfigurationPtrOutput)
 }
 
-func (i *repositoryWebhookConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryWebhookConfiguration] {
-	return pulumix.Output[*RepositoryWebhookConfiguration]{
-		OutputState: i.ToRepositoryWebhookConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryWebhookConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryWebhookConfigurationOutput) ElementType() reflect.Type {
@@ -9727,12 +8562,6 @@ func (o RepositoryWebhookConfigurationOutput) ToRepositoryWebhookConfigurationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryWebhookConfiguration) *RepositoryWebhookConfiguration {
 		return &v
 	}).(RepositoryWebhookConfigurationPtrOutput)
-}
-
-func (o RepositoryWebhookConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryWebhookConfiguration] {
-	return pulumix.Output[RepositoryWebhookConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content type for the payload. Valid values are either `form` or `json`.
@@ -9767,12 +8596,6 @@ func (o RepositoryWebhookConfigurationPtrOutput) ToRepositoryWebhookConfiguratio
 
 func (o RepositoryWebhookConfigurationPtrOutput) ToRepositoryWebhookConfigurationPtrOutputWithContext(ctx context.Context) RepositoryWebhookConfigurationPtrOutput {
 	return o
-}
-
-func (o RepositoryWebhookConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryWebhookConfiguration] {
-	return pulumix.Output[*RepositoryWebhookConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryWebhookConfigurationPtrOutput) Elem() RepositoryWebhookConfigurationOutput {
@@ -9864,12 +8687,6 @@ func (i TeamMembersMemberArgs) ToTeamMembersMemberOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersMemberOutput)
 }
 
-func (i TeamMembersMemberArgs) ToOutput(ctx context.Context) pulumix.Output[TeamMembersMember] {
-	return pulumix.Output[TeamMembersMember]{
-		OutputState: i.ToTeamMembersMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamMembersMemberArrayInput is an input type that accepts TeamMembersMemberArray and TeamMembersMemberArrayOutput values.
 // You can construct a concrete instance of `TeamMembersMemberArrayInput` via:
 //
@@ -9895,12 +8712,6 @@ func (i TeamMembersMemberArray) ToTeamMembersMemberArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersMemberArrayOutput)
 }
 
-func (i TeamMembersMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamMembersMember] {
-	return pulumix.Output[[]TeamMembersMember]{
-		OutputState: i.ToTeamMembersMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamMembersMemberOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersMemberOutput) ElementType() reflect.Type {
@@ -9913,12 +8724,6 @@ func (o TeamMembersMemberOutput) ToTeamMembersMemberOutput() TeamMembersMemberOu
 
 func (o TeamMembersMemberOutput) ToTeamMembersMemberOutputWithContext(ctx context.Context) TeamMembersMemberOutput {
 	return o
-}
-
-func (o TeamMembersMemberOutput) ToOutput(ctx context.Context) pulumix.Output[TeamMembersMember] {
-	return pulumix.Output[TeamMembersMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The role of the user within the team.
@@ -9944,12 +8749,6 @@ func (o TeamMembersMemberArrayOutput) ToTeamMembersMemberArrayOutput() TeamMembe
 
 func (o TeamMembersMemberArrayOutput) ToTeamMembersMemberArrayOutputWithContext(ctx context.Context) TeamMembersMemberArrayOutput {
 	return o
-}
-
-func (o TeamMembersMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamMembersMember] {
-	return pulumix.Output[[]TeamMembersMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMemberOutput {
@@ -9999,12 +8798,6 @@ func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDele
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationOutput)
 }
 
-func (i TeamSettingsReviewRequestDelegationArgs) ToOutput(ctx context.Context) pulumix.Output[TeamSettingsReviewRequestDelegation] {
-	return pulumix.Output[TeamSettingsReviewRequestDelegation]{
-		OutputState: i.ToTeamSettingsReviewRequestDelegationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TeamSettingsReviewRequestDelegationArgs) ToTeamSettingsReviewRequestDelegationPtrOutput() TeamSettingsReviewRequestDelegationPtrOutput {
 	return i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(context.Background())
 }
@@ -10046,12 +8839,6 @@ func (i *teamSettingsReviewRequestDelegationPtrType) ToTeamSettingsReviewRequest
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsReviewRequestDelegationPtrOutput)
 }
 
-func (i *teamSettingsReviewRequestDelegationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TeamSettingsReviewRequestDelegation] {
-	return pulumix.Output[*TeamSettingsReviewRequestDelegation]{
-		OutputState: i.ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamSettingsReviewRequestDelegationOutput struct{ *pulumi.OutputState }
 
 func (TeamSettingsReviewRequestDelegationOutput) ElementType() reflect.Type {
@@ -10074,12 +8861,6 @@ func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamSettingsReviewRequestDelegation) *TeamSettingsReviewRequestDelegation {
 		return &v
 	}).(TeamSettingsReviewRequestDelegationPtrOutput)
-}
-
-func (o TeamSettingsReviewRequestDelegationOutput) ToOutput(ctx context.Context) pulumix.Output[TeamSettingsReviewRequestDelegation] {
-	return pulumix.Output[TeamSettingsReviewRequestDelegation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
@@ -10109,12 +8890,6 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewReques
 
 func (o TeamSettingsReviewRequestDelegationPtrOutput) ToTeamSettingsReviewRequestDelegationPtrOutputWithContext(ctx context.Context) TeamSettingsReviewRequestDelegationPtrOutput {
 	return o
-}
-
-func (o TeamSettingsReviewRequestDelegationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamSettingsReviewRequestDelegation] {
-	return pulumix.Output[*TeamSettingsReviewRequestDelegation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamSettingsReviewRequestDelegationPtrOutput) Elem() TeamSettingsReviewRequestDelegationOutput {
@@ -10198,12 +8973,6 @@ func (i TeamSyncGroupMappingGroupArgs) ToTeamSyncGroupMappingGroupOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingGroupOutput)
 }
 
-func (i TeamSyncGroupMappingGroupArgs) ToOutput(ctx context.Context) pulumix.Output[TeamSyncGroupMappingGroup] {
-	return pulumix.Output[TeamSyncGroupMappingGroup]{
-		OutputState: i.ToTeamSyncGroupMappingGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamSyncGroupMappingGroupArrayInput is an input type that accepts TeamSyncGroupMappingGroupArray and TeamSyncGroupMappingGroupArrayOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingGroupArrayInput` via:
 //
@@ -10229,12 +8998,6 @@ func (i TeamSyncGroupMappingGroupArray) ToTeamSyncGroupMappingGroupArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingGroupArrayOutput)
 }
 
-func (i TeamSyncGroupMappingGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamSyncGroupMappingGroup] {
-	return pulumix.Output[[]TeamSyncGroupMappingGroup]{
-		OutputState: i.ToTeamSyncGroupMappingGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamSyncGroupMappingGroupOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingGroupOutput) ElementType() reflect.Type {
@@ -10247,12 +9010,6 @@ func (o TeamSyncGroupMappingGroupOutput) ToTeamSyncGroupMappingGroupOutput() Tea
 
 func (o TeamSyncGroupMappingGroupOutput) ToTeamSyncGroupMappingGroupOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupOutput {
 	return o
-}
-
-func (o TeamSyncGroupMappingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[TeamSyncGroupMappingGroup] {
-	return pulumix.Output[TeamSyncGroupMappingGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the IdP group.
@@ -10282,12 +9039,6 @@ func (o TeamSyncGroupMappingGroupArrayOutput) ToTeamSyncGroupMappingGroupArrayOu
 
 func (o TeamSyncGroupMappingGroupArrayOutput) ToTeamSyncGroupMappingGroupArrayOutputWithContext(ctx context.Context) TeamSyncGroupMappingGroupArrayOutput {
 	return o
-}
-
-func (o TeamSyncGroupMappingGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamSyncGroupMappingGroup] {
-	return pulumix.Output[[]TeamSyncGroupMappingGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamSyncGroupMappingGroupArrayOutput) Index(i pulumi.IntInput) TeamSyncGroupMappingGroupOutput {
@@ -10337,12 +9088,6 @@ func (i GetActionsEnvironmentSecretsSecretArgs) ToGetActionsEnvironmentSecretsSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentSecretsSecretOutput)
 }
 
-func (i GetActionsEnvironmentSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsEnvironmentSecretsSecret] {
-	return pulumix.Output[GetActionsEnvironmentSecretsSecret]{
-		OutputState: i.ToGetActionsEnvironmentSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsEnvironmentSecretsSecretArrayInput is an input type that accepts GetActionsEnvironmentSecretsSecretArray and GetActionsEnvironmentSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetActionsEnvironmentSecretsSecretArrayInput` via:
 //
@@ -10368,12 +9113,6 @@ func (i GetActionsEnvironmentSecretsSecretArray) ToGetActionsEnvironmentSecretsS
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentSecretsSecretArrayOutput)
 }
 
-func (i GetActionsEnvironmentSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsEnvironmentSecretsSecret] {
-	return pulumix.Output[[]GetActionsEnvironmentSecretsSecret]{
-		OutputState: i.ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsEnvironmentSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetActionsEnvironmentSecretsSecretOutput) ElementType() reflect.Type {
@@ -10386,12 +9125,6 @@ func (o GetActionsEnvironmentSecretsSecretOutput) ToGetActionsEnvironmentSecrets
 
 func (o GetActionsEnvironmentSecretsSecretOutput) ToGetActionsEnvironmentSecretsSecretOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretOutput {
 	return o
-}
-
-func (o GetActionsEnvironmentSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsEnvironmentSecretsSecret] {
-	return pulumix.Output[GetActionsEnvironmentSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -10421,12 +9154,6 @@ func (o GetActionsEnvironmentSecretsSecretArrayOutput) ToGetActionsEnvironmentSe
 
 func (o GetActionsEnvironmentSecretsSecretArrayOutput) ToGetActionsEnvironmentSecretsSecretArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetActionsEnvironmentSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsEnvironmentSecretsSecret] {
-	return pulumix.Output[[]GetActionsEnvironmentSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsEnvironmentSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsEnvironmentSecretsSecretOutput {
@@ -10480,12 +9207,6 @@ func (i GetActionsEnvironmentVariablesVariableArgs) ToGetActionsEnvironmentVaria
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentVariablesVariableOutput)
 }
 
-func (i GetActionsEnvironmentVariablesVariableArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsEnvironmentVariablesVariable] {
-	return pulumix.Output[GetActionsEnvironmentVariablesVariable]{
-		OutputState: i.ToGetActionsEnvironmentVariablesVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsEnvironmentVariablesVariableArrayInput is an input type that accepts GetActionsEnvironmentVariablesVariableArray and GetActionsEnvironmentVariablesVariableArrayOutput values.
 // You can construct a concrete instance of `GetActionsEnvironmentVariablesVariableArrayInput` via:
 //
@@ -10511,12 +9232,6 @@ func (i GetActionsEnvironmentVariablesVariableArray) ToGetActionsEnvironmentVari
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsEnvironmentVariablesVariableArrayOutput)
 }
 
-func (i GetActionsEnvironmentVariablesVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsEnvironmentVariablesVariable] {
-	return pulumix.Output[[]GetActionsEnvironmentVariablesVariable]{
-		OutputState: i.ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsEnvironmentVariablesVariableOutput struct{ *pulumi.OutputState }
 
 func (GetActionsEnvironmentVariablesVariableOutput) ElementType() reflect.Type {
@@ -10529,12 +9244,6 @@ func (o GetActionsEnvironmentVariablesVariableOutput) ToGetActionsEnvironmentVar
 
 func (o GetActionsEnvironmentVariablesVariableOutput) ToGetActionsEnvironmentVariablesVariableOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableOutput {
 	return o
-}
-
-func (o GetActionsEnvironmentVariablesVariableOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsEnvironmentVariablesVariable] {
-	return pulumix.Output[GetActionsEnvironmentVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the variable creation
@@ -10569,12 +9278,6 @@ func (o GetActionsEnvironmentVariablesVariableArrayOutput) ToGetActionsEnvironme
 
 func (o GetActionsEnvironmentVariablesVariableArrayOutput) ToGetActionsEnvironmentVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsEnvironmentVariablesVariableArrayOutput {
 	return o
-}
-
-func (o GetActionsEnvironmentVariablesVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsEnvironmentVariablesVariable] {
-	return pulumix.Output[[]GetActionsEnvironmentVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsEnvironmentVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsEnvironmentVariablesVariableOutput {
@@ -10628,12 +9331,6 @@ func (i GetActionsOrganizationSecretsSecretArgs) ToGetActionsOrganizationSecrets
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationSecretsSecretOutput)
 }
 
-func (i GetActionsOrganizationSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationSecretsSecret] {
-	return pulumix.Output[GetActionsOrganizationSecretsSecret]{
-		OutputState: i.ToGetActionsOrganizationSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsOrganizationSecretsSecretArrayInput is an input type that accepts GetActionsOrganizationSecretsSecretArray and GetActionsOrganizationSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetActionsOrganizationSecretsSecretArrayInput` via:
 //
@@ -10659,12 +9356,6 @@ func (i GetActionsOrganizationSecretsSecretArray) ToGetActionsOrganizationSecret
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationSecretsSecretArrayOutput)
 }
 
-func (i GetActionsOrganizationSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetActionsOrganizationSecretsSecret]{
-		OutputState: i.ToGetActionsOrganizationSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsOrganizationSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetActionsOrganizationSecretsSecretOutput) ElementType() reflect.Type {
@@ -10677,12 +9368,6 @@ func (o GetActionsOrganizationSecretsSecretOutput) ToGetActionsOrganizationSecre
 
 func (o GetActionsOrganizationSecretsSecretOutput) ToGetActionsOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetActionsOrganizationSecretsSecretOutput {
 	return o
-}
-
-func (o GetActionsOrganizationSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationSecretsSecret] {
-	return pulumix.Output[GetActionsOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -10717,12 +9402,6 @@ func (o GetActionsOrganizationSecretsSecretArrayOutput) ToGetActionsOrganization
 
 func (o GetActionsOrganizationSecretsSecretArrayOutput) ToGetActionsOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetActionsOrganizationSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetActionsOrganizationSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetActionsOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsOrganizationSecretsSecretOutput {
@@ -10780,12 +9459,6 @@ func (i GetActionsOrganizationVariablesVariableArgs) ToGetActionsOrganizationVar
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationVariablesVariableOutput)
 }
 
-func (i GetActionsOrganizationVariablesVariableArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationVariablesVariable] {
-	return pulumix.Output[GetActionsOrganizationVariablesVariable]{
-		OutputState: i.ToGetActionsOrganizationVariablesVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsOrganizationVariablesVariableArrayInput is an input type that accepts GetActionsOrganizationVariablesVariableArray and GetActionsOrganizationVariablesVariableArrayOutput values.
 // You can construct a concrete instance of `GetActionsOrganizationVariablesVariableArrayInput` via:
 //
@@ -10811,12 +9484,6 @@ func (i GetActionsOrganizationVariablesVariableArray) ToGetActionsOrganizationVa
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsOrganizationVariablesVariableArrayOutput)
 }
 
-func (i GetActionsOrganizationVariablesVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsOrganizationVariablesVariable] {
-	return pulumix.Output[[]GetActionsOrganizationVariablesVariable]{
-		OutputState: i.ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsOrganizationVariablesVariableOutput struct{ *pulumi.OutputState }
 
 func (GetActionsOrganizationVariablesVariableOutput) ElementType() reflect.Type {
@@ -10829,12 +9496,6 @@ func (o GetActionsOrganizationVariablesVariableOutput) ToGetActionsOrganizationV
 
 func (o GetActionsOrganizationVariablesVariableOutput) ToGetActionsOrganizationVariablesVariableOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableOutput {
 	return o
-}
-
-func (o GetActionsOrganizationVariablesVariableOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationVariablesVariable] {
-	return pulumix.Output[GetActionsOrganizationVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the variable creation
@@ -10874,12 +9535,6 @@ func (o GetActionsOrganizationVariablesVariableArrayOutput) ToGetActionsOrganiza
 
 func (o GetActionsOrganizationVariablesVariableArrayOutput) ToGetActionsOrganizationVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsOrganizationVariablesVariableArrayOutput {
 	return o
-}
-
-func (o GetActionsOrganizationVariablesVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsOrganizationVariablesVariable] {
-	return pulumix.Output[[]GetActionsOrganizationVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsOrganizationVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsOrganizationVariablesVariableOutput {
@@ -10929,12 +9584,6 @@ func (i GetActionsSecretsSecretArgs) ToGetActionsSecretsSecretOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsSecretsSecretOutput)
 }
 
-func (i GetActionsSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsSecretsSecret] {
-	return pulumix.Output[GetActionsSecretsSecret]{
-		OutputState: i.ToGetActionsSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsSecretsSecretArrayInput is an input type that accepts GetActionsSecretsSecretArray and GetActionsSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetActionsSecretsSecretArrayInput` via:
 //
@@ -10960,12 +9609,6 @@ func (i GetActionsSecretsSecretArray) ToGetActionsSecretsSecretArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsSecretsSecretArrayOutput)
 }
 
-func (i GetActionsSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsSecretsSecret] {
-	return pulumix.Output[[]GetActionsSecretsSecret]{
-		OutputState: i.ToGetActionsSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetActionsSecretsSecretOutput) ElementType() reflect.Type {
@@ -10978,12 +9621,6 @@ func (o GetActionsSecretsSecretOutput) ToGetActionsSecretsSecretOutput() GetActi
 
 func (o GetActionsSecretsSecretOutput) ToGetActionsSecretsSecretOutputWithContext(ctx context.Context) GetActionsSecretsSecretOutput {
 	return o
-}
-
-func (o GetActionsSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsSecretsSecret] {
-	return pulumix.Output[GetActionsSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -11013,12 +9650,6 @@ func (o GetActionsSecretsSecretArrayOutput) ToGetActionsSecretsSecretArrayOutput
 
 func (o GetActionsSecretsSecretArrayOutput) ToGetActionsSecretsSecretArrayOutputWithContext(ctx context.Context) GetActionsSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetActionsSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsSecretsSecret] {
-	return pulumix.Output[[]GetActionsSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetActionsSecretsSecretOutput {
@@ -11072,12 +9703,6 @@ func (i GetActionsVariablesVariableArgs) ToGetActionsVariablesVariableOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsVariablesVariableOutput)
 }
 
-func (i GetActionsVariablesVariableArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionsVariablesVariable] {
-	return pulumix.Output[GetActionsVariablesVariable]{
-		OutputState: i.ToGetActionsVariablesVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionsVariablesVariableArrayInput is an input type that accepts GetActionsVariablesVariableArray and GetActionsVariablesVariableArrayOutput values.
 // You can construct a concrete instance of `GetActionsVariablesVariableArrayInput` via:
 //
@@ -11103,12 +9728,6 @@ func (i GetActionsVariablesVariableArray) ToGetActionsVariablesVariableArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionsVariablesVariableArrayOutput)
 }
 
-func (i GetActionsVariablesVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsVariablesVariable] {
-	return pulumix.Output[[]GetActionsVariablesVariable]{
-		OutputState: i.ToGetActionsVariablesVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionsVariablesVariableOutput struct{ *pulumi.OutputState }
 
 func (GetActionsVariablesVariableOutput) ElementType() reflect.Type {
@@ -11121,12 +9740,6 @@ func (o GetActionsVariablesVariableOutput) ToGetActionsVariablesVariableOutput()
 
 func (o GetActionsVariablesVariableOutput) ToGetActionsVariablesVariableOutputWithContext(ctx context.Context) GetActionsVariablesVariableOutput {
 	return o
-}
-
-func (o GetActionsVariablesVariableOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsVariablesVariable] {
-	return pulumix.Output[GetActionsVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the variable creation
@@ -11161,12 +9774,6 @@ func (o GetActionsVariablesVariableArrayOutput) ToGetActionsVariablesVariableArr
 
 func (o GetActionsVariablesVariableArrayOutput) ToGetActionsVariablesVariableArrayOutputWithContext(ctx context.Context) GetActionsVariablesVariableArrayOutput {
 	return o
-}
-
-func (o GetActionsVariablesVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionsVariablesVariable] {
-	return pulumix.Output[[]GetActionsVariablesVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsVariablesVariableArrayOutput) Index(i pulumi.IntInput) GetActionsVariablesVariableOutput {
@@ -11208,12 +9815,6 @@ func (i GetBranchProtectionRulesRuleArgs) ToGetBranchProtectionRulesRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetBranchProtectionRulesRuleOutput)
 }
 
-func (i GetBranchProtectionRulesRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetBranchProtectionRulesRule] {
-	return pulumix.Output[GetBranchProtectionRulesRule]{
-		OutputState: i.ToGetBranchProtectionRulesRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBranchProtectionRulesRuleArrayInput is an input type that accepts GetBranchProtectionRulesRuleArray and GetBranchProtectionRulesRuleArrayOutput values.
 // You can construct a concrete instance of `GetBranchProtectionRulesRuleArrayInput` via:
 //
@@ -11239,12 +9840,6 @@ func (i GetBranchProtectionRulesRuleArray) ToGetBranchProtectionRulesRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBranchProtectionRulesRuleArrayOutput)
 }
 
-func (i GetBranchProtectionRulesRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBranchProtectionRulesRule] {
-	return pulumix.Output[[]GetBranchProtectionRulesRule]{
-		OutputState: i.ToGetBranchProtectionRulesRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBranchProtectionRulesRuleOutput struct{ *pulumi.OutputState }
 
 func (GetBranchProtectionRulesRuleOutput) ElementType() reflect.Type {
@@ -11257,12 +9852,6 @@ func (o GetBranchProtectionRulesRuleOutput) ToGetBranchProtectionRulesRuleOutput
 
 func (o GetBranchProtectionRulesRuleOutput) ToGetBranchProtectionRulesRuleOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleOutput {
 	return o
-}
-
-func (o GetBranchProtectionRulesRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetBranchProtectionRulesRule] {
-	return pulumix.Output[GetBranchProtectionRulesRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifies the protection rule pattern.
@@ -11282,12 +9871,6 @@ func (o GetBranchProtectionRulesRuleArrayOutput) ToGetBranchProtectionRulesRuleA
 
 func (o GetBranchProtectionRulesRuleArrayOutput) ToGetBranchProtectionRulesRuleArrayOutputWithContext(ctx context.Context) GetBranchProtectionRulesRuleArrayOutput {
 	return o
-}
-
-func (o GetBranchProtectionRulesRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBranchProtectionRulesRule] {
-	return pulumix.Output[[]GetBranchProtectionRulesRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBranchProtectionRulesRuleArrayOutput) Index(i pulumi.IntInput) GetBranchProtectionRulesRuleOutput {
@@ -11341,12 +9924,6 @@ func (i GetCodespacesOrganizationSecretsSecretArgs) ToGetCodespacesOrganizationS
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesOrganizationSecretsSecretOutput)
 }
 
-func (i GetCodespacesOrganizationSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesOrganizationSecretsSecret] {
-	return pulumix.Output[GetCodespacesOrganizationSecretsSecret]{
-		OutputState: i.ToGetCodespacesOrganizationSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCodespacesOrganizationSecretsSecretArrayInput is an input type that accepts GetCodespacesOrganizationSecretsSecretArray and GetCodespacesOrganizationSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetCodespacesOrganizationSecretsSecretArrayInput` via:
 //
@@ -11372,12 +9949,6 @@ func (i GetCodespacesOrganizationSecretsSecretArray) ToGetCodespacesOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesOrganizationSecretsSecretArrayOutput)
 }
 
-func (i GetCodespacesOrganizationSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesOrganizationSecretsSecret]{
-		OutputState: i.ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCodespacesOrganizationSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetCodespacesOrganizationSecretsSecretOutput) ElementType() reflect.Type {
@@ -11390,12 +9961,6 @@ func (o GetCodespacesOrganizationSecretsSecretOutput) ToGetCodespacesOrganizatio
 
 func (o GetCodespacesOrganizationSecretsSecretOutput) ToGetCodespacesOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretOutput {
 	return o
-}
-
-func (o GetCodespacesOrganizationSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesOrganizationSecretsSecret] {
-	return pulumix.Output[GetCodespacesOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -11430,12 +9995,6 @@ func (o GetCodespacesOrganizationSecretsSecretArrayOutput) ToGetCodespacesOrgani
 
 func (o GetCodespacesOrganizationSecretsSecretArrayOutput) ToGetCodespacesOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesOrganizationSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetCodespacesOrganizationSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCodespacesOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesOrganizationSecretsSecretOutput {
@@ -11485,12 +10044,6 @@ func (i GetCodespacesSecretsSecretArgs) ToGetCodespacesSecretsSecretOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesSecretsSecretOutput)
 }
 
-func (i GetCodespacesSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesSecretsSecret] {
-	return pulumix.Output[GetCodespacesSecretsSecret]{
-		OutputState: i.ToGetCodespacesSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCodespacesSecretsSecretArrayInput is an input type that accepts GetCodespacesSecretsSecretArray and GetCodespacesSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetCodespacesSecretsSecretArrayInput` via:
 //
@@ -11516,12 +10069,6 @@ func (i GetCodespacesSecretsSecretArray) ToGetCodespacesSecretsSecretArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesSecretsSecretArrayOutput)
 }
 
-func (i GetCodespacesSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesSecretsSecret]{
-		OutputState: i.ToGetCodespacesSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCodespacesSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetCodespacesSecretsSecretOutput) ElementType() reflect.Type {
@@ -11534,12 +10081,6 @@ func (o GetCodespacesSecretsSecretOutput) ToGetCodespacesSecretsSecretOutput() G
 
 func (o GetCodespacesSecretsSecretOutput) ToGetCodespacesSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretOutput {
 	return o
-}
-
-func (o GetCodespacesSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesSecretsSecret] {
-	return pulumix.Output[GetCodespacesSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -11569,12 +10110,6 @@ func (o GetCodespacesSecretsSecretArrayOutput) ToGetCodespacesSecretsSecretArray
 
 func (o GetCodespacesSecretsSecretArrayOutput) ToGetCodespacesSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetCodespacesSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCodespacesSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesSecretsSecretOutput {
@@ -11628,12 +10163,6 @@ func (i GetCodespacesUserSecretsSecretArgs) ToGetCodespacesUserSecretsSecretOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesUserSecretsSecretOutput)
 }
 
-func (i GetCodespacesUserSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesUserSecretsSecret] {
-	return pulumix.Output[GetCodespacesUserSecretsSecret]{
-		OutputState: i.ToGetCodespacesUserSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCodespacesUserSecretsSecretArrayInput is an input type that accepts GetCodespacesUserSecretsSecretArray and GetCodespacesUserSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetCodespacesUserSecretsSecretArrayInput` via:
 //
@@ -11659,12 +10188,6 @@ func (i GetCodespacesUserSecretsSecretArray) ToGetCodespacesUserSecretsSecretArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodespacesUserSecretsSecretArrayOutput)
 }
 
-func (i GetCodespacesUserSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesUserSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesUserSecretsSecret]{
-		OutputState: i.ToGetCodespacesUserSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCodespacesUserSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetCodespacesUserSecretsSecretOutput) ElementType() reflect.Type {
@@ -11677,12 +10200,6 @@ func (o GetCodespacesUserSecretsSecretOutput) ToGetCodespacesUserSecretsSecretOu
 
 func (o GetCodespacesUserSecretsSecretOutput) ToGetCodespacesUserSecretsSecretOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretOutput {
 	return o
-}
-
-func (o GetCodespacesUserSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesUserSecretsSecret] {
-	return pulumix.Output[GetCodespacesUserSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -11717,12 +10234,6 @@ func (o GetCodespacesUserSecretsSecretArrayOutput) ToGetCodespacesUserSecretsSec
 
 func (o GetCodespacesUserSecretsSecretArrayOutput) ToGetCodespacesUserSecretsSecretArrayOutputWithContext(ctx context.Context) GetCodespacesUserSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetCodespacesUserSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCodespacesUserSecretsSecret] {
-	return pulumix.Output[[]GetCodespacesUserSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCodespacesUserSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetCodespacesUserSecretsSecretOutput {
@@ -11824,12 +10335,6 @@ func (i GetCollaboratorsCollaboratorArgs) ToGetCollaboratorsCollaboratorOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCollaboratorsCollaboratorOutput)
 }
 
-func (i GetCollaboratorsCollaboratorArgs) ToOutput(ctx context.Context) pulumix.Output[GetCollaboratorsCollaborator] {
-	return pulumix.Output[GetCollaboratorsCollaborator]{
-		OutputState: i.ToGetCollaboratorsCollaboratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCollaboratorsCollaboratorArrayInput is an input type that accepts GetCollaboratorsCollaboratorArray and GetCollaboratorsCollaboratorArrayOutput values.
 // You can construct a concrete instance of `GetCollaboratorsCollaboratorArrayInput` via:
 //
@@ -11855,12 +10360,6 @@ func (i GetCollaboratorsCollaboratorArray) ToGetCollaboratorsCollaboratorArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetCollaboratorsCollaboratorArrayOutput)
 }
 
-func (i GetCollaboratorsCollaboratorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCollaboratorsCollaborator] {
-	return pulumix.Output[[]GetCollaboratorsCollaborator]{
-		OutputState: i.ToGetCollaboratorsCollaboratorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCollaboratorsCollaboratorOutput struct{ *pulumi.OutputState }
 
 func (GetCollaboratorsCollaboratorOutput) ElementType() reflect.Type {
@@ -11873,12 +10372,6 @@ func (o GetCollaboratorsCollaboratorOutput) ToGetCollaboratorsCollaboratorOutput
 
 func (o GetCollaboratorsCollaboratorOutput) ToGetCollaboratorsCollaboratorOutputWithContext(ctx context.Context) GetCollaboratorsCollaboratorOutput {
 	return o
-}
-
-func (o GetCollaboratorsCollaboratorOutput) ToOutput(ctx context.Context) pulumix.Output[GetCollaboratorsCollaborator] {
-	return pulumix.Output[GetCollaboratorsCollaborator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The GitHub API URL for the collaborator's events.
@@ -11975,12 +10468,6 @@ func (o GetCollaboratorsCollaboratorArrayOutput) ToGetCollaboratorsCollaboratorA
 	return o
 }
 
-func (o GetCollaboratorsCollaboratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCollaboratorsCollaborator] {
-	return pulumix.Output[[]GetCollaboratorsCollaborator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetCollaboratorsCollaboratorArrayOutput) Index(i pulumi.IntInput) GetCollaboratorsCollaboratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCollaboratorsCollaborator {
 		return vs[0].([]GetCollaboratorsCollaborator)[vs[1].(int)]
@@ -12032,12 +10519,6 @@ func (i GetDependabotOrganizationSecretsSecretArgs) ToGetDependabotOrganizationS
 	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotOrganizationSecretsSecretOutput)
 }
 
-func (i GetDependabotOrganizationSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetDependabotOrganizationSecretsSecret] {
-	return pulumix.Output[GetDependabotOrganizationSecretsSecret]{
-		OutputState: i.ToGetDependabotOrganizationSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDependabotOrganizationSecretsSecretArrayInput is an input type that accepts GetDependabotOrganizationSecretsSecretArray and GetDependabotOrganizationSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetDependabotOrganizationSecretsSecretArrayInput` via:
 //
@@ -12063,12 +10544,6 @@ func (i GetDependabotOrganizationSecretsSecretArray) ToGetDependabotOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotOrganizationSecretsSecretArrayOutput)
 }
 
-func (i GetDependabotOrganizationSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDependabotOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetDependabotOrganizationSecretsSecret]{
-		OutputState: i.ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDependabotOrganizationSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetDependabotOrganizationSecretsSecretOutput) ElementType() reflect.Type {
@@ -12081,12 +10556,6 @@ func (o GetDependabotOrganizationSecretsSecretOutput) ToGetDependabotOrganizatio
 
 func (o GetDependabotOrganizationSecretsSecretOutput) ToGetDependabotOrganizationSecretsSecretOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretOutput {
 	return o
-}
-
-func (o GetDependabotOrganizationSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotOrganizationSecretsSecret] {
-	return pulumix.Output[GetDependabotOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -12121,12 +10590,6 @@ func (o GetDependabotOrganizationSecretsSecretArrayOutput) ToGetDependabotOrgani
 
 func (o GetDependabotOrganizationSecretsSecretArrayOutput) ToGetDependabotOrganizationSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotOrganizationSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetDependabotOrganizationSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDependabotOrganizationSecretsSecret] {
-	return pulumix.Output[[]GetDependabotOrganizationSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDependabotOrganizationSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetDependabotOrganizationSecretsSecretOutput {
@@ -12176,12 +10639,6 @@ func (i GetDependabotSecretsSecretArgs) ToGetDependabotSecretsSecretOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotSecretsSecretOutput)
 }
 
-func (i GetDependabotSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetDependabotSecretsSecret] {
-	return pulumix.Output[GetDependabotSecretsSecret]{
-		OutputState: i.ToGetDependabotSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDependabotSecretsSecretArrayInput is an input type that accepts GetDependabotSecretsSecretArray and GetDependabotSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetDependabotSecretsSecretArrayInput` via:
 //
@@ -12207,12 +10664,6 @@ func (i GetDependabotSecretsSecretArray) ToGetDependabotSecretsSecretArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDependabotSecretsSecretArrayOutput)
 }
 
-func (i GetDependabotSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDependabotSecretsSecret] {
-	return pulumix.Output[[]GetDependabotSecretsSecret]{
-		OutputState: i.ToGetDependabotSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDependabotSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetDependabotSecretsSecretOutput) ElementType() reflect.Type {
@@ -12225,12 +10676,6 @@ func (o GetDependabotSecretsSecretOutput) ToGetDependabotSecretsSecretOutput() G
 
 func (o GetDependabotSecretsSecretOutput) ToGetDependabotSecretsSecretOutputWithContext(ctx context.Context) GetDependabotSecretsSecretOutput {
 	return o
-}
-
-func (o GetDependabotSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetDependabotSecretsSecret] {
-	return pulumix.Output[GetDependabotSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp of the secret creation
@@ -12260,12 +10705,6 @@ func (o GetDependabotSecretsSecretArrayOutput) ToGetDependabotSecretsSecretArray
 
 func (o GetDependabotSecretsSecretArrayOutput) ToGetDependabotSecretsSecretArrayOutputWithContext(ctx context.Context) GetDependabotSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetDependabotSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDependabotSecretsSecret] {
-	return pulumix.Output[[]GetDependabotSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDependabotSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetDependabotSecretsSecretOutput {
@@ -12315,12 +10754,6 @@ func (i GetExternalGroupsExternalGroupArgs) ToGetExternalGroupsExternalGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetExternalGroupsExternalGroupOutput)
 }
 
-func (i GetExternalGroupsExternalGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetExternalGroupsExternalGroup] {
-	return pulumix.Output[GetExternalGroupsExternalGroup]{
-		OutputState: i.ToGetExternalGroupsExternalGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetExternalGroupsExternalGroupArrayInput is an input type that accepts GetExternalGroupsExternalGroupArray and GetExternalGroupsExternalGroupArrayOutput values.
 // You can construct a concrete instance of `GetExternalGroupsExternalGroupArrayInput` via:
 //
@@ -12346,12 +10779,6 @@ func (i GetExternalGroupsExternalGroupArray) ToGetExternalGroupsExternalGroupArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetExternalGroupsExternalGroupArrayOutput)
 }
 
-func (i GetExternalGroupsExternalGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetExternalGroupsExternalGroup] {
-	return pulumix.Output[[]GetExternalGroupsExternalGroup]{
-		OutputState: i.ToGetExternalGroupsExternalGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetExternalGroupsExternalGroupOutput struct{ *pulumi.OutputState }
 
 func (GetExternalGroupsExternalGroupOutput) ElementType() reflect.Type {
@@ -12364,12 +10791,6 @@ func (o GetExternalGroupsExternalGroupOutput) ToGetExternalGroupsExternalGroupOu
 
 func (o GetExternalGroupsExternalGroupOutput) ToGetExternalGroupsExternalGroupOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupOutput {
 	return o
-}
-
-func (o GetExternalGroupsExternalGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetExternalGroupsExternalGroup] {
-	return pulumix.Output[GetExternalGroupsExternalGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the ID of the group.
@@ -12399,12 +10820,6 @@ func (o GetExternalGroupsExternalGroupArrayOutput) ToGetExternalGroupsExternalGr
 
 func (o GetExternalGroupsExternalGroupArrayOutput) ToGetExternalGroupsExternalGroupArrayOutputWithContext(ctx context.Context) GetExternalGroupsExternalGroupArrayOutput {
 	return o
-}
-
-func (o GetExternalGroupsExternalGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetExternalGroupsExternalGroup] {
-	return pulumix.Output[[]GetExternalGroupsExternalGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetExternalGroupsExternalGroupArrayOutput) Index(i pulumi.IntInput) GetExternalGroupsExternalGroupOutput {
@@ -12458,12 +10873,6 @@ func (i GetIssueLabelsLabelArgs) ToGetIssueLabelsLabelOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetIssueLabelsLabelOutput)
 }
 
-func (i GetIssueLabelsLabelArgs) ToOutput(ctx context.Context) pulumix.Output[GetIssueLabelsLabel] {
-	return pulumix.Output[GetIssueLabelsLabel]{
-		OutputState: i.ToGetIssueLabelsLabelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetIssueLabelsLabelArrayInput is an input type that accepts GetIssueLabelsLabelArray and GetIssueLabelsLabelArrayOutput values.
 // You can construct a concrete instance of `GetIssueLabelsLabelArrayInput` via:
 //
@@ -12489,12 +10898,6 @@ func (i GetIssueLabelsLabelArray) ToGetIssueLabelsLabelArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetIssueLabelsLabelArrayOutput)
 }
 
-func (i GetIssueLabelsLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIssueLabelsLabel] {
-	return pulumix.Output[[]GetIssueLabelsLabel]{
-		OutputState: i.ToGetIssueLabelsLabelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetIssueLabelsLabelOutput struct{ *pulumi.OutputState }
 
 func (GetIssueLabelsLabelOutput) ElementType() reflect.Type {
@@ -12507,12 +10910,6 @@ func (o GetIssueLabelsLabelOutput) ToGetIssueLabelsLabelOutput() GetIssueLabelsL
 
 func (o GetIssueLabelsLabelOutput) ToGetIssueLabelsLabelOutputWithContext(ctx context.Context) GetIssueLabelsLabelOutput {
 	return o
-}
-
-func (o GetIssueLabelsLabelOutput) ToOutput(ctx context.Context) pulumix.Output[GetIssueLabelsLabel] {
-	return pulumix.Output[GetIssueLabelsLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The hexadecimal color code for the label, without the leading #.
@@ -12547,12 +10944,6 @@ func (o GetIssueLabelsLabelArrayOutput) ToGetIssueLabelsLabelArrayOutput() GetIs
 
 func (o GetIssueLabelsLabelArrayOutput) ToGetIssueLabelsLabelArrayOutputWithContext(ctx context.Context) GetIssueLabelsLabelArrayOutput {
 	return o
-}
-
-func (o GetIssueLabelsLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIssueLabelsLabel] {
-	return pulumix.Output[[]GetIssueLabelsLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetIssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) GetIssueLabelsLabelOutput {
@@ -12606,12 +10997,6 @@ func (i GetOrganizationExternalIdentitiesIdentityArgs) ToGetOrganizationExternal
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationExternalIdentitiesIdentityOutput)
 }
 
-func (i GetOrganizationExternalIdentitiesIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationExternalIdentitiesIdentity] {
-	return pulumix.Output[GetOrganizationExternalIdentitiesIdentity]{
-		OutputState: i.ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOrganizationExternalIdentitiesIdentityArrayInput is an input type that accepts GetOrganizationExternalIdentitiesIdentityArray and GetOrganizationExternalIdentitiesIdentityArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationExternalIdentitiesIdentityArrayInput` via:
 //
@@ -12637,12 +11022,6 @@ func (i GetOrganizationExternalIdentitiesIdentityArray) ToGetOrganizationExterna
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationExternalIdentitiesIdentityArrayOutput)
 }
 
-func (i GetOrganizationExternalIdentitiesIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationExternalIdentitiesIdentity] {
-	return pulumix.Output[[]GetOrganizationExternalIdentitiesIdentity]{
-		OutputState: i.ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrganizationExternalIdentitiesIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationExternalIdentitiesIdentityOutput) ElementType() reflect.Type {
@@ -12655,12 +11034,6 @@ func (o GetOrganizationExternalIdentitiesIdentityOutput) ToGetOrganizationExtern
 
 func (o GetOrganizationExternalIdentitiesIdentityOutput) ToGetOrganizationExternalIdentitiesIdentityOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityOutput {
 	return o
-}
-
-func (o GetOrganizationExternalIdentitiesIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationExternalIdentitiesIdentity] {
-	return pulumix.Output[GetOrganizationExternalIdentitiesIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The username of the GitHub user
@@ -12692,12 +11065,6 @@ func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) ToGetOrganizationE
 
 func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) ToGetOrganizationExternalIdentitiesIdentityArrayOutputWithContext(ctx context.Context) GetOrganizationExternalIdentitiesIdentityArrayOutput {
 	return o
-}
-
-func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationExternalIdentitiesIdentity] {
-	return pulumix.Output[[]GetOrganizationExternalIdentitiesIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrganizationExternalIdentitiesIdentityArrayOutput) Index(i pulumi.IntInput) GetOrganizationExternalIdentitiesIdentityOutput {
@@ -12759,12 +11126,6 @@ func (i GetOrganizationIpAllowListIpAllowListArgs) ToGetOrganizationIpAllowListI
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationIpAllowListIpAllowListOutput)
 }
 
-func (i GetOrganizationIpAllowListIpAllowListArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationIpAllowListIpAllowList] {
-	return pulumix.Output[GetOrganizationIpAllowListIpAllowList]{
-		OutputState: i.ToGetOrganizationIpAllowListIpAllowListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOrganizationIpAllowListIpAllowListArrayInput is an input type that accepts GetOrganizationIpAllowListIpAllowListArray and GetOrganizationIpAllowListIpAllowListArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationIpAllowListIpAllowListArrayInput` via:
 //
@@ -12790,12 +11151,6 @@ func (i GetOrganizationIpAllowListIpAllowListArray) ToGetOrganizationIpAllowList
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationIpAllowListIpAllowListArrayOutput)
 }
 
-func (i GetOrganizationIpAllowListIpAllowListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationIpAllowListIpAllowList] {
-	return pulumix.Output[[]GetOrganizationIpAllowListIpAllowList]{
-		OutputState: i.ToGetOrganizationIpAllowListIpAllowListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrganizationIpAllowListIpAllowListOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationIpAllowListIpAllowListOutput) ElementType() reflect.Type {
@@ -12808,12 +11163,6 @@ func (o GetOrganizationIpAllowListIpAllowListOutput) ToGetOrganizationIpAllowLis
 
 func (o GetOrganizationIpAllowListIpAllowListOutput) ToGetOrganizationIpAllowListIpAllowListOutputWithContext(ctx context.Context) GetOrganizationIpAllowListIpAllowListOutput {
 	return o
-}
-
-func (o GetOrganizationIpAllowListIpAllowListOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationIpAllowListIpAllowList] {
-	return pulumix.Output[GetOrganizationIpAllowListIpAllowList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A single IP address or range of IP addresses in CIDR notation.
@@ -12858,12 +11207,6 @@ func (o GetOrganizationIpAllowListIpAllowListArrayOutput) ToGetOrganizationIpAll
 
 func (o GetOrganizationIpAllowListIpAllowListArrayOutput) ToGetOrganizationIpAllowListIpAllowListArrayOutputWithContext(ctx context.Context) GetOrganizationIpAllowListIpAllowListArrayOutput {
 	return o
-}
-
-func (o GetOrganizationIpAllowListIpAllowListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationIpAllowListIpAllowList] {
-	return pulumix.Output[[]GetOrganizationIpAllowListIpAllowList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrganizationIpAllowListIpAllowListArrayOutput) Index(i pulumi.IntInput) GetOrganizationIpAllowListIpAllowListOutput {
@@ -12913,12 +11256,6 @@ func (i GetOrganizationTeamSyncGroupsGroupArgs) ToGetOrganizationTeamSyncGroupsG
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamSyncGroupsGroupOutput)
 }
 
-func (i GetOrganizationTeamSyncGroupsGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamSyncGroupsGroup] {
-	return pulumix.Output[GetOrganizationTeamSyncGroupsGroup]{
-		OutputState: i.ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOrganizationTeamSyncGroupsGroupArrayInput is an input type that accepts GetOrganizationTeamSyncGroupsGroupArray and GetOrganizationTeamSyncGroupsGroupArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamSyncGroupsGroupArrayInput` via:
 //
@@ -12944,12 +11281,6 @@ func (i GetOrganizationTeamSyncGroupsGroupArray) ToGetOrganizationTeamSyncGroups
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamSyncGroupsGroupArrayOutput)
 }
 
-func (i GetOrganizationTeamSyncGroupsGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationTeamSyncGroupsGroup] {
-	return pulumix.Output[[]GetOrganizationTeamSyncGroupsGroup]{
-		OutputState: i.ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrganizationTeamSyncGroupsGroupOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationTeamSyncGroupsGroupOutput) ElementType() reflect.Type {
@@ -12962,12 +11293,6 @@ func (o GetOrganizationTeamSyncGroupsGroupOutput) ToGetOrganizationTeamSyncGroup
 
 func (o GetOrganizationTeamSyncGroupsGroupOutput) ToGetOrganizationTeamSyncGroupsGroupOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupOutput {
 	return o
-}
-
-func (o GetOrganizationTeamSyncGroupsGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamSyncGroupsGroup] {
-	return pulumix.Output[GetOrganizationTeamSyncGroupsGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the IdP group.
@@ -12997,12 +11322,6 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) ToGetOrganizationTeamSync
 
 func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) ToGetOrganizationTeamSyncGroupsGroupArrayOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsGroupArrayOutput {
 	return o
-}
-
-func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationTeamSyncGroupsGroup] {
-	return pulumix.Output[[]GetOrganizationTeamSyncGroupsGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetOrganizationTeamSyncGroupsGroupOutput {
@@ -13076,12 +11395,6 @@ func (i GetOrganizationTeamsTeamArgs) ToGetOrganizationTeamsTeamOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamsTeamOutput)
 }
 
-func (i GetOrganizationTeamsTeamArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamsTeam] {
-	return pulumix.Output[GetOrganizationTeamsTeam]{
-		OutputState: i.ToGetOrganizationTeamsTeamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOrganizationTeamsTeamArrayInput is an input type that accepts GetOrganizationTeamsTeamArray and GetOrganizationTeamsTeamArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationTeamsTeamArrayInput` via:
 //
@@ -13107,12 +11420,6 @@ func (i GetOrganizationTeamsTeamArray) ToGetOrganizationTeamsTeamArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationTeamsTeamArrayOutput)
 }
 
-func (i GetOrganizationTeamsTeamArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationTeamsTeam] {
-	return pulumix.Output[[]GetOrganizationTeamsTeam]{
-		OutputState: i.ToGetOrganizationTeamsTeamArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrganizationTeamsTeamOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationTeamsTeamOutput) ElementType() reflect.Type {
@@ -13125,12 +11432,6 @@ func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutput() GetOr
 
 func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutputWithContext(ctx context.Context) GetOrganizationTeamsTeamOutput {
 	return o
-}
-
-func (o GetOrganizationTeamsTeamOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamsTeam] {
-	return pulumix.Output[GetOrganizationTeamsTeam]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the team's description.
@@ -13192,12 +11493,6 @@ func (o GetOrganizationTeamsTeamArrayOutput) ToGetOrganizationTeamsTeamArrayOutp
 	return o
 }
 
-func (o GetOrganizationTeamsTeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationTeamsTeam] {
-	return pulumix.Output[[]GetOrganizationTeamsTeam]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetOrganizationTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganizationTeamsTeamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationTeamsTeam {
 		return vs[0].([]GetOrganizationTeamsTeam)[vs[1].(int)]
@@ -13253,12 +11548,6 @@ func (i GetOrganizationWebhooksWebhookArgs) ToGetOrganizationWebhooksWebhookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationWebhooksWebhookOutput)
 }
 
-func (i GetOrganizationWebhooksWebhookArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationWebhooksWebhook] {
-	return pulumix.Output[GetOrganizationWebhooksWebhook]{
-		OutputState: i.ToGetOrganizationWebhooksWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOrganizationWebhooksWebhookArrayInput is an input type that accepts GetOrganizationWebhooksWebhookArray and GetOrganizationWebhooksWebhookArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationWebhooksWebhookArrayInput` via:
 //
@@ -13284,12 +11573,6 @@ func (i GetOrganizationWebhooksWebhookArray) ToGetOrganizationWebhooksWebhookArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationWebhooksWebhookArrayOutput)
 }
 
-func (i GetOrganizationWebhooksWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationWebhooksWebhook] {
-	return pulumix.Output[[]GetOrganizationWebhooksWebhook]{
-		OutputState: i.ToGetOrganizationWebhooksWebhookArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOrganizationWebhooksWebhookOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationWebhooksWebhookOutput) ElementType() reflect.Type {
@@ -13302,12 +11585,6 @@ func (o GetOrganizationWebhooksWebhookOutput) ToGetOrganizationWebhooksWebhookOu
 
 func (o GetOrganizationWebhooksWebhookOutput) ToGetOrganizationWebhooksWebhookOutputWithContext(ctx context.Context) GetOrganizationWebhooksWebhookOutput {
 	return o
-}
-
-func (o GetOrganizationWebhooksWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationWebhooksWebhook] {
-	return pulumix.Output[GetOrganizationWebhooksWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // `true` if the webhook is active.
@@ -13347,12 +11624,6 @@ func (o GetOrganizationWebhooksWebhookArrayOutput) ToGetOrganizationWebhooksWebh
 
 func (o GetOrganizationWebhooksWebhookArrayOutput) ToGetOrganizationWebhooksWebhookArrayOutputWithContext(ctx context.Context) GetOrganizationWebhooksWebhookArrayOutput {
 	return o
-}
-
-func (o GetOrganizationWebhooksWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationWebhooksWebhook] {
-	return pulumix.Output[[]GetOrganizationWebhooksWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOrganizationWebhooksWebhookArrayOutput) Index(i pulumi.IntInput) GetOrganizationWebhooksWebhookOutput {
@@ -13430,12 +11701,6 @@ func (i GetReleaseAssetArgs) ToGetReleaseAssetOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseAssetOutput)
 }
 
-func (i GetReleaseAssetArgs) ToOutput(ctx context.Context) pulumix.Output[GetReleaseAsset] {
-	return pulumix.Output[GetReleaseAsset]{
-		OutputState: i.ToGetReleaseAssetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReleaseAssetArrayInput is an input type that accepts GetReleaseAssetArray and GetReleaseAssetArrayOutput values.
 // You can construct a concrete instance of `GetReleaseAssetArrayInput` via:
 //
@@ -13461,12 +11726,6 @@ func (i GetReleaseAssetArray) ToGetReleaseAssetArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseAssetArrayOutput)
 }
 
-func (i GetReleaseAssetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReleaseAsset] {
-	return pulumix.Output[[]GetReleaseAsset]{
-		OutputState: i.ToGetReleaseAssetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReleaseAssetOutput struct{ *pulumi.OutputState }
 
 func (GetReleaseAssetOutput) ElementType() reflect.Type {
@@ -13479,12 +11738,6 @@ func (o GetReleaseAssetOutput) ToGetReleaseAssetOutput() GetReleaseAssetOutput {
 
 func (o GetReleaseAssetOutput) ToGetReleaseAssetOutputWithContext(ctx context.Context) GetReleaseAssetOutput {
 	return o
-}
-
-func (o GetReleaseAssetOutput) ToOutput(ctx context.Context) pulumix.Output[GetReleaseAsset] {
-	return pulumix.Output[GetReleaseAsset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Browser download URL
@@ -13551,12 +11804,6 @@ func (o GetReleaseAssetArrayOutput) ToGetReleaseAssetArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o GetReleaseAssetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReleaseAsset] {
-	return pulumix.Output[[]GetReleaseAsset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetReleaseAssetArrayOutput) Index(i pulumi.IntInput) GetReleaseAssetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReleaseAsset {
 		return vs[0].([]GetReleaseAsset)[vs[1].(int)]
@@ -13604,12 +11851,6 @@ func (i GetRepositoryAutolinkReferencesAutolinkReferenceArgs) ToGetRepositoryAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryAutolinkReferencesAutolinkReferenceOutput)
 }
 
-func (i GetRepositoryAutolinkReferencesAutolinkReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryAutolinkReferencesAutolinkReference] {
-	return pulumix.Output[GetRepositoryAutolinkReferencesAutolinkReference]{
-		OutputState: i.ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput is an input type that accepts GetRepositoryAutolinkReferencesAutolinkReferenceArray and GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput` via:
 //
@@ -13635,12 +11876,6 @@ func (i GetRepositoryAutolinkReferencesAutolinkReferenceArray) ToGetRepositoryAu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput)
 }
 
-func (i GetRepositoryAutolinkReferencesAutolinkReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryAutolinkReferencesAutolinkReference] {
-	return pulumix.Output[[]GetRepositoryAutolinkReferencesAutolinkReference]{
-		OutputState: i.ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryAutolinkReferencesAutolinkReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ElementType() reflect.Type {
@@ -13653,12 +11888,6 @@ func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ToGetRepositoryA
 
 func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
 	return o
-}
-
-func (o GetRepositoryAutolinkReferencesAutolinkReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryAutolinkReferencesAutolinkReference] {
-	return pulumix.Output[GetRepositoryAutolinkReferencesAutolinkReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 // True if alphanumeric.
@@ -13688,12 +11917,6 @@ func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ToGetReposi
 
 func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ToGetRepositoryAutolinkReferencesAutolinkReferenceArrayOutputWithContext(ctx context.Context) GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput {
 	return o
-}
-
-func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryAutolinkReferencesAutolinkReference] {
-	return pulumix.Output[[]GetRepositoryAutolinkReferencesAutolinkReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput) Index(i pulumi.IntInput) GetRepositoryAutolinkReferencesAutolinkReferenceOutput {
@@ -13739,12 +11962,6 @@ func (i GetRepositoryBranchesBranchArgs) ToGetRepositoryBranchesBranchOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchesBranchOutput)
 }
 
-func (i GetRepositoryBranchesBranchArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryBranchesBranch] {
-	return pulumix.Output[GetRepositoryBranchesBranch]{
-		OutputState: i.ToGetRepositoryBranchesBranchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryBranchesBranchArrayInput is an input type that accepts GetRepositoryBranchesBranchArray and GetRepositoryBranchesBranchArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryBranchesBranchArrayInput` via:
 //
@@ -13770,12 +11987,6 @@ func (i GetRepositoryBranchesBranchArray) ToGetRepositoryBranchesBranchArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryBranchesBranchArrayOutput)
 }
 
-func (i GetRepositoryBranchesBranchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryBranchesBranch] {
-	return pulumix.Output[[]GetRepositoryBranchesBranch]{
-		OutputState: i.ToGetRepositoryBranchesBranchArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryBranchesBranchOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryBranchesBranchOutput) ElementType() reflect.Type {
@@ -13788,12 +11999,6 @@ func (o GetRepositoryBranchesBranchOutput) ToGetRepositoryBranchesBranchOutput()
 
 func (o GetRepositoryBranchesBranchOutput) ToGetRepositoryBranchesBranchOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchOutput {
 	return o
-}
-
-func (o GetRepositoryBranchesBranchOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryBranchesBranch] {
-	return pulumix.Output[GetRepositoryBranchesBranch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the branch.
@@ -13818,12 +12023,6 @@ func (o GetRepositoryBranchesBranchArrayOutput) ToGetRepositoryBranchesBranchArr
 
 func (o GetRepositoryBranchesBranchArrayOutput) ToGetRepositoryBranchesBranchArrayOutputWithContext(ctx context.Context) GetRepositoryBranchesBranchArrayOutput {
 	return o
-}
-
-func (o GetRepositoryBranchesBranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryBranchesBranch] {
-	return pulumix.Output[[]GetRepositoryBranchesBranch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryBranchesBranchArrayOutput) Index(i pulumi.IntInput) GetRepositoryBranchesBranchOutput {
@@ -13877,12 +12076,6 @@ func (i GetRepositoryDeployKeysKeyArgs) ToGetRepositoryDeployKeysKeyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeployKeysKeyOutput)
 }
 
-func (i GetRepositoryDeployKeysKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeployKeysKey] {
-	return pulumix.Output[GetRepositoryDeployKeysKey]{
-		OutputState: i.ToGetRepositoryDeployKeysKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryDeployKeysKeyArrayInput is an input type that accepts GetRepositoryDeployKeysKeyArray and GetRepositoryDeployKeysKeyArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryDeployKeysKeyArrayInput` via:
 //
@@ -13908,12 +12101,6 @@ func (i GetRepositoryDeployKeysKeyArray) ToGetRepositoryDeployKeysKeyArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeployKeysKeyArrayOutput)
 }
 
-func (i GetRepositoryDeployKeysKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryDeployKeysKey] {
-	return pulumix.Output[[]GetRepositoryDeployKeysKey]{
-		OutputState: i.ToGetRepositoryDeployKeysKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryDeployKeysKeyOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryDeployKeysKeyOutput) ElementType() reflect.Type {
@@ -13926,12 +12113,6 @@ func (o GetRepositoryDeployKeysKeyOutput) ToGetRepositoryDeployKeysKeyOutput() G
 
 func (o GetRepositoryDeployKeysKeyOutput) ToGetRepositoryDeployKeysKeyOutputWithContext(ctx context.Context) GetRepositoryDeployKeysKeyOutput {
 	return o
-}
-
-func (o GetRepositoryDeployKeysKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeployKeysKey] {
-	return pulumix.Output[GetRepositoryDeployKeysKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key id
@@ -13966,12 +12147,6 @@ func (o GetRepositoryDeployKeysKeyArrayOutput) ToGetRepositoryDeployKeysKeyArray
 
 func (o GetRepositoryDeployKeysKeyArrayOutput) ToGetRepositoryDeployKeysKeyArrayOutputWithContext(ctx context.Context) GetRepositoryDeployKeysKeyArrayOutput {
 	return o
-}
-
-func (o GetRepositoryDeployKeysKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryDeployKeysKey] {
-	return pulumix.Output[[]GetRepositoryDeployKeysKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryDeployKeysKeyArrayOutput) Index(i pulumi.IntInput) GetRepositoryDeployKeysKeyOutput {
@@ -14017,12 +12192,6 @@ func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs) ToGetRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput)
 }
 
-func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy] {
-	return pulumix.Output[GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy]{
-		OutputState: i.ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput is an input type that accepts GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray and GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput` via:
 //
@@ -14048,12 +12217,6 @@ func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray) ToGetR
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput)
 }
 
-func (i GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy] {
-	return pulumix.Output[[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy]{
-		OutputState: i.ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ElementType() reflect.Type {
@@ -14066,12 +12229,6 @@ func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ToGet
 
 func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
 	return o
-}
-
-func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy] {
-	return pulumix.Output[GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of the policy.
@@ -14096,12 +12253,6 @@ func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) 
 
 func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) ToGetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput {
 	return o
-}
-
-func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy] {
-	return pulumix.Output[[]GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) Index(i pulumi.IntInput) GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput {
@@ -14147,12 +12298,6 @@ func (i GetRepositoryEnvironmentsEnvironmentArgs) ToGetRepositoryEnvironmentsEnv
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentsEnvironmentOutput)
 }
 
-func (i GetRepositoryEnvironmentsEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEnvironmentsEnvironment] {
-	return pulumix.Output[GetRepositoryEnvironmentsEnvironment]{
-		OutputState: i.ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryEnvironmentsEnvironmentArrayInput is an input type that accepts GetRepositoryEnvironmentsEnvironmentArray and GetRepositoryEnvironmentsEnvironmentArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryEnvironmentsEnvironmentArrayInput` via:
 //
@@ -14178,12 +12323,6 @@ func (i GetRepositoryEnvironmentsEnvironmentArray) ToGetRepositoryEnvironmentsEn
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentsEnvironmentArrayOutput)
 }
 
-func (i GetRepositoryEnvironmentsEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryEnvironmentsEnvironment] {
-	return pulumix.Output[[]GetRepositoryEnvironmentsEnvironment]{
-		OutputState: i.ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryEnvironmentsEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryEnvironmentsEnvironmentOutput) ElementType() reflect.Type {
@@ -14196,12 +12335,6 @@ func (o GetRepositoryEnvironmentsEnvironmentOutput) ToGetRepositoryEnvironmentsE
 
 func (o GetRepositoryEnvironmentsEnvironmentOutput) ToGetRepositoryEnvironmentsEnvironmentOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentOutput {
 	return o
-}
-
-func (o GetRepositoryEnvironmentsEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEnvironmentsEnvironment] {
-	return pulumix.Output[GetRepositoryEnvironmentsEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Environment name.
@@ -14226,12 +12359,6 @@ func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) ToGetRepositoryEnvironm
 
 func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) ToGetRepositoryEnvironmentsEnvironmentArrayOutputWithContext(ctx context.Context) GetRepositoryEnvironmentsEnvironmentArrayOutput {
 	return o
-}
-
-func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryEnvironmentsEnvironment] {
-	return pulumix.Output[[]GetRepositoryEnvironmentsEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryEnvironmentsEnvironmentArrayOutput) Index(i pulumi.IntInput) GetRepositoryEnvironmentsEnvironmentOutput {
@@ -14285,12 +12412,6 @@ func (i GetRepositoryPageArgs) ToGetRepositoryPageOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageOutput)
 }
 
-func (i GetRepositoryPageArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPage] {
-	return pulumix.Output[GetRepositoryPage]{
-		OutputState: i.ToGetRepositoryPageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryPageArrayInput is an input type that accepts GetRepositoryPageArray and GetRepositoryPageArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageArrayInput` via:
 //
@@ -14316,12 +12437,6 @@ func (i GetRepositoryPageArray) ToGetRepositoryPageArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageArrayOutput)
 }
 
-func (i GetRepositoryPageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPage] {
-	return pulumix.Output[[]GetRepositoryPage]{
-		OutputState: i.ToGetRepositoryPageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryPageOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryPageOutput) ElementType() reflect.Type {
@@ -14334,12 +12449,6 @@ func (o GetRepositoryPageOutput) ToGetRepositoryPageOutput() GetRepositoryPageOu
 
 func (o GetRepositoryPageOutput) ToGetRepositoryPageOutputWithContext(ctx context.Context) GetRepositoryPageOutput {
 	return o
-}
-
-func (o GetRepositoryPageOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPage] {
-	return pulumix.Output[GetRepositoryPage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryPageOutput) BuildType() pulumi.StringOutput {
@@ -14385,12 +12494,6 @@ func (o GetRepositoryPageArrayOutput) ToGetRepositoryPageArrayOutputWithContext(
 	return o
 }
 
-func (o GetRepositoryPageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPage] {
-	return pulumix.Output[[]GetRepositoryPage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetRepositoryPageArrayOutput) Index(i pulumi.IntInput) GetRepositoryPageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPage {
 		return vs[0].([]GetRepositoryPage)[vs[1].(int)]
@@ -14430,12 +12533,6 @@ func (i GetRepositoryPageSourceArgs) ToGetRepositoryPageSourceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageSourceOutput)
 }
 
-func (i GetRepositoryPageSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPageSource] {
-	return pulumix.Output[GetRepositoryPageSource]{
-		OutputState: i.ToGetRepositoryPageSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryPageSourceArrayInput is an input type that accepts GetRepositoryPageSourceArray and GetRepositoryPageSourceArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPageSourceArrayInput` via:
 //
@@ -14461,12 +12558,6 @@ func (i GetRepositoryPageSourceArray) ToGetRepositoryPageSourceArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPageSourceArrayOutput)
 }
 
-func (i GetRepositoryPageSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPageSource] {
-	return pulumix.Output[[]GetRepositoryPageSource]{
-		OutputState: i.ToGetRepositoryPageSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryPageSourceOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryPageSourceOutput) ElementType() reflect.Type {
@@ -14479,12 +12570,6 @@ func (o GetRepositoryPageSourceOutput) ToGetRepositoryPageSourceOutput() GetRepo
 
 func (o GetRepositoryPageSourceOutput) ToGetRepositoryPageSourceOutputWithContext(ctx context.Context) GetRepositoryPageSourceOutput {
 	return o
-}
-
-func (o GetRepositoryPageSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPageSource] {
-	return pulumix.Output[GetRepositoryPageSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryPageSourceOutput) Branch() pulumi.StringOutput {
@@ -14507,12 +12592,6 @@ func (o GetRepositoryPageSourceArrayOutput) ToGetRepositoryPageSourceArrayOutput
 
 func (o GetRepositoryPageSourceArrayOutput) ToGetRepositoryPageSourceArrayOutputWithContext(ctx context.Context) GetRepositoryPageSourceArrayOutput {
 	return o
-}
-
-func (o GetRepositoryPageSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPageSource] {
-	return pulumix.Output[[]GetRepositoryPageSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetRepositoryPageSourceOutput {
@@ -14614,12 +12693,6 @@ func (i GetRepositoryPullRequestsResultArgs) ToGetRepositoryPullRequestsResultOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultOutput)
 }
 
-func (i GetRepositoryPullRequestsResultArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPullRequestsResult] {
-	return pulumix.Output[GetRepositoryPullRequestsResult]{
-		OutputState: i.ToGetRepositoryPullRequestsResultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryPullRequestsResultArrayInput is an input type that accepts GetRepositoryPullRequestsResultArray and GetRepositoryPullRequestsResultArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryPullRequestsResultArrayInput` via:
 //
@@ -14645,12 +12718,6 @@ func (i GetRepositoryPullRequestsResultArray) ToGetRepositoryPullRequestsResultA
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPullRequestsResultArrayOutput)
 }
 
-func (i GetRepositoryPullRequestsResultArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPullRequestsResult] {
-	return pulumix.Output[[]GetRepositoryPullRequestsResult]{
-		OutputState: i.ToGetRepositoryPullRequestsResultArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryPullRequestsResultOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryPullRequestsResultOutput) ElementType() reflect.Type {
@@ -14663,12 +12730,6 @@ func (o GetRepositoryPullRequestsResultOutput) ToGetRepositoryPullRequestsResult
 
 func (o GetRepositoryPullRequestsResultOutput) ToGetRepositoryPullRequestsResultOutputWithContext(ctx context.Context) GetRepositoryPullRequestsResultOutput {
 	return o
-}
-
-func (o GetRepositoryPullRequestsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryPullRequestsResult] {
-	return pulumix.Output[GetRepositoryPullRequestsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If set, filters Pull Requests by base branch name.
@@ -14765,12 +12826,6 @@ func (o GetRepositoryPullRequestsResultArrayOutput) ToGetRepositoryPullRequestsR
 	return o
 }
 
-func (o GetRepositoryPullRequestsResultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryPullRequestsResult] {
-	return pulumix.Output[[]GetRepositoryPullRequestsResult]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetRepositoryPullRequestsResultArrayOutput) Index(i pulumi.IntInput) GetRepositoryPullRequestsResultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPullRequestsResult {
 		return vs[0].([]GetRepositoryPullRequestsResult)[vs[1].(int)]
@@ -14818,12 +12873,6 @@ func (i GetRepositoryTeamsTeamArgs) ToGetRepositoryTeamsTeamOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTeamsTeamOutput)
 }
 
-func (i GetRepositoryTeamsTeamArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryTeamsTeam] {
-	return pulumix.Output[GetRepositoryTeamsTeam]{
-		OutputState: i.ToGetRepositoryTeamsTeamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryTeamsTeamArrayInput is an input type that accepts GetRepositoryTeamsTeamArray and GetRepositoryTeamsTeamArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryTeamsTeamArrayInput` via:
 //
@@ -14849,12 +12898,6 @@ func (i GetRepositoryTeamsTeamArray) ToGetRepositoryTeamsTeamArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTeamsTeamArrayOutput)
 }
 
-func (i GetRepositoryTeamsTeamArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryTeamsTeam] {
-	return pulumix.Output[[]GetRepositoryTeamsTeam]{
-		OutputState: i.ToGetRepositoryTeamsTeamArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryTeamsTeamOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryTeamsTeamOutput) ElementType() reflect.Type {
@@ -14867,12 +12910,6 @@ func (o GetRepositoryTeamsTeamOutput) ToGetRepositoryTeamsTeamOutput() GetReposi
 
 func (o GetRepositoryTeamsTeamOutput) ToGetRepositoryTeamsTeamOutputWithContext(ctx context.Context) GetRepositoryTeamsTeamOutput {
 	return o
-}
-
-func (o GetRepositoryTeamsTeamOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryTeamsTeam] {
-	return pulumix.Output[GetRepositoryTeamsTeam]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the repository.
@@ -14902,12 +12939,6 @@ func (o GetRepositoryTeamsTeamArrayOutput) ToGetRepositoryTeamsTeamArrayOutput()
 
 func (o GetRepositoryTeamsTeamArrayOutput) ToGetRepositoryTeamsTeamArrayOutputWithContext(ctx context.Context) GetRepositoryTeamsTeamArrayOutput {
 	return o
-}
-
-func (o GetRepositoryTeamsTeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryTeamsTeam] {
-	return pulumix.Output[[]GetRepositoryTeamsTeam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetRepositoryTeamsTeamOutput {
@@ -14949,12 +12980,6 @@ func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTemplateOutput)
 }
 
-func (i GetRepositoryTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryTemplate] {
-	return pulumix.Output[GetRepositoryTemplate]{
-		OutputState: i.ToGetRepositoryTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryTemplateOutput) ElementType() reflect.Type {
@@ -14967,12 +12992,6 @@ func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutput() GetReposito
 
 func (o GetRepositoryTemplateOutput) ToGetRepositoryTemplateOutputWithContext(ctx context.Context) GetRepositoryTemplateOutput {
 	return o
-}
-
-func (o GetRepositoryTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryTemplate] {
-	return pulumix.Output[GetRepositoryTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryTemplateOutput) Owner() pulumi.StringOutput {
@@ -15032,12 +13051,6 @@ func (i GetRepositoryWebhooksWebhookArgs) ToGetRepositoryWebhooksWebhookOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryWebhooksWebhookOutput)
 }
 
-func (i GetRepositoryWebhooksWebhookArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryWebhooksWebhook] {
-	return pulumix.Output[GetRepositoryWebhooksWebhook]{
-		OutputState: i.ToGetRepositoryWebhooksWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryWebhooksWebhookArrayInput is an input type that accepts GetRepositoryWebhooksWebhookArray and GetRepositoryWebhooksWebhookArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryWebhooksWebhookArrayInput` via:
 //
@@ -15063,12 +13076,6 @@ func (i GetRepositoryWebhooksWebhookArray) ToGetRepositoryWebhooksWebhookArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryWebhooksWebhookArrayOutput)
 }
 
-func (i GetRepositoryWebhooksWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryWebhooksWebhook] {
-	return pulumix.Output[[]GetRepositoryWebhooksWebhook]{
-		OutputState: i.ToGetRepositoryWebhooksWebhookArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryWebhooksWebhookOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryWebhooksWebhookOutput) ElementType() reflect.Type {
@@ -15081,12 +13088,6 @@ func (o GetRepositoryWebhooksWebhookOutput) ToGetRepositoryWebhooksWebhookOutput
 
 func (o GetRepositoryWebhooksWebhookOutput) ToGetRepositoryWebhooksWebhookOutputWithContext(ctx context.Context) GetRepositoryWebhooksWebhookOutput {
 	return o
-}
-
-func (o GetRepositoryWebhooksWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryWebhooksWebhook] {
-	return pulumix.Output[GetRepositoryWebhooksWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // `true` if the webhook is active.
@@ -15128,12 +13129,6 @@ func (o GetRepositoryWebhooksWebhookArrayOutput) ToGetRepositoryWebhooksWebhookA
 	return o
 }
 
-func (o GetRepositoryWebhooksWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryWebhooksWebhook] {
-	return pulumix.Output[[]GetRepositoryWebhooksWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetRepositoryWebhooksWebhookArrayOutput) Index(i pulumi.IntInput) GetRepositoryWebhooksWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryWebhooksWebhook {
 		return vs[0].([]GetRepositoryWebhooksWebhook)[vs[1].(int)]
@@ -15173,12 +13168,6 @@ func (i GetTeamRepositoriesDetailedArgs) ToGetTeamRepositoriesDetailedOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTeamRepositoriesDetailedOutput)
 }
 
-func (i GetTeamRepositoriesDetailedArgs) ToOutput(ctx context.Context) pulumix.Output[GetTeamRepositoriesDetailed] {
-	return pulumix.Output[GetTeamRepositoriesDetailed]{
-		OutputState: i.ToGetTeamRepositoriesDetailedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTeamRepositoriesDetailedArrayInput is an input type that accepts GetTeamRepositoriesDetailedArray and GetTeamRepositoriesDetailedArrayOutput values.
 // You can construct a concrete instance of `GetTeamRepositoriesDetailedArrayInput` via:
 //
@@ -15204,12 +13193,6 @@ func (i GetTeamRepositoriesDetailedArray) ToGetTeamRepositoriesDetailedArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTeamRepositoriesDetailedArrayOutput)
 }
 
-func (i GetTeamRepositoriesDetailedArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTeamRepositoriesDetailed] {
-	return pulumix.Output[[]GetTeamRepositoriesDetailed]{
-		OutputState: i.ToGetTeamRepositoriesDetailedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTeamRepositoriesDetailedOutput struct{ *pulumi.OutputState }
 
 func (GetTeamRepositoriesDetailedOutput) ElementType() reflect.Type {
@@ -15222,12 +13205,6 @@ func (o GetTeamRepositoriesDetailedOutput) ToGetTeamRepositoriesDetailedOutput()
 
 func (o GetTeamRepositoriesDetailedOutput) ToGetTeamRepositoriesDetailedOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedOutput {
 	return o
-}
-
-func (o GetTeamRepositoriesDetailedOutput) ToOutput(ctx context.Context) pulumix.Output[GetTeamRepositoriesDetailed] {
-	return pulumix.Output[GetTeamRepositoriesDetailed]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTeamRepositoriesDetailedOutput) RepoId() pulumi.IntOutput {
@@ -15250,12 +13227,6 @@ func (o GetTeamRepositoriesDetailedArrayOutput) ToGetTeamRepositoriesDetailedArr
 
 func (o GetTeamRepositoriesDetailedArrayOutput) ToGetTeamRepositoriesDetailedArrayOutputWithContext(ctx context.Context) GetTeamRepositoriesDetailedArrayOutput {
 	return o
-}
-
-func (o GetTeamRepositoriesDetailedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTeamRepositoriesDetailed] {
-	return pulumix.Output[[]GetTeamRepositoriesDetailed]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTeamRepositoriesDetailedArrayOutput) Index(i pulumi.IntInput) GetTeamRepositoriesDetailedOutput {
@@ -15303,12 +13274,6 @@ func (i GetTreeEntryArgs) ToGetTreeEntryOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetTreeEntryOutput)
 }
 
-func (i GetTreeEntryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTreeEntry] {
-	return pulumix.Output[GetTreeEntry]{
-		OutputState: i.ToGetTreeEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTreeEntryArrayInput is an input type that accepts GetTreeEntryArray and GetTreeEntryArrayOutput values.
 // You can construct a concrete instance of `GetTreeEntryArrayInput` via:
 //
@@ -15334,12 +13299,6 @@ func (i GetTreeEntryArray) ToGetTreeEntryArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTreeEntryArrayOutput)
 }
 
-func (i GetTreeEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTreeEntry] {
-	return pulumix.Output[[]GetTreeEntry]{
-		OutputState: i.ToGetTreeEntryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTreeEntryOutput struct{ *pulumi.OutputState }
 
 func (GetTreeEntryOutput) ElementType() reflect.Type {
@@ -15352,12 +13311,6 @@ func (o GetTreeEntryOutput) ToGetTreeEntryOutput() GetTreeEntryOutput {
 
 func (o GetTreeEntryOutput) ToGetTreeEntryOutputWithContext(ctx context.Context) GetTreeEntryOutput {
 	return o
-}
-
-func (o GetTreeEntryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTreeEntry] {
-	return pulumix.Output[GetTreeEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTreeEntryOutput) Mode() pulumi.StringOutput {
@@ -15392,12 +13345,6 @@ func (o GetTreeEntryArrayOutput) ToGetTreeEntryArrayOutput() GetTreeEntryArrayOu
 
 func (o GetTreeEntryArrayOutput) ToGetTreeEntryArrayOutputWithContext(ctx context.Context) GetTreeEntryArrayOutput {
 	return o
-}
-
-func (o GetTreeEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTreeEntry] {
-	return pulumix.Output[[]GetTreeEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTreeEntryArrayOutput) Index(i pulumi.IntInput) GetTreeEntryOutput {

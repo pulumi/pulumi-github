@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of codespaces secrets of the user.
@@ -79,12 +78,6 @@ func (o GetCodespacesUserSecretsResultOutput) ToGetCodespacesUserSecretsResultOu
 
 func (o GetCodespacesUserSecretsResultOutput) ToGetCodespacesUserSecretsResultOutputWithContext(ctx context.Context) GetCodespacesUserSecretsResultOutput {
 	return o
-}
-
-func (o GetCodespacesUserSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodespacesUserSecretsResult] {
-	return pulumix.Output[GetCodespacesUserSecretsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

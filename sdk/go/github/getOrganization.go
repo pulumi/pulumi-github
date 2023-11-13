@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve basic information about a GitHub Organization.
@@ -153,12 +152,6 @@ func (o GetOrganizationResultOutput) ToGetOrganizationResultOutput() GetOrganiza
 
 func (o GetOrganizationResultOutput) ToGetOrganizationResultOutputWithContext(ctx context.Context) GetOrganizationResultOutput {
 	return o
-}
-
-func (o GetOrganizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationResult] {
-	return pulumix.Output[GetOrganizationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether advanced security is enabled for new repositories.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
@@ -254,12 +253,6 @@ func (i *RepositoryPullRequest) ToRepositoryPullRequestOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestOutput)
 }
 
-func (i *RepositoryPullRequest) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPullRequest] {
-	return pulumix.Output[*RepositoryPullRequest]{
-		OutputState: i.ToRepositoryPullRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryPullRequestArrayInput is an input type that accepts RepositoryPullRequestArray and RepositoryPullRequestArrayOutput values.
 // You can construct a concrete instance of `RepositoryPullRequestArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i RepositoryPullRequestArray) ToRepositoryPullRequestArrayOutput() Reposit
 
 func (i RepositoryPullRequestArray) ToRepositoryPullRequestArrayOutputWithContext(ctx context.Context) RepositoryPullRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestArrayOutput)
-}
-
-func (i RepositoryPullRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPullRequest] {
-	return pulumix.Output[[]*RepositoryPullRequest]{
-		OutputState: i.ToRepositoryPullRequestArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryPullRequestMapInput is an input type that accepts RepositoryPullRequestMap and RepositoryPullRequestMapOutput values.
@@ -316,12 +303,6 @@ func (i RepositoryPullRequestMap) ToRepositoryPullRequestMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPullRequestMapOutput)
 }
 
-func (i RepositoryPullRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPullRequest] {
-	return pulumix.Output[map[string]*RepositoryPullRequest]{
-		OutputState: i.ToRepositoryPullRequestMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPullRequestOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPullRequestOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o RepositoryPullRequestOutput) ToRepositoryPullRequestOutput() RepositoryP
 
 func (o RepositoryPullRequestOutput) ToRepositoryPullRequestOutputWithContext(ctx context.Context) RepositoryPullRequestOutput {
 	return o
-}
-
-func (o RepositoryPullRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPullRequest] {
-	return pulumix.Output[*RepositoryPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the branch serving as the base of the Pull Request.
@@ -436,12 +411,6 @@ func (o RepositoryPullRequestArrayOutput) ToRepositoryPullRequestArrayOutputWith
 	return o
 }
 
-func (o RepositoryPullRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPullRequest] {
-	return pulumix.Output[[]*RepositoryPullRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryPullRequestArrayOutput) Index(i pulumi.IntInput) RepositoryPullRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPullRequest {
 		return vs[0].([]*RepositoryPullRequest)[vs[1].(int)]
@@ -460,12 +429,6 @@ func (o RepositoryPullRequestMapOutput) ToRepositoryPullRequestMapOutput() Repos
 
 func (o RepositoryPullRequestMapOutput) ToRepositoryPullRequestMapOutputWithContext(ctx context.Context) RepositoryPullRequestMapOutput {
 	return o
-}
-
-func (o RepositoryPullRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPullRequest] {
-	return pulumix.Output[map[string]*RepositoryPullRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPullRequestMapOutput) MapIndex(k pulumi.StringInput) RepositoryPullRequestOutput {

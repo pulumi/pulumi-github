@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about the IP allow list of an organization.
@@ -82,12 +81,6 @@ func (o GetOrganizationIpAllowListResultOutput) ToGetOrganizationIpAllowListResu
 
 func (o GetOrganizationIpAllowListResultOutput) ToGetOrganizationIpAllowListResultOutputWithContext(ctx context.Context) GetOrganizationIpAllowListResultOutput {
 	return o
-}
-
-func (o GetOrganizationIpAllowListResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationIpAllowListResult] {
-	return pulumix.Output[GetOrganizationIpAllowListResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

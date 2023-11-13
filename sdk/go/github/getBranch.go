@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a repository branch.
@@ -110,12 +109,6 @@ func (o LookupBranchResultOutput) ToLookupBranchResultOutput() LookupBranchResul
 
 func (o LookupBranchResultOutput) ToLookupBranchResultOutputWithContext(ctx context.Context) LookupBranchResultOutput {
 	return o
-}
-
-func (o LookupBranchResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBranchResult] {
-	return pulumix.Output[LookupBranchResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBranchResultOutput) Branch() pulumi.StringOutput {

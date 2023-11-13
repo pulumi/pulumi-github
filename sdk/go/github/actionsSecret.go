@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -209,12 +208,6 @@ func (i *ActionsSecret) ToActionsSecretOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretOutput)
 }
 
-func (i *ActionsSecret) ToOutput(ctx context.Context) pulumix.Output[*ActionsSecret] {
-	return pulumix.Output[*ActionsSecret]{
-		OutputState: i.ToActionsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsSecretArrayInput is an input type that accepts ActionsSecretArray and ActionsSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsSecretArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i ActionsSecretArray) ToActionsSecretArrayOutput() ActionsSecretArrayOutpu
 
 func (i ActionsSecretArray) ToActionsSecretArrayOutputWithContext(ctx context.Context) ActionsSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretArrayOutput)
-}
-
-func (i ActionsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsSecret] {
-	return pulumix.Output[[]*ActionsSecret]{
-		OutputState: i.ToActionsSecretArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsSecretMapInput is an input type that accepts ActionsSecretMap and ActionsSecretMapOutput values.
@@ -271,12 +258,6 @@ func (i ActionsSecretMap) ToActionsSecretMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsSecretMapOutput)
 }
 
-func (i ActionsSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsSecret] {
-	return pulumix.Output[map[string]*ActionsSecret]{
-		OutputState: i.ToActionsSecretMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsSecretOutput struct{ *pulumi.OutputState }
 
 func (ActionsSecretOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o ActionsSecretOutput) ToActionsSecretOutput() ActionsSecretOutput {
 
 func (o ActionsSecretOutput) ToActionsSecretOutputWithContext(ctx context.Context) ActionsSecretOutput {
 	return o
-}
-
-func (o ActionsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsSecret] {
-	return pulumix.Output[*ActionsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date of actionsSecret creation.
@@ -341,12 +316,6 @@ func (o ActionsSecretArrayOutput) ToActionsSecretArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ActionsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsSecret] {
-	return pulumix.Output[[]*ActionsSecret]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsSecretArrayOutput) Index(i pulumi.IntInput) ActionsSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsSecret {
 		return vs[0].([]*ActionsSecret)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o ActionsSecretMapOutput) ToActionsSecretMapOutput() ActionsSecretMapOutpu
 
 func (o ActionsSecretMapOutput) ToActionsSecretMapOutputWithContext(ctx context.Context) ActionsSecretMapOutput {
 	return o
-}
-
-func (o ActionsSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsSecret] {
-	return pulumix.Output[map[string]*ActionsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsSecretOutput {

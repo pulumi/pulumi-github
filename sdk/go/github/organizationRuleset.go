@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a GitHub organization ruleset.
@@ -187,12 +186,6 @@ func (i *OrganizationRuleset) ToOrganizationRulesetOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetOutput)
 }
 
-func (i *OrganizationRuleset) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRuleset] {
-	return pulumix.Output[*OrganizationRuleset]{
-		OutputState: i.ToOrganizationRulesetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationRulesetArrayInput is an input type that accepts OrganizationRulesetArray and OrganizationRulesetArrayOutput values.
 // You can construct a concrete instance of `OrganizationRulesetArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i OrganizationRulesetArray) ToOrganizationRulesetArrayOutput() Organizatio
 
 func (i OrganizationRulesetArray) ToOrganizationRulesetArrayOutputWithContext(ctx context.Context) OrganizationRulesetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetArrayOutput)
-}
-
-func (i OrganizationRulesetArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationRuleset] {
-	return pulumix.Output[[]*OrganizationRuleset]{
-		OutputState: i.ToOrganizationRulesetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationRulesetMapInput is an input type that accepts OrganizationRulesetMap and OrganizationRulesetMapOutput values.
@@ -249,12 +236,6 @@ func (i OrganizationRulesetMap) ToOrganizationRulesetMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetMapOutput)
 }
 
-func (i OrganizationRulesetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationRuleset] {
-	return pulumix.Output[map[string]*OrganizationRuleset]{
-		OutputState: i.ToOrganizationRulesetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationRulesetOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o OrganizationRulesetOutput) ToOrganizationRulesetOutput() OrganizationRul
 
 func (o OrganizationRulesetOutput) ToOrganizationRulesetOutputWithContext(ctx context.Context) OrganizationRulesetOutput {
 	return o
-}
-
-func (o OrganizationRulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRuleset] {
-	return pulumix.Output[*OrganizationRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
@@ -334,12 +309,6 @@ func (o OrganizationRulesetArrayOutput) ToOrganizationRulesetArrayOutputWithCont
 	return o
 }
 
-func (o OrganizationRulesetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationRuleset] {
-	return pulumix.Output[[]*OrganizationRuleset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationRulesetArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationRuleset {
 		return vs[0].([]*OrganizationRuleset)[vs[1].(int)]
@@ -358,12 +327,6 @@ func (o OrganizationRulesetMapOutput) ToOrganizationRulesetMapOutput() Organizat
 
 func (o OrganizationRulesetMapOutput) ToOrganizationRulesetMapOutputWithContext(ctx context.Context) OrganizationRulesetMapOutput {
 	return o
-}
-
-func (o OrganizationRulesetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationRuleset] {
-	return pulumix.Output[map[string]*OrganizationRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationRulesetMapOutput) MapIndex(k pulumi.StringInput) OrganizationRulesetOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage GitHub Actions runner groups within your GitHub enterprise organizations.
@@ -225,12 +224,6 @@ func (i *ActionsRunnerGroup) ToActionsRunnerGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupOutput)
 }
 
-func (i *ActionsRunnerGroup) ToOutput(ctx context.Context) pulumix.Output[*ActionsRunnerGroup] {
-	return pulumix.Output[*ActionsRunnerGroup]{
-		OutputState: i.ToActionsRunnerGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsRunnerGroupArrayInput is an input type that accepts ActionsRunnerGroupArray and ActionsRunnerGroupArrayOutput values.
 // You can construct a concrete instance of `ActionsRunnerGroupArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i ActionsRunnerGroupArray) ToActionsRunnerGroupArrayOutput() ActionsRunner
 
 func (i ActionsRunnerGroupArray) ToActionsRunnerGroupArrayOutputWithContext(ctx context.Context) ActionsRunnerGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupArrayOutput)
-}
-
-func (i ActionsRunnerGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRunnerGroup] {
-	return pulumix.Output[[]*ActionsRunnerGroup]{
-		OutputState: i.ToActionsRunnerGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsRunnerGroupMapInput is an input type that accepts ActionsRunnerGroupMap and ActionsRunnerGroupMapOutput values.
@@ -287,12 +274,6 @@ func (i ActionsRunnerGroupMap) ToActionsRunnerGroupMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsRunnerGroupMapOutput)
 }
 
-func (i ActionsRunnerGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRunnerGroup] {
-	return pulumix.Output[map[string]*ActionsRunnerGroup]{
-		OutputState: i.ToActionsRunnerGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsRunnerGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionsRunnerGroupOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutput() ActionsRunnerGrou
 
 func (o ActionsRunnerGroupOutput) ToActionsRunnerGroupOutputWithContext(ctx context.Context) ActionsRunnerGroupOutput {
 	return o
-}
-
-func (o ActionsRunnerGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsRunnerGroup] {
-	return pulumix.Output[*ActionsRunnerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether public repositories can be added to the runner group. Defaults to false.
@@ -382,12 +357,6 @@ func (o ActionsRunnerGroupArrayOutput) ToActionsRunnerGroupArrayOutputWithContex
 	return o
 }
 
-func (o ActionsRunnerGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsRunnerGroup] {
-	return pulumix.Output[[]*ActionsRunnerGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsRunnerGroupArrayOutput) Index(i pulumi.IntInput) ActionsRunnerGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsRunnerGroup {
 		return vs[0].([]*ActionsRunnerGroup)[vs[1].(int)]
@@ -406,12 +375,6 @@ func (o ActionsRunnerGroupMapOutput) ToActionsRunnerGroupMapOutput() ActionsRunn
 
 func (o ActionsRunnerGroupMapOutput) ToActionsRunnerGroupMapOutputWithContext(ctx context.Context) ActionsRunnerGroupMapOutput {
 	return o
-}
-
-func (o ActionsRunnerGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsRunnerGroup] {
-	return pulumix.Output[map[string]*ActionsRunnerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsRunnerGroupMapOutput) MapIndex(k pulumi.StringInput) ActionsRunnerGroupOutput {

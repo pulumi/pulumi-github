@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage Identity Provider (IdP) group connections within your GitHub teams.
@@ -143,12 +142,6 @@ func (i *TeamSyncGroupMapping) ToTeamSyncGroupMappingOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingOutput)
 }
 
-func (i *TeamSyncGroupMapping) ToOutput(ctx context.Context) pulumix.Output[*TeamSyncGroupMapping] {
-	return pulumix.Output[*TeamSyncGroupMapping]{
-		OutputState: i.ToTeamSyncGroupMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamSyncGroupMappingArrayInput is an input type that accepts TeamSyncGroupMappingArray and TeamSyncGroupMappingArrayOutput values.
 // You can construct a concrete instance of `TeamSyncGroupMappingArrayInput` via:
 //
@@ -172,12 +165,6 @@ func (i TeamSyncGroupMappingArray) ToTeamSyncGroupMappingArrayOutput() TeamSyncG
 
 func (i TeamSyncGroupMappingArray) ToTeamSyncGroupMappingArrayOutputWithContext(ctx context.Context) TeamSyncGroupMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingArrayOutput)
-}
-
-func (i TeamSyncGroupMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamSyncGroupMapping] {
-	return pulumix.Output[[]*TeamSyncGroupMapping]{
-		OutputState: i.ToTeamSyncGroupMappingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamSyncGroupMappingMapInput is an input type that accepts TeamSyncGroupMappingMap and TeamSyncGroupMappingMapOutput values.
@@ -205,12 +192,6 @@ func (i TeamSyncGroupMappingMap) ToTeamSyncGroupMappingMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSyncGroupMappingMapOutput)
 }
 
-func (i TeamSyncGroupMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamSyncGroupMapping] {
-	return pulumix.Output[map[string]*TeamSyncGroupMapping]{
-		OutputState: i.ToTeamSyncGroupMappingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamSyncGroupMappingOutput struct{ *pulumi.OutputState }
 
 func (TeamSyncGroupMappingOutput) ElementType() reflect.Type {
@@ -223,12 +204,6 @@ func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutput() TeamSyncGroup
 
 func (o TeamSyncGroupMappingOutput) ToTeamSyncGroupMappingOutputWithContext(ctx context.Context) TeamSyncGroupMappingOutput {
 	return o
-}
-
-func (o TeamSyncGroupMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamSyncGroupMapping] {
-	return pulumix.Output[*TeamSyncGroupMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamSyncGroupMappingOutput) Etag() pulumi.StringOutput {
@@ -262,12 +237,6 @@ func (o TeamSyncGroupMappingArrayOutput) ToTeamSyncGroupMappingArrayOutputWithCo
 	return o
 }
 
-func (o TeamSyncGroupMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamSyncGroupMapping] {
-	return pulumix.Output[[]*TeamSyncGroupMapping]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamSyncGroupMappingArrayOutput) Index(i pulumi.IntInput) TeamSyncGroupMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamSyncGroupMapping {
 		return vs[0].([]*TeamSyncGroupMapping)[vs[1].(int)]
@@ -286,12 +255,6 @@ func (o TeamSyncGroupMappingMapOutput) ToTeamSyncGroupMappingMapOutput() TeamSyn
 
 func (o TeamSyncGroupMappingMapOutput) ToTeamSyncGroupMappingMapOutputWithContext(ctx context.Context) TeamSyncGroupMappingMapOutput {
 	return o
-}
-
-func (o TeamSyncGroupMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamSyncGroupMapping] {
-	return pulumix.Output[map[string]*TeamSyncGroupMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamSyncGroupMappingMapOutput) MapIndex(k pulumi.StringInput) TeamSyncGroupMappingOutput {

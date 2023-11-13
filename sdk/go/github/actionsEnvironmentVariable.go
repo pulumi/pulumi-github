@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage GitHub Actions variables within your GitHub repository environments.
@@ -231,12 +230,6 @@ func (i *ActionsEnvironmentVariable) ToActionsEnvironmentVariableOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentVariableOutput)
 }
 
-func (i *ActionsEnvironmentVariable) ToOutput(ctx context.Context) pulumix.Output[*ActionsEnvironmentVariable] {
-	return pulumix.Output[*ActionsEnvironmentVariable]{
-		OutputState: i.ToActionsEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsEnvironmentVariableArrayInput is an input type that accepts ActionsEnvironmentVariableArray and ActionsEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ActionsEnvironmentVariableArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i ActionsEnvironmentVariableArray) ToActionsEnvironmentVariableArrayOutput
 
 func (i ActionsEnvironmentVariableArray) ToActionsEnvironmentVariableArrayOutputWithContext(ctx context.Context) ActionsEnvironmentVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentVariableArrayOutput)
-}
-
-func (i ActionsEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsEnvironmentVariable] {
-	return pulumix.Output[[]*ActionsEnvironmentVariable]{
-		OutputState: i.ToActionsEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsEnvironmentVariableMapInput is an input type that accepts ActionsEnvironmentVariableMap and ActionsEnvironmentVariableMapOutput values.
@@ -293,12 +280,6 @@ func (i ActionsEnvironmentVariableMap) ToActionsEnvironmentVariableMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsEnvironmentVariableMapOutput)
 }
 
-func (i ActionsEnvironmentVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsEnvironmentVariable] {
-	return pulumix.Output[map[string]*ActionsEnvironmentVariable]{
-		OutputState: i.ToActionsEnvironmentVariableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (ActionsEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o ActionsEnvironmentVariableOutput) ToActionsEnvironmentVariableOutput() A
 
 func (o ActionsEnvironmentVariableOutput) ToActionsEnvironmentVariableOutputWithContext(ctx context.Context) ActionsEnvironmentVariableOutput {
 	return o
-}
-
-func (o ActionsEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsEnvironmentVariable] {
-	return pulumix.Output[*ActionsEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date of actionsEnvironmentSecret creation.
@@ -363,12 +338,6 @@ func (o ActionsEnvironmentVariableArrayOutput) ToActionsEnvironmentVariableArray
 	return o
 }
 
-func (o ActionsEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsEnvironmentVariable] {
-	return pulumix.Output[[]*ActionsEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ActionsEnvironmentVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsEnvironmentVariable {
 		return vs[0].([]*ActionsEnvironmentVariable)[vs[1].(int)]
@@ -387,12 +356,6 @@ func (o ActionsEnvironmentVariableMapOutput) ToActionsEnvironmentVariableMapOutp
 
 func (o ActionsEnvironmentVariableMapOutput) ToActionsEnvironmentVariableMapOutputWithContext(ctx context.Context) ActionsEnvironmentVariableMapOutput {
 	return o
-}
-
-func (o ActionsEnvironmentVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsEnvironmentVariable] {
-	return pulumix.Output[map[string]*ActionsEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsEnvironmentVariableMapOutput) MapIndex(k pulumi.StringInput) ActionsEnvironmentVariableOutput {
