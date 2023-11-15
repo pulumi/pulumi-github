@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve deployment branch policies for a repository / environment.
@@ -106,12 +105,6 @@ func (o GetRepositoryDeploymentBranchPoliciesResultOutput) ToGetRepositoryDeploy
 
 func (o GetRepositoryDeploymentBranchPoliciesResultOutput) ToGetRepositoryDeploymentBranchPoliciesResultOutputWithContext(ctx context.Context) GetRepositoryDeploymentBranchPoliciesResultOutput {
 	return o
-}
-
-func (o GetRepositoryDeploymentBranchPoliciesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryDeploymentBranchPoliciesResult] {
-	return pulumix.Output[GetRepositoryDeploymentBranchPoliciesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of this repository / environment deployment policies. Each element of `deploymentBranchPolicies` has the following attributes:

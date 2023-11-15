@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
@@ -122,12 +121,6 @@ func (o GetAppTokenResultOutput) ToGetAppTokenResultOutput() GetAppTokenResultOu
 
 func (o GetAppTokenResultOutput) ToGetAppTokenResultOutputWithContext(ctx context.Context) GetAppTokenResultOutput {
 	return o
-}
-
-func (o GetAppTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTokenResult] {
-	return pulumix.Output[GetAppTokenResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTokenResultOutput) AppId() pulumi.StringOutput {

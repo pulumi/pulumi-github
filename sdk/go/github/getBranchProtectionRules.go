@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a list of repository branch protection rules.
@@ -100,12 +99,6 @@ func (o GetBranchProtectionRulesResultOutput) ToGetBranchProtectionRulesResultOu
 
 func (o GetBranchProtectionRulesResultOutput) ToGetBranchProtectionRulesResultOutputWithContext(ctx context.Context) GetBranchProtectionRulesResultOutput {
 	return o
-}
-
-func (o GetBranchProtectionRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBranchProtectionRulesResult] {
-	return pulumix.Output[GetBranchProtectionRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

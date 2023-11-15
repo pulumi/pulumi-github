@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -158,12 +157,6 @@ func (i *RepositoryTopics) ToRepositoryTopicsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTopicsOutput)
 }
 
-func (i *RepositoryTopics) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTopics] {
-	return pulumix.Output[*RepositoryTopics]{
-		OutputState: i.ToRepositoryTopicsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryTopicsArrayInput is an input type that accepts RepositoryTopicsArray and RepositoryTopicsArrayOutput values.
 // You can construct a concrete instance of `RepositoryTopicsArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i RepositoryTopicsArray) ToRepositoryTopicsArrayOutput() RepositoryTopicsA
 
 func (i RepositoryTopicsArray) ToRepositoryTopicsArrayOutputWithContext(ctx context.Context) RepositoryTopicsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTopicsArrayOutput)
-}
-
-func (i RepositoryTopicsArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryTopics] {
-	return pulumix.Output[[]*RepositoryTopics]{
-		OutputState: i.ToRepositoryTopicsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryTopicsMapInput is an input type that accepts RepositoryTopicsMap and RepositoryTopicsMapOutput values.
@@ -220,12 +207,6 @@ func (i RepositoryTopicsMap) ToRepositoryTopicsMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTopicsMapOutput)
 }
 
-func (i RepositoryTopicsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryTopics] {
-	return pulumix.Output[map[string]*RepositoryTopics]{
-		OutputState: i.ToRepositoryTopicsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryTopicsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryTopicsOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o RepositoryTopicsOutput) ToRepositoryTopicsOutput() RepositoryTopicsOutpu
 
 func (o RepositoryTopicsOutput) ToRepositoryTopicsOutputWithContext(ctx context.Context) RepositoryTopicsOutput {
 	return o
-}
-
-func (o RepositoryTopicsOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryTopics] {
-	return pulumix.Output[*RepositoryTopics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The repository name.
@@ -270,12 +245,6 @@ func (o RepositoryTopicsArrayOutput) ToRepositoryTopicsArrayOutputWithContext(ct
 	return o
 }
 
-func (o RepositoryTopicsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryTopics] {
-	return pulumix.Output[[]*RepositoryTopics]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryTopicsArrayOutput) Index(i pulumi.IntInput) RepositoryTopicsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryTopics {
 		return vs[0].([]*RepositoryTopics)[vs[1].(int)]
@@ -294,12 +263,6 @@ func (o RepositoryTopicsMapOutput) ToRepositoryTopicsMapOutput() RepositoryTopic
 
 func (o RepositoryTopicsMapOutput) ToRepositoryTopicsMapOutputWithContext(ctx context.Context) RepositoryTopicsMapOutput {
 	return o
-}
-
-func (o RepositoryTopicsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryTopics] {
-	return pulumix.Output[map[string]*RepositoryTopics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTopicsMapOutput) MapIndex(k pulumi.StringInput) RepositoryTopicsOutput {

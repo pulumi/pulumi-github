@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve basic information about a GitHub enterprise.
@@ -107,12 +106,6 @@ func (o GetEnterpriseResultOutput) ToGetEnterpriseResultOutput() GetEnterpriseRe
 
 func (o GetEnterpriseResultOutput) ToGetEnterpriseResultOutputWithContext(ctx context.Context) GetEnterpriseResultOutput {
 	return o
-}
-
-func (o GetEnterpriseResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEnterpriseResult] {
-	return pulumix.Output[GetEnterpriseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time the enterprise was created.

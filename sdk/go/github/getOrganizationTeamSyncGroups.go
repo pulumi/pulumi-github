@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the identity provider (IdP) groups for an organization.
@@ -79,12 +78,6 @@ func (o GetOrganizationTeamSyncGroupsResultOutput) ToGetOrganizationTeamSyncGrou
 
 func (o GetOrganizationTeamSyncGroupsResultOutput) ToGetOrganizationTeamSyncGroupsResultOutputWithContext(ctx context.Context) GetOrganizationTeamSyncGroupsResultOutput {
 	return o
-}
-
-func (o GetOrganizationTeamSyncGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationTeamSyncGroupsResult] {
-	return pulumix.Output[GetOrganizationTeamSyncGroupsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.

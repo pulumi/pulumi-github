@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of teams which have access to a GitHub repository.
@@ -106,12 +105,6 @@ func (o GetRepositoryTeamsResultOutput) ToGetRepositoryTeamsResultOutput() GetRe
 
 func (o GetRepositoryTeamsResultOutput) ToGetRepositoryTeamsResultOutputWithContext(ctx context.Context) GetRepositoryTeamsResultOutput {
 	return o
-}
-
-func (o GetRepositoryTeamsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryTeamsResult] {
-	return pulumix.Output[GetRepositoryTeamsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryTeamsResultOutput) FullName() pulumi.StringOutput {

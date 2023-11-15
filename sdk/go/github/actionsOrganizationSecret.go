@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -264,12 +263,6 @@ func (i *ActionsOrganizationSecret) ToActionsOrganizationSecretOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretOutput)
 }
 
-func (i *ActionsOrganizationSecret) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationSecret] {
-	return pulumix.Output[*ActionsOrganizationSecret]{
-		OutputState: i.ToActionsOrganizationSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsOrganizationSecretArrayInput is an input type that accepts ActionsOrganizationSecretArray and ActionsOrganizationSecretArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationSecretArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutput()
 
 func (i ActionsOrganizationSecretArray) ToActionsOrganizationSecretArrayOutputWithContext(ctx context.Context) ActionsOrganizationSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretArrayOutput)
-}
-
-func (i ActionsOrganizationSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationSecret] {
-	return pulumix.Output[[]*ActionsOrganizationSecret]{
-		OutputState: i.ToActionsOrganizationSecretArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsOrganizationSecretMapInput is an input type that accepts ActionsOrganizationSecretMap and ActionsOrganizationSecretMapOutput values.
@@ -326,12 +313,6 @@ func (i ActionsOrganizationSecretMap) ToActionsOrganizationSecretMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationSecretMapOutput)
 }
 
-func (i ActionsOrganizationSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationSecret] {
-	return pulumix.Output[map[string]*ActionsOrganizationSecret]{
-		OutputState: i.ToActionsOrganizationSecretMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsOrganizationSecretOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationSecretOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutput() Act
 
 func (o ActionsOrganizationSecretOutput) ToActionsOrganizationSecretOutputWithContext(ctx context.Context) ActionsOrganizationSecretOutput {
 	return o
-}
-
-func (o ActionsOrganizationSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationSecret] {
-	return pulumix.Output[*ActionsOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date of actionsSecret creation.
@@ -402,12 +377,6 @@ func (o ActionsOrganizationSecretArrayOutput) ToActionsOrganizationSecretArrayOu
 	return o
 }
 
-func (o ActionsOrganizationSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationSecret] {
-	return pulumix.Output[[]*ActionsOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsOrganizationSecretArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationSecret {
 		return vs[0].([]*ActionsOrganizationSecret)[vs[1].(int)]
@@ -426,12 +395,6 @@ func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutput
 
 func (o ActionsOrganizationSecretMapOutput) ToActionsOrganizationSecretMapOutputWithContext(ctx context.Context) ActionsOrganizationSecretMapOutput {
 	return o
-}
-
-func (o ActionsOrganizationSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationSecret] {
-	return pulumix.Output[map[string]*ActionsOrganizationSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsOrganizationSecretMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationSecretOutput {

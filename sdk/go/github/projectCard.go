@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage cards for GitHub projects.
@@ -259,12 +258,6 @@ func (i *ProjectCard) ToProjectCardOutputWithContext(ctx context.Context) Projec
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardOutput)
 }
 
-func (i *ProjectCard) ToOutput(ctx context.Context) pulumix.Output[*ProjectCard] {
-	return pulumix.Output[*ProjectCard]{
-		OutputState: i.ToProjectCardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProjectCardArrayInput is an input type that accepts ProjectCardArray and ProjectCardArrayOutput values.
 // You can construct a concrete instance of `ProjectCardArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i ProjectCardArray) ToProjectCardArrayOutput() ProjectCardArrayOutput {
 
 func (i ProjectCardArray) ToProjectCardArrayOutputWithContext(ctx context.Context) ProjectCardArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardArrayOutput)
-}
-
-func (i ProjectCardArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectCard] {
-	return pulumix.Output[[]*ProjectCard]{
-		OutputState: i.ToProjectCardArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProjectCardMapInput is an input type that accepts ProjectCardMap and ProjectCardMapOutput values.
@@ -321,12 +308,6 @@ func (i ProjectCardMap) ToProjectCardMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectCardMapOutput)
 }
 
-func (i ProjectCardMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectCard] {
-	return pulumix.Output[map[string]*ProjectCard]{
-		OutputState: i.ToProjectCardMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProjectCardOutput struct{ *pulumi.OutputState }
 
 func (ProjectCardOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o ProjectCardOutput) ToProjectCardOutput() ProjectCardOutput {
 
 func (o ProjectCardOutput) ToProjectCardOutputWithContext(ctx context.Context) ProjectCardOutput {
 	return o
-}
-
-func (o ProjectCardOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectCard] {
-	return pulumix.Output[*ProjectCard]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the card.
@@ -393,12 +368,6 @@ func (o ProjectCardArrayOutput) ToProjectCardArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ProjectCardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectCard] {
-	return pulumix.Output[[]*ProjectCard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectCardArrayOutput) Index(i pulumi.IntInput) ProjectCardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectCard {
 		return vs[0].([]*ProjectCard)[vs[1].(int)]
@@ -417,12 +386,6 @@ func (o ProjectCardMapOutput) ToProjectCardMapOutput() ProjectCardMapOutput {
 
 func (o ProjectCardMapOutput) ToProjectCardMapOutputWithContext(ctx context.Context) ProjectCardMapOutput {
 	return o
-}
-
-func (o ProjectCardMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectCard] {
-	return pulumix.Output[map[string]*ProjectCard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectCardMapOutput) MapIndex(k pulumi.StringInput) ProjectCardOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
@@ -81,12 +80,6 @@ func (o GetActionsOrganizationRegistrationTokenResultOutput) ToGetActionsOrganiz
 
 func (o GetActionsOrganizationRegistrationTokenResultOutput) ToGetActionsOrganizationRegistrationTokenResultOutputWithContext(ctx context.Context) GetActionsOrganizationRegistrationTokenResultOutput {
 	return o
-}
-
-func (o GetActionsOrganizationRegistrationTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationRegistrationTokenResult] {
-	return pulumix.Output[GetActionsOrganizationRegistrationTokenResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The token expiration date.

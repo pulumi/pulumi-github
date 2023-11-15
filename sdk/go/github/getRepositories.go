@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** The data source will return a maximum of `1000` repositories
@@ -122,12 +121,6 @@ func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutput() GetReposito
 
 func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ctx context.Context) GetRepositoriesResultOutput {
 	return o
-}
-
-func (o GetRepositoriesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoriesResult] {
-	return pulumix.Output[GetRepositoriesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoriesResultOutput) FullNames() pulumi.StringArrayOutput {

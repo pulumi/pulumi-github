@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve external groups belonging to an organization.
@@ -81,12 +80,6 @@ func (o GetExternalGroupsResultOutput) ToGetExternalGroupsResultOutput() GetExte
 
 func (o GetExternalGroupsResultOutput) ToGetExternalGroupsResultOutputWithContext(ctx context.Context) GetExternalGroupsResultOutput {
 	return o
-}
-
-func (o GetExternalGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExternalGroupsResult] {
-	return pulumix.Output[GetExternalGroupsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // an array of external groups belonging to the organization. Each group consists of the fields documented below.

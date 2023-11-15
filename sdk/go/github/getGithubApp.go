@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an app.
@@ -104,12 +103,6 @@ func (o GetGithubAppResultOutput) ToGetGithubAppResultOutput() GetGithubAppResul
 
 func (o GetGithubAppResultOutput) ToGetGithubAppResultOutputWithContext(ctx context.Context) GetGithubAppResultOutput {
 	return o
-}
-
-func (o GetGithubAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGithubAppResult] {
-	return pulumix.Output[GetGithubAppResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The app's description.
