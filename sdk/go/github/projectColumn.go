@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage columns for GitHub projects.
@@ -152,12 +151,6 @@ func (i *ProjectColumn) ToProjectColumnOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnOutput)
 }
 
-func (i *ProjectColumn) ToOutput(ctx context.Context) pulumix.Output[*ProjectColumn] {
-	return pulumix.Output[*ProjectColumn]{
-		OutputState: i.ToProjectColumnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProjectColumnArrayInput is an input type that accepts ProjectColumnArray and ProjectColumnArrayOutput values.
 // You can construct a concrete instance of `ProjectColumnArrayInput` via:
 //
@@ -181,12 +174,6 @@ func (i ProjectColumnArray) ToProjectColumnArrayOutput() ProjectColumnArrayOutpu
 
 func (i ProjectColumnArray) ToProjectColumnArrayOutputWithContext(ctx context.Context) ProjectColumnArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnArrayOutput)
-}
-
-func (i ProjectColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectColumn] {
-	return pulumix.Output[[]*ProjectColumn]{
-		OutputState: i.ToProjectColumnArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProjectColumnMapInput is an input type that accepts ProjectColumnMap and ProjectColumnMapOutput values.
@@ -214,12 +201,6 @@ func (i ProjectColumnMap) ToProjectColumnMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectColumnMapOutput)
 }
 
-func (i ProjectColumnMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectColumn] {
-	return pulumix.Output[map[string]*ProjectColumn]{
-		OutputState: i.ToProjectColumnMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProjectColumnOutput struct{ *pulumi.OutputState }
 
 func (ProjectColumnOutput) ElementType() reflect.Type {
@@ -232,12 +213,6 @@ func (o ProjectColumnOutput) ToProjectColumnOutput() ProjectColumnOutput {
 
 func (o ProjectColumnOutput) ToProjectColumnOutputWithContext(ctx context.Context) ProjectColumnOutput {
 	return o
-}
-
-func (o ProjectColumnOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectColumn] {
-	return pulumix.Output[*ProjectColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the column.
@@ -273,12 +248,6 @@ func (o ProjectColumnArrayOutput) ToProjectColumnArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ProjectColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectColumn] {
-	return pulumix.Output[[]*ProjectColumn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectColumnArrayOutput) Index(i pulumi.IntInput) ProjectColumnOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectColumn {
 		return vs[0].([]*ProjectColumn)[vs[1].(int)]
@@ -297,12 +266,6 @@ func (o ProjectColumnMapOutput) ToProjectColumnMapOutput() ProjectColumnMapOutpu
 
 func (o ProjectColumnMapOutput) ToProjectColumnMapOutputWithContext(ctx context.Context) ProjectColumnMapOutput {
 	return o
-}
-
-func (o ProjectColumnMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectColumn] {
-	return pulumix.Output[map[string]*ProjectColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectColumnMapOutput) MapIndex(k pulumi.StringInput) ProjectColumnOutput {

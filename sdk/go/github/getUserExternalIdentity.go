@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a specific organization member's SAML or SCIM user
@@ -108,12 +107,6 @@ func (o GetUserExternalIdentityResultOutput) ToGetUserExternalIdentityResultOutp
 
 func (o GetUserExternalIdentityResultOutput) ToGetUserExternalIdentityResultOutputWithContext(ctx context.Context) GetUserExternalIdentityResultOutput {
 	return o
-}
-
-func (o GetUserExternalIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserExternalIdentityResult] {
-	return pulumix.Output[GetUserExternalIdentityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

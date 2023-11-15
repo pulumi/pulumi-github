@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the list of variables for a GitHub repository.
@@ -106,12 +105,6 @@ func (o GetActionsVariablesResultOutput) ToGetActionsVariablesResultOutput() Get
 
 func (o GetActionsVariablesResultOutput) ToGetActionsVariablesResultOutputWithContext(ctx context.Context) GetActionsVariablesResultOutput {
 	return o
-}
-
-func (o GetActionsVariablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsVariablesResult] {
-	return pulumix.Output[GetActionsVariablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionsVariablesResultOutput) FullName() pulumi.StringOutput {

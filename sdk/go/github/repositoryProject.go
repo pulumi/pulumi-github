@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage projects for GitHub repository.
@@ -164,12 +163,6 @@ func (i *RepositoryProject) ToRepositoryProjectOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectOutput)
 }
 
-func (i *RepositoryProject) ToOutput(ctx context.Context) pulumix.Output[*RepositoryProject] {
-	return pulumix.Output[*RepositoryProject]{
-		OutputState: i.ToRepositoryProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryProjectArrayInput is an input type that accepts RepositoryProjectArray and RepositoryProjectArrayOutput values.
 // You can construct a concrete instance of `RepositoryProjectArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i RepositoryProjectArray) ToRepositoryProjectArrayOutput() RepositoryProje
 
 func (i RepositoryProjectArray) ToRepositoryProjectArrayOutputWithContext(ctx context.Context) RepositoryProjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectArrayOutput)
-}
-
-func (i RepositoryProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryProject] {
-	return pulumix.Output[[]*RepositoryProject]{
-		OutputState: i.ToRepositoryProjectArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryProjectMapInput is an input type that accepts RepositoryProjectMap and RepositoryProjectMapOutput values.
@@ -226,12 +213,6 @@ func (i RepositoryProjectMap) ToRepositoryProjectMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryProjectMapOutput)
 }
 
-func (i RepositoryProjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryProject] {
-	return pulumix.Output[map[string]*RepositoryProject]{
-		OutputState: i.ToRepositoryProjectMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryProjectOutput struct{ *pulumi.OutputState }
 
 func (RepositoryProjectOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o RepositoryProjectOutput) ToRepositoryProjectOutput() RepositoryProjectOu
 
 func (o RepositoryProjectOutput) ToRepositoryProjectOutputWithContext(ctx context.Context) RepositoryProjectOutput {
 	return o
-}
-
-func (o RepositoryProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryProject] {
-	return pulumix.Output[*RepositoryProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The body of the project.
@@ -290,12 +265,6 @@ func (o RepositoryProjectArrayOutput) ToRepositoryProjectArrayOutputWithContext(
 	return o
 }
 
-func (o RepositoryProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryProject] {
-	return pulumix.Output[[]*RepositoryProject]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryProjectArrayOutput) Index(i pulumi.IntInput) RepositoryProjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryProject {
 		return vs[0].([]*RepositoryProject)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o RepositoryProjectMapOutput) ToRepositoryProjectMapOutput() RepositoryPro
 
 func (o RepositoryProjectMapOutput) ToRepositoryProjectMapOutputWithContext(ctx context.Context) RepositoryProjectMapOutput {
 	return o
-}
-
-func (o RepositoryProjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryProject] {
-	return pulumix.Output[map[string]*RepositoryProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryProjectMapOutput) MapIndex(k pulumi.StringInput) RepositoryProjectOutput {

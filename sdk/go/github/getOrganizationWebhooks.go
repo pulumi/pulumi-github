@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve all webhooks of the organization.
@@ -82,12 +81,6 @@ func (o GetOrganizationWebhooksResultOutput) ToGetOrganizationWebhooksResultOutp
 
 func (o GetOrganizationWebhooksResultOutput) ToGetOrganizationWebhooksResultOutputWithContext(ctx context.Context) GetOrganizationWebhooksResultOutput {
 	return o
-}
-
-func (o GetOrganizationWebhooksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationWebhooksResult] {
-	return pulumix.Output[GetOrganizationWebhooksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

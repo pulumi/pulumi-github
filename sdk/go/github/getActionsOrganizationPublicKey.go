@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
@@ -82,12 +81,6 @@ func (o GetActionsOrganizationPublicKeyResultOutput) ToGetActionsOrganizationPub
 
 func (o GetActionsOrganizationPublicKeyResultOutput) ToGetActionsOrganizationPublicKeyResultOutputWithContext(ctx context.Context) GetActionsOrganizationPublicKeyResultOutput {
 	return o
-}
-
-func (o GetActionsOrganizationPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionsOrganizationPublicKeyResult] {
-	return pulumix.Output[GetActionsOrganizationPublicKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource manages the team settings (in particular the request review delegation settings) within the organization
@@ -184,12 +183,6 @@ func (i *TeamSettings) ToTeamSettingsOutputWithContext(ctx context.Context) Team
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsOutput)
 }
 
-func (i *TeamSettings) ToOutput(ctx context.Context) pulumix.Output[*TeamSettings] {
-	return pulumix.Output[*TeamSettings]{
-		OutputState: i.ToTeamSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamSettingsArrayInput is an input type that accepts TeamSettingsArray and TeamSettingsArrayOutput values.
 // You can construct a concrete instance of `TeamSettingsArrayInput` via:
 //
@@ -213,12 +206,6 @@ func (i TeamSettingsArray) ToTeamSettingsArrayOutput() TeamSettingsArrayOutput {
 
 func (i TeamSettingsArray) ToTeamSettingsArrayOutputWithContext(ctx context.Context) TeamSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsArrayOutput)
-}
-
-func (i TeamSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamSettings] {
-	return pulumix.Output[[]*TeamSettings]{
-		OutputState: i.ToTeamSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamSettingsMapInput is an input type that accepts TeamSettingsMap and TeamSettingsMapOutput values.
@@ -246,12 +233,6 @@ func (i TeamSettingsMap) ToTeamSettingsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TeamSettingsMapOutput)
 }
 
-func (i TeamSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamSettings] {
-	return pulumix.Output[map[string]*TeamSettings]{
-		OutputState: i.ToTeamSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamSettingsOutput struct{ *pulumi.OutputState }
 
 func (TeamSettingsOutput) ElementType() reflect.Type {
@@ -264,12 +245,6 @@ func (o TeamSettingsOutput) ToTeamSettingsOutput() TeamSettingsOutput {
 
 func (o TeamSettingsOutput) ToTeamSettingsOutputWithContext(ctx context.Context) TeamSettingsOutput {
 	return o
-}
-
-func (o TeamSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamSettings] {
-	return pulumix.Output[*TeamSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
@@ -306,12 +281,6 @@ func (o TeamSettingsArrayOutput) ToTeamSettingsArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o TeamSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamSettings] {
-	return pulumix.Output[[]*TeamSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamSettingsArrayOutput) Index(i pulumi.IntInput) TeamSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamSettings {
 		return vs[0].([]*TeamSettings)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o TeamSettingsMapOutput) ToTeamSettingsMapOutput() TeamSettingsMapOutput {
 
 func (o TeamSettingsMapOutput) ToTeamSettingsMapOutputWithContext(ctx context.Context) TeamSettingsMapOutput {
 	return o
-}
-
-func (o TeamSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamSettings] {
-	return pulumix.Output[map[string]*TeamSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamSettingsMapOutput) MapIndex(k pulumi.StringInput) TeamSettingsOutput {

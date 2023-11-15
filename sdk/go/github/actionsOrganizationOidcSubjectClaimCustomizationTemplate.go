@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
@@ -145,12 +144,6 @@ func (i *ActionsOrganizationOidcSubjectClaimCustomizationTemplate) ToActionsOrga
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput)
 }
 
-func (i *ActionsOrganizationOidcSubjectClaimCustomizationTemplate) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: i.ToActionsOrganizationOidcSubjectClaimCustomizationTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayInput is an input type that accepts ActionsOrganizationOidcSubjectClaimCustomizationTemplateArray and ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput values.
 // You can construct a concrete instance of `ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayInput` via:
 //
@@ -174,12 +167,6 @@ func (i ActionsOrganizationOidcSubjectClaimCustomizationTemplateArray) ToActions
 
 func (i ActionsOrganizationOidcSubjectClaimCustomizationTemplateArray) ToActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutputWithContext(ctx context.Context) ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput)
-}
-
-func (i ActionsOrganizationOidcSubjectClaimCustomizationTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[[]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: i.ToActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapInput is an input type that accepts ActionsOrganizationOidcSubjectClaimCustomizationTemplateMap and ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput values.
@@ -207,12 +194,6 @@ func (i ActionsOrganizationOidcSubjectClaimCustomizationTemplateMap) ToActionsOr
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput)
 }
 
-func (i ActionsOrganizationOidcSubjectClaimCustomizationTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[map[string]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: i.ToActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput struct{ *pulumi.OutputState }
 
 func (ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput) ElementType() reflect.Type {
@@ -225,12 +206,6 @@ func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput) ToAction
 
 func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput) ToActionsOrganizationOidcSubjectClaimCustomizationTemplateOutputWithContext(ctx context.Context) ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput {
 	return o
-}
-
-func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of OpenID Connect claims.
@@ -254,12 +229,6 @@ func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput) ToA
 	return o
 }
 
-func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[[]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateArrayOutput) Index(i pulumi.IntInput) ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionsOrganizationOidcSubjectClaimCustomizationTemplate {
 		return vs[0].([]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate)[vs[1].(int)]
@@ -278,12 +247,6 @@ func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput) ToAct
 
 func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput) ToActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutputWithContext(ctx context.Context) ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput {
 	return o
-}
-
-func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate] {
-	return pulumix.Output[map[string]*ActionsOrganizationOidcSubjectClaimCustomizationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionsOrganizationOidcSubjectClaimCustomizationTemplateMapOutput) MapIndex(k pulumi.StringInput) ActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput {

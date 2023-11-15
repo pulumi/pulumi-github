@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GitHub issue resource.
@@ -274,12 +273,6 @@ func (i *Issue) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IssueOutput)
 }
 
-func (i *Issue) ToOutput(ctx context.Context) pulumix.Output[*Issue] {
-	return pulumix.Output[*Issue]{
-		OutputState: i.ToIssueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IssueArrayInput is an input type that accepts IssueArray and IssueArrayOutput values.
 // You can construct a concrete instance of `IssueArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i IssueArray) ToIssueArrayOutput() IssueArrayOutput {
 
 func (i IssueArray) ToIssueArrayOutputWithContext(ctx context.Context) IssueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IssueArrayOutput)
-}
-
-func (i IssueArray) ToOutput(ctx context.Context) pulumix.Output[[]*Issue] {
-	return pulumix.Output[[]*Issue]{
-		OutputState: i.ToIssueArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IssueMapInput is an input type that accepts IssueMap and IssueMapOutput values.
@@ -336,12 +323,6 @@ func (i IssueMap) ToIssueMapOutputWithContext(ctx context.Context) IssueMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IssueMapOutput)
 }
 
-func (i IssueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Issue] {
-	return pulumix.Output[map[string]*Issue]{
-		OutputState: i.ToIssueMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IssueOutput struct{ *pulumi.OutputState }
 
 func (IssueOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o IssueOutput) ToIssueOutput() IssueOutput {
 
 func (o IssueOutput) ToIssueOutputWithContext(ctx context.Context) IssueOutput {
 	return o
-}
-
-func (o IssueOutput) ToOutput(ctx context.Context) pulumix.Output[*Issue] {
-	return pulumix.Output[*Issue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Logins to assign the to the issue
@@ -420,12 +395,6 @@ func (o IssueArrayOutput) ToIssueArrayOutputWithContext(ctx context.Context) Iss
 	return o
 }
 
-func (o IssueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Issue] {
-	return pulumix.Output[[]*Issue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IssueArrayOutput) Index(i pulumi.IntInput) IssueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Issue {
 		return vs[0].([]*Issue)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o IssueMapOutput) ToIssueMapOutput() IssueMapOutput {
 
 func (o IssueMapOutput) ToIssueMapOutputWithContext(ctx context.Context) IssueMapOutput {
 	return o
-}
-
-func (o IssueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Issue] {
-	return pulumix.Output[map[string]*Issue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IssueMapOutput) MapIndex(k pulumi.StringInput) IssueOutput {

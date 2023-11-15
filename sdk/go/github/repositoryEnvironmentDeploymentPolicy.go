@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
@@ -194,12 +193,6 @@ func (i *RepositoryEnvironmentDeploymentPolicy) ToRepositoryEnvironmentDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentPolicyOutput)
 }
 
-func (i *RepositoryEnvironmentDeploymentPolicy) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: i.ToRepositoryEnvironmentDeploymentPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryEnvironmentDeploymentPolicyArrayInput is an input type that accepts RepositoryEnvironmentDeploymentPolicyArray and RepositoryEnvironmentDeploymentPolicyArrayOutput values.
 // You can construct a concrete instance of `RepositoryEnvironmentDeploymentPolicyArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i RepositoryEnvironmentDeploymentPolicyArray) ToRepositoryEnvironmentDeplo
 
 func (i RepositoryEnvironmentDeploymentPolicyArray) ToRepositoryEnvironmentDeploymentPolicyArrayOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentPolicyArrayOutput)
-}
-
-func (i RepositoryEnvironmentDeploymentPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[[]*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: i.ToRepositoryEnvironmentDeploymentPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryEnvironmentDeploymentPolicyMapInput is an input type that accepts RepositoryEnvironmentDeploymentPolicyMap and RepositoryEnvironmentDeploymentPolicyMapOutput values.
@@ -256,12 +243,6 @@ func (i RepositoryEnvironmentDeploymentPolicyMap) ToRepositoryEnvironmentDeploym
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEnvironmentDeploymentPolicyMapOutput)
 }
 
-func (i RepositoryEnvironmentDeploymentPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[map[string]*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: i.ToRepositoryEnvironmentDeploymentPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryEnvironmentDeploymentPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEnvironmentDeploymentPolicyOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o RepositoryEnvironmentDeploymentPolicyOutput) ToRepositoryEnvironmentDepl
 
 func (o RepositoryEnvironmentDeploymentPolicyOutput) ToRepositoryEnvironmentDeploymentPolicyOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentPolicyOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentDeploymentPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name pattern that branches must match in order to deploy to the environment.
@@ -311,12 +286,6 @@ func (o RepositoryEnvironmentDeploymentPolicyArrayOutput) ToRepositoryEnvironmen
 	return o
 }
 
-func (o RepositoryEnvironmentDeploymentPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[[]*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryEnvironmentDeploymentPolicyArrayOutput) Index(i pulumi.IntInput) RepositoryEnvironmentDeploymentPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryEnvironmentDeploymentPolicy {
 		return vs[0].([]*RepositoryEnvironmentDeploymentPolicy)[vs[1].(int)]
@@ -335,12 +304,6 @@ func (o RepositoryEnvironmentDeploymentPolicyMapOutput) ToRepositoryEnvironmentD
 
 func (o RepositoryEnvironmentDeploymentPolicyMapOutput) ToRepositoryEnvironmentDeploymentPolicyMapOutputWithContext(ctx context.Context) RepositoryEnvironmentDeploymentPolicyMapOutput {
 	return o
-}
-
-func (o RepositoryEnvironmentDeploymentPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryEnvironmentDeploymentPolicy] {
-	return pulumix.Output[map[string]*RepositoryEnvironmentDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEnvironmentDeploymentPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryEnvironmentDeploymentPolicyOutput {

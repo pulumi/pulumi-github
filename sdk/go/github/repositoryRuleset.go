@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a GitHub repository ruleset.
@@ -258,12 +257,6 @@ func (i *RepositoryRuleset) ToRepositoryRulesetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetOutput)
 }
 
-func (i *RepositoryRuleset) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRuleset] {
-	return pulumix.Output[*RepositoryRuleset]{
-		OutputState: i.ToRepositoryRulesetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryRulesetArrayInput is an input type that accepts RepositoryRulesetArray and RepositoryRulesetArrayOutput values.
 // You can construct a concrete instance of `RepositoryRulesetArrayInput` via:
 //
@@ -287,12 +280,6 @@ func (i RepositoryRulesetArray) ToRepositoryRulesetArrayOutput() RepositoryRules
 
 func (i RepositoryRulesetArray) ToRepositoryRulesetArrayOutputWithContext(ctx context.Context) RepositoryRulesetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetArrayOutput)
-}
-
-func (i RepositoryRulesetArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryRuleset] {
-	return pulumix.Output[[]*RepositoryRuleset]{
-		OutputState: i.ToRepositoryRulesetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryRulesetMapInput is an input type that accepts RepositoryRulesetMap and RepositoryRulesetMapOutput values.
@@ -320,12 +307,6 @@ func (i RepositoryRulesetMap) ToRepositoryRulesetMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetMapOutput)
 }
 
-func (i RepositoryRulesetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryRuleset] {
-	return pulumix.Output[map[string]*RepositoryRuleset]{
-		OutputState: i.ToRepositoryRulesetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryRulesetOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetOutput) ElementType() reflect.Type {
@@ -338,12 +319,6 @@ func (o RepositoryRulesetOutput) ToRepositoryRulesetOutput() RepositoryRulesetOu
 
 func (o RepositoryRulesetOutput) ToRepositoryRulesetOutputWithContext(ctx context.Context) RepositoryRulesetOutput {
 	return o
-}
-
-func (o RepositoryRulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryRuleset] {
-	return pulumix.Output[*RepositoryRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
@@ -410,12 +385,6 @@ func (o RepositoryRulesetArrayOutput) ToRepositoryRulesetArrayOutputWithContext(
 	return o
 }
 
-func (o RepositoryRulesetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryRuleset] {
-	return pulumix.Output[[]*RepositoryRuleset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryRulesetArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryRuleset {
 		return vs[0].([]*RepositoryRuleset)[vs[1].(int)]
@@ -434,12 +403,6 @@ func (o RepositoryRulesetMapOutput) ToRepositoryRulesetMapOutput() RepositoryRul
 
 func (o RepositoryRulesetMapOutput) ToRepositoryRulesetMapOutputWithContext(ctx context.Context) RepositoryRulesetMapOutput {
 	return o
-}
-
-func (o RepositoryRulesetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryRuleset] {
-	return pulumix.Output[map[string]*RepositoryRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryRulesetMapOutput) MapIndex(k pulumi.StringInput) RepositoryRulesetOutput {
