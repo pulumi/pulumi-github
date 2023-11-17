@@ -77,7 +77,6 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
     }
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
      * 
      * The `group` block consists of:
      * 
@@ -87,7 +86,6 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
 
     /**
      * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
      * 
      * The `group` block consists of:
      * 

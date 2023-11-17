@@ -26,7 +26,6 @@ public final class TeamSyncGroupMappingState extends com.pulumi.resources.Resour
 
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
      * 
      * The `group` block consists of:
      * 
@@ -36,7 +35,6 @@ public final class TeamSyncGroupMappingState extends com.pulumi.resources.Resour
 
     /**
      * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
      * 
      * The `group` block consists of:
      * 
@@ -97,7 +95,6 @@ public final class TeamSyncGroupMappingState extends com.pulumi.resources.Resour
 
         /**
          * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
          * 
          * The `group` block consists of:
          * 
@@ -111,7 +108,6 @@ public final class TeamSyncGroupMappingState extends com.pulumi.resources.Resour
 
         /**
          * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
          * 
          * The `group` block consists of:
          * 
@@ -124,7 +120,6 @@ public final class TeamSyncGroupMappingState extends com.pulumi.resources.Resour
 
         /**
          * @param groups An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-         * ***
          * 
          * The `group` block consists of:
          * 

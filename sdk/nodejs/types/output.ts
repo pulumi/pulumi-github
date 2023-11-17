@@ -854,7 +854,7 @@ export interface OrganizationRulesetBypassActor {
      */
     actorId: number;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      */
     actorType: string;
     /**
@@ -871,11 +871,11 @@ export interface OrganizationRulesetConditions {
      */
     refName: outputs.OrganizationRulesetConditionsRefName;
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      */
     repositoryId?: number;
     /**
-     * Conflicts with `repositoryId`. (see below for nested schema)
+     * (Block List, Max: 1) Conflicts with `repositoryId`. (see below for nested schema)
      *
      * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      */
@@ -1203,7 +1203,7 @@ export interface RepositoryRulesetBypassActor {
      */
     actorId: number;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      */
     actorType: string;
     /**

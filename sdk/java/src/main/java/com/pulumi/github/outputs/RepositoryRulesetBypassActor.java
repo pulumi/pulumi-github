@@ -16,7 +16,7 @@ public final class RepositoryRulesetBypassActor {
      */
     private Integer actorId;
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      * 
      */
     private String actorType;
@@ -37,7 +37,7 @@ public final class RepositoryRulesetBypassActor {
         return this.actorId;
     }
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      * 
      */
     public String actorType() {

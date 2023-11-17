@@ -1590,7 +1590,7 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutpu
 type OrganizationRulesetBypassActor struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
 	ActorId int `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
@@ -1612,7 +1612,7 @@ type OrganizationRulesetBypassActorInput interface {
 type OrganizationRulesetBypassActorArgs struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
 	ActorId pulumi.IntInput `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
@@ -1676,7 +1676,7 @@ func (o OrganizationRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
 }
 
-// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
 }
@@ -1711,9 +1711,9 @@ func (o OrganizationRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) Orga
 type OrganizationRulesetConditions struct {
 	// (Block List, Min: 1, Max: 1) (see below for nested schema)
 	RefName OrganizationRulesetConditionsRefName `pulumi:"refName"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 	RepositoryId *int `pulumi:"repositoryId"`
-	// Conflicts with `repositoryId`. (see below for nested schema)
+	// (Block List, Max: 1) Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
 	RepositoryName *OrganizationRulesetConditionsRepositoryName `pulumi:"repositoryName"`
@@ -1733,9 +1733,9 @@ type OrganizationRulesetConditionsInput interface {
 type OrganizationRulesetConditionsArgs struct {
 	// (Block List, Min: 1, Max: 1) (see below for nested schema)
 	RefName OrganizationRulesetConditionsRefNameInput `pulumi:"refName"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 	RepositoryId pulumi.IntPtrInput `pulumi:"repositoryId"`
-	// Conflicts with `repositoryId`. (see below for nested schema)
+	// (Block List, Max: 1) Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
 	RepositoryName OrganizationRulesetConditionsRepositoryNamePtrInput `pulumi:"repositoryName"`
@@ -1823,12 +1823,12 @@ func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetCondit
 	return o.ApplyT(func(v OrganizationRulesetConditions) OrganizationRulesetConditionsRefName { return v.RefName }).(OrganizationRulesetConditionsRefNameOutput)
 }
 
-// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+// (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 func (o OrganizationRulesetConditionsOutput) RepositoryId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditions) *int { return v.RepositoryId }).(pulumi.IntPtrOutput)
 }
 
-// Conflicts with `repositoryId`. (see below for nested schema)
+// (Block List, Max: 1) Conflicts with `repositoryId`. (see below for nested schema)
 //
 // One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
 func (o OrganizationRulesetConditionsOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
@@ -1871,7 +1871,7 @@ func (o OrganizationRulesetConditionsPtrOutput) RefName() OrganizationRulesetCon
 	}).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+// (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 func (o OrganizationRulesetConditionsPtrOutput) RepositoryId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditions) *int {
 		if v == nil {
@@ -1881,7 +1881,7 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryId() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Conflicts with `repositoryId`. (see below for nested schema)
+// (Block List, Max: 1) Conflicts with `repositoryId`. (see below for nested schema)
 //
 // One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
 func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
@@ -5279,7 +5279,7 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 type RepositoryRulesetBypassActor struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
 	ActorId int `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
@@ -5301,7 +5301,7 @@ type RepositoryRulesetBypassActorInput interface {
 type RepositoryRulesetBypassActorArgs struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
 	ActorId pulumi.IntInput `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
@@ -5365,7 +5365,7 @@ func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
 }
 
-// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
 }

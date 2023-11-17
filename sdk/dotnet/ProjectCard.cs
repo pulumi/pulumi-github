@@ -116,7 +116,7 @@ namespace Pulumi.Github
         /// <summary>
         /// Must be either `Issue` or `PullRequest`
         /// 
-        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. 
         /// See note example or issue example for more information.
         /// </summary>
         [Output("contentType")]
@@ -192,7 +192,7 @@ namespace Pulumi.Github
         /// <summary>
         /// Must be either `Issue` or `PullRequest`
         /// 
-        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. 
         /// See note example or issue example for more information.
         /// </summary>
         [Input("contentType")]
@@ -233,7 +233,7 @@ namespace Pulumi.Github
         /// <summary>
         /// Must be either `Issue` or `PullRequest`
         /// 
-        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+        /// **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. 
         /// See note example or issue example for more information.
         /// </summary>
         [Input("contentType")]

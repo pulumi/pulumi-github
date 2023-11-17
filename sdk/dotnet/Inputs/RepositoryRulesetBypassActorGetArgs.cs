@@ -19,7 +19,7 @@ namespace Pulumi.Github.Inputs
         public Input<int> ActorId { get; set; } = null!;
 
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        /// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         /// </summary>
         [Input("actorType", required: true)]
         public Input<string> ActorType { get; set; } = null!;

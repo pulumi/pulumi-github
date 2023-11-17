@@ -18,7 +18,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly int ActorId;
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        /// (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         /// </summary>
         public readonly string ActorType;
         /// <summary>

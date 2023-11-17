@@ -680,7 +680,7 @@ class OrganizationRulesetBypassActorArgs:
                  bypass_mode: pulumi.Input[str]):
         """
         :param pulumi.Input[int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
-        :param pulumi.Input[str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        :param pulumi.Input[str] actor_type: (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param pulumi.Input[str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
@@ -705,7 +705,7 @@ class OrganizationRulesetBypassActorArgs:
     @pulumi.getter(name="actorType")
     def actor_type(self) -> pulumi.Input[str]:
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         """
         return pulumi.get(self, "actor_type")
 
@@ -736,8 +736,8 @@ class OrganizationRulesetConditionsArgs:
                  repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None):
         """
         :param pulumi.Input['OrganizationRulesetConditionsRefNameArgs'] ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
-        :param pulumi.Input[int] repository_id: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
-        :param pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs'] repository_name: Conflicts with `repository_id`. (see below for nested schema)
+        :param pulumi.Input[int] repository_id: (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        :param pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs'] repository_name: (Block List, Max: 1) Conflicts with `repository_id`. (see below for nested schema)
                
                One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
         """
@@ -763,7 +763,7 @@ class OrganizationRulesetConditionsArgs:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         """
         return pulumi.get(self, "repository_id")
 
@@ -775,7 +775,7 @@ class OrganizationRulesetConditionsArgs:
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']]:
         """
-        Conflicts with `repository_id`. (see below for nested schema)
+        (Block List, Max: 1) Conflicts with `repository_id`. (see below for nested schema)
 
         One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
         """
@@ -2012,7 +2012,7 @@ class RepositoryRulesetBypassActorArgs:
                  bypass_mode: pulumi.Input[str]):
         """
         :param pulumi.Input[int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
-        :param pulumi.Input[str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        :param pulumi.Input[str] actor_type: (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param pulumi.Input[str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
@@ -2037,7 +2037,7 @@ class RepositoryRulesetBypassActorArgs:
     @pulumi.getter(name="actorType")
     def actor_type(self) -> pulumi.Input[str]:
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         """
         return pulumi.get(self, "actor_type")
 

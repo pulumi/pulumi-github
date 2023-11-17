@@ -19,12 +19,12 @@ public final class OrganizationRulesetConditions {
      */
     private OrganizationRulesetConditionsRefName refName;
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
     private @Nullable Integer repositoryId;
     /**
-     * @return Conflicts with `repository_id`. (see below for nested schema)
+     * @return (Block List, Max: 1) Conflicts with `repository_id`. (see below for nested schema)
      * 
      * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
      * 
@@ -40,14 +40,14 @@ public final class OrganizationRulesetConditions {
         return this.refName;
     }
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return (List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
     public Optional<Integer> repositoryId() {
         return Optional.ofNullable(this.repositoryId);
     }
     /**
-     * @return Conflicts with `repository_id`. (see below for nested schema)
+     * @return (Block List, Max: 1) Conflicts with `repository_id`. (see below for nested schema)
      * 
      * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
      * 

@@ -30,14 +30,14 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     }
 
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      * 
      */
     @Import(name="actorType", required=true)
     private Output<String> actorType;
 
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      * 
      */
     public Output<String> actorType() {
@@ -111,7 +111,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+         * @param actorType (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+         * @param actorType (String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
          * 
          * @return builder
          * 
