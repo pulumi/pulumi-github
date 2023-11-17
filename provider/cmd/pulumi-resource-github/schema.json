@@ -364,7 +364,7 @@
                 },
                 "actorType": {
                     "type": "string",
-                    "description": "The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
+                    "description": "(String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
                 },
                 "bypassMode": {
                     "type": "string",
@@ -386,11 +386,11 @@
                 },
                 "repositoryId": {
                     "type": "integer",
-                    "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.\n"
+                    "description": "(List of Number) The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.\n"
                 },
                 "repositoryName": {
                     "$ref": "#/types/github:index/OrganizationRulesetConditionsRepositoryName:OrganizationRulesetConditionsRepositoryName",
-                    "description": "Conflicts with `repository_id`. (see below for nested schema)\n\nOne of `repository_id` and `repository_name` must be set for the rule to target any repositories.\n"
+                    "description": "(Block List, Max: 1) Conflicts with `repository_id`. (see below for nested schema)\n\nOne of `repository_id` and `repository_name` must be set for the rule to target any repositories.\n"
                 }
             },
             "type": "object",
@@ -871,7 +871,7 @@
                 },
                 "actorType": {
                     "type": "string",
-                    "description": "The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
+                    "description": "(String) The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.\n"
                 },
                 "bypassMode": {
                     "type": "string",
@@ -6258,7 +6258,7 @@
                 },
                 "contentType": {
                     "type": "string",
-                    "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.\nSee note example or issue example for more information.\n"
+                    "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. \nSee note example or issue example for more information.\n"
                 },
                 "etag": {
                     "type": "string"
@@ -6285,7 +6285,7 @@
                 },
                 "contentType": {
                     "type": "string",
-                    "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.\nSee note example or issue example for more information.\n"
+                    "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. \nSee note example or issue example for more information.\n"
                 },
                 "note": {
                     "type": "string",
@@ -6313,7 +6313,7 @@
                     },
                     "contentType": {
                         "type": "string",
-                        "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.\nSee note example or issue example for more information.\n"
+                        "description": "Must be either `Issue` or `PullRequest`\n\n**Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`. \nSee note example or issue example for more information.\n"
                     },
                     "etag": {
                         "type": "string"
@@ -8975,7 +8975,7 @@
                     "items": {
                         "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                     },
-                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n\nThe `group` block consists of:\n"
+                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n\n\nThe `group` block consists of:\n"
                 },
                 "teamSlug": {
                     "type": "string",
@@ -8992,7 +8992,7 @@
                     "items": {
                         "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                     },
-                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n\nThe `group` block consists of:\n",
+                    "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n\n\nThe `group` block consists of:\n",
                     "willReplaceOnChanges": true
                 },
                 "teamSlug": {
@@ -9014,7 +9014,7 @@
                         "items": {
                             "$ref": "#/types/github:index/TeamSyncGroupMappingGroup:TeamSyncGroupMappingGroup"
                         },
-                        "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n___\n\nThe `group` block consists of:\n",
+                        "description": "An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.\n\n\nThe `group` block consists of:\n",
                         "willReplaceOnChanges": true
                     },
                     "teamSlug": {
