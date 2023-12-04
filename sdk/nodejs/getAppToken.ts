@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const this = github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: fs.readFileSync("foo/bar.pem"),
+ *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
  * });
  * ```
  */
@@ -78,7 +78,7 @@ export interface GetAppTokenResult {
  * const this = github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: fs.readFileSync("foo/bar.pem"),
+ *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
  * });
  * ```
  */
