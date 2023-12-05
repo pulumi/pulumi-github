@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.UserSshKey("example", {
  *     title: "example title",
- *     key: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  * });
  * ```
  *
