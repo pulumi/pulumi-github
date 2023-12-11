@@ -5,8 +5,8 @@ go 1.21
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/integrations/terraform-provider-github/v5 v5.41.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.0
-	github.com/pulumi/pulumi/sdk/v3 v3.95.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.1-0.20231211210247-792dd1fbd775
+	github.com/pulumi/pulumi/sdk/v3 v3.96.2
 )
 
 require (
@@ -68,6 +68,7 @@ require (
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
@@ -160,7 +161,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.4.3 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.95.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.96.2 // indirect
 	github.com/pulumi/schema-tools v0.2.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
