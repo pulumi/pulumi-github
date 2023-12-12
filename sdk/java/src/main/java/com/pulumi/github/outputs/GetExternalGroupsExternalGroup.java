@@ -85,11 +85,11 @@ public final class GetExternalGroupsExternalGroup {
             return this;
         }
         public GetExternalGroupsExternalGroup build() {
-            final var o = new GetExternalGroupsExternalGroup();
-            o.groupId = groupId;
-            o.groupName = groupName;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetExternalGroupsExternalGroup();
+            _resultValue.groupId = groupId;
+            _resultValue.groupName = groupName;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

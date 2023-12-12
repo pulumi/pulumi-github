@@ -69,10 +69,10 @@ public final class GetSshKeysResult {
             return keys(List.of(keys));
         }
         public GetSshKeysResult build() {
-            final var o = new GetSshKeysResult();
-            o.id = id;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new GetSshKeysResult();
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

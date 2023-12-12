@@ -81,11 +81,11 @@ public final class GetBranchProtectionRulesResult {
             return rules(List.of(rules));
         }
         public GetBranchProtectionRulesResult build() {
-            final var o = new GetBranchProtectionRulesResult();
-            o.id = id;
-            o.repository = repository;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new GetBranchProtectionRulesResult();
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

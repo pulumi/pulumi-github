@@ -92,11 +92,11 @@ public final class OrganizationRulesetConditions {
             return this;
         }
         public OrganizationRulesetConditions build() {
-            final var o = new OrganizationRulesetConditions();
-            o.refName = refName;
-            o.repositoryId = repositoryId;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new OrganizationRulesetConditions();
+            _resultValue.refName = refName;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

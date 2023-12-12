@@ -50,9 +50,9 @@ public final class RepositoryRulesetRulesRequiredDeployments {
             return requiredDeploymentEnvironments(List.of(requiredDeploymentEnvironments));
         }
         public RepositoryRulesetRulesRequiredDeployments build() {
-            final var o = new RepositoryRulesetRulesRequiredDeployments();
-            o.requiredDeploymentEnvironments = requiredDeploymentEnvironments;
-            return o;
+            final var _resultValue = new RepositoryRulesetRulesRequiredDeployments();
+            _resultValue.requiredDeploymentEnvironments = requiredDeploymentEnvironments;
+            return _resultValue;
         }
     }
 }

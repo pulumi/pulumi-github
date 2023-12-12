@@ -100,12 +100,12 @@ public final class GetDependabotSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetDependabotSecretsResult build() {
-            final var o = new GetDependabotSecretsResult();
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetDependabotSecretsResult();
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

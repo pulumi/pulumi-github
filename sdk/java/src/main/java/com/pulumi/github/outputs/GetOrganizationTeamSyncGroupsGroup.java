@@ -84,11 +84,11 @@ public final class GetOrganizationTeamSyncGroupsGroup {
             return this;
         }
         public GetOrganizationTeamSyncGroupsGroup build() {
-            final var o = new GetOrganizationTeamSyncGroupsGroup();
-            o.groupDescription = groupDescription;
-            o.groupId = groupId;
-            o.groupName = groupName;
-            return o;
+            final var _resultValue = new GetOrganizationTeamSyncGroupsGroup();
+            _resultValue.groupDescription = groupDescription;
+            _resultValue.groupId = groupId;
+            _resultValue.groupName = groupName;
+            return _resultValue;
         }
     }
 }

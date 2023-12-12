@@ -83,13 +83,13 @@ public final class GetTreeEntry {
             return this;
         }
         public GetTreeEntry build() {
-            final var o = new GetTreeEntry();
-            o.mode = mode;
-            o.path = path;
-            o.sha = sha;
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTreeEntry();
+            _resultValue.mode = mode;
+            _resultValue.path = path;
+            _resultValue.sha = sha;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

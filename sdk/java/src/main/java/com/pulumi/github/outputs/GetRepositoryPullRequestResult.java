@@ -364,27 +364,27 @@ public final class GetRepositoryPullRequestResult {
             return this;
         }
         public GetRepositoryPullRequestResult build() {
-            final var o = new GetRepositoryPullRequestResult();
-            o.baseRef = baseRef;
-            o.baseRepository = baseRepository;
-            o.baseSha = baseSha;
-            o.body = body;
-            o.draft = draft;
-            o.headOwner = headOwner;
-            o.headRef = headRef;
-            o.headRepository = headRepository;
-            o.headSha = headSha;
-            o.id = id;
-            o.labels = labels;
-            o.maintainerCanModify = maintainerCanModify;
-            o.number = number;
-            o.openedAt = openedAt;
-            o.openedBy = openedBy;
-            o.owner = owner;
-            o.state = state;
-            o.title = title;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetRepositoryPullRequestResult();
+            _resultValue.baseRef = baseRef;
+            _resultValue.baseRepository = baseRepository;
+            _resultValue.baseSha = baseSha;
+            _resultValue.body = body;
+            _resultValue.draft = draft;
+            _resultValue.headOwner = headOwner;
+            _resultValue.headRef = headRef;
+            _resultValue.headRepository = headRepository;
+            _resultValue.headSha = headSha;
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.maintainerCanModify = maintainerCanModify;
+            _resultValue.number = number;
+            _resultValue.openedAt = openedAt;
+            _resultValue.openedBy = openedBy;
+            _resultValue.owner = owner;
+            _resultValue.state = state;
+            _resultValue.title = title;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

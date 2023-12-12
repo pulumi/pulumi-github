@@ -446,30 +446,30 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.avatarUrl = avatarUrl;
-            o.bio = bio;
-            o.blog = blog;
-            o.company = company;
-            o.createdAt = createdAt;
-            o.email = email;
-            o.followers = followers;
-            o.following = following;
-            o.gpgKeys = gpgKeys;
-            o.gravatarId = gravatarId;
-            o.id = id;
-            o.location = location;
-            o.login = login;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.publicGists = publicGists;
-            o.publicRepos = publicRepos;
-            o.siteAdmin = siteAdmin;
-            o.sshKeys = sshKeys;
-            o.suspendedAt = suspendedAt;
-            o.updatedAt = updatedAt;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.avatarUrl = avatarUrl;
+            _resultValue.bio = bio;
+            _resultValue.blog = blog;
+            _resultValue.company = company;
+            _resultValue.createdAt = createdAt;
+            _resultValue.email = email;
+            _resultValue.followers = followers;
+            _resultValue.following = following;
+            _resultValue.gpgKeys = gpgKeys;
+            _resultValue.gravatarId = gravatarId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.login = login;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.publicGists = publicGists;
+            _resultValue.publicRepos = publicRepos;
+            _resultValue.siteAdmin = siteAdmin;
+            _resultValue.sshKeys = sshKeys;
+            _resultValue.suspendedAt = suspendedAt;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

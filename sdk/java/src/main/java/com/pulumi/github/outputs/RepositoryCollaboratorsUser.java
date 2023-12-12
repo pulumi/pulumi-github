@@ -71,10 +71,10 @@ public final class RepositoryCollaboratorsUser {
             return this;
         }
         public RepositoryCollaboratorsUser build() {
-            final var o = new RepositoryCollaboratorsUser();
-            o.permission = permission;
-            o.username = username;
-            return o;
+            final var _resultValue = new RepositoryCollaboratorsUser();
+            _resultValue.permission = permission;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

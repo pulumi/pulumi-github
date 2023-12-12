@@ -100,12 +100,12 @@ public final class GetActionsSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetActionsSecretsResult build() {
-            final var o = new GetActionsSecretsResult();
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetActionsSecretsResult();
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

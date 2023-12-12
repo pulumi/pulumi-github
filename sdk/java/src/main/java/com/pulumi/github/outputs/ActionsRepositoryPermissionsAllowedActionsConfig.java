@@ -91,11 +91,11 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfig {
             return this;
         }
         public ActionsRepositoryPermissionsAllowedActionsConfig build() {
-            final var o = new ActionsRepositoryPermissionsAllowedActionsConfig();
-            o.githubOwnedAllowed = githubOwnedAllowed;
-            o.patternsAlloweds = patternsAlloweds;
-            o.verifiedAllowed = verifiedAllowed;
-            return o;
+            final var _resultValue = new ActionsRepositoryPermissionsAllowedActionsConfig();
+            _resultValue.githubOwnedAllowed = githubOwnedAllowed;
+            _resultValue.patternsAlloweds = patternsAlloweds;
+            _resultValue.verifiedAllowed = verifiedAllowed;
+            return _resultValue;
         }
     }
 }

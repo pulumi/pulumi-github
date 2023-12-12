@@ -118,15 +118,15 @@ public final class GetRepositoryPage {
             return this;
         }
         public GetRepositoryPage build() {
-            final var o = new GetRepositoryPage();
-            o.buildType = buildType;
-            o.cname = cname;
-            o.custom404 = custom404;
-            o.htmlUrl = htmlUrl;
-            o.sources = sources;
-            o.status = status;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetRepositoryPage();
+            _resultValue.buildType = buildType;
+            _resultValue.cname = cname;
+            _resultValue.custom404 = custom404;
+            _resultValue.htmlUrl = htmlUrl;
+            _resultValue.sources = sources;
+            _resultValue.status = status;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

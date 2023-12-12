@@ -106,13 +106,13 @@ public final class GetTreeResult {
             return this;
         }
         public GetTreeResult build() {
-            final var o = new GetTreeResult();
-            o.entries = entries;
-            o.id = id;
-            o.recursive = recursive;
-            o.repository = repository;
-            o.treeSha = treeSha;
-            return o;
+            final var _resultValue = new GetTreeResult();
+            _resultValue.entries = entries;
+            _resultValue.id = id;
+            _resultValue.recursive = recursive;
+            _resultValue.repository = repository;
+            _resultValue.treeSha = treeSha;
+            return _resultValue;
         }
     }
 }

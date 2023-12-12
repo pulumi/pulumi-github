@@ -84,11 +84,11 @@ public final class GetCodespacesSecretsSecret {
             return this;
         }
         public GetCodespacesSecretsSecret build() {
-            final var o = new GetCodespacesSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetCodespacesSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

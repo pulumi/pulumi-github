@@ -173,17 +173,17 @@ public final class GetRepositoryPullRequestsInvokeResult {
             return this;
         }
         public GetRepositoryPullRequestsInvokeResult build() {
-            final var o = new GetRepositoryPullRequestsInvokeResult();
-            o.baseRef = baseRef;
-            o.baseRepository = baseRepository;
-            o.headRef = headRef;
-            o.id = id;
-            o.owner = owner;
-            o.results = results;
-            o.sortBy = sortBy;
-            o.sortDirection = sortDirection;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetRepositoryPullRequestsInvokeResult();
+            _resultValue.baseRef = baseRef;
+            _resultValue.baseRepository = baseRepository;
+            _resultValue.headRef = headRef;
+            _resultValue.id = id;
+            _resultValue.owner = owner;
+            _resultValue.results = results;
+            _resultValue.sortBy = sortBy;
+            _resultValue.sortDirection = sortDirection;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

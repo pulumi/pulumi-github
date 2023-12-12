@@ -103,12 +103,12 @@ public final class GetActionsEnvironmentVariablesVariable {
             return this;
         }
         public GetActionsEnvironmentVariablesVariable build() {
-            final var o = new GetActionsEnvironmentVariablesVariable();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetActionsEnvironmentVariablesVariable();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

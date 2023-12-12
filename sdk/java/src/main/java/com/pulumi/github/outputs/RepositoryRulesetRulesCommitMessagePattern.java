@@ -106,12 +106,12 @@ public final class RepositoryRulesetRulesCommitMessagePattern {
             return this;
         }
         public RepositoryRulesetRulesCommitMessagePattern build() {
-            final var o = new RepositoryRulesetRulesCommitMessagePattern();
-            o.name = name;
-            o.negate = negate;
-            o.operator = operator;
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new RepositoryRulesetRulesCommitMessagePattern();
+            _resultValue.name = name;
+            _resultValue.negate = negate;
+            _resultValue.operator = operator;
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

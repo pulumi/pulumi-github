@@ -81,11 +81,11 @@ public final class GetIssueLabelsResult {
             return this;
         }
         public GetIssueLabelsResult build() {
-            final var o = new GetIssueLabelsResult();
-            o.id = id;
-            o.labels = labels;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetIssueLabelsResult();
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

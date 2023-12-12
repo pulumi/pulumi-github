@@ -84,11 +84,11 @@ public final class GetDependabotSecretsSecret {
             return this;
         }
         public GetDependabotSecretsSecret build() {
-            final var o = new GetDependabotSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetDependabotSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

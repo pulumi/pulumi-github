@@ -118,13 +118,13 @@ public final class GetOrganizationCustomRoleResult {
             return permissions(List.of(permissions));
         }
         public GetOrganizationCustomRoleResult build() {
-            final var o = new GetOrganizationCustomRoleResult();
-            o.baseRole = baseRole;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new GetOrganizationCustomRoleResult();
+            _resultValue.baseRole = baseRole;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

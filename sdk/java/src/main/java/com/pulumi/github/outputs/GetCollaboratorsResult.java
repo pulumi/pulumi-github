@@ -105,13 +105,13 @@ public final class GetCollaboratorsResult {
             return this;
         }
         public GetCollaboratorsResult build() {
-            final var o = new GetCollaboratorsResult();
-            o.affiliation = affiliation;
-            o.collaborators = collaborators;
-            o.id = id;
-            o.owner = owner;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetCollaboratorsResult();
+            _resultValue.affiliation = affiliation;
+            _resultValue.collaborators = collaborators;
+            _resultValue.id = id;
+            _resultValue.owner = owner;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

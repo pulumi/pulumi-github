@@ -72,10 +72,10 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
             return this;
         }
         public RepositoryRulesetRulesRequiredStatusChecks build() {
-            final var o = new RepositoryRulesetRulesRequiredStatusChecks();
-            o.requiredChecks = requiredChecks;
-            o.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
-            return o;
+            final var _resultValue = new RepositoryRulesetRulesRequiredStatusChecks();
+            _resultValue.requiredChecks = requiredChecks;
+            _resultValue.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
+            return _resultValue;
         }
     }
 }

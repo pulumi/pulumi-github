@@ -84,11 +84,11 @@ public final class GetActionsSecretsSecret {
             return this;
         }
         public GetActionsSecretsSecret build() {
-            final var o = new GetActionsSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetActionsSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class GetOrganizationWebhooksWebhook {
             return this;
         }
         public GetOrganizationWebhooksWebhook build() {
-            final var o = new GetOrganizationWebhooksWebhook();
-            o.active = active;
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetOrganizationWebhooksWebhook();
+            _resultValue.active = active;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

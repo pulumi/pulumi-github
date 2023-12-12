@@ -81,11 +81,11 @@ public final class GetRepositoryEnvironmentsResult {
             return this;
         }
         public GetRepositoryEnvironmentsResult build() {
-            final var o = new GetRepositoryEnvironmentsResult();
-            o.environments = environments;
-            o.id = id;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryEnvironmentsResult();
+            _resultValue.environments = environments;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

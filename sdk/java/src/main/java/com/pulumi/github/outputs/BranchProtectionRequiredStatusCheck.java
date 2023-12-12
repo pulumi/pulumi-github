@@ -72,10 +72,10 @@ public final class BranchProtectionRequiredStatusCheck {
             return this;
         }
         public BranchProtectionRequiredStatusCheck build() {
-            final var o = new BranchProtectionRequiredStatusCheck();
-            o.contexts = contexts;
-            o.strict = strict;
-            return o;
+            final var _resultValue = new BranchProtectionRequiredStatusCheck();
+            _resultValue.contexts = contexts;
+            _resultValue.strict = strict;
+            return _resultValue;
         }
     }
 }

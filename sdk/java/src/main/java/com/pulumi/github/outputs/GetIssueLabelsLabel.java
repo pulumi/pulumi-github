@@ -103,12 +103,12 @@ public final class GetIssueLabelsLabel {
             return this;
         }
         public GetIssueLabelsLabel build() {
-            final var o = new GetIssueLabelsLabel();
-            o.color = color;
-            o.description = description;
-            o.name = name;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetIssueLabelsLabel();
+            _resultValue.color = color;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

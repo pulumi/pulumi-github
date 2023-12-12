@@ -95,12 +95,12 @@ public final class GetActionsPublicKeyResult {
             return this;
         }
         public GetActionsPublicKeyResult build() {
-            final var o = new GetActionsPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetActionsPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

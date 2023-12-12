@@ -79,12 +79,12 @@ public final class GetDependabotPublicKeyResult {
             return this;
         }
         public GetDependabotPublicKeyResult build() {
-            final var o = new GetDependabotPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetDependabotPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

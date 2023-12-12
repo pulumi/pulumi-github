@@ -106,12 +106,12 @@ public final class RepositoryRulesetRulesBranchNamePattern {
             return this;
         }
         public RepositoryRulesetRulesBranchNamePattern build() {
-            final var o = new RepositoryRulesetRulesBranchNamePattern();
-            o.name = name;
-            o.negate = negate;
-            o.operator = operator;
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new RepositoryRulesetRulesBranchNamePattern();
+            _resultValue.name = name;
+            _resultValue.negate = negate;
+            _resultValue.operator = operator;
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class RepositoryEnvironmentReviewer {
             return users(List.of(users));
         }
         public RepositoryEnvironmentReviewer build() {
-            final var o = new RepositoryEnvironmentReviewer();
-            o.teams = teams;
-            o.users = users;
-            return o;
+            final var _resultValue = new RepositoryEnvironmentReviewer();
+            _resultValue.teams = teams;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

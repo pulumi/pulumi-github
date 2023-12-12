@@ -69,10 +69,10 @@ public final class TeamMembersMember {
             return this;
         }
         public TeamMembersMember build() {
-            final var o = new TeamMembersMember();
-            o.role = role;
-            o.username = username;
-            return o;
+            final var _resultValue = new TeamMembersMember();
+            _resultValue.role = role;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

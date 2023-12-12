@@ -70,10 +70,10 @@ public final class GetOrganizationTeamSyncGroupsResult {
             return this;
         }
         public GetOrganizationTeamSyncGroupsResult build() {
-            final var o = new GetOrganizationTeamSyncGroupsResult();
-            o.groups = groups;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetOrganizationTeamSyncGroupsResult();
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

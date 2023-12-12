@@ -46,9 +46,9 @@ public final class GetBranchProtectionRulesRule {
             return this;
         }
         public GetBranchProtectionRulesRule build() {
-            final var o = new GetBranchProtectionRulesRule();
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new GetBranchProtectionRulesRule();
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

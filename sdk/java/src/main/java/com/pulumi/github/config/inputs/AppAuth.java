@@ -60,11 +60,11 @@ public final class AppAuth {
             return this;
         }
         public AppAuth build() {
-            final var o = new AppAuth();
-            o.id = id;
-            o.installationId = installationId;
-            o.pemFile = pemFile;
-            return o;
+            final var _resultValue = new AppAuth();
+            _resultValue.id = id;
+            _resultValue.installationId = installationId;
+            _resultValue.pemFile = pemFile;
+            return _resultValue;
         }
     }
 }

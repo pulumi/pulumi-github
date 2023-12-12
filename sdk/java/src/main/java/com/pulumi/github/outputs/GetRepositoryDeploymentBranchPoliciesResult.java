@@ -92,12 +92,12 @@ public final class GetRepositoryDeploymentBranchPoliciesResult {
             return this;
         }
         public GetRepositoryDeploymentBranchPoliciesResult build() {
-            final var o = new GetRepositoryDeploymentBranchPoliciesResult();
-            o.deploymentBranchPolicies = deploymentBranchPolicies;
-            o.environmentName = environmentName;
-            o.id = id;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryDeploymentBranchPoliciesResult();
+            _resultValue.deploymentBranchPolicies = deploymentBranchPolicies;
+            _resultValue.environmentName = environmentName;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

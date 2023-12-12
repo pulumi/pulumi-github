@@ -125,13 +125,13 @@ public final class RepositoryRulesetRulesPullRequest {
             return this;
         }
         public RepositoryRulesetRulesPullRequest build() {
-            final var o = new RepositoryRulesetRulesPullRequest();
-            o.dismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
-            o.requireCodeOwnerReview = requireCodeOwnerReview;
-            o.requireLastPushApproval = requireLastPushApproval;
-            o.requiredApprovingReviewCount = requiredApprovingReviewCount;
-            o.requiredReviewThreadResolution = requiredReviewThreadResolution;
-            return o;
+            final var _resultValue = new RepositoryRulesetRulesPullRequest();
+            _resultValue.dismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
+            _resultValue.requireCodeOwnerReview = requireCodeOwnerReview;
+            _resultValue.requireLastPushApproval = requireLastPushApproval;
+            _resultValue.requiredApprovingReviewCount = requiredApprovingReviewCount;
+            _resultValue.requiredReviewThreadResolution = requiredReviewThreadResolution;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class OrganizationRulesetRulesRequiredStatusChecks {
             return this;
         }
         public OrganizationRulesetRulesRequiredStatusChecks build() {
-            final var o = new OrganizationRulesetRulesRequiredStatusChecks();
-            o.requiredChecks = requiredChecks;
-            o.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
-            return o;
+            final var _resultValue = new OrganizationRulesetRulesRequiredStatusChecks();
+            _resultValue.requiredChecks = requiredChecks;
+            _resultValue.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
+            return _resultValue;
         }
     }
 }

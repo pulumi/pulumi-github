@@ -69,10 +69,10 @@ public final class GetActionsOrganizationOidcSubjectClaimCustomizationTemplateRe
             return includeClaimKeys(List.of(includeClaimKeys));
         }
         public GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult build() {
-            final var o = new GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult();
-            o.id = id;
-            o.includeClaimKeys = includeClaimKeys;
-            return o;
+            final var _resultValue = new GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult();
+            _resultValue.id = id;
+            _resultValue.includeClaimKeys = includeClaimKeys;
+            return _resultValue;
         }
     }
 }

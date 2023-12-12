@@ -337,24 +337,24 @@ public final class GetRepositoryPullRequestsResult {
             return this;
         }
         public GetRepositoryPullRequestsResult build() {
-            final var o = new GetRepositoryPullRequestsResult();
-            o.baseRef = baseRef;
-            o.baseSha = baseSha;
-            o.body = body;
-            o.draft = draft;
-            o.headOwner = headOwner;
-            o.headRef = headRef;
-            o.headRepository = headRepository;
-            o.headSha = headSha;
-            o.labels = labels;
-            o.maintainerCanModify = maintainerCanModify;
-            o.number = number;
-            o.openedAt = openedAt;
-            o.openedBy = openedBy;
-            o.state = state;
-            o.title = title;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetRepositoryPullRequestsResult();
+            _resultValue.baseRef = baseRef;
+            _resultValue.baseSha = baseSha;
+            _resultValue.body = body;
+            _resultValue.draft = draft;
+            _resultValue.headOwner = headOwner;
+            _resultValue.headRef = headRef;
+            _resultValue.headRepository = headRepository;
+            _resultValue.headSha = headSha;
+            _resultValue.labels = labels;
+            _resultValue.maintainerCanModify = maintainerCanModify;
+            _resultValue.number = number;
+            _resultValue.openedAt = openedAt;
+            _resultValue.openedBy = openedBy;
+            _resultValue.state = state;
+            _resultValue.title = title;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

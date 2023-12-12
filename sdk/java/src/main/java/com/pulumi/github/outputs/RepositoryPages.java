@@ -156,15 +156,15 @@ public final class RepositoryPages {
             return this;
         }
         public RepositoryPages build() {
-            final var o = new RepositoryPages();
-            o.buildType = buildType;
-            o.cname = cname;
-            o.custom404 = custom404;
-            o.htmlUrl = htmlUrl;
-            o.source = source;
-            o.status = status;
-            o.url = url;
-            return o;
+            final var _resultValue = new RepositoryPages();
+            _resultValue.buildType = buildType;
+            _resultValue.cname = cname;
+            _resultValue.custom404 = custom404;
+            _resultValue.htmlUrl = htmlUrl;
+            _resultValue.source = source;
+            _resultValue.status = status;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

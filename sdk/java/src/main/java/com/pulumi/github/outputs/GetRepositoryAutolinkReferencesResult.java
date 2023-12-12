@@ -81,11 +81,11 @@ public final class GetRepositoryAutolinkReferencesResult {
             return this;
         }
         public GetRepositoryAutolinkReferencesResult build() {
-            final var o = new GetRepositoryAutolinkReferencesResult();
-            o.autolinkReferences = autolinkReferences;
-            o.id = id;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryAutolinkReferencesResult();
+            _resultValue.autolinkReferences = autolinkReferences;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

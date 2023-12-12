@@ -84,11 +84,11 @@ public final class GetCodespacesOrganizationPublicKeyResult {
             return this;
         }
         public GetCodespacesOrganizationPublicKeyResult build() {
-            final var o = new GetCodespacesOrganizationPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetCodespacesOrganizationPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

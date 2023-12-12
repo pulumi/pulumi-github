@@ -84,11 +84,11 @@ public final class GetCodespacesUserPublicKeyResult {
             return this;
         }
         public GetCodespacesUserPublicKeyResult build() {
-            final var o = new GetCodespacesUserPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetCodespacesUserPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

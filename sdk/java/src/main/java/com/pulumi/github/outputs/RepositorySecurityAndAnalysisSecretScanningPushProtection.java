@@ -46,9 +46,9 @@ public final class RepositorySecurityAndAnalysisSecretScanningPushProtection {
             return this;
         }
         public RepositorySecurityAndAnalysisSecretScanningPushProtection build() {
-            final var o = new RepositorySecurityAndAnalysisSecretScanningPushProtection();
-            o.status = status;
-            return o;
+            final var _resultValue = new RepositorySecurityAndAnalysisSecretScanningPushProtection();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

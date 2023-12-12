@@ -125,12 +125,12 @@ public final class BranchProtectionV3RequiredStatusChecks {
             return this;
         }
         public BranchProtectionV3RequiredStatusChecks build() {
-            final var o = new BranchProtectionV3RequiredStatusChecks();
-            o.checks = checks;
-            o.contexts = contexts;
-            o.includeAdmins = includeAdmins;
-            o.strict = strict;
-            return o;
+            final var _resultValue = new BranchProtectionV3RequiredStatusChecks();
+            _resultValue.checks = checks;
+            _resultValue.contexts = contexts;
+            _resultValue.includeAdmins = includeAdmins;
+            _resultValue.strict = strict;
+            return _resultValue;
         }
     }
 }

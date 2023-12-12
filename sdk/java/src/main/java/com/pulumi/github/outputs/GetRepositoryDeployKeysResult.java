@@ -81,11 +81,11 @@ public final class GetRepositoryDeployKeysResult {
             return this;
         }
         public GetRepositoryDeployKeysResult build() {
-            final var o = new GetRepositoryDeployKeysResult();
-            o.id = id;
-            o.keys = keys;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryDeployKeysResult();
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

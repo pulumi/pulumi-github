@@ -103,12 +103,12 @@ public final class GetDependabotOrganizationSecretsSecret {
             return this;
         }
         public GetDependabotOrganizationSecretsSecret build() {
-            final var o = new GetDependabotOrganizationSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            o.visibility = visibility;
-            return o;
+            final var _resultValue = new GetDependabotOrganizationSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.visibility = visibility;
+            return _resultValue;
         }
     }
 }

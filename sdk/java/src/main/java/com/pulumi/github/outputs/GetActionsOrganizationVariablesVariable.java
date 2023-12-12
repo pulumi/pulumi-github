@@ -122,13 +122,13 @@ public final class GetActionsOrganizationVariablesVariable {
             return this;
         }
         public GetActionsOrganizationVariablesVariable build() {
-            final var o = new GetActionsOrganizationVariablesVariable();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            o.value = value;
-            o.visibility = visibility;
-            return o;
+            final var _resultValue = new GetActionsOrganizationVariablesVariable();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.value = value;
+            _resultValue.visibility = visibility;
+            return _resultValue;
         }
     }
 }

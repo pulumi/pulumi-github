@@ -419,29 +419,29 @@ public final class GetReleaseResult {
             return this;
         }
         public GetReleaseResult build() {
-            final var o = new GetReleaseResult();
-            o.assertsUrl = assertsUrl;
-            o.assets = assets;
-            o.assetsUrl = assetsUrl;
-            o.body = body;
-            o.createdAt = createdAt;
-            o.draft = draft;
-            o.htmlUrl = htmlUrl;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.prerelease = prerelease;
-            o.publishedAt = publishedAt;
-            o.releaseId = releaseId;
-            o.releaseTag = releaseTag;
-            o.repository = repository;
-            o.retrieveBy = retrieveBy;
-            o.tarballUrl = tarballUrl;
-            o.targetCommitish = targetCommitish;
-            o.uploadUrl = uploadUrl;
-            o.url = url;
-            o.zipballUrl = zipballUrl;
-            return o;
+            final var _resultValue = new GetReleaseResult();
+            _resultValue.assertsUrl = assertsUrl;
+            _resultValue.assets = assets;
+            _resultValue.assetsUrl = assetsUrl;
+            _resultValue.body = body;
+            _resultValue.createdAt = createdAt;
+            _resultValue.draft = draft;
+            _resultValue.htmlUrl = htmlUrl;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.prerelease = prerelease;
+            _resultValue.publishedAt = publishedAt;
+            _resultValue.releaseId = releaseId;
+            _resultValue.releaseTag = releaseTag;
+            _resultValue.repository = repository;
+            _resultValue.retrieveBy = retrieveBy;
+            _resultValue.tarballUrl = tarballUrl;
+            _resultValue.targetCommitish = targetCommitish;
+            _resultValue.uploadUrl = uploadUrl;
+            _resultValue.url = url;
+            _resultValue.zipballUrl = zipballUrl;
+            return _resultValue;
         }
     }
 }
