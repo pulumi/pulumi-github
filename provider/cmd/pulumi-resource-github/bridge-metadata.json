@@ -344,9 +344,6 @@
                                             },
                                             "include": {
                                                 "maxItemsOne": false
-                                            },
-                                            "inlcude": {
-                                                "maxItemsOne": false
                                             }
                                         }
                                     }
@@ -1183,6 +1180,15 @@
                     "usernames": {
                         "maxItemsOne": false
                     }
+                }
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "github_organization_ruleset": {
+                "maxItemsOneOverrides": {
+                    "conditions.$.repository_id": true
                 }
             }
         }
