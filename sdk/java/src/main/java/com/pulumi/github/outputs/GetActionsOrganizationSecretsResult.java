@@ -70,10 +70,10 @@ public final class GetActionsOrganizationSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetActionsOrganizationSecretsResult build() {
-            final var o = new GetActionsOrganizationSecretsResult();
-            o.id = id;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetActionsOrganizationSecretsResult();
+            _resultValue.id = id;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

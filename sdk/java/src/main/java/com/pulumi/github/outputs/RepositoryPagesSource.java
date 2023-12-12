@@ -67,10 +67,10 @@ public final class RepositoryPagesSource {
             return this;
         }
         public RepositoryPagesSource build() {
-            final var o = new RepositoryPagesSource();
-            o.branch = branch;
-            o.path = path;
-            return o;
+            final var _resultValue = new RepositoryPagesSource();
+            _resultValue.branch = branch;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

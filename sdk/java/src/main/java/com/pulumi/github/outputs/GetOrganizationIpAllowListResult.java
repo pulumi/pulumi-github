@@ -72,10 +72,10 @@ public final class GetOrganizationIpAllowListResult {
             return ipAllowLists(List.of(ipAllowLists));
         }
         public GetOrganizationIpAllowListResult build() {
-            final var o = new GetOrganizationIpAllowListResult();
-            o.id = id;
-            o.ipAllowLists = ipAllowLists;
-            return o;
+            final var _resultValue = new GetOrganizationIpAllowListResult();
+            _resultValue.id = id;
+            _resultValue.ipAllowLists = ipAllowLists;
+            return _resultValue;
         }
     }
 }

@@ -101,11 +101,11 @@ public final class BranchProtectionV3Restrictions {
             return users(List.of(users));
         }
         public BranchProtectionV3Restrictions build() {
-            final var o = new BranchProtectionV3Restrictions();
-            o.apps = apps;
-            o.teams = teams;
-            o.users = users;
-            return o;
+            final var _resultValue = new BranchProtectionV3Restrictions();
+            _resultValue.apps = apps;
+            _resultValue.teams = teams;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

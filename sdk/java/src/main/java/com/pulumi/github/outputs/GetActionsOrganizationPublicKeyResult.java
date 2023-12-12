@@ -84,11 +84,11 @@ public final class GetActionsOrganizationPublicKeyResult {
             return this;
         }
         public GetActionsOrganizationPublicKeyResult build() {
-            final var o = new GetActionsOrganizationPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetActionsOrganizationPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

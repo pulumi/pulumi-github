@@ -207,17 +207,17 @@ public final class GetOrganizationTeamsTeam {
             return this;
         }
         public GetOrganizationTeamsTeam build() {
-            final var o = new GetOrganizationTeamsTeam();
-            o.description = description;
-            o.id = id;
-            o.members = members;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.parent = parent;
-            o.privacy = privacy;
-            o.repositories = repositories;
-            o.slug = slug;
-            return o;
+            final var _resultValue = new GetOrganizationTeamsTeam();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.members = members;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.parent = parent;
+            _resultValue.privacy = privacy;
+            _resultValue.repositories = repositories;
+            _resultValue.slug = slug;
+            return _resultValue;
         }
     }
 }

@@ -575,33 +575,33 @@ public final class GetIpRangesResult {
             return webs(List.of(webs));
         }
         public GetIpRangesResult build() {
-            final var o = new GetIpRangesResult();
-            o.actions = actions;
-            o.actionsIpv4s = actionsIpv4s;
-            o.actionsIpv6s = actionsIpv6s;
-            o.apiIpv4s = apiIpv4s;
-            o.apiIpv6s = apiIpv6s;
-            o.apis = apis;
-            o.dependabotIpv4s = dependabotIpv4s;
-            o.dependabotIpv6s = dependabotIpv6s;
-            o.dependabots = dependabots;
-            o.gitIpv4s = gitIpv4s;
-            o.gitIpv6s = gitIpv6s;
-            o.gits = gits;
-            o.hooks = hooks;
-            o.hooksIpv4s = hooksIpv4s;
-            o.hooksIpv6s = hooksIpv6s;
-            o.id = id;
-            o.importerIpv4s = importerIpv4s;
-            o.importerIpv6s = importerIpv6s;
-            o.importers = importers;
-            o.pages = pages;
-            o.pagesIpv4s = pagesIpv4s;
-            o.pagesIpv6s = pagesIpv6s;
-            o.webIpv4s = webIpv4s;
-            o.webIpv6s = webIpv6s;
-            o.webs = webs;
-            return o;
+            final var _resultValue = new GetIpRangesResult();
+            _resultValue.actions = actions;
+            _resultValue.actionsIpv4s = actionsIpv4s;
+            _resultValue.actionsIpv6s = actionsIpv6s;
+            _resultValue.apiIpv4s = apiIpv4s;
+            _resultValue.apiIpv6s = apiIpv6s;
+            _resultValue.apis = apis;
+            _resultValue.dependabotIpv4s = dependabotIpv4s;
+            _resultValue.dependabotIpv6s = dependabotIpv6s;
+            _resultValue.dependabots = dependabots;
+            _resultValue.gitIpv4s = gitIpv4s;
+            _resultValue.gitIpv6s = gitIpv6s;
+            _resultValue.gits = gits;
+            _resultValue.hooks = hooks;
+            _resultValue.hooksIpv4s = hooksIpv4s;
+            _resultValue.hooksIpv6s = hooksIpv6s;
+            _resultValue.id = id;
+            _resultValue.importerIpv4s = importerIpv4s;
+            _resultValue.importerIpv6s = importerIpv6s;
+            _resultValue.importers = importers;
+            _resultValue.pages = pages;
+            _resultValue.pagesIpv4s = pagesIpv4s;
+            _resultValue.pagesIpv6s = pagesIpv6s;
+            _resultValue.webIpv4s = webIpv4s;
+            _resultValue.webIpv6s = webIpv6s;
+            _resultValue.webs = webs;
+            return _resultValue;
         }
     }
 }

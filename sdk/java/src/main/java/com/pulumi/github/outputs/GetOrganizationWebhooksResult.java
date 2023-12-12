@@ -72,10 +72,10 @@ public final class GetOrganizationWebhooksResult {
             return webhooks(List.of(webhooks));
         }
         public GetOrganizationWebhooksResult build() {
-            final var o = new GetOrganizationWebhooksResult();
-            o.id = id;
-            o.webhooks = webhooks;
-            return o;
+            final var _resultValue = new GetOrganizationWebhooksResult();
+            _resultValue.id = id;
+            _resultValue.webhooks = webhooks;
+            return _resultValue;
         }
     }
 }

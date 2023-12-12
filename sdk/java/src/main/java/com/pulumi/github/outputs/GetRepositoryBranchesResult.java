@@ -106,13 +106,13 @@ public final class GetRepositoryBranchesResult {
             return this;
         }
         public GetRepositoryBranchesResult build() {
-            final var o = new GetRepositoryBranchesResult();
-            o.branches = branches;
-            o.id = id;
-            o.onlyNonProtectedBranches = onlyNonProtectedBranches;
-            o.onlyProtectedBranches = onlyProtectedBranches;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryBranchesResult();
+            _resultValue.branches = branches;
+            _resultValue.id = id;
+            _resultValue.onlyNonProtectedBranches = onlyNonProtectedBranches;
+            _resultValue.onlyProtectedBranches = onlyProtectedBranches;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

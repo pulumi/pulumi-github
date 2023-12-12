@@ -156,16 +156,16 @@ public final class GetRepositoryMilestoneResult {
             return this;
         }
         public GetRepositoryMilestoneResult build() {
-            final var o = new GetRepositoryMilestoneResult();
-            o.description = description;
-            o.dueDate = dueDate;
-            o.id = id;
-            o.number = number;
-            o.owner = owner;
-            o.repository = repository;
-            o.state = state;
-            o.title = title;
-            return o;
+            final var _resultValue = new GetRepositoryMilestoneResult();
+            _resultValue.description = description;
+            _resultValue.dueDate = dueDate;
+            _resultValue.id = id;
+            _resultValue.number = number;
+            _resultValue.owner = owner;
+            _resultValue.repository = repository;
+            _resultValue.state = state;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

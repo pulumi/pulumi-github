@@ -83,11 +83,11 @@ public final class GetRepositoryWebhooksResult {
             return webhooks(List.of(webhooks));
         }
         public GetRepositoryWebhooksResult build() {
-            final var o = new GetRepositoryWebhooksResult();
-            o.id = id;
-            o.repository = repository;
-            o.webhooks = webhooks;
-            return o;
+            final var _resultValue = new GetRepositoryWebhooksResult();
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            _resultValue.webhooks = webhooks;
+            return _resultValue;
         }
     }
 }

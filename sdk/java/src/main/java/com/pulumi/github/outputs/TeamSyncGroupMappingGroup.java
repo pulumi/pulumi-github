@@ -84,11 +84,11 @@ public final class TeamSyncGroupMappingGroup {
             return this;
         }
         public TeamSyncGroupMappingGroup build() {
-            final var o = new TeamSyncGroupMappingGroup();
-            o.groupDescription = groupDescription;
-            o.groupId = groupId;
-            o.groupName = groupName;
-            return o;
+            final var _resultValue = new TeamSyncGroupMappingGroup();
+            _resultValue.groupDescription = groupDescription;
+            _resultValue.groupId = groupId;
+            _resultValue.groupName = groupName;
+            return _resultValue;
         }
     }
 }

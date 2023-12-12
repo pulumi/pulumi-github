@@ -145,16 +145,16 @@ public final class GetRepositoriesResult {
             return this;
         }
         public GetRepositoriesResult build() {
-            final var o = new GetRepositoriesResult();
-            o.fullNames = fullNames;
-            o.id = id;
-            o.includeRepoId = includeRepoId;
-            o.names = names;
-            o.query = query;
-            o.repoIds = repoIds;
-            o.resultsPerPage = resultsPerPage;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new GetRepositoriesResult();
+            _resultValue.fullNames = fullNames;
+            _resultValue.id = id;
+            _resultValue.includeRepoId = includeRepoId;
+            _resultValue.names = names;
+            _resultValue.query = query;
+            _resultValue.repoIds = repoIds;
+            _resultValue.resultsPerPage = resultsPerPage;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

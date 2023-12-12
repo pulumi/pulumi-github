@@ -65,10 +65,10 @@ public final class GetRepositoryEnvironmentsEnvironment {
             return this;
         }
         public GetRepositoryEnvironmentsEnvironment build() {
-            final var o = new GetRepositoryEnvironmentsEnvironment();
-            o.name = name;
-            o.nodeId = nodeId;
-            return o;
+            final var _resultValue = new GetRepositoryEnvironmentsEnvironment();
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class GetOrganizationExternalIdentitiesIdentity {
             return this;
         }
         public GetOrganizationExternalIdentitiesIdentity build() {
-            final var o = new GetOrganizationExternalIdentitiesIdentity();
-            o.login = login;
-            o.samlIdentity = samlIdentity;
-            o.scimIdentity = scimIdentity;
-            return o;
+            final var _resultValue = new GetOrganizationExternalIdentitiesIdentity();
+            _resultValue.login = login;
+            _resultValue.samlIdentity = samlIdentity;
+            _resultValue.scimIdentity = scimIdentity;
+            return _resultValue;
         }
     }
 }

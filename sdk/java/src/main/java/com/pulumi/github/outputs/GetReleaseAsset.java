@@ -218,18 +218,18 @@ public final class GetReleaseAsset {
             return this;
         }
         public GetReleaseAsset build() {
-            final var o = new GetReleaseAsset();
-            o.browserDownloadUrl = browserDownloadUrl;
-            o.contentType = contentType;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.label = label;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.size = size;
-            o.updatedAt = updatedAt;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetReleaseAsset();
+            _resultValue.browserDownloadUrl = browserDownloadUrl;
+            _resultValue.contentType = contentType;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.size = size;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

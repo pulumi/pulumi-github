@@ -70,10 +70,10 @@ public final class GetCodespacesOrganizationSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetCodespacesOrganizationSecretsResult build() {
-            final var o = new GetCodespacesOrganizationSecretsResult();
-            o.id = id;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetCodespacesOrganizationSecretsResult();
+            _resultValue.id = id;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

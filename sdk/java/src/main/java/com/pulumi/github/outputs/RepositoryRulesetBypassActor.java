@@ -89,11 +89,11 @@ public final class RepositoryRulesetBypassActor {
             return this;
         }
         public RepositoryRulesetBypassActor build() {
-            final var o = new RepositoryRulesetBypassActor();
-            o.actorId = actorId;
-            o.actorType = actorType;
-            o.bypassMode = bypassMode;
-            return o;
+            final var _resultValue = new RepositoryRulesetBypassActor();
+            _resultValue.actorId = actorId;
+            _resultValue.actorType = actorType;
+            _resultValue.bypassMode = bypassMode;
+            return _resultValue;
         }
     }
 }

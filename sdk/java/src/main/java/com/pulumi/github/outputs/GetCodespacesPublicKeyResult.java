@@ -95,12 +95,12 @@ public final class GetCodespacesPublicKeyResult {
             return this;
         }
         public GetCodespacesPublicKeyResult build() {
-            final var o = new GetCodespacesPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetCodespacesPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

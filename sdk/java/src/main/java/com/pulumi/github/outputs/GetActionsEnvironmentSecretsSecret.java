@@ -84,11 +84,11 @@ public final class GetActionsEnvironmentSecretsSecret {
             return this;
         }
         public GetActionsEnvironmentSecretsSecret build() {
-            final var o = new GetActionsEnvironmentSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetActionsEnvironmentSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

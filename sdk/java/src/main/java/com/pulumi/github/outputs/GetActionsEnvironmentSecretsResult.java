@@ -111,13 +111,13 @@ public final class GetActionsEnvironmentSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetActionsEnvironmentSecretsResult build() {
-            final var o = new GetActionsEnvironmentSecretsResult();
-            o.environment = environment;
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetActionsEnvironmentSecretsResult();
+            _resultValue.environment = environment;
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

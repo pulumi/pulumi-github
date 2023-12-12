@@ -100,12 +100,12 @@ public final class GetRepositoryTeamsResult {
             return teams(List.of(teams));
         }
         public GetRepositoryTeamsResult build() {
-            final var o = new GetRepositoryTeamsResult();
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.teams = teams;
-            return o;
+            final var _resultValue = new GetRepositoryTeamsResult();
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.teams = teams;
+            return _resultValue;
         }
     }
 }

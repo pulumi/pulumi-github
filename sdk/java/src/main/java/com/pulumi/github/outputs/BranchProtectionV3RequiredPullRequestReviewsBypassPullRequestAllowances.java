@@ -95,11 +95,11 @@ public final class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequest
             return users(List.of(users));
         }
         public BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances build() {
-            final var o = new BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances();
-            o.apps = apps;
-            o.teams = teams;
-            o.users = users;
-            return o;
+            final var _resultValue = new BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances();
+            _resultValue.apps = apps;
+            _resultValue.teams = teams;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

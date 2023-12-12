@@ -178,15 +178,15 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
             return this;
         }
         public BranchProtectionV3RequiredPullRequestReviews build() {
-            final var o = new BranchProtectionV3RequiredPullRequestReviews();
-            o.bypassPullRequestAllowances = bypassPullRequestAllowances;
-            o.dismissStaleReviews = dismissStaleReviews;
-            o.dismissalTeams = dismissalTeams;
-            o.dismissalUsers = dismissalUsers;
-            o.includeAdmins = includeAdmins;
-            o.requireCodeOwnerReviews = requireCodeOwnerReviews;
-            o.requiredApprovingReviewCount = requiredApprovingReviewCount;
-            return o;
+            final var _resultValue = new BranchProtectionV3RequiredPullRequestReviews();
+            _resultValue.bypassPullRequestAllowances = bypassPullRequestAllowances;
+            _resultValue.dismissStaleReviews = dismissStaleReviews;
+            _resultValue.dismissalTeams = dismissalTeams;
+            _resultValue.dismissalUsers = dismissalUsers;
+            _resultValue.includeAdmins = includeAdmins;
+            _resultValue.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            _resultValue.requiredApprovingReviewCount = requiredApprovingReviewCount;
+            return _resultValue;
         }
     }
 }

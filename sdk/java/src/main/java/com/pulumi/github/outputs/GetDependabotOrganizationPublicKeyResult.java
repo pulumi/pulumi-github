@@ -84,11 +84,11 @@ public final class GetDependabotOrganizationPublicKeyResult {
             return this;
         }
         public GetDependabotOrganizationPublicKeyResult build() {
-            final var o = new GetDependabotOrganizationPublicKeyResult();
-            o.id = id;
-            o.key = key;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetDependabotOrganizationPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

@@ -142,14 +142,14 @@ public final class GetOrganizationIpAllowListIpAllowList {
             return this;
         }
         public GetOrganizationIpAllowListIpAllowList build() {
-            final var o = new GetOrganizationIpAllowListIpAllowList();
-            o.allowListValue = allowListValue;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.isActive = isActive;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetOrganizationIpAllowListIpAllowList();
+            _resultValue.allowListValue = allowListValue;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.isActive = isActive;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

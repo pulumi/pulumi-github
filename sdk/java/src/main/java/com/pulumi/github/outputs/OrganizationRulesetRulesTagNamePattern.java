@@ -106,12 +106,12 @@ public final class OrganizationRulesetRulesTagNamePattern {
             return this;
         }
         public OrganizationRulesetRulesTagNamePattern build() {
-            final var o = new OrganizationRulesetRulesTagNamePattern();
-            o.name = name;
-            o.negate = negate;
-            o.operator = operator;
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new OrganizationRulesetRulesTagNamePattern();
+            _resultValue.name = name;
+            _resultValue.negate = negate;
+            _resultValue.operator = operator;
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class OrganizationRulesetRulesBranchNamePattern {
             return this;
         }
         public OrganizationRulesetRulesBranchNamePattern build() {
-            final var o = new OrganizationRulesetRulesBranchNamePattern();
-            o.name = name;
-            o.negate = negate;
-            o.operator = operator;
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new OrganizationRulesetRulesBranchNamePattern();
+            _resultValue.name = name;
+            _resultValue.negate = negate;
+            _resultValue.operator = operator;
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

@@ -257,21 +257,21 @@ public final class GetTeamResult {
             return this;
         }
         public GetTeamResult build() {
-            final var o = new GetTeamResult();
-            o.description = description;
-            o.id = id;
-            o.members = members;
-            o.membershipType = membershipType;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.permission = permission;
-            o.privacy = privacy;
-            o.repositories = repositories;
-            o.repositoriesDetaileds = repositoriesDetaileds;
-            o.resultsPerPage = resultsPerPage;
-            o.slug = slug;
-            o.summaryOnly = summaryOnly;
-            return o;
+            final var _resultValue = new GetTeamResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.members = members;
+            _resultValue.membershipType = membershipType;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.permission = permission;
+            _resultValue.privacy = privacy;
+            _resultValue.repositories = repositories;
+            _resultValue.repositoriesDetaileds = repositoriesDetaileds;
+            _resultValue.resultsPerPage = resultsPerPage;
+            _resultValue.slug = slug;
+            _resultValue.summaryOnly = summaryOnly;
+            return _resultValue;
         }
     }
 }

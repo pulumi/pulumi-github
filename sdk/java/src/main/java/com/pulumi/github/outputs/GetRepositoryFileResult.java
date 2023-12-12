@@ -214,19 +214,19 @@ public final class GetRepositoryFileResult {
             return this;
         }
         public GetRepositoryFileResult build() {
-            final var o = new GetRepositoryFileResult();
-            o.branch = branch;
-            o.commitAuthor = commitAuthor;
-            o.commitEmail = commitEmail;
-            o.commitMessage = commitMessage;
-            o.commitSha = commitSha;
-            o.content = content;
-            o.file = file;
-            o.id = id;
-            o.ref = ref;
-            o.repository = repository;
-            o.sha = sha;
-            return o;
+            final var _resultValue = new GetRepositoryFileResult();
+            _resultValue.branch = branch;
+            _resultValue.commitAuthor = commitAuthor;
+            _resultValue.commitEmail = commitEmail;
+            _resultValue.commitMessage = commitMessage;
+            _resultValue.commitSha = commitSha;
+            _resultValue.content = content;
+            _resultValue.file = file;
+            _resultValue.id = id;
+            _resultValue.ref = ref;
+            _resultValue.repository = repository;
+            _resultValue.sha = sha;
+            return _resultValue;
         }
     }
 }

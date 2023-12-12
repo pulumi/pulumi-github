@@ -114,13 +114,13 @@ public final class GetGithubAppResult {
             return this;
         }
         public GetGithubAppResult build() {
-            final var o = new GetGithubAppResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.slug = slug;
-            return o;
+            final var _resultValue = new GetGithubAppResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.slug = slug;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class GetExternalGroupsResult {
             return this;
         }
         public GetExternalGroupsResult build() {
-            final var o = new GetExternalGroupsResult();
-            o.externalGroups = externalGroups;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetExternalGroupsResult();
+            _resultValue.externalGroups = externalGroups;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

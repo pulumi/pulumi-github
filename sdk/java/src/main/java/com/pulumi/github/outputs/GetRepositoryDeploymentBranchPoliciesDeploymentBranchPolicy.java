@@ -65,10 +65,10 @@ public final class GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy {
             return this;
         }
         public GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy build() {
-            final var o = new GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

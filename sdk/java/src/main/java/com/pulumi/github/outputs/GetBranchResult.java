@@ -125,14 +125,14 @@ public final class GetBranchResult {
             return this;
         }
         public GetBranchResult build() {
-            final var o = new GetBranchResult();
-            o.branch = branch;
-            o.etag = etag;
-            o.id = id;
-            o.ref = ref;
-            o.repository = repository;
-            o.sha = sha;
-            return o;
+            final var _resultValue = new GetBranchResult();
+            _resultValue.branch = branch;
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.ref = ref;
+            _resultValue.repository = repository;
+            _resultValue.sha = sha;
+            return _resultValue;
         }
     }
 }

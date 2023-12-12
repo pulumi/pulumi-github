@@ -322,23 +322,23 @@ public final class RepositoryRulesetRules {
             return this;
         }
         public RepositoryRulesetRules build() {
-            final var o = new RepositoryRulesetRules();
-            o.branchNamePattern = branchNamePattern;
-            o.commitAuthorEmailPattern = commitAuthorEmailPattern;
-            o.commitMessagePattern = commitMessagePattern;
-            o.committerEmailPattern = committerEmailPattern;
-            o.creation = creation;
-            o.deletion = deletion;
-            o.nonFastForward = nonFastForward;
-            o.pullRequest = pullRequest;
-            o.requiredDeployments = requiredDeployments;
-            o.requiredLinearHistory = requiredLinearHistory;
-            o.requiredSignatures = requiredSignatures;
-            o.requiredStatusChecks = requiredStatusChecks;
-            o.tagNamePattern = tagNamePattern;
-            o.update = update;
-            o.updateAllowsFetchAndMerge = updateAllowsFetchAndMerge;
-            return o;
+            final var _resultValue = new RepositoryRulesetRules();
+            _resultValue.branchNamePattern = branchNamePattern;
+            _resultValue.commitAuthorEmailPattern = commitAuthorEmailPattern;
+            _resultValue.commitMessagePattern = commitMessagePattern;
+            _resultValue.committerEmailPattern = committerEmailPattern;
+            _resultValue.creation = creation;
+            _resultValue.deletion = deletion;
+            _resultValue.nonFastForward = nonFastForward;
+            _resultValue.pullRequest = pullRequest;
+            _resultValue.requiredDeployments = requiredDeployments;
+            _resultValue.requiredLinearHistory = requiredLinearHistory;
+            _resultValue.requiredSignatures = requiredSignatures;
+            _resultValue.requiredStatusChecks = requiredStatusChecks;
+            _resultValue.tagNamePattern = tagNamePattern;
+            _resultValue.update = update;
+            _resultValue.updateAllowsFetchAndMerge = updateAllowsFetchAndMerge;
+            return _resultValue;
         }
     }
 }

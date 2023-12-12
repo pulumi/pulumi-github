@@ -50,9 +50,9 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfig {
             return repositoryIds(List.of(repositoryIds));
         }
         public ActionsOrganizationPermissionsEnabledRepositoriesConfig build() {
-            final var o = new ActionsOrganizationPermissionsEnabledRepositoriesConfig();
-            o.repositoryIds = repositoryIds;
-            return o;
+            final var _resultValue = new ActionsOrganizationPermissionsEnabledRepositoriesConfig();
+            _resultValue.repositoryIds = repositoryIds;
+            return _resultValue;
         }
     }
 }

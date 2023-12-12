@@ -46,9 +46,9 @@ public final class RepositoryRulesetConditions {
             return this;
         }
         public RepositoryRulesetConditions build() {
-            final var o = new RepositoryRulesetConditions();
-            o.refName = refName;
-            return o;
+            final var _resultValue = new RepositoryRulesetConditions();
+            _resultValue.refName = refName;
+            return _resultValue;
         }
     }
 }

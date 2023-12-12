@@ -85,11 +85,11 @@ public final class GetActionsOrganizationRegistrationTokenResult {
             return this;
         }
         public GetActionsOrganizationRegistrationTokenResult build() {
-            final var o = new GetActionsOrganizationRegistrationTokenResult();
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.token = token;
-            return o;
+            final var _resultValue = new GetActionsOrganizationRegistrationTokenResult();
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

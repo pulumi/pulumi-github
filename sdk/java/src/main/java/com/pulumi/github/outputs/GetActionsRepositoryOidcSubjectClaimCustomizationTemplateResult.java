@@ -100,12 +100,12 @@ public final class GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResu
             return this;
         }
         public GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult build() {
-            final var o = new GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult();
-            o.id = id;
-            o.includeClaimKeys = includeClaimKeys;
-            o.name = name;
-            o.useDefault = useDefault;
-            return o;
+            final var _resultValue = new GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult();
+            _resultValue.id = id;
+            _resultValue.includeClaimKeys = includeClaimKeys;
+            _resultValue.name = name;
+            _resultValue.useDefault = useDefault;
+            return _resultValue;
         }
     }
 }

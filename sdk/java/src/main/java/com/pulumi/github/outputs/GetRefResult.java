@@ -119,14 +119,14 @@ public final class GetRefResult {
             return this;
         }
         public GetRefResult build() {
-            final var o = new GetRefResult();
-            o.etag = etag;
-            o.id = id;
-            o.owner = owner;
-            o.ref = ref;
-            o.repository = repository;
-            o.sha = sha;
-            return o;
+            final var _resultValue = new GetRefResult();
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.owner = owner;
+            _resultValue.ref = ref;
+            _resultValue.repository = repository;
+            _resultValue.sha = sha;
+            return _resultValue;
         }
     }
 }

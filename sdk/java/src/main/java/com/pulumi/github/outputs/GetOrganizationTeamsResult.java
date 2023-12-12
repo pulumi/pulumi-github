@@ -131,13 +131,13 @@ public final class GetOrganizationTeamsResult {
             return teams(List.of(teams));
         }
         public GetOrganizationTeamsResult build() {
-            final var o = new GetOrganizationTeamsResult();
-            o.id = id;
-            o.resultsPerPage = resultsPerPage;
-            o.rootTeamsOnly = rootTeamsOnly;
-            o.summaryOnly = summaryOnly;
-            o.teams = teams;
-            return o;
+            final var _resultValue = new GetOrganizationTeamsResult();
+            _resultValue.id = id;
+            _resultValue.resultsPerPage = resultsPerPage;
+            _resultValue.rootTeamsOnly = rootTeamsOnly;
+            _resultValue.summaryOnly = summaryOnly;
+            _resultValue.teams = teams;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class RepositoryEnvironmentDeploymentBranchPolicy {
             return this;
         }
         public RepositoryEnvironmentDeploymentBranchPolicy build() {
-            final var o = new RepositoryEnvironmentDeploymentBranchPolicy();
-            o.customBranchPolicies = customBranchPolicies;
-            o.protectedBranches = protectedBranches;
-            return o;
+            final var _resultValue = new RepositoryEnvironmentDeploymentBranchPolicy();
+            _resultValue.customBranchPolicies = customBranchPolicies;
+            _resultValue.protectedBranches = protectedBranches;
+            return _resultValue;
         }
     }
 }

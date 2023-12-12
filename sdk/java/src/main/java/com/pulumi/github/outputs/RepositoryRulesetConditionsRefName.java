@@ -72,10 +72,10 @@ public final class RepositoryRulesetConditionsRefName {
             return includes(List.of(includes));
         }
         public RepositoryRulesetConditionsRefName build() {
-            final var o = new RepositoryRulesetConditionsRefName();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new RepositoryRulesetConditionsRefName();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

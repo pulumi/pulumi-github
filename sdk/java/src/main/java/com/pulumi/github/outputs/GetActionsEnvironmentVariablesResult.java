@@ -111,13 +111,13 @@ public final class GetActionsEnvironmentVariablesResult {
             return variables(List.of(variables));
         }
         public GetActionsEnvironmentVariablesResult build() {
-            final var o = new GetActionsEnvironmentVariablesResult();
-            o.environment = environment;
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetActionsEnvironmentVariablesResult();
+            _resultValue.environment = environment;
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

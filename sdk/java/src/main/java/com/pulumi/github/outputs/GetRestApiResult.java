@@ -136,14 +136,14 @@ public final class GetRestApiResult {
             return this;
         }
         public GetRestApiResult build() {
-            final var o = new GetRestApiResult();
-            o.body = body;
-            o.code = code;
-            o.endpoint = endpoint;
-            o.headers = headers;
-            o.id = id;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetRestApiResult();
+            _resultValue.body = body;
+            _resultValue.code = code;
+            _resultValue.endpoint = endpoint;
+            _resultValue.headers = headers;
+            _resultValue.id = id;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

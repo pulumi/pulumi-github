@@ -135,14 +135,14 @@ public final class GetMembershipResult {
             return this;
         }
         public GetMembershipResult build() {
-            final var o = new GetMembershipResult();
-            o.etag = etag;
-            o.id = id;
-            o.organization = organization;
-            o.role = role;
-            o.state = state;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetMembershipResult();
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.organization = organization;
+            _resultValue.role = role;
+            _resultValue.state = state;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

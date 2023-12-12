@@ -100,12 +100,12 @@ public final class GetActionsVariablesResult {
             return variables(List.of(variables));
         }
         public GetActionsVariablesResult build() {
-            final var o = new GetActionsVariablesResult();
-            o.fullName = fullName;
-            o.id = id;
-            o.name = name;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetActionsVariablesResult();
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

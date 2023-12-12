@@ -149,14 +149,14 @@ public final class GetUsersResult {
             return usernames(List.of(usernames));
         }
         public GetUsersResult build() {
-            final var o = new GetUsersResult();
-            o.emails = emails;
-            o.id = id;
-            o.logins = logins;
-            o.nodeIds = nodeIds;
-            o.unknownLogins = unknownLogins;
-            o.usernames = usernames;
-            return o;
+            final var _resultValue = new GetUsersResult();
+            _resultValue.emails = emails;
+            _resultValue.id = id;
+            _resultValue.logins = logins;
+            _resultValue.nodeIds = nodeIds;
+            _resultValue.unknownLogins = unknownLogins;
+            _resultValue.usernames = usernames;
+            return _resultValue;
         }
     }
 }

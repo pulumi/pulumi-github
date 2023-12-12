@@ -96,12 +96,12 @@ public final class GetActionsRegistrationTokenResult {
             return this;
         }
         public GetActionsRegistrationTokenResult build() {
-            final var o = new GetActionsRegistrationTokenResult();
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.repository = repository;
-            o.token = token;
-            return o;
+            final var _resultValue = new GetActionsRegistrationTokenResult();
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

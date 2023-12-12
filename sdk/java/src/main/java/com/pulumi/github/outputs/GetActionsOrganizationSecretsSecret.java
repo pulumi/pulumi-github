@@ -103,12 +103,12 @@ public final class GetActionsOrganizationSecretsSecret {
             return this;
         }
         public GetActionsOrganizationSecretsSecret build() {
-            final var o = new GetActionsOrganizationSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            o.visibility = visibility;
-            return o;
+            final var _resultValue = new GetActionsOrganizationSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.visibility = visibility;
+            return _resultValue;
         }
     }
 }

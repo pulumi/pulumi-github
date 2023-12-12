@@ -576,36 +576,36 @@ public final class GetOrganizationResult {
             return this;
         }
         public GetOrganizationResult build() {
-            final var o = new GetOrganizationResult();
-            o.advancedSecurityEnabledForNewRepositories = advancedSecurityEnabledForNewRepositories;
-            o.defaultRepositoryPermission = defaultRepositoryPermission;
-            o.dependabotAlertsEnabledForNewRepositories = dependabotAlertsEnabledForNewRepositories;
-            o.dependabotSecurityUpdatesEnabledForNewRepositories = dependabotSecurityUpdatesEnabledForNewRepositories;
-            o.dependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
-            o.description = description;
-            o.id = id;
-            o.login = login;
-            o.members = members;
-            o.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
-            o.membersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
-            o.membersCanCreatePages = membersCanCreatePages;
-            o.membersCanCreatePrivatePages = membersCanCreatePrivatePages;
-            o.membersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
-            o.membersCanCreatePublicPages = membersCanCreatePublicPages;
-            o.membersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
-            o.membersCanCreateRepositories = membersCanCreateRepositories;
-            o.membersCanForkPrivateRepositories = membersCanForkPrivateRepositories;
-            o.name = name;
-            o.nodeId = nodeId;
-            o.orgname = orgname;
-            o.plan = plan;
-            o.repositories = repositories;
-            o.secretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
-            o.secretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
-            o.twoFactorRequirementEnabled = twoFactorRequirementEnabled;
-            o.users = users;
-            o.webCommitSignoffRequired = webCommitSignoffRequired;
-            return o;
+            final var _resultValue = new GetOrganizationResult();
+            _resultValue.advancedSecurityEnabledForNewRepositories = advancedSecurityEnabledForNewRepositories;
+            _resultValue.defaultRepositoryPermission = defaultRepositoryPermission;
+            _resultValue.dependabotAlertsEnabledForNewRepositories = dependabotAlertsEnabledForNewRepositories;
+            _resultValue.dependabotSecurityUpdatesEnabledForNewRepositories = dependabotSecurityUpdatesEnabledForNewRepositories;
+            _resultValue.dependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.login = login;
+            _resultValue.members = members;
+            _resultValue.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
+            _resultValue.membersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
+            _resultValue.membersCanCreatePages = membersCanCreatePages;
+            _resultValue.membersCanCreatePrivatePages = membersCanCreatePrivatePages;
+            _resultValue.membersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
+            _resultValue.membersCanCreatePublicPages = membersCanCreatePublicPages;
+            _resultValue.membersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
+            _resultValue.membersCanCreateRepositories = membersCanCreateRepositories;
+            _resultValue.membersCanForkPrivateRepositories = membersCanForkPrivateRepositories;
+            _resultValue.name = name;
+            _resultValue.nodeId = nodeId;
+            _resultValue.orgname = orgname;
+            _resultValue.plan = plan;
+            _resultValue.repositories = repositories;
+            _resultValue.secretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
+            _resultValue.secretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
+            _resultValue.twoFactorRequirementEnabled = twoFactorRequirementEnabled;
+            _resultValue.users = users;
+            _resultValue.webCommitSignoffRequired = webCommitSignoffRequired;
+            return _resultValue;
         }
     }
 }

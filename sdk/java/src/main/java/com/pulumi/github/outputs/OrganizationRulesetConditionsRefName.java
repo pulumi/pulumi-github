@@ -72,10 +72,10 @@ public final class OrganizationRulesetConditionsRefName {
             return includes(List.of(includes));
         }
         public OrganizationRulesetConditionsRefName build() {
-            final var o = new OrganizationRulesetConditionsRefName();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new OrganizationRulesetConditionsRefName();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

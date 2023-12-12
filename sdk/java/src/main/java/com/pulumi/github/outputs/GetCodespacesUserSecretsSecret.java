@@ -103,12 +103,12 @@ public final class GetCodespacesUserSecretsSecret {
             return this;
         }
         public GetCodespacesUserSecretsSecret build() {
-            final var o = new GetCodespacesUserSecretsSecret();
-            o.createdAt = createdAt;
-            o.name = name;
-            o.updatedAt = updatedAt;
-            o.visibility = visibility;
-            return o;
+            final var _resultValue = new GetCodespacesUserSecretsSecret();
+            _resultValue.createdAt = createdAt;
+            _resultValue.name = name;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.visibility = visibility;
+            return _resultValue;
         }
     }
 }

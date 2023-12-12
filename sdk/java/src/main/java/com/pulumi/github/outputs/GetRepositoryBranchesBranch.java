@@ -66,10 +66,10 @@ public final class GetRepositoryBranchesBranch {
             return this;
         }
         public GetRepositoryBranchesBranch build() {
-            final var o = new GetRepositoryBranchesBranch();
-            o.name = name;
-            o.protected_ = protected_;
-            return o;
+            final var _resultValue = new GetRepositoryBranchesBranch();
+            _resultValue.name = name;
+            _resultValue.protected_ = protected_;
+            return _resultValue;
         }
     }
 }

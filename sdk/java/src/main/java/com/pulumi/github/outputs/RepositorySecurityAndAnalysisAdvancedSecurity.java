@@ -46,9 +46,9 @@ public final class RepositorySecurityAndAnalysisAdvancedSecurity {
             return this;
         }
         public RepositorySecurityAndAnalysisAdvancedSecurity build() {
-            final var o = new RepositorySecurityAndAnalysisAdvancedSecurity();
-            o.status = status;
-            return o;
+            final var _resultValue = new RepositorySecurityAndAnalysisAdvancedSecurity();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

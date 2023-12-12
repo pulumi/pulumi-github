@@ -88,11 +88,11 @@ public final class TeamSettingsReviewRequestDelegation {
             return this;
         }
         public TeamSettingsReviewRequestDelegation build() {
-            final var o = new TeamSettingsReviewRequestDelegation();
-            o.algorithm = algorithm;
-            o.memberCount = memberCount;
-            o.notify = notify;
-            return o;
+            final var _resultValue = new TeamSettingsReviewRequestDelegation();
+            _resultValue.algorithm = algorithm;
+            _resultValue.memberCount = memberCount;
+            _resultValue.notify = notify;
+            return _resultValue;
         }
     }
 }

@@ -82,12 +82,12 @@ public final class OrganizationWebhookConfiguration {
             return this;
         }
         public OrganizationWebhookConfiguration build() {
-            final var o = new OrganizationWebhookConfiguration();
-            o.contentType = contentType;
-            o.insecureSsl = insecureSsl;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new OrganizationWebhookConfiguration();
+            _resultValue.contentType = contentType;
+            _resultValue.insecureSsl = insecureSsl;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

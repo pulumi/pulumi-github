@@ -70,10 +70,10 @@ public final class GetOrganizationExternalIdentitiesResult {
             return identities(List.of(identities));
         }
         public GetOrganizationExternalIdentitiesResult build() {
-            final var o = new GetOrganizationExternalIdentitiesResult();
-            o.id = id;
-            o.identities = identities;
-            return o;
+            final var _resultValue = new GetOrganizationExternalIdentitiesResult();
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            return _resultValue;
         }
     }
 }

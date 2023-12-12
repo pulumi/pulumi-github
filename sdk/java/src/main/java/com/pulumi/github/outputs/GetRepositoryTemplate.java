@@ -49,10 +49,10 @@ public final class GetRepositoryTemplate {
             return this;
         }
         public GetRepositoryTemplate build() {
-            final var o = new GetRepositoryTemplate();
-            o.owner = owner;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new GetRepositoryTemplate();
+            _resultValue.owner = owner;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

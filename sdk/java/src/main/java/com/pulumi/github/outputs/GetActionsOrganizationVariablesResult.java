@@ -70,10 +70,10 @@ public final class GetActionsOrganizationVariablesResult {
             return variables(List.of(variables));
         }
         public GetActionsOrganizationVariablesResult build() {
-            final var o = new GetActionsOrganizationVariablesResult();
-            o.id = id;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetActionsOrganizationVariablesResult();
+            _resultValue.id = id;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

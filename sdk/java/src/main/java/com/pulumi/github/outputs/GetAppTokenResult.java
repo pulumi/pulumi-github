@@ -98,13 +98,13 @@ public final class GetAppTokenResult {
             return this;
         }
         public GetAppTokenResult build() {
-            final var o = new GetAppTokenResult();
-            o.appId = appId;
-            o.id = id;
-            o.installationId = installationId;
-            o.pemFile = pemFile;
-            o.token = token;
-            return o;
+            final var _resultValue = new GetAppTokenResult();
+            _resultValue.appId = appId;
+            _resultValue.id = id;
+            _resultValue.installationId = installationId;
+            _resultValue.pemFile = pemFile;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

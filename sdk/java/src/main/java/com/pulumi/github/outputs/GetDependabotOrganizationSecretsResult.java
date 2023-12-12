@@ -70,10 +70,10 @@ public final class GetDependabotOrganizationSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetDependabotOrganizationSecretsResult build() {
-            final var o = new GetDependabotOrganizationSecretsResult();
-            o.id = id;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetDependabotOrganizationSecretsResult();
+            _resultValue.id = id;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

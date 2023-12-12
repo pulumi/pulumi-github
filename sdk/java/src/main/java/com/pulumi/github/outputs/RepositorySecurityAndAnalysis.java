@@ -88,11 +88,11 @@ public final class RepositorySecurityAndAnalysis {
             return this;
         }
         public RepositorySecurityAndAnalysis build() {
-            final var o = new RepositorySecurityAndAnalysis();
-            o.advancedSecurity = advancedSecurity;
-            o.secretScanning = secretScanning;
-            o.secretScanningPushProtection = secretScanningPushProtection;
-            return o;
+            final var _resultValue = new RepositorySecurityAndAnalysis();
+            _resultValue.advancedSecurity = advancedSecurity;
+            _resultValue.secretScanning = secretScanning;
+            _resultValue.secretScanningPushProtection = secretScanningPushProtection;
+            return _resultValue;
         }
     }
 }

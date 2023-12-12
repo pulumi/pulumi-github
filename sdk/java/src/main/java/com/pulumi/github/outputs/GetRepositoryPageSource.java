@@ -49,10 +49,10 @@ public final class GetRepositoryPageSource {
             return this;
         }
         public GetRepositoryPageSource build() {
-            final var o = new GetRepositoryPageSource();
-            o.branch = branch;
-            o.path = path;
-            return o;
+            final var _resultValue = new GetRepositoryPageSource();
+            _resultValue.branch = branch;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

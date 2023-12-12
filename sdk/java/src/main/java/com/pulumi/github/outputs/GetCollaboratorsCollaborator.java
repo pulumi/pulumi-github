@@ -333,24 +333,24 @@ public final class GetCollaboratorsCollaborator {
             return this;
         }
         public GetCollaboratorsCollaborator build() {
-            final var o = new GetCollaboratorsCollaborator();
-            o.eventsUrl = eventsUrl;
-            o.followersUrl = followersUrl;
-            o.followingUrl = followingUrl;
-            o.gistsUrl = gistsUrl;
-            o.htmlUrl = htmlUrl;
-            o.id = id;
-            o.login = login;
-            o.organizationsUrl = organizationsUrl;
-            o.permission = permission;
-            o.receivedEventsUrl = receivedEventsUrl;
-            o.reposUrl = reposUrl;
-            o.siteAdmin = siteAdmin;
-            o.starredUrl = starredUrl;
-            o.subscriptionsUrl = subscriptionsUrl;
-            o.type = type;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetCollaboratorsCollaborator();
+            _resultValue.eventsUrl = eventsUrl;
+            _resultValue.followersUrl = followersUrl;
+            _resultValue.followingUrl = followingUrl;
+            _resultValue.gistsUrl = gistsUrl;
+            _resultValue.htmlUrl = htmlUrl;
+            _resultValue.id = id;
+            _resultValue.login = login;
+            _resultValue.organizationsUrl = organizationsUrl;
+            _resultValue.permission = permission;
+            _resultValue.receivedEventsUrl = receivedEventsUrl;
+            _resultValue.reposUrl = reposUrl;
+            _resultValue.siteAdmin = siteAdmin;
+            _resultValue.starredUrl = starredUrl;
+            _resultValue.subscriptionsUrl = subscriptionsUrl;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

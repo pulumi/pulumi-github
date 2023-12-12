@@ -89,11 +89,11 @@ public final class OrganizationRulesetBypassActor {
             return this;
         }
         public OrganizationRulesetBypassActor build() {
-            final var o = new OrganizationRulesetBypassActor();
-            o.actorId = actorId;
-            o.actorType = actorType;
-            o.bypassMode = bypassMode;
-            return o;
+            final var _resultValue = new OrganizationRulesetBypassActor();
+            _resultValue.actorId = actorId;
+            _resultValue.actorType = actorType;
+            _resultValue.bypassMode = bypassMode;
+            return _resultValue;
         }
     }
 }

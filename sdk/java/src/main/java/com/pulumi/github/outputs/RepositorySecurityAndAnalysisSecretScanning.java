@@ -46,9 +46,9 @@ public final class RepositorySecurityAndAnalysisSecretScanning {
             return this;
         }
         public RepositorySecurityAndAnalysisSecretScanning build() {
-            final var o = new RepositorySecurityAndAnalysisSecretScanning();
-            o.status = status;
-            return o;
+            final var _resultValue = new RepositorySecurityAndAnalysisSecretScanning();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

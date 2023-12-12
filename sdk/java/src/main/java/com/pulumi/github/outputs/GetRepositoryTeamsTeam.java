@@ -84,11 +84,11 @@ public final class GetRepositoryTeamsTeam {
             return this;
         }
         public GetRepositoryTeamsTeam build() {
-            final var o = new GetRepositoryTeamsTeam();
-            o.name = name;
-            o.permission = permission;
-            o.slug = slug;
-            return o;
+            final var _resultValue = new GetRepositoryTeamsTeam();
+            _resultValue.name = name;
+            _resultValue.permission = permission;
+            _resultValue.slug = slug;
+            return _resultValue;
         }
     }
 }

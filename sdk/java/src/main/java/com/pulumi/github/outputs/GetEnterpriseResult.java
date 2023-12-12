@@ -141,14 +141,14 @@ public final class GetEnterpriseResult {
             return this;
         }
         public GetEnterpriseResult build() {
-            final var o = new GetEnterpriseResult();
-            o.createdAt = createdAt;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.slug = slug;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetEnterpriseResult();
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.slug = slug;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

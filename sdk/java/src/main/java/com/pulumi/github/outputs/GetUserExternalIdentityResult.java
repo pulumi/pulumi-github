@@ -127,13 +127,13 @@ public final class GetUserExternalIdentityResult {
             return this;
         }
         public GetUserExternalIdentityResult build() {
-            final var o = new GetUserExternalIdentityResult();
-            o.id = id;
-            o.login = login;
-            o.samlIdentity = samlIdentity;
-            o.scimIdentity = scimIdentity;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetUserExternalIdentityResult();
+            _resultValue.id = id;
+            _resultValue.login = login;
+            _resultValue.samlIdentity = samlIdentity;
+            _resultValue.scimIdentity = scimIdentity;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

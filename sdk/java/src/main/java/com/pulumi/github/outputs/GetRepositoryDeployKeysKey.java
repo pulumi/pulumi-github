@@ -105,12 +105,12 @@ public final class GetRepositoryDeployKeysKey {
             return this;
         }
         public GetRepositoryDeployKeysKey build() {
-            final var o = new GetRepositoryDeployKeysKey();
-            o.id = id;
-            o.key = key;
-            o.title = title;
-            o.verified = verified;
-            return o;
+            final var _resultValue = new GetRepositoryDeployKeysKey();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.title = title;
+            _resultValue.verified = verified;
+            return _resultValue;
         }
     }
 }

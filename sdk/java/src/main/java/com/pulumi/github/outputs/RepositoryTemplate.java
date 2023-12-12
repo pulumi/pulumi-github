@@ -87,11 +87,11 @@ public final class RepositoryTemplate {
             return this;
         }
         public RepositoryTemplate build() {
-            final var o = new RepositoryTemplate();
-            o.includeAllBranches = includeAllBranches;
-            o.owner = owner;
-            o.repository = repository;
-            return o;
+            final var _resultValue = new RepositoryTemplate();
+            _resultValue.includeAllBranches = includeAllBranches;
+            _resultValue.owner = owner;
+            _resultValue.repository = repository;
+            return _resultValue;
         }
     }
 }

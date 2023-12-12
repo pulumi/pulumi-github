@@ -50,10 +50,10 @@ public final class GetTeamRepositoriesDetailed {
             return this;
         }
         public GetTeamRepositoriesDetailed build() {
-            final var o = new GetTeamRepositoriesDetailed();
-            o.repoId = repoId;
-            o.roleName = roleName;
-            return o;
+            final var _resultValue = new GetTeamRepositoriesDetailed();
+            _resultValue.repoId = repoId;
+            _resultValue.roleName = roleName;
+            return _resultValue;
         }
     }
 }

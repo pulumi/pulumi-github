@@ -85,11 +85,11 @@ public final class GetRepositoryAutolinkReferencesAutolinkReference {
             return this;
         }
         public GetRepositoryAutolinkReferencesAutolinkReference build() {
-            final var o = new GetRepositoryAutolinkReferencesAutolinkReference();
-            o.isAlphanumeric = isAlphanumeric;
-            o.keyPrefix = keyPrefix;
-            o.targetUrlTemplate = targetUrlTemplate;
-            return o;
+            final var _resultValue = new GetRepositoryAutolinkReferencesAutolinkReference();
+            _resultValue.isAlphanumeric = isAlphanumeric;
+            _resultValue.keyPrefix = keyPrefix;
+            _resultValue.targetUrlTemplate = targetUrlTemplate;
+            return _resultValue;
         }
     }
 }
