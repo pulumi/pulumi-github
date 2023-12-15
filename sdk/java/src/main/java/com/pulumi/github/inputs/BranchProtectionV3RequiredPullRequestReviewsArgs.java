@@ -50,6 +50,21 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     }
 
     /**
+     * The list of app slugs with dismissal access.
+     * 
+     */
+    @Import(name="dismissalApps")
+    private @Nullable Output<List<String>> dismissalApps;
+
+    /**
+     * @return The list of app slugs with dismissal access.
+     * 
+     */
+    public Optional<Output<List<String>>> dismissalApps() {
+        return Optional.ofNullable(this.dismissalApps);
+    }
+
+    /**
      * The list of team slugs with dismissal access.
      * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
@@ -135,6 +150,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     private BranchProtectionV3RequiredPullRequestReviewsArgs(BranchProtectionV3RequiredPullRequestReviewsArgs $) {
         this.bypassPullRequestAllowances = $.bypassPullRequestAllowances;
         this.dismissStaleReviews = $.dismissStaleReviews;
+        this.dismissalApps = $.dismissalApps;
         this.dismissalTeams = $.dismissalTeams;
         this.dismissalUsers = $.dismissalUsers;
         this.includeAdmins = $.includeAdmins;
@@ -200,6 +216,37 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
          */
         public Builder dismissStaleReviews(Boolean dismissStaleReviews) {
             return dismissStaleReviews(Output.of(dismissStaleReviews));
+        }
+
+        /**
+         * @param dismissalApps The list of app slugs with dismissal access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dismissalApps(@Nullable Output<List<String>> dismissalApps) {
+            $.dismissalApps = dismissalApps;
+            return this;
+        }
+
+        /**
+         * @param dismissalApps The list of app slugs with dismissal access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dismissalApps(List<String> dismissalApps) {
+            return dismissalApps(Output.of(dismissalApps));
+        }
+
+        /**
+         * @param dismissalApps The list of app slugs with dismissal access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dismissalApps(String... dismissalApps) {
+            return dismissalApps(List.of(dismissalApps));
         }
 
         /**

@@ -65,6 +65,7 @@ type Membership struct {
 	Etag               pulumi.StringOutput  `pulumi:"etag"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
+	// `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// The user to add to the organization.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -111,6 +112,7 @@ type membershipState struct {
 	Etag               *string `pulumi:"etag"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
+	// `admin` role represents the `owner` role available via GitHub UI.
 	Role *string `pulumi:"role"`
 	// The user to add to the organization.
 	Username *string `pulumi:"username"`
@@ -125,6 +127,7 @@ type MembershipState struct {
 	Etag               pulumi.StringPtrInput
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
+	// `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrInput
 	// The user to add to the organization.
 	Username pulumi.StringPtrInput
@@ -142,6 +145,7 @@ type membershipArgs struct {
 	DowngradeOnDestroy *bool `pulumi:"downgradeOnDestroy"`
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
+	// `admin` role represents the `owner` role available via GitHub UI.
 	Role *string `pulumi:"role"`
 	// The user to add to the organization.
 	Username string `pulumi:"username"`
@@ -156,6 +160,7 @@ type MembershipArgs struct {
 	DowngradeOnDestroy pulumi.BoolPtrInput
 	// The role of the user within the organization.
 	// Must be one of `member` or `admin`. Defaults to `member`.
+	// `admin` role represents the `owner` role available via GitHub UI.
 	Role pulumi.StringPtrInput
 	// The user to add to the organization.
 	Username pulumi.StringInput
@@ -262,6 +267,7 @@ func (o MembershipOutput) Etag() pulumi.StringOutput {
 
 // The role of the user within the organization.
 // Must be one of `member` or `admin`. Defaults to `member`.
+// `admin` role represents the `owner` role available via GitHub UI.
 func (o MembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }

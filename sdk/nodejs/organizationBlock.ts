@@ -15,6 +15,14 @@ import * as utilities from "./utilities";
  *
  * const example = new github.OrganizationBlock("example", {username: "paultyng"});
  * ```
+ *
+ * ## Import
+ *
+ * GitHub organization block can be imported using a username, e.g.
+ *
+ * ```sh
+ *  $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+ * ```
  */
 export class OrganizationBlock extends pulumi.CustomResource {
     /**

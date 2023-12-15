@@ -316,59 +316,6 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-        example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
-            branch="main",
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/check" check ran by the Github Actions app is passing and only allow
-        # the engineers team merge to the branch.
-        example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
-            repository=example_repository.name,
-            branch="main",
-            enforce_admins=True,
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                strict=False,
-                checks=["ci/check:824642007264"],
-            ),
-            required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
-                dismiss_stale_reviews=True,
-                dismissal_users=["foo-user"],
-                dismissal_teams=[example_team.slug],
-                bypass_pull_request_allowances=github.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs(
-                    users=["foo-user"],
-                    teams=[example_team.slug],
-                    apps=["foo-app"],
-                ),
-            ),
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-                teams=[example_team.slug],
-                apps=["foo-app"],
-            ))
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
-
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
@@ -400,59 +347,6 @@ class BranchProtectionV3(pulumi.CustomResource):
         The `BranchProtection` resource has moved to the GraphQL API, while this resource will continue to leverage the REST API.
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-        example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
-            branch="main",
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_repository = github.Repository("exampleRepository")
-        example_team = github.Team("exampleTeam")
-        # Protect the main branch of the foo repository. Additionally, require that
-        # the "ci/check" check ran by the Github Actions app is passing and only allow
-        # the engineers team merge to the branch.
-        example_branch_protection_v3 = github.BranchProtectionV3("exampleBranchProtectionV3",
-            repository=example_repository.name,
-            branch="main",
-            enforce_admins=True,
-            required_status_checks=github.BranchProtectionV3RequiredStatusChecksArgs(
-                strict=False,
-                checks=["ci/check:824642007264"],
-            ),
-            required_pull_request_reviews=github.BranchProtectionV3RequiredPullRequestReviewsArgs(
-                dismiss_stale_reviews=True,
-                dismissal_users=["foo-user"],
-                dismissal_teams=[example_team.slug],
-                bypass_pull_request_allowances=github.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs(
-                    users=["foo-user"],
-                    teams=[example_team.slug],
-                    apps=["foo-app"],
-                ),
-            ),
-            restrictions=github.BranchProtectionV3RestrictionsArgs(
-                users=["foo-user"],
-                teams=[example_team.slug],
-                apps=["foo-app"],
-            ))
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
-            team_id=example_team.id,
-            repository=example_repository.name,
-            permission="pull")
-        ```
 
         ## Import
 

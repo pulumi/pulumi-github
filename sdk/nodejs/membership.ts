@@ -71,6 +71,7 @@ export class Membership extends pulumi.CustomResource {
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
@@ -125,6 +126,7 @@ export interface MembershipState {
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      */
     role?: pulumi.Input<string>;
     /**
@@ -147,6 +149,7 @@ export interface MembershipArgs {
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      */
     role?: pulumi.Input<string>;
     /**

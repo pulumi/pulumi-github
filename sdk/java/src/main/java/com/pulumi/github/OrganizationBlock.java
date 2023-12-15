@@ -46,6 +46,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * GitHub organization block can be imported using a username, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+ * ```
+ * 
  */
 @ResourceType(type="github:index/organizationBlock:OrganizationBlock")
 public class OrganizationBlock extends com.pulumi.resources.CustomResource {

@@ -26,6 +26,7 @@ class MembershipArgs:
                downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
+               `admin` role represents the `owner` role available via GitHub UI.
         """
         pulumi.set(__self__, "username", username)
         if downgrade_on_destroy is not None:
@@ -66,6 +67,7 @@ class MembershipArgs:
         """
         The role of the user within the organization.
         Must be one of `member` or `admin`. Defaults to `member`.
+        `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 
@@ -89,6 +91,7 @@ class _MembershipState:
                downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
+               `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
         if downgrade_on_destroy is not None:
@@ -130,6 +133,7 @@ class _MembershipState:
         """
         The role of the user within the organization.
         Must be one of `member` or `admin`. Defaults to `member`.
+        `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 
@@ -194,6 +198,7 @@ class Membership(pulumi.CustomResource):
                downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
+               `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
         ...
@@ -289,6 +294,7 @@ class Membership(pulumi.CustomResource):
                downgraded to 'member'.
         :param pulumi.Input[str] role: The role of the user within the organization.
                Must be one of `member` or `admin`. Defaults to `member`.
+               `admin` role represents the `owner` role available via GitHub UI.
         :param pulumi.Input[str] username: The user to add to the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -323,6 +329,7 @@ class Membership(pulumi.CustomResource):
         """
         The role of the user within the organization.
         Must be one of `member` or `admin`. Defaults to `member`.
+        `admin` role represents the `owner` role available via GitHub UI.
         """
         return pulumi.get(self, "role")
 

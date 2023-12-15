@@ -40,7 +40,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
+ * ~> **Note** Although the team id or team slug can be used it is recommended to use the team id.
+ *
+ * Using the team slug will result in terraform doing conversions between the team slug and team id.
+ *
+ * This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
  *
  * ```sh
  *  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
@@ -83,7 +87,9 @@ export class TeamMembers extends pulumi.CustomResource {
      */
     public readonly members!: pulumi.Output<outputs.TeamMembersMember[]>;
     /**
-     * The GitHub team id or the GitHub team slug
+     * The team id or the team slug
+     *
+     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      */
     public readonly teamId!: pulumi.Output<string>;
 
@@ -127,7 +133,9 @@ export interface TeamMembersState {
      */
     members?: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
     /**
-     * The GitHub team id or the GitHub team slug
+     * The team id or the team slug
+     *
+     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      */
     teamId?: pulumi.Input<string>;
 }
@@ -141,7 +149,9 @@ export interface TeamMembersArgs {
      */
     members: pulumi.Input<pulumi.Input<inputs.TeamMembersMember>[]>;
     /**
-     * The GitHub team id or the GitHub team slug
+     * The team id or the team slug
+     *
+     * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      */
     teamId: pulumi.Input<string>;
 }

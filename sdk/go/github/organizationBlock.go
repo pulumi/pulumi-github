@@ -39,6 +39,16 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// GitHub organization block can be imported using a username, e.g.
+//
+// ```sh
+//
+//	$ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+//
+// ```
 type OrganizationBlock struct {
 	pulumi.CustomResourceState
 

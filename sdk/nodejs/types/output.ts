@@ -95,6 +95,10 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     dismissStaleReviews?: boolean;
     /**
+     * The list of app slugs with dismissal access.
+     */
+    dismissalApps?: string[];
+    /**
      * The list of team slugs with dismissal access.
      * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      */

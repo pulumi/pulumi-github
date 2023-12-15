@@ -70,7 +70,11 @@ import (
 //
 // ## Import
 //
-// GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
+// ~> **Note** Although the team id or team slug can be used it is recommended to use the team id.
+//
+// Using the team slug will result in terraform doing conversions between the team slug and team id.
+//
+// This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
 //
 // ```sh
 //
@@ -88,7 +92,9 @@ type TeamMembers struct {
 
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayOutput `pulumi:"members"`
-	// The GitHub team id or the GitHub team slug
+	// The team id or the team slug
+	//
+	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
 
@@ -130,14 +136,18 @@ func GetTeamMembers(ctx *pulumi.Context,
 type teamMembersState struct {
 	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The GitHub team id or the GitHub team slug
+	// The team id or the team slug
+	//
+	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 	TeamId *string `pulumi:"teamId"`
 }
 
 type TeamMembersState struct {
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	// The GitHub team id or the GitHub team slug
+	// The team id or the team slug
+	//
+	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 	TeamId pulumi.StringPtrInput
 }
 
@@ -148,7 +158,9 @@ func (TeamMembersState) ElementType() reflect.Type {
 type teamMembersArgs struct {
 	// List of team members. See Members below for details.
 	Members []TeamMembersMember `pulumi:"members"`
-	// The GitHub team id or the GitHub team slug
+	// The team id or the team slug
+	//
+	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 	TeamId string `pulumi:"teamId"`
 }
 
@@ -156,7 +168,9 @@ type teamMembersArgs struct {
 type TeamMembersArgs struct {
 	// List of team members. See Members below for details.
 	Members TeamMembersMemberArrayInput
-	// The GitHub team id or the GitHub team slug
+	// The team id or the team slug
+	//
+	// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 	TeamId pulumi.StringInput
 }
 
@@ -252,7 +266,9 @@ func (o TeamMembersOutput) Members() TeamMembersMemberArrayOutput {
 	return o.ApplyT(func(v *TeamMembers) TeamMembersMemberArrayOutput { return v.Members }).(TeamMembersMemberArrayOutput)
 }
 
-// The GitHub team id or the GitHub team slug
+// The team id or the team slug
+//
+// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
 func (o TeamMembersOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

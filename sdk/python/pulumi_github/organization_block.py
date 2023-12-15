@@ -89,6 +89,14 @@ class OrganizationBlock(pulumi.CustomResource):
         example = github.OrganizationBlock("example", username="paultyng")
         ```
 
+        ## Import
+
+        GitHub organization block can be imported using a username, e.g.
+
+        ```sh
+         $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] username: The name of the user to block.
@@ -109,6 +117,14 @@ class OrganizationBlock(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.OrganizationBlock("example", username="paultyng")
+        ```
+
+        ## Import
+
+        GitHub organization block can be imported using a username, e.g.
+
+        ```sh
+         $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
         ```
 
         :param str resource_name: The name of the resource.

@@ -93,6 +93,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
@@ -101,6 +102,7 @@ public class Membership extends com.pulumi.resources.CustomResource {
     /**
      * @return The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     public Output<Optional<String>> role() {
