@@ -765,6 +765,8 @@ type BranchProtectionV3RequiredPullRequestReviews struct {
 	BypassPullRequestAllowances *BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances `pulumi:"bypassPullRequestAllowances"`
 	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 	DismissStaleReviews *bool `pulumi:"dismissStaleReviews"`
+	// The list of app slugs with dismissal access.
+	DismissalApps []string `pulumi:"dismissalApps"`
 	// The list of team slugs with dismissal access.
 	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 	DismissalTeams []string `pulumi:"dismissalTeams"`
@@ -794,6 +796,8 @@ type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
 	BypassPullRequestAllowances BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesPtrInput `pulumi:"bypassPullRequestAllowances"`
 	// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
 	DismissStaleReviews pulumi.BoolPtrInput `pulumi:"dismissStaleReviews"`
+	// The list of app slugs with dismissal access.
+	DismissalApps pulumi.StringArrayInput `pulumi:"dismissalApps"`
 	// The list of team slugs with dismissal access.
 	// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 	DismissalTeams pulumi.StringArrayInput `pulumi:"dismissalTeams"`
@@ -896,6 +900,11 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissStaleReviews(
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.DismissStaleReviews }).(pulumi.BoolPtrOutput)
 }
 
+// The list of app slugs with dismissal access.
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalApps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalApps }).(pulumi.StringArrayOutput)
+}
+
 // The list of team slugs with dismissal access.
 // Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalTeams() pulumi.StringArrayOutput {
@@ -964,6 +973,16 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissStaleRevie
 		}
 		return v.DismissStaleReviews
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The list of app slugs with dismissal access.
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalApps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DismissalApps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The list of team slugs with dismissal access.

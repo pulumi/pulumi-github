@@ -26,6 +26,11 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     private @Nullable Boolean dismissStaleReviews;
     /**
+     * @return The list of app slugs with dismissal access.
+     * 
+     */
+    private @Nullable List<String> dismissalApps;
+    /**
      * @return The list of team slugs with dismissal access.
      * Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
      * 
@@ -68,6 +73,13 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     public Optional<Boolean> dismissStaleReviews() {
         return Optional.ofNullable(this.dismissStaleReviews);
+    }
+    /**
+     * @return The list of app slugs with dismissal access.
+     * 
+     */
+    public List<String> dismissalApps() {
+        return this.dismissalApps == null ? List.of() : this.dismissalApps;
     }
     /**
      * @return The list of team slugs with dismissal access.
@@ -119,6 +131,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     public static final class Builder {
         private @Nullable BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances bypassPullRequestAllowances;
         private @Nullable Boolean dismissStaleReviews;
+        private @Nullable List<String> dismissalApps;
         private @Nullable List<String> dismissalTeams;
         private @Nullable List<String> dismissalUsers;
         private @Nullable Boolean includeAdmins;
@@ -129,6 +142,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     	      Objects.requireNonNull(defaults);
     	      this.bypassPullRequestAllowances = defaults.bypassPullRequestAllowances;
     	      this.dismissStaleReviews = defaults.dismissStaleReviews;
+    	      this.dismissalApps = defaults.dismissalApps;
     	      this.dismissalTeams = defaults.dismissalTeams;
     	      this.dismissalUsers = defaults.dismissalUsers;
     	      this.includeAdmins = defaults.includeAdmins;
@@ -145,6 +159,14 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
             this.dismissStaleReviews = dismissStaleReviews;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dismissalApps(@Nullable List<String> dismissalApps) {
+            this.dismissalApps = dismissalApps;
+            return this;
+        }
+        public Builder dismissalApps(String... dismissalApps) {
+            return dismissalApps(List.of(dismissalApps));
         }
         @CustomType.Setter
         public Builder dismissalTeams(@Nullable List<String> dismissalTeams) {
@@ -181,6 +203,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
             final var _resultValue = new BranchProtectionV3RequiredPullRequestReviews();
             _resultValue.bypassPullRequestAllowances = bypassPullRequestAllowances;
             _resultValue.dismissStaleReviews = dismissStaleReviews;
+            _resultValue.dismissalApps = dismissalApps;
             _resultValue.dismissalTeams = dismissalTeams;
             _resultValue.dismissalUsers = dismissalUsers;
             _resultValue.includeAdmins = includeAdmins;

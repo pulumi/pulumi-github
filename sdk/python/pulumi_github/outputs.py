@@ -421,6 +421,8 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
             suggest = "bypass_pull_request_allowances"
         elif key == "dismissStaleReviews":
             suggest = "dismiss_stale_reviews"
+        elif key == "dismissalApps":
+            suggest = "dismissal_apps"
         elif key == "dismissalTeams":
             suggest = "dismissal_teams"
         elif key == "dismissalUsers":
@@ -446,6 +448,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
     def __init__(__self__, *,
                  bypass_pull_request_allowances: Optional['outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances'] = None,
                  dismiss_stale_reviews: Optional[bool] = None,
+                 dismissal_apps: Optional[Sequence[str]] = None,
                  dismissal_teams: Optional[Sequence[str]] = None,
                  dismissal_users: Optional[Sequence[str]] = None,
                  include_admins: Optional[bool] = None,
@@ -454,6 +457,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         """
         :param 'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs' bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
         :param bool dismiss_stale_reviews: Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        :param Sequence[str] dismissal_apps: The list of app slugs with dismissal access.
         :param Sequence[str] dismissal_teams: The list of team slugs with dismissal access.
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param Sequence[str] dismissal_users: The list of user logins with dismissal access
@@ -464,6 +468,8 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
             pulumi.set(__self__, "bypass_pull_request_allowances", bypass_pull_request_allowances)
         if dismiss_stale_reviews is not None:
             pulumi.set(__self__, "dismiss_stale_reviews", dismiss_stale_reviews)
+        if dismissal_apps is not None:
+            pulumi.set(__self__, "dismissal_apps", dismissal_apps)
         if dismissal_teams is not None:
             pulumi.set(__self__, "dismissal_teams", dismissal_teams)
         if dismissal_users is not None:
@@ -490,6 +496,14 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews")
+
+    @property
+    @pulumi.getter(name="dismissalApps")
+    def dismissal_apps(self) -> Optional[Sequence[str]]:
+        """
+        The list of app slugs with dismissal access.
+        """
+        return pulumi.get(self, "dismissal_apps")
 
     @property
     @pulumi.getter(name="dismissalTeams")

@@ -24,6 +24,18 @@ namespace Pulumi.Github.Inputs
         [Input("dismissStaleReviews")]
         public Input<bool>? DismissStaleReviews { get; set; }
 
+        [Input("dismissalApps")]
+        private InputList<string>? _dismissalApps;
+
+        /// <summary>
+        /// The list of app slugs with dismissal access.
+        /// </summary>
+        public InputList<string> DismissalApps
+        {
+            get => _dismissalApps ?? (_dismissalApps = new InputList<string>());
+            set => _dismissalApps = value;
+        }
+
         [Input("dismissalTeams")]
         private InputList<string>? _dismissalTeams;
 

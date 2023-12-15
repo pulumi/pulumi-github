@@ -21,7 +21,9 @@ class TeamMembersArgs:
         """
         The set of arguments for constructing a TeamMembers resource.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: The team id or the team slug
+               
+               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "team_id", team_id)
@@ -42,7 +44,9 @@ class TeamMembersArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The GitHub team id or the GitHub team slug
+        The team id or the team slug
+
+        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         return pulumi.get(self, "team_id")
 
@@ -59,7 +63,9 @@ class _TeamMembersState:
         """
         Input properties used for looking up and filtering TeamMembers resources.
         :param pulumi.Input[Sequence[pulumi.Input['TeamMembersMemberArgs']]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: The team id or the team slug
+               
+               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
@@ -82,7 +88,9 @@ class _TeamMembersState:
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The GitHub team id or the GitHub team slug
+        The team id or the team slug
+
+        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         return pulumi.get(self, "team_id")
 
@@ -130,7 +138,11 @@ class TeamMembers(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
+        ~> **Note** Although the team id or team slug can be used it is recommended to use the team id.
+
+        Using the team slug will result in terraform doing conversions between the team slug and team id.
+
+        This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
 
         ```sh
          $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
@@ -143,7 +155,9 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: The team id or the team slug
+               
+               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         ...
     @overload
@@ -182,7 +196,11 @@ class TeamMembers(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
+        ~> **Note** Although the team id or team slug can be used it is recommended to use the team id.
+
+        Using the team slug will result in terraform doing conversions between the team slug and team id.
+
+        This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
 
         ```sh
          $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
@@ -244,7 +262,9 @@ class TeamMembers(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: The team id or the team slug
+               
+               > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -266,7 +286,9 @@ class TeamMembers(pulumi.CustomResource):
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The GitHub team id or the GitHub team slug
+        The team id or the team slug
+
+        > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
         """
         return pulumi.get(self, "team_id")
 

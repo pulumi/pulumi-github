@@ -29,6 +29,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GitHub organization block can be imported using a username, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationBlock:OrganizationBlock")]
     public partial class OrganizationBlock : global::Pulumi.CustomResource

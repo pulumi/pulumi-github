@@ -22,6 +22,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? DismissStaleReviews;
         /// <summary>
+        /// The list of app slugs with dismissal access.
+        /// </summary>
+        public readonly ImmutableArray<string> DismissalApps;
+        /// <summary>
         /// The list of team slugs with dismissal access.
         /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
@@ -46,6 +50,8 @@ namespace Pulumi.Github.Outputs
 
             bool? dismissStaleReviews,
 
+            ImmutableArray<string> dismissalApps,
+
             ImmutableArray<string> dismissalTeams,
 
             ImmutableArray<string> dismissalUsers,
@@ -58,6 +64,7 @@ namespace Pulumi.Github.Outputs
         {
             BypassPullRequestAllowances = bypassPullRequestAllowances;
             DismissStaleReviews = dismissStaleReviews;
+            DismissalApps = dismissalApps;
             DismissalTeams = dismissalTeams;
             DismissalUsers = dismissalUsers;
             IncludeAdmins = includeAdmins;

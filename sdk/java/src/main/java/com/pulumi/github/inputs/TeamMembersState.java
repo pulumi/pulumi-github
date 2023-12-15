@@ -33,14 +33,18 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The GitHub team id or the GitHub team slug
+     * The team id or the team slug
+     * 
+     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      * 
      */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
     /**
-     * @return The GitHub team id or the GitHub team slug
+     * @return The team id or the team slug
+     * 
+     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      * 
      */
     public Optional<Output<String>> teamId() {
@@ -104,7 +108,9 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug
+         * @param teamId The team id or the team slug
+         * 
+         * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
          * 
          * @return builder
          * 
@@ -115,7 +121,9 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug
+         * @param teamId The team id or the team slug
+         * 
+         * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
          * 
          * @return builder
          * 

@@ -76,7 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Team Membership can be imported using the team ID `teamid` or team name, e.g.
+ * ~&gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.
+ * 
+ * Using the team slug will result in terraform doing conversions between the team slug and team id.
+ * 
+ * This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
  * 
  * ```sh
  *  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
@@ -104,14 +108,18 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
         return this.members;
     }
     /**
-     * The GitHub team id or the GitHub team slug
+     * The team id or the team slug
+     * 
+     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      * 
      */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
-     * @return The GitHub team id or the GitHub team slug
+     * @return The team id or the team slug
+     * 
+     * &gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      * 
      */
     public Output<String> teamId() {

@@ -47,6 +47,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     @Import(name="role")
@@ -55,6 +56,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
+     * `admin` role represents the `owner` role available via GitHub UI.
      * 
      */
     public Optional<Output<String>> role() {
@@ -142,6 +144,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param role The role of the user within the organization.
          * Must be one of `member` or `admin`. Defaults to `member`.
+         * `admin` role represents the `owner` role available via GitHub UI.
          * 
          * @return builder
          * 
@@ -154,6 +157,7 @@ public final class MembershipState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param role The role of the user within the organization.
          * Must be one of `member` or `admin`. Defaults to `member`.
+         * `admin` role represents the `owner` role available via GitHub UI.
          * 
          * @return builder
          * 

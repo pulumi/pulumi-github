@@ -181,6 +181,9 @@
                                         }
                                     }
                                 },
+                                "dismissal_apps": {
+                                    "maxItemsOne": false
+                                },
                                 "dismissal_teams": {
                                     "maxItemsOne": false
                                 },
@@ -1350,6 +1353,7 @@
             "github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews": {
                 "bypassPullRequestAllowances": "bypass_pull_request_allowances",
                 "dismissStaleReviews": "dismiss_stale_reviews",
+                "dismissalApps": "dismissal_apps",
                 "dismissalTeams": "dismissal_teams",
                 "dismissalUsers": "dismissal_users",
                 "includeAdmins": "include_admins",
