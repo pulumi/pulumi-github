@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryEnvironmentsEnvironment;
 import java.lang.String;
 import java.util.List;
@@ -64,7 +65,10 @@ public final class GetRepositoryEnvironmentsResult {
 
         @CustomType.Setter
         public Builder environments(List<GetRepositoryEnvironmentsEnvironment> environments) {
-            this.environments = Objects.requireNonNull(environments);
+            if (environments == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEnvironmentsResult", "environments");
+            }
+            this.environments = environments;
             return this;
         }
         public Builder environments(GetRepositoryEnvironmentsEnvironment... environments) {
@@ -72,12 +76,18 @@ public final class GetRepositoryEnvironmentsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEnvironmentsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEnvironmentsResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetRepositoryEnvironmentsResult build() {

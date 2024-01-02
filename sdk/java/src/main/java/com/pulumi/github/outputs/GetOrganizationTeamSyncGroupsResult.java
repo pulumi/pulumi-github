@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsGroup;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class GetOrganizationTeamSyncGroupsResult {
 
         @CustomType.Setter
         public Builder groups(List<GetOrganizationTeamSyncGroupsGroup> groups) {
-            this.groups = Objects.requireNonNull(groups);
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamSyncGroupsResult", "groups");
+            }
+            this.groups = groups;
             return this;
         }
         public Builder groups(GetOrganizationTeamSyncGroupsGroup... groups) {
@@ -66,7 +70,10 @@ public final class GetOrganizationTeamSyncGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamSyncGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetOrganizationTeamSyncGroupsResult build() {

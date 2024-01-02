@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -379,7 +380,10 @@ public final class GetIpRangesResult {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -387,7 +391,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder actionsIpv4s(List<String> actionsIpv4s) {
-            this.actionsIpv4s = Objects.requireNonNull(actionsIpv4s);
+            if (actionsIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actionsIpv4s");
+            }
+            this.actionsIpv4s = actionsIpv4s;
             return this;
         }
         public Builder actionsIpv4s(String... actionsIpv4s) {
@@ -395,7 +402,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder actionsIpv6s(List<String> actionsIpv6s) {
-            this.actionsIpv6s = Objects.requireNonNull(actionsIpv6s);
+            if (actionsIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actionsIpv6s");
+            }
+            this.actionsIpv6s = actionsIpv6s;
             return this;
         }
         public Builder actionsIpv6s(String... actionsIpv6s) {
@@ -403,7 +413,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apiIpv4s(List<String> apiIpv4s) {
-            this.apiIpv4s = Objects.requireNonNull(apiIpv4s);
+            if (apiIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apiIpv4s");
+            }
+            this.apiIpv4s = apiIpv4s;
             return this;
         }
         public Builder apiIpv4s(String... apiIpv4s) {
@@ -411,7 +424,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apiIpv6s(List<String> apiIpv6s) {
-            this.apiIpv6s = Objects.requireNonNull(apiIpv6s);
+            if (apiIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apiIpv6s");
+            }
+            this.apiIpv6s = apiIpv6s;
             return this;
         }
         public Builder apiIpv6s(String... apiIpv6s) {
@@ -419,7 +435,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apis(List<String> apis) {
-            this.apis = Objects.requireNonNull(apis);
+            if (apis == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apis");
+            }
+            this.apis = apis;
             return this;
         }
         public Builder apis(String... apis) {
@@ -427,7 +446,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder dependabotIpv4s(List<String> dependabotIpv4s) {
-            this.dependabotIpv4s = Objects.requireNonNull(dependabotIpv4s);
+            if (dependabotIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "dependabotIpv4s");
+            }
+            this.dependabotIpv4s = dependabotIpv4s;
             return this;
         }
         public Builder dependabotIpv4s(String... dependabotIpv4s) {
@@ -435,7 +457,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder dependabotIpv6s(List<String> dependabotIpv6s) {
-            this.dependabotIpv6s = Objects.requireNonNull(dependabotIpv6s);
+            if (dependabotIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "dependabotIpv6s");
+            }
+            this.dependabotIpv6s = dependabotIpv6s;
             return this;
         }
         public Builder dependabotIpv6s(String... dependabotIpv6s) {
@@ -443,7 +468,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder dependabots(List<String> dependabots) {
-            this.dependabots = Objects.requireNonNull(dependabots);
+            if (dependabots == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "dependabots");
+            }
+            this.dependabots = dependabots;
             return this;
         }
         public Builder dependabots(String... dependabots) {
@@ -451,7 +479,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder gitIpv4s(List<String> gitIpv4s) {
-            this.gitIpv4s = Objects.requireNonNull(gitIpv4s);
+            if (gitIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "gitIpv4s");
+            }
+            this.gitIpv4s = gitIpv4s;
             return this;
         }
         public Builder gitIpv4s(String... gitIpv4s) {
@@ -459,7 +490,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder gitIpv6s(List<String> gitIpv6s) {
-            this.gitIpv6s = Objects.requireNonNull(gitIpv6s);
+            if (gitIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "gitIpv6s");
+            }
+            this.gitIpv6s = gitIpv6s;
             return this;
         }
         public Builder gitIpv6s(String... gitIpv6s) {
@@ -467,7 +501,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder gits(List<String> gits) {
-            this.gits = Objects.requireNonNull(gits);
+            if (gits == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "gits");
+            }
+            this.gits = gits;
             return this;
         }
         public Builder gits(String... gits) {
@@ -475,7 +512,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder hooks(List<String> hooks) {
-            this.hooks = Objects.requireNonNull(hooks);
+            if (hooks == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "hooks");
+            }
+            this.hooks = hooks;
             return this;
         }
         public Builder hooks(String... hooks) {
@@ -483,7 +523,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder hooksIpv4s(List<String> hooksIpv4s) {
-            this.hooksIpv4s = Objects.requireNonNull(hooksIpv4s);
+            if (hooksIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "hooksIpv4s");
+            }
+            this.hooksIpv4s = hooksIpv4s;
             return this;
         }
         public Builder hooksIpv4s(String... hooksIpv4s) {
@@ -491,7 +534,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder hooksIpv6s(List<String> hooksIpv6s) {
-            this.hooksIpv6s = Objects.requireNonNull(hooksIpv6s);
+            if (hooksIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "hooksIpv6s");
+            }
+            this.hooksIpv6s = hooksIpv6s;
             return this;
         }
         public Builder hooksIpv6s(String... hooksIpv6s) {
@@ -499,12 +545,18 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder importerIpv4s(List<String> importerIpv4s) {
-            this.importerIpv4s = Objects.requireNonNull(importerIpv4s);
+            if (importerIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "importerIpv4s");
+            }
+            this.importerIpv4s = importerIpv4s;
             return this;
         }
         public Builder importerIpv4s(String... importerIpv4s) {
@@ -512,7 +564,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder importerIpv6s(List<String> importerIpv6s) {
-            this.importerIpv6s = Objects.requireNonNull(importerIpv6s);
+            if (importerIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "importerIpv6s");
+            }
+            this.importerIpv6s = importerIpv6s;
             return this;
         }
         public Builder importerIpv6s(String... importerIpv6s) {
@@ -520,7 +575,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder importers(List<String> importers) {
-            this.importers = Objects.requireNonNull(importers);
+            if (importers == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "importers");
+            }
+            this.importers = importers;
             return this;
         }
         public Builder importers(String... importers) {
@@ -528,7 +586,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder pages(List<String> pages) {
-            this.pages = Objects.requireNonNull(pages);
+            if (pages == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "pages");
+            }
+            this.pages = pages;
             return this;
         }
         public Builder pages(String... pages) {
@@ -536,7 +597,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder pagesIpv4s(List<String> pagesIpv4s) {
-            this.pagesIpv4s = Objects.requireNonNull(pagesIpv4s);
+            if (pagesIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "pagesIpv4s");
+            }
+            this.pagesIpv4s = pagesIpv4s;
             return this;
         }
         public Builder pagesIpv4s(String... pagesIpv4s) {
@@ -544,7 +608,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder pagesIpv6s(List<String> pagesIpv6s) {
-            this.pagesIpv6s = Objects.requireNonNull(pagesIpv6s);
+            if (pagesIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "pagesIpv6s");
+            }
+            this.pagesIpv6s = pagesIpv6s;
             return this;
         }
         public Builder pagesIpv6s(String... pagesIpv6s) {
@@ -552,7 +619,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder webIpv4s(List<String> webIpv4s) {
-            this.webIpv4s = Objects.requireNonNull(webIpv4s);
+            if (webIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "webIpv4s");
+            }
+            this.webIpv4s = webIpv4s;
             return this;
         }
         public Builder webIpv4s(String... webIpv4s) {
@@ -560,7 +630,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder webIpv6s(List<String> webIpv6s) {
-            this.webIpv6s = Objects.requireNonNull(webIpv6s);
+            if (webIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "webIpv6s");
+            }
+            this.webIpv6s = webIpv6s;
             return this;
         }
         public Builder webIpv6s(String... webIpv6s) {
@@ -568,7 +641,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder webs(List<String> webs) {
-            this.webs = Objects.requireNonNull(webs);
+            if (webs == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "webs");
+            }
+            this.webs = webs;
             return this;
         }
         public Builder webs(String... webs) {

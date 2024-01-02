@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetRefPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetRefPlainArgs build() {
-            $.ref = Objects.requireNonNull($.ref, "expected parameter 'ref' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.ref == null) {
+                throw new MissingRequiredPropertyException("GetRefPlainArgs", "ref");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetRefPlainArgs", "repository");
+            }
             return $;
         }
     }

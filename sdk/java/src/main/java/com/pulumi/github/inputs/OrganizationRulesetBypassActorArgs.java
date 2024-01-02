@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -157,9 +158,15 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         public OrganizationRulesetBypassActorArgs build() {
-            $.actorId = Objects.requireNonNull($.actorId, "expected parameter 'actorId' to be non-null");
-            $.actorType = Objects.requireNonNull($.actorType, "expected parameter 'actorType' to be non-null");
-            $.bypassMode = Objects.requireNonNull($.bypassMode, "expected parameter 'bypassMode' to be non-null");
+            if ($.actorId == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetBypassActorArgs", "actorId");
+            }
+            if ($.actorType == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetBypassActorArgs", "actorType");
+            }
+            if ($.bypassMode == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetBypassActorArgs", "bypassMode");
+            }
             return $;
         }
     }

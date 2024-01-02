@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class EmuGroupMappingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public EmuGroupMappingArgs build() {
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.teamSlug = Objects.requireNonNull($.teamSlug, "expected parameter 'teamSlug' to be non-null");
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("EmuGroupMappingArgs", "groupId");
+            }
+            if ($.teamSlug == null) {
+                throw new MissingRequiredPropertyException("EmuGroupMappingArgs", "teamSlug");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetRepositoryDeploymentBranchPoliciesPlainArgs extends com.pu
         }
 
         public GetRepositoryDeploymentBranchPoliciesPlainArgs build() {
-            $.environmentName = Objects.requireNonNull($.environmentName, "expected parameter 'environmentName' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.environmentName == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesPlainArgs", "environmentName");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesPlainArgs", "repository");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,27 +75,42 @@ public final class GetAppTokenResult {
 
         @CustomType.Setter
         public Builder appId(String appId) {
-            this.appId = Objects.requireNonNull(appId);
+            if (appId == null) {
+              throw new MissingRequiredPropertyException("GetAppTokenResult", "appId");
+            }
+            this.appId = appId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAppTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder installationId(String installationId) {
-            this.installationId = Objects.requireNonNull(installationId);
+            if (installationId == null) {
+              throw new MissingRequiredPropertyException("GetAppTokenResult", "installationId");
+            }
+            this.installationId = installationId;
             return this;
         }
         @CustomType.Setter
         public Builder pemFile(String pemFile) {
-            this.pemFile = Objects.requireNonNull(pemFile);
+            if (pemFile == null) {
+              throw new MissingRequiredPropertyException("GetAppTokenResult", "pemFile");
+            }
+            this.pemFile = pemFile;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("GetAppTokenResult", "token");
+            }
+            this.token = token;
             return this;
         }
         public GetAppTokenResult build() {

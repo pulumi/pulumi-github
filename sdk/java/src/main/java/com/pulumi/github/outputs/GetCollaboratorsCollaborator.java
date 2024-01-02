@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -254,82 +255,130 @@ public final class GetCollaboratorsCollaborator {
 
         @CustomType.Setter
         public Builder eventsUrl(String eventsUrl) {
-            this.eventsUrl = Objects.requireNonNull(eventsUrl);
+            if (eventsUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "eventsUrl");
+            }
+            this.eventsUrl = eventsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder followersUrl(String followersUrl) {
-            this.followersUrl = Objects.requireNonNull(followersUrl);
+            if (followersUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "followersUrl");
+            }
+            this.followersUrl = followersUrl;
             return this;
         }
         @CustomType.Setter
         public Builder followingUrl(String followingUrl) {
-            this.followingUrl = Objects.requireNonNull(followingUrl);
+            if (followingUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "followingUrl");
+            }
+            this.followingUrl = followingUrl;
             return this;
         }
         @CustomType.Setter
         public Builder gistsUrl(String gistsUrl) {
-            this.gistsUrl = Objects.requireNonNull(gistsUrl);
+            if (gistsUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "gistsUrl");
+            }
+            this.gistsUrl = gistsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
-            this.htmlUrl = Objects.requireNonNull(htmlUrl);
+            if (htmlUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "htmlUrl");
+            }
+            this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder organizationsUrl(String organizationsUrl) {
-            this.organizationsUrl = Objects.requireNonNull(organizationsUrl);
+            if (organizationsUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "organizationsUrl");
+            }
+            this.organizationsUrl = organizationsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         @CustomType.Setter
         public Builder receivedEventsUrl(String receivedEventsUrl) {
-            this.receivedEventsUrl = Objects.requireNonNull(receivedEventsUrl);
+            if (receivedEventsUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "receivedEventsUrl");
+            }
+            this.receivedEventsUrl = receivedEventsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder reposUrl(String reposUrl) {
-            this.reposUrl = Objects.requireNonNull(reposUrl);
+            if (reposUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "reposUrl");
+            }
+            this.reposUrl = reposUrl;
             return this;
         }
         @CustomType.Setter
         public Builder siteAdmin(Boolean siteAdmin) {
-            this.siteAdmin = Objects.requireNonNull(siteAdmin);
+            if (siteAdmin == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "siteAdmin");
+            }
+            this.siteAdmin = siteAdmin;
             return this;
         }
         @CustomType.Setter
         public Builder starredUrl(String starredUrl) {
-            this.starredUrl = Objects.requireNonNull(starredUrl);
+            if (starredUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "starredUrl");
+            }
+            this.starredUrl = starredUrl;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionsUrl(String subscriptionsUrl) {
-            this.subscriptionsUrl = Objects.requireNonNull(subscriptionsUrl);
+            if (subscriptionsUrl == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "subscriptionsUrl");
+            }
+            this.subscriptionsUrl = subscriptionsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsCollaborator", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetCollaboratorsCollaborator build() {

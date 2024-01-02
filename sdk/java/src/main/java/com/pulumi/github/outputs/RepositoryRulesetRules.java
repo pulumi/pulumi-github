@@ -248,76 +248,91 @@ public final class RepositoryRulesetRules {
 
         @CustomType.Setter
         public Builder branchNamePattern(@Nullable RepositoryRulesetRulesBranchNamePattern branchNamePattern) {
+
             this.branchNamePattern = branchNamePattern;
             return this;
         }
         @CustomType.Setter
         public Builder commitAuthorEmailPattern(@Nullable RepositoryRulesetRulesCommitAuthorEmailPattern commitAuthorEmailPattern) {
+
             this.commitAuthorEmailPattern = commitAuthorEmailPattern;
             return this;
         }
         @CustomType.Setter
         public Builder commitMessagePattern(@Nullable RepositoryRulesetRulesCommitMessagePattern commitMessagePattern) {
+
             this.commitMessagePattern = commitMessagePattern;
             return this;
         }
         @CustomType.Setter
         public Builder committerEmailPattern(@Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern) {
+
             this.committerEmailPattern = committerEmailPattern;
             return this;
         }
         @CustomType.Setter
         public Builder creation(@Nullable Boolean creation) {
+
             this.creation = creation;
             return this;
         }
         @CustomType.Setter
         public Builder deletion(@Nullable Boolean deletion) {
+
             this.deletion = deletion;
             return this;
         }
         @CustomType.Setter
         public Builder nonFastForward(@Nullable Boolean nonFastForward) {
+
             this.nonFastForward = nonFastForward;
             return this;
         }
         @CustomType.Setter
         public Builder pullRequest(@Nullable RepositoryRulesetRulesPullRequest pullRequest) {
+
             this.pullRequest = pullRequest;
             return this;
         }
         @CustomType.Setter
         public Builder requiredDeployments(@Nullable RepositoryRulesetRulesRequiredDeployments requiredDeployments) {
+
             this.requiredDeployments = requiredDeployments;
             return this;
         }
         @CustomType.Setter
         public Builder requiredLinearHistory(@Nullable Boolean requiredLinearHistory) {
+
             this.requiredLinearHistory = requiredLinearHistory;
             return this;
         }
         @CustomType.Setter
         public Builder requiredSignatures(@Nullable Boolean requiredSignatures) {
+
             this.requiredSignatures = requiredSignatures;
             return this;
         }
         @CustomType.Setter
         public Builder requiredStatusChecks(@Nullable RepositoryRulesetRulesRequiredStatusChecks requiredStatusChecks) {
+
             this.requiredStatusChecks = requiredStatusChecks;
             return this;
         }
         @CustomType.Setter
         public Builder tagNamePattern(@Nullable RepositoryRulesetRulesTagNamePattern tagNamePattern) {
+
             this.tagNamePattern = tagNamePattern;
             return this;
         }
         @CustomType.Setter
         public Builder update(@Nullable Boolean update) {
+
             this.update = update;
             return this;
         }
         @CustomType.Setter
         public Builder updateAllowsFetchAndMerge(@Nullable Boolean updateAllowsFetchAndMerge) {
+
             this.updateAllowsFetchAndMerge = updateAllowsFetchAndMerge;
             return this;
         }

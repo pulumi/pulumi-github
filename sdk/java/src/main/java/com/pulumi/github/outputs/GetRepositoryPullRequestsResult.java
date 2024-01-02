@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -255,47 +256,74 @@ public final class GetRepositoryPullRequestsResult {
 
         @CustomType.Setter
         public Builder baseRef(String baseRef) {
-            this.baseRef = Objects.requireNonNull(baseRef);
+            if (baseRef == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "baseRef");
+            }
+            this.baseRef = baseRef;
             return this;
         }
         @CustomType.Setter
         public Builder baseSha(String baseSha) {
-            this.baseSha = Objects.requireNonNull(baseSha);
+            if (baseSha == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "baseSha");
+            }
+            this.baseSha = baseSha;
             return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder draft(Boolean draft) {
-            this.draft = Objects.requireNonNull(draft);
+            if (draft == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "draft");
+            }
+            this.draft = draft;
             return this;
         }
         @CustomType.Setter
         public Builder headOwner(String headOwner) {
-            this.headOwner = Objects.requireNonNull(headOwner);
+            if (headOwner == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "headOwner");
+            }
+            this.headOwner = headOwner;
             return this;
         }
         @CustomType.Setter
         public Builder headRef(String headRef) {
-            this.headRef = Objects.requireNonNull(headRef);
+            if (headRef == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "headRef");
+            }
+            this.headRef = headRef;
             return this;
         }
         @CustomType.Setter
         public Builder headRepository(String headRepository) {
-            this.headRepository = Objects.requireNonNull(headRepository);
+            if (headRepository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "headRepository");
+            }
+            this.headRepository = headRepository;
             return this;
         }
         @CustomType.Setter
         public Builder headSha(String headSha) {
-            this.headSha = Objects.requireNonNull(headSha);
+            if (headSha == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "headSha");
+            }
+            this.headSha = headSha;
             return this;
         }
         @CustomType.Setter
         public Builder labels(List<String> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         public Builder labels(String... labels) {
@@ -303,37 +331,58 @@ public final class GetRepositoryPullRequestsResult {
         }
         @CustomType.Setter
         public Builder maintainerCanModify(Boolean maintainerCanModify) {
-            this.maintainerCanModify = Objects.requireNonNull(maintainerCanModify);
+            if (maintainerCanModify == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "maintainerCanModify");
+            }
+            this.maintainerCanModify = maintainerCanModify;
             return this;
         }
         @CustomType.Setter
         public Builder number(Integer number) {
-            this.number = Objects.requireNonNull(number);
+            if (number == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "number");
+            }
+            this.number = number;
             return this;
         }
         @CustomType.Setter
         public Builder openedAt(Integer openedAt) {
-            this.openedAt = Objects.requireNonNull(openedAt);
+            if (openedAt == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "openedAt");
+            }
+            this.openedAt = openedAt;
             return this;
         }
         @CustomType.Setter
         public Builder openedBy(String openedBy) {
-            this.openedBy = Objects.requireNonNull(openedBy);
+            if (openedBy == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "openedBy");
+            }
+            this.openedBy = openedBy;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetRepositoryPullRequestsResult build() {

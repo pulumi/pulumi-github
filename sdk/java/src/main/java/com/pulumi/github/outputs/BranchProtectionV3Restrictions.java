@@ -78,6 +78,7 @@ public final class BranchProtectionV3Restrictions {
 
         @CustomType.Setter
         public Builder apps(@Nullable List<String> apps) {
+
             this.apps = apps;
             return this;
         }
@@ -86,6 +87,7 @@ public final class BranchProtectionV3Restrictions {
         }
         @CustomType.Setter
         public Builder teams(@Nullable List<String> teams) {
+
             this.teams = teams;
             return this;
         }
@@ -94,6 +96,7 @@ public final class BranchProtectionV3Restrictions {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
+
             this.users = users;
             return this;
         }

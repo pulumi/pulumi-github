@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -66,7 +67,10 @@ public final class OrganizationRulesetConditionsRepositoryName {
 
         @CustomType.Setter
         public Builder excludes(List<String> excludes) {
-            this.excludes = Objects.requireNonNull(excludes);
+            if (excludes == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetConditionsRepositoryName", "excludes");
+            }
+            this.excludes = excludes;
             return this;
         }
         public Builder excludes(String... excludes) {
@@ -74,7 +78,10 @@ public final class OrganizationRulesetConditionsRepositoryName {
         }
         @CustomType.Setter
         public Builder includes(List<String> includes) {
-            this.includes = Objects.requireNonNull(includes);
+            if (includes == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetConditionsRepositoryName", "includes");
+            }
+            this.includes = includes;
             return this;
         }
         public Builder includes(String... includes) {
@@ -82,6 +89,7 @@ public final class OrganizationRulesetConditionsRepositoryName {
         }
         @CustomType.Setter("protected")
         public Builder protected_(@Nullable Boolean protected_) {
+
             this.protected_ = protected_;
             return this;
         }

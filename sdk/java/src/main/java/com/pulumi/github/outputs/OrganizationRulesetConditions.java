@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRefName;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRepositoryName;
 import java.lang.Integer;
@@ -78,16 +79,21 @@ public final class OrganizationRulesetConditions {
 
         @CustomType.Setter
         public Builder refName(OrganizationRulesetConditionsRefName refName) {
-            this.refName = Objects.requireNonNull(refName);
+            if (refName == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetConditions", "refName");
+            }
+            this.refName = refName;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryId(@Nullable Integer repositoryId) {
+
             this.repositoryId = repositoryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(@Nullable OrganizationRulesetConditionsRepositoryName repositoryName) {
+
             this.repositoryName = repositoryName;
             return this;
         }

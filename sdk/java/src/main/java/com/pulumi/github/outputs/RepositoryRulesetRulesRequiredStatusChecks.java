@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck;
 import java.lang.Boolean;
 import java.util.List;
@@ -60,7 +61,10 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
 
         @CustomType.Setter
         public Builder requiredChecks(List<RepositoryRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks) {
-            this.requiredChecks = Objects.requireNonNull(requiredChecks);
+            if (requiredChecks == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetRulesRequiredStatusChecks", "requiredChecks");
+            }
+            this.requiredChecks = requiredChecks;
             return this;
         }
         public Builder requiredChecks(RepositoryRulesetRulesRequiredStatusChecksRequiredCheck... requiredChecks) {
@@ -68,6 +72,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
         }
         @CustomType.Setter
         public Builder strictRequiredStatusChecksPolicy(@Nullable Boolean strictRequiredStatusChecksPolicy) {
+
             this.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
             return this;
         }

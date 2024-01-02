@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -162,7 +163,9 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfigArgs extend
         }
 
         public ActionsOrganizationPermissionsAllowedActionsConfigArgs build() {
-            $.githubOwnedAllowed = Objects.requireNonNull($.githubOwnedAllowed, "expected parameter 'githubOwnedAllowed' to be non-null");
+            if ($.githubOwnedAllowed == null) {
+                throw new MissingRequiredPropertyException("ActionsOrganizationPermissionsAllowedActionsConfigArgs", "githubOwnedAllowed");
+            }
             return $;
         }
     }

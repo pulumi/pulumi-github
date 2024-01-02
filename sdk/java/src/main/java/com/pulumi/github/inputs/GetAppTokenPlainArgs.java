@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetAppTokenPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetAppTokenPlainArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.installationId = Objects.requireNonNull($.installationId, "expected parameter 'installationId' to be non-null");
-            $.pemFile = Objects.requireNonNull($.pemFile, "expected parameter 'pemFile' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("GetAppTokenPlainArgs", "appId");
+            }
+            if ($.installationId == null) {
+                throw new MissingRequiredPropertyException("GetAppTokenPlainArgs", "installationId");
+            }
+            if ($.pemFile == null) {
+                throw new MissingRequiredPropertyException("GetAppTokenPlainArgs", "pemFile");
+            }
             return $;
         }
     }

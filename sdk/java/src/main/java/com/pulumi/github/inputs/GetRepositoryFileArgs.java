@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class GetRepositoryFileArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetRepositoryFileArgs build() {
-            $.file = Objects.requireNonNull($.file, "expected parameter 'file' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.file == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryFileArgs", "file");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryFileArgs", "repository");
+            }
             return $;
         }
     }

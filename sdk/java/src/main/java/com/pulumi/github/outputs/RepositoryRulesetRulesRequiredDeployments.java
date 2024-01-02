@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class RepositoryRulesetRulesRequiredDeployments {
 
         @CustomType.Setter
         public Builder requiredDeploymentEnvironments(List<String> requiredDeploymentEnvironments) {
-            this.requiredDeploymentEnvironments = Objects.requireNonNull(requiredDeploymentEnvironments);
+            if (requiredDeploymentEnvironments == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetRulesRequiredDeployments", "requiredDeploymentEnvironments");
+            }
+            this.requiredDeploymentEnvironments = requiredDeploymentEnvironments;
             return this;
         }
         public Builder requiredDeploymentEnvironments(String... requiredDeploymentEnvironments) {

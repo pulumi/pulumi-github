@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -97,7 +98,10 @@ public final class GetRepositoriesResult {
 
         @CustomType.Setter
         public Builder fullNames(List<String> fullNames) {
-            this.fullNames = Objects.requireNonNull(fullNames);
+            if (fullNames == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "fullNames");
+            }
+            this.fullNames = fullNames;
             return this;
         }
         public Builder fullNames(String... fullNames) {
@@ -105,17 +109,24 @@ public final class GetRepositoriesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeRepoId(@Nullable Boolean includeRepoId) {
+
             this.includeRepoId = includeRepoId;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -123,12 +134,18 @@ public final class GetRepositoriesResult {
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder repoIds(List<Integer> repoIds) {
-            this.repoIds = Objects.requireNonNull(repoIds);
+            if (repoIds == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "repoIds");
+            }
+            this.repoIds = repoIds;
             return this;
         }
         public Builder repoIds(Integer... repoIds) {
@@ -136,11 +153,13 @@ public final class GetRepositoriesResult {
         }
         @CustomType.Setter
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+
             this.resultsPerPage = resultsPerPage;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable String sort) {
+
             this.sort = sort;
             return this;
         }

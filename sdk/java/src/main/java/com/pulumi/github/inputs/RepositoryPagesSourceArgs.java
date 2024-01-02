@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
         }
 
         public RepositoryPagesSourceArgs build() {
-            $.branch = Objects.requireNonNull($.branch, "expected parameter 'branch' to be non-null");
+            if ($.branch == null) {
+                throw new MissingRequiredPropertyException("RepositoryPagesSourceArgs", "branch");
+            }
             return $;
         }
     }

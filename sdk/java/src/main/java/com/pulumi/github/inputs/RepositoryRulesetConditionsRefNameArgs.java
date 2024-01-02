@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class RepositoryRulesetConditionsRefNameArgs extends com.pulumi.res
         }
 
         public RepositoryRulesetConditionsRefNameArgs build() {
-            $.excludes = Objects.requireNonNull($.excludes, "expected parameter 'excludes' to be non-null");
-            $.includes = Objects.requireNonNull($.includes, "expected parameter 'includes' to be non-null");
+            if ($.excludes == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetConditionsRefNameArgs", "excludes");
+            }
+            if ($.includes == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetConditionsRefNameArgs", "includes");
+            }
             return $;
         }
     }

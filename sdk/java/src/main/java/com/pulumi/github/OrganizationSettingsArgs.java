@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -1002,7 +1003,9 @@ public final class OrganizationSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         public OrganizationSettingsArgs build() {
-            $.billingEmail = Objects.requireNonNull($.billingEmail, "expected parameter 'billingEmail' to be non-null");
+            if ($.billingEmail == null) {
+                throw new MissingRequiredPropertyException("OrganizationSettingsArgs", "billingEmail");
+            }
             return $;
         }
     }

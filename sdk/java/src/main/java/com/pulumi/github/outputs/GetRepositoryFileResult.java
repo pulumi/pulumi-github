@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -160,57 +161,88 @@ public final class GetRepositoryFileResult {
 
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
+
             this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder commitAuthor(String commitAuthor) {
-            this.commitAuthor = Objects.requireNonNull(commitAuthor);
+            if (commitAuthor == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "commitAuthor");
+            }
+            this.commitAuthor = commitAuthor;
             return this;
         }
         @CustomType.Setter
         public Builder commitEmail(String commitEmail) {
-            this.commitEmail = Objects.requireNonNull(commitEmail);
+            if (commitEmail == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "commitEmail");
+            }
+            this.commitEmail = commitEmail;
             return this;
         }
         @CustomType.Setter
         public Builder commitMessage(String commitMessage) {
-            this.commitMessage = Objects.requireNonNull(commitMessage);
+            if (commitMessage == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "commitMessage");
+            }
+            this.commitMessage = commitMessage;
             return this;
         }
         @CustomType.Setter
         public Builder commitSha(String commitSha) {
-            this.commitSha = Objects.requireNonNull(commitSha);
+            if (commitSha == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "commitSha");
+            }
+            this.commitSha = commitSha;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder file(String file) {
-            this.file = Objects.requireNonNull(file);
+            if (file == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "file");
+            }
+            this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ref(String ref) {
-            this.ref = Objects.requireNonNull(ref);
+            if (ref == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "ref");
+            }
+            this.ref = ref;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder sha(String sha) {
-            this.sha = Objects.requireNonNull(sha);
+            if (sha == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryFileResult", "sha");
+            }
+            this.sha = sha;
             return this;
         }
         public GetRepositoryFileResult build() {

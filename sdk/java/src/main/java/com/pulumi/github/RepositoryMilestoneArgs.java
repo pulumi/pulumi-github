@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class RepositoryMilestoneArgs extends com.pulumi.resources.Resource
         }
 
         public RepositoryMilestoneArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("RepositoryMilestoneArgs", "owner");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryMilestoneArgs", "repository");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("RepositoryMilestoneArgs", "title");
+            }
             return $;
         }
     }

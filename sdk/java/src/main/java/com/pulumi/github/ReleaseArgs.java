@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -373,8 +374,12 @@ public final class ReleaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReleaseArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.tagName = Objects.requireNonNull($.tagName, "expected parameter 'tagName' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ReleaseArgs", "repository");
+            }
+            if ($.tagName == null) {
+                throw new MissingRequiredPropertyException("ReleaseArgs", "tagName");
+            }
             return $;
         }
     }

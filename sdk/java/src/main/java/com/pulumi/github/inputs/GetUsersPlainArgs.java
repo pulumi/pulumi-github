@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,7 +75,9 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUsersPlainArgs build() {
-            $.usernames = Objects.requireNonNull($.usernames, "expected parameter 'usernames' to be non-null");
+            if ($.usernames == null) {
+                throw new MissingRequiredPropertyException("GetUsersPlainArgs", "usernames");
+            }
             return $;
         }
     }

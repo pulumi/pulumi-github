@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class OrganizationRulesetRulesTagNamePatternArgs extends com.pulumi
         }
 
         public OrganizationRulesetRulesTagNamePatternArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetRulesTagNamePatternArgs", "operator");
+            }
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetRulesTagNamePatternArgs", "pattern");
+            }
             return $;
         }
     }

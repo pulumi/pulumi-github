@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class OrganizationRulesetConditionsRefName {
 
         @CustomType.Setter
         public Builder excludes(List<String> excludes) {
-            this.excludes = Objects.requireNonNull(excludes);
+            if (excludes == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetConditionsRefName", "excludes");
+            }
+            this.excludes = excludes;
             return this;
         }
         public Builder excludes(String... excludes) {
@@ -65,7 +69,10 @@ public final class OrganizationRulesetConditionsRefName {
         }
         @CustomType.Setter
         public Builder includes(List<String> includes) {
-            this.includes = Objects.requireNonNull(includes);
+            if (includes == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetConditionsRefName", "includes");
+            }
+            this.includes = includes;
             return this;
         }
         public Builder includes(String... includes) {

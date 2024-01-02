@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryWebhooksWebhook;
 import java.lang.String;
 import java.util.List;
@@ -66,17 +67,26 @@ public final class GetRepositoryWebhooksResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryWebhooksResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryWebhooksResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder webhooks(List<GetRepositoryWebhooksWebhook> webhooks) {
-            this.webhooks = Objects.requireNonNull(webhooks);
+            if (webhooks == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryWebhooksResult", "webhooks");
+            }
+            this.webhooks = webhooks;
             return this;
         }
         public Builder webhooks(GetRepositoryWebhooksWebhook... webhooks) {

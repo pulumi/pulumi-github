@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -78,12 +79,18 @@ public final class GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResu
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeClaimKeys(List<String> includeClaimKeys) {
-            this.includeClaimKeys = Objects.requireNonNull(includeClaimKeys);
+            if (includeClaimKeys == null) {
+              throw new MissingRequiredPropertyException("GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult", "includeClaimKeys");
+            }
+            this.includeClaimKeys = includeClaimKeys;
             return this;
         }
         public Builder includeClaimKeys(String... includeClaimKeys) {
@@ -91,12 +98,18 @@ public final class GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResu
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder useDefault(Boolean useDefault) {
-            this.useDefault = Objects.requireNonNull(useDefault);
+            if (useDefault == null) {
+              throw new MissingRequiredPropertyException("GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult", "useDefault");
+            }
+            this.useDefault = useDefault;
             return this;
         }
         public GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult build() {

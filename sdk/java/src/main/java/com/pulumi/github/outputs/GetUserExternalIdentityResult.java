@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -103,27 +104,42 @@ public final class GetUserExternalIdentityResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserExternalIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("GetUserExternalIdentityResult", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdentity(Map<String,String> samlIdentity) {
-            this.samlIdentity = Objects.requireNonNull(samlIdentity);
+            if (samlIdentity == null) {
+              throw new MissingRequiredPropertyException("GetUserExternalIdentityResult", "samlIdentity");
+            }
+            this.samlIdentity = samlIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder scimIdentity(Map<String,String> scimIdentity) {
-            this.scimIdentity = Objects.requireNonNull(scimIdentity);
+            if (scimIdentity == null) {
+              throw new MissingRequiredPropertyException("GetUserExternalIdentityResult", "scimIdentity");
+            }
+            this.scimIdentity = scimIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetUserExternalIdentityResult", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetUserExternalIdentityResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         public RepositoryRulesetRulesRequiredStatusChecksArgs build() {
-            $.requiredChecks = Objects.requireNonNull($.requiredChecks, "expected parameter 'requiredChecks' to be non-null");
+            if ($.requiredChecks == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetRulesRequiredStatusChecksArgs", "requiredChecks");
+            }
             return $;
         }
     }

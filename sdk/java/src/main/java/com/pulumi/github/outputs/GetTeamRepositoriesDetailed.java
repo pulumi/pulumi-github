@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetTeamRepositoriesDetailed {
 
         @CustomType.Setter
         public Builder repoId(Integer repoId) {
-            this.repoId = Objects.requireNonNull(repoId);
+            if (repoId == null) {
+              throw new MissingRequiredPropertyException("GetTeamRepositoriesDetailed", "repoId");
+            }
+            this.repoId = repoId;
             return this;
         }
         @CustomType.Setter
         public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+            if (roleName == null) {
+              throw new MissingRequiredPropertyException("GetTeamRepositoriesDetailed", "roleName");
+            }
+            this.roleName = roleName;
             return this;
         }
         public GetTeamRepositoriesDetailed build() {

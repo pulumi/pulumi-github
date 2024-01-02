@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetCollaboratorsCollaborator;
 import java.lang.String;
 import java.util.List;
@@ -78,12 +79,16 @@ public final class GetCollaboratorsResult {
 
         @CustomType.Setter
         public Builder affiliation(@Nullable String affiliation) {
+
             this.affiliation = affiliation;
             return this;
         }
         @CustomType.Setter
         public Builder collaborators(List<GetCollaboratorsCollaborator> collaborators) {
-            this.collaborators = Objects.requireNonNull(collaborators);
+            if (collaborators == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsResult", "collaborators");
+            }
+            this.collaborators = collaborators;
             return this;
         }
         public Builder collaborators(GetCollaboratorsCollaborator... collaborators) {
@@ -91,17 +96,26 @@ public final class GetCollaboratorsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetCollaboratorsResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetCollaboratorsResult build() {
