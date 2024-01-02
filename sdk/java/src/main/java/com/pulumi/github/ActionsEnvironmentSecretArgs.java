@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
         }
 
         public ActionsEnvironmentSecretArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.secretName = Objects.requireNonNull($.secretName, "expected parameter 'secretName' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentSecretArgs", "environment");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentSecretArgs", "repository");
+            }
+            if ($.secretName == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentSecretArgs", "secretName");
+            }
             return $;
         }
     }

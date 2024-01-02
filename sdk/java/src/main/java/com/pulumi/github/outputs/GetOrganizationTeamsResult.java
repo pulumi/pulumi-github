@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetOrganizationTeamsTeam;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -104,27 +105,36 @@ public final class GetOrganizationTeamsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+
             this.resultsPerPage = resultsPerPage;
             return this;
         }
         @CustomType.Setter
         public Builder rootTeamsOnly(@Nullable Boolean rootTeamsOnly) {
+
             this.rootTeamsOnly = rootTeamsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+
             this.summaryOnly = summaryOnly;
             return this;
         }
         @CustomType.Setter
         public Builder teams(List<GetOrganizationTeamsTeam> teams) {
-            this.teams = Objects.requireNonNull(teams);
+            if (teams == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamsResult", "teams");
+            }
+            this.teams = teams;
             return this;
         }
         public Builder teams(GetOrganizationTeamsTeam... teams) {

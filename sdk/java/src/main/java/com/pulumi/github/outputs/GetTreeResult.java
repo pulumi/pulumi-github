@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetTreeEntry;
 import java.lang.Boolean;
 import java.lang.String;
@@ -79,7 +80,10 @@ public final class GetTreeResult {
 
         @CustomType.Setter
         public Builder entries(List<GetTreeEntry> entries) {
-            this.entries = Objects.requireNonNull(entries);
+            if (entries == null) {
+              throw new MissingRequiredPropertyException("GetTreeResult", "entries");
+            }
+            this.entries = entries;
             return this;
         }
         public Builder entries(GetTreeEntry... entries) {
@@ -87,22 +91,32 @@ public final class GetTreeResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTreeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder recursive(@Nullable Boolean recursive) {
+
             this.recursive = recursive;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetTreeResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder treeSha(String treeSha) {
-            this.treeSha = Objects.requireNonNull(treeSha);
+            if (treeSha == null) {
+              throw new MissingRequiredPropertyException("GetTreeResult", "treeSha");
+            }
+            this.treeSha = treeSha;
             return this;
         }
         public GetTreeResult build() {

@@ -101,26 +101,31 @@ public final class OrganizationRulesetRulesPullRequest {
 
         @CustomType.Setter
         public Builder dismissStaleReviewsOnPush(@Nullable Boolean dismissStaleReviewsOnPush) {
+
             this.dismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
             return this;
         }
         @CustomType.Setter
         public Builder requireCodeOwnerReview(@Nullable Boolean requireCodeOwnerReview) {
+
             this.requireCodeOwnerReview = requireCodeOwnerReview;
             return this;
         }
         @CustomType.Setter
         public Builder requireLastPushApproval(@Nullable Boolean requireLastPushApproval) {
+
             this.requireLastPushApproval = requireLastPushApproval;
             return this;
         }
         @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
+
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }
         @CustomType.Setter
         public Builder requiredReviewThreadResolution(@Nullable Boolean requiredReviewThreadResolution) {
+
             this.requiredReviewThreadResolution = requiredReviewThreadResolution;
             return this;
         }

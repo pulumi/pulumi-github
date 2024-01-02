@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetRepositoryAutolinkReferencesAutolinkReference {
 
         @CustomType.Setter
         public Builder isAlphanumeric(Boolean isAlphanumeric) {
-            this.isAlphanumeric = Objects.requireNonNull(isAlphanumeric);
+            if (isAlphanumeric == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesAutolinkReference", "isAlphanumeric");
+            }
+            this.isAlphanumeric = isAlphanumeric;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefix(String keyPrefix) {
-            this.keyPrefix = Objects.requireNonNull(keyPrefix);
+            if (keyPrefix == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesAutolinkReference", "keyPrefix");
+            }
+            this.keyPrefix = keyPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder targetUrlTemplate(String targetUrlTemplate) {
-            this.targetUrlTemplate = Objects.requireNonNull(targetUrlTemplate);
+            if (targetUrlTemplate == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesAutolinkReference", "targetUrlTemplate");
+            }
+            this.targetUrlTemplate = targetUrlTemplate;
             return this;
         }
         public GetRepositoryAutolinkReferencesAutolinkReference build() {

@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class AppInstallationRepositoriesArgs extends com.pulumi.resources.
         }
 
         public AppInstallationRepositoriesArgs build() {
-            $.installationId = Objects.requireNonNull($.installationId, "expected parameter 'installationId' to be non-null");
-            $.selectedRepositories = Objects.requireNonNull($.selectedRepositories, "expected parameter 'selectedRepositories' to be non-null");
+            if ($.installationId == null) {
+                throw new MissingRequiredPropertyException("AppInstallationRepositoriesArgs", "installationId");
+            }
+            if ($.selectedRepositories == null) {
+                throw new MissingRequiredPropertyException("AppInstallationRepositoriesArgs", "selectedRepositories");
+            }
             return $;
         }
     }

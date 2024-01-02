@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -284,7 +285,9 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         public ActionsRunnerGroupArgs build() {
-            $.visibility = Objects.requireNonNull($.visibility, "expected parameter 'visibility' to be non-null");
+            if ($.visibility == null) {
+                throw new MissingRequiredPropertyException("ActionsRunnerGroupArgs", "visibility");
+            }
             return $;
         }
     }

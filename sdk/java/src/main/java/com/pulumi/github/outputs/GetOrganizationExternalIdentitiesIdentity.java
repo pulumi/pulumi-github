@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -75,17 +76,26 @@ public final class GetOrganizationExternalIdentitiesIdentity {
 
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationExternalIdentitiesIdentity", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdentity(Map<String,String> samlIdentity) {
-            this.samlIdentity = Objects.requireNonNull(samlIdentity);
+            if (samlIdentity == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationExternalIdentitiesIdentity", "samlIdentity");
+            }
+            this.samlIdentity = samlIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder scimIdentity(Map<String,String> scimIdentity) {
-            this.scimIdentity = Objects.requireNonNull(scimIdentity);
+            if (scimIdentity == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationExternalIdentitiesIdentity", "scimIdentity");
+            }
+            this.scimIdentity = scimIdentity;
             return this;
         }
         public GetOrganizationExternalIdentitiesIdentity build() {

@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TeamSyncGroupMappingGroupArgs extends com.pulumi.resources.Re
         }
 
         public TeamSyncGroupMappingGroupArgs build() {
-            $.groupDescription = Objects.requireNonNull($.groupDescription, "expected parameter 'groupDescription' to be non-null");
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
+            if ($.groupDescription == null) {
+                throw new MissingRequiredPropertyException("TeamSyncGroupMappingGroupArgs", "groupDescription");
+            }
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("TeamSyncGroupMappingGroupArgs", "groupId");
+            }
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("TeamSyncGroupMappingGroupArgs", "groupName");
+            }
             return $;
         }
     }

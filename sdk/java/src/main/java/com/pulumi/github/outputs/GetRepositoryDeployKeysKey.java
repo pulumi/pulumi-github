@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -86,22 +87,34 @@ public final class GetRepositoryDeployKeysKey {
 
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeployKeysKey", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeployKeysKey", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeployKeysKey", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder verified(Boolean verified) {
-            this.verified = Objects.requireNonNull(verified);
+            if (verified == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeployKeysKey", "verified");
+            }
+            this.verified = verified;
             return this;
         }
         public GetRepositoryDeployKeysKey build() {

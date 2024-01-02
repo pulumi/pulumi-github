@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetReleaseAsset;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -312,12 +313,18 @@ public final class GetReleaseResult {
 
         @CustomType.Setter
         public Builder assertsUrl(String assertsUrl) {
-            this.assertsUrl = Objects.requireNonNull(assertsUrl);
+            if (assertsUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "assertsUrl");
+            }
+            this.assertsUrl = assertsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder assets(List<GetReleaseAsset> assets) {
-            this.assets = Objects.requireNonNull(assets);
+            if (assets == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "assets");
+            }
+            this.assets = assets;
             return this;
         }
         public Builder assets(GetReleaseAsset... assets) {
@@ -325,97 +332,150 @@ public final class GetReleaseResult {
         }
         @CustomType.Setter
         public Builder assetsUrl(String assetsUrl) {
-            this.assetsUrl = Objects.requireNonNull(assetsUrl);
+            if (assetsUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "assetsUrl");
+            }
+            this.assetsUrl = assetsUrl;
             return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder draft(Boolean draft) {
-            this.draft = Objects.requireNonNull(draft);
+            if (draft == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "draft");
+            }
+            this.draft = draft;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
-            this.htmlUrl = Objects.requireNonNull(htmlUrl);
+            if (htmlUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "htmlUrl");
+            }
+            this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder prerelease(Boolean prerelease) {
-            this.prerelease = Objects.requireNonNull(prerelease);
+            if (prerelease == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "prerelease");
+            }
+            this.prerelease = prerelease;
             return this;
         }
         @CustomType.Setter
         public Builder publishedAt(String publishedAt) {
-            this.publishedAt = Objects.requireNonNull(publishedAt);
+            if (publishedAt == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "publishedAt");
+            }
+            this.publishedAt = publishedAt;
             return this;
         }
         @CustomType.Setter
         public Builder releaseId(@Nullable Integer releaseId) {
+
             this.releaseId = releaseId;
             return this;
         }
         @CustomType.Setter
         public Builder releaseTag(@Nullable String releaseTag) {
+
             this.releaseTag = releaseTag;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder retrieveBy(String retrieveBy) {
-            this.retrieveBy = Objects.requireNonNull(retrieveBy);
+            if (retrieveBy == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "retrieveBy");
+            }
+            this.retrieveBy = retrieveBy;
             return this;
         }
         @CustomType.Setter
         public Builder tarballUrl(String tarballUrl) {
-            this.tarballUrl = Objects.requireNonNull(tarballUrl);
+            if (tarballUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "tarballUrl");
+            }
+            this.tarballUrl = tarballUrl;
             return this;
         }
         @CustomType.Setter
         public Builder targetCommitish(String targetCommitish) {
-            this.targetCommitish = Objects.requireNonNull(targetCommitish);
+            if (targetCommitish == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "targetCommitish");
+            }
+            this.targetCommitish = targetCommitish;
             return this;
         }
         @CustomType.Setter
         public Builder uploadUrl(String uploadUrl) {
-            this.uploadUrl = Objects.requireNonNull(uploadUrl);
+            if (uploadUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "uploadUrl");
+            }
+            this.uploadUrl = uploadUrl;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder zipballUrl(String zipballUrl) {
-            this.zipballUrl = Objects.requireNonNull(zipballUrl);
+            if (zipballUrl == null) {
+              throw new MissingRequiredPropertyException("GetReleaseResult", "zipballUrl");
+            }
+            this.zipballUrl = zipballUrl;
             return this;
         }
         public GetReleaseResult build() {

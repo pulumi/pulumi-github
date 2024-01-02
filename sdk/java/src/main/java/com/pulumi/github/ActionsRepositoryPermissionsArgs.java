@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.ActionsRepositoryPermissionsAllowedActionsConfigArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class ActionsRepositoryPermissionsArgs extends com.pulumi.resources
         }
 
         public ActionsRepositoryPermissionsArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ActionsRepositoryPermissionsArgs", "repository");
+            }
             return $;
         }
     }

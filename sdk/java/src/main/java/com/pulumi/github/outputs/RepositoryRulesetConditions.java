@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.RepositoryRulesetConditionsRefName;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class RepositoryRulesetConditions {
 
         @CustomType.Setter
         public Builder refName(RepositoryRulesetConditionsRefName refName) {
-            this.refName = Objects.requireNonNull(refName);
+            if (refName == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetConditions", "refName");
+            }
+            this.refName = refName;
             return this;
         }
         public RepositoryRulesetConditions build() {

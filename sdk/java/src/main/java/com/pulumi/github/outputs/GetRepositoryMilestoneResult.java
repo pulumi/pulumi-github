@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -117,42 +118,66 @@ public final class GetRepositoryMilestoneResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dueDate(String dueDate) {
-            this.dueDate = Objects.requireNonNull(dueDate);
+            if (dueDate == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "dueDate");
+            }
+            this.dueDate = dueDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder number(Integer number) {
-            this.number = Objects.requireNonNull(number);
+            if (number == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "number");
+            }
+            this.number = number;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryMilestoneResult", "title");
+            }
+            this.title = title;
             return this;
         }
         public GetRepositoryMilestoneResult build() {

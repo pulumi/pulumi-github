@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetTreePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTreePlainArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.treeSha = Objects.requireNonNull($.treeSha, "expected parameter 'treeSha' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetTreePlainArgs", "repository");
+            }
+            if ($.treeSha == null) {
+                throw new MissingRequiredPropertyException("GetTreePlainArgs", "treeSha");
+            }
             return $;
         }
     }

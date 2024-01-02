@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryPage;
 import com.pulumi.github.outputs.GetRepositoryTemplate;
 import java.lang.Boolean;
@@ -509,127 +510,198 @@ public final class GetRepositoryResult {
 
         @CustomType.Setter
         public Builder allowAutoMerge(Boolean allowAutoMerge) {
-            this.allowAutoMerge = Objects.requireNonNull(allowAutoMerge);
+            if (allowAutoMerge == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowAutoMerge");
+            }
+            this.allowAutoMerge = allowAutoMerge;
             return this;
         }
         @CustomType.Setter
         public Builder allowMergeCommit(Boolean allowMergeCommit) {
-            this.allowMergeCommit = Objects.requireNonNull(allowMergeCommit);
+            if (allowMergeCommit == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowMergeCommit");
+            }
+            this.allowMergeCommit = allowMergeCommit;
             return this;
         }
         @CustomType.Setter
         public Builder allowRebaseMerge(Boolean allowRebaseMerge) {
-            this.allowRebaseMerge = Objects.requireNonNull(allowRebaseMerge);
+            if (allowRebaseMerge == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowRebaseMerge");
+            }
+            this.allowRebaseMerge = allowRebaseMerge;
             return this;
         }
         @CustomType.Setter
         public Builder allowSquashMerge(Boolean allowSquashMerge) {
-            this.allowSquashMerge = Objects.requireNonNull(allowSquashMerge);
+            if (allowSquashMerge == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowSquashMerge");
+            }
+            this.allowSquashMerge = allowSquashMerge;
             return this;
         }
         @CustomType.Setter
         public Builder archived(Boolean archived) {
-            this.archived = Objects.requireNonNull(archived);
+            if (archived == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "archived");
+            }
+            this.archived = archived;
             return this;
         }
         @CustomType.Setter
         public Builder defaultBranch(String defaultBranch) {
-            this.defaultBranch = Objects.requireNonNull(defaultBranch);
+            if (defaultBranch == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "defaultBranch");
+            }
+            this.defaultBranch = defaultBranch;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder fork(Boolean fork) {
-            this.fork = Objects.requireNonNull(fork);
+            if (fork == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "fork");
+            }
+            this.fork = fork;
             return this;
         }
         @CustomType.Setter
         public Builder fullName(String fullName) {
-            this.fullName = Objects.requireNonNull(fullName);
+            if (fullName == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "fullName");
+            }
+            this.fullName = fullName;
             return this;
         }
         @CustomType.Setter
         public Builder gitCloneUrl(String gitCloneUrl) {
-            this.gitCloneUrl = Objects.requireNonNull(gitCloneUrl);
+            if (gitCloneUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "gitCloneUrl");
+            }
+            this.gitCloneUrl = gitCloneUrl;
             return this;
         }
         @CustomType.Setter
         public Builder hasDiscussions(Boolean hasDiscussions) {
-            this.hasDiscussions = Objects.requireNonNull(hasDiscussions);
+            if (hasDiscussions == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "hasDiscussions");
+            }
+            this.hasDiscussions = hasDiscussions;
             return this;
         }
         @CustomType.Setter
         public Builder hasDownloads(Boolean hasDownloads) {
-            this.hasDownloads = Objects.requireNonNull(hasDownloads);
+            if (hasDownloads == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "hasDownloads");
+            }
+            this.hasDownloads = hasDownloads;
             return this;
         }
         @CustomType.Setter
         public Builder hasIssues(Boolean hasIssues) {
-            this.hasIssues = Objects.requireNonNull(hasIssues);
+            if (hasIssues == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "hasIssues");
+            }
+            this.hasIssues = hasIssues;
             return this;
         }
         @CustomType.Setter
         public Builder hasProjects(Boolean hasProjects) {
-            this.hasProjects = Objects.requireNonNull(hasProjects);
+            if (hasProjects == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "hasProjects");
+            }
+            this.hasProjects = hasProjects;
             return this;
         }
         @CustomType.Setter
         public Builder hasWiki(Boolean hasWiki) {
-            this.hasWiki = Objects.requireNonNull(hasWiki);
+            if (hasWiki == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "hasWiki");
+            }
+            this.hasWiki = hasWiki;
             return this;
         }
         @CustomType.Setter
         public Builder homepageUrl(@Nullable String homepageUrl) {
+
             this.homepageUrl = homepageUrl;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
-            this.htmlUrl = Objects.requireNonNull(htmlUrl);
+            if (htmlUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "htmlUrl");
+            }
+            this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder httpCloneUrl(String httpCloneUrl) {
-            this.httpCloneUrl = Objects.requireNonNull(httpCloneUrl);
+            if (httpCloneUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "httpCloneUrl");
+            }
+            this.httpCloneUrl = httpCloneUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isTemplate(Boolean isTemplate) {
-            this.isTemplate = Objects.requireNonNull(isTemplate);
+            if (isTemplate == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "isTemplate");
+            }
+            this.isTemplate = isTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder mergeCommitMessage(String mergeCommitMessage) {
-            this.mergeCommitMessage = Objects.requireNonNull(mergeCommitMessage);
+            if (mergeCommitMessage == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "mergeCommitMessage");
+            }
+            this.mergeCommitMessage = mergeCommitMessage;
             return this;
         }
         @CustomType.Setter
         public Builder mergeCommitTitle(String mergeCommitTitle) {
-            this.mergeCommitTitle = Objects.requireNonNull(mergeCommitTitle);
+            if (mergeCommitTitle == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "mergeCommitTitle");
+            }
+            this.mergeCommitTitle = mergeCommitTitle;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeId(String nodeId) {
-            this.nodeId = Objects.requireNonNull(nodeId);
+            if (nodeId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "nodeId");
+            }
+            this.nodeId = nodeId;
             return this;
         }
         @CustomType.Setter
         public Builder pages(List<GetRepositoryPage> pages) {
-            this.pages = Objects.requireNonNull(pages);
+            if (pages == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "pages");
+            }
+            this.pages = pages;
             return this;
         }
         public Builder pages(GetRepositoryPage... pages) {
@@ -637,47 +709,74 @@ public final class GetRepositoryResult {
         }
         @CustomType.Setter
         public Builder primaryLanguage(String primaryLanguage) {
-            this.primaryLanguage = Objects.requireNonNull(primaryLanguage);
+            if (primaryLanguage == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "primaryLanguage");
+            }
+            this.primaryLanguage = primaryLanguage;
             return this;
         }
         @CustomType.Setter("private")
         public Builder private_(Boolean private_) {
-            this.private_ = Objects.requireNonNull(private_);
+            if (private_ == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "private_");
+            }
+            this.private_ = private_;
             return this;
         }
         @CustomType.Setter
         public Builder repoId(Integer repoId) {
-            this.repoId = Objects.requireNonNull(repoId);
+            if (repoId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "repoId");
+            }
+            this.repoId = repoId;
             return this;
         }
         @CustomType.Setter
         public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
-            this.squashMergeCommitMessage = Objects.requireNonNull(squashMergeCommitMessage);
+            if (squashMergeCommitMessage == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "squashMergeCommitMessage");
+            }
+            this.squashMergeCommitMessage = squashMergeCommitMessage;
             return this;
         }
         @CustomType.Setter
         public Builder squashMergeCommitTitle(String squashMergeCommitTitle) {
-            this.squashMergeCommitTitle = Objects.requireNonNull(squashMergeCommitTitle);
+            if (squashMergeCommitTitle == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "squashMergeCommitTitle");
+            }
+            this.squashMergeCommitTitle = squashMergeCommitTitle;
             return this;
         }
         @CustomType.Setter
         public Builder sshCloneUrl(String sshCloneUrl) {
-            this.sshCloneUrl = Objects.requireNonNull(sshCloneUrl);
+            if (sshCloneUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "sshCloneUrl");
+            }
+            this.sshCloneUrl = sshCloneUrl;
             return this;
         }
         @CustomType.Setter
         public Builder svnUrl(String svnUrl) {
-            this.svnUrl = Objects.requireNonNull(svnUrl);
+            if (svnUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "svnUrl");
+            }
+            this.svnUrl = svnUrl;
             return this;
         }
         @CustomType.Setter
         public Builder template(GetRepositoryTemplate template) {
-            this.template = Objects.requireNonNull(template);
+            if (template == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "template");
+            }
+            this.template = template;
             return this;
         }
         @CustomType.Setter
         public Builder topics(List<String> topics) {
-            this.topics = Objects.requireNonNull(topics);
+            if (topics == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "topics");
+            }
+            this.topics = topics;
             return this;
         }
         public Builder topics(String... topics) {
@@ -685,7 +784,10 @@ public final class GetRepositoryResult {
         }
         @CustomType.Setter
         public Builder visibility(String visibility) {
-            this.visibility = Objects.requireNonNull(visibility);
+            if (visibility == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "visibility");
+            }
+            this.visibility = visibility;
             return this;
         }
         public GetRepositoryResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,10 +300,18 @@ public final class RepositoryPullRequestArgs extends com.pulumi.resources.Resour
         }
 
         public RepositoryPullRequestArgs build() {
-            $.baseRef = Objects.requireNonNull($.baseRef, "expected parameter 'baseRef' to be non-null");
-            $.baseRepository = Objects.requireNonNull($.baseRepository, "expected parameter 'baseRepository' to be non-null");
-            $.headRef = Objects.requireNonNull($.headRef, "expected parameter 'headRef' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.baseRef == null) {
+                throw new MissingRequiredPropertyException("RepositoryPullRequestArgs", "baseRef");
+            }
+            if ($.baseRepository == null) {
+                throw new MissingRequiredPropertyException("RepositoryPullRequestArgs", "baseRepository");
+            }
+            if ($.headRef == null) {
+                throw new MissingRequiredPropertyException("RepositoryPullRequestArgs", "headRef");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("RepositoryPullRequestArgs", "title");
+            }
             return $;
         }
     }

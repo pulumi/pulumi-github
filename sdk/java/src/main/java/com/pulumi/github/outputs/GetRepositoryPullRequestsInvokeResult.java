@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryPullRequestsResult;
 import java.lang.String;
 import java.util.List;
@@ -126,32 +127,44 @@ public final class GetRepositoryPullRequestsInvokeResult {
 
         @CustomType.Setter
         public Builder baseRef(@Nullable String baseRef) {
+
             this.baseRef = baseRef;
             return this;
         }
         @CustomType.Setter
         public Builder baseRepository(String baseRepository) {
-            this.baseRepository = Objects.requireNonNull(baseRepository);
+            if (baseRepository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsInvokeResult", "baseRepository");
+            }
+            this.baseRepository = baseRepository;
             return this;
         }
         @CustomType.Setter
         public Builder headRef(@Nullable String headRef) {
+
             this.headRef = headRef;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsInvokeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder owner(@Nullable String owner) {
+
             this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder results(List<GetRepositoryPullRequestsResult> results) {
-            this.results = Objects.requireNonNull(results);
+            if (results == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPullRequestsInvokeResult", "results");
+            }
+            this.results = results;
             return this;
         }
         public Builder results(GetRepositoryPullRequestsResult... results) {
@@ -159,16 +172,19 @@ public final class GetRepositoryPullRequestsInvokeResult {
         }
         @CustomType.Setter
         public Builder sortBy(@Nullable String sortBy) {
+
             this.sortBy = sortBy;
             return this;
         }
         @CustomType.Setter
         public Builder sortDirection(@Nullable String sortDirection) {
+
             this.sortDirection = sortDirection;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

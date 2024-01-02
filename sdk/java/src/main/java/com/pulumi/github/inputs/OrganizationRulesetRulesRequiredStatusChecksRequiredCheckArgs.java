@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
         }
 
         public OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs build() {
-            $.context = Objects.requireNonNull($.context, "expected parameter 'context' to be non-null");
+            if ($.context == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs", "context");
+            }
             return $;
         }
     }

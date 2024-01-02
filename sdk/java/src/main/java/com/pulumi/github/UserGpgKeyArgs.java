@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -78,7 +79,9 @@ public final class UserGpgKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserGpgKeyArgs build() {
-            $.armoredPublicKey = Objects.requireNonNull($.armoredPublicKey, "expected parameter 'armoredPublicKey' to be non-null");
+            if ($.armoredPublicKey == null) {
+                throw new MissingRequiredPropertyException("UserGpgKeyArgs", "armoredPublicKey");
+            }
             return $;
         }
     }

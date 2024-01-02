@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,7 +93,9 @@ public final class GetMembershipPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetMembershipPlainArgs build() {
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("GetMembershipPlainArgs", "username");
+            }
             return $;
         }
     }

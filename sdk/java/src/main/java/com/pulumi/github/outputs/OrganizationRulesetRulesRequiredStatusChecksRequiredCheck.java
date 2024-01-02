@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 
         @CustomType.Setter
         public Builder context(String context) {
-            this.context = Objects.requireNonNull(context);
+            if (context == null) {
+              throw new MissingRequiredPropertyException("OrganizationRulesetRulesRequiredStatusChecksRequiredCheck", "context");
+            }
+            this.context = context;
             return this;
         }
         @CustomType.Setter
         public Builder integrationId(@Nullable Integer integrationId) {
+
             this.integrationId = integrationId;
             return this;
         }

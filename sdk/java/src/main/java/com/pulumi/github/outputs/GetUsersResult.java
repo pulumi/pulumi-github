@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +106,10 @@ public final class GetUsersResult {
 
         @CustomType.Setter
         public Builder emails(List<String> emails) {
-            this.emails = Objects.requireNonNull(emails);
+            if (emails == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "emails");
+            }
+            this.emails = emails;
             return this;
         }
         public Builder emails(String... emails) {
@@ -113,12 +117,18 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logins(List<String> logins) {
-            this.logins = Objects.requireNonNull(logins);
+            if (logins == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "logins");
+            }
+            this.logins = logins;
             return this;
         }
         public Builder logins(String... logins) {
@@ -126,7 +136,10 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder nodeIds(List<String> nodeIds) {
-            this.nodeIds = Objects.requireNonNull(nodeIds);
+            if (nodeIds == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "nodeIds");
+            }
+            this.nodeIds = nodeIds;
             return this;
         }
         public Builder nodeIds(String... nodeIds) {
@@ -134,7 +147,10 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder unknownLogins(List<String> unknownLogins) {
-            this.unknownLogins = Objects.requireNonNull(unknownLogins);
+            if (unknownLogins == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "unknownLogins");
+            }
+            this.unknownLogins = unknownLogins;
             return this;
         }
         public Builder unknownLogins(String... unknownLogins) {
@@ -142,7 +158,10 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder usernames(List<String> usernames) {
-            this.usernames = Objects.requireNonNull(usernames);
+            if (usernames == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "usernames");
+            }
+            this.usernames = usernames;
             return this;
         }
         public Builder usernames(String... usernames) {

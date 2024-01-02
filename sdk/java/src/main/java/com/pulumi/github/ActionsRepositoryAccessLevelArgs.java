@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ActionsRepositoryAccessLevelArgs extends com.pulumi.resources
         }
 
         public ActionsRepositoryAccessLevelArgs build() {
-            $.accessLevel = Objects.requireNonNull($.accessLevel, "expected parameter 'accessLevel' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.accessLevel == null) {
+                throw new MissingRequiredPropertyException("ActionsRepositoryAccessLevelArgs", "accessLevel");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ActionsRepositoryAccessLevelArgs", "repository");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -200,8 +201,12 @@ public final class RepositoryWebhookArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RepositoryWebhookArgs build() {
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("RepositoryWebhookArgs", "events");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryWebhookArgs", "repository");
+            }
             return $;
         }
     }

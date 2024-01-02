@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -174,9 +175,15 @@ public final class GetReleasePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetReleasePlainArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.retrieveBy = Objects.requireNonNull($.retrieveBy, "expected parameter 'retrieveBy' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("GetReleasePlainArgs", "owner");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetReleasePlainArgs", "repository");
+            }
+            if ($.retrieveBy == null) {
+                throw new MissingRequiredPropertyException("GetReleasePlainArgs", "retrieveBy");
+            }
             return $;
         }
     }

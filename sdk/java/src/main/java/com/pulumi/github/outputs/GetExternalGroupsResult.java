@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetExternalGroupsExternalGroup;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class GetExternalGroupsResult {
 
         @CustomType.Setter
         public Builder externalGroups(List<GetExternalGroupsExternalGroup> externalGroups) {
-            this.externalGroups = Objects.requireNonNull(externalGroups);
+            if (externalGroups == null) {
+              throw new MissingRequiredPropertyException("GetExternalGroupsResult", "externalGroups");
+            }
+            this.externalGroups = externalGroups;
             return this;
         }
         public Builder externalGroups(GetExternalGroupsExternalGroup... externalGroups) {
@@ -66,7 +70,10 @@ public final class GetExternalGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExternalGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetExternalGroupsResult build() {

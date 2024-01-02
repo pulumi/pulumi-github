@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy;
 import java.lang.String;
 import java.util.List;
@@ -70,7 +71,10 @@ public final class GetRepositoryDeploymentBranchPoliciesResult {
 
         @CustomType.Setter
         public Builder deploymentBranchPolicies(List<GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy> deploymentBranchPolicies) {
-            this.deploymentBranchPolicies = Objects.requireNonNull(deploymentBranchPolicies);
+            if (deploymentBranchPolicies == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesResult", "deploymentBranchPolicies");
+            }
+            this.deploymentBranchPolicies = deploymentBranchPolicies;
             return this;
         }
         public Builder deploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy... deploymentBranchPolicies) {
@@ -78,17 +82,26 @@ public final class GetRepositoryDeploymentBranchPoliciesResult {
         }
         @CustomType.Setter
         public Builder environmentName(String environmentName) {
-            this.environmentName = Objects.requireNonNull(environmentName);
+            if (environmentName == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesResult", "environmentName");
+            }
+            this.environmentName = environmentName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryDeploymentBranchPoliciesResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetRepositoryDeploymentBranchPoliciesResult build() {

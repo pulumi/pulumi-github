@@ -219,66 +219,79 @@ public final class OrganizationRulesetRules {
 
         @CustomType.Setter
         public Builder branchNamePattern(@Nullable OrganizationRulesetRulesBranchNamePattern branchNamePattern) {
+
             this.branchNamePattern = branchNamePattern;
             return this;
         }
         @CustomType.Setter
         public Builder commitAuthorEmailPattern(@Nullable OrganizationRulesetRulesCommitAuthorEmailPattern commitAuthorEmailPattern) {
+
             this.commitAuthorEmailPattern = commitAuthorEmailPattern;
             return this;
         }
         @CustomType.Setter
         public Builder commitMessagePattern(@Nullable OrganizationRulesetRulesCommitMessagePattern commitMessagePattern) {
+
             this.commitMessagePattern = commitMessagePattern;
             return this;
         }
         @CustomType.Setter
         public Builder committerEmailPattern(@Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern) {
+
             this.committerEmailPattern = committerEmailPattern;
             return this;
         }
         @CustomType.Setter
         public Builder creation(@Nullable Boolean creation) {
+
             this.creation = creation;
             return this;
         }
         @CustomType.Setter
         public Builder deletion(@Nullable Boolean deletion) {
+
             this.deletion = deletion;
             return this;
         }
         @CustomType.Setter
         public Builder nonFastForward(@Nullable Boolean nonFastForward) {
+
             this.nonFastForward = nonFastForward;
             return this;
         }
         @CustomType.Setter
         public Builder pullRequest(@Nullable OrganizationRulesetRulesPullRequest pullRequest) {
+
             this.pullRequest = pullRequest;
             return this;
         }
         @CustomType.Setter
         public Builder requiredLinearHistory(@Nullable Boolean requiredLinearHistory) {
+
             this.requiredLinearHistory = requiredLinearHistory;
             return this;
         }
         @CustomType.Setter
         public Builder requiredSignatures(@Nullable Boolean requiredSignatures) {
+
             this.requiredSignatures = requiredSignatures;
             return this;
         }
         @CustomType.Setter
         public Builder requiredStatusChecks(@Nullable OrganizationRulesetRulesRequiredStatusChecks requiredStatusChecks) {
+
             this.requiredStatusChecks = requiredStatusChecks;
             return this;
         }
         @CustomType.Setter
         public Builder tagNamePattern(@Nullable OrganizationRulesetRulesTagNamePattern tagNamePattern) {
+
             this.tagNamePattern = tagNamePattern;
             return this;
         }
         @CustomType.Setter
         public Builder update(@Nullable Boolean update) {
+
             this.update = update;
             return this;
         }

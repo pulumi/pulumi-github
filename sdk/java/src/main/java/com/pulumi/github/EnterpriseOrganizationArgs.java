@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -272,9 +273,15 @@ public final class EnterpriseOrganizationArgs extends com.pulumi.resources.Resou
         }
 
         public EnterpriseOrganizationArgs build() {
-            $.adminLogins = Objects.requireNonNull($.adminLogins, "expected parameter 'adminLogins' to be non-null");
-            $.billingEmail = Objects.requireNonNull($.billingEmail, "expected parameter 'billingEmail' to be non-null");
-            $.enterpriseId = Objects.requireNonNull($.enterpriseId, "expected parameter 'enterpriseId' to be non-null");
+            if ($.adminLogins == null) {
+                throw new MissingRequiredPropertyException("EnterpriseOrganizationArgs", "adminLogins");
+            }
+            if ($.billingEmail == null) {
+                throw new MissingRequiredPropertyException("EnterpriseOrganizationArgs", "billingEmail");
+            }
+            if ($.enterpriseId == null) {
+                throw new MissingRequiredPropertyException("EnterpriseOrganizationArgs", "enterpriseId");
+            }
             return $;
         }
     }

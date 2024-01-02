@@ -100,6 +100,7 @@ public final class BranchProtectionV3RequiredStatusChecks {
 
         @CustomType.Setter
         public Builder checks(@Nullable List<String> checks) {
+
             this.checks = checks;
             return this;
         }
@@ -108,6 +109,7 @@ public final class BranchProtectionV3RequiredStatusChecks {
         }
         @CustomType.Setter
         public Builder contexts(@Nullable List<String> contexts) {
+
             this.contexts = contexts;
             return this;
         }
@@ -116,11 +118,13 @@ public final class BranchProtectionV3RequiredStatusChecks {
         }
         @CustomType.Setter
         public Builder includeAdmins(@Nullable Boolean includeAdmins) {
+
             this.includeAdmins = includeAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder strict(@Nullable Boolean strict) {
+
             this.strict = strict;
             return this;
         }

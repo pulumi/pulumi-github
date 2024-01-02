@@ -74,16 +74,19 @@ public final class TeamSettingsReviewRequestDelegation {
 
         @CustomType.Setter
         public Builder algorithm(@Nullable String algorithm) {
+
             this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
         public Builder memberCount(@Nullable Integer memberCount) {
+
             this.memberCount = memberCount;
             return this;
         }
         @CustomType.Setter("notify")
         public Builder notify_(@Nullable Boolean notify) {
+
             this.notify = notify;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
 import com.pulumi.github.inputs.OrganizationRulesetConditionsArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
@@ -275,9 +276,15 @@ public final class OrganizationRulesetArgs extends com.pulumi.resources.Resource
         }
 
         public OrganizationRulesetArgs build() {
-            $.enforcement = Objects.requireNonNull($.enforcement, "expected parameter 'enforcement' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.enforcement == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetArgs", "enforcement");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetArgs", "rules");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("OrganizationRulesetArgs", "target");
+            }
             return $;
         }
     }

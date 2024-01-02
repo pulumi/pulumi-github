@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class UserSshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserSshKeyArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("UserSshKeyArgs", "key");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("UserSshKeyArgs", "title");
+            }
             return $;
         }
     }

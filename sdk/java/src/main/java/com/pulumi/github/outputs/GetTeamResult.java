@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetTeamRepositoriesDetailed;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -184,17 +185,26 @@ public final class GetTeamResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<String> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(String... members) {
@@ -202,32 +212,48 @@ public final class GetTeamResult {
         }
         @CustomType.Setter
         public Builder membershipType(@Nullable String membershipType) {
+
             this.membershipType = membershipType;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeId(String nodeId) {
-            this.nodeId = Objects.requireNonNull(nodeId);
+            if (nodeId == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "nodeId");
+            }
+            this.nodeId = nodeId;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         @CustomType.Setter
         public Builder privacy(String privacy) {
-            this.privacy = Objects.requireNonNull(privacy);
+            if (privacy == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "privacy");
+            }
+            this.privacy = privacy;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(List<String> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(String... repositories) {
@@ -235,7 +261,10 @@ public final class GetTeamResult {
         }
         @CustomType.Setter
         public Builder repositoriesDetaileds(List<GetTeamRepositoriesDetailed> repositoriesDetaileds) {
-            this.repositoriesDetaileds = Objects.requireNonNull(repositoriesDetaileds);
+            if (repositoriesDetaileds == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "repositoriesDetaileds");
+            }
+            this.repositoriesDetaileds = repositoriesDetaileds;
             return this;
         }
         public Builder repositoriesDetaileds(GetTeamRepositoriesDetailed... repositoriesDetaileds) {
@@ -243,16 +272,21 @@ public final class GetTeamResult {
         }
         @CustomType.Setter
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
+
             this.resultsPerPage = resultsPerPage;
             return this;
         }
         @CustomType.Setter
         public Builder slug(String slug) {
-            this.slug = Objects.requireNonNull(slug);
+            if (slug == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "slug");
+            }
+            this.slug = slug;
             return this;
         }
         @CustomType.Setter
         public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+
             this.summaryOnly = summaryOnly;
             return this;
         }

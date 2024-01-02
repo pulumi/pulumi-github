@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.RepositoryRulesetBypassActorArgs;
 import com.pulumi.github.inputs.RepositoryRulesetConditionsArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesArgs;
@@ -312,9 +313,15 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RepositoryRulesetArgs build() {
-            $.enforcement = Objects.requireNonNull($.enforcement, "expected parameter 'enforcement' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.enforcement == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "enforcement");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "rules");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "target");
+            }
             return $;
         }
     }

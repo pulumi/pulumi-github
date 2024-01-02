@@ -133,11 +133,13 @@ public final class BranchProtectionRequiredPullRequestReview {
 
         @CustomType.Setter
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
+
             this.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
         @CustomType.Setter
         public Builder dismissalRestrictions(@Nullable List<String> dismissalRestrictions) {
+
             this.dismissalRestrictions = dismissalRestrictions;
             return this;
         }
@@ -146,6 +148,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         }
         @CustomType.Setter
         public Builder pullRequestBypassers(@Nullable List<String> pullRequestBypassers) {
+
             this.pullRequestBypassers = pullRequestBypassers;
             return this;
         }
@@ -154,21 +157,25 @@ public final class BranchProtectionRequiredPullRequestReview {
         }
         @CustomType.Setter
         public Builder requireCodeOwnerReviews(@Nullable Boolean requireCodeOwnerReviews) {
+
             this.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
         @CustomType.Setter
         public Builder requireLastPushApproval(@Nullable Boolean requireLastPushApproval) {
+
             this.requireLastPushApproval = requireLastPushApproval;
             return this;
         }
         @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
+
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }
         @CustomType.Setter
         public Builder restrictDismissals(@Nullable Boolean restrictDismissals) {
+
             this.restrictDismissals = restrictDismissals;
             return this;
         }

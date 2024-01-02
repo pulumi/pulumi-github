@@ -58,6 +58,7 @@ public final class RepositoryEnvironmentReviewer {
 
         @CustomType.Setter
         public Builder teams(@Nullable List<Integer> teams) {
+
             this.teams = teams;
             return this;
         }
@@ -66,6 +67,7 @@ public final class RepositoryEnvironmentReviewer {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<Integer> users) {
+
             this.users = users;
             return this;
         }

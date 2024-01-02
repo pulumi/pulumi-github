@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetIssueLabelsLabel;
 import java.lang.String;
 import java.util.List;
@@ -64,12 +65,18 @@ public final class GetIssueLabelsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder labels(List<GetIssueLabelsLabel> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         public Builder labels(GetIssueLabelsLabel... labels) {
@@ -77,7 +84,10 @@ public final class GetIssueLabelsResult {
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetIssueLabelsResult build() {

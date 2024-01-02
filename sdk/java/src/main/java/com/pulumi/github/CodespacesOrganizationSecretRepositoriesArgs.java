@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class CodespacesOrganizationSecretRepositoriesArgs extends com.pulu
         }
 
         public CodespacesOrganizationSecretRepositoriesArgs build() {
-            $.secretName = Objects.requireNonNull($.secretName, "expected parameter 'secretName' to be non-null");
-            $.selectedRepositoryIds = Objects.requireNonNull($.selectedRepositoryIds, "expected parameter 'selectedRepositoryIds' to be non-null");
+            if ($.secretName == null) {
+                throw new MissingRequiredPropertyException("CodespacesOrganizationSecretRepositoriesArgs", "secretName");
+            }
+            if ($.selectedRepositoryIds == null) {
+                throw new MissingRequiredPropertyException("CodespacesOrganizationSecretRepositoriesArgs", "selectedRepositoryIds");
+            }
             return $;
         }
     }

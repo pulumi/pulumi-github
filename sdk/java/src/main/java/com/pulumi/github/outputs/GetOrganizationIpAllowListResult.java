@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetOrganizationIpAllowListIpAllowList;
 import java.lang.String;
 import java.util.List;
@@ -60,12 +61,18 @@ public final class GetOrganizationIpAllowListResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAllowLists(List<GetOrganizationIpAllowListIpAllowList> ipAllowLists) {
-            this.ipAllowLists = Objects.requireNonNull(ipAllowLists);
+            if (ipAllowLists == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListResult", "ipAllowLists");
+            }
+            this.ipAllowLists = ipAllowLists;
             return this;
         }
         public Builder ipAllowLists(GetOrganizationIpAllowListIpAllowList... ipAllowLists) {

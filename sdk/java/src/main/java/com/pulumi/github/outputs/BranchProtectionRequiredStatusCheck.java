@@ -60,6 +60,7 @@ public final class BranchProtectionRequiredStatusCheck {
 
         @CustomType.Setter
         public Builder contexts(@Nullable List<String> contexts) {
+
             this.contexts = contexts;
             return this;
         }
@@ -68,6 +69,7 @@ public final class BranchProtectionRequiredStatusCheck {
         }
         @CustomType.Setter
         public Builder strict(@Nullable Boolean strict) {
+
             this.strict = strict;
             return this;
         }

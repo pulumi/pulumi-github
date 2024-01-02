@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs e
         }
 
         public ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs build() {
-            $.repositoryIds = Objects.requireNonNull($.repositoryIds, "expected parameter 'repositoryIds' to be non-null");
+            if ($.repositoryIds == null) {
+                throw new MissingRequiredPropertyException("ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs", "repositoryIds");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -431,47 +432,74 @@ public final class GetOrganizationResult {
 
         @CustomType.Setter
         public Builder advancedSecurityEnabledForNewRepositories(Boolean advancedSecurityEnabledForNewRepositories) {
-            this.advancedSecurityEnabledForNewRepositories = Objects.requireNonNull(advancedSecurityEnabledForNewRepositories);
+            if (advancedSecurityEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "advancedSecurityEnabledForNewRepositories");
+            }
+            this.advancedSecurityEnabledForNewRepositories = advancedSecurityEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRepositoryPermission(String defaultRepositoryPermission) {
-            this.defaultRepositoryPermission = Objects.requireNonNull(defaultRepositoryPermission);
+            if (defaultRepositoryPermission == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "defaultRepositoryPermission");
+            }
+            this.defaultRepositoryPermission = defaultRepositoryPermission;
             return this;
         }
         @CustomType.Setter
         public Builder dependabotAlertsEnabledForNewRepositories(Boolean dependabotAlertsEnabledForNewRepositories) {
-            this.dependabotAlertsEnabledForNewRepositories = Objects.requireNonNull(dependabotAlertsEnabledForNewRepositories);
+            if (dependabotAlertsEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "dependabotAlertsEnabledForNewRepositories");
+            }
+            this.dependabotAlertsEnabledForNewRepositories = dependabotAlertsEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder dependabotSecurityUpdatesEnabledForNewRepositories(Boolean dependabotSecurityUpdatesEnabledForNewRepositories) {
-            this.dependabotSecurityUpdatesEnabledForNewRepositories = Objects.requireNonNull(dependabotSecurityUpdatesEnabledForNewRepositories);
+            if (dependabotSecurityUpdatesEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "dependabotSecurityUpdatesEnabledForNewRepositories");
+            }
+            this.dependabotSecurityUpdatesEnabledForNewRepositories = dependabotSecurityUpdatesEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder dependencyGraphEnabledForNewRepositories(Boolean dependencyGraphEnabledForNewRepositories) {
-            this.dependencyGraphEnabledForNewRepositories = Objects.requireNonNull(dependencyGraphEnabledForNewRepositories);
+            if (dependencyGraphEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "dependencyGraphEnabledForNewRepositories");
+            }
+            this.dependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<String> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(String... members) {
@@ -479,72 +507,114 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder membersAllowedRepositoryCreationType(String membersAllowedRepositoryCreationType) {
-            this.membersAllowedRepositoryCreationType = Objects.requireNonNull(membersAllowedRepositoryCreationType);
+            if (membersAllowedRepositoryCreationType == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersAllowedRepositoryCreationType");
+            }
+            this.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreateInternalRepositories(Boolean membersCanCreateInternalRepositories) {
-            this.membersCanCreateInternalRepositories = Objects.requireNonNull(membersCanCreateInternalRepositories);
+            if (membersCanCreateInternalRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreateInternalRepositories");
+            }
+            this.membersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreatePages(Boolean membersCanCreatePages) {
-            this.membersCanCreatePages = Objects.requireNonNull(membersCanCreatePages);
+            if (membersCanCreatePages == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreatePages");
+            }
+            this.membersCanCreatePages = membersCanCreatePages;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreatePrivatePages(Boolean membersCanCreatePrivatePages) {
-            this.membersCanCreatePrivatePages = Objects.requireNonNull(membersCanCreatePrivatePages);
+            if (membersCanCreatePrivatePages == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreatePrivatePages");
+            }
+            this.membersCanCreatePrivatePages = membersCanCreatePrivatePages;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreatePrivateRepositories(Boolean membersCanCreatePrivateRepositories) {
-            this.membersCanCreatePrivateRepositories = Objects.requireNonNull(membersCanCreatePrivateRepositories);
+            if (membersCanCreatePrivateRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreatePrivateRepositories");
+            }
+            this.membersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreatePublicPages(Boolean membersCanCreatePublicPages) {
-            this.membersCanCreatePublicPages = Objects.requireNonNull(membersCanCreatePublicPages);
+            if (membersCanCreatePublicPages == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreatePublicPages");
+            }
+            this.membersCanCreatePublicPages = membersCanCreatePublicPages;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreatePublicRepositories(Boolean membersCanCreatePublicRepositories) {
-            this.membersCanCreatePublicRepositories = Objects.requireNonNull(membersCanCreatePublicRepositories);
+            if (membersCanCreatePublicRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreatePublicRepositories");
+            }
+            this.membersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanCreateRepositories(Boolean membersCanCreateRepositories) {
-            this.membersCanCreateRepositories = Objects.requireNonNull(membersCanCreateRepositories);
+            if (membersCanCreateRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanCreateRepositories");
+            }
+            this.membersCanCreateRepositories = membersCanCreateRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder membersCanForkPrivateRepositories(Boolean membersCanForkPrivateRepositories) {
-            this.membersCanForkPrivateRepositories = Objects.requireNonNull(membersCanForkPrivateRepositories);
+            if (membersCanForkPrivateRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "membersCanForkPrivateRepositories");
+            }
+            this.membersCanForkPrivateRepositories = membersCanForkPrivateRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeId(String nodeId) {
-            this.nodeId = Objects.requireNonNull(nodeId);
+            if (nodeId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "nodeId");
+            }
+            this.nodeId = nodeId;
             return this;
         }
         @CustomType.Setter
         public Builder orgname(String orgname) {
-            this.orgname = Objects.requireNonNull(orgname);
+            if (orgname == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "orgname");
+            }
+            this.orgname = orgname;
             return this;
         }
         @CustomType.Setter
         public Builder plan(String plan) {
-            this.plan = Objects.requireNonNull(plan);
+            if (plan == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "plan");
+            }
+            this.plan = plan;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(List<String> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(String... repositories) {
@@ -552,27 +622,42 @@ public final class GetOrganizationResult {
         }
         @CustomType.Setter
         public Builder secretScanningEnabledForNewRepositories(Boolean secretScanningEnabledForNewRepositories) {
-            this.secretScanningEnabledForNewRepositories = Objects.requireNonNull(secretScanningEnabledForNewRepositories);
+            if (secretScanningEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "secretScanningEnabledForNewRepositories");
+            }
+            this.secretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder secretScanningPushProtectionEnabledForNewRepositories(Boolean secretScanningPushProtectionEnabledForNewRepositories) {
-            this.secretScanningPushProtectionEnabledForNewRepositories = Objects.requireNonNull(secretScanningPushProtectionEnabledForNewRepositories);
+            if (secretScanningPushProtectionEnabledForNewRepositories == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "secretScanningPushProtectionEnabledForNewRepositories");
+            }
+            this.secretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
             return this;
         }
         @CustomType.Setter
         public Builder twoFactorRequirementEnabled(Boolean twoFactorRequirementEnabled) {
-            this.twoFactorRequirementEnabled = Objects.requireNonNull(twoFactorRequirementEnabled);
+            if (twoFactorRequirementEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "twoFactorRequirementEnabled");
+            }
+            this.twoFactorRequirementEnabled = twoFactorRequirementEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<Map<String,String>> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "users");
+            }
+            this.users = users;
             return this;
         }
         @CustomType.Setter
         public Builder webCommitSignoffRequired(Boolean webCommitSignoffRequired) {
-            this.webCommitSignoffRequired = Objects.requireNonNull(webCommitSignoffRequired);
+            if (webCommitSignoffRequired == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "webCommitSignoffRequired");
+            }
+            this.webCommitSignoffRequired = webCommitSignoffRequired;
             return this;
         }
         public GetOrganizationResult build() {
