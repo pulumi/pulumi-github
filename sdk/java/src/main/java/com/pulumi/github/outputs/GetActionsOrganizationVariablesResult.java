@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetActionsOrganizationVariablesVariable;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class GetActionsOrganizationVariablesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetActionsOrganizationVariablesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder variables(List<GetActionsOrganizationVariablesVariable> variables) {
-            this.variables = Objects.requireNonNull(variables);
+            if (variables == null) {
+              throw new MissingRequiredPropertyException("GetActionsOrganizationVariablesResult", "variables");
+            }
+            this.variables = variables;
             return this;
         }
         public Builder variables(GetActionsOrganizationVariablesVariable... variables) {

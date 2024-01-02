@@ -74,16 +74,19 @@ public final class RepositorySecurityAndAnalysis {
 
         @CustomType.Setter
         public Builder advancedSecurity(@Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity) {
+
             this.advancedSecurity = advancedSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder secretScanning(@Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning) {
+
             this.secretScanning = secretScanning;
             return this;
         }
         @CustomType.Setter
         public Builder secretScanningPushProtection(@Nullable RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection) {
+
             this.secretScanningPushProtection = secretScanningPushProtection;
             return this;
         }

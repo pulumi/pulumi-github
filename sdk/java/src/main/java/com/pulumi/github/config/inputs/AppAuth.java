@@ -4,6 +4,7 @@
 package com.pulumi.github.config.inputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class AppAuth {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("AppAuth", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder installationId(String installationId) {
-            this.installationId = Objects.requireNonNull(installationId);
+            if (installationId == null) {
+              throw new MissingRequiredPropertyException("AppAuth", "installationId");
+            }
+            this.installationId = installationId;
             return this;
         }
         @CustomType.Setter
         public Builder pemFile(String pemFile) {
-            this.pemFile = Objects.requireNonNull(pemFile);
+            if (pemFile == null) {
+              throw new MissingRequiredPropertyException("AppAuth", "pemFile");
+            }
+            this.pemFile = pemFile;
             return this;
         }
         public AppAuth build() {

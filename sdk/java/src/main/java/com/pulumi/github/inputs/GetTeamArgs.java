@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTeamArgs build() {
-            $.slug = Objects.requireNonNull($.slug, "expected parameter 'slug' to be non-null");
+            if ($.slug == null) {
+                throw new MissingRequiredPropertyException("GetTeamArgs", "slug");
+            }
             return $;
         }
     }

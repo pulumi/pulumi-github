@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -166,8 +167,12 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
         }
 
         public ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.useDefault = Objects.requireNonNull($.useDefault, "expected parameter 'useDefault' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs", "repository");
+            }
+            if ($.useDefault == null) {
+                throw new MissingRequiredPropertyException("ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs", "useDefault");
+            }
             return $;
         }
     }

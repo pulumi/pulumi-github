@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class RepositoryEnvironmentDeploymentBranchPolicy {
 
         @CustomType.Setter
         public Builder customBranchPolicies(Boolean customBranchPolicies) {
-            this.customBranchPolicies = Objects.requireNonNull(customBranchPolicies);
+            if (customBranchPolicies == null) {
+              throw new MissingRequiredPropertyException("RepositoryEnvironmentDeploymentBranchPolicy", "customBranchPolicies");
+            }
+            this.customBranchPolicies = customBranchPolicies;
             return this;
         }
         @CustomType.Setter
         public Builder protectedBranches(Boolean protectedBranches) {
-            this.protectedBranches = Objects.requireNonNull(protectedBranches);
+            if (protectedBranches == null) {
+              throw new MissingRequiredPropertyException("RepositoryEnvironmentDeploymentBranchPolicy", "protectedBranches");
+            }
+            this.protectedBranches = protectedBranches;
             return this;
         }
         public RepositoryEnvironmentDeploymentBranchPolicy build() {

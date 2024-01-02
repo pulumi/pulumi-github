@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -75,17 +76,26 @@ public final class RepositoryRulesetBypassActor {
 
         @CustomType.Setter
         public Builder actorId(Integer actorId) {
-            this.actorId = Objects.requireNonNull(actorId);
+            if (actorId == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetBypassActor", "actorId");
+            }
+            this.actorId = actorId;
             return this;
         }
         @CustomType.Setter
         public Builder actorType(String actorType) {
-            this.actorType = Objects.requireNonNull(actorType);
+            if (actorType == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetBypassActor", "actorType");
+            }
+            this.actorType = actorType;
             return this;
         }
         @CustomType.Setter
         public Builder bypassMode(String bypassMode) {
-            this.bypassMode = Objects.requireNonNull(bypassMode);
+            if (bypassMode == null) {
+              throw new MissingRequiredPropertyException("RepositoryRulesetBypassActor", "bypassMode");
+            }
+            this.bypassMode = bypassMode;
             return this;
         }
         public RepositoryRulesetBypassActor build() {

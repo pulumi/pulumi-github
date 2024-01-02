@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -240,8 +241,12 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         public ActionsOrganizationSecretArgs build() {
-            $.secretName = Objects.requireNonNull($.secretName, "expected parameter 'secretName' to be non-null");
-            $.visibility = Objects.requireNonNull($.visibility, "expected parameter 'visibility' to be non-null");
+            if ($.secretName == null) {
+                throw new MissingRequiredPropertyException("ActionsOrganizationSecretArgs", "secretName");
+            }
+            if ($.visibility == null) {
+                throw new MissingRequiredPropertyException("ActionsOrganizationSecretArgs", "visibility");
+            }
             return $;
         }
     }

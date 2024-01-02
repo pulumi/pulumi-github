@@ -122,36 +122,43 @@ public final class RepositoryPages {
 
         @CustomType.Setter
         public Builder buildType(@Nullable String buildType) {
+
             this.buildType = buildType;
             return this;
         }
         @CustomType.Setter
         public Builder cname(@Nullable String cname) {
+
             this.cname = cname;
             return this;
         }
         @CustomType.Setter
         public Builder custom404(@Nullable Boolean custom404) {
+
             this.custom404 = custom404;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(@Nullable String htmlUrl) {
+
             this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder source(@Nullable RepositoryPagesSource source) {
+
             this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

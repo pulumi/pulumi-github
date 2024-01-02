@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetRepositoryPullRequestPlainArgs extends com.pulumi.resource
         }
 
         public GetRepositoryPullRequestPlainArgs build() {
-            $.baseRepository = Objects.requireNonNull($.baseRepository, "expected parameter 'baseRepository' to be non-null");
-            $.number = Objects.requireNonNull($.number, "expected parameter 'number' to be non-null");
+            if ($.baseRepository == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryPullRequestPlainArgs", "baseRepository");
+            }
+            if ($.number == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryPullRequestPlainArgs", "number");
+            }
             return $;
         }
     }

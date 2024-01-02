@@ -152,16 +152,19 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
 
         @CustomType.Setter
         public Builder bypassPullRequestAllowances(@Nullable BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances bypassPullRequestAllowances) {
+
             this.bypassPullRequestAllowances = bypassPullRequestAllowances;
             return this;
         }
         @CustomType.Setter
         public Builder dismissStaleReviews(@Nullable Boolean dismissStaleReviews) {
+
             this.dismissStaleReviews = dismissStaleReviews;
             return this;
         }
         @CustomType.Setter
         public Builder dismissalApps(@Nullable List<String> dismissalApps) {
+
             this.dismissalApps = dismissalApps;
             return this;
         }
@@ -170,6 +173,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         }
         @CustomType.Setter
         public Builder dismissalTeams(@Nullable List<String> dismissalTeams) {
+
             this.dismissalTeams = dismissalTeams;
             return this;
         }
@@ -178,6 +182,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         }
         @CustomType.Setter
         public Builder dismissalUsers(@Nullable List<String> dismissalUsers) {
+
             this.dismissalUsers = dismissalUsers;
             return this;
         }
@@ -186,16 +191,19 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         }
         @CustomType.Setter
         public Builder includeAdmins(@Nullable Boolean includeAdmins) {
+
             this.includeAdmins = includeAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder requireCodeOwnerReviews(@Nullable Boolean requireCodeOwnerReviews) {
+
             this.requireCodeOwnerReviews = requireCodeOwnerReviews;
             return this;
         }
         @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
+
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return this;
         }

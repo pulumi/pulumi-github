@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsArgs;
 import com.pulumi.github.inputs.BranchProtectionV3RequiredStatusChecksArgs;
 import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
@@ -339,8 +340,12 @@ public final class BranchProtectionV3Args extends com.pulumi.resources.ResourceA
         }
 
         public BranchProtectionV3Args build() {
-            $.branch = Objects.requireNonNull($.branch, "expected parameter 'branch' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.branch == null) {
+                throw new MissingRequiredPropertyException("BranchProtectionV3Args", "branch");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("BranchProtectionV3Args", "repository");
+            }
             return $;
         }
     }

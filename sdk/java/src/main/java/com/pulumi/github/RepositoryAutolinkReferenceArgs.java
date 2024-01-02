@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class RepositoryAutolinkReferenceArgs extends com.pulumi.resources.
         }
 
         public RepositoryAutolinkReferenceArgs build() {
-            $.keyPrefix = Objects.requireNonNull($.keyPrefix, "expected parameter 'keyPrefix' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.targetUrlTemplate = Objects.requireNonNull($.targetUrlTemplate, "expected parameter 'targetUrlTemplate' to be non-null");
+            if ($.keyPrefix == null) {
+                throw new MissingRequiredPropertyException("RepositoryAutolinkReferenceArgs", "keyPrefix");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryAutolinkReferenceArgs", "repository");
+            }
+            if ($.targetUrlTemplate == null) {
+                throw new MissingRequiredPropertyException("RepositoryAutolinkReferenceArgs", "targetUrlTemplate");
+            }
             return $;
         }
     }

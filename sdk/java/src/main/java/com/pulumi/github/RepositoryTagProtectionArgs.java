@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RepositoryTagProtectionArgs extends com.pulumi.resources.Reso
         }
 
         public RepositoryTagProtectionArgs build() {
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("RepositoryTagProtectionArgs", "pattern");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryTagProtectionArgs", "repository");
+            }
             return $;
         }
     }

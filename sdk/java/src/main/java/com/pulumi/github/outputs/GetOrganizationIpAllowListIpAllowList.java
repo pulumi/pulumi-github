@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -113,32 +114,50 @@ public final class GetOrganizationIpAllowListIpAllowList {
 
         @CustomType.Setter
         public Builder allowListValue(String allowListValue) {
-            this.allowListValue = Objects.requireNonNull(allowListValue);
+            if (allowListValue == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "allowListValue");
+            }
+            this.allowListValue = allowListValue;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isActive(Boolean isActive) {
-            this.isActive = Objects.requireNonNull(isActive);
+            if (isActive == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "isActive");
+            }
+            this.isActive = isActive;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationIpAllowListIpAllowList", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetOrganizationIpAllowListIpAllowList build() {

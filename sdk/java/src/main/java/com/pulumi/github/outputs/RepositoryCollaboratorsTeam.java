@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,12 +63,16 @@ public final class RepositoryCollaboratorsTeam {
 
         @CustomType.Setter
         public Builder permission(@Nullable String permission) {
+
             this.permission = permission;
             return this;
         }
         @CustomType.Setter
         public Builder teamId(String teamId) {
-            this.teamId = Objects.requireNonNull(teamId);
+            if (teamId == null) {
+              throw new MissingRequiredPropertyException("RepositoryCollaboratorsTeam", "teamId");
+            }
+            this.teamId = teamId;
             return this;
         }
         public RepositoryCollaboratorsTeam build() {

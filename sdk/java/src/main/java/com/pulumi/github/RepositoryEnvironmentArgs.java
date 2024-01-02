@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;
 import com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;
 import java.lang.Integer;
@@ -238,8 +239,12 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
         }
 
         public RepositoryEnvironmentArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("RepositoryEnvironmentArgs", "environment");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryEnvironmentArgs", "repository");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class ActionsEnvironmentVariableArgs extends com.pulumi.resources.R
         }
 
         public ActionsEnvironmentVariableArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
-            $.variableName = Objects.requireNonNull($.variableName, "expected parameter 'variableName' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentVariableArgs", "environment");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentVariableArgs", "repository");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentVariableArgs", "value");
+            }
+            if ($.variableName == null) {
+                throw new MissingRequiredPropertyException("ActionsEnvironmentVariableArgs", "variableName");
+            }
             return $;
         }
     }

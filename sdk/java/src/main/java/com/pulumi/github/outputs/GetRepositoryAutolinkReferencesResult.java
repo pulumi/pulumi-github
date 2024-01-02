@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryAutolinkReferencesAutolinkReference;
 import java.lang.String;
 import java.util.List;
@@ -64,7 +65,10 @@ public final class GetRepositoryAutolinkReferencesResult {
 
         @CustomType.Setter
         public Builder autolinkReferences(List<GetRepositoryAutolinkReferencesAutolinkReference> autolinkReferences) {
-            this.autolinkReferences = Objects.requireNonNull(autolinkReferences);
+            if (autolinkReferences == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesResult", "autolinkReferences");
+            }
+            this.autolinkReferences = autolinkReferences;
             return this;
         }
         public Builder autolinkReferences(GetRepositoryAutolinkReferencesAutolinkReference... autolinkReferences) {
@@ -72,12 +76,18 @@ public final class GetRepositoryAutolinkReferencesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryAutolinkReferencesResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetRepositoryAutolinkReferencesResult build() {

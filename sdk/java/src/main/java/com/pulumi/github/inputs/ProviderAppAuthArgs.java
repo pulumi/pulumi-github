@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,9 +89,15 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ProviderAppAuthArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.installationId = Objects.requireNonNull($.installationId, "expected parameter 'installationId' to be non-null");
-            $.pemFile = Objects.requireNonNull($.pemFile, "expected parameter 'pemFile' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("ProviderAppAuthArgs", "id");
+            }
+            if ($.installationId == null) {
+                throw new MissingRequiredPropertyException("ProviderAppAuthArgs", "installationId");
+            }
+            if ($.pemFile == null) {
+                throw new MissingRequiredPropertyException("ProviderAppAuthArgs", "pemFile");
+            }
             return $;
         }
     }

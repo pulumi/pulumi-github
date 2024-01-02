@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class ActionsOrganizationPermissionsEnabledRepositoriesConfig {
 
         @CustomType.Setter
         public Builder repositoryIds(List<Integer> repositoryIds) {
-            this.repositoryIds = Objects.requireNonNull(repositoryIds);
+            if (repositoryIds == null) {
+              throw new MissingRequiredPropertyException("ActionsOrganizationPermissionsEnabledRepositoriesConfig", "repositoryIds");
+            }
+            this.repositoryIds = repositoryIds;
             return this;
         }
         public Builder repositoryIds(Integer... repositoryIds) {

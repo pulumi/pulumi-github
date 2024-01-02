@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class RepositoryTopicsArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RepositoryTopicsArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.topics = Objects.requireNonNull($.topics, "expected parameter 'topics' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryTopicsArgs", "repository");
+            }
+            if ($.topics == null) {
+                throw new MissingRequiredPropertyException("RepositoryTopicsArgs", "topics");
+            }
             return $;
         }
     }

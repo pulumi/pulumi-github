@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,8 +199,12 @@ public final class OrganizationCustomRoleArgs extends com.pulumi.resources.Resou
         }
 
         public OrganizationCustomRoleArgs build() {
-            $.baseRole = Objects.requireNonNull($.baseRole, "expected parameter 'baseRole' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
+            if ($.baseRole == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomRoleArgs", "baseRole");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomRoleArgs", "permissions");
+            }
             return $;
         }
     }

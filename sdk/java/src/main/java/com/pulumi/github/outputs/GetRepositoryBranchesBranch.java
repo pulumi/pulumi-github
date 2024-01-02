@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetRepositoryBranchesBranch {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryBranchesBranch", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter("protected")
         public Builder protected_(Boolean protected_) {
-            this.protected_ = Objects.requireNonNull(protected_);
+            if (protected_ == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryBranchesBranch", "protected_");
+            }
+            this.protected_ = protected_;
             return this;
         }
         public GetRepositoryBranchesBranch build() {

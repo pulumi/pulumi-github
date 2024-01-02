@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         public DependabotSecretArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
-            $.secretName = Objects.requireNonNull($.secretName, "expected parameter 'secretName' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("DependabotSecretArgs", "repository");
+            }
+            if ($.secretName == null) {
+                throw new MissingRequiredPropertyException("DependabotSecretArgs", "secretName");
+            }
             return $;
         }
     }

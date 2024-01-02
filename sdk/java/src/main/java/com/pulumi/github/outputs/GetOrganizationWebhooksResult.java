@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetOrganizationWebhooksWebhook;
 import java.lang.String;
 import java.util.List;
@@ -60,12 +61,18 @@ public final class GetOrganizationWebhooksResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationWebhooksResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder webhooks(List<GetOrganizationWebhooksWebhook> webhooks) {
-            this.webhooks = Objects.requireNonNull(webhooks);
+            if (webhooks == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationWebhooksResult", "webhooks");
+            }
+            this.webhooks = webhooks;
             return this;
         }
         public Builder webhooks(GetOrganizationWebhooksWebhook... webhooks) {

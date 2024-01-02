@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         public RepositoryTemplateArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("RepositoryTemplateArgs", "owner");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryTemplateArgs", "repository");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryBranchesBranch;
 import java.lang.Boolean;
 import java.lang.String;
@@ -79,7 +80,10 @@ public final class GetRepositoryBranchesResult {
 
         @CustomType.Setter
         public Builder branches(List<GetRepositoryBranchesBranch> branches) {
-            this.branches = Objects.requireNonNull(branches);
+            if (branches == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryBranchesResult", "branches");
+            }
+            this.branches = branches;
             return this;
         }
         public Builder branches(GetRepositoryBranchesBranch... branches) {
@@ -87,22 +91,30 @@ public final class GetRepositoryBranchesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryBranchesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder onlyNonProtectedBranches(@Nullable Boolean onlyNonProtectedBranches) {
+
             this.onlyNonProtectedBranches = onlyNonProtectedBranches;
             return this;
         }
         @CustomType.Setter
         public Builder onlyProtectedBranches(@Nullable Boolean onlyProtectedBranches) {
+
             this.onlyProtectedBranches = onlyProtectedBranches;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryBranchesResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         public GetRepositoryBranchesResult build() {

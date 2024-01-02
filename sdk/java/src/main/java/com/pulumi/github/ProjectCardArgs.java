@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -200,7 +201,9 @@ public final class ProjectCardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectCardArgs build() {
-            $.columnId = Objects.requireNonNull($.columnId, "expected parameter 'columnId' to be non-null");
+            if ($.columnId == null) {
+                throw new MissingRequiredPropertyException("ProjectCardArgs", "columnId");
+            }
             return $;
         }
     }

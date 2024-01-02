@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -74,11 +75,15 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfig {
 
         @CustomType.Setter
         public Builder githubOwnedAllowed(Boolean githubOwnedAllowed) {
-            this.githubOwnedAllowed = Objects.requireNonNull(githubOwnedAllowed);
+            if (githubOwnedAllowed == null) {
+              throw new MissingRequiredPropertyException("ActionsRepositoryPermissionsAllowedActionsConfig", "githubOwnedAllowed");
+            }
+            this.githubOwnedAllowed = githubOwnedAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder patternsAlloweds(@Nullable List<String> patternsAlloweds) {
+
             this.patternsAlloweds = patternsAlloweds;
             return this;
         }
@@ -87,6 +92,7 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfig {
         }
         @CustomType.Setter
         public Builder verifiedAllowed(@Nullable Boolean verifiedAllowed) {
+
             this.verifiedAllowed = verifiedAllowed;
             return this;
         }

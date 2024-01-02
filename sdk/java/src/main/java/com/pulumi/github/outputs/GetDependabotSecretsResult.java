@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetDependabotSecretsSecret;
 import java.lang.String;
 import java.util.List;
@@ -78,22 +79,34 @@ public final class GetDependabotSecretsResult {
 
         @CustomType.Setter
         public Builder fullName(String fullName) {
-            this.fullName = Objects.requireNonNull(fullName);
+            if (fullName == null) {
+              throw new MissingRequiredPropertyException("GetDependabotSecretsResult", "fullName");
+            }
+            this.fullName = fullName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDependabotSecretsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDependabotSecretsResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(List<GetDependabotSecretsSecret> secrets) {
-            this.secrets = Objects.requireNonNull(secrets);
+            if (secrets == null) {
+              throw new MissingRequiredPropertyException("GetDependabotSecretsResult", "secrets");
+            }
+            this.secrets = secrets;
             return this;
         }
         public Builder secrets(GetDependabotSecretsSecret... secrets) {

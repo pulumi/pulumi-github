@@ -5,6 +5,7 @@ package com.pulumi.github;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class OrganizationSecurityManagerArgs extends com.pulumi.resources.
         }
 
         public OrganizationSecurityManagerArgs build() {
-            $.teamSlug = Objects.requireNonNull($.teamSlug, "expected parameter 'teamSlug' to be non-null");
+            if ($.teamSlug == null) {
+                throw new MissingRequiredPropertyException("OrganizationSecurityManagerArgs", "teamSlug");
+            }
             return $;
         }
     }

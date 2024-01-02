@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetOrganizationTeamSyncGroupsGroup {
 
         @CustomType.Setter
         public Builder groupDescription(String groupDescription) {
-            this.groupDescription = Objects.requireNonNull(groupDescription);
+            if (groupDescription == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamSyncGroupsGroup", "groupDescription");
+            }
+            this.groupDescription = groupDescription;
             return this;
         }
         @CustomType.Setter
         public Builder groupId(String groupId) {
-            this.groupId = Objects.requireNonNull(groupId);
+            if (groupId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamSyncGroupsGroup", "groupId");
+            }
+            this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+            if (groupName == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamSyncGroupsGroup", "groupName");
+            }
+            this.groupName = groupName;
             return this;
         }
         public GetOrganizationTeamSyncGroupsGroup build() {

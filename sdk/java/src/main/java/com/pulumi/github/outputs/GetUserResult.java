@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -331,47 +332,74 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = Objects.requireNonNull(avatarUrl);
+            if (avatarUrl == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "avatarUrl");
+            }
+            this.avatarUrl = avatarUrl;
             return this;
         }
         @CustomType.Setter
         public Builder bio(String bio) {
-            this.bio = Objects.requireNonNull(bio);
+            if (bio == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "bio");
+            }
+            this.bio = bio;
             return this;
         }
         @CustomType.Setter
         public Builder blog(String blog) {
-            this.blog = Objects.requireNonNull(blog);
+            if (blog == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "blog");
+            }
+            this.blog = blog;
             return this;
         }
         @CustomType.Setter
         public Builder company(String company) {
-            this.company = Objects.requireNonNull(company);
+            if (company == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "company");
+            }
+            this.company = company;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder followers(Integer followers) {
-            this.followers = Objects.requireNonNull(followers);
+            if (followers == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "followers");
+            }
+            this.followers = followers;
             return this;
         }
         @CustomType.Setter
         public Builder following(Integer following) {
-            this.following = Objects.requireNonNull(following);
+            if (following == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "following");
+            }
+            this.following = following;
             return this;
         }
         @CustomType.Setter
         public Builder gpgKeys(List<String> gpgKeys) {
-            this.gpgKeys = Objects.requireNonNull(gpgKeys);
+            if (gpgKeys == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "gpgKeys");
+            }
+            this.gpgKeys = gpgKeys;
             return this;
         }
         public Builder gpgKeys(String... gpgKeys) {
@@ -379,52 +407,82 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder gravatarId(String gravatarId) {
-            this.gravatarId = Objects.requireNonNull(gravatarId);
+            if (gravatarId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "gravatarId");
+            }
+            this.gravatarId = gravatarId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeId(String nodeId) {
-            this.nodeId = Objects.requireNonNull(nodeId);
+            if (nodeId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "nodeId");
+            }
+            this.nodeId = nodeId;
             return this;
         }
         @CustomType.Setter
         public Builder publicGists(Integer publicGists) {
-            this.publicGists = Objects.requireNonNull(publicGists);
+            if (publicGists == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "publicGists");
+            }
+            this.publicGists = publicGists;
             return this;
         }
         @CustomType.Setter
         public Builder publicRepos(Integer publicRepos) {
-            this.publicRepos = Objects.requireNonNull(publicRepos);
+            if (publicRepos == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "publicRepos");
+            }
+            this.publicRepos = publicRepos;
             return this;
         }
         @CustomType.Setter
         public Builder siteAdmin(Boolean siteAdmin) {
-            this.siteAdmin = Objects.requireNonNull(siteAdmin);
+            if (siteAdmin == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "siteAdmin");
+            }
+            this.siteAdmin = siteAdmin;
             return this;
         }
         @CustomType.Setter
         public Builder sshKeys(List<String> sshKeys) {
-            this.sshKeys = Objects.requireNonNull(sshKeys);
+            if (sshKeys == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "sshKeys");
+            }
+            this.sshKeys = sshKeys;
             return this;
         }
         public Builder sshKeys(String... sshKeys) {
@@ -432,17 +490,26 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder suspendedAt(String suspendedAt) {
-            this.suspendedAt = Objects.requireNonNull(suspendedAt);
+            if (suspendedAt == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "suspendedAt");
+            }
+            this.suspendedAt = suspendedAt;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetUserResult build() {

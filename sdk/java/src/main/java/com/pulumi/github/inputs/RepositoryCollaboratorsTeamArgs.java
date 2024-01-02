@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
         }
 
         public RepositoryCollaboratorsTeamArgs build() {
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("RepositoryCollaboratorsTeamArgs", "teamId");
+            }
             return $;
         }
     }

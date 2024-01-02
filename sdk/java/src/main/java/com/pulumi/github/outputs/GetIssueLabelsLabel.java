@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetIssueLabelsLabel {
 
         @CustomType.Setter
         public Builder color(String color) {
-            this.color = Objects.requireNonNull(color);
+            if (color == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsLabel", "color");
+            }
+            this.color = color;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsLabel", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsLabel", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetIssueLabelsLabel", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetIssueLabelsLabel build() {

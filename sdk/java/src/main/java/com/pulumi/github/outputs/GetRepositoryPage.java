@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryPageSource;
 import java.lang.Boolean;
 import java.lang.String;
@@ -81,27 +82,42 @@ public final class GetRepositoryPage {
 
         @CustomType.Setter
         public Builder buildType(String buildType) {
-            this.buildType = Objects.requireNonNull(buildType);
+            if (buildType == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "buildType");
+            }
+            this.buildType = buildType;
             return this;
         }
         @CustomType.Setter
         public Builder cname(String cname) {
-            this.cname = Objects.requireNonNull(cname);
+            if (cname == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "cname");
+            }
+            this.cname = cname;
             return this;
         }
         @CustomType.Setter
         public Builder custom404(Boolean custom404) {
-            this.custom404 = Objects.requireNonNull(custom404);
+            if (custom404 == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "custom404");
+            }
+            this.custom404 = custom404;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
-            this.htmlUrl = Objects.requireNonNull(htmlUrl);
+            if (htmlUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "htmlUrl");
+            }
+            this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<GetRepositoryPageSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetRepositoryPageSource... sources) {
@@ -109,12 +125,18 @@ public final class GetRepositoryPage {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryPage", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetRepositoryPage build() {

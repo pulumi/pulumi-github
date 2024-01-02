@@ -4,6 +4,7 @@
 package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetCollaboratorsPlainArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("GetCollaboratorsPlainArgs", "owner");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("GetCollaboratorsPlainArgs", "repository");
+            }
             return $;
         }
     }

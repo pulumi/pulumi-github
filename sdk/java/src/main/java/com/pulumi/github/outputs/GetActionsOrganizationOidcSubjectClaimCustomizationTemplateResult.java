@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetActionsOrganizationOidcSubjectClaimCustomizationTemplateRe
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeClaimKeys(List<String> includeClaimKeys) {
-            this.includeClaimKeys = Objects.requireNonNull(includeClaimKeys);
+            if (includeClaimKeys == null) {
+              throw new MissingRequiredPropertyException("GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult", "includeClaimKeys");
+            }
+            this.includeClaimKeys = includeClaimKeys;
             return this;
         }
         public Builder includeClaimKeys(String... includeClaimKeys) {
