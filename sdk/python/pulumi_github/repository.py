@@ -48,7 +48,8 @@ class RepositoryArgs:
                  template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
+                 vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+                 web_commit_signoff_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
@@ -89,6 +90,7 @@ class RepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -162,6 +164,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "visibility", visibility)
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+        if web_commit_signoff_required is not None:
+            pulumi.set(__self__, "web_commit_signoff_required", web_commit_signoff_required)
 
     @property
     @pulumi.getter(name="allowAutoMerge")
@@ -570,6 +574,18 @@ class RepositoryArgs:
     def vulnerability_alerts(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vulnerability_alerts", value)
 
+    @property
+    @pulumi.getter(name="webCommitSignoffRequired")
+    def web_commit_signoff_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        """
+        return pulumi.get(self, "web_commit_signoff_required")
+
+    @web_commit_signoff_required.setter
+    def web_commit_signoff_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "web_commit_signoff_required", value)
+
 
 @pulumi.input_type
 class _RepositoryState:
@@ -616,7 +632,8 @@ class _RepositoryState:
                  template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
-                 vulnerability_alerts: Optional[pulumi.Input[bool]] = None):
+                 vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+                 web_commit_signoff_required: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
@@ -666,6 +683,7 @@ class _RepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -759,6 +777,8 @@ class _RepositoryState:
             pulumi.set(__self__, "visibility", visibility)
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
+        if web_commit_signoff_required is not None:
+            pulumi.set(__self__, "web_commit_signoff_required", web_commit_signoff_required)
 
     @property
     @pulumi.getter(name="allowAutoMerge")
@@ -1284,6 +1304,18 @@ class _RepositoryState:
     def vulnerability_alerts(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vulnerability_alerts", value)
 
+    @property
+    @pulumi.getter(name="webCommitSignoffRequired")
+    def web_commit_signoff_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        """
+        return pulumi.get(self, "web_commit_signoff_required")
+
+    @web_commit_signoff_required.setter
+    def web_commit_signoff_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "web_commit_signoff_required", value)
+
 
 class Repository(pulumi.CustomResource):
     @overload
@@ -1323,6 +1355,7 @@ class Repository(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+                 web_commit_signoff_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage repositories within your
@@ -1412,6 +1445,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         ...
     @overload
@@ -1515,6 +1549,7 @@ class Repository(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+                 web_commit_signoff_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1557,6 +1592,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["topics"] = topics
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
+            __props__.__dict__["web_commit_signoff_required"] = web_commit_signoff_required
             __props__.__dict__["etag"] = None
             __props__.__dict__["full_name"] = None
             __props__.__dict__["git_clone_url"] = None
@@ -1619,7 +1655,8 @@ class Repository(pulumi.CustomResource):
             template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
-            vulnerability_alerts: Optional[pulumi.Input[bool]] = None) -> 'Repository':
+            vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
+            web_commit_signoff_required: Optional[pulumi.Input[bool]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1674,6 +1711,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1722,6 +1760,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["topics"] = topics
         __props__.__dict__["visibility"] = visibility
         __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
+        __props__.__dict__["web_commit_signoff_required"] = web_commit_signoff_required
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -2075,4 +2114,12 @@ class Repository(pulumi.CustomResource):
         Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         """
         return pulumi.get(self, "vulnerability_alerts")
+
+    @property
+    @pulumi.getter(name="webCommitSignoffRequired")
+    def web_commit_signoff_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        """
+        return pulumi.get(self, "web_commit_signoff_required")
 

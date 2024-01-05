@@ -1606,6 +1606,130 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type IssueLabelsLabel struct {
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color string `pulumi:"color"`
+	// A short description of the label.
+	Description *string `pulumi:"description"`
+	// The name of the label.
+	Name string `pulumi:"name"`
+	// The URL to the issue label
+	Url *string `pulumi:"url"`
+}
+
+// IssueLabelsLabelInput is an input type that accepts IssueLabelsLabelArgs and IssueLabelsLabelOutput values.
+// You can construct a concrete instance of `IssueLabelsLabelInput` via:
+//
+//	IssueLabelsLabelArgs{...}
+type IssueLabelsLabelInput interface {
+	pulumi.Input
+
+	ToIssueLabelsLabelOutput() IssueLabelsLabelOutput
+	ToIssueLabelsLabelOutputWithContext(context.Context) IssueLabelsLabelOutput
+}
+
+type IssueLabelsLabelArgs struct {
+	// A 6 character hex code, **without the leading #**, identifying the color of the label.
+	Color pulumi.StringInput `pulumi:"color"`
+	// A short description of the label.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the label.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL to the issue label
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (IssueLabelsLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IssueLabelsLabel)(nil)).Elem()
+}
+
+func (i IssueLabelsLabelArgs) ToIssueLabelsLabelOutput() IssueLabelsLabelOutput {
+	return i.ToIssueLabelsLabelOutputWithContext(context.Background())
+}
+
+func (i IssueLabelsLabelArgs) ToIssueLabelsLabelOutputWithContext(ctx context.Context) IssueLabelsLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelsLabelOutput)
+}
+
+// IssueLabelsLabelArrayInput is an input type that accepts IssueLabelsLabelArray and IssueLabelsLabelArrayOutput values.
+// You can construct a concrete instance of `IssueLabelsLabelArrayInput` via:
+//
+//	IssueLabelsLabelArray{ IssueLabelsLabelArgs{...} }
+type IssueLabelsLabelArrayInput interface {
+	pulumi.Input
+
+	ToIssueLabelsLabelArrayOutput() IssueLabelsLabelArrayOutput
+	ToIssueLabelsLabelArrayOutputWithContext(context.Context) IssueLabelsLabelArrayOutput
+}
+
+type IssueLabelsLabelArray []IssueLabelsLabelInput
+
+func (IssueLabelsLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IssueLabelsLabel)(nil)).Elem()
+}
+
+func (i IssueLabelsLabelArray) ToIssueLabelsLabelArrayOutput() IssueLabelsLabelArrayOutput {
+	return i.ToIssueLabelsLabelArrayOutputWithContext(context.Background())
+}
+
+func (i IssueLabelsLabelArray) ToIssueLabelsLabelArrayOutputWithContext(ctx context.Context) IssueLabelsLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IssueLabelsLabelArrayOutput)
+}
+
+type IssueLabelsLabelOutput struct{ *pulumi.OutputState }
+
+func (IssueLabelsLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IssueLabelsLabel)(nil)).Elem()
+}
+
+func (o IssueLabelsLabelOutput) ToIssueLabelsLabelOutput() IssueLabelsLabelOutput {
+	return o
+}
+
+func (o IssueLabelsLabelOutput) ToIssueLabelsLabelOutputWithContext(ctx context.Context) IssueLabelsLabelOutput {
+	return o
+}
+
+// A 6 character hex code, **without the leading #**, identifying the color of the label.
+func (o IssueLabelsLabelOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v IssueLabelsLabel) string { return v.Color }).(pulumi.StringOutput)
+}
+
+// A short description of the label.
+func (o IssueLabelsLabelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IssueLabelsLabel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the label.
+func (o IssueLabelsLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IssueLabelsLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL to the issue label
+func (o IssueLabelsLabelOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IssueLabelsLabel) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type IssueLabelsLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (IssueLabelsLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IssueLabelsLabel)(nil)).Elem()
+}
+
+func (o IssueLabelsLabelArrayOutput) ToIssueLabelsLabelArrayOutput() IssueLabelsLabelArrayOutput {
+	return o
+}
+
+func (o IssueLabelsLabelArrayOutput) ToIssueLabelsLabelArrayOutputWithContext(ctx context.Context) IssueLabelsLabelArrayOutput {
+	return o
+}
+
+func (o IssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelsLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IssueLabelsLabel {
+		return vs[0].([]IssueLabelsLabel)[vs[1].(int)]
+	}).(IssueLabelsLabelOutput)
+}
+
 type OrganizationRulesetBypassActor struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
 	ActorId int `pulumi:"actorId"`
@@ -13391,6 +13515,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsPtrInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelsLabelInput)(nil)).Elem(), IssueLabelsLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelsLabelArrayInput)(nil)).Elem(), IssueLabelsLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetBypassActorInput)(nil)).Elem(), OrganizationRulesetBypassActorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetBypassActorArrayInput)(nil)).Elem(), OrganizationRulesetBypassActorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsInput)(nil)).Elem(), OrganizationRulesetConditionsArgs{})
@@ -13562,6 +13688,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(IssueLabelsLabelOutput{})
+	pulumi.RegisterOutputType(IssueLabelsLabelArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetBypassActorOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetBypassActorArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetConditionsOutput{})

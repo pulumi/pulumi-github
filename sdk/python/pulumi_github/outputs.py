@@ -20,6 +20,7 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances',
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
+    'IssueLabelsLabel',
     'OrganizationRulesetBypassActor',
     'OrganizationRulesetConditions',
     'OrganizationRulesetConditionsRefName',
@@ -711,6 +712,59 @@ class BranchProtectionV3Restrictions(dict):
         The list of user logins with push access.
         """
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class IssueLabelsLabel(dict):
+    def __init__(__self__, *,
+                 color: str,
+                 name: str,
+                 description: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param str name: The name of the label.
+        :param str description: A short description of the label.
+        :param str url: The URL to the issue label
+        """
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL to the issue label
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

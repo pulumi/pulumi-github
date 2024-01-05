@@ -852,6 +852,25 @@ export interface GetTreeEntry {
     type: string;
 }
 
+export interface IssueLabelsLabel {
+    /**
+     * A 6 character hex code, **without the leading #**, identifying the color of the label.
+     */
+    color: string;
+    /**
+     * A short description of the label.
+     */
+    description?: string;
+    /**
+     * The name of the label.
+     */
+    name: string;
+    /**
+     * The URL to the issue label
+     */
+    url: string;
+}
+
 export interface OrganizationRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset.

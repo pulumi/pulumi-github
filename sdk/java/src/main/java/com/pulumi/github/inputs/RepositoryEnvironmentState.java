@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;
 import com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class RepositoryEnvironmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryEnvironmentState Empty = new RepositoryEnvironmentState();
+
+    /**
+     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * 
+     */
+    @Import(name="canAdminsBypass")
+    private @Nullable Output<Boolean> canAdminsBypass;
+
+    /**
+     * @return Can repository admins bypass the environment protections.  Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> canAdminsBypass() {
+        return Optional.ofNullable(this.canAdminsBypass);
+    }
 
     /**
      * The deployment branch policy configuration
@@ -97,6 +113,7 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
     private RepositoryEnvironmentState() {}
 
     private RepositoryEnvironmentState(RepositoryEnvironmentState $) {
+        this.canAdminsBypass = $.canAdminsBypass;
         this.deploymentBranchPolicy = $.deploymentBranchPolicy;
         this.environment = $.environment;
         this.repository = $.repository;
@@ -120,6 +137,27 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
 
         public Builder(RepositoryEnvironmentState defaults) {
             $ = new RepositoryEnvironmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param canAdminsBypass Can repository admins bypass the environment protections.  Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canAdminsBypass(@Nullable Output<Boolean> canAdminsBypass) {
+            $.canAdminsBypass = canAdminsBypass;
+            return this;
+        }
+
+        /**
+         * @param canAdminsBypass Can repository admins bypass the environment protections.  Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canAdminsBypass(Boolean canAdminsBypass) {
+            return canAdminsBypass(Output.of(canAdminsBypass));
         }
 
         /**

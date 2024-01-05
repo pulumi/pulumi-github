@@ -12,6 +12,7 @@ import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryEnvironmentState;
 import com.pulumi.github.outputs.RepositoryEnvironmentDeploymentBranchPolicy;
 import com.pulumi.github.outputs.RepositoryEnvironmentReviewer;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -84,6 +85,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="github:index/repositoryEnvironment:RepositoryEnvironment")
 public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
+    /**
+     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * 
+     */
+    @Export(name="canAdminsBypass", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> canAdminsBypass;
+
+    /**
+     * @return Can repository admins bypass the environment protections.  Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> canAdminsBypass() {
+        return Codegen.optional(this.canAdminsBypass);
+    }
     /**
      * The deployment branch policy configuration
      * 

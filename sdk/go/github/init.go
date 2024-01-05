@@ -81,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Issue{}
 	case "github:index/issueLabel:IssueLabel":
 		r = &IssueLabel{}
+	case "github:index/issueLabels:IssueLabels":
+		r = &IssueLabels{}
 	case "github:index/membership:Membership":
 		r = &Membership{}
 	case "github:index/organizationBlock:OrganizationBlock":
@@ -334,6 +336,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/issueLabel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/issueLabels",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

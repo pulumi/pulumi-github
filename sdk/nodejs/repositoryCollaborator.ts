@@ -96,6 +96,8 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
     public readonly permissionDiffSuppression!: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub repository
+     *
+     * > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      */
     public readonly repository!: pulumi.Output<string>;
     /**
@@ -160,6 +162,8 @@ export interface RepositoryCollaboratorState {
     permissionDiffSuppression?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
+     *
+     * > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      */
     repository?: pulumi.Input<string>;
     /**
@@ -184,6 +188,8 @@ export interface RepositoryCollaboratorArgs {
     permissionDiffSuppression?: pulumi.Input<boolean>;
     /**
      * The GitHub repository
+     *
+     * > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      */
     repository: pulumi.Input<string>;
     /**

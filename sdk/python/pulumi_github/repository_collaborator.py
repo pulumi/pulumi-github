@@ -21,6 +21,8 @@ class RepositoryCollaboratorArgs:
         """
         The set of arguments for constructing a RepositoryCollaborator resource.
         :param pulumi.Input[str] repository: The GitHub repository
+               
+               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         :param pulumi.Input[str] permission: The permission of the outside collaborator for the repository.
                Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -39,6 +41,8 @@ class RepositoryCollaboratorArgs:
     def repository(self) -> pulumi.Input[str]:
         """
         The GitHub repository
+
+        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 
@@ -101,6 +105,8 @@ class _RepositoryCollaboratorState:
                Must be `push` for personal repositories. Defaults to `push`.
         :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
+               
+               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         if invitation_id is not None:
@@ -157,6 +163,8 @@ class _RepositoryCollaboratorState:
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
         The GitHub repository
+
+        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 
@@ -241,6 +249,8 @@ class RepositoryCollaborator(pulumi.CustomResource):
                Must be `push` for personal repositories. Defaults to `push`.
         :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
+               
+               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         ...
@@ -361,6 +371,8 @@ class RepositoryCollaborator(pulumi.CustomResource):
                Must be `push` for personal repositories. Defaults to `push`.
         :param pulumi.Input[bool] permission_diff_suppression: Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
         :param pulumi.Input[str] repository: The GitHub repository
+               
+               > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         :param pulumi.Input[str] username: The user to add to the repository as a collaborator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,6 +417,8 @@ class RepositoryCollaborator(pulumi.CustomResource):
     def repository(self) -> pulumi.Output[str]:
         """
         The GitHub repository
+
+        > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         """
         return pulumi.get(self, "repository")
 

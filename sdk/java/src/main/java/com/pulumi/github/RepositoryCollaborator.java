@@ -133,12 +133,16 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
     /**
      * The GitHub repository
      * 
+     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+     * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
      * @return The GitHub repository
+     * 
+     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      * 
      */
     public Output<String> repository() {

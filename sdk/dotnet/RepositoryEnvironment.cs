@@ -68,6 +68,12 @@ namespace Pulumi.Github
     public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// </summary>
+        [Output("canAdminsBypass")]
+        public Output<bool?> CanAdminsBypass { get; private set; } = null!;
+
+        /// <summary>
         /// The deployment branch policy configuration
         /// </summary>
         [Output("deploymentBranchPolicy")]
@@ -144,6 +150,12 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// </summary>
+        [Input("canAdminsBypass")]
+        public Input<bool>? CanAdminsBypass { get; set; }
+
+        /// <summary>
         /// The deployment branch policy configuration
         /// </summary>
         [Input("deploymentBranchPolicy")]
@@ -187,6 +199,12 @@ namespace Pulumi.Github
 
     public sealed class RepositoryEnvironmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// </summary>
+        [Input("canAdminsBypass")]
+        public Input<bool>? CanAdminsBypass { get; set; }
+
         /// <summary>
         /// The deployment branch policy configuration
         /// </summary>

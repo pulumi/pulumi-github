@@ -262,6 +262,10 @@ export class Repository extends pulumi.CustomResource {
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
      */
     public readonly vulnerabilityAlerts!: pulumi.Output<boolean | undefined>;
+    /**
+     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     */
+    public readonly webCommitSignoffRequired!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -319,6 +323,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["topics"] = state ? state.topics : undefined;
             resourceInputs["visibility"] = state ? state.visibility : undefined;
             resourceInputs["vulnerabilityAlerts"] = state ? state.vulnerabilityAlerts : undefined;
+            resourceInputs["webCommitSignoffRequired"] = state ? state.webCommitSignoffRequired : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             resourceInputs["allowAutoMerge"] = args ? args.allowAutoMerge : undefined;
@@ -354,6 +359,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["vulnerabilityAlerts"] = args ? args.vulnerabilityAlerts : undefined;
+            resourceInputs["webCommitSignoffRequired"] = args ? args.webCommitSignoffRequired : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fullName"] = undefined /*out*/;
             resourceInputs["gitCloneUrl"] = undefined /*out*/;
@@ -552,6 +558,10 @@ export interface RepositoryState {
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
+    /**
+     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     */
+    webCommitSignoffRequired?: pulumi.Input<boolean>;
 }
 
 /**
@@ -699,4 +709,8 @@ export interface RepositoryArgs {
      * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
+    /**
+     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     */
+    webCommitSignoffRequired?: pulumi.Input<boolean>;
 }

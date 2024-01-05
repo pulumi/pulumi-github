@@ -175,6 +175,25 @@ export interface BranchProtectionV3Restrictions {
     users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface IssueLabelsLabel {
+    /**
+     * A 6 character hex code, **without the leading #**, identifying the color of the label.
+     */
+    color: pulumi.Input<string>;
+    /**
+     * A short description of the label.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The name of the label.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The URL to the issue label
+     */
+    url?: pulumi.Input<string>;
+}
+
 export interface OrganizationRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset.

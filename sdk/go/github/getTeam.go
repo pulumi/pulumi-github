@@ -50,7 +50,7 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamArgs struct {
-	// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+	// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
 	MembershipType *string `pulumi:"membershipType"`
 	// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
 	ResultsPerPage *int `pulumi:"resultsPerPage"`
@@ -101,7 +101,7 @@ func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamOutputArgs struct {
-	// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+	// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
 	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
 	// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
 	ResultsPerPage pulumi.IntPtrInput `pulumi:"resultsPerPage"`

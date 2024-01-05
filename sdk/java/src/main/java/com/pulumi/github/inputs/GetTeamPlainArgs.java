@@ -18,14 +18,14 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
 
     /**
-     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
      * 
      */
     @Import(name="membershipType")
     private @Nullable String membershipType;
 
     /**
-     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * @return Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
      * 
      */
     public Optional<String> membershipType() {
@@ -105,7 +105,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * @param membershipType Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
          * 
          * @return builder
          * 

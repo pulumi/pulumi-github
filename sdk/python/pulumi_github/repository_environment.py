@@ -18,6 +18,7 @@ class RepositoryEnvironmentArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input[str],
                  repository: pulumi.Input[str],
+                 can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
                  wait_timer: Optional[pulumi.Input[int]] = None):
@@ -25,12 +26,15 @@ class RepositoryEnvironmentArgs:
         The set of arguments for constructing a RepositoryEnvironment resource.
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
+        :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "repository", repository)
+        if can_admins_bypass is not None:
+            pulumi.set(__self__, "can_admins_bypass", can_admins_bypass)
         if deployment_branch_policy is not None:
             pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
         if reviewers is not None:
@@ -61,6 +65,18 @@ class RepositoryEnvironmentArgs:
     @repository.setter
     def repository(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="canAdminsBypass")
+    def can_admins_bypass(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can repository admins bypass the environment protections.  Defaults to `true`.
+        """
+        return pulumi.get(self, "can_admins_bypass")
+
+    @can_admins_bypass.setter
+    def can_admins_bypass(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "can_admins_bypass", value)
 
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
@@ -102,6 +118,7 @@ class RepositoryEnvironmentArgs:
 @pulumi.input_type
 class _RepositoryEnvironmentState:
     def __init__(__self__, *,
+                 can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -109,12 +126,15 @@ class _RepositoryEnvironmentState:
                  wait_timer: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironment resources.
+        :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
+        if can_admins_bypass is not None:
+            pulumi.set(__self__, "can_admins_bypass", can_admins_bypass)
         if deployment_branch_policy is not None:
             pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
         if environment is not None:
@@ -125,6 +145,18 @@ class _RepositoryEnvironmentState:
             pulumi.set(__self__, "reviewers", reviewers)
         if wait_timer is not None:
             pulumi.set(__self__, "wait_timer", wait_timer)
+
+    @property
+    @pulumi.getter(name="canAdminsBypass")
+    def can_admins_bypass(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can repository admins bypass the environment protections.  Defaults to `true`.
+        """
+        return pulumi.get(self, "can_admins_bypass")
+
+    @can_admins_bypass.setter
+    def can_admins_bypass(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "can_admins_bypass", value)
 
     @property
     @pulumi.getter(name="deploymentBranchPolicy")
@@ -192,6 +224,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -231,6 +264,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
@@ -289,6 +323,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -303,6 +338,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryEnvironmentArgs.__new__(RepositoryEnvironmentArgs)
 
+            __props__.__dict__["can_admins_bypass"] = can_admins_bypass
             __props__.__dict__["deployment_branch_policy"] = deployment_branch_policy
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
@@ -322,6 +358,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            can_admins_bypass: Optional[pulumi.Input[bool]] = None,
             deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
             environment: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
@@ -334,6 +371,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
         :param pulumi.Input[str] repository: The repository of the environment.
@@ -344,12 +382,21 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         __props__ = _RepositoryEnvironmentState.__new__(_RepositoryEnvironmentState)
 
+        __props__.__dict__["can_admins_bypass"] = can_admins_bypass
         __props__.__dict__["deployment_branch_policy"] = deployment_branch_policy
         __props__.__dict__["environment"] = environment
         __props__.__dict__["repository"] = repository
         __props__.__dict__["reviewers"] = reviewers
         __props__.__dict__["wait_timer"] = wait_timer
         return RepositoryEnvironment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="canAdminsBypass")
+    def can_admins_bypass(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Can repository admins bypass the environment protections.  Defaults to `true`.
+        """
+        return pulumi.get(self, "can_admins_bypass")
 
     @property
     @pulumi.getter(name="deploymentBranchPolicy")

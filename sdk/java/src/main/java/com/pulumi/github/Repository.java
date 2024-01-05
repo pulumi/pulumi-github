@@ -726,6 +726,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> vulnerabilityAlerts() {
         return Codegen.optional(this.vulnerabilityAlerts);
     }
+    /**
+     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * 
+     */
+    @Export(name="webCommitSignoffRequired", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> webCommitSignoffRequired;
+
+    /**
+     * @return Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> webCommitSignoffRequired() {
+        return Codegen.optional(this.webCommitSignoffRequired);
+    }
 
     /**
      *

@@ -110,6 +110,7 @@ type BranchDefault struct {
 
 	// The branch (e.g. `main`)
 	Branch pulumi.StringOutput `pulumi:"branch"`
+	Etag   pulumi.StringOutput `pulumi:"etag"`
 	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
 	Rename pulumi.BoolPtrOutput `pulumi:"rename"`
 	// The GitHub repository
@@ -154,6 +155,7 @@ func GetBranchDefault(ctx *pulumi.Context,
 type branchDefaultState struct {
 	// The branch (e.g. `main`)
 	Branch *string `pulumi:"branch"`
+	Etag   *string `pulumi:"etag"`
 	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
 	Rename *bool `pulumi:"rename"`
 	// The GitHub repository
@@ -163,6 +165,7 @@ type branchDefaultState struct {
 type BranchDefaultState struct {
 	// The branch (e.g. `main`)
 	Branch pulumi.StringPtrInput
+	Etag   pulumi.StringPtrInput
 	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
 	Rename pulumi.BoolPtrInput
 	// The GitHub repository
@@ -282,6 +285,10 @@ func (o BranchDefaultOutput) ToBranchDefaultOutputWithContext(ctx context.Contex
 // The branch (e.g. `main`)
 func (o BranchDefaultOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
+}
+
+func (o BranchDefaultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BranchDefault) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.

@@ -541,6 +541,21 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.vulnerabilityAlerts);
     }
 
+    /**
+     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * 
+     */
+    @Import(name="webCommitSignoffRequired")
+    private @Nullable Output<Boolean> webCommitSignoffRequired;
+
+    /**
+     * @return Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> webCommitSignoffRequired() {
+        return Optional.ofNullable(this.webCommitSignoffRequired);
+    }
+
     private RepositoryArgs() {}
 
     private RepositoryArgs(RepositoryArgs $) {
@@ -577,6 +592,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         this.topics = $.topics;
         this.visibility = $.visibility;
         this.vulnerabilityAlerts = $.vulnerabilityAlerts;
+        this.webCommitSignoffRequired = $.webCommitSignoffRequired;
     }
 
     public static Builder builder() {
@@ -1324,6 +1340,27 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder vulnerabilityAlerts(Boolean vulnerabilityAlerts) {
             return vulnerabilityAlerts(Output.of(vulnerabilityAlerts));
+        }
+
+        /**
+         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webCommitSignoffRequired(@Nullable Output<Boolean> webCommitSignoffRequired) {
+            $.webCommitSignoffRequired = webCommitSignoffRequired;
+            return this;
+        }
+
+        /**
+         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webCommitSignoffRequired(Boolean webCommitSignoffRequired) {
+            return webCommitSignoffRequired(Output.of(webCommitSignoffRequired));
         }
 
         public RepositoryArgs build() {

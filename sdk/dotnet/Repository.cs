@@ -339,6 +339,12 @@ namespace Pulumi.Github
         [Output("vulnerabilityAlerts")]
         public Output<bool?> VulnerabilityAlerts { get; private set; } = null!;
 
+        /// <summary>
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// </summary>
+        [Output("webCommitSignoffRequired")]
+        public Output<bool?> WebCommitSignoffRequired { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Repository resource with the given unique name, arguments, and options.
@@ -593,6 +599,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("vulnerabilityAlerts")]
         public Input<bool>? VulnerabilityAlerts { get; set; }
+
+        /// <summary>
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// </summary>
+        [Input("webCommitSignoffRequired")]
+        public Input<bool>? WebCommitSignoffRequired { get; set; }
 
         public RepositoryArgs()
         {
@@ -867,6 +879,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("vulnerabilityAlerts")]
         public Input<bool>? VulnerabilityAlerts { get; set; }
+
+        /// <summary>
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// </summary>
+        [Input("webCommitSignoffRequired")]
+        public Input<bool>? WebCommitSignoffRequired { get; set; }
 
         public RepositoryState()
         {

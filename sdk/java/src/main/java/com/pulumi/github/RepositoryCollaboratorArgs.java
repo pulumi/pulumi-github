@@ -54,12 +54,16 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
     /**
      * The GitHub repository
      * 
+     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+     * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
      * @return The GitHub repository
+     * 
+     * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      * 
      */
     public Output<String> repository() {
@@ -157,6 +161,8 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
         /**
          * @param repository The GitHub repository
          * 
+         * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
+         * 
          * @return builder
          * 
          */
@@ -167,6 +173,8 @@ public final class RepositoryCollaboratorArgs extends com.pulumi.resources.Resou
 
         /**
          * @param repository The GitHub repository
+         * 
+         * &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
          * 
          * @return builder
          * 

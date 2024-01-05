@@ -107,6 +107,7 @@
         "index.ts",
         "issue.ts",
         "issueLabel.ts",
+        "issueLabels.ts",
         "membership.ts",
         "organizationBlock.ts",
         "organizationCustomRole.ts",

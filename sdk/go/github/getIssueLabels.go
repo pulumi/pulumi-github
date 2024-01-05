@@ -12,9 +12,9 @@ import (
 )
 
 // Use this data source to retrieve the labels for a given repository.
-func GetIssueLabels(ctx *pulumi.Context, args *GetIssueLabelsArgs, opts ...pulumi.InvokeOption) (*GetIssueLabelsResult, error) {
+func LookupIssueLabels(ctx *pulumi.Context, args *LookupIssueLabelsArgs, opts ...pulumi.InvokeOption) (*LookupIssueLabelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetIssueLabelsResult
+	var rv LookupIssueLabelsResult
 	err := ctx.Invoke("github:index/getIssueLabels:getIssueLabels", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -23,13 +23,13 @@ func GetIssueLabels(ctx *pulumi.Context, args *GetIssueLabelsArgs, opts ...pulum
 }
 
 // A collection of arguments for invoking getIssueLabels.
-type GetIssueLabelsArgs struct {
+type LookupIssueLabelsArgs struct {
 	// The name of the repository.
 	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getIssueLabels.
-type GetIssueLabelsResult struct {
+type LookupIssueLabelsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The list of this repository's labels. Each element of `labels` has the following attributes:
@@ -37,58 +37,58 @@ type GetIssueLabelsResult struct {
 	Repository string                `pulumi:"repository"`
 }
 
-func GetIssueLabelsOutput(ctx *pulumi.Context, args GetIssueLabelsOutputArgs, opts ...pulumi.InvokeOption) GetIssueLabelsResultOutput {
+func LookupIssueLabelsOutput(ctx *pulumi.Context, args LookupIssueLabelsOutputArgs, opts ...pulumi.InvokeOption) LookupIssueLabelsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIssueLabelsResult, error) {
-			args := v.(GetIssueLabelsArgs)
-			r, err := GetIssueLabels(ctx, &args, opts...)
-			var s GetIssueLabelsResult
+		ApplyT(func(v interface{}) (LookupIssueLabelsResult, error) {
+			args := v.(LookupIssueLabelsArgs)
+			r, err := LookupIssueLabels(ctx, &args, opts...)
+			var s LookupIssueLabelsResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetIssueLabelsResultOutput)
+		}).(LookupIssueLabelsResultOutput)
 }
 
 // A collection of arguments for invoking getIssueLabels.
-type GetIssueLabelsOutputArgs struct {
+type LookupIssueLabelsOutputArgs struct {
 	// The name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
-func (GetIssueLabelsOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIssueLabelsArgs)(nil)).Elem()
+func (LookupIssueLabelsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIssueLabelsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getIssueLabels.
-type GetIssueLabelsResultOutput struct{ *pulumi.OutputState }
+type LookupIssueLabelsResultOutput struct{ *pulumi.OutputState }
 
-func (GetIssueLabelsResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIssueLabelsResult)(nil)).Elem()
+func (LookupIssueLabelsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIssueLabelsResult)(nil)).Elem()
 }
 
-func (o GetIssueLabelsResultOutput) ToGetIssueLabelsResultOutput() GetIssueLabelsResultOutput {
+func (o LookupIssueLabelsResultOutput) ToLookupIssueLabelsResultOutput() LookupIssueLabelsResultOutput {
 	return o
 }
 
-func (o GetIssueLabelsResultOutput) ToGetIssueLabelsResultOutputWithContext(ctx context.Context) GetIssueLabelsResultOutput {
+func (o LookupIssueLabelsResultOutput) ToLookupIssueLabelsResultOutputWithContext(ctx context.Context) LookupIssueLabelsResultOutput {
 	return o
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetIssueLabelsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIssueLabelsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupIssueLabelsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIssueLabelsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The list of this repository's labels. Each element of `labels` has the following attributes:
-func (o GetIssueLabelsResultOutput) Labels() GetIssueLabelsLabelArrayOutput {
-	return o.ApplyT(func(v GetIssueLabelsResult) []GetIssueLabelsLabel { return v.Labels }).(GetIssueLabelsLabelArrayOutput)
+func (o LookupIssueLabelsResultOutput) Labels() GetIssueLabelsLabelArrayOutput {
+	return o.ApplyT(func(v LookupIssueLabelsResult) []GetIssueLabelsLabel { return v.Labels }).(GetIssueLabelsLabelArrayOutput)
 }
 
-func (o GetIssueLabelsResultOutput) Repository() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIssueLabelsResult) string { return v.Repository }).(pulumi.StringOutput)
+func (o LookupIssueLabelsResultOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIssueLabelsResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetIssueLabelsResultOutput{})
+	pulumi.RegisterOutputType(LookupIssueLabelsResultOutput{})
 }
