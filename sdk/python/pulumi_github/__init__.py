@@ -96,6 +96,7 @@ from .get_user_external_identity import *
 from .get_users import *
 from .issue import *
 from .issue_label import *
+from .issue_labels import *
 from .membership import *
 from .organization_block import *
 from .organization_custom_role import *
@@ -385,6 +386,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/issueLabel:IssueLabel": "IssueLabel"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/issueLabels",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/issueLabels:IssueLabels": "IssueLabels"
   }
  },
  {

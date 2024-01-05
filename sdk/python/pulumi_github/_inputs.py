@@ -19,6 +19,7 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs',
     'BranchProtectionV3RequiredStatusChecksArgs',
     'BranchProtectionV3RestrictionsArgs',
+    'IssueLabelsLabelArgs',
     'OrganizationRulesetBypassActorArgs',
     'OrganizationRulesetConditionsArgs',
     'OrganizationRulesetConditionsRefNameArgs',
@@ -686,6 +687,75 @@ class BranchProtectionV3RestrictionsArgs:
     @users.setter
     def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class IssueLabelsLabelArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
+        :param pulumi.Input[str] name: The name of the label.
+        :param pulumi.Input[str] description: A short description of the label.
+        :param pulumi.Input[str] url: The URL to the issue label
+        """
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        """
+        A 6 character hex code, **without the leading #**, identifying the color of the label.
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the label.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short description of the label.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the issue label
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

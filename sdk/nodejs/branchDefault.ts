@@ -90,6 +90,7 @@ export class BranchDefault extends pulumi.CustomResource {
      * The branch (e.g. `main`)
      */
     public readonly branch!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */
@@ -113,6 +114,7 @@ export class BranchDefault extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BranchDefaultState | undefined;
             resourceInputs["branch"] = state ? state.branch : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["rename"] = state ? state.rename : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
@@ -126,6 +128,7 @@ export class BranchDefault extends pulumi.CustomResource {
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["rename"] = args ? args.rename : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchDefault.__pulumiType, name, resourceInputs, opts);
@@ -140,6 +143,7 @@ export interface BranchDefaultState {
      * The branch (e.g. `main`)
      */
     branch?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */

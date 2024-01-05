@@ -133,6 +133,12 @@ public class BranchDefault extends com.pulumi.resources.CustomResource {
     public Output<String> branch() {
         return this.branch;
     }
+    @Export(name="etag", refs={String.class}, tree="[0]")
+    private Output<String> etag;
+
+    public Output<String> etag() {
+        return this.etag;
+    }
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      * 

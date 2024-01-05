@@ -72,7 +72,7 @@ namespace Pulumi.Github
     public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
         /// </summary>
         [Input("membershipType")]
         public string? MembershipType { get; set; }
@@ -104,7 +104,7 @@ namespace Pulumi.Github
     public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
         /// </summary>
         [Input("membershipType")]
         public Input<string>? MembershipType { get; set; }

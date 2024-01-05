@@ -92,6 +92,9 @@ namespace Pulumi.Github
         [Output("branch")]
         public Output<string> Branch { get; private set; } = null!;
 
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
         /// <summary>
         /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         /// </summary>
@@ -181,6 +184,9 @@ namespace Pulumi.Github
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
+
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.

@@ -89,6 +89,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The GitHub repository
+        /// 
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -161,6 +163,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The GitHub repository
+        /// 
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -201,6 +205,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The GitHub repository
+        /// 
+        /// &gt; Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

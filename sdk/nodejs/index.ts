@@ -460,6 +460,11 @@ export type IssueLabel = import("./issueLabel").IssueLabel;
 export const IssueLabel: typeof import("./issueLabel").IssueLabel = null as any;
 utilities.lazyLoad(exports, ["IssueLabel"], () => require("./issueLabel"));
 
+export { IssueLabelsArgs, IssueLabelsState } from "./issueLabels";
+export type IssueLabels = import("./issueLabels").IssueLabels;
+export const IssueLabels: typeof import("./issueLabels").IssueLabels = null as any;
+utilities.lazyLoad(exports, ["IssueLabels"], () => require("./issueLabels"));
+
 export { MembershipArgs, MembershipState } from "./membership";
 export type Membership = import("./membership").Membership;
 export const Membership: typeof import("./membership").Membership = null as any;
@@ -724,6 +729,8 @@ const _module = {
                 return new Issue(name, <any>undefined, { urn })
             case "github:index/issueLabel:IssueLabel":
                 return new IssueLabel(name, <any>undefined, { urn })
+            case "github:index/issueLabels:IssueLabels":
+                return new IssueLabels(name, <any>undefined, { urn })
             case "github:index/membership:Membership":
                 return new Membership(name, <any>undefined, { urn })
             case "github:index/organizationBlock:OrganizationBlock":
@@ -833,6 +840,7 @@ pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module
 pulumi.runtime.registerResourceModule("github", "index/enterpriseOrganization", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
+pulumi.runtime.registerResourceModule("github", "index/issueLabels", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationCustomRole", _module)

@@ -36,7 +36,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetTeamArgs {
     /**
-     * Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     * Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
      */
     membershipType?: string;
     /**
@@ -121,7 +121,7 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetTeamOutputArgs {
     /**
-     * Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     * Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
      */
     membershipType?: pulumi.Input<string>;
     /**

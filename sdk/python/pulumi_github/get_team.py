@@ -195,7 +195,7 @@ def get_team(membership_type: Optional[str] = None,
     ```
 
 
-    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+    :param str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
     :param int results_per_page: Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
     :param str slug: The team slug.
     :param bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
@@ -243,7 +243,7 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
     ```
 
 
-    :param str membership_type: Type of membershp to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+    :param str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
     :param int results_per_page: Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
     :param str slug: The team slug.
     :param bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.

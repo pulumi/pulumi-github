@@ -69,6 +69,7 @@ class BranchDefaultArgs:
 class _BranchDefaultState:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  rename: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None):
         """
@@ -79,6 +80,8 @@ class _BranchDefaultState:
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if rename is not None:
             pulumi.set(__self__, "rename", rename)
         if repository is not None:
@@ -95,6 +98,15 @@ class _BranchDefaultState:
     @branch.setter
     def branch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -274,6 +286,7 @@ class BranchDefault(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["etag"] = None
         super(BranchDefault, __self__).__init__(
             'github:index/branchDefault:BranchDefault',
             resource_name,
@@ -285,6 +298,7 @@ class BranchDefault(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             branch: Optional[pulumi.Input[str]] = None,
+            etag: Optional[pulumi.Input[str]] = None,
             rename: Optional[pulumi.Input[bool]] = None,
             repository: Optional[pulumi.Input[str]] = None) -> 'BranchDefault':
         """
@@ -303,6 +317,7 @@ class BranchDefault(pulumi.CustomResource):
         __props__ = _BranchDefaultState.__new__(_BranchDefaultState)
 
         __props__.__dict__["branch"] = branch
+        __props__.__dict__["etag"] = etag
         __props__.__dict__["rename"] = rename
         __props__.__dict__["repository"] = repository
         return BranchDefault(resource_name, opts=opts, __props__=__props__)
@@ -314,6 +329,11 @@ class BranchDefault(pulumi.CustomResource):
         The branch (e.g. `main`)
         """
         return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

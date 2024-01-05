@@ -188,6 +188,8 @@ type Repository struct {
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 	VulnerabilityAlerts pulumi.BoolPtrOutput `pulumi:"vulnerabilityAlerts"`
+	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	WebCommitSignoffRequired pulumi.BoolPtrOutput `pulumi:"webCommitSignoffRequired"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -314,6 +316,8 @@ type repositoryState struct {
 	Visibility *string `pulumi:"visibility"`
 	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
+	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
 }
 
 type RepositoryState struct {
@@ -411,6 +415,8 @@ type RepositoryState struct {
 	Visibility pulumi.StringPtrInput
 	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 	VulnerabilityAlerts pulumi.BoolPtrInput
+	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	WebCommitSignoffRequired pulumi.BoolPtrInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -493,6 +499,8 @@ type repositoryArgs struct {
 	Visibility *string `pulumi:"visibility"`
 	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
+	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -572,6 +580,8 @@ type RepositoryArgs struct {
 	Visibility pulumi.StringPtrInput
 	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 	VulnerabilityAlerts pulumi.BoolPtrInput
+	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	WebCommitSignoffRequired pulumi.BoolPtrInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -882,6 +892,11 @@ func (o RepositoryOutput) Visibility() pulumi.StringOutput {
 // Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
 func (o RepositoryOutput) VulnerabilityAlerts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.VulnerabilityAlerts }).(pulumi.BoolPtrOutput)
+}
+
+// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+func (o RepositoryOutput) WebCommitSignoffRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.WebCommitSignoffRequired }).(pulumi.BoolPtrOutput)
 }
 
 type RepositoryArrayOutput struct{ *pulumi.OutputState }

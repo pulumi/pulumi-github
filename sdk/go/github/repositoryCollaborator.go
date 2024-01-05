@@ -86,6 +86,8 @@ type RepositoryCollaborator struct {
 	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 	PermissionDiffSuppression pulumi.BoolPtrOutput `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
+	//
+	// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -136,6 +138,8 @@ type repositoryCollaboratorState struct {
 	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
+	//
+	// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 	Repository *string `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
 	Username *string `pulumi:"username"`
@@ -151,6 +155,8 @@ type RepositoryCollaboratorState struct {
 	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 	PermissionDiffSuppression pulumi.BoolPtrInput
 	// The GitHub repository
+	//
+	// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 	Repository pulumi.StringPtrInput
 	// The user to add to the repository as a collaborator.
 	Username pulumi.StringPtrInput
@@ -168,6 +174,8 @@ type repositoryCollaboratorArgs struct {
 	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 	PermissionDiffSuppression *bool `pulumi:"permissionDiffSuppression"`
 	// The GitHub repository
+	//
+	// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 	Repository string `pulumi:"repository"`
 	// The user to add to the repository as a collaborator.
 	Username string `pulumi:"username"`
@@ -182,6 +190,8 @@ type RepositoryCollaboratorArgs struct {
 	// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
 	PermissionDiffSuppression pulumi.BoolPtrInput
 	// The GitHub repository
+	//
+	// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 	Repository pulumi.StringInput
 	// The user to add to the repository as a collaborator.
 	Username pulumi.StringInput
@@ -292,6 +302,8 @@ func (o RepositoryCollaboratorOutput) PermissionDiffSuppression() pulumi.BoolPtr
 }
 
 // The GitHub repository
+//
+// > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
 func (o RepositoryCollaboratorOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborator) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

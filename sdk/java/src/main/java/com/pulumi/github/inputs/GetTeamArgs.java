@@ -19,14 +19,14 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamArgs Empty = new GetTeamArgs();
 
     /**
-     * Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
      * 
      */
     @Import(name="membershipType")
     private @Nullable Output<String> membershipType;
 
     /**
-     * @return Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * @return Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
      * 
      */
     public Optional<Output<String>> membershipType() {
@@ -106,7 +106,7 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * @param membershipType Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param membershipType Type of membershp to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * @param membershipType Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
          * 
          * @return builder
          * 

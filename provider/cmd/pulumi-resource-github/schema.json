@@ -363,6 +363,40 @@
             },
             "type": "object"
         },
+        "github:index/IssueLabelsLabel:IssueLabelsLabel": {
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "description": "A 6 character hex code, **without the leading #**, identifying the color of the label.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the label.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the label.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to the issue label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "color",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "color",
+                        "name",
+                        "url"
+                    ]
+                }
+            }
+        },
         "github:index/OrganizationRulesetBypassActor:OrganizationRulesetBypassActor": {
             "properties": {
                 "actorId": {
@@ -3979,6 +4013,9 @@
                     "type": "string",
                     "description": "The branch (e.g. `main`)\n"
                 },
+                "etag": {
+                    "type": "string"
+                },
                 "rename": {
                     "type": "boolean",
                     "description": "Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.\n"
@@ -3990,6 +4027,7 @@
             },
             "required": [
                 "branch",
+                "etag",
                 "repository"
             ],
             "inputProperties": {
@@ -4017,6 +4055,9 @@
                     "branch": {
                         "type": "string",
                         "description": "The branch (e.g. `main`)\n"
+                    },
+                    "etag": {
+                        "type": "string"
                     },
                     "rename": {
                         "type": "boolean",
@@ -5434,6 +5475,60 @@
                 "type": "object"
             }
         },
+        "github:index/issueLabels:IssueLabels": {
+            "description": "Provides GitHub issue labels resource.\n\nThis resource allows you to create and manage issue labels within your\nGitHub organization.\n\n\u003e Note: github.IssueLabels cannot be used in conjunction with github.IssueLabel or they will fight over what your policy should be.\n\nThis resource is authoritative. For adding a label to a repo in a non-authoritative manner, use github.IssueLabel instead.\n\nIf you change the case of a label's name, its' color, or description, this resource will edit the existing label to match the new values. However, if you change the name of a label, this resource will create a new label with the new name and delete the old label. Beware that this will remove the label from any issues it was previously attached to.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Create a new, red colored label\nconst testRepo = new github.IssueLabels(\"testRepo\", {\n    labels: [\n        {\n            color: \"FF0000\",\n            name: \"Urgent\",\n        },\n        {\n            color: \"FF0000\",\n            name: \"Critical\",\n        },\n    ],\n    repository: \"test-repo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Create a new, red colored label\ntest_repo = github.IssueLabels(\"testRepo\",\n    labels=[\n        github.IssueLabelsLabelArgs(\n            color=\"FF0000\",\n            name=\"Urgent\",\n        ),\n        github.IssueLabelsLabelArgs(\n            color=\"FF0000\",\n            name=\"Critical\",\n        ),\n    ],\n    repository=\"test-repo\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new, red colored label\n    var testRepo = new Github.IssueLabels(\"testRepo\", new()\n    {\n        Labels = new[]\n        {\n            new Github.Inputs.IssueLabelsLabelArgs\n            {\n                Color = \"FF0000\",\n                Name = \"Urgent\",\n            },\n            new Github.Inputs.IssueLabelsLabelArgs\n            {\n                Color = \"FF0000\",\n                Name = \"Critical\",\n            },\n        },\n        Repository = \"test-repo\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewIssueLabels(ctx, \"testRepo\", \u0026github.IssueLabelsArgs{\n\t\t\tLabels: github.IssueLabelsLabelArray{\n\t\t\t\t\u0026github.IssueLabelsLabelArgs{\n\t\t\t\t\tColor: pulumi.String(\"FF0000\"),\n\t\t\t\t\tName:  pulumi.String(\"Urgent\"),\n\t\t\t\t},\n\t\t\t\t\u0026github.IssueLabelsLabelArgs{\n\t\t\t\t\tColor: pulumi.String(\"FF0000\"),\n\t\t\t\t\tName:  pulumi.String(\"Critical\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepository: pulumi.String(\"test-repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.IssueLabels;\nimport com.pulumi.github.IssueLabelsArgs;\nimport com.pulumi.github.inputs.IssueLabelsLabelArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testRepo = new IssueLabels(\"testRepo\", IssueLabelsArgs.builder()        \n            .labels(            \n                IssueLabelsLabelArgs.builder()\n                    .color(\"FF0000\")\n                    .name(\"Urgent\")\n                    .build(),\n                IssueLabelsLabelArgs.builder()\n                    .color(\"FF0000\")\n                    .name(\"Critical\")\n                    .build())\n            .repository(\"test-repo\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new, red colored label\n  testRepo:\n    type: github:IssueLabels\n    properties:\n      labels:\n        - color: FF0000\n          name: Urgent\n        - color: FF0000\n          name: Critical\n      repository: test-repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Issue Labels can be imported using the repository `name`, e.g.\n\n```sh\n $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo\n```\n ",
+            "properties": {
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
+                    },
+                    "description": "List of labels\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n"
+                }
+            },
+            "required": [
+                "repository"
+            ],
+            "inputProperties": {
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
+                    },
+                    "description": "List of labels\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IssueLabels resources.\n",
+                "properties": {
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
+                        },
+                        "description": "List of labels\n"
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The GitHub repository\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "github:index/membership:Membership": {
             "description": "Provides a GitHub membership resource.\n\nThis resource allows you to add/remove users from your organization. When applied,\nan invitation will be sent to the user to become part of the organization. When\ndestroyed, either the invitation will be cancelled or the user will be removed.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add a user to the organization\nconst membershipForSomeUser = new github.Membership(\"membershipForSomeUser\", {\n    role: \"member\",\n    username: \"SomeUser\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add a user to the organization\nmembership_for_some_user = github.Membership(\"membershipForSomeUser\",\n    role=\"member\",\n    username=\"SomeUser\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Add a user to the organization\n    var membershipForSomeUser = new Github.Membership(\"membershipForSomeUser\", new()\n    {\n        Role = \"member\",\n        Username = \"SomeUser\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewMembership(ctx, \"membershipForSomeUser\", \u0026github.MembershipArgs{\n\t\t\tRole:     pulumi.String(\"member\"),\n\t\t\tUsername: pulumi.String(\"SomeUser\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Membership;\nimport com.pulumi.github.MembershipArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var membershipForSomeUser = new Membership(\"membershipForSomeUser\", MembershipArgs.builder()        \n            .role(\"member\")\n            .username(\"SomeUser\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Add a user to the organization\n  membershipForSomeUser:\n    type: github:Membership\n    properties:\n      role: member\n      username: SomeUser\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Membership can be imported using an ID made up of `organization:username`, e.g.\n\n```sh\n $ pulumi import github:index/membership:Membership member hashicorp:someuser\n```\n ",
             "properties": {
@@ -6720,6 +6815,10 @@
                 "vulnerabilityAlerts": {
                     "type": "boolean",
                     "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
+                },
+                "webCommitSignoffRequired": {
+                    "type": "boolean",
+                    "description": "Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.\n"
                 }
             },
             "required": [
@@ -6877,6 +6976,10 @@
                 "vulnerabilityAlerts": {
                     "type": "boolean",
                     "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
+                },
+                "webCommitSignoffRequired": {
+                    "type": "boolean",
+                    "description": "Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.\n"
                 }
             },
             "stateInputs": {
@@ -7057,6 +7160,10 @@
                     "vulnerabilityAlerts": {
                         "type": "boolean",
                         "description": "Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.\n"
+                    },
+                    "webCommitSignoffRequired": {
+                        "type": "boolean",
+                        "description": "Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.\n"
                     }
                 },
                 "type": "object"
@@ -7167,7 +7274,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The GitHub repository\n"
+                    "description": "The GitHub repository\n\n\u003e Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.\n"
                 },
                 "username": {
                     "type": "string",
@@ -7191,7 +7298,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The GitHub repository\n",
+                    "description": "The GitHub repository\n\n\u003e Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.\n",
                     "willReplaceOnChanges": true
                 },
                 "username": {
@@ -7222,7 +7329,7 @@
                     },
                     "repository": {
                         "type": "string",
-                        "description": "The GitHub repository\n",
+                        "description": "The GitHub repository\n\n\u003e Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.\n",
                         "willReplaceOnChanges": true
                     },
                     "username": {
@@ -7530,6 +7637,10 @@
         "github:index/repositoryEnvironment:RepositoryEnvironment": {
             "description": "This resource allows you to create and manage environments for a GitHub repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst current = github.getUser({\n    username: \"\",\n});\nconst exampleRepository = new github.Repository(\"exampleRepository\", {description: \"My awesome codebase\"});\nconst exampleRepositoryEnvironment = new github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", {\n    environment: \"example\",\n    repository: exampleRepository.name,\n    reviewers: [{\n        users: [current.then(current =\u003e current.id)],\n    }],\n    deploymentBranchPolicy: {\n        protectedBranches: true,\n        customBranchPolicies: false,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\ncurrent = github.get_user(username=\"\")\nexample_repository = github.Repository(\"exampleRepository\", description=\"My awesome codebase\")\nexample_repository_environment = github.RepositoryEnvironment(\"exampleRepositoryEnvironment\",\n    environment=\"example\",\n    repository=example_repository.name,\n    reviewers=[github.RepositoryEnvironmentReviewerArgs(\n        users=[current.id],\n    )],\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=True,\n        custom_branch_policies=False,\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Github.GetUser.Invoke(new()\n    {\n        Username = \"\",\n    });\n\n    var exampleRepository = new Github.Repository(\"exampleRepository\", new()\n    {\n        Description = \"My awesome codebase\",\n    });\n\n    var exampleRepositoryEnvironment = new Github.RepositoryEnvironment(\"exampleRepositoryEnvironment\", new()\n    {\n        Environment = \"example\",\n        Repository = exampleRepository.Name,\n        Reviewers = new[]\n        {\n            new Github.Inputs.RepositoryEnvironmentReviewerArgs\n            {\n                Users = new[]\n                {\n                    current.Apply(getUserResult =\u003e getUserResult.Id),\n                },\n            },\n        },\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = true,\n            CustomBranchPolicies = false,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v5/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcurrent, err := github.GetUser(ctx, \u0026github.GetUserArgs{\n\t\t\tUsername: \"\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleRepository, err := github.NewRepository(ctx, \"exampleRepository\", \u0026github.RepositoryArgs{\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryEnvironment(ctx, \"exampleRepositoryEnvironment\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tEnvironment: pulumi.String(\"example\"),\n\t\t\tRepository:  exampleRepository.Name,\n\t\t\tReviewers: github.RepositoryEnvironmentReviewerArray{\n\t\t\t\t\u0026github.RepositoryEnvironmentReviewerArgs{\n\t\t\t\t\tUsers: pulumi.IntArray{\n\t\t\t\t\t\t*pulumi.String(current.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(true),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetUserArgs;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = GithubFunctions.getUser(GetUserArgs.builder()\n            .username(\"\")\n            .build());\n\n        var exampleRepository = new Repository(\"exampleRepository\", RepositoryArgs.builder()        \n            .description(\"My awesome codebase\")\n            .build());\n\n        var exampleRepositoryEnvironment = new RepositoryEnvironment(\"exampleRepositoryEnvironment\", RepositoryEnvironmentArgs.builder()        \n            .environment(\"example\")\n            .repository(exampleRepository.name())\n            .reviewers(RepositoryEnvironmentReviewerArgs.builder()\n                .users(current.applyValue(getUserResult -\u003e getUserResult.id()))\n                .build())\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(true)\n                .customBranchPolicies(false)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleRepository:\n    type: github:Repository\n    properties:\n      description: My awesome codebase\n  exampleRepositoryEnvironment:\n    type: github:RepositoryEnvironment\n    properties:\n      environment: example\n      repository: ${exampleRepository.name}\n      reviewers:\n        - users:\n            - ${current.id}\n      deploymentBranchPolicy:\n        protectedBranches: true\n        customBranchPolicies: false\nvariables:\n  current:\n    fn::invoke:\n      Function: github:getUser\n      Arguments:\n        username:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nGitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.\n\n```sh\n $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily\n```\n ",
             "properties": {
+                "canAdminsBypass": {
+                    "type": "boolean",
+                    "description": "Can repository admins bypass the environment protections.  Defaults to `true`.\n"
+                },
                 "deploymentBranchPolicy": {
                     "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
                     "description": "The deployment branch policy configuration\n"
@@ -7559,6 +7670,10 @@
                 "repository"
             ],
             "inputProperties": {
+                "canAdminsBypass": {
+                    "type": "boolean",
+                    "description": "Can repository admins bypass the environment protections.  Defaults to `true`.\n"
+                },
                 "deploymentBranchPolicy": {
                     "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
                     "description": "The deployment branch policy configuration\n"
@@ -7592,6 +7707,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RepositoryEnvironment resources.\n",
                 "properties": {
+                    "canAdminsBypass": {
+                        "type": "boolean",
+                        "description": "Can repository admins bypass the environment protections.  Defaults to `true`.\n"
+                    },
                     "deploymentBranchPolicy": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
                         "description": "The deployment branch policy configuration\n"
@@ -12268,7 +12387,7 @@
                 "properties": {
                     "membershipType": {
                         "type": "string",
-                        "description": "Type of membershp to be requested to fill the list of members. Can be either \"all\" or \"immediate\". Default: \"all\"\n"
+                        "description": "Type of membership to be requested to fill the list of members. Can be either \"all\" or \"immediate\". Default: \"all\"\n"
                     },
                     "resultsPerPage": {
                         "type": "integer",

@@ -69,6 +69,10 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
     }
 
     /**
+     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     */
+    public readonly canAdminsBypass!: pulumi.Output<boolean | undefined>;
+    /**
      * The deployment branch policy configuration
      */
     public readonly deploymentBranchPolicy!: pulumi.Output<outputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
@@ -102,6 +106,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryEnvironmentState | undefined;
+            resourceInputs["canAdminsBypass"] = state ? state.canAdminsBypass : undefined;
             resourceInputs["deploymentBranchPolicy"] = state ? state.deploymentBranchPolicy : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
@@ -115,6 +120,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
+            resourceInputs["canAdminsBypass"] = args ? args.canAdminsBypass : undefined;
             resourceInputs["deploymentBranchPolicy"] = args ? args.deploymentBranchPolicy : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
@@ -130,6 +136,10 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryEnvironment resources.
  */
 export interface RepositoryEnvironmentState {
+    /**
+     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     */
+    canAdminsBypass?: pulumi.Input<boolean>;
     /**
      * The deployment branch policy configuration
      */
@@ -156,6 +166,10 @@ export interface RepositoryEnvironmentState {
  * The set of arguments for constructing a RepositoryEnvironment resource.
  */
 export interface RepositoryEnvironmentArgs {
+    /**
+     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     */
+    canAdminsBypass?: pulumi.Input<boolean>;
     /**
      * The deployment branch policy configuration
      */
