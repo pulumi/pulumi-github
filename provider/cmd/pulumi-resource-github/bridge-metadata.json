@@ -295,6 +295,14 @@
             "github_issue_label": {
                 "current": "github:index/issueLabel:IssueLabel"
             },
+            "github_issue_labels": {
+                "current": "github:index/issueLabels:IssueLabels",
+                "fields": {
+                    "label": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_membership": {
                 "current": "github:index/membership:Membership"
             },
@@ -1228,6 +1236,7 @@
             "github:index/enterpriseOrganization:EnterpriseOrganization": "github_enterprise_organization",
             "github:index/issue:Issue": "github_issue",
             "github:index/issueLabel:IssueLabel": "github_issue_label",
+            "github:index/issueLabels:IssueLabels": "github_issue_labels",
             "github:index/membership:Membership": "github_membership",
             "github:index/organizationBlock:OrganizationBlock": "github_organization_block",
             "github:index/organizationCustomRole:OrganizationCustomRole": "github_organization_custom_role",
@@ -2022,6 +2031,9 @@
                 "issueId": "issue_id",
                 "milestoneNumber": "milestone_number"
             },
+            "github:index/issueLabels:IssueLabels": {
+                "labels": "label"
+            },
             "github:index/membership:Membership": {
                 "downgradeOnDestroy": "downgrade_on_destroy"
             },
@@ -2108,7 +2120,8 @@
                 "squashMergeCommitTitle": "squash_merge_commit_title",
                 "sshCloneUrl": "ssh_clone_url",
                 "svnUrl": "svn_url",
-                "vulnerabilityAlerts": "vulnerability_alerts"
+                "vulnerabilityAlerts": "vulnerability_alerts",
+                "webCommitSignoffRequired": "web_commit_signoff_required"
             },
             "github:index/repositoryAutolinkReference:RepositoryAutolinkReference": {
                 "isAlphanumeric": "is_alphanumeric",
@@ -2131,6 +2144,7 @@
                 "environmentName": "environment_name"
             },
             "github:index/repositoryEnvironment:RepositoryEnvironment": {
+                "canAdminsBypass": "can_admins_bypass",
                 "deploymentBranchPolicy": "deployment_branch_policy",
                 "waitTimer": "wait_timer"
             },
