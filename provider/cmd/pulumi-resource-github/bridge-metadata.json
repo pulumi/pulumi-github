@@ -1033,6 +1033,29 @@
                             }
                         }
                     },
+                    "repository_license": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "license": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "limitations": {
+                                                "maxItemsOne": false
+                                            },
+                                            "permissions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "template": {
                         "maxItemsOne": true
                     },
@@ -1918,6 +1941,7 @@
                 "nodeId": "node_id",
                 "primaryLanguage": "primary_language",
                 "repoId": "repo_id",
+                "repositoryLicenses": "repository_license",
                 "squashMergeCommitMessage": "squash_merge_commit_message",
                 "squashMergeCommitTitle": "squash_merge_commit_title",
                 "sshCloneUrl": "ssh_clone_url",
@@ -1988,6 +2012,16 @@
                 "openedAt": "opened_at",
                 "openedBy": "opened_by",
                 "updatedAt": "updated_at"
+            },
+            "github:index/getRepositoryRepositoryLicense:getRepositoryRepositoryLicense": {
+                "downloadUrl": "download_url",
+                "gitUrl": "git_url",
+                "htmlUrl": "html_url",
+                "licenses": "license"
+            },
+            "github:index/getRepositoryRepositoryLicenseLicense:getRepositoryRepositoryLicenseLicense": {
+                "htmlUrl": "html_url",
+                "spdxId": "spdx_id"
             },
             "github:index/getRepositoryTeams:getRepositoryTeams": {
                 "fullName": "full_name"

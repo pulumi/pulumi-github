@@ -2291,7 +2291,7 @@
                 },
                 "htmlUrl": {
                     "type": "string",
-                    "description": "URL to the repository on the web.\n"
+                    "description": "The URL to view the license details on GitHub.\n"
                 },
                 "sources": {
                     "type": "array",
@@ -2303,7 +2303,8 @@
                     "type": "string"
                 },
                 "url": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The URL to access information about the license on GitHub.\n"
                 }
             },
             "type": "object",
@@ -2328,7 +2329,8 @@
                     "type": "string"
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The path to the license file within the repository.\n"
                 }
             },
             "type": "object",
@@ -2430,6 +2432,162 @@
                 "state",
                 "title",
                 "updatedAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryRepositoryLicense:getRepositoryRepositoryLicense": {
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "Content of the license file, encoded by encoding scheme mentioned below.\n"
+                },
+                "downloadUrl": {
+                    "type": "string",
+                    "description": "The URL to download the raw content of the license file.\n"
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "The encoding used for the content (e.g., \"base64\").\n"
+                },
+                "gitUrl": {
+                    "type": "string",
+                    "description": "The URL to access information about the license file as a Git blob.\n"
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "The URL to view the license details on GitHub.\n"
+                },
+                "licenses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/getRepositoryRepositoryLicenseLicense:getRepositoryRepositoryLicenseLicense"
+                    },
+                    "description": "`license` block consists of the fields documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to the license file within the repository.\n"
+                },
+                "sha": {
+                    "type": "string",
+                    "description": "The SHA hash of the license file.\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size of the license file in bytes.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the content, (e.g., \"file\").\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to access information about the license on GitHub.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "content",
+                "downloadUrl",
+                "encoding",
+                "gitUrl",
+                "htmlUrl",
+                "licenses",
+                "name",
+                "path",
+                "sha",
+                "size",
+                "type",
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryRepositoryLicenseLicense:getRepositoryRepositoryLicenseLicense": {
+            "properties": {
+                "body": {
+                    "type": "string",
+                    "description": "The text of the license.\n"
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Conditions associated with the license.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the license.\n"
+                },
+                "featured": {
+                    "type": "boolean",
+                    "description": "Indicates if the license is featured.\n"
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "The URL to view the license details on GitHub.\n"
+                },
+                "implementation": {
+                    "type": "string",
+                    "description": "Details about the implementation of the license.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A key representing the license type (e.g., \"apache-2.0\").\n"
+                },
+                "limitations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Limitations associated with the license.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the repository.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Permissions associated with the license.\n"
+                },
+                "spdxId": {
+                    "type": "string",
+                    "description": "The SPDX identifier for the license (e.g., \"Apache-2.0\").\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to access information about the license on GitHub.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "body",
+                "conditions",
+                "description",
+                "featured",
+                "htmlUrl",
+                "implementation",
+                "key",
+                "limitations",
+                "name",
+                "permissions",
+                "spdxId",
+                "url"
             ],
             "language": {
                 "nodejs": {
@@ -11409,7 +11567,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "A description of the repository.\n"
+                        "description": "A description of the license.\n"
                     },
                     "fullName": {
                         "type": "string",
@@ -11455,7 +11613,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "A description of the repository.\n"
+                        "description": "A description of the license.\n"
                     },
                     "fork": {
                         "type": "boolean",
@@ -11494,7 +11652,7 @@
                     },
                     "htmlUrl": {
                         "type": "string",
-                        "description": "URL to the repository on the web.\n"
+                        "description": "The URL to view the license details on GitHub.\n"
                     },
                     "httpCloneUrl": {
                         "type": "string",
@@ -11517,7 +11675,8 @@
                         "description": "The default value for a merge commit title.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the license (e.g., \"Apache License 2.0\").\n"
                     },
                     "nodeId": {
                         "type": "string",
@@ -11541,6 +11700,13 @@
                     "repoId": {
                         "type": "integer",
                         "description": "GitHub ID for the repository\n"
+                    },
+                    "repositoryLicenses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryRepositoryLicense:getRepositoryRepositoryLicense"
+                        },
+                        "description": "An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.\n"
                     },
                     "squashMergeCommitMessage": {
                         "type": "string",
@@ -11601,6 +11767,7 @@
                     "primaryLanguage",
                     "private",
                     "repoId",
+                    "repositoryLicenses",
                     "squashMergeCommitMessage",
                     "squashMergeCommitTitle",
                     "sshCloneUrl",
