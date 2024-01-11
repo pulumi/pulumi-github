@@ -716,16 +716,22 @@ export interface GetRepositoryPage {
     cname: string;
     custom404: boolean;
     /**
-     * URL to the repository on the web.
+     * The URL to view the license details on GitHub.
      */
     htmlUrl: string;
     sources: outputs.GetRepositoryPageSource[];
     status: string;
+    /**
+     * The URL to access information about the license on GitHub.
+     */
     url: string;
 }
 
 export interface GetRepositoryPageSource {
     branch: string;
+    /**
+     * The path to the license file within the repository.
+     */
     path: string;
 }
 
@@ -794,6 +800,108 @@ export interface GetRepositoryPullRequestsResult {
      * The timestamp of the last Pull Request update.
      */
     updatedAt: number;
+}
+
+export interface GetRepositoryRepositoryLicense {
+    /**
+     * Content of the license file, encoded by encoding scheme mentioned below.
+     */
+    content: string;
+    /**
+     * The URL to download the raw content of the license file.
+     */
+    downloadUrl: string;
+    /**
+     * The encoding used for the content (e.g., "base64").
+     */
+    encoding: string;
+    /**
+     * The URL to access information about the license file as a Git blob.
+     */
+    gitUrl: string;
+    /**
+     * The URL to view the license details on GitHub.
+     */
+    htmlUrl: string;
+    /**
+     * `license` block consists of the fields documented below.
+     */
+    licenses: outputs.GetRepositoryRepositoryLicenseLicense[];
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * The path to the license file within the repository.
+     */
+    path: string;
+    /**
+     * The SHA hash of the license file.
+     */
+    sha: string;
+    /**
+     * The size of the license file in bytes.
+     */
+    size: number;
+    /**
+     * The type of the content, (e.g., "file").
+     */
+    type: string;
+    /**
+     * The URL to access information about the license on GitHub.
+     */
+    url: string;
+}
+
+export interface GetRepositoryRepositoryLicenseLicense {
+    /**
+     * The text of the license.
+     */
+    body: string;
+    /**
+     * Conditions associated with the license.
+     */
+    conditions: string[];
+    /**
+     * A description of the license.
+     */
+    description: string;
+    /**
+     * Indicates if the license is featured.
+     */
+    featured: boolean;
+    /**
+     * The URL to view the license details on GitHub.
+     */
+    htmlUrl: string;
+    /**
+     * Details about the implementation of the license.
+     */
+    implementation: string;
+    /**
+     * A key representing the license type (e.g., "apache-2.0").
+     */
+    key: string;
+    /**
+     * Limitations associated with the license.
+     */
+    limitations: string[];
+    /**
+     * The name of the repository.
+     */
+    name: string;
+    /**
+     * Permissions associated with the license.
+     */
+    permissions: string[];
+    /**
+     * The SPDX identifier for the license (e.g., "Apache-2.0").
+     */
+    spdxId: string;
+    /**
+     * The URL to access information about the license on GitHub.
+     */
+    url: string;
 }
 
 export interface GetRepositoryTeamsTeam {

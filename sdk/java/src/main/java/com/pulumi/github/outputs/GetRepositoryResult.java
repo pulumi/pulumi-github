@@ -6,6 +6,7 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.GetRepositoryPage;
+import com.pulumi.github.outputs.GetRepositoryRepositoryLicense;
 import com.pulumi.github.outputs.GetRepositoryTemplate;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -48,7 +49,7 @@ public final class GetRepositoryResult {
      */
     private String defaultBranch;
     /**
-     * @return A description of the repository.
+     * @return A description of the license.
      * 
      */
     private @Nullable String description;
@@ -94,7 +95,7 @@ public final class GetRepositoryResult {
      */
     private @Nullable String homepageUrl;
     /**
-     * @return URL to the repository on the web.
+     * @return The URL to view the license details on GitHub.
      * 
      */
     private String htmlUrl;
@@ -123,6 +124,10 @@ public final class GetRepositoryResult {
      * 
      */
     private String mergeCommitTitle;
+    /**
+     * @return The name of the license (e.g., &#34;Apache License 2.0&#34;).
+     * 
+     */
     private String name;
     /**
      * @return GraphQL global node id for use with v4 API
@@ -149,6 +154,11 @@ public final class GetRepositoryResult {
      * 
      */
     private Integer repoId;
+    /**
+     * @return An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+     * 
+     */
+    private List<GetRepositoryRepositoryLicense> repositoryLicenses;
     /**
      * @return The default value for a squash merge commit message.
      * 
@@ -229,7 +239,7 @@ public final class GetRepositoryResult {
         return this.defaultBranch;
     }
     /**
-     * @return A description of the repository.
+     * @return A description of the license.
      * 
      */
     public Optional<String> description() {
@@ -295,7 +305,7 @@ public final class GetRepositoryResult {
         return Optional.ofNullable(this.homepageUrl);
     }
     /**
-     * @return URL to the repository on the web.
+     * @return The URL to view the license details on GitHub.
      * 
      */
     public String htmlUrl() {
@@ -336,6 +346,10 @@ public final class GetRepositoryResult {
     public String mergeCommitTitle() {
         return this.mergeCommitTitle;
     }
+    /**
+     * @return The name of the license (e.g., &#34;Apache License 2.0&#34;).
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -373,6 +387,13 @@ public final class GetRepositoryResult {
      */
     public Integer repoId() {
         return this.repoId;
+    }
+    /**
+     * @return An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+     * 
+     */
+    public List<GetRepositoryRepositoryLicense> repositoryLicenses() {
+        return this.repositoryLicenses;
     }
     /**
      * @return The default value for a squash merge commit message.
@@ -461,6 +482,7 @@ public final class GetRepositoryResult {
         private String primaryLanguage;
         private Boolean private_;
         private Integer repoId;
+        private List<GetRepositoryRepositoryLicense> repositoryLicenses;
         private String squashMergeCommitMessage;
         private String squashMergeCommitTitle;
         private String sshCloneUrl;
@@ -499,6 +521,7 @@ public final class GetRepositoryResult {
     	      this.primaryLanguage = defaults.primaryLanguage;
     	      this.private_ = defaults.private_;
     	      this.repoId = defaults.repoId;
+    	      this.repositoryLicenses = defaults.repositoryLicenses;
     	      this.squashMergeCommitMessage = defaults.squashMergeCommitMessage;
     	      this.squashMergeCommitTitle = defaults.squashMergeCommitTitle;
     	      this.sshCloneUrl = defaults.sshCloneUrl;
@@ -732,6 +755,17 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder repositoryLicenses(List<GetRepositoryRepositoryLicense> repositoryLicenses) {
+            if (repositoryLicenses == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryLicenses");
+            }
+            this.repositoryLicenses = repositoryLicenses;
+            return this;
+        }
+        public Builder repositoryLicenses(GetRepositoryRepositoryLicense... repositoryLicenses) {
+            return repositoryLicenses(List.of(repositoryLicenses));
+        }
+        @CustomType.Setter
         public Builder squashMergeCommitMessage(String squashMergeCommitMessage) {
             if (squashMergeCommitMessage == null) {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "squashMergeCommitMessage");
@@ -820,6 +854,7 @@ public final class GetRepositoryResult {
             _resultValue.primaryLanguage = primaryLanguage;
             _resultValue.private_ = private_;
             _resultValue.repoId = repoId;
+            _resultValue.repositoryLicenses = repositoryLicenses;
             _resultValue.squashMergeCommitMessage = squashMergeCommitMessage;
             _resultValue.squashMergeCommitTitle = squashMergeCommitTitle;
             _resultValue.sshCloneUrl = sshCloneUrl;
