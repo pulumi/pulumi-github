@@ -12514,11 +12514,12 @@ type GetRepositoryPage struct {
 	BuildType string `pulumi:"buildType"`
 	Cname     string `pulumi:"cname"`
 	Custom404 bool   `pulumi:"custom404"`
-	// URL to the repository on the web.
+	// The URL to view the license details on GitHub.
 	HtmlUrl string                    `pulumi:"htmlUrl"`
 	Sources []GetRepositoryPageSource `pulumi:"sources"`
 	Status  string                    `pulumi:"status"`
-	Url     string                    `pulumi:"url"`
+	// The URL to access information about the license on GitHub.
+	Url string `pulumi:"url"`
 }
 
 // GetRepositoryPageInput is an input type that accepts GetRepositoryPageArgs and GetRepositoryPageOutput values.
@@ -12536,11 +12537,12 @@ type GetRepositoryPageArgs struct {
 	BuildType pulumi.StringInput `pulumi:"buildType"`
 	Cname     pulumi.StringInput `pulumi:"cname"`
 	Custom404 pulumi.BoolInput   `pulumi:"custom404"`
-	// URL to the repository on the web.
+	// The URL to view the license details on GitHub.
 	HtmlUrl pulumi.StringInput                `pulumi:"htmlUrl"`
 	Sources GetRepositoryPageSourceArrayInput `pulumi:"sources"`
 	Status  pulumi.StringInput                `pulumi:"status"`
-	Url     pulumi.StringInput                `pulumi:"url"`
+	// The URL to access information about the license on GitHub.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetRepositoryPageArgs) ElementType() reflect.Type {
@@ -12606,7 +12608,7 @@ func (o GetRepositoryPageOutput) Custom404() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryPage) bool { return v.Custom404 }).(pulumi.BoolOutput)
 }
 
-// URL to the repository on the web.
+// The URL to view the license details on GitHub.
 func (o GetRepositoryPageOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPage) string { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -12619,6 +12621,7 @@ func (o GetRepositoryPageOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPage) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The URL to access information about the license on GitHub.
 func (o GetRepositoryPageOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPage) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -12645,7 +12648,8 @@ func (o GetRepositoryPageArrayOutput) Index(i pulumi.IntInput) GetRepositoryPage
 
 type GetRepositoryPageSource struct {
 	Branch string `pulumi:"branch"`
-	Path   string `pulumi:"path"`
+	// The path to the license file within the repository.
+	Path string `pulumi:"path"`
 }
 
 // GetRepositoryPageSourceInput is an input type that accepts GetRepositoryPageSourceArgs and GetRepositoryPageSourceOutput values.
@@ -12661,7 +12665,8 @@ type GetRepositoryPageSourceInput interface {
 
 type GetRepositoryPageSourceArgs struct {
 	Branch pulumi.StringInput `pulumi:"branch"`
-	Path   pulumi.StringInput `pulumi:"path"`
+	// The path to the license file within the repository.
+	Path pulumi.StringInput `pulumi:"path"`
 }
 
 func (GetRepositoryPageSourceArgs) ElementType() reflect.Type {
@@ -12719,6 +12724,7 @@ func (o GetRepositoryPageSourceOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPageSource) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// The path to the license file within the repository.
 func (o GetRepositoryPageSourceOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryPageSource) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -12973,6 +12979,398 @@ func (o GetRepositoryPullRequestsResultArrayOutput) Index(i pulumi.IntInput) Get
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPullRequestsResult {
 		return vs[0].([]GetRepositoryPullRequestsResult)[vs[1].(int)]
 	}).(GetRepositoryPullRequestsResultOutput)
+}
+
+type GetRepositoryRepositoryLicense struct {
+	// Content of the license file, encoded by encoding scheme mentioned below.
+	Content string `pulumi:"content"`
+	// The URL to download the raw content of the license file.
+	DownloadUrl string `pulumi:"downloadUrl"`
+	// The encoding used for the content (e.g., "base64").
+	Encoding string `pulumi:"encoding"`
+	// The URL to access information about the license file as a Git blob.
+	GitUrl string `pulumi:"gitUrl"`
+	// The URL to view the license details on GitHub.
+	HtmlUrl string `pulumi:"htmlUrl"`
+	// `license` block consists of the fields documented below.
+	Licenses []GetRepositoryRepositoryLicenseLicense `pulumi:"licenses"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// The path to the license file within the repository.
+	Path string `pulumi:"path"`
+	// The SHA hash of the license file.
+	Sha string `pulumi:"sha"`
+	// The size of the license file in bytes.
+	Size int `pulumi:"size"`
+	// The type of the content, (e.g., "file").
+	Type string `pulumi:"type"`
+	// The URL to access information about the license on GitHub.
+	Url string `pulumi:"url"`
+}
+
+// GetRepositoryRepositoryLicenseInput is an input type that accepts GetRepositoryRepositoryLicenseArgs and GetRepositoryRepositoryLicenseOutput values.
+// You can construct a concrete instance of `GetRepositoryRepositoryLicenseInput` via:
+//
+//	GetRepositoryRepositoryLicenseArgs{...}
+type GetRepositoryRepositoryLicenseInput interface {
+	pulumi.Input
+
+	ToGetRepositoryRepositoryLicenseOutput() GetRepositoryRepositoryLicenseOutput
+	ToGetRepositoryRepositoryLicenseOutputWithContext(context.Context) GetRepositoryRepositoryLicenseOutput
+}
+
+type GetRepositoryRepositoryLicenseArgs struct {
+	// Content of the license file, encoded by encoding scheme mentioned below.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The URL to download the raw content of the license file.
+	DownloadUrl pulumi.StringInput `pulumi:"downloadUrl"`
+	// The encoding used for the content (e.g., "base64").
+	Encoding pulumi.StringInput `pulumi:"encoding"`
+	// The URL to access information about the license file as a Git blob.
+	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
+	// The URL to view the license details on GitHub.
+	HtmlUrl pulumi.StringInput `pulumi:"htmlUrl"`
+	// `license` block consists of the fields documented below.
+	Licenses GetRepositoryRepositoryLicenseLicenseArrayInput `pulumi:"licenses"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the license file within the repository.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The SHA hash of the license file.
+	Sha pulumi.StringInput `pulumi:"sha"`
+	// The size of the license file in bytes.
+	Size pulumi.IntInput `pulumi:"size"`
+	// The type of the content, (e.g., "file").
+	Type pulumi.StringInput `pulumi:"type"`
+	// The URL to access information about the license on GitHub.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetRepositoryRepositoryLicenseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryRepositoryLicense)(nil)).Elem()
+}
+
+func (i GetRepositoryRepositoryLicenseArgs) ToGetRepositoryRepositoryLicenseOutput() GetRepositoryRepositoryLicenseOutput {
+	return i.ToGetRepositoryRepositoryLicenseOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryRepositoryLicenseArgs) ToGetRepositoryRepositoryLicenseOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryRepositoryLicenseOutput)
+}
+
+// GetRepositoryRepositoryLicenseArrayInput is an input type that accepts GetRepositoryRepositoryLicenseArray and GetRepositoryRepositoryLicenseArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryRepositoryLicenseArrayInput` via:
+//
+//	GetRepositoryRepositoryLicenseArray{ GetRepositoryRepositoryLicenseArgs{...} }
+type GetRepositoryRepositoryLicenseArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryRepositoryLicenseArrayOutput() GetRepositoryRepositoryLicenseArrayOutput
+	ToGetRepositoryRepositoryLicenseArrayOutputWithContext(context.Context) GetRepositoryRepositoryLicenseArrayOutput
+}
+
+type GetRepositoryRepositoryLicenseArray []GetRepositoryRepositoryLicenseInput
+
+func (GetRepositoryRepositoryLicenseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryRepositoryLicense)(nil)).Elem()
+}
+
+func (i GetRepositoryRepositoryLicenseArray) ToGetRepositoryRepositoryLicenseArrayOutput() GetRepositoryRepositoryLicenseArrayOutput {
+	return i.ToGetRepositoryRepositoryLicenseArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryRepositoryLicenseArray) ToGetRepositoryRepositoryLicenseArrayOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryRepositoryLicenseArrayOutput)
+}
+
+type GetRepositoryRepositoryLicenseOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryRepositoryLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryRepositoryLicense)(nil)).Elem()
+}
+
+func (o GetRepositoryRepositoryLicenseOutput) ToGetRepositoryRepositoryLicenseOutput() GetRepositoryRepositoryLicenseOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseOutput) ToGetRepositoryRepositoryLicenseOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseOutput {
+	return o
+}
+
+// Content of the license file, encoded by encoding scheme mentioned below.
+func (o GetRepositoryRepositoryLicenseOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The URL to download the raw content of the license file.
+func (o GetRepositoryRepositoryLicenseOutput) DownloadUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.DownloadUrl }).(pulumi.StringOutput)
+}
+
+// The encoding used for the content (e.g., "base64").
+func (o GetRepositoryRepositoryLicenseOutput) Encoding() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Encoding }).(pulumi.StringOutput)
+}
+
+// The URL to access information about the license file as a Git blob.
+func (o GetRepositoryRepositoryLicenseOutput) GitUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.GitUrl }).(pulumi.StringOutput)
+}
+
+// The URL to view the license details on GitHub.
+func (o GetRepositoryRepositoryLicenseOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// `license` block consists of the fields documented below.
+func (o GetRepositoryRepositoryLicenseOutput) Licenses() GetRepositoryRepositoryLicenseLicenseArrayOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) []GetRepositoryRepositoryLicenseLicense { return v.Licenses }).(GetRepositoryRepositoryLicenseLicenseArrayOutput)
+}
+
+// The name of the repository.
+func (o GetRepositoryRepositoryLicenseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path to the license file within the repository.
+func (o GetRepositoryRepositoryLicenseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The SHA hash of the license file.
+func (o GetRepositoryRepositoryLicenseOutput) Sha() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Sha }).(pulumi.StringOutput)
+}
+
+// The size of the license file in bytes.
+func (o GetRepositoryRepositoryLicenseOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The type of the content, (e.g., "file").
+func (o GetRepositoryRepositoryLicenseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URL to access information about the license on GitHub.
+func (o GetRepositoryRepositoryLicenseOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicense) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetRepositoryRepositoryLicenseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryRepositoryLicenseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryRepositoryLicense)(nil)).Elem()
+}
+
+func (o GetRepositoryRepositoryLicenseArrayOutput) ToGetRepositoryRepositoryLicenseArrayOutput() GetRepositoryRepositoryLicenseArrayOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseArrayOutput) ToGetRepositoryRepositoryLicenseArrayOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseArrayOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseArrayOutput) Index(i pulumi.IntInput) GetRepositoryRepositoryLicenseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryRepositoryLicense {
+		return vs[0].([]GetRepositoryRepositoryLicense)[vs[1].(int)]
+	}).(GetRepositoryRepositoryLicenseOutput)
+}
+
+type GetRepositoryRepositoryLicenseLicense struct {
+	// The text of the license.
+	Body string `pulumi:"body"`
+	// Conditions associated with the license.
+	Conditions []string `pulumi:"conditions"`
+	// A description of the license.
+	Description string `pulumi:"description"`
+	// Indicates if the license is featured.
+	Featured bool `pulumi:"featured"`
+	// The URL to view the license details on GitHub.
+	HtmlUrl string `pulumi:"htmlUrl"`
+	// Details about the implementation of the license.
+	Implementation string `pulumi:"implementation"`
+	// A key representing the license type (e.g., "apache-2.0").
+	Key string `pulumi:"key"`
+	// Limitations associated with the license.
+	Limitations []string `pulumi:"limitations"`
+	// The name of the repository.
+	Name string `pulumi:"name"`
+	// Permissions associated with the license.
+	Permissions []string `pulumi:"permissions"`
+	// The SPDX identifier for the license (e.g., "Apache-2.0").
+	SpdxId string `pulumi:"spdxId"`
+	// The URL to access information about the license on GitHub.
+	Url string `pulumi:"url"`
+}
+
+// GetRepositoryRepositoryLicenseLicenseInput is an input type that accepts GetRepositoryRepositoryLicenseLicenseArgs and GetRepositoryRepositoryLicenseLicenseOutput values.
+// You can construct a concrete instance of `GetRepositoryRepositoryLicenseLicenseInput` via:
+//
+//	GetRepositoryRepositoryLicenseLicenseArgs{...}
+type GetRepositoryRepositoryLicenseLicenseInput interface {
+	pulumi.Input
+
+	ToGetRepositoryRepositoryLicenseLicenseOutput() GetRepositoryRepositoryLicenseLicenseOutput
+	ToGetRepositoryRepositoryLicenseLicenseOutputWithContext(context.Context) GetRepositoryRepositoryLicenseLicenseOutput
+}
+
+type GetRepositoryRepositoryLicenseLicenseArgs struct {
+	// The text of the license.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Conditions associated with the license.
+	Conditions pulumi.StringArrayInput `pulumi:"conditions"`
+	// A description of the license.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Indicates if the license is featured.
+	Featured pulumi.BoolInput `pulumi:"featured"`
+	// The URL to view the license details on GitHub.
+	HtmlUrl pulumi.StringInput `pulumi:"htmlUrl"`
+	// Details about the implementation of the license.
+	Implementation pulumi.StringInput `pulumi:"implementation"`
+	// A key representing the license type (e.g., "apache-2.0").
+	Key pulumi.StringInput `pulumi:"key"`
+	// Limitations associated with the license.
+	Limitations pulumi.StringArrayInput `pulumi:"limitations"`
+	// The name of the repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Permissions associated with the license.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The SPDX identifier for the license (e.g., "Apache-2.0").
+	SpdxId pulumi.StringInput `pulumi:"spdxId"`
+	// The URL to access information about the license on GitHub.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetRepositoryRepositoryLicenseLicenseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryRepositoryLicenseLicense)(nil)).Elem()
+}
+
+func (i GetRepositoryRepositoryLicenseLicenseArgs) ToGetRepositoryRepositoryLicenseLicenseOutput() GetRepositoryRepositoryLicenseLicenseOutput {
+	return i.ToGetRepositoryRepositoryLicenseLicenseOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryRepositoryLicenseLicenseArgs) ToGetRepositoryRepositoryLicenseLicenseOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryRepositoryLicenseLicenseOutput)
+}
+
+// GetRepositoryRepositoryLicenseLicenseArrayInput is an input type that accepts GetRepositoryRepositoryLicenseLicenseArray and GetRepositoryRepositoryLicenseLicenseArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryRepositoryLicenseLicenseArrayInput` via:
+//
+//	GetRepositoryRepositoryLicenseLicenseArray{ GetRepositoryRepositoryLicenseLicenseArgs{...} }
+type GetRepositoryRepositoryLicenseLicenseArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryRepositoryLicenseLicenseArrayOutput() GetRepositoryRepositoryLicenseLicenseArrayOutput
+	ToGetRepositoryRepositoryLicenseLicenseArrayOutputWithContext(context.Context) GetRepositoryRepositoryLicenseLicenseArrayOutput
+}
+
+type GetRepositoryRepositoryLicenseLicenseArray []GetRepositoryRepositoryLicenseLicenseInput
+
+func (GetRepositoryRepositoryLicenseLicenseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryRepositoryLicenseLicense)(nil)).Elem()
+}
+
+func (i GetRepositoryRepositoryLicenseLicenseArray) ToGetRepositoryRepositoryLicenseLicenseArrayOutput() GetRepositoryRepositoryLicenseLicenseArrayOutput {
+	return i.ToGetRepositoryRepositoryLicenseLicenseArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryRepositoryLicenseLicenseArray) ToGetRepositoryRepositoryLicenseLicenseArrayOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseLicenseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryRepositoryLicenseLicenseArrayOutput)
+}
+
+type GetRepositoryRepositoryLicenseLicenseOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryRepositoryLicenseLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryRepositoryLicenseLicense)(nil)).Elem()
+}
+
+func (o GetRepositoryRepositoryLicenseLicenseOutput) ToGetRepositoryRepositoryLicenseLicenseOutput() GetRepositoryRepositoryLicenseLicenseOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseLicenseOutput) ToGetRepositoryRepositoryLicenseLicenseOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseLicenseOutput {
+	return o
+}
+
+// The text of the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Conditions associated with the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Conditions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) []string { return v.Conditions }).(pulumi.StringArrayOutput)
+}
+
+// A description of the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Indicates if the license is featured.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Featured() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) bool { return v.Featured }).(pulumi.BoolOutput)
+}
+
+// The URL to view the license details on GitHub.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// Details about the implementation of the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Implementation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Implementation }).(pulumi.StringOutput)
+}
+
+// A key representing the license type (e.g., "apache-2.0").
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Limitations associated with the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Limitations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) []string { return v.Limitations }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Permissions associated with the license.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The SPDX identifier for the license (e.g., "Apache-2.0").
+func (o GetRepositoryRepositoryLicenseLicenseOutput) SpdxId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.SpdxId }).(pulumi.StringOutput)
+}
+
+// The URL to access information about the license on GitHub.
+func (o GetRepositoryRepositoryLicenseLicenseOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryRepositoryLicenseLicense) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetRepositoryRepositoryLicenseLicenseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryRepositoryLicenseLicenseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryRepositoryLicenseLicense)(nil)).Elem()
+}
+
+func (o GetRepositoryRepositoryLicenseLicenseArrayOutput) ToGetRepositoryRepositoryLicenseLicenseArrayOutput() GetRepositoryRepositoryLicenseLicenseArrayOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseLicenseArrayOutput) ToGetRepositoryRepositoryLicenseLicenseArrayOutputWithContext(ctx context.Context) GetRepositoryRepositoryLicenseLicenseArrayOutput {
+	return o
+}
+
+func (o GetRepositoryRepositoryLicenseLicenseArrayOutput) Index(i pulumi.IntInput) GetRepositoryRepositoryLicenseLicenseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryRepositoryLicenseLicense {
+		return vs[0].([]GetRepositoryRepositoryLicenseLicense)[vs[1].(int)]
+	}).(GetRepositoryRepositoryLicenseLicenseOutput)
 }
 
 type GetRepositoryTeamsTeam struct {
@@ -13661,6 +14059,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceArrayInput)(nil)).Elem(), GetRepositoryPageSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultInput)(nil)).Elem(), GetRepositoryPullRequestsResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryRepositoryLicenseInput)(nil)).Elem(), GetRepositoryRepositoryLicenseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryRepositoryLicenseArrayInput)(nil)).Elem(), GetRepositoryRepositoryLicenseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryRepositoryLicenseLicenseInput)(nil)).Elem(), GetRepositoryRepositoryLicenseLicenseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryRepositoryLicenseLicenseArrayInput)(nil)).Elem(), GetRepositoryRepositoryLicenseLicenseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamInput)(nil)).Elem(), GetRepositoryTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamArrayInput)(nil)).Elem(), GetRepositoryTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateInput)(nil)).Elem(), GetRepositoryTemplateArgs{})
@@ -13834,6 +14236,10 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryRepositoryLicenseOutput{})
+	pulumi.RegisterOutputType(GetRepositoryRepositoryLicenseArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryRepositoryLicenseLicenseOutput{})
+	pulumi.RegisterOutputType(GetRepositoryRepositoryLicenseLicenseArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTemplateOutput{})

@@ -14,6 +14,9 @@ namespace Pulumi.Github.Outputs
     public sealed class GetRepositoryPageSourceResult
     {
         public readonly string Branch;
+        /// <summary>
+        /// The path to the license file within the repository.
+        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

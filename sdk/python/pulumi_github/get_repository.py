@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -107,6 +107,9 @@ class GetRepositoryResult:
         if repo_id and not isinstance(repo_id, int):
             raise TypeError("Expected argument 'repo_id' to be a int")
         pulumi.set(__self__, "repo_id", repo_id)
+        if repository_licenses and not isinstance(repository_licenses, list):
+            raise TypeError("Expected argument 'repository_licenses' to be a list")
+        pulumi.set(__self__, "repository_licenses", repository_licenses)
         if squash_merge_commit_message and not isinstance(squash_merge_commit_message, str):
             raise TypeError("Expected argument 'squash_merge_commit_message' to be a str")
         pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
@@ -181,7 +184,7 @@ class GetRepositoryResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the repository.
+        A description of the license.
         """
         return pulumi.get(self, "description")
 
@@ -258,7 +261,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
         """
-        URL to the repository on the web.
+        The URL to view the license details on GitHub.
         """
         return pulumi.get(self, "html_url")
 
@@ -305,6 +308,9 @@ class GetRepositoryResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the license (e.g., "Apache License 2.0").
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -346,6 +352,14 @@ class GetRepositoryResult:
         GitHub ID for the repository
         """
         return pulumi.get(self, "repo_id")
+
+    @property
+    @pulumi.getter(name="repositoryLicenses")
+    def repository_licenses(self) -> Sequence['outputs.GetRepositoryRepositoryLicenseResult']:
+        """
+        An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+        """
+        return pulumi.get(self, "repository_licenses")
 
     @property
     @pulumi.getter(name="squashMergeCommitMessage")
@@ -438,6 +452,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             primary_language=self.primary_language,
             private=self.private,
             repo_id=self.repo_id,
+            repository_licenses=self.repository_licenses,
             squash_merge_commit_message=self.squash_merge_commit_message,
             squash_merge_commit_title=self.squash_merge_commit_title,
             ssh_clone_url=self.ssh_clone_url,
@@ -465,7 +480,7 @@ def get_repository(description: Optional[str] = None,
     ```
 
 
-    :param str description: A description of the repository.
+    :param str description: A description of the license.
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str homepage_url: URL of a page describing the project.
     :param str name: The name of the repository.
@@ -507,6 +522,7 @@ def get_repository(description: Optional[str] = None,
         primary_language=pulumi.get(__ret__, 'primary_language'),
         private=pulumi.get(__ret__, 'private'),
         repo_id=pulumi.get(__ret__, 'repo_id'),
+        repository_licenses=pulumi.get(__ret__, 'repository_licenses'),
         squash_merge_commit_message=pulumi.get(__ret__, 'squash_merge_commit_message'),
         squash_merge_commit_title=pulumi.get(__ret__, 'squash_merge_commit_title'),
         ssh_clone_url=pulumi.get(__ret__, 'ssh_clone_url'),
@@ -535,7 +551,7 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str description: A description of the repository.
+    :param str description: A description of the license.
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str homepage_url: URL of a page describing the project.
     :param str name: The name of the repository.

@@ -17,11 +17,14 @@ namespace Pulumi.Github.Outputs
         public readonly string Cname;
         public readonly bool Custom404;
         /// <summary>
-        /// URL to the repository on the web.
+        /// The URL to view the license details on GitHub.
         /// </summary>
         public readonly string HtmlUrl;
         public readonly ImmutableArray<Outputs.GetRepositoryPageSourceResult> Sources;
         public readonly string Status;
+        /// <summary>
+        /// The URL to access information about the license on GitHub.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

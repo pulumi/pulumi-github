@@ -37,7 +37,7 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetRepositoryArgs {
     /**
-     * A description of the repository.
+     * A description of the license.
      */
     description?: string;
     /**
@@ -83,7 +83,7 @@ export interface GetRepositoryResult {
      */
     readonly defaultBranch: string;
     /**
-     * A description of the repository.
+     * A description of the license.
      */
     readonly description?: string;
     /**
@@ -120,7 +120,7 @@ export interface GetRepositoryResult {
      */
     readonly homepageUrl?: string;
     /**
-     * URL to the repository on the web.
+     * The URL to view the license details on GitHub.
      */
     readonly htmlUrl: string;
     /**
@@ -143,6 +143,9 @@ export interface GetRepositoryResult {
      * The default value for a merge commit title.
      */
     readonly mergeCommitTitle: string;
+    /**
+     * The name of the license (e.g., "Apache License 2.0").
+     */
     readonly name: string;
     /**
      * GraphQL global node id for use with v4 API
@@ -164,6 +167,10 @@ export interface GetRepositoryResult {
      * GitHub ID for the repository
      */
     readonly repoId: number;
+    /**
+     * An Array of GitHub repository licenses. Each `repositoryLicense` block consists of the fields documented below.
+     */
+    readonly repositoryLicenses: outputs.GetRepositoryRepositoryLicense[];
     /**
      * The default value for a squash merge commit message.
      */
@@ -216,7 +223,7 @@ export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulum
  */
 export interface GetRepositoryOutputArgs {
     /**
-     * A description of the repository.
+     * A description of the license.
      */
     description?: pulumi.Input<string>;
     /**

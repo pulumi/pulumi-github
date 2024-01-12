@@ -72,7 +72,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A description of the repository.
+        /// A description of the license.
         /// </summary>
         [Input("description")]
         public string? Description { get; set; }
@@ -104,7 +104,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A description of the repository.
+        /// A description of the license.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string DefaultBranch;
         /// <summary>
-        /// A description of the repository.
+        /// A description of the license.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string? HomepageUrl;
         /// <summary>
-        /// URL to the repository on the web.
+        /// The URL to view the license details on GitHub.
         /// </summary>
         public readonly string HtmlUrl;
         /// <summary>
@@ -222,6 +222,9 @@ namespace Pulumi.Github
         /// The default value for a merge commit title.
         /// </summary>
         public readonly string MergeCommitTitle;
+        /// <summary>
+        /// The name of the license (e.g., "Apache License 2.0").
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// GraphQL global node id for use with v4 API
@@ -243,6 +246,10 @@ namespace Pulumi.Github
         /// GitHub ID for the repository
         /// </summary>
         public readonly int RepoId;
+        /// <summary>
+        /// An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryRepositoryLicenseResult> RepositoryLicenses;
         /// <summary>
         /// The default value for a squash merge commit message.
         /// </summary>
@@ -330,6 +337,8 @@ namespace Pulumi.Github
 
             int repoId,
 
+            ImmutableArray<Outputs.GetRepositoryRepositoryLicenseResult> repositoryLicenses,
+
             string squashMergeCommitMessage,
 
             string squashMergeCommitTitle,
@@ -372,6 +381,7 @@ namespace Pulumi.Github
             PrimaryLanguage = primaryLanguage;
             Private = @private;
             RepoId = repoId;
+            RepositoryLicenses = repositoryLicenses;
             SquashMergeCommitMessage = squashMergeCommitMessage;
             SquashMergeCommitTitle = squashMergeCommitTitle;
             SshCloneUrl = sshCloneUrl;

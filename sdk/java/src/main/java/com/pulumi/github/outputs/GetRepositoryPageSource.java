@@ -11,12 +11,20 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryPageSource {
     private String branch;
+    /**
+     * @return The path to the license file within the repository.
+     * 
+     */
     private String path;
 
     private GetRepositoryPageSource() {}
     public String branch() {
         return this.branch;
     }
+    /**
+     * @return The path to the license file within the repository.
+     * 
+     */
     public String path() {
         return this.path;
     }

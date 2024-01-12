@@ -50,7 +50,7 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
-	// A description of the repository.
+	// A description of the license.
 	Description *string `pulumi:"description"`
 	// Full name of the repository (in `org/name` format).
 	FullName *string `pulumi:"fullName"`
@@ -74,7 +74,7 @@ type LookupRepositoryResult struct {
 	Archived bool `pulumi:"archived"`
 	// The name of the default branch of the repository.
 	DefaultBranch string `pulumi:"defaultBranch"`
-	// A description of the repository.
+	// A description of the license.
 	Description *string `pulumi:"description"`
 	// Whether the repository is a fork.
 	Fork     bool   `pulumi:"fork"`
@@ -93,7 +93,7 @@ type LookupRepositoryResult struct {
 	HasWiki bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
-	// URL to the repository on the web.
+	// The URL to view the license details on GitHub.
 	HtmlUrl string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl string `pulumi:"httpCloneUrl"`
@@ -105,7 +105,8 @@ type LookupRepositoryResult struct {
 	MergeCommitMessage string `pulumi:"mergeCommitMessage"`
 	// The default value for a merge commit title.
 	MergeCommitTitle string `pulumi:"mergeCommitTitle"`
-	Name             string `pulumi:"name"`
+	// The name of the license (e.g., "Apache License 2.0").
+	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`
 	// The repository's GitHub Pages configuration.
@@ -116,6 +117,8 @@ type LookupRepositoryResult struct {
 	Private bool `pulumi:"private"`
 	// GitHub ID for the repository
 	RepoId int `pulumi:"repoId"`
+	// An Array of GitHub repository licenses. Each `repositoryLicense` block consists of the fields documented below.
+	RepositoryLicenses []GetRepositoryRepositoryLicense `pulumi:"repositoryLicenses"`
 	// The default value for a squash merge commit message.
 	SquashMergeCommitMessage string `pulumi:"squashMergeCommitMessage"`
 	// The default value for a squash merge commit title.
@@ -147,7 +150,7 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
-	// A description of the repository.
+	// A description of the license.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Full name of the repository (in `org/name` format).
 	FullName pulumi.StringPtrInput `pulumi:"fullName"`
@@ -206,7 +209,7 @@ func (o LookupRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
-// A description of the repository.
+// A description of the license.
 func (o LookupRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -255,7 +258,7 @@ func (o LookupRepositoryResultOutput) HomepageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.HomepageUrl }).(pulumi.StringPtrOutput)
 }
 
-// URL to the repository on the web.
+// The URL to view the license details on GitHub.
 func (o LookupRepositoryResultOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -285,6 +288,7 @@ func (o LookupRepositoryResultOutput) MergeCommitTitle() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.MergeCommitTitle }).(pulumi.StringOutput)
 }
 
+// The name of the license (e.g., "Apache License 2.0").
 func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -312,6 +316,11 @@ func (o LookupRepositoryResultOutput) Private() pulumi.BoolOutput {
 // GitHub ID for the repository
 func (o LookupRepositoryResultOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) int { return v.RepoId }).(pulumi.IntOutput)
+}
+
+// An Array of GitHub repository licenses. Each `repositoryLicense` block consists of the fields documented below.
+func (o LookupRepositoryResultOutput) RepositoryLicenses() GetRepositoryRepositoryLicenseArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryRepositoryLicense { return v.RepositoryLicenses }).(GetRepositoryRepositoryLicenseArrayOutput)
 }
 
 // The default value for a squash merge commit message.

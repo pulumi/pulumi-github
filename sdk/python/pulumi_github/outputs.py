@@ -92,6 +92,8 @@ __all__ = [
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
     'GetRepositoryPullRequestsResultResult',
+    'GetRepositoryRepositoryLicenseResult',
+    'GetRepositoryRepositoryLicenseLicenseResult',
     'GetRepositoryTeamsTeamResult',
     'GetRepositoryTemplateResult',
     'GetRepositoryWebhooksWebhookResult',
@@ -4673,7 +4675,8 @@ class GetRepositoryPageResult(dict):
                  status: str,
                  url: str):
         """
-        :param str html_url: URL to the repository on the web.
+        :param str html_url: The URL to view the license details on GitHub.
+        :param str url: The URL to access information about the license on GitHub.
         """
         pulumi.set(__self__, "build_type", build_type)
         pulumi.set(__self__, "cname", cname)
@@ -4702,7 +4705,7 @@ class GetRepositoryPageResult(dict):
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> str:
         """
-        URL to the repository on the web.
+        The URL to view the license details on GitHub.
         """
         return pulumi.get(self, "html_url")
 
@@ -4719,6 +4722,9 @@ class GetRepositoryPageResult(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL to access information about the license on GitHub.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4727,6 +4733,9 @@ class GetRepositoryPageSourceResult(dict):
     def __init__(__self__, *,
                  branch: str,
                  path: str):
+        """
+        :param str path: The path to the license file within the repository.
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "path", path)
 
@@ -4738,6 +4747,9 @@ class GetRepositoryPageSourceResult(dict):
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The path to the license file within the repository.
+        """
         return pulumi.get(self, "path")
 
 
@@ -4922,6 +4934,284 @@ class GetRepositoryPullRequestsResultResult(dict):
         The timestamp of the last Pull Request update.
         """
         return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetRepositoryRepositoryLicenseResult(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 download_url: str,
+                 encoding: str,
+                 git_url: str,
+                 html_url: str,
+                 licenses: Sequence['outputs.GetRepositoryRepositoryLicenseLicenseResult'],
+                 name: str,
+                 path: str,
+                 sha: str,
+                 size: int,
+                 type: str,
+                 url: str):
+        """
+        :param str content: Content of the license file, encoded by encoding scheme mentioned below.
+        :param str download_url: The URL to download the raw content of the license file.
+        :param str encoding: The encoding used for the content (e.g., "base64").
+        :param str git_url: The URL to access information about the license file as a Git blob.
+        :param str html_url: The URL to view the license details on GitHub.
+        :param Sequence['GetRepositoryRepositoryLicenseLicenseArgs'] licenses: `license` block consists of the fields documented below.
+        :param str name: The name of the repository.
+        :param str path: The path to the license file within the repository.
+        :param str sha: The SHA hash of the license file.
+        :param int size: The size of the license file in bytes.
+        :param str type: The type of the content, (e.g., "file").
+        :param str url: The URL to access information about the license on GitHub.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "download_url", download_url)
+        pulumi.set(__self__, "encoding", encoding)
+        pulumi.set(__self__, "git_url", git_url)
+        pulumi.set(__self__, "html_url", html_url)
+        pulumi.set(__self__, "licenses", licenses)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "sha", sha)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Content of the license file, encoded by encoding scheme mentioned below.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="downloadUrl")
+    def download_url(self) -> str:
+        """
+        The URL to download the raw content of the license file.
+        """
+        return pulumi.get(self, "download_url")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> str:
+        """
+        The encoding used for the content (e.g., "base64").
+        """
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="gitUrl")
+    def git_url(self) -> str:
+        """
+        The URL to access information about the license file as a Git blob.
+        """
+        return pulumi.get(self, "git_url")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        The URL to view the license details on GitHub.
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def licenses(self) -> Sequence['outputs.GetRepositoryRepositoryLicenseLicenseResult']:
+        """
+        `license` block consists of the fields documented below.
+        """
+        return pulumi.get(self, "licenses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to the license file within the repository.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def sha(self) -> str:
+        """
+        The SHA hash of the license file.
+        """
+        return pulumi.get(self, "sha")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The size of the license file in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the content, (e.g., "file").
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL to access information about the license on GitHub.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetRepositoryRepositoryLicenseLicenseResult(dict):
+    def __init__(__self__, *,
+                 body: str,
+                 conditions: Sequence[str],
+                 description: str,
+                 featured: bool,
+                 html_url: str,
+                 implementation: str,
+                 key: str,
+                 limitations: Sequence[str],
+                 name: str,
+                 permissions: Sequence[str],
+                 spdx_id: str,
+                 url: str):
+        """
+        :param str body: The text of the license.
+        :param Sequence[str] conditions: Conditions associated with the license.
+        :param str description: A description of the license.
+        :param bool featured: Indicates if the license is featured.
+        :param str html_url: The URL to view the license details on GitHub.
+        :param str implementation: Details about the implementation of the license.
+        :param str key: A key representing the license type (e.g., "apache-2.0").
+        :param Sequence[str] limitations: Limitations associated with the license.
+        :param str name: The name of the repository.
+        :param Sequence[str] permissions: Permissions associated with the license.
+        :param str spdx_id: The SPDX identifier for the license (e.g., "Apache-2.0").
+        :param str url: The URL to access information about the license on GitHub.
+        """
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "featured", featured)
+        pulumi.set(__self__, "html_url", html_url)
+        pulumi.set(__self__, "implementation", implementation)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "limitations", limitations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "spdx_id", spdx_id)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def body(self) -> str:
+        """
+        The text of the license.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence[str]:
+        """
+        Conditions associated with the license.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description of the license.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def featured(self) -> bool:
+        """
+        Indicates if the license is featured.
+        """
+        return pulumi.get(self, "featured")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        The URL to view the license details on GitHub.
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def implementation(self) -> str:
+        """
+        Details about the implementation of the license.
+        """
+        return pulumi.get(self, "implementation")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        A key representing the license type (e.g., "apache-2.0").
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def limitations(self) -> Sequence[str]:
+        """
+        Limitations associated with the license.
+        """
+        return pulumi.get(self, "limitations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        """
+        Permissions associated with the license.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="spdxId")
+    def spdx_id(self) -> str:
+        """
+        The SPDX identifier for the license (e.g., "Apache-2.0").
+        """
+        return pulumi.get(self, "spdx_id")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL to access information about the license on GitHub.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

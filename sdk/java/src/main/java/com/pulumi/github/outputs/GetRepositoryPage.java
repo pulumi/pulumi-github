@@ -17,12 +17,16 @@ public final class GetRepositoryPage {
     private String cname;
     private Boolean custom404;
     /**
-     * @return URL to the repository on the web.
+     * @return The URL to view the license details on GitHub.
      * 
      */
     private String htmlUrl;
     private List<GetRepositoryPageSource> sources;
     private String status;
+    /**
+     * @return The URL to access information about the license on GitHub.
+     * 
+     */
     private String url;
 
     private GetRepositoryPage() {}
@@ -36,7 +40,7 @@ public final class GetRepositoryPage {
         return this.custom404;
     }
     /**
-     * @return URL to the repository on the web.
+     * @return The URL to view the license details on GitHub.
      * 
      */
     public String htmlUrl() {
@@ -48,6 +52,10 @@ public final class GetRepositoryPage {
     public String status() {
         return this.status;
     }
+    /**
+     * @return The URL to access information about the license on GitHub.
+     * 
+     */
     public String url() {
         return this.url;
     }

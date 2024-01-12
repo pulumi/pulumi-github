@@ -16,14 +16,14 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRepositoryArgs Empty = new GetRepositoryArgs();
 
     /**
-     * A description of the repository.
+     * A description of the license.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the repository.
+     * @return A description of the license.
      * 
      */
     public Optional<Output<String>> description() {
@@ -103,7 +103,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param description A description of the repository.
+         * @param description A description of the license.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param description A description of the repository.
+         * @param description A description of the license.
          * 
          * @return builder
          * 
