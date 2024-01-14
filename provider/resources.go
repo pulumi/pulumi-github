@@ -16,18 +16,21 @@ package github
 
 import (
 	"fmt"
-	// embed package blank import
-	_ "embed"
 	"path/filepath"
 	"unicode"
 
+	// embed package blank import
+	_ "embed"
+
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/integrations/terraform-provider-github/v5/github"
-	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
 )
 
 // all of the token components used below.
