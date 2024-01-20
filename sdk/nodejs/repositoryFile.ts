@@ -98,7 +98,7 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     public readonly file!: pulumi.Output<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
     public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface RepositoryFileState {
      */
     file?: pulumi.Input<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
     overwriteOnCreate?: pulumi.Input<boolean>;
     /**
@@ -247,7 +247,7 @@ export interface RepositoryFileArgs {
      */
     file: pulumi.Input<string>;
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
     overwriteOnCreate?: pulumi.Input<boolean>;
     /**

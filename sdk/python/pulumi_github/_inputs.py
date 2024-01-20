@@ -32,6 +32,8 @@ __all__ = [
     'OrganizationRulesetRulesPullRequestArgs',
     'OrganizationRulesetRulesRequiredStatusChecksArgs',
     'OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs',
+    'OrganizationRulesetRulesRequiredWorkflowsArgs',
+    'OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs',
     'OrganizationRulesetRulesTagNamePatternArgs',
     'OrganizationWebhookConfigurationArgs',
     'ProviderAppAuthArgs',
@@ -323,6 +325,11 @@ class BranchProtectionRequiredStatusCheckArgs:
                  strict: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: The list of status checks to require in order to merge into this branch. No status checks are required by default.
+               
+               > Note: This attribute can contain multiple string patterns.
+               If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+               For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+               For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         :param pulumi.Input[bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
         if contexts is not None:
@@ -335,6 +342,11 @@ class BranchProtectionRequiredStatusCheckArgs:
     def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of status checks to require in order to merge into this branch. No status checks are required by default.
+
+        > Note: This attribute can contain multiple string patterns.
+        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         """
         return pulumi.get(self, "contexts")
 
@@ -559,6 +571,11 @@ class BranchProtectionV3RequiredStatusChecksArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] checks: The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contexts: [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+               
+               > Note: This attribute can contain multiple string patterns.
+               If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+               For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+               For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         :param pulumi.Input[bool] strict: Require branches to be up to date before merging. Defaults to `false`.
         """
         if checks is not None:
@@ -593,6 +610,11 @@ class BranchProtectionV3RequiredStatusChecksArgs:
     def contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+
+        > Note: This attribute can contain multiple string patterns.
+        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
         """
         warnings.warn("""GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""", DeprecationWarning)
         pulumi.log.warn("""contexts is deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.""")
@@ -972,6 +994,7 @@ class OrganizationRulesetRulesArgs:
                  required_linear_history: Optional[pulumi.Input[bool]] = None,
                  required_signatures: Optional[pulumi.Input[bool]] = None,
                  required_status_checks: Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']] = None,
+                 required_workflows: Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']] = None,
                  tag_name_pattern: Optional[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs']] = None,
                  update: Optional[pulumi.Input[bool]] = None):
         """
@@ -986,6 +1009,7 @@ class OrganizationRulesetRulesArgs:
         :param pulumi.Input[bool] required_linear_history: (Boolean) Prevent merge commits from being pushed to matching branches.
         :param pulumi.Input[bool] required_signatures: (Boolean) Commits pushed to matching branches must have verified signatures.
         :param pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs'] required_status_checks: (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+        :param pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs'] required_workflows: (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
         :param pulumi.Input['OrganizationRulesetRulesTagNamePatternArgs'] tag_name_pattern: (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
         :param pulumi.Input[bool] update: (Boolean) Only allow users with bypass permission to update matching refs.
         """
@@ -1011,6 +1035,8 @@ class OrganizationRulesetRulesArgs:
             pulumi.set(__self__, "required_signatures", required_signatures)
         if required_status_checks is not None:
             pulumi.set(__self__, "required_status_checks", required_status_checks)
+        if required_workflows is not None:
+            pulumi.set(__self__, "required_workflows", required_workflows)
         if tag_name_pattern is not None:
             pulumi.set(__self__, "tag_name_pattern", tag_name_pattern)
         if update is not None:
@@ -1147,6 +1173,18 @@ class OrganizationRulesetRulesArgs:
     @required_status_checks.setter
     def required_status_checks(self, value: Optional[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgs']]):
         pulumi.set(self, "required_status_checks", value)
+
+    @property
+    @pulumi.getter(name="requiredWorkflows")
+    def required_workflows(self) -> Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']]:
+        """
+        (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_workflows")
+
+    @required_workflows.setter
+    def required_workflows(self, value: Optional[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgs']]):
+        pulumi.set(self, "required_workflows", value)
 
     @property
     @pulumi.getter(name="tagNamePattern")
@@ -1610,6 +1648,81 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
     @integration_id.setter
     def integration_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "integration_id", value)
+
+
+@pulumi.input_type
+class OrganizationRulesetRulesRequiredWorkflowsArgs:
+    def __init__(__self__, *,
+                 required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]] required_workflows: (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        """
+        pulumi.set(__self__, "required_workflows", required_workflows)
+
+    @property
+    @pulumi.getter(name="requiredWorkflows")
+    def required_workflows(self) -> pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]]:
+        """
+        (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_workflows")
+
+    @required_workflows.setter
+    def required_workflows(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]]):
+        pulumi.set(self, "required_workflows", value)
+
+
+@pulumi.input_type
+class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 repository_id: pulumi.Input[int],
+                 ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: (String) The path to the YAML definition file of the workflow.
+        :param pulumi.Input[int] repository_id: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        :param pulumi.Input[str] ref: (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "repository_id", repository_id)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        (String) The path to the YAML definition file of the workflow.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Input[int]:
+        """
+        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "repository_id", value)
+
+    @property
+    @pulumi.getter
+    def ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        """
+        return pulumi.get(self, "ref")
+
+    @ref.setter
+    def ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ref", value)
 
 
 @pulumi.input_type

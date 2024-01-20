@@ -58,6 +58,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.OrganizationRulesetRulesRequiredStatusChecks? RequiredStatusChecks;
         /// <summary>
+        /// (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesRequiredWorkflows? RequiredWorkflows;
+        /// <summary>
         /// (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
         /// </summary>
         public readonly Outputs.OrganizationRulesetRulesTagNamePattern? TagNamePattern;
@@ -90,6 +94,8 @@ namespace Pulumi.Github.Outputs
 
             Outputs.OrganizationRulesetRulesRequiredStatusChecks? requiredStatusChecks,
 
+            Outputs.OrganizationRulesetRulesRequiredWorkflows? requiredWorkflows,
+
             Outputs.OrganizationRulesetRulesTagNamePattern? tagNamePattern,
 
             bool? update)
@@ -105,6 +111,7 @@ namespace Pulumi.Github.Outputs
             RequiredLinearHistory = requiredLinearHistory;
             RequiredSignatures = requiredSignatures;
             RequiredStatusChecks = requiredStatusChecks;
+            RequiredWorkflows = requiredWorkflows;
             TagNamePattern = tagNamePattern;
             Update = update;
         }
