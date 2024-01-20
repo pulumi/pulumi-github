@@ -391,6 +391,16 @@
                                         }
                                     }
                                 },
+                                "required_workflows": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_workflow": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "tag_name_pattern": {
                                     "maxItemsOne": true
                                 }
@@ -1429,6 +1439,7 @@
                 "requiredLinearHistory": "required_linear_history",
                 "requiredSignatures": "required_signatures",
                 "requiredStatusChecks": "required_status_checks",
+                "requiredWorkflows": "required_workflows",
                 "tagNamePattern": "tag_name_pattern"
             },
             "github:index/OrganizationRulesetRulesPullRequest:OrganizationRulesetRulesPullRequest": {
@@ -1444,6 +1455,12 @@
             },
             "github:index/OrganizationRulesetRulesRequiredStatusChecksRequiredCheck:OrganizationRulesetRulesRequiredStatusChecksRequiredCheck": {
                 "integrationId": "integration_id"
+            },
+            "github:index/OrganizationRulesetRulesRequiredWorkflows:OrganizationRulesetRulesRequiredWorkflows": {
+                "requiredWorkflows": "required_workflow"
+            },
+            "github:index/OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow:OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow": {
+                "repositoryId": "repository_id"
             },
             "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
                 "contentType": "content_type",

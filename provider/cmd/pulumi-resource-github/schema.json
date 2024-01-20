@@ -228,7 +228,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of status checks to require in order to merge into this branch. No status checks are required by default.\n"
+                    "description": "The list of status checks to require in order to merge into this branch. No status checks are required by default.\n\n\u003e Note: This attribute can contain multiple string patterns.\nIf specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.\nFor workflows that use matrixes, append the matrix name to the value using the following pattern `(\u003cmatrix_value\u003e[, \u003cmatrix_value\u003e])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.\nFor workflows that use reusable workflows, the pattern is `\u003cinitial_workflow.jobs.job.[name/id]\u003e / \u003creused-workflow.jobs.job.[name/id]\u003e`. This can extend multiple levels.\n"
                 },
                 "strict": {
                     "type": "boolean",
@@ -323,7 +323,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "[**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.\n",
+                    "description": "[**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.\n\n\u003e Note: This attribute can contain multiple string patterns.\nIf specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.\nFor workflows that use matrixes, append the matrix name to the value using the following pattern `(\u003cmatrix_value\u003e[, \u003cmatrix_value\u003e])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.\nFor workflows that use reusable workflows, the pattern is `\u003cinitial_workflow.jobs.job.[name/id]\u003e / \u003creused-workflow.jobs.job.[name/id]\u003e`. This can extend multiple levels.\n",
                     "deprecationMessage": "GitHub is deprecating the use of `contexts`. Use a `checks` array instead."
                 },
                 "includeAdmins": {
@@ -534,6 +534,10 @@
                     "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredStatusChecks:OrganizationRulesetRulesRequiredStatusChecks",
                     "description": "(Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)\n"
                 },
+                "requiredWorkflows": {
+                    "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredWorkflows:OrganizationRulesetRulesRequiredWorkflows",
+                    "description": "(Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)\n"
+                },
                 "tagNamePattern": {
                     "$ref": "#/types/github:index/OrganizationRulesetRulesTagNamePattern:OrganizationRulesetRulesTagNamePattern",
                     "description": "(Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)\n"
@@ -703,6 +707,42 @@
             "type": "object",
             "required": [
                 "context"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesRequiredWorkflows:OrganizationRulesetRulesRequiredWorkflows": {
+            "properties": {
+                "requiredWorkflows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow:OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow"
+                    },
+                    "description": "(Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "requiredWorkflows"
+            ]
+        },
+        "github:index/OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow:OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "(String) The path to the YAML definition file of the workflow.\n"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "(String) The optional ref from which to fetch the workflow. Defaults to `master`.\n"
+                },
+                "repositoryId": {
+                    "type": "integer",
+                    "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "repositoryId"
             ]
         },
         "github:index/OrganizationRulesetRulesTagNamePattern:OrganizationRulesetRulesTagNamePattern": {
@@ -7994,7 +8034,7 @@
                 },
                 "overwriteOnCreate": {
                     "type": "boolean",
-                    "description": "Enable overwriting existing files\n"
+                    "description": "Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.\n"
                 },
                 "ref": {
                     "type": "string",
@@ -8047,7 +8087,7 @@
                 },
                 "overwriteOnCreate": {
                     "type": "boolean",
-                    "description": "Enable overwriting existing files\n"
+                    "description": "Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -8095,7 +8135,7 @@
                     },
                     "overwriteOnCreate": {
                         "type": "boolean",
-                        "description": "Enable overwriting existing files\n"
+                        "description": "Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.\n"
                     },
                     "ref": {
                         "type": "string",
