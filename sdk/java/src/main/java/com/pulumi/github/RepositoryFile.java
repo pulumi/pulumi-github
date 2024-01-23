@@ -179,14 +179,14 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
         return this.file;
     }
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      * 
      */
     @Export(name="overwriteOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwriteOnCreate;
 
     /**
-     * @return Enable overwriting existing files
+     * @return Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      * 
      */
     public Output<Optional<Boolean>> overwriteOnCreate() {

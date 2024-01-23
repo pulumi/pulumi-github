@@ -32,7 +32,7 @@ class RepositoryFileArgs:
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "file", file)
@@ -137,7 +137,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         return pulumi.get(self, "overwrite_on_create")
 
@@ -170,7 +170,7 @@ class _RepositoryFileState:
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         :param pulumi.Input[str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
@@ -287,7 +287,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         return pulumi.get(self, "overwrite_on_create")
 
@@ -390,7 +390,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         :param pulumi.Input[str] repository: The repository to create the file in.
         """
         ...
@@ -519,7 +519,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
-        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files
+        :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         :param pulumi.Input[str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[str] repository: The repository to create the file in.
         :param pulumi.Input[str] sha: The SHA blob of the file.
@@ -602,7 +602,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="overwriteOnCreate")
     def overwrite_on_create(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable overwriting existing files
+        Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         return pulumi.get(self, "overwrite_on_create")
 

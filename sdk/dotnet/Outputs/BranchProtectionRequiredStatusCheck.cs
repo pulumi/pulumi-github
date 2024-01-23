@@ -15,6 +15,11 @@ namespace Pulumi.Github.Outputs
     {
         /// <summary>
         /// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+        /// 
+        /// &gt; Note: This attribute can contain multiple string patterns.
+        /// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+        /// For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+        /// For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
         /// </summary>
         public readonly ImmutableArray<string> Contexts;
         /// <summary>

@@ -11,6 +11,7 @@ import com.pulumi.github.inputs.OrganizationRulesetRulesCommitMessagePatternArgs
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitterEmailPatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesPullRequestArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredStatusChecksArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesTagNamePatternArgs;
 import java.lang.Boolean;
 import java.util.Objects;
@@ -188,6 +189,21 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+     * 
+     */
+    @Import(name="requiredWorkflows")
+    private @Nullable Output<OrganizationRulesetRulesRequiredWorkflowsArgs> requiredWorkflows;
+
+    /**
+     * @return (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesRequiredWorkflowsArgs>> requiredWorkflows() {
+        return Optional.ofNullable(this.requiredWorkflows);
+    }
+
+    /**
      * (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      * 
      */
@@ -231,6 +247,7 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
         this.requiredLinearHistory = $.requiredLinearHistory;
         this.requiredSignatures = $.requiredSignatures;
         this.requiredStatusChecks = $.requiredStatusChecks;
+        this.requiredWorkflows = $.requiredWorkflows;
         this.tagNamePattern = $.tagNamePattern;
         this.update = $.update;
     }
@@ -482,6 +499,27 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
          */
         public Builder requiredStatusChecks(OrganizationRulesetRulesRequiredStatusChecksArgs requiredStatusChecks) {
             return requiredStatusChecks(Output.of(requiredStatusChecks));
+        }
+
+        /**
+         * @param requiredWorkflows (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredWorkflows(@Nullable Output<OrganizationRulesetRulesRequiredWorkflowsArgs> requiredWorkflows) {
+            $.requiredWorkflows = requiredWorkflows;
+            return this;
+        }
+
+        /**
+         * @param requiredWorkflows (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredWorkflows(OrganizationRulesetRulesRequiredWorkflowsArgs requiredWorkflows) {
+            return requiredWorkflows(Output.of(requiredWorkflows));
         }
 
         /**

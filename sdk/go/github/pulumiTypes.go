@@ -656,6 +656,11 @@ func (o BranchProtectionRequiredPullRequestReviewArrayOutput) Index(i pulumi.Int
 
 type BranchProtectionRequiredStatusCheck struct {
 	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	//
+	// > Note: This attribute can contain multiple string patterns.
+	// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+	// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+	// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
 	Contexts []string `pulumi:"contexts"`
 	// Require branches to be up to date before merging. Defaults to `false`.
 	Strict *bool `pulumi:"strict"`
@@ -674,6 +679,11 @@ type BranchProtectionRequiredStatusCheckInput interface {
 
 type BranchProtectionRequiredStatusCheckArgs struct {
 	// The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	//
+	// > Note: This attribute can contain multiple string patterns.
+	// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+	// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+	// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
 	// Require branches to be up to date before merging. Defaults to `false`.
 	Strict pulumi.BoolPtrInput `pulumi:"strict"`
@@ -731,6 +741,11 @@ func (o BranchProtectionRequiredStatusCheckOutput) ToBranchProtectionRequiredSta
 }
 
 // The list of status checks to require in order to merge into this branch. No status checks are required by default.
+//
+// > Note: This attribute can contain multiple string patterns.
+// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
 func (o BranchProtectionRequiredStatusCheckOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredStatusCheck) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
@@ -1222,6 +1237,11 @@ type BranchProtectionV3RequiredStatusChecks struct {
 	Checks []string `pulumi:"checks"`
 	// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 	//
+	// > Note: This attribute can contain multiple string patterns.
+	// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+	// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+	// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+	//
 	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts []string `pulumi:"contexts"`
 	// Deprecated: Use enforce_admins instead
@@ -1245,6 +1265,11 @@ type BranchProtectionV3RequiredStatusChecksArgs struct {
 	// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
 	Checks pulumi.StringArrayInput `pulumi:"checks"`
 	// [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+	//
+	// > Note: This attribute can contain multiple string patterns.
+	// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+	// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+	// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
 	//
 	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
@@ -1338,6 +1363,11 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) Checks() pulumi.StringArra
 
 // [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 //
+// > Note: This attribute can contain multiple string patterns.
+// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+//
 // Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
@@ -1388,6 +1418,11 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Checks() pulumi.StringA
 }
 
 // [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+//
+// > Note: This attribute can contain multiple string patterns.
+// If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+// For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+// For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
 //
 // Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.StringArrayOutput {
@@ -2386,6 +2421,8 @@ type OrganizationRulesetRules struct {
 	RequiredSignatures *bool `pulumi:"requiredSignatures"`
 	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
 	RequiredStatusChecks *OrganizationRulesetRulesRequiredStatusChecks `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+	RequiredWorkflows *OrganizationRulesetRulesRequiredWorkflows `pulumi:"requiredWorkflows"`
 	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
 	TagNamePattern *OrganizationRulesetRulesTagNamePattern `pulumi:"tagNamePattern"`
 	// (Boolean) Only allow users with bypass permission to update matching refs.
@@ -2426,6 +2463,8 @@ type OrganizationRulesetRulesArgs struct {
 	RequiredSignatures pulumi.BoolPtrInput `pulumi:"requiredSignatures"`
 	// (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
 	RequiredStatusChecks OrganizationRulesetRulesRequiredStatusChecksPtrInput `pulumi:"requiredStatusChecks"`
+	// (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+	RequiredWorkflows OrganizationRulesetRulesRequiredWorkflowsPtrInput `pulumi:"requiredWorkflows"`
 	// (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
 	TagNamePattern OrganizationRulesetRulesTagNamePatternPtrInput `pulumi:"tagNamePattern"`
 	// (Boolean) Only allow users with bypass permission to update matching refs.
@@ -2574,6 +2613,13 @@ func (o OrganizationRulesetRulesOutput) RequiredStatusChecks() OrganizationRules
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
+// (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesRequiredWorkflows {
+		return v.RequiredWorkflows
+	}).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
+}
+
 // (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
 func (o OrganizationRulesetRulesOutput) TagNamePattern() OrganizationRulesetRulesTagNamePatternPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesTagNamePattern { return v.TagNamePattern }).(OrganizationRulesetRulesTagNamePatternPtrOutput)
@@ -2716,6 +2762,16 @@ func (o OrganizationRulesetRulesPtrOutput) RequiredStatusChecks() OrganizationRu
 		}
 		return v.RequiredStatusChecks
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
+}
+
+// (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesRequiredWorkflows {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredWorkflows
+	}).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
 }
 
 // (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
@@ -3989,6 +4045,260 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 		return vs[0].([]OrganizationRulesetRulesRequiredStatusChecksRequiredCheck)[vs[1].(int)]
 	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflows struct {
+	// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+	RequiredWorkflows []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow `pulumi:"requiredWorkflows"`
+}
+
+// OrganizationRulesetRulesRequiredWorkflowsInput is an input type that accepts OrganizationRulesetRulesRequiredWorkflowsArgs and OrganizationRulesetRulesRequiredWorkflowsOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredWorkflowsInput` via:
+//
+//	OrganizationRulesetRulesRequiredWorkflowsArgs{...}
+type OrganizationRulesetRulesRequiredWorkflowsInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredWorkflowsOutput() OrganizationRulesetRulesRequiredWorkflowsOutput
+	ToOrganizationRulesetRulesRequiredWorkflowsOutputWithContext(context.Context) OrganizationRulesetRulesRequiredWorkflowsOutput
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsArgs struct {
+	// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+	RequiredWorkflows OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput `pulumi:"requiredWorkflows"`
+}
+
+func (OrganizationRulesetRulesRequiredWorkflowsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflows)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsArgs) ToOrganizationRulesetRulesRequiredWorkflowsOutput() OrganizationRulesetRulesRequiredWorkflowsOutput {
+	return i.ToOrganizationRulesetRulesRequiredWorkflowsOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsArgs) ToOrganizationRulesetRulesRequiredWorkflowsOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredWorkflowsOutput)
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsArgs) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutput() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsArgs) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredWorkflowsOutput).ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesRequiredWorkflowsPtrInput is an input type that accepts OrganizationRulesetRulesRequiredWorkflowsArgs, OrganizationRulesetRulesRequiredWorkflowsPtr and OrganizationRulesetRulesRequiredWorkflowsPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredWorkflowsPtrInput` via:
+//
+//	        OrganizationRulesetRulesRequiredWorkflowsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesRequiredWorkflowsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredWorkflowsPtrOutput() OrganizationRulesetRulesRequiredWorkflowsPtrOutput
+	ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(context.Context) OrganizationRulesetRulesRequiredWorkflowsPtrOutput
+}
+
+type organizationRulesetRulesRequiredWorkflowsPtrType OrganizationRulesetRulesRequiredWorkflowsArgs
+
+func OrganizationRulesetRulesRequiredWorkflowsPtr(v *OrganizationRulesetRulesRequiredWorkflowsArgs) OrganizationRulesetRulesRequiredWorkflowsPtrInput {
+	return (*organizationRulesetRulesRequiredWorkflowsPtrType)(v)
+}
+
+func (*organizationRulesetRulesRequiredWorkflowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredWorkflows)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesRequiredWorkflowsPtrType) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutput() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesRequiredWorkflowsPtrType) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredWorkflowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflows)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRulesRequiredWorkflowsOutput() OrganizationRulesetRulesRequiredWorkflowsOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRulesRequiredWorkflowsOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutput() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o.ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesRequiredWorkflows) *OrganizationRulesetRulesRequiredWorkflows {
+		return &v
+	}).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
+}
+
+// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflows) []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
+		return v.RequiredWorkflows
+	}).(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredWorkflowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredWorkflows)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutput() OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) ToOrganizationRulesetRulesRequiredWorkflowsPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) Elem() OrganizationRulesetRulesRequiredWorkflowsOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredWorkflows) OrganizationRulesetRulesRequiredWorkflows {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesRequiredWorkflows
+		return ret
+	}).(OrganizationRulesetRulesRequiredWorkflowsOutput)
+}
+
+// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredWorkflows) []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredWorkflows
+	}).(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow struct {
+	// (String) The path to the YAML definition file of the workflow.
+	Path string `pulumi:"path"`
+	// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+	Ref *string `pulumi:"ref"`
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	RepositoryId int `pulumi:"repositoryId"`
+}
+
+// OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput is an input type that accepts OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs and OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput` via:
+//
+//	OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs{...}
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput
+	ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutputWithContext(context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs struct {
+	// (String) The path to the YAML definition file of the workflow.
+	Path pulumi.StringInput `pulumi:"path"`
+	// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+	Ref pulumi.StringPtrInput `pulumi:"ref"`
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	RepositoryId pulumi.IntInput `pulumi:"repositoryId"`
+}
+
+func (OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput {
+	return i.ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput)
+}
+
+// OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput is an input type that accepts OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray and OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput` via:
+//
+//	OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray{ OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs{...} }
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput
+	ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutputWithContext(context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput
+
+func (OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return i.ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput {
+	return o
+}
+
+// (String) The path to the YAML definition file of the workflow.
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) *string { return v.Ref }).(pulumi.StringPtrOutput)
+}
+
+// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) int { return v.RepositoryId }).(pulumi.IntOutput)
+}
+
+type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput) ToOrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
+		return vs[0].([]OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow)[vs[1].(int)]
+	}).(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput)
 }
 
 type OrganizationRulesetRulesTagNamePattern struct {
@@ -13939,6 +14249,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsInput)(nil)).Elem(), OrganizationRulesetRulesRequiredWorkflowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredWorkflowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput)(nil)).Elem(), OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput)(nil)).Elem(), OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesTagNamePatternInput)(nil)).Elem(), OrganizationRulesetRulesTagNamePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesTagNamePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesTagNamePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
@@ -14116,6 +14430,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredWorkflowsOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredWorkflowsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesTagNamePatternOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesTagNamePatternPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationOutput{})

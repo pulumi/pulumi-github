@@ -77,6 +77,11 @@ export interface BranchProtectionRequiredPullRequestReview {
 export interface BranchProtectionRequiredStatusCheck {
     /**
      * The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     *
+     * > Note: This attribute can contain multiple string patterns.
+     * If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+     * For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+     * For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
      */
     contexts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -143,6 +148,11 @@ export interface BranchProtectionV3RequiredStatusChecks {
     checks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+     *
+     * > Note: This attribute can contain multiple string patterns.
+     * If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+     * For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+     * For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
      *
      * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      */
@@ -297,6 +307,10 @@ export interface OrganizationRulesetRules {
      */
     requiredStatusChecks?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredStatusChecks>;
     /**
+     * (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+     */
+    requiredWorkflows?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredWorkflows>;
+    /**
      * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      */
     tagNamePattern?: pulumi.Input<inputs.OrganizationRulesetRulesTagNamePattern>;
@@ -425,6 +439,28 @@ export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
      * (Number) The optional integration ID that this status check must originate from.
      */
     integrationId?: pulumi.Input<number>;
+}
+
+export interface OrganizationRulesetRulesRequiredWorkflows {
+    /**
+     * (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     */
+    requiredWorkflows: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow>[]>;
+}
+
+export interface OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
+    /**
+     * (String) The path to the YAML definition file of the workflow.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     */
+    ref?: pulumi.Input<string>;
+    /**
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     */
+    repositoryId: pulumi.Input<number>;
 }
 
 export interface OrganizationRulesetRulesTagNamePattern {

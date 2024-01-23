@@ -10,6 +10,7 @@ import com.pulumi.github.outputs.OrganizationRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitterEmailPattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesPullRequest;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredStatusChecks;
+import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredWorkflows;
 import com.pulumi.github.outputs.OrganizationRulesetRulesTagNamePattern;
 import java.lang.Boolean;
 import java.util.Objects;
@@ -73,6 +74,11 @@ public final class OrganizationRulesetRules {
      * 
      */
     private @Nullable OrganizationRulesetRulesRequiredStatusChecks requiredStatusChecks;
+    /**
+     * @return (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesRequiredWorkflows requiredWorkflows;
     /**
      * @return (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      * 
@@ -163,6 +169,13 @@ public final class OrganizationRulesetRules {
         return Optional.ofNullable(this.requiredStatusChecks);
     }
     /**
+     * @return (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+     * 
+     */
+    public Optional<OrganizationRulesetRulesRequiredWorkflows> requiredWorkflows() {
+        return Optional.ofNullable(this.requiredWorkflows);
+    }
+    /**
      * @return (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      * 
      */
@@ -197,6 +210,7 @@ public final class OrganizationRulesetRules {
         private @Nullable Boolean requiredLinearHistory;
         private @Nullable Boolean requiredSignatures;
         private @Nullable OrganizationRulesetRulesRequiredStatusChecks requiredStatusChecks;
+        private @Nullable OrganizationRulesetRulesRequiredWorkflows requiredWorkflows;
         private @Nullable OrganizationRulesetRulesTagNamePattern tagNamePattern;
         private @Nullable Boolean update;
         public Builder() {}
@@ -213,6 +227,7 @@ public final class OrganizationRulesetRules {
     	      this.requiredLinearHistory = defaults.requiredLinearHistory;
     	      this.requiredSignatures = defaults.requiredSignatures;
     	      this.requiredStatusChecks = defaults.requiredStatusChecks;
+    	      this.requiredWorkflows = defaults.requiredWorkflows;
     	      this.tagNamePattern = defaults.tagNamePattern;
     	      this.update = defaults.update;
         }
@@ -284,6 +299,12 @@ public final class OrganizationRulesetRules {
             return this;
         }
         @CustomType.Setter
+        public Builder requiredWorkflows(@Nullable OrganizationRulesetRulesRequiredWorkflows requiredWorkflows) {
+
+            this.requiredWorkflows = requiredWorkflows;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tagNamePattern(@Nullable OrganizationRulesetRulesTagNamePattern tagNamePattern) {
 
             this.tagNamePattern = tagNamePattern;
@@ -308,6 +329,7 @@ public final class OrganizationRulesetRules {
             _resultValue.requiredLinearHistory = requiredLinearHistory;
             _resultValue.requiredSignatures = requiredSignatures;
             _resultValue.requiredStatusChecks = requiredStatusChecks;
+            _resultValue.requiredWorkflows = requiredWorkflows;
             _resultValue.tagNamePattern = tagNamePattern;
             _resultValue.update = update;
             return _resultValue;

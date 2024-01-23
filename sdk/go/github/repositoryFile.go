@@ -89,7 +89,7 @@ type RepositoryFile struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The path of the file to manage.
 	File pulumi.StringOutput `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 	OverwriteOnCreate pulumi.BoolPtrOutput `pulumi:"overwriteOnCreate"`
 	// The name of the commit/branch/tag.
 	Ref pulumi.StringOutput `pulumi:"ref"`
@@ -153,7 +153,7 @@ type repositoryFileState struct {
 	Content *string `pulumi:"content"`
 	// The path of the file to manage.
 	File *string `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
 	// The name of the commit/branch/tag.
 	Ref *string `pulumi:"ref"`
@@ -179,7 +179,7 @@ type RepositoryFileState struct {
 	Content pulumi.StringPtrInput
 	// The path of the file to manage.
 	File pulumi.StringPtrInput
-	// Enable overwriting existing files
+	// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 	OverwriteOnCreate pulumi.BoolPtrInput
 	// The name of the commit/branch/tag.
 	Ref pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type repositoryFileArgs struct {
 	Content string `pulumi:"content"`
 	// The path of the file to manage.
 	File string `pulumi:"file"`
-	// Enable overwriting existing files
+	// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 	OverwriteOnCreate *bool `pulumi:"overwriteOnCreate"`
 	// The repository to create the file in.
 	Repository string `pulumi:"repository"`
@@ -228,7 +228,7 @@ type RepositoryFileArgs struct {
 	Content pulumi.StringInput
 	// The path of the file to manage.
 	File pulumi.StringInput
-	// Enable overwriting existing files
+	// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 	OverwriteOnCreate pulumi.BoolPtrInput
 	// The repository to create the file in.
 	Repository pulumi.StringInput
@@ -357,7 +357,7 @@ func (o RepositoryFileOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.File }).(pulumi.StringOutput)
 }
 
-// Enable overwriting existing files
+// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
 func (o RepositoryFileOutput) OverwriteOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.OverwriteOnCreate }).(pulumi.BoolPtrOutput)
 }

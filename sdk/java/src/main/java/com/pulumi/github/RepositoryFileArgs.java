@@ -110,14 +110,14 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Enable overwriting existing files
+     * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      * 
      */
     @Import(name="overwriteOnCreate")
     private @Nullable Output<Boolean> overwriteOnCreate;
 
     /**
-     * @return Enable overwriting existing files
+     * @return Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      * 
      */
     public Optional<Output<Boolean>> overwriteOnCreate() {
@@ -299,7 +299,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files
+         * @param overwriteOnCreate Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class RepositoryFileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overwriteOnCreate Enable overwriting existing files
+         * @param overwriteOnCreate Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
          * 
          * @return builder
          * 
