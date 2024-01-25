@@ -15,6 +15,71 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage GitHub repository collaborator invitations.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryCollaborator;
+ * import com.pulumi.github.RepositoryCollaboratorArgs;
+ * import com.pulumi.github.Provider;
+ * import com.pulumi.github.ProviderArgs;
+ * import com.pulumi.github.UserInvitationAccepter;
+ * import com.pulumi.github.UserInvitationAccepterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ * 
+ *         var exampleRepositoryCollaborator = new RepositoryCollaborator(&#34;exampleRepositoryCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
+ *             .repository(exampleRepository.name())
+ *             .username(&#34;example-username&#34;)
+ *             .permission(&#34;push&#34;)
+ *             .build());
+ * 
+ *         var invitee = new Provider(&#34;invitee&#34;, ProviderArgs.builder()        
+ *             .token(var_.invitee_token())
+ *             .build());
+ * 
+ *         var exampleUserInvitationAccepter = new UserInvitationAccepter(&#34;exampleUserInvitationAccepter&#34;, UserInvitationAccepterArgs.builder()        
+ *             .invitationId(exampleRepositoryCollaborator.invitationId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(&#34;github.invitee&#34;)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Allowing empty invitation IDs
+ * 
+ * Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`&#39;s.
+ * 
+ * This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `for_each` loop.
+ * This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+ * 
+ * Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+ * the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+ * 
+ * This is tracked in #1157.
+ * 
+ */
 @ResourceType(type="github:index/userInvitationAccepter:UserInvitationAccepter")
 public class UserInvitationAccepter extends com.pulumi.resources.CustomResource {
     /**

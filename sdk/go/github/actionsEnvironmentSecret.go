@@ -90,7 +90,7 @@ import (
 //
 // ## Import
 //
-// This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 type ActionsEnvironmentSecret struct {
 	pulumi.CustomResourceState
 

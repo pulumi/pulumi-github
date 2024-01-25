@@ -9,6 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// Provides a resource to manage GitHub repository collaborator invitations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRepository = new Github.Repository("exampleRepository");
+    /// 
+    ///     var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("exampleRepositoryCollaborator", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         Username = "example-username",
+    ///         Permission = "push",
+    ///     });
+    /// 
+    ///     var invitee = new Github.Provider("invitee", new()
+    ///     {
+    ///         Token = @var.Invitee_token,
+    ///     });
+    /// 
+    ///     var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("exampleUserInvitationAccepter", new()
+    ///     {
+    ///         InvitationId = exampleRepositoryCollaborator.InvitationId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "github.invitee",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Allowing empty invitation IDs
+    /// 
+    /// Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.
+    /// 
+    /// This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `for_each` loop.
+    /// This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+    /// 
+    /// Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+    /// the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+    /// 
+    /// This is tracked in #1157.
+    /// </summary>
     [GithubResourceType("github:index/userInvitationAccepter:UserInvitationAccepter")]
     public partial class UserInvitationAccepter : global::Pulumi.CustomResource
     {

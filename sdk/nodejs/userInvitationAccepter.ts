@@ -4,6 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a resource to manage GitHub repository collaborator invitations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("exampleRepository", {});
+ * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("exampleRepositoryCollaborator", {
+ *     repository: exampleRepository.name,
+ *     username: "example-username",
+ *     permission: "push",
+ * });
+ * const invitee = new github.Provider("invitee", {token: _var.invitee_token});
+ * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("exampleUserInvitationAccepter", {invitationId: exampleRepositoryCollaborator.invitationId}, {
+ *     provider: "github.invitee",
+ * });
+ * ```
+ * ## Allowing empty invitation IDs
+ *
+ * Set `allowEmptyId` when using `forEach` over a list of `github_repository_collaborator.invitation_id`'s.
+ *
+ * This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `forEach` loop.
+ * This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+ *
+ * Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+ * the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+ *
+ * This is tracked in #1157.
+ */
 export class UserInvitationAccepter extends pulumi.CustomResource {
     /**
      * Get an existing UserInvitationAccepter resource's state with the given name, ID, and optional extra
