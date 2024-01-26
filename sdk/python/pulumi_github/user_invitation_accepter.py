@@ -100,7 +100,35 @@ class UserInvitationAccepter(pulumi.CustomResource):
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a UserInvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage GitHub repository collaborator invitations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
+            repository=example_repository.name,
+            username="example-username",
+            permission="push")
+        invitee = github.Provider("invitee", token=var["invitee_token"])
+        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
+        opts=pulumi.ResourceOptions(provider="github.invitee"))
+        ```
+        ## Allowing empty invitation IDs
+
+        Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.
+
+        This allows applying a module again when a new `RepositoryCollaborator` resource is added to the `for_each` loop.
+        This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+
+        Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+        the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+
+        This is tracked in #1157.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
@@ -113,7 +141,35 @@ class UserInvitationAccepter(pulumi.CustomResource):
                  args: Optional[UserInvitationAccepterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserInvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage GitHub repository collaborator invitations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("exampleRepository")
+        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
+            repository=example_repository.name,
+            username="example-username",
+            permission="push")
+        invitee = github.Provider("invitee", token=var["invitee_token"])
+        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
+        opts=pulumi.ResourceOptions(provider="github.invitee"))
+        ```
+        ## Allowing empty invitation IDs
+
+        Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.
+
+        This allows applying a module again when a new `RepositoryCollaborator` resource is added to the `for_each` loop.
+        This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+
+        Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+        the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+
+        This is tracked in #1157.
+
         :param str resource_name: The name of the resource.
         :param UserInvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
