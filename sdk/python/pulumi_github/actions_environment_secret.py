@@ -261,7 +261,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
 
         ## Import
 
-        This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,7 +311,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
 
         ## Import
 
-        This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 
         :param str resource_name: The name of the resource.
         :param ActionsEnvironmentSecretArgs args: The arguments to use to populate this resource's properties.

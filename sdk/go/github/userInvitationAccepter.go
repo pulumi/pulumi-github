@@ -11,6 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage GitHub repository collaborator invitations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "exampleRepositoryCollaborator", &github.RepositoryCollaboratorArgs{
+//				Repository: exampleRepository.Name,
+//				Username:   pulumi.String("example-username"),
+//				Permission: pulumi.String("push"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewProvider(ctx, "invitee", &github.ProviderArgs{
+//				Token: pulumi.Any(_var.Invitee_token),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewUserInvitationAccepter(ctx, "exampleUserInvitationAccepter", &github.UserInvitationAccepterArgs{
+//				InvitationId: exampleRepositoryCollaborator.InvitationId,
+//			}, pulumi.Provider("github.invitee"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Allowing empty invitation IDs
+//
+// Set `allowEmptyId` when using `forEach` over a list of `github_repository_collaborator.invitation_id`'s.
+//
+// This allows applying a module again when a new `RepositoryCollaborator` resource is added to the `forEach` loop.
+// This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
+//
+// Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
+// the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
+//
+// This is tracked in #1157.
 type UserInvitationAccepter struct {
 	pulumi.CustomResourceState
 

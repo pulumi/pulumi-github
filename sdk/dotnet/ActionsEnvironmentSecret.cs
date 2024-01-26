@@ -69,7 +69,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource does not support importing. If you'd like to help contribute it, please visit our [GitHub page](https://github.com/integrations/terraform-provider-github)!
+    /// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
     /// </summary>
     [GithubResourceType("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")]
     public partial class ActionsEnvironmentSecret : global::Pulumi.CustomResource
