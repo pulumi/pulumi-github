@@ -21,6 +21,9 @@ namespace Pulumi.Github.Outputs
         /// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         /// </summary>
         public readonly ImmutableArray<string> Includes;
+        /// <summary>
+        /// Whether renaming of target repositories is prevented.
+        /// </summary>
         public readonly bool? Protected;
 
         [OutputConstructor]

@@ -36,6 +36,9 @@ namespace Pulumi.Github.Inputs
             set => _includes = value;
         }
 
+        /// <summary>
+        /// Whether renaming of target repositories is prevented.
+        /// </summary>
         [Input("protected")]
         public Input<bool>? Protected { get; set; }
 

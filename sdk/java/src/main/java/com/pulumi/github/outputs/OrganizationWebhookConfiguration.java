@@ -13,8 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationWebhookConfiguration {
+    /**
+     * @return The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+     * 
+     */
     private @Nullable String contentType;
+    /**
+     * @return Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+     * 
+     */
     private @Nullable Boolean insecureSsl;
+    /**
+     * @return The shared secret for the webhook
+     * 
+     */
     private @Nullable String secret;
     /**
      * @return URL of the webhook
@@ -23,12 +35,24 @@ public final class OrganizationWebhookConfiguration {
     private String url;
 
     private OrganizationWebhookConfiguration() {}
+    /**
+     * @return The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+     * 
+     */
     public Optional<String> contentType() {
         return Optional.ofNullable(this.contentType);
     }
+    /**
+     * @return Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+     * 
+     */
     public Optional<Boolean> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
+    /**
+     * @return The shared secret for the webhook
+     * 
+     */
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }

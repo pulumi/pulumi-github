@@ -2231,8 +2231,9 @@ type OrganizationRulesetConditionsRepositoryName struct {
 	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
 	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-	Includes  []string `pulumi:"includes"`
-	Protected *bool    `pulumi:"protected"`
+	Includes []string `pulumi:"includes"`
+	// Whether renaming of target repositories is prevented.
+	Protected *bool `pulumi:"protected"`
 }
 
 // OrganizationRulesetConditionsRepositoryNameInput is an input type that accepts OrganizationRulesetConditionsRepositoryNameArgs and OrganizationRulesetConditionsRepositoryNameOutput values.
@@ -2250,8 +2251,9 @@ type OrganizationRulesetConditionsRepositoryNameArgs struct {
 	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
 	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-	Includes  pulumi.StringArrayInput `pulumi:"includes"`
-	Protected pulumi.BoolPtrInput     `pulumi:"protected"`
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+	// Whether renaming of target repositories is prevented.
+	Protected pulumi.BoolPtrInput `pulumi:"protected"`
 }
 
 func (OrganizationRulesetConditionsRepositoryNameArgs) ElementType() reflect.Type {
@@ -2341,6 +2343,7 @@ func (o OrganizationRulesetConditionsRepositoryNameOutput) Includes() pulumi.Str
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
 
+// Whether renaming of target repositories is prevented.
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
 }
@@ -2389,6 +2392,7 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Includes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// Whether renaming of target repositories is prevented.
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) *bool {
 		if v == nil {
@@ -4496,9 +4500,12 @@ func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.String
 }
 
 type OrganizationWebhookConfiguration struct {
+	// The content type for the payload. Valid values are either 'form' or 'json'.
 	ContentType *string `pulumi:"contentType"`
-	InsecureSsl *bool   `pulumi:"insecureSsl"`
-	Secret      *string `pulumi:"secret"`
+	// Insecure SSL boolean toggle. Defaults to 'false'.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// The shared secret for the webhook
+	Secret *string `pulumi:"secret"`
 	// URL of the webhook
 	Url string `pulumi:"url"`
 }
@@ -4515,9 +4522,12 @@ type OrganizationWebhookConfigurationInput interface {
 }
 
 type OrganizationWebhookConfigurationArgs struct {
+	// The content type for the payload. Valid values are either 'form' or 'json'.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	InsecureSsl pulumi.BoolPtrInput   `pulumi:"insecureSsl"`
-	Secret      pulumi.StringPtrInput `pulumi:"secret"`
+	// Insecure SSL boolean toggle. Defaults to 'false'.
+	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
+	// The shared secret for the webhook
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// URL of the webhook
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -4599,14 +4609,17 @@ func (o OrganizationWebhookConfigurationOutput) ToOrganizationWebhookConfigurati
 	}).(OrganizationWebhookConfigurationPtrOutput)
 }
 
+// The content type for the payload. Valid values are either 'form' or 'json'.
 func (o OrganizationWebhookConfigurationOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to 'false'.
 func (o OrganizationWebhookConfigurationOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook
 func (o OrganizationWebhookConfigurationOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationWebhookConfiguration) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -4640,6 +4653,7 @@ func (o OrganizationWebhookConfigurationPtrOutput) Elem() OrganizationWebhookCon
 	}).(OrganizationWebhookConfigurationOutput)
 }
 
+// The content type for the payload. Valid values are either 'form' or 'json'.
 func (o OrganizationWebhookConfigurationPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
 		if v == nil {
@@ -4649,6 +4663,7 @@ func (o OrganizationWebhookConfigurationPtrOutput) ContentType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Insecure SSL boolean toggle. Defaults to 'false'.
 func (o OrganizationWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *bool {
 		if v == nil {
@@ -4658,6 +4673,7 @@ func (o OrganizationWebhookConfigurationPtrOutput) InsecureSsl() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The shared secret for the webhook
 func (o OrganizationWebhookConfigurationPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationWebhookConfiguration) *string {
 		if v == nil {
@@ -4678,9 +4694,12 @@ func (o OrganizationWebhookConfigurationPtrOutput) Url() pulumi.StringPtrOutput 
 }
 
 type ProviderAppAuth struct {
-	Id             string `pulumi:"id"`
+	// The GitHub App ID.
+	Id string `pulumi:"id"`
+	// The GitHub App installation instance ID.
 	InstallationId string `pulumi:"installationId"`
-	PemFile        string `pulumi:"pemFile"`
+	// The GitHub App PEM file contents.
+	PemFile string `pulumi:"pemFile"`
 }
 
 // ProviderAppAuthInput is an input type that accepts ProviderAppAuthArgs and ProviderAppAuthOutput values.
@@ -4695,9 +4714,12 @@ type ProviderAppAuthInput interface {
 }
 
 type ProviderAppAuthArgs struct {
-	Id             pulumi.StringInput `pulumi:"id"`
+	// The GitHub App ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The GitHub App installation instance ID.
 	InstallationId pulumi.StringInput `pulumi:"installationId"`
-	PemFile        pulumi.StringInput `pulumi:"pemFile"`
+	// The GitHub App PEM file contents.
+	PemFile pulumi.StringInput `pulumi:"pemFile"`
 }
 
 func (ProviderAppAuthArgs) ElementType() reflect.Type {
@@ -4777,14 +4799,17 @@ func (o ProviderAppAuthOutput) ToProviderAppAuthPtrOutputWithContext(ctx context
 	}).(ProviderAppAuthPtrOutput)
 }
 
+// The GitHub App ID.
 func (o ProviderAppAuthOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderAppAuth) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The GitHub App installation instance ID.
 func (o ProviderAppAuthOutput) InstallationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderAppAuth) string { return v.InstallationId }).(pulumi.StringOutput)
 }
 
+// The GitHub App PEM file contents.
 func (o ProviderAppAuthOutput) PemFile() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderAppAuth) string { return v.PemFile }).(pulumi.StringOutput)
 }
@@ -4813,6 +4838,7 @@ func (o ProviderAppAuthPtrOutput) Elem() ProviderAppAuthOutput {
 	}).(ProviderAppAuthOutput)
 }
 
+// The GitHub App ID.
 func (o ProviderAppAuthPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderAppAuth) *string {
 		if v == nil {
@@ -4822,6 +4848,7 @@ func (o ProviderAppAuthPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The GitHub App installation instance ID.
 func (o ProviderAppAuthPtrOutput) InstallationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderAppAuth) *string {
 		if v == nil {
@@ -4831,6 +4858,7 @@ func (o ProviderAppAuthPtrOutput) InstallationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The GitHub App PEM file contents.
 func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderAppAuth) *string {
 		if v == nil {
