@@ -1043,6 +1043,9 @@ export interface OrganizationRulesetConditionsRepositoryName {
      * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: string[];
+    /**
+     * Whether renaming of target repositories is prevented.
+     */
     protected?: boolean;
 }
 
@@ -1268,8 +1271,17 @@ export interface OrganizationRulesetRulesTagNamePattern {
 }
 
 export interface OrganizationWebhookConfiguration {
+    /**
+     * The content type for the payload. Valid values are either 'form' or 'json'.
+     */
     contentType?: string;
+    /**
+     * Insecure SSL boolean toggle. Defaults to 'false'.
+     */
     insecureSsl?: boolean;
+    /**
+     * The shared secret for the webhook
+     */
     secret?: string;
     /**
      * URL of the webhook
@@ -1723,8 +1735,17 @@ export interface TeamSyncGroupMappingGroup {
 
 export namespace config {
     export interface AppAuth {
+        /**
+         * The GitHub App ID.
+         */
         id: string;
+        /**
+         * The GitHub App installation instance ID.
+         */
         installationId: string;
+        /**
+         * The GitHub App PEM file contents.
+         */
         pemFile: string;
     }
 

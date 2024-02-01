@@ -130,8 +130,17 @@ namespace Pulumi.Github
 
              public class AppAuth
              {
+            /// <summary>
+            /// The GitHub App ID.
+            /// </summary>
                 public string Id { get; set; }
+            /// <summary>
+            /// The GitHub App installation instance ID.
+            /// </summary>
                 public string InstallationId { get; set; }
+            /// <summary>
+            /// The GitHub App PEM file contents.
+            /// </summary>
                 public string PemFile { get; set; }
             }
         }

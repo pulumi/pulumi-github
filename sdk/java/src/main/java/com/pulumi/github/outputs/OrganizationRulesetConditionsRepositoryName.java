@@ -24,6 +24,10 @@ public final class OrganizationRulesetConditionsRepositoryName {
      * 
      */
     private List<String> includes;
+    /**
+     * @return Whether renaming of target repositories is prevented.
+     * 
+     */
     private @Nullable Boolean protected_;
 
     private OrganizationRulesetConditionsRepositoryName() {}
@@ -41,6 +45,10 @@ public final class OrganizationRulesetConditionsRepositoryName {
     public List<String> includes() {
         return this.includes;
     }
+    /**
+     * @return Whether renaming of target repositories is prevented.
+     * 
+     */
     public Optional<Boolean> protected_() {
         return Optional.ofNullable(this.protected_);
     }

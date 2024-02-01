@@ -12,14 +12,24 @@ namespace Pulumi.Github.Inputs
 
     public sealed class ProviderAppAuthArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The GitHub App ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The GitHub App installation instance ID.
+        /// </summary>
         [Input("installationId", required: true)]
         public Input<string> InstallationId { get; set; } = null!;
 
         [Input("pemFile", required: true)]
         private Input<string>? _pemFile;
+
+        /// <summary>
+        /// The GitHub App PEM file contents.
+        /// </summary>
         public Input<string>? PemFile
         {
             get => _pemFile;

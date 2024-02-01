@@ -12,7 +12,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-// and `app_auth` are not set.
+// and `appAuth` are not set.
 func GetAppAuth(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:appAuth")
 }
@@ -59,7 +59,7 @@ func GetReadDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:readDelayMs")
 }
 
-// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:token")
 }

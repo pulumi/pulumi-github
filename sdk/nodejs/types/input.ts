@@ -258,6 +258,9 @@ export interface OrganizationRulesetConditionsRepositoryName {
      * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether renaming of target repositories is prevented.
+     */
     protected?: pulumi.Input<boolean>;
 }
 
@@ -483,8 +486,17 @@ export interface OrganizationRulesetRulesTagNamePattern {
 }
 
 export interface OrganizationWebhookConfiguration {
+    /**
+     * The content type for the payload. Valid values are either 'form' or 'json'.
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * Insecure SSL boolean toggle. Defaults to 'false'.
+     */
     insecureSsl?: pulumi.Input<boolean>;
+    /**
+     * The shared secret for the webhook
+     */
     secret?: pulumi.Input<string>;
     /**
      * URL of the webhook
@@ -493,8 +505,17 @@ export interface OrganizationWebhookConfiguration {
 }
 
 export interface ProviderAppAuth {
+    /**
+     * The GitHub App ID.
+     */
     id: pulumi.Input<string>;
+    /**
+     * The GitHub App installation instance ID.
+     */
     installationId: pulumi.Input<string>;
+    /**
+     * The GitHub App PEM file contents.
+     */
     pemFile: pulumi.Input<string>;
 }
 

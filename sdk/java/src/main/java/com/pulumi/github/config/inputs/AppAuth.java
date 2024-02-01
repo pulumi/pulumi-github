@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class AppAuth {
+    /**
+     * @return The GitHub App ID.
+     * 
+     */
     private String id;
+    /**
+     * @return The GitHub App installation instance ID.
+     * 
+     */
     private String installationId;
+    /**
+     * @return The GitHub App PEM file contents.
+     * 
+     */
     private String pemFile;
 
     private AppAuth() {}
+    /**
+     * @return The GitHub App ID.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The GitHub App installation instance ID.
+     * 
+     */
     public String installationId() {
         return this.installationId;
     }
+    /**
+     * @return The GitHub App PEM file contents.
+     * 
+     */
     public String pemFile() {
         return this.pemFile;
     }
