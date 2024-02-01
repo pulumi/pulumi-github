@@ -961,6 +961,7 @@ class OrganizationRulesetConditionsRepositoryName(dict):
         """
         :param Sequence[str] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param Sequence[str] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        :param bool protected: Whether renaming of target repositories is prevented.
         """
         pulumi.set(__self__, "excludes", excludes)
         pulumi.set(__self__, "includes", includes)
@@ -986,6 +987,9 @@ class OrganizationRulesetConditionsRepositoryName(dict):
     @property
     @pulumi.getter
     def protected(self) -> Optional[bool]:
+        """
+        Whether renaming of target repositories is prevented.
+        """
         return pulumi.get(self, "protected")
 
 
@@ -1775,6 +1779,9 @@ class OrganizationWebhookConfiguration(dict):
                  secret: Optional[str] = None):
         """
         :param str url: URL of the webhook
+        :param str content_type: The content type for the payload. Valid values are either 'form' or 'json'.
+        :param bool insecure_ssl: Insecure SSL boolean toggle. Defaults to 'false'.
+        :param str secret: The shared secret for the webhook
         """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
@@ -1795,16 +1802,25 @@ class OrganizationWebhookConfiguration(dict):
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
+        """
+        The content type for the payload. Valid values are either 'form' or 'json'.
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[bool]:
+        """
+        Insecure SSL boolean toggle. Defaults to 'false'.
+        """
         return pulumi.get(self, "insecure_ssl")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        The shared secret for the webhook
+        """
         return pulumi.get(self, "secret")
 
 
