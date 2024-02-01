@@ -14,23 +14,47 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ProviderAppAuthArgs Empty = new ProviderAppAuthArgs();
 
+    /**
+     * The GitHub App ID.
+     * 
+     */
     @Import(name="id", required=true)
     private Output<String> id;
 
+    /**
+     * @return The GitHub App ID.
+     * 
+     */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * The GitHub App installation instance ID.
+     * 
+     */
     @Import(name="installationId", required=true)
     private Output<String> installationId;
 
+    /**
+     * @return The GitHub App installation instance ID.
+     * 
+     */
     public Output<String> installationId() {
         return this.installationId;
     }
 
+    /**
+     * The GitHub App PEM file contents.
+     * 
+     */
     @Import(name="pemFile", required=true)
     private Output<String> pemFile;
 
+    /**
+     * @return The GitHub App PEM file contents.
+     * 
+     */
     public Output<String> pemFile() {
         return this.pemFile;
     }
@@ -61,29 +85,65 @@ public final class ProviderAppAuthArgs extends com.pulumi.resources.ResourceArgs
             $ = new ProviderAppAuthArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The GitHub App ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The GitHub App ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param installationId The GitHub App installation instance ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installationId(Output<String> installationId) {
             $.installationId = installationId;
             return this;
         }
 
+        /**
+         * @param installationId The GitHub App installation instance ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installationId(String installationId) {
             return installationId(Output.of(installationId));
         }
 
+        /**
+         * @param pemFile The GitHub App PEM file contents.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pemFile(Output<String> pemFile) {
             $.pemFile = pemFile;
             return this;
         }
 
+        /**
+         * @param pemFile The GitHub App PEM file contents.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pemFile(String pemFile) {
             return pemFile(Output.of(pemFile));
         }

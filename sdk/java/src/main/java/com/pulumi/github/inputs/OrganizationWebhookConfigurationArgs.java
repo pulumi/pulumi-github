@@ -17,23 +17,47 @@ public final class OrganizationWebhookConfigurationArgs extends com.pulumi.resou
 
     public static final OrganizationWebhookConfigurationArgs Empty = new OrganizationWebhookConfigurationArgs();
 
+    /**
+     * The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+     * 
+     */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
+    /**
+     * @return The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+     * 
+     */
     public Optional<Output<String>> contentType() {
         return Optional.ofNullable(this.contentType);
     }
 
+    /**
+     * Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+     * 
+     */
     @Import(name="insecureSsl")
     private @Nullable Output<Boolean> insecureSsl;
 
+    /**
+     * @return Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+     * 
+     */
     public Optional<Output<Boolean>> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
 
+    /**
+     * The shared secret for the webhook
+     * 
+     */
     @Import(name="secret")
     private @Nullable Output<String> secret;
 
+    /**
+     * @return The shared secret for the webhook
+     * 
+     */
     public Optional<Output<String>> secret() {
         return Optional.ofNullable(this.secret);
     }
@@ -80,29 +104,65 @@ public final class OrganizationWebhookConfigurationArgs extends com.pulumi.resou
             $ = new OrganizationWebhookConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param contentType The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(@Nullable Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
+        /**
+         * @param contentType The content type for the payload. Valid values are either &#39;form&#39; or &#39;json&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
+        /**
+         * @param insecureSsl Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureSsl(@Nullable Output<Boolean> insecureSsl) {
             $.insecureSsl = insecureSsl;
             return this;
         }
 
+        /**
+         * @param insecureSsl Insecure SSL boolean toggle. Defaults to &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureSsl(Boolean insecureSsl) {
             return insecureSsl(Output.of(insecureSsl));
         }
 
+        /**
+         * @param secret The shared secret for the webhook
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(@Nullable Output<String> secret) {
             $.secret = secret;
             return this;
         }
 
+        /**
+         * @param secret The shared secret for the webhook
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(String secret) {
             return secret(Output.of(secret));
         }

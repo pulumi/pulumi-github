@@ -13,8 +13,17 @@ namespace Pulumi.Github.Outputs
     [OutputType]
     public sealed class OrganizationWebhookConfiguration
     {
+        /// <summary>
+        /// The content type for the payload. Valid values are either 'form' or 'json'.
+        /// </summary>
         public readonly string? ContentType;
+        /// <summary>
+        /// Insecure SSL boolean toggle. Defaults to 'false'.
+        /// </summary>
         public readonly bool? InsecureSsl;
+        /// <summary>
+        /// The shared secret for the webhook
+        /// </summary>
         public readonly string? Secret;
         /// <summary>
         /// URL of the webhook

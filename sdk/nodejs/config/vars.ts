@@ -11,7 +11,7 @@ const __config = new pulumi.Config("github");
 
 /**
  * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
- * and `app_auth` are not set.
+ * and `appAuth` are not set.
  */
 export declare const appAuth: outputs.config.AppAuth | undefined;
 Object.defineProperty(exports, "appAuth", {
@@ -90,7 +90,7 @@ Object.defineProperty(exports, "readDelayMs", {
 });
 
 /**
- * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+ * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
  */
 export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {

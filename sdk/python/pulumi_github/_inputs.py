@@ -940,6 +940,7 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        :param pulumi.Input[bool] protected: Whether renaming of target repositories is prevented.
         """
         pulumi.set(__self__, "excludes", excludes)
         pulumi.set(__self__, "includes", includes)
@@ -973,6 +974,9 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
     @property
     @pulumi.getter
     def protected(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether renaming of target repositories is prevented.
+        """
         return pulumi.get(self, "protected")
 
     @protected.setter
@@ -1803,6 +1807,9 @@ class OrganizationWebhookConfigurationArgs:
                  secret: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] url: URL of the webhook
+        :param pulumi.Input[str] content_type: The content type for the payload. Valid values are either 'form' or 'json'.
+        :param pulumi.Input[bool] insecure_ssl: Insecure SSL boolean toggle. Defaults to 'false'.
+        :param pulumi.Input[str] secret: The shared secret for the webhook
         """
         pulumi.set(__self__, "url", url)
         if content_type is not None:
@@ -1827,6 +1834,9 @@ class OrganizationWebhookConfigurationArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type for the payload. Valid values are either 'form' or 'json'.
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -1836,6 +1846,9 @@ class OrganizationWebhookConfigurationArgs:
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Insecure SSL boolean toggle. Defaults to 'false'.
+        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -1845,6 +1858,9 @@ class OrganizationWebhookConfigurationArgs:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared secret for the webhook
+        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -1858,6 +1874,11 @@ class ProviderAppAuthArgs:
                  id: pulumi.Input[str],
                  installation_id: pulumi.Input[str],
                  pem_file: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The GitHub App ID.
+        :param pulumi.Input[str] installation_id: The GitHub App installation instance ID.
+        :param pulumi.Input[str] pem_file: The GitHub App PEM file contents.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "installation_id", installation_id)
         pulumi.set(__self__, "pem_file", pem_file)
@@ -1865,6 +1886,9 @@ class ProviderAppAuthArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        The GitHub App ID.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1874,6 +1898,9 @@ class ProviderAppAuthArgs:
     @property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> pulumi.Input[str]:
+        """
+        The GitHub App installation instance ID.
+        """
         return pulumi.get(self, "installation_id")
 
     @installation_id.setter
@@ -1883,6 +1910,9 @@ class ProviderAppAuthArgs:
     @property
     @pulumi.getter(name="pemFile")
     def pem_file(self) -> pulumi.Input[str]:
+        """
+        The GitHub App PEM file contents.
+        """
         return pulumi.get(self, "pem_file")
 
     @pem_file.setter

@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppAuth struct {
-	Id             string `pulumi:"id"`
+	// The GitHub App ID.
+	Id string `pulumi:"id"`
+	// The GitHub App installation instance ID.
 	InstallationId string `pulumi:"installationId"`
-	PemFile        string `pulumi:"pemFile"`
+	// The GitHub App PEM file contents.
+	PemFile string `pulumi:"pemFile"`
 }
 
 // AppAuthInput is an input type that accepts AppAuthArgs and AppAuthOutput values.
@@ -31,9 +34,12 @@ type AppAuthInput interface {
 }
 
 type AppAuthArgs struct {
-	Id             pulumi.StringInput `pulumi:"id"`
+	// The GitHub App ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The GitHub App installation instance ID.
 	InstallationId pulumi.StringInput `pulumi:"installationId"`
-	PemFile        pulumi.StringInput `pulumi:"pemFile"`
+	// The GitHub App PEM file contents.
+	PemFile pulumi.StringInput `pulumi:"pemFile"`
 }
 
 func (AppAuthArgs) ElementType() reflect.Type {
@@ -62,14 +68,17 @@ func (o AppAuthOutput) ToAppAuthOutputWithContext(ctx context.Context) AppAuthOu
 	return o
 }
 
+// The GitHub App ID.
 func (o AppAuthOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The GitHub App installation instance ID.
 func (o AppAuthOutput) InstallationId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.InstallationId }).(pulumi.StringOutput)
 }
 
+// The GitHub App PEM file contents.
 func (o AppAuthOutput) PemFile() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuth) string { return v.PemFile }).(pulumi.StringOutput)
 }

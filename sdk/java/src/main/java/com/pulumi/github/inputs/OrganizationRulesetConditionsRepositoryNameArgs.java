@@ -48,9 +48,17 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
         return this.includes;
     }
 
+    /**
+     * Whether renaming of target repositories is prevented.
+     * 
+     */
     @Import(name="protected")
     private @Nullable Output<Boolean> protected_;
 
+    /**
+     * @return Whether renaming of target repositories is prevented.
+     * 
+     */
     public Optional<Output<Boolean>> protected_() {
         return Optional.ofNullable(this.protected_);
     }
@@ -143,11 +151,23 @@ public final class OrganizationRulesetConditionsRepositoryNameArgs extends com.p
             return includes(List.of(includes));
         }
 
+        /**
+         * @param protected_ Whether renaming of target repositories is prevented.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protected_(@Nullable Output<Boolean> protected_) {
             $.protected_ = protected_;
             return this;
         }
 
+        /**
+         * @param protected_ Whether renaming of target repositories is prevented.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protected_(Boolean protected_) {
             return protected_(Output.of(protected_));
         }

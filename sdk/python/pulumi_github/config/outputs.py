@@ -19,6 +19,11 @@ class AppAuth(dict):
                  id: str,
                  installation_id: str,
                  pem_file: str):
+        """
+        :param str id: The GitHub App ID.
+        :param str installation_id: The GitHub App installation instance ID.
+        :param str pem_file: The GitHub App PEM file contents.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "installation_id", installation_id)
         pulumi.set(__self__, "pem_file", pem_file)
@@ -26,16 +31,25 @@ class AppAuth(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The GitHub App ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="installationId")
     def installation_id(self) -> str:
+        """
+        The GitHub App installation instance ID.
+        """
         return pulumi.get(self, "installation_id")
 
     @property
     @pulumi.getter(name="pemFile")
     def pem_file(self) -> str:
+        """
+        The GitHub App PEM file contents.
+        """
         return pulumi.get(self, "pem_file")
 
 
