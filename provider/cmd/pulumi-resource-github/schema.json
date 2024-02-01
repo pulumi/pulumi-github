@@ -99,13 +99,16 @@
         "github:config/appAuth:appAuth": {
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The GitHub App ID.\n"
                 },
                 "installationId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The GitHub App installation instance ID.\n"
                 },
                 "pemFile": {
                     "type": "string",
+                    "description": "The GitHub App PEM file contents.\n",
                     "secret": true
                 }
             },
@@ -479,7 +482,8 @@
                     "description": "(List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
                 },
                 "protected": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether renaming of target repositories is prevented.\n"
                 }
             },
             "type": "object",
@@ -773,13 +777,16 @@
         "github:index/OrganizationWebhookConfiguration:OrganizationWebhookConfiguration": {
             "properties": {
                 "contentType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The content type for the payload. Valid values are either 'form' or 'json'.\n"
                 },
                 "insecureSsl": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Insecure SSL boolean toggle. Defaults to 'false'.\n"
                 },
                 "secret": {
                     "type": "string",
+                    "description": "The shared secret for the webhook\n",
                     "secret": true
                 },
                 "url": {
@@ -796,13 +803,16 @@
         "github:index/ProviderAppAuth:ProviderAppAuth": {
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The GitHub App ID.\n"
                 },
                 "installationId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The GitHub App installation instance ID.\n"
                 },
                 "pemFile": {
                     "type": "string",
+                    "description": "The GitHub App PEM file contents.\n",
                     "secret": true
                 }
             },
