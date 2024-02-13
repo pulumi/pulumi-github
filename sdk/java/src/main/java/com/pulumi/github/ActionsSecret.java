@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import github:index/actionsSecret:ActionsSecret example_secret repository/secret_name
  * ```
- *  NOTEthe implementation is limited in that it won&#39;t fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ *  NOTE: the implementation is limited in that it won&#39;t fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  * 
  */
 @ResourceType(type="github:index/actionsSecret:ActionsSecret")

@@ -37,7 +37,9 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+    /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
+    /// 
+    ///  does not return previously uploaded GPG key.
     /// </summary>
     [GithubResourceType("github:index/userGpgKey:UserGpgKey")]
     public partial class UserGpgKey : global::Pulumi.CustomResource

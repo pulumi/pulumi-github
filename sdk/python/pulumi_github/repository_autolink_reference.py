@@ -201,7 +201,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         ### Import by key prefix
 
         ```sh
-         $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
+        $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,7 +240,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         ### Import by key prefix
 
         ```sh
-         $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
+        $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
         ```
 
         :param str resource_name: The name of the resource.

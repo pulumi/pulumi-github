@@ -69,15 +69,11 @@ import (
 // GitHub Team Membership can be imported using an ID made up of `teamid:username` or `teamname:username`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
-//
+// $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
 // ```
 //
 // ```sh
-//
-//	$ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
-//
+// $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState

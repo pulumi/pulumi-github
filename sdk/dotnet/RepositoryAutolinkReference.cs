@@ -43,7 +43,7 @@ namespace Pulumi.Github
     /// ### Import by key prefix
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
+    /// $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryAutolinkReference:RepositoryAutolinkReference")]

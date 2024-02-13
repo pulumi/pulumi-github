@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example`&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`.
+ * Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `&#34;https://github.com/foo-org/foo-repo/settings/hooks/14711452&#34;`.
  * 
  * Importing uses the name of the repository, as well as the ID of the webhook, e.g.
  * 

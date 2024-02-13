@@ -54,9 +54,7 @@ import (
 // ### Import by key prefix
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
-//
+// $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
 // ```
 type RepositoryAutolinkReference struct {
 	pulumi.CustomResourceState

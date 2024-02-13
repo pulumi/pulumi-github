@@ -21,9 +21,7 @@ import (
 // GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
-//
+// $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
 // ```
 type OrganizationRuleset struct {
 	pulumi.CustomResourceState

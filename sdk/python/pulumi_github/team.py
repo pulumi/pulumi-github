@@ -384,11 +384,11 @@ class Team(pulumi.CustomResource):
         GitHub Teams can be imported using the GitHub team ID or name e.g.
 
         ```sh
-         $ pulumi import github:index/team:Team core 1234567
+        $ pulumi import github:index/team:Team core 1234567
         ```
 
         ```sh
-         $ pulumi import github:index/team:Team core Administrators
+        $ pulumi import github:index/team:Team core Administrators
         ```
 
         :param str resource_name: The name of the resource.
@@ -432,11 +432,11 @@ class Team(pulumi.CustomResource):
         GitHub Teams can be imported using the GitHub team ID or name e.g.
 
         ```sh
-         $ pulumi import github:index/team:Team core 1234567
+        $ pulumi import github:index/team:Team core 1234567
         ```
 
         ```sh
-         $ pulumi import github:index/team:Team core Administrators
+        $ pulumi import github:index/team:Team core Administrators
         ```
 
         :param str resource_name: The name of the resource.
