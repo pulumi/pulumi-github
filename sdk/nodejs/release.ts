@@ -49,7 +49,7 @@ import * as utilities from "./utilities";
  * This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/release:Release example repo:12345678
+ * $ pulumi import github:index/release:Release example repo:12345678
  * ```
  */
 export class Release extends pulumi.CustomResource {

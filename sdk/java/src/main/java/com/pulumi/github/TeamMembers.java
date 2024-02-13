@@ -80,14 +80,16 @@ import javax.annotation.Nullable;
  * 
  * Using the team slug will result in terraform doing conversions between the team slug and team id.
  * 
- * This will cause team members associations to the team to be destroyed and recreated on import. GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+ * This will cause team members associations to the team to be destroyed and recreated on import.
+ * 
+ *  GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
+ * $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
  * ```
  * 
  * ```sh
- *  $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
+ * $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
  * ```
  * 
  */

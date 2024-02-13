@@ -54,7 +54,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+ * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
+ * 
+ *  does not return previously uploaded GPG key.
  * 
  */
 @ResourceType(type="github:index/userGpgKey:UserGpgKey")

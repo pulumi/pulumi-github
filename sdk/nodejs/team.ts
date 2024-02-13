@@ -28,11 +28,11 @@ import * as utilities from "./utilities";
  * GitHub Teams can be imported using the GitHub team ID or name e.g.
  *
  * ```sh
- *  $ pulumi import github:index/team:Team core 1234567
+ * $ pulumi import github:index/team:Team core 1234567
  * ```
  *
  * ```sh
- *  $ pulumi import github:index/team:Team core Administrators
+ * $ pulumi import github:index/team:Team core Administrators
  * ```
  */
 export class Team extends pulumi.CustomResource {

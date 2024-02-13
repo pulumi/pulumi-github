@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * ### Import by key prefix
  *
  * ```sh
- *  $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
+ * $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto oof/OOF-
  * ```
  */
 export class RepositoryAutolinkReference extends pulumi.CustomResource {

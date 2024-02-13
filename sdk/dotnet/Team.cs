@@ -40,11 +40,11 @@ namespace Pulumi.Github
     /// GitHub Teams can be imported using the GitHub team ID or name e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/team:Team core 1234567
+    /// $ pulumi import github:index/team:Team core 1234567
     /// ```
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/team:Team core Administrators
+    /// $ pulumi import github:index/team:Team core Administrators
     /// ```
     /// </summary>
     [GithubResourceType("github:index/team:Team")]

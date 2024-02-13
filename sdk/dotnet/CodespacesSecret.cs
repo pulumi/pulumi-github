@@ -49,7 +49,7 @@ namespace Pulumi.Github
     /// ```sh
     ///  $ pulumi import github:index/codespacesSecret:CodespacesSecret example_secret example_repository/example_secret_name
     /// ```
-    ///  NOTEthe implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+    ///  NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/codespacesSecret:CodespacesSecret")]
     public partial class CodespacesSecret : global::Pulumi.CustomResource

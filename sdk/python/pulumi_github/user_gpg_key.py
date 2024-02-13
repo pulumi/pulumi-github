@@ -116,7 +116,9 @@ class UserGpgKey(pulumi.CustomResource):
 
         ## Import
 
-        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
+
+         does not return previously uploaded GPG key.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +150,9 @@ class UserGpgKey(pulumi.CustomResource):
 
         ## Import
 
-        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys) does not return previously uploaded GPG key.
+        GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
+
+         does not return previously uploaded GPG key.
 
         :param str resource_name: The name of the resource.
         :param UserGpgKeyArgs args: The arguments to use to populate this resource's properties.

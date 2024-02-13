@@ -82,9 +82,7 @@ import (
 // GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryRuleset:RepositoryRuleset example example:12345`
-//
+// $ pulumi import github:index/repositoryRuleset:RepositoryRuleset example example:12345`
 // ```
 type RepositoryRuleset struct {
 	pulumi.CustomResourceState

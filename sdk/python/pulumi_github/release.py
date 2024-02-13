@@ -381,7 +381,7 @@ class Release(pulumi.CustomResource):
         This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
 
         ```sh
-         $ pulumi import github:index/release:Release example repo:12345678
+        $ pulumi import github:index/release:Release example repo:12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -443,7 +443,7 @@ class Release(pulumi.CustomResource):
         This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
 
         ```sh
-         $ pulumi import github:index/release:Release example repo:12345678
+        $ pulumi import github:index/release:Release example repo:12345678
         ```
 
         :param str resource_name: The name of the resource.

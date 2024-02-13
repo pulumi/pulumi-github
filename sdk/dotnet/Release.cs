@@ -76,7 +76,7 @@ namespace Pulumi.Github
     /// This resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/release:Release example repo:12345678
+    /// $ pulumi import github:index/release:Release example repo:12345678
     /// ```
     /// </summary>
     [GithubResourceType("github:index/release:Release")]
