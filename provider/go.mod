@@ -5,9 +5,21 @@ go 1.21
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/integrations/terraform-provider-github/v5 v5.45.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.73.0
-	github.com/pulumi/pulumi/sdk/v3 v3.104.2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.74.0
+	github.com/pulumi/pulumi/sdk/v3 v3.105.0
 )
+
+// tfinstall was removed from terraform-exec in v0.16.0.
+//
+// Pinning avoids this error:
+//
+//	go: finding module for package github.com/hashicorp/terraform-exec/tfinstall
+//	go: github.com/pulumi/pulumi-rancher2/provider/v6 imports
+//	        github.com/rancher/terraform-provider-rancher2/rancher2 imports
+//	        github.com/hashicorp/terraform-plugin-sdk/helper/resource imports
+//	        github.com/hashicorp/terraform-plugin-test/v2 imports
+//	        github.com/hashicorp/terraform-exec/tfinstall: module github.com/hashicorp/terraform-exec@latest found (v0.20.0), but does not contain package github.com/hashicorp/terraform-exec/tfinstall
+replace github.com/hashicorp/terraform-exec => github.com/hashicorp/terraform-exec v0.15.0
 
 require (
 	cloud.google.com/go v0.110.10 // indirect
@@ -114,6 +126,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.21.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.9.0 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
@@ -162,7 +175,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.9 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7 // indirect
 	github.com/pulumi/pulumi-yaml v1.5.0 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.104.2 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.105.0 // indirect
 	github.com/pulumi/schema-tools v0.2.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -188,6 +201,7 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/ulikunitz/xz v0.5.11 // indirect
+	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
@@ -224,3 +238,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
