@@ -94,6 +94,7 @@ install_nodejs_sdk:
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 install_plugins: .pulumi/bin/pulumi
+	.pulumi/bin/pulumi plugin install resource tls 5.0.1
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml

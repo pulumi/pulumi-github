@@ -7,3 +7,6 @@ env:
   VERSION_PREFIX: 6.0.0
 makeTemplate: bridged
 team: ecosystem
+plugins:
+  - name: tls
+    version: "5.0.1"
