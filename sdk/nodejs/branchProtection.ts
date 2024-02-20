@@ -40,11 +40,13 @@ import * as utilities from "./utilities";
  *             "exampleorganization/exampleteam",
  *         ],
  *     }],
- *     pushRestrictions: [
- *         exampleUser.then(exampleUser => exampleUser.nodeId),
- *         "/exampleuser",
- *         "exampleorganization/exampleteam",
- *     ],
+ *     restrictPushes: [{
+ *         pushAllowances: [
+ *             exampleUser.then(exampleUser => exampleUser.nodeId),
+ *             "/exampleuser",
+ *             "exampleorganization/exampleteam",
+ *         ],
+ *     }],
  *     forcePushBypassers: [
  *         exampleUser.then(exampleUser => exampleUser.nodeId),
  *         "/exampleuser",
@@ -99,19 +101,15 @@ export class BranchProtection extends pulumi.CustomResource {
      */
     public readonly allowsDeletions!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
     public readonly allowsForcePushes!: pulumi.Output<boolean | undefined>;
-    /**
-     * Boolean, setting this to `true` to block creating the branch.
-     */
-    public readonly blocksCreations!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
     public readonly forcePushBypassers!: pulumi.Output<string[] | undefined>;
     /**
@@ -122,10 +120,6 @@ export class BranchProtection extends pulumi.CustomResource {
      * Identifies the protection rule pattern.
      */
     public readonly pattern!: pulumi.Output<string>;
-    /**
-     * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-     */
-    public readonly pushRestrictions!: pulumi.Output<string[] | undefined>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
@@ -150,6 +144,10 @@ export class BranchProtection extends pulumi.CustomResource {
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
     public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionRequiredStatusCheck[] | undefined>;
+    /**
+     * Restrict pushes to matching branches. See Restrict Pushes below for details.
+     */
+    public readonly restrictPushes!: pulumi.Output<outputs.BranchProtectionRestrictPush[] | undefined>;
 
     /**
      * Create a BranchProtection resource with the given unique name, arguments, and options.
@@ -166,18 +164,17 @@ export class BranchProtection extends pulumi.CustomResource {
             const state = argsOrState as BranchProtectionState | undefined;
             resourceInputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
             resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
-            resourceInputs["blocksCreations"] = state ? state.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
             resourceInputs["forcePushBypassers"] = state ? state.forcePushBypassers : undefined;
             resourceInputs["lockBranch"] = state ? state.lockBranch : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["pushRestrictions"] = state ? state.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
             resourceInputs["requireConversationResolution"] = state ? state.requireConversationResolution : undefined;
             resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
             resourceInputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
             resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
             resourceInputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
+            resourceInputs["restrictPushes"] = state ? state.restrictPushes : undefined;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
             if ((!args || args.pattern === undefined) && !opts.urn) {
@@ -188,18 +185,17 @@ export class BranchProtection extends pulumi.CustomResource {
             }
             resourceInputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
             resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
-            resourceInputs["blocksCreations"] = args ? args.blocksCreations : undefined;
             resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
             resourceInputs["forcePushBypassers"] = args ? args.forcePushBypassers : undefined;
             resourceInputs["lockBranch"] = args ? args.lockBranch : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["pushRestrictions"] = args ? args.pushRestrictions : undefined;
             resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
             resourceInputs["requireConversationResolution"] = args ? args.requireConversationResolution : undefined;
             resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
             resourceInputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
             resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
             resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
+            resourceInputs["restrictPushes"] = args ? args.restrictPushes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchProtection.__pulumiType, name, resourceInputs, opts);
@@ -215,19 +211,15 @@ export interface BranchProtectionState {
      */
     allowsDeletions?: pulumi.Input<boolean>;
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
     allowsForcePushes?: pulumi.Input<boolean>;
-    /**
-     * Boolean, setting this to `true` to block creating the branch.
-     */
-    blocksCreations?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     enforceAdmins?: pulumi.Input<boolean>;
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
     forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -238,10 +230,6 @@ export interface BranchProtectionState {
      * Identifies the protection rule pattern.
      */
     pattern?: pulumi.Input<string>;
-    /**
-     * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-     */
-    pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
@@ -266,6 +254,10 @@ export interface BranchProtectionState {
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
     requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    /**
+     * Restrict pushes to matching branches. See Restrict Pushes below for details.
+     */
+    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[]>;
 }
 
 /**
@@ -277,19 +269,15 @@ export interface BranchProtectionArgs {
      */
     allowsDeletions?: pulumi.Input<boolean>;
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
     allowsForcePushes?: pulumi.Input<boolean>;
-    /**
-     * Boolean, setting this to `true` to block creating the branch.
-     */
-    blocksCreations?: pulumi.Input<boolean>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
     enforceAdmins?: pulumi.Input<boolean>;
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
     forcePushBypassers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -300,10 +288,6 @@ export interface BranchProtectionArgs {
      * Identifies the protection rule pattern.
      */
     pattern: pulumi.Input<string>;
-    /**
-     * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-     */
-    pushRestrictions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
@@ -328,4 +312,8 @@ export interface BranchProtectionArgs {
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
     requiredStatusChecks?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRequiredStatusCheck>[]>;
+    /**
+     * Restrict pushes to matching branches. See Restrict Pushes below for details.
+     */
+    restrictPushes?: pulumi.Input<pulumi.Input<inputs.BranchProtectionRestrictPush>[]>;
 }

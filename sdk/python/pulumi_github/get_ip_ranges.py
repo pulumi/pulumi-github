@@ -21,7 +21,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apis=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, pages=None, pages_ipv4s=None, pages_ipv6s=None, web_ipv4s=None, web_ipv6s=None, webs=None):
+    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apis=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, packages=None, packages_ipv4s=None, packages_ipv6s=None, pages=None, pages_ipv4s=None, pages_ipv6s=None, web_ipv4s=None, web_ipv6s=None, webs=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -79,6 +79,15 @@ class GetIpRangesResult:
         if importers and not isinstance(importers, list):
             raise TypeError("Expected argument 'importers' to be a list")
         pulumi.set(__self__, "importers", importers)
+        if packages and not isinstance(packages, list):
+            raise TypeError("Expected argument 'packages' to be a list")
+        pulumi.set(__self__, "packages", packages)
+        if packages_ipv4s and not isinstance(packages_ipv4s, list):
+            raise TypeError("Expected argument 'packages_ipv4s' to be a list")
+        pulumi.set(__self__, "packages_ipv4s", packages_ipv4s)
+        if packages_ipv6s and not isinstance(packages_ipv6s, list):
+            raise TypeError("Expected argument 'packages_ipv6s' to be a list")
+        pulumi.set(__self__, "packages_ipv6s", packages_ipv6s)
         if pages and not isinstance(pages, list):
             raise TypeError("Expected argument 'pages' to be a list")
         pulumi.set(__self__, "pages", pages)
@@ -252,6 +261,30 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
+    def packages(self) -> Sequence[str]:
+        """
+        An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+        """
+        return pulumi.get(self, "packages")
+
+    @property
+    @pulumi.getter(name="packagesIpv4s")
+    def packages_ipv4s(self) -> Sequence[str]:
+        """
+        A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+        """
+        return pulumi.get(self, "packages_ipv4s")
+
+    @property
+    @pulumi.getter(name="packagesIpv6s")
+    def packages_ipv6s(self) -> Sequence[str]:
+        """
+        A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+        """
+        return pulumi.get(self, "packages_ipv6s")
+
+    @property
+    @pulumi.getter
     def pages(self) -> Sequence[str]:
         """
         An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
@@ -324,6 +357,9 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             importer_ipv4s=self.importer_ipv4s,
             importer_ipv6s=self.importer_ipv6s,
             importers=self.importers,
+            packages=self.packages,
+            packages_ipv4s=self.packages_ipv4s,
+            packages_ipv6s=self.packages_ipv6s,
             pages=self.pages,
             pages_ipv4s=self.pages_ipv4s,
             pages_ipv6s=self.pages_ipv6s,
@@ -369,6 +405,9 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         importer_ipv4s=pulumi.get(__ret__, 'importer_ipv4s'),
         importer_ipv6s=pulumi.get(__ret__, 'importer_ipv6s'),
         importers=pulumi.get(__ret__, 'importers'),
+        packages=pulumi.get(__ret__, 'packages'),
+        packages_ipv4s=pulumi.get(__ret__, 'packages_ipv4s'),
+        packages_ipv6s=pulumi.get(__ret__, 'packages_ipv6s'),
         pages=pulumi.get(__ret__, 'pages'),
         pages_ipv4s=pulumi.get(__ret__, 'pages_ipv4s'),
         pages_ipv6s=pulumi.get(__ret__, 'pages_ipv6s'),

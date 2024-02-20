@@ -9,11 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+    /// You must have write access to an organization secret to use this resource.
+    /// 
+    /// This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var exampleSecret = new Github.DependabotOrganizationSecret("exampleSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "private",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var orgSecretRepos = new Github.DependabotOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     {
+    ///         SecretName = exampleSecret.SecretName,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// This resource can be imported using an ID made up of the secret name:
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")]
     public partial class DependabotOrganizationSecretRepositories : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the existing secret.
+        /// Name of the existing secret
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
@@ -71,7 +119,7 @@ namespace Pulumi.Github
     public sealed class DependabotOrganizationSecretRepositoriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the existing secret.
+        /// Name of the existing secret
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -97,7 +145,7 @@ namespace Pulumi.Github
     public sealed class DependabotOrganizationSecretRepositoriesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the existing secret.
+        /// Name of the existing secret
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

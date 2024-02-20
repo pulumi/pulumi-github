@@ -35,6 +35,7 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+  VERSION_PREFIX: 6.0.0
 
 jobs:
   lint:
@@ -58,7 +59,7 @@ jobs:
       continue-on-error: true
       run: make upstream
     - name: golangci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4
       with:
         version: v1.55.2
         working-directory: provider

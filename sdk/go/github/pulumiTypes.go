@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -773,6 +773,112 @@ func (o BranchProtectionRequiredStatusCheckArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionRequiredStatusCheck {
 		return vs[0].([]BranchProtectionRequiredStatusCheck)[vs[1].(int)]
 	}).(BranchProtectionRequiredStatusCheckOutput)
+}
+
+type BranchProtectionRestrictPush struct {
+	// Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+	BlocksCreations *bool `pulumi:"blocksCreations"`
+	// A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+	PushAllowances []string `pulumi:"pushAllowances"`
+}
+
+// BranchProtectionRestrictPushInput is an input type that accepts BranchProtectionRestrictPushArgs and BranchProtectionRestrictPushOutput values.
+// You can construct a concrete instance of `BranchProtectionRestrictPushInput` via:
+//
+//	BranchProtectionRestrictPushArgs{...}
+type BranchProtectionRestrictPushInput interface {
+	pulumi.Input
+
+	ToBranchProtectionRestrictPushOutput() BranchProtectionRestrictPushOutput
+	ToBranchProtectionRestrictPushOutputWithContext(context.Context) BranchProtectionRestrictPushOutput
+}
+
+type BranchProtectionRestrictPushArgs struct {
+	// Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+	BlocksCreations pulumi.BoolPtrInput `pulumi:"blocksCreations"`
+	// A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+	PushAllowances pulumi.StringArrayInput `pulumi:"pushAllowances"`
+}
+
+func (BranchProtectionRestrictPushArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRestrictPush)(nil)).Elem()
+}
+
+func (i BranchProtectionRestrictPushArgs) ToBranchProtectionRestrictPushOutput() BranchProtectionRestrictPushOutput {
+	return i.ToBranchProtectionRestrictPushOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionRestrictPushArgs) ToBranchProtectionRestrictPushOutputWithContext(ctx context.Context) BranchProtectionRestrictPushOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRestrictPushOutput)
+}
+
+// BranchProtectionRestrictPushArrayInput is an input type that accepts BranchProtectionRestrictPushArray and BranchProtectionRestrictPushArrayOutput values.
+// You can construct a concrete instance of `BranchProtectionRestrictPushArrayInput` via:
+//
+//	BranchProtectionRestrictPushArray{ BranchProtectionRestrictPushArgs{...} }
+type BranchProtectionRestrictPushArrayInput interface {
+	pulumi.Input
+
+	ToBranchProtectionRestrictPushArrayOutput() BranchProtectionRestrictPushArrayOutput
+	ToBranchProtectionRestrictPushArrayOutputWithContext(context.Context) BranchProtectionRestrictPushArrayOutput
+}
+
+type BranchProtectionRestrictPushArray []BranchProtectionRestrictPushInput
+
+func (BranchProtectionRestrictPushArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRestrictPush)(nil)).Elem()
+}
+
+func (i BranchProtectionRestrictPushArray) ToBranchProtectionRestrictPushArrayOutput() BranchProtectionRestrictPushArrayOutput {
+	return i.ToBranchProtectionRestrictPushArrayOutputWithContext(context.Background())
+}
+
+func (i BranchProtectionRestrictPushArray) ToBranchProtectionRestrictPushArrayOutputWithContext(ctx context.Context) BranchProtectionRestrictPushArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchProtectionRestrictPushArrayOutput)
+}
+
+type BranchProtectionRestrictPushOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRestrictPushOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchProtectionRestrictPush)(nil)).Elem()
+}
+
+func (o BranchProtectionRestrictPushOutput) ToBranchProtectionRestrictPushOutput() BranchProtectionRestrictPushOutput {
+	return o
+}
+
+func (o BranchProtectionRestrictPushOutput) ToBranchProtectionRestrictPushOutputWithContext(ctx context.Context) BranchProtectionRestrictPushOutput {
+	return o
+}
+
+// Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+func (o BranchProtectionRestrictPushOutput) BlocksCreations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionRestrictPush) *bool { return v.BlocksCreations }).(pulumi.BoolPtrOutput)
+}
+
+// A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+func (o BranchProtectionRestrictPushOutput) PushAllowances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchProtectionRestrictPush) []string { return v.PushAllowances }).(pulumi.StringArrayOutput)
+}
+
+type BranchProtectionRestrictPushArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchProtectionRestrictPushArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchProtectionRestrictPush)(nil)).Elem()
+}
+
+func (o BranchProtectionRestrictPushArrayOutput) ToBranchProtectionRestrictPushArrayOutput() BranchProtectionRestrictPushArrayOutput {
+	return o
+}
+
+func (o BranchProtectionRestrictPushArrayOutput) ToBranchProtectionRestrictPushArrayOutputWithContext(ctx context.Context) BranchProtectionRestrictPushArrayOutput {
+	return o
+}
+
+func (o BranchProtectionRestrictPushArrayOutput) Index(i pulumi.IntInput) BranchProtectionRestrictPushOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchProtectionRestrictPush {
+		return vs[0].([]BranchProtectionRestrictPush)[vs[1].(int)]
+	}).(BranchProtectionRestrictPushOutput)
 }
 
 type BranchProtectionV3RequiredPullRequestReviews struct {
@@ -1890,7 +1996,7 @@ type OrganizationRulesetConditions struct {
 	// (Block List, Min: 1, Max: 1) (see below for nested schema)
 	RefName OrganizationRulesetConditionsRefName `pulumi:"refName"`
 	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
-	RepositoryId *int `pulumi:"repositoryId"`
+	RepositoryIds []int `pulumi:"repositoryIds"`
 	// Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
@@ -1912,7 +2018,7 @@ type OrganizationRulesetConditionsArgs struct {
 	// (Block List, Min: 1, Max: 1) (see below for nested schema)
 	RefName OrganizationRulesetConditionsRefNameInput `pulumi:"refName"`
 	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
-	RepositoryId pulumi.IntPtrInput `pulumi:"repositoryId"`
+	RepositoryIds pulumi.IntArrayInput `pulumi:"repositoryIds"`
 	// Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
@@ -2002,8 +2108,8 @@ func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetCondit
 }
 
 // The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
-func (o OrganizationRulesetConditionsOutput) RepositoryId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OrganizationRulesetConditions) *int { return v.RepositoryId }).(pulumi.IntPtrOutput)
+func (o OrganizationRulesetConditionsOutput) RepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) []int { return v.RepositoryIds }).(pulumi.IntArrayOutput)
 }
 
 // Conflicts with `repositoryId`. (see below for nested schema)
@@ -2050,13 +2156,13 @@ func (o OrganizationRulesetConditionsPtrOutput) RefName() OrganizationRulesetCon
 }
 
 // The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
-func (o OrganizationRulesetConditionsPtrOutput) RepositoryId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OrganizationRulesetConditions) *int {
+func (o OrganizationRulesetConditionsPtrOutput) RepositoryIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) []int {
 		if v == nil {
 			return nil
 		}
-		return v.RepositoryId
-	}).(pulumi.IntPtrOutput)
+		return v.RepositoryIds
+	}).(pulumi.IntArrayOutput)
 }
 
 // Conflicts with `repositoryId`. (see below for nested schema)
@@ -13859,6 +13965,31 @@ func (i GetRepositoryTemplateArgs) ToGetRepositoryTemplateOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTemplateOutput)
 }
 
+// GetRepositoryTemplateArrayInput is an input type that accepts GetRepositoryTemplateArray and GetRepositoryTemplateArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryTemplateArrayInput` via:
+//
+//	GetRepositoryTemplateArray{ GetRepositoryTemplateArgs{...} }
+type GetRepositoryTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryTemplateArrayOutput() GetRepositoryTemplateArrayOutput
+	ToGetRepositoryTemplateArrayOutputWithContext(context.Context) GetRepositoryTemplateArrayOutput
+}
+
+type GetRepositoryTemplateArray []GetRepositoryTemplateInput
+
+func (GetRepositoryTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (i GetRepositoryTemplateArray) ToGetRepositoryTemplateArrayOutput() GetRepositoryTemplateArrayOutput {
+	return i.ToGetRepositoryTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryTemplateArray) ToGetRepositoryTemplateArrayOutputWithContext(ctx context.Context) GetRepositoryTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryTemplateArrayOutput)
+}
+
 type GetRepositoryTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryTemplateOutput) ElementType() reflect.Type {
@@ -13879,6 +14010,26 @@ func (o GetRepositoryTemplateOutput) Owner() pulumi.StringOutput {
 
 func (o GetRepositoryTemplateOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryTemplate) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+type GetRepositoryTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryTemplate)(nil)).Elem()
+}
+
+func (o GetRepositoryTemplateArrayOutput) ToGetRepositoryTemplateArrayOutput() GetRepositoryTemplateArrayOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateArrayOutput) ToGetRepositoryTemplateArrayOutputWithContext(ctx context.Context) GetRepositoryTemplateArrayOutput {
+	return o
+}
+
+func (o GetRepositoryTemplateArrayOutput) Index(i pulumi.IntInput) GetRepositoryTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryTemplate {
+		return vs[0].([]GetRepositoryTemplate)[vs[1].(int)]
+	}).(GetRepositoryTemplateOutput)
 }
 
 type GetRepositoryWebhooksWebhook struct {
@@ -14243,6 +14394,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredPullRequestReviewArrayInput)(nil)).Elem(), BranchProtectionRequiredPullRequestReviewArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRequiredStatusCheckArrayInput)(nil)).Elem(), BranchProtectionRequiredStatusCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRestrictPushInput)(nil)).Elem(), BranchProtectionRestrictPushArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionRestrictPushArrayInput)(nil)).Elem(), BranchProtectionRestrictPushArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsPtrInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesInput)(nil)).Elem(), BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs{})
@@ -14408,6 +14561,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamInput)(nil)).Elem(), GetRepositoryTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTeamsTeamArrayInput)(nil)).Elem(), GetRepositoryTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateInput)(nil)).Elem(), GetRepositoryTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryTemplateArrayInput)(nil)).Elem(), GetRepositoryTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryWebhooksWebhookArrayInput)(nil)).Elem(), GetRepositoryWebhooksWebhookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamRepositoriesDetailedInput)(nil)).Elem(), GetTeamRepositoriesDetailedArgs{})
@@ -14424,6 +14578,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionRequiredPullRequestReviewArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckOutput{})
 	pulumi.RegisterOutputType(BranchProtectionRequiredStatusCheckArrayOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRestrictPushOutput{})
+	pulumi.RegisterOutputType(BranchProtectionRestrictPushArrayOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesOutput{})
@@ -14589,6 +14745,7 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryTemplateOutput{})
+	pulumi.RegisterOutputType(GetRepositoryTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookOutput{})
 	pulumi.RegisterOutputType(GetRepositoryWebhooksWebhookArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamRepositoriesDetailedOutput{})

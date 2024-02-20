@@ -15,17 +15,77 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+ * You must have write access to an organization secret to use this resource.
+ * 
+ * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.DependabotOrganizationSecret;
+ * import com.pulumi.github.DependabotOrganizationSecretArgs;
+ * import com.pulumi.github.DependabotOrganizationSecretRepositories;
+ * import com.pulumi.github.DependabotOrganizationSecretRepositoriesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *             .fullName(&#34;my-org/repo&#34;)
+ *             .build());
+ * 
+ *         var exampleSecret = new DependabotOrganizationSecret(&#34;exampleSecret&#34;, DependabotOrganizationSecretArgs.builder()        
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .visibility(&#34;private&#34;)
+ *             .plaintextValue(var_.some_secret_string())
+ *             .build());
+ * 
+ *         var orgSecretRepos = new DependabotOrganizationSecretRepositories(&#34;orgSecretRepos&#34;, DependabotOrganizationSecretRepositoriesArgs.builder()        
+ *             .secretName(exampleSecret.secretName())
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using an ID made up of the secret name:
+ * 
+ * ```sh
+ * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")
 public class DependabotOrganizationSecretRepositories extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      * 
      */
     @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
-     * @return Name of the existing secret.
+     * @return Name of the existing secret
      * 
      */
     public Output<String> secretName() {

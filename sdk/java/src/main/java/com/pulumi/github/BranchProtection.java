@@ -12,6 +12,7 @@ import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.BranchProtectionState;
 import com.pulumi.github.outputs.BranchProtectionRequiredPullRequestReview;
 import com.pulumi.github.outputs.BranchProtectionRequiredStatusCheck;
+import com.pulumi.github.outputs.BranchProtectionRestrictPush;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -34,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.BranchProtectionArgs;
  * import com.pulumi.github.inputs.BranchProtectionRequiredStatusCheckArgs;
  * import com.pulumi.github.inputs.BranchProtectionRequiredPullRequestReviewArgs;
+ * import com.pulumi.github.inputs.BranchProtectionRestrictPushArgs;
  * import com.pulumi.github.TeamRepository;
  * import com.pulumi.github.TeamRepositoryArgs;
  * import java.util.List;
@@ -75,10 +77,12 @@ import javax.annotation.Nullable;
  *                     &#34;/exampleuser&#34;,
  *                     &#34;exampleorganization/exampleteam&#34;)
  *                 .build())
- *             .pushRestrictions(            
- *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
- *                 &#34;/exampleuser&#34;,
- *                 &#34;exampleorganization/exampleteam&#34;)
+ *             .restrictPushes(BranchProtectionRestrictPushArgs.builder()
+ *                 .pushAllowances(                
+ *                     exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                     &#34;/exampleuser&#34;,
+ *                     &#34;exampleorganization/exampleteam&#34;)
+ *                 .build())
  *             .forcePushBypassers(            
  *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
  *                 &#34;/exampleuser&#34;,
@@ -121,32 +125,18 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowsDeletions);
     }
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
      * 
      */
     @Export(name="allowsForcePushes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowsForcePushes;
 
     /**
-     * @return Boolean, setting this to `true` to allow force pushes on the branch.
+     * @return Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
      * 
      */
     public Output<Optional<Boolean>> allowsForcePushes() {
         return Codegen.optional(this.allowsForcePushes);
-    }
-    /**
-     * Boolean, setting this to `true` to block creating the branch.
-     * 
-     */
-    @Export(name="blocksCreations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> blocksCreations;
-
-    /**
-     * @return Boolean, setting this to `true` to block creating the branch.
-     * 
-     */
-    public Output<Optional<Boolean>> blocksCreations() {
-        return Codegen.optional(this.blocksCreations);
     }
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -163,14 +153,14 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enforceAdmins);
     }
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
      * 
      */
     @Export(name="forcePushBypassers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> forcePushBypassers;
 
     /**
-     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
      * 
      */
     public Output<Optional<List<String>>> forcePushBypassers() {
@@ -203,20 +193,6 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> pattern() {
         return this.pattern;
-    }
-    /**
-     * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-     * 
-     */
-    @Export(name="pushRestrictions", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> pushRestrictions;
-
-    /**
-     * @return The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-     * 
-     */
-    public Output<Optional<List<String>>> pushRestrictions() {
-        return Codegen.optional(this.pushRestrictions);
     }
     /**
      * The name or node ID of the repository associated with this branch protection rule.
@@ -301,6 +277,20 @@ public class BranchProtection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<BranchProtectionRequiredStatusCheck>>> requiredStatusChecks() {
         return Codegen.optional(this.requiredStatusChecks);
+    }
+    /**
+     * Restrict pushes to matching branches. See Restrict Pushes below for details.
+     * 
+     */
+    @Export(name="restrictPushes", refs={List.class,BranchProtectionRestrictPush.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<BranchProtectionRestrictPush>> restrictPushes;
+
+    /**
+     * @return Restrict pushes to matching branches. See Restrict Pushes below for details.
+     * 
+     */
+    public Output<Optional<List<BranchProtectionRestrictPush>>> restrictPushes() {
+        return Codegen.optional(this.restrictPushes);
     }
 
     /**

@@ -41,18 +41,18 @@ export interface GetRestApiArgs {
  */
 export interface GetRestApiResult {
     /**
-     * A map of response body.
+     * A JSON string containing response body.
      */
-    readonly body: {[key: string]: any};
+    readonly body: string;
     /**
      * A response status code.
      */
     readonly code: number;
     readonly endpoint: string;
     /**
-     * A map of response headers.
+     * A JSON string containing response headers.
      */
-    readonly headers: {[key: string]: any};
+    readonly headers: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

@@ -64,14 +64,14 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating, updating or deleting the managed file.
      * 
      */
     @Import(name="commitMessage")
     private @Nullable Output<String> commitMessage;
 
     /**
-     * @return Commit message when adding or updating the managed file.
+     * @return The commit message when creating, updating or deleting the managed file.
      * 
      */
     public Optional<Output<String>> commitMessage() {
@@ -283,7 +283,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitMessage Commit message when adding or updating the managed file.
+         * @param commitMessage The commit message when creating, updating or deleting the managed file.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param commitMessage Commit message when adding or updating the managed file.
+         * @param commitMessage The commit message when creating, updating or deleting the managed file.
          * 
          * @return builder
          * 

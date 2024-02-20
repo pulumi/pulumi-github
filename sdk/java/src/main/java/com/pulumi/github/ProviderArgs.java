@@ -10,6 +10,7 @@ import com.pulumi.github.inputs.ProviderAppAuthArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -64,6 +65,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> insecure() {
         return Optional.ofNullable(this.insecure);
+    }
+
+    /**
+     * Number of times to retry a request after receiving an error status codeDefaults to 3
+     * 
+     */
+    @Import(name="maxRetries", json=true)
+    private @Nullable Output<Integer> maxRetries;
+
+    /**
+     * @return Number of times to retry a request after receiving an error status codeDefaults to 3
+     * 
+     */
+    public Optional<Output<Integer>> maxRetries() {
+        return Optional.ofNullable(this.maxRetries);
     }
 
     /**
@@ -139,6 +155,40 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+     * 1s if not set, the max_retries must be set to greater than zero.
+     * 
+     */
+    @Import(name="retryDelayMs", json=true)
+    private @Nullable Output<Integer> retryDelayMs;
+
+    /**
+     * @return Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+     * 1s if not set, the max_retries must be set to greater than zero.
+     * 
+     */
+    public Optional<Output<Integer>> retryDelayMs() {
+        return Optional.ofNullable(this.retryDelayMs);
+    }
+
+    /**
+     * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+     * to [500, 502, 503, 504]
+     * 
+     */
+    @Import(name="retryableErrors", json=true)
+    private @Nullable Output<List<Integer>> retryableErrors;
+
+    /**
+     * @return Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+     * to [500, 502, 503, 504]
+     * 
+     */
+    public Optional<Output<List<Integer>>> retryableErrors() {
+        return Optional.ofNullable(this.retryableErrors);
+    }
+
+    /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      * 
      */
@@ -174,10 +224,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.appAuth = $.appAuth;
         this.baseUrl = $.baseUrl;
         this.insecure = $.insecure;
+        this.maxRetries = $.maxRetries;
         this.organization = $.organization;
         this.owner = $.owner;
         this.parallelRequests = $.parallelRequests;
         this.readDelayMs = $.readDelayMs;
+        this.retryDelayMs = $.retryDelayMs;
+        this.retryableErrors = $.retryableErrors;
         this.token = $.token;
         this.writeDelayMs = $.writeDelayMs;
     }
@@ -263,6 +316,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder insecure(Boolean insecure) {
             return insecure(Output.of(insecure));
+        }
+
+        /**
+         * @param maxRetries Number of times to retry a request after receiving an error status codeDefaults to 3
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRetries(@Nullable Output<Integer> maxRetries) {
+            $.maxRetries = maxRetries;
+            return this;
+        }
+
+        /**
+         * @param maxRetries Number of times to retry a request after receiving an error status codeDefaults to 3
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRetries(Integer maxRetries) {
+            return maxRetries(Output.of(maxRetries));
         }
 
         /**
@@ -359,6 +433,63 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readDelayMs(Integer readDelayMs) {
             return readDelayMs(Output.of(readDelayMs));
+        }
+
+        /**
+         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+         * 1s if not set, the max_retries must be set to greater than zero.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryDelayMs(@Nullable Output<Integer> retryDelayMs) {
+            $.retryDelayMs = retryDelayMs;
+            return this;
+        }
+
+        /**
+         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+         * 1s if not set, the max_retries must be set to greater than zero.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryDelayMs(Integer retryDelayMs) {
+            return retryDelayMs(Output.of(retryDelayMs));
+        }
+
+        /**
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+         * to [500, 502, 503, 504]
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryableErrors(@Nullable Output<List<Integer>> retryableErrors) {
+            $.retryableErrors = retryableErrors;
+            return this;
+        }
+
+        /**
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+         * to [500, 502, 503, 504]
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryableErrors(List<Integer> retryableErrors) {
+            return retryableErrors(Output.of(retryableErrors));
+        }
+
+        /**
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+         * to [500, 502, 503, 504]
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryableErrors(Integer... retryableErrors) {
+            return retryableErrors(List.of(retryableErrors));
         }
 
         /**

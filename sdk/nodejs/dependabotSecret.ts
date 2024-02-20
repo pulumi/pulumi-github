@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const examplePublicKey = github.getDependabotPublicKey({
+ *     repository: "example_repository",
+ * });
+ * const exampleSecretDependabotSecret = new github.DependabotSecret("exampleSecretDependabotSecret", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     plaintextValue: _var.some_secret_string,
+ * });
+ * const exampleSecretIndex_dependabotSecretDependabotSecret = new github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     encryptedValue: _var.some_encrypted_secret_string,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using an ID made up of the `repository` and `secret_name`:
+ *
+ * ```sh
+ *  $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+ * ```
+ *  NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ */
 export class DependabotSecret extends pulumi.CustomResource {
     /**
      * Get an existing DependabotSecret resource's state with the given name, ID, and optional extra
@@ -33,7 +64,7 @@ export class DependabotSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of 'dependabot_secret' creation.
+     * Date of dependabotSecret creation.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -41,19 +72,19 @@ export class DependabotSecret extends pulumi.CustomResource {
      */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     public readonly plaintextValue!: pulumi.Output<string | undefined>;
     /**
-     * Name of the repository.
+     * Name of the repository
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     public readonly secretName!: pulumi.Output<string>;
     /**
-     * Date of 'dependabot_secret' update.
+     * Date of dependabotSecret update.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -103,7 +134,7 @@ export class DependabotSecret extends pulumi.CustomResource {
  */
 export interface DependabotSecretState {
     /**
-     * Date of 'dependabot_secret' creation.
+     * Date of dependabotSecret creation.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -111,19 +142,19 @@ export interface DependabotSecretState {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the repository.
+     * Name of the repository
      */
     repository?: pulumi.Input<string>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     secretName?: pulumi.Input<string>;
     /**
-     * Date of 'dependabot_secret' update.
+     * Date of dependabotSecret update.
      */
     updatedAt?: pulumi.Input<string>;
 }
@@ -137,15 +168,15 @@ export interface DependabotSecretArgs {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the repository.
+     * Name of the repository
      */
     repository: pulumi.Input<string>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     secretName: pulumi.Input<string>;
 }

@@ -8,16 +8,62 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to manage dependabot automated security fixes for a single repository. See the
+// [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+// for details of usage and how this will impact your repository
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Description:         pulumi.String("GitHub repo managed by Terraform"),
+//				Private:             pulumi.Bool(false),
+//				VulnerabilityAlerts: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryDependabotSecurityUpdates(ctx, "example", &github.RepositoryDependabotSecurityUpdatesArgs{
+//				Repository: pulumi.Any(github_repository.Test.Id),
+//				Enabled:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ### Import by name
+//
+// ```sh
+// $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+// ```
 type RepositoryDependabotSecurityUpdates struct {
 	pulumi.CustomResourceState
 
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The GitHub repository.
+	// The repository to manage.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -59,14 +105,14 @@ func GetRepositoryDependabotSecurityUpdates(ctx *pulumi.Context,
 type repositoryDependabotSecurityUpdatesState struct {
 	// The state of the automated security fixes.
 	Enabled *bool `pulumi:"enabled"`
-	// The GitHub repository.
+	// The repository to manage.
 	Repository *string `pulumi:"repository"`
 }
 
 type RepositoryDependabotSecurityUpdatesState struct {
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolPtrInput
-	// The GitHub repository.
+	// The repository to manage.
 	Repository pulumi.StringPtrInput
 }
 
@@ -77,7 +123,7 @@ func (RepositoryDependabotSecurityUpdatesState) ElementType() reflect.Type {
 type repositoryDependabotSecurityUpdatesArgs struct {
 	// The state of the automated security fixes.
 	Enabled bool `pulumi:"enabled"`
-	// The GitHub repository.
+	// The repository to manage.
 	Repository string `pulumi:"repository"`
 }
 
@@ -85,7 +131,7 @@ type repositoryDependabotSecurityUpdatesArgs struct {
 type RepositoryDependabotSecurityUpdatesArgs struct {
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolInput
-	// The GitHub repository.
+	// The repository to manage.
 	Repository pulumi.StringInput
 }
 
@@ -181,7 +227,7 @@ func (o RepositoryDependabotSecurityUpdatesOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RepositoryDependabotSecurityUpdates) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The GitHub repository.
+// The repository to manage.
 func (o RepositoryDependabotSecurityUpdatesOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDependabotSecurityUpdates) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

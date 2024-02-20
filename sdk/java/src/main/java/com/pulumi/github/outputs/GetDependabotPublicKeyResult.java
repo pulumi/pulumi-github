@@ -15,7 +15,15 @@ public final class GetDependabotPublicKeyResult {
      * 
      */
     private String id;
+    /**
+     * @return Actual key retrieved.
+     * 
+     */
     private String key;
+    /**
+     * @return ID of the key that has been retrieved.
+     * 
+     */
     private String keyId;
     private String repository;
 
@@ -27,9 +35,17 @@ public final class GetDependabotPublicKeyResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Actual key retrieved.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return ID of the key that has been retrieved.
+     * 
+     */
     public String keyId() {
         return this.keyId;
     }

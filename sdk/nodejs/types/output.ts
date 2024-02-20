@@ -90,6 +90,17 @@ export interface BranchProtectionRequiredStatusCheck {
     strict?: boolean;
 }
 
+export interface BranchProtectionRestrictPush {
+    /**
+     * Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+     */
+    blocksCreations?: boolean;
+    /**
+     * A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+     */
+    pushAllowances?: string[];
+}
+
 export interface BranchProtectionV3RequiredPullRequestReviews {
     /**
      * Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
@@ -1014,7 +1025,7 @@ export interface OrganizationRulesetConditions {
     /**
      * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      */
-    repositoryId?: number;
+    repositoryIds?: number[];
     /**
      * Conflicts with `repositoryId`. (see below for nested schema)
      *

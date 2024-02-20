@@ -31,6 +31,7 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+  VERSION_PREFIX: 6.0.0
 
 # This should cancel any previous runs of the same workflow on the same branch which are still running.
 concurrency:

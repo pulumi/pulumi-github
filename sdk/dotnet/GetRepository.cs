@@ -269,7 +269,7 @@ namespace Pulumi.Github
         /// <summary>
         /// The repository source template configuration.
         /// </summary>
-        public readonly Outputs.GetRepositoryTemplateResult Template;
+        public readonly ImmutableArray<Outputs.GetRepositoryTemplateResult> Templates;
         /// <summary>
         /// The list of topics of the repository.
         /// </summary>
@@ -347,7 +347,7 @@ namespace Pulumi.Github
 
             string svnUrl,
 
-            Outputs.GetRepositoryTemplateResult template,
+            ImmutableArray<Outputs.GetRepositoryTemplateResult> templates,
 
             ImmutableArray<string> topics,
 
@@ -386,7 +386,7 @@ namespace Pulumi.Github
             SquashMergeCommitTitle = squashMergeCommitTitle;
             SshCloneUrl = sshCloneUrl;
             SvnUrl = svnUrl;
-            Template = template;
+            Templates = templates;
             Topics = topics;
             Visibility = visibility;
         }

@@ -18,11 +18,17 @@ namespace Pulumi.Github.Inputs
         [Input("refName", required: true)]
         public Input<Inputs.OrganizationRulesetConditionsRefNameGetArgs> RefName { get; set; } = null!;
 
+        [Input("repositoryIds")]
+        private InputList<int>? _repositoryIds;
+
         /// <summary>
         /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         /// </summary>
-        [Input("repositoryId")]
-        public Input<int>? RepositoryId { get; set; }
+        public InputList<int> RepositoryIds
+        {
+            get => _repositoryIds ?? (_repositoryIds = new InputList<int>());
+            set => _repositoryIds = value;
+        }
 
         /// <summary>
         /// Conflicts with `repository_id`. (see below for nested schema)

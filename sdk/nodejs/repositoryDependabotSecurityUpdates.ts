@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to manage dependabot automated security fixes for a single repository. See the
+ * [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+ * for details of usage and how this will impact your repository
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = new github.Repository("repo", {
+ *     description: "GitHub repo managed by Terraform",
+ *     "private": false,
+ *     vulnerabilityAlerts: true,
+ * });
+ * const example = new github.RepositoryDependabotSecurityUpdates("example", {
+ *     repository: github_repository.test.id,
+ *     enabled: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ### Import by name
+ *
+ * ```sh
+ * $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+ * ```
+ */
 export class RepositoryDependabotSecurityUpdates extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryDependabotSecurityUpdates resource's state with the given name, ID, and optional extra
@@ -37,7 +67,7 @@ export class RepositoryDependabotSecurityUpdates extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * The GitHub repository.
+     * The repository to manage.
      */
     public readonly repository!: pulumi.Output<string>;
 
@@ -81,7 +111,7 @@ export interface RepositoryDependabotSecurityUpdatesState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The GitHub repository.
+     * The repository to manage.
      */
     repository?: pulumi.Input<string>;
 }
@@ -95,7 +125,7 @@ export interface RepositoryDependabotSecurityUpdatesArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * The GitHub repository.
+     * The repository to manage.
      */
     repository: pulumi.Input<string>;
 }

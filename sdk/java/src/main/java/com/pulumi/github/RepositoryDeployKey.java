@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.github.RepositoryDeployKey;
  * import com.pulumi.github.RepositoryDeployKeyArgs;
  * import java.util.List;
@@ -49,11 +51,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepositoryDeployKey = new RepositoryDeployKey(&#34;exampleRepositoryDeployKey&#34;, RepositoryDeployKeyArgs.builder()        
- *             .key(&#34;ssh-rsa AAA...&#34;)
- *             .readOnly(&#34;false&#34;)
- *             .repository(&#34;test-repo&#34;)
+ *         var exampleRepositoryDeployKeyPrivateKey = new PrivateKey(&#34;exampleRepositoryDeployKeyPrivateKey&#34;, PrivateKeyArgs.builder()        
+ *             .algorithm(&#34;ED25519&#34;)
+ *             .build());
+ * 
+ *         var exampleRepositoryDeployKeyRepositoryDeployKey = new RepositoryDeployKey(&#34;exampleRepositoryDeployKeyRepositoryDeployKey&#34;, RepositoryDeployKeyArgs.builder()        
  *             .title(&#34;Repository test key&#34;)
+ *             .repository(&#34;test-repo&#34;)
+ *             .key(exampleRepositoryDeployKeyPrivateKey.publicKeyOpenssh())
+ *             .readOnly(true)
  *             .build());
  * 
  *     }

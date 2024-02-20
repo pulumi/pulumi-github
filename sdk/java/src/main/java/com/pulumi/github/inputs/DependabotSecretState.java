@@ -16,14 +16,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     public static final DependabotSecretState Empty = new DependabotSecretState();
 
     /**
-     * Date of &#39;dependabot_secret&#39; creation.
+     * Date of dependabot_secret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; creation.
+     * @return Date of dependabot_secret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -46,14 +46,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return Plaintext value of the secret to be encrypted
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -61,14 +61,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the repository.
+     * Name of the repository
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return Name of the repository.
+     * @return Name of the repository
      * 
      */
     public Optional<Output<String>> repository() {
@@ -76,14 +76,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the secret.
+     * Name of the secret
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the secret.
+     * @return Name of the secret
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -91,14 +91,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Date of &#39;dependabot_secret&#39; update.
+     * Date of dependabot_secret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; update.
+     * @return Date of dependabot_secret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -135,7 +135,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt Date of &#39;dependabot_secret&#39; creation.
+         * @param createdAt Date of dependabot_secret creation.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt Date of &#39;dependabot_secret&#39; creation.
+         * @param createdAt Date of dependabot_secret creation.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param repository Name of the repository.
+         * @param repository Name of the repository
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param repository Name of the repository.
+         * @param repository Name of the repository
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt Date of &#39;dependabot_secret&#39; update.
+         * @param updatedAt Date of dependabot_secret update.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt Date of &#39;dependabot_secret&#39; update.
+         * @param updatedAt Date of dependabot_secret update.
          * 
          * @return builder
          * 

@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.OrganizationRulesetConditionsRefNameArgs;
 import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryNameArgs;
 import java.lang.Integer;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,15 +38,15 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
      * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
-    @Import(name="repositoryId")
-    private @Nullable Output<Integer> repositoryId;
+    @Import(name="repositoryIds")
+    private @Nullable Output<List<Integer>> repositoryIds;
 
     /**
      * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
-    public Optional<Output<Integer>> repositoryId() {
-        return Optional.ofNullable(this.repositoryId);
+    public Optional<Output<List<Integer>>> repositoryIds() {
+        return Optional.ofNullable(this.repositoryIds);
     }
 
     /**
@@ -71,7 +72,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
 
     private OrganizationRulesetConditionsArgs(OrganizationRulesetConditionsArgs $) {
         this.refName = $.refName;
-        this.repositoryId = $.repositoryId;
+        this.repositoryIds = $.repositoryIds;
         this.repositoryName = $.repositoryName;
     }
 
@@ -115,24 +116,34 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryId The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
          * 
          * @return builder
          * 
          */
-        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
-            $.repositoryId = repositoryId;
+        public Builder repositoryIds(@Nullable Output<List<Integer>> repositoryIds) {
+            $.repositoryIds = repositoryIds;
             return this;
         }
 
         /**
-         * @param repositoryId The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
          * 
          * @return builder
          * 
          */
-        public Builder repositoryId(Integer repositoryId) {
-            return repositoryId(Output.of(repositoryId));
+        public Builder repositoryIds(List<Integer> repositoryIds) {
+            return repositoryIds(Output.of(repositoryIds));
+        }
+
+        /**
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryIds(Integer... repositoryIds) {
+            return repositoryIds(List.of(repositoryIds));
         }
 
         /**

@@ -9,6 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// This resource allows you to manage dependabot automated security fixes for a single repository. See the
+    /// [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+    /// for details of usage and how this will impact your repository
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = new Github.Repository("repo", new()
+    ///     {
+    ///         Description = "GitHub repo managed by Terraform",
+    ///         Private = false,
+    ///         VulnerabilityAlerts = true,
+    ///     });
+    /// 
+    ///     var example = new Github.RepositoryDependabotSecurityUpdates("example", new()
+    ///     {
+    ///         Repository = github_repository.Test.Id,
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ### Import by name
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+    /// ```
+    /// </summary>
     [GithubResourceType("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates")]
     public partial class RepositoryDependabotSecurityUpdates : global::Pulumi.CustomResource
     {
@@ -19,7 +58,7 @@ namespace Pulumi.Github
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub repository.
+        /// The repository to manage.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -77,7 +116,7 @@ namespace Pulumi.Github
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The GitHub repository.
+        /// The repository to manage.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -97,7 +136,7 @@ namespace Pulumi.Github
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The GitHub repository.
+        /// The repository to manage.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

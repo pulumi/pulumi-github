@@ -44,6 +44,17 @@ Object.defineProperty(exports, "insecure", {
 });
 
 /**
+ * Number of times to retry a request after receiving an error status codeDefaults to 3
+ */
+export declare const maxRetries: number | undefined;
+Object.defineProperty(exports, "maxRetries", {
+    get() {
+        return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
  * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
  */
 export declare const organization: string | undefined;
@@ -85,6 +96,30 @@ export declare const readDelayMs: number | undefined;
 Object.defineProperty(exports, "readDelayMs", {
     get() {
         return __config.getObject<number>("readDelayMs");
+    },
+    enumerable: true,
+});
+
+/**
+ * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+ * 1s if not set, the maxRetries must be set to greater than zero.
+ */
+export declare const retryDelayMs: number | undefined;
+Object.defineProperty(exports, "retryDelayMs", {
+    get() {
+        return __config.getObject<number>("retryDelayMs");
+    },
+    enumerable: true,
+});
+
+/**
+ * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
+ * to [500, 502, 503, 504]
+ */
+export declare const retryableErrors: number[] | undefined;
+Object.defineProperty(exports, "retryableErrors", {
+    get() {
+        return __config.getObject<number[]>("retryableErrors");
     },
     enumerable: true,
 });

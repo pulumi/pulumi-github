@@ -19,7 +19,7 @@ class RepositoryDependabotSecurityUpdatesArgs:
         """
         The set of arguments for constructing a RepositoryDependabotSecurityUpdates resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The GitHub repository.
+        :param pulumi.Input[str] repository: The repository to manage.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "repository", repository)
@@ -40,7 +40,7 @@ class RepositoryDependabotSecurityUpdatesArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        The GitHub repository.
+        The repository to manage.
         """
         return pulumi.get(self, "repository")
 
@@ -57,7 +57,7 @@ class _RepositoryDependabotSecurityUpdatesState:
         """
         Input properties used for looking up and filtering RepositoryDependabotSecurityUpdates resources.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The GitHub repository.
+        :param pulumi.Input[str] repository: The repository to manage.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -80,7 +80,7 @@ class _RepositoryDependabotSecurityUpdatesState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The GitHub repository.
+        The repository to manage.
         """
         return pulumi.get(self, "repository")
 
@@ -98,11 +98,37 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryDependabotSecurityUpdates resource with the given unique name, props, and options.
+        This resource allows you to manage dependabot automated security fixes for a single repository. See the
+        [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+        for details of usage and how this will impact your repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False,
+            vulnerability_alerts=True)
+        example = github.RepositoryDependabotSecurityUpdates("example",
+            repository=github_repository["test"]["id"],
+            enabled=True)
+        ```
+
+        ## Import
+
+        ### Import by name
+
+        ```sh
+        $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The GitHub repository.
+        :param pulumi.Input[str] repository: The repository to manage.
         """
         ...
     @overload
@@ -111,7 +137,33 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
                  args: RepositoryDependabotSecurityUpdatesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryDependabotSecurityUpdates resource with the given unique name, props, and options.
+        This resource allows you to manage dependabot automated security fixes for a single repository. See the
+        [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+        for details of usage and how this will impact your repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.Repository("repo",
+            description="GitHub repo managed by Terraform",
+            private=False,
+            vulnerability_alerts=True)
+        example = github.RepositoryDependabotSecurityUpdates("example",
+            repository=github_repository["test"]["id"],
+            enabled=True)
+        ```
+
+        ## Import
+
+        ### Import by name
+
+        ```sh
+        $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param RepositoryDependabotSecurityUpdatesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +216,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The GitHub repository.
+        :param pulumi.Input[str] repository: The repository to manage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,7 +238,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The GitHub repository.
+        The repository to manage.
         """
         return pulumi.get(self, "repository")
 

@@ -9,11 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePublicKey = Github.GetDependabotPublicKey.Invoke(new()
+    ///     {
+    ///         Repository = "example_repository",
+    ///     });
+    /// 
+    ///     var exampleSecretDependabotSecret = new Github.DependabotSecret("exampleSecretDependabotSecret", new()
+    ///     {
+    ///         Repository = "example_repository",
+    ///         SecretName = "example_secret_name",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_dependabotSecretDependabotSecret = new Github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret", new()
+    ///     {
+    ///         Repository = "example_repository",
+    ///         SecretName = "example_secret_name",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// This resource can be imported using an ID made up of the `repository` and `secret_name`:
+    /// 
+    /// ```sh
+    ///  $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+    /// ```
+    ///  NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+    /// </summary>
     [GithubResourceType("github:index/dependabotSecret:DependabotSecret")]
     public partial class DependabotSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of 'dependabot_secret' creation.
+        /// Date of dependabot_secret creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -25,25 +67,25 @@ namespace Pulumi.Github
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the repository.
+        /// Name of the repository
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// Date of 'dependabot_secret' update.
+        /// Date of dependabot_secret update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -119,7 +161,7 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -132,13 +174,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the repository.
+        /// Name of the repository
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -152,7 +194,7 @@ namespace Pulumi.Github
     public sealed class DependabotSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of 'dependabot_secret' creation.
+        /// Date of dependabot_secret creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -177,7 +219,7 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -190,19 +232,19 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the repository.
+        /// Name of the repository
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         /// <summary>
-        /// Date of 'dependabot_secret' update.
+        /// Date of dependabot_secret update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

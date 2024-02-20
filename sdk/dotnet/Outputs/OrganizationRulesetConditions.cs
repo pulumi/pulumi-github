@@ -20,7 +20,7 @@ namespace Pulumi.Github.Outputs
         /// <summary>
         /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         /// </summary>
-        public readonly int? RepositoryId;
+        public readonly ImmutableArray<int> RepositoryIds;
         /// <summary>
         /// Conflicts with `repository_id`. (see below for nested schema)
         /// 
@@ -32,12 +32,12 @@ namespace Pulumi.Github.Outputs
         private OrganizationRulesetConditions(
             Outputs.OrganizationRulesetConditionsRefName refName,
 
-            int? repositoryId,
+            ImmutableArray<int> repositoryIds,
 
             Outputs.OrganizationRulesetConditionsRepositoryName? repositoryName)
         {
             RefName = refName;
-            RepositoryId = repositoryId;
+            RepositoryIds = repositoryIds;
             RepositoryName = repositoryName;
         }
     }

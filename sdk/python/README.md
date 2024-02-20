@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/pulumi/pulumi-github.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-github)
-
 # GitHub provider
 
 The GitHub resource provider for Pulumi lets you use GitHub resources in your infrastructure programs. 
@@ -29,7 +27,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-github/sdk/v5
+    $ go get github.com/pulumi/pulumi-github/sdk/v6
 
 ### .NET
 

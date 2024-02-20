@@ -90,6 +90,12 @@ namespace Pulumi.Github
         public Input<bool>? Insecure { get; set; }
 
         /// <summary>
+        /// Number of times to retry a request after receiving an error status codeDefaults to 3
+        /// </summary>
+        [Input("maxRetries", json: true)]
+        public Input<int>? MaxRetries { get; set; }
+
+        /// <summary>
         /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         /// </summary>
         [Input("organization")]
@@ -114,6 +120,26 @@ namespace Pulumi.Github
         /// </summary>
         [Input("readDelayMs", json: true)]
         public Input<int>? ReadDelayMs { get; set; }
+
+        /// <summary>
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+        /// 1s if not set, the max_retries must be set to greater than zero.
+        /// </summary>
+        [Input("retryDelayMs", json: true)]
+        public Input<int>? RetryDelayMs { get; set; }
+
+        [Input("retryableErrors", json: true)]
+        private InputList<int>? _retryableErrors;
+
+        /// <summary>
+        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+        /// to [500, 502, 503, 504]
+        /// </summary>
+        public InputList<int> RetryableErrors
+        {
+            get => _retryableErrors ?? (_retryableErrors = new InputList<int>());
+            set => _retryableErrors = value;
+        }
 
         /// <summary>
         /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.

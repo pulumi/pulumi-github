@@ -34,14 +34,14 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return Plaintext value of the secret to be encrypted
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -49,14 +49,14 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the secret.
+     * Name of the secret
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret.
+     * @return Name of the secret
      * 
      */
     public Output<String> secretName() {
@@ -79,16 +79,16 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-     * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-     * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+     * @return Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
     public Output<String> visibility() {
@@ -145,7 +145,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -218,8 +218,8 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-         * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+         * @param visibility Configures the access that repositories have to the organization secret.
+         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -230,8 +230,8 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-         * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+         * @param visibility Configures the access that repositories have to the organization secret.
+         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
          * 
          * @return builder
          * 

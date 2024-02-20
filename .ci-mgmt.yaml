@@ -1,8 +1,12 @@
 provider: github
-major-version: 5
+major-version: 6
 env:
   GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GH_TESTING_TOKEN: ${{ secrets.GH_TESTING_TOKEN }}
+  VERSION_PREFIX: 6.0.0
 makeTemplate: bridged
 team: ecosystem
+plugins:
+  - name: tls
+    version: "5.0.1"

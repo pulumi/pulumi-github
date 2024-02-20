@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *         var exampleRepositoryEnvironment = new RepositoryEnvironment(&#34;exampleRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
  *             .environment(&#34;example&#34;)
  *             .repository(exampleRepository.name())
+ *             .preventSelfReview(true)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
  *                 .users(current.applyValue(getUserResult -&gt; getUserResult.id()))
  *                 .build())
@@ -126,6 +127,20 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> environment() {
         return this.environment;
+    }
+    /**
+     * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     * 
+     */
+    @Export(name="preventSelfReview", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> preventSelfReview;
+
+    /**
+     * @return Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> preventSelfReview() {
+        return Codegen.optional(this.preventSelfReview);
     }
     /**
      * The repository of the environment.

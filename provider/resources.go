@@ -22,15 +22,14 @@ import (
 	// embed package blank import
 	_ "embed"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/integrations/terraform-provider-github/v5/github"
+	"github.com/integrations/terraform-provider-github/v6/github"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
-	"github.com/pulumi/pulumi-github/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-github/provider/v6/pkg/version"
 )
 
 // all of the token components used below.
@@ -70,7 +69,7 @@ func makeResource(mod string, res string) tokens.Type {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(github.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(github.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -81,8 +80,10 @@ func Provider() tfbridge.ProviderInfo {
 		License:                 "Apache-2.0",
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-github",
-		TFProviderModuleVersion: "v5",
+		TFProviderModuleVersion: "v6",
 		GitHubOrg:               "integrations",
+		Version:                 version.Version,
+		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
 		Config: map[string]*tfbridge.SchemaInfo{
 			"base_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -92,15 +93,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"github_actions_environment_secret": {
-				Tok:                 makeResource(mainMod, "ActionsEnvironmentSecret"),
-				DeleteBeforeReplace: true,
-			},
-			"github_actions_organization_secret":      {Tok: makeResource(mainMod, "ActionsOrganizationSecret")},
-			"github_actions_organization_permissions": {Tok: makeResource(mainMod, "ActionsOrganizationPermissions")},
-			"github_actions_organization_secret_repositories": {
-				Tok: makeResource(mainMod, "ActionsOrganizationSecretRepositories"),
-			},
+			"github_actions_environment_secret": {DeleteBeforeReplace: true},
+
 			"github_actions_repository_permissions": {Tok: makeResource(mainMod, "ActionsRepositoryPermissions")},
 			"github_actions_runner_group":           {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
 			"github_actions_secret":                 {Tok: makeResource(mainMod, "ActionsSecret")},
@@ -119,16 +113,14 @@ func Provider() tfbridge.ProviderInfo {
 			"github_branch_protection":    {Tok: makeResource(mainMod, "BranchProtection")},
 			"github_branch_protection_v3": {Tok: makeResource(mainMod, "BranchProtectionV3")},
 			"github_dependabot_organization_secret": {
-				Tok: makeResource(mainMod, "DependabotOrganizationSecret"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  makeResource(mainMod, "DependabotOrganizationSecret"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"github_dependabot_organization_secret_repositories": {
 				Tok:  makeResource(mainMod, "DependabotOrganizationSecretRepositories"),
-				Docs: noDocs,
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
-			"github_dependabot_secret": {Docs: noDocs},
+			"github_dependabot_secret": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 
 			"github_emu_group_mapping":             {Tok: makeResource(mainMod, "EmuGroupMapping")},
 			"github_issue":                         {Tok: makeResource(mainMod, "Issue")},
@@ -145,7 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"github_repository":                             {Tok: makeResource(mainMod, "Repository")},
 			"github_repository_collaborator":                {Tok: makeResource(mainMod, "RepositoryCollaborator")},
-			"github_repository_dependabot_security_updates": {Docs: noDocs},
+			"github_repository_dependabot_security_updates": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"github_repository_deploy_key": {
 				Tok:                 makeResource(mainMod, "RepositoryDeployKey"),
 				DeleteBeforeReplace: true},
@@ -160,15 +152,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:                 makeResource(mainMod, "RepositoryAutolinkReference"),
 				DeleteBeforeReplace: true,
 			},
-			"github_team":                     {Tok: makeResource(mainMod, "Team")},
-			"github_team_members":             {Tok: makeResource(mainMod, "TeamMembers")},
-			"github_team_membership":          {Tok: makeResource(mainMod, "TeamMembership")},
-			"github_team_repository":          {Tok: makeResource(mainMod, "TeamRepository")},
-			"github_team_settings":            {Tok: makeResource(mainMod, "TeamSettings")},
-			"github_team_sync_group_mapping":  {Tok: makeResource(mainMod, "TeamSyncGroupMapping")},
-			"github_user_gpg_key":             {Tok: makeResource(mainMod, "UserGpgKey")},
-			"github_user_invitation_accepter": {Tok: makeResource(mainMod, "UserInvitationAccepter")},
-			"github_user_ssh_key":             {Tok: makeResource(mainMod, "UserSshKey")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
@@ -187,10 +170,8 @@ func Provider() tfbridge.ProviderInfo {
 			"github_collaborators":                   {Tok: makeDataSource(mainMod, "getCollaborators")},
 			"github_dependabot_organization_secrets": {Tok: makeDataSource(mainMod, "getDependabotOrganizationSecrets")},
 			"github_dependabot_public_key": {
-				Tok: makeDataSource(mainMod, "getDependabotPublicKey"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  makeDataSource(mainMod, "getDependabotPublicKey"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"github_dependabot_secrets":            {Tok: makeDataSource(mainMod, "getDependabotSecrets")},
 			"github_external_groups":               {Tok: makeDataSource(mainMod, "getExternalGroups")},
@@ -212,11 +193,6 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_pull_requests":      {Tok: makeDataSource(mainMod, "getRepositoryPullRequests")},
 			"github_repository_teams":              {Tok: makeDataSource(mainMod, "getRepositoryTeams")},
 			"github_repository_webhooks":           {Tok: makeDataSource(mainMod, "getRepositoryWebhooks")},
-			"github_team":                          {Tok: makeDataSource(mainMod, "getTeam")},
-			"github_user":                          {Tok: makeDataSource(mainMod, "getUser")},
-			"github_users":                         {Tok: makeDataSource(mainMod, "getUsers")},
-			"github_ref":                           {Tok: makeDataSource(mainMod, "getRef")},
-			"github_tree":                          {Tok: makeDataSource(mainMod, "getTree")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
@@ -228,16 +204,12 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/mime": "^2.0.0",
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				}}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
@@ -251,7 +223,7 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		},
 	}
 
 	prov.MustComputeTokens(tfbridgetokens.SingleModule("github_", mainMod,
@@ -265,7 +237,3 @@ func Provider() tfbridge.ProviderInfo {
 
 //go:embed cmd/pulumi-resource-github/bridge-metadata.json
 var metadata []byte
-
-var noDocs = &tfbridge.DocInfo{
-	Markdown: []byte(" "),
-}

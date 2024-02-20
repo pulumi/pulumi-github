@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+ * Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotPublicKey({
+ *     repository: "example_repo",
+ * });
+ * ```
+ */
 export function getDependabotPublicKey(args: GetDependabotPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotPublicKeyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +31,9 @@ export function getDependabotPublicKey(args: GetDependabotPublicKeyArgs, opts?: 
  * A collection of arguments for invoking getDependabotPublicKey.
  */
 export interface GetDependabotPublicKeyArgs {
+    /**
+     * Name of the repository to get public key from.
+     */
     repository: string;
 }
 
@@ -27,10 +45,31 @@ export interface GetDependabotPublicKeyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Actual key retrieved.
+     */
     readonly key: string;
+    /**
+     * ID of the key that has been retrieved.
+     */
     readonly keyId: string;
     readonly repository: string;
 }
+/**
+ * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+ * Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getDependabotPublicKey({
+ *     repository: "example_repo",
+ * });
+ * ```
+ */
 export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getDependabotPublicKey(a, opts))
 }
@@ -39,5 +78,8 @@ export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputA
  * A collection of arguments for invoking getDependabotPublicKey.
  */
 export interface GetDependabotPublicKeyOutputArgs {
+    /**
+     * Name of the repository to get public key from.
+     */
     repository: pulumi.Input<string>;
 }

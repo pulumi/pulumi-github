@@ -183,7 +183,7 @@ public final class GetRepositoryResult {
      * @return The repository source template configuration.
      * 
      */
-    private GetRepositoryTemplate template;
+    private List<GetRepositoryTemplate> templates;
     /**
      * @return The list of topics of the repository.
      * 
@@ -427,8 +427,8 @@ public final class GetRepositoryResult {
      * @return The repository source template configuration.
      * 
      */
-    public GetRepositoryTemplate template() {
-        return this.template;
+    public List<GetRepositoryTemplate> templates() {
+        return this.templates;
     }
     /**
      * @return The list of topics of the repository.
@@ -487,7 +487,7 @@ public final class GetRepositoryResult {
         private String squashMergeCommitTitle;
         private String sshCloneUrl;
         private String svnUrl;
-        private GetRepositoryTemplate template;
+        private List<GetRepositoryTemplate> templates;
         private List<String> topics;
         private String visibility;
         public Builder() {}
@@ -526,7 +526,7 @@ public final class GetRepositoryResult {
     	      this.squashMergeCommitTitle = defaults.squashMergeCommitTitle;
     	      this.sshCloneUrl = defaults.sshCloneUrl;
     	      this.svnUrl = defaults.svnUrl;
-    	      this.template = defaults.template;
+    	      this.templates = defaults.templates;
     	      this.topics = defaults.topics;
     	      this.visibility = defaults.visibility;
         }
@@ -798,12 +798,15 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder template(GetRepositoryTemplate template) {
-            if (template == null) {
-              throw new MissingRequiredPropertyException("GetRepositoryResult", "template");
+        public Builder templates(List<GetRepositoryTemplate> templates) {
+            if (templates == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "templates");
             }
-            this.template = template;
+            this.templates = templates;
             return this;
+        }
+        public Builder templates(GetRepositoryTemplate... templates) {
+            return templates(List.of(templates));
         }
         @CustomType.Setter
         public Builder topics(List<String> topics) {
@@ -859,7 +862,7 @@ public final class GetRepositoryResult {
             _resultValue.squashMergeCommitTitle = squashMergeCommitTitle;
             _resultValue.sshCloneUrl = sshCloneUrl;
             _resultValue.svnUrl = svnUrl;
-            _resultValue.template = template;
+            _resultValue.templates = templates;
             _resultValue.topics = topics;
             _resultValue.visibility = visibility;
             return _resultValue;

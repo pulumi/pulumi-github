@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,8 +41,9 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
-//				Environment: pulumi.String("example"),
-//				Repository:  exampleRepository.Name,
+//				Environment:       pulumi.String("example"),
+//				Repository:        exampleRepository.Name,
+//				PreventSelfReview: pulumi.Bool(true),
 //				Reviewers: github.RepositoryEnvironmentReviewerArray{
 //					&github.RepositoryEnvironmentReviewerArgs{
 //						Users: pulumi.IntArray{
@@ -82,6 +83,8 @@ type RepositoryEnvironment struct {
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrOutput `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
+	// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+	PreventSelfReview pulumi.BoolPtrOutput `pulumi:"preventSelfReview"`
 	// The repository of the environment.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The environment reviewers configuration.
@@ -132,6 +135,8 @@ type repositoryEnvironmentState struct {
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment *string `pulumi:"environment"`
+	// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+	PreventSelfReview *bool `pulumi:"preventSelfReview"`
 	// The repository of the environment.
 	Repository *string `pulumi:"repository"`
 	// The environment reviewers configuration.
@@ -147,6 +152,8 @@ type RepositoryEnvironmentState struct {
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
 	// The name of the environment.
 	Environment pulumi.StringPtrInput
+	// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+	PreventSelfReview pulumi.BoolPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringPtrInput
 	// The environment reviewers configuration.
@@ -166,6 +173,8 @@ type repositoryEnvironmentArgs struct {
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
 	// The name of the environment.
 	Environment string `pulumi:"environment"`
+	// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+	PreventSelfReview *bool `pulumi:"preventSelfReview"`
 	// The repository of the environment.
 	Repository string `pulumi:"repository"`
 	// The environment reviewers configuration.
@@ -182,6 +191,8 @@ type RepositoryEnvironmentArgs struct {
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
 	// The name of the environment.
 	Environment pulumi.StringInput
+	// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+	PreventSelfReview pulumi.BoolPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringInput
 	// The environment reviewers configuration.
@@ -292,6 +303,11 @@ func (o RepositoryEnvironmentOutput) DeploymentBranchPolicy() RepositoryEnvironm
 // The name of the environment.
 func (o RepositoryEnvironmentOutput) Environment() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
+}
+
+// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+func (o RepositoryEnvironmentOutput) PreventSelfReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.BoolPtrOutput { return v.PreventSelfReview }).(pulumi.BoolPtrOutput)
 }
 
 // The repository of the environment.

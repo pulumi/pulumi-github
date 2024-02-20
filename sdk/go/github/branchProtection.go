@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,10 +65,14 @@ import (
 //						},
 //					},
 //				},
-//				PushRestrictions: pulumi.StringArray{
-//					*pulumi.String(exampleUser.NodeId),
-//					pulumi.String("/exampleuser"),
-//					pulumi.String("exampleorganization/exampleteam"),
+//				RestrictPushes: github.BranchProtectionRestrictPushArray{
+//					&github.BranchProtectionRestrictPushArgs{
+//						PushAllowances: pulumi.StringArray{
+//							*pulumi.String(exampleUser.NodeId),
+//							pulumi.String("/exampleuser"),
+//							pulumi.String("exampleorganization/exampleteam"),
+//						},
+//					},
 //				},
 //				ForcePushBypassers: pulumi.StringArray{
 //					*pulumi.String(exampleUser.NodeId),
@@ -107,20 +111,16 @@ type BranchProtection struct {
 
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions pulumi.BoolPtrOutput `pulumi:"allowsDeletions"`
-	// Boolean, setting this to `true` to allow force pushes on the branch.
+	// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 	AllowsForcePushes pulumi.BoolPtrOutput `pulumi:"allowsForcePushes"`
-	// Boolean, setting this to `true` to block creating the branch.
-	BlocksCreations pulumi.BoolPtrOutput `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrOutput `pulumi:"enforceAdmins"`
-	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 	ForcePushBypassers pulumi.StringArrayOutput `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrOutput `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
-	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-	PushRestrictions pulumi.StringArrayOutput `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -133,6 +133,8 @@ type BranchProtection struct {
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayOutput `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
 	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayOutput `pulumi:"requiredStatusChecks"`
+	// Restrict pushes to matching branches. See Restrict Pushes below for details.
+	RestrictPushes BranchProtectionRestrictPushArrayOutput `pulumi:"restrictPushes"`
 }
 
 // NewBranchProtection registers a new resource with the given unique name, arguments, and options.
@@ -173,20 +175,16 @@ func GetBranchProtection(ctx *pulumi.Context,
 type branchProtectionState struct {
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions *bool `pulumi:"allowsDeletions"`
-	// Boolean, setting this to `true` to allow force pushes on the branch.
+	// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
-	// Boolean, setting this to `true` to block creating the branch.
-	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
-	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 	ForcePushBypassers []string `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch *bool `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
 	Pattern *string `pulumi:"pattern"`
-	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-	PushRestrictions []string `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -199,25 +197,23 @@ type branchProtectionState struct {
 	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
 	RequiredStatusChecks []BranchProtectionRequiredStatusCheck `pulumi:"requiredStatusChecks"`
+	// Restrict pushes to matching branches. See Restrict Pushes below for details.
+	RestrictPushes []BranchProtectionRestrictPush `pulumi:"restrictPushes"`
 }
 
 type BranchProtectionState struct {
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions pulumi.BoolPtrInput
-	// Boolean, setting this to `true` to allow force pushes on the branch.
+	// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 	AllowsForcePushes pulumi.BoolPtrInput
-	// Boolean, setting this to `true` to block creating the branch.
-	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
-	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 	ForcePushBypassers pulumi.StringArrayInput
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
 	Pattern pulumi.StringPtrInput
-	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-	PushRestrictions pulumi.StringArrayInput
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringPtrInput
 	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -230,6 +226,8 @@ type BranchProtectionState struct {
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
 	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayInput
+	// Restrict pushes to matching branches. See Restrict Pushes below for details.
+	RestrictPushes BranchProtectionRestrictPushArrayInput
 }
 
 func (BranchProtectionState) ElementType() reflect.Type {
@@ -239,20 +237,16 @@ func (BranchProtectionState) ElementType() reflect.Type {
 type branchProtectionArgs struct {
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions *bool `pulumi:"allowsDeletions"`
-	// Boolean, setting this to `true` to allow force pushes on the branch.
+	// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 	AllowsForcePushes *bool `pulumi:"allowsForcePushes"`
-	// Boolean, setting this to `true` to block creating the branch.
-	BlocksCreations *bool `pulumi:"blocksCreations"`
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins *bool `pulumi:"enforceAdmins"`
-	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 	ForcePushBypassers []string `pulumi:"forcePushBypassers"`
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch *bool `pulumi:"lockBranch"`
 	// Identifies the protection rule pattern.
 	Pattern string `pulumi:"pattern"`
-	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-	PushRestrictions []string `pulumi:"pushRestrictions"`
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId string `pulumi:"repositoryId"`
 	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -265,26 +259,24 @@ type branchProtectionArgs struct {
 	RequiredPullRequestReviews []BranchProtectionRequiredPullRequestReview `pulumi:"requiredPullRequestReviews"`
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
 	RequiredStatusChecks []BranchProtectionRequiredStatusCheck `pulumi:"requiredStatusChecks"`
+	// Restrict pushes to matching branches. See Restrict Pushes below for details.
+	RestrictPushes []BranchProtectionRestrictPush `pulumi:"restrictPushes"`
 }
 
 // The set of arguments for constructing a BranchProtection resource.
 type BranchProtectionArgs struct {
 	// Boolean, setting this to `true` to allow the branch to be deleted.
 	AllowsDeletions pulumi.BoolPtrInput
-	// Boolean, setting this to `true` to allow force pushes on the branch.
+	// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 	AllowsForcePushes pulumi.BoolPtrInput
-	// Boolean, setting this to `true` to block creating the branch.
-	BlocksCreations pulumi.BoolPtrInput
 	// Boolean, setting this to `true` enforces status checks for repository administrators.
 	EnforceAdmins pulumi.BoolPtrInput
-	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+	// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 	ForcePushBypassers pulumi.StringArrayInput
 	// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
 	LockBranch pulumi.BoolPtrInput
 	// Identifies the protection rule pattern.
 	Pattern pulumi.StringInput
-	// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-	PushRestrictions pulumi.StringArrayInput
 	// The name or node ID of the repository associated with this branch protection rule.
 	RepositoryId pulumi.StringInput
 	// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
@@ -297,6 +289,8 @@ type BranchProtectionArgs struct {
 	RequiredPullRequestReviews BranchProtectionRequiredPullRequestReviewArrayInput
 	// Enforce restrictions for required status checks. See Required Status Checks below for details.
 	RequiredStatusChecks BranchProtectionRequiredStatusCheckArrayInput
+	// Restrict pushes to matching branches. See Restrict Pushes below for details.
+	RestrictPushes BranchProtectionRestrictPushArrayInput
 }
 
 func (BranchProtectionArgs) ElementType() reflect.Type {
@@ -391,14 +385,9 @@ func (o BranchProtectionOutput) AllowsDeletions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsDeletions }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean, setting this to `true` to allow force pushes on the branch.
+// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
 func (o BranchProtectionOutput) AllowsForcePushes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.AllowsForcePushes }).(pulumi.BoolPtrOutput)
-}
-
-// Boolean, setting this to `true` to block creating the branch.
-func (o BranchProtectionOutput) BlocksCreations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.BlocksCreations }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -406,7 +395,7 @@ func (o BranchProtectionOutput) EnforceAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.BoolPtrOutput { return v.EnforceAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
 func (o BranchProtectionOutput) ForcePushBypassers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.StringArrayOutput { return v.ForcePushBypassers }).(pulumi.StringArrayOutput)
 }
@@ -419,11 +408,6 @@ func (o BranchProtectionOutput) LockBranch() pulumi.BoolPtrOutput {
 // Identifies the protection rule pattern.
 func (o BranchProtectionOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *BranchProtection) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
-}
-
-// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-func (o BranchProtectionOutput) PushRestrictions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchProtection) pulumi.StringArrayOutput { return v.PushRestrictions }).(pulumi.StringArrayOutput)
 }
 
 // The name or node ID of the repository associated with this branch protection rule.
@@ -458,6 +442,11 @@ func (o BranchProtectionOutput) RequiredStatusChecks() BranchProtectionRequiredS
 	return o.ApplyT(func(v *BranchProtection) BranchProtectionRequiredStatusCheckArrayOutput {
 		return v.RequiredStatusChecks
 	}).(BranchProtectionRequiredStatusCheckArrayOutput)
+}
+
+// Restrict pushes to matching branches. See Restrict Pushes below for details.
+func (o BranchProtectionOutput) RestrictPushes() BranchProtectionRestrictPushArrayOutput {
+	return o.ApplyT(func(v *BranchProtection) BranchProtectionRestrictPushArrayOutput { return v.RestrictPushes }).(BranchProtectionRestrictPushArrayOutput)
 }
 
 type BranchProtectionArrayOutput struct{ *pulumi.OutputState }

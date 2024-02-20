@@ -31,14 +31,14 @@ public final class RepositoryDependabotSecurityUpdatesArgs extends com.pulumi.re
     }
 
     /**
-     * The GitHub repository.
+     * The repository to manage.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository.
+     * @return The repository to manage.
      * 
      */
     public Output<String> repository() {
@@ -92,7 +92,7 @@ public final class RepositoryDependabotSecurityUpdatesArgs extends com.pulumi.re
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param repository The repository to manage.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RepositoryDependabotSecurityUpdatesArgs extends com.pulumi.re
         }
 
         /**
-         * @param repository The GitHub repository.
+         * @param repository The repository to manage.
          * 
          * @return builder
          * 

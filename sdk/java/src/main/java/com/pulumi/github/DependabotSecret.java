@@ -15,17 +15,72 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+ * import com.pulumi.github.DependabotSecret;
+ * import com.pulumi.github.DependabotSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var examplePublicKey = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+ *             .repository(&#34;example_repository&#34;)
+ *             .build());
+ * 
+ *         var exampleSecretDependabotSecret = new DependabotSecret(&#34;exampleSecretDependabotSecret&#34;, DependabotSecretArgs.builder()        
+ *             .repository(&#34;example_repository&#34;)
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .plaintextValue(var_.some_secret_string())
+ *             .build());
+ * 
+ *         var exampleSecretIndex_dependabotSecretDependabotSecret = new DependabotSecret(&#34;exampleSecretIndex/dependabotSecretDependabotSecret&#34;, DependabotSecretArgs.builder()        
+ *             .repository(&#34;example_repository&#34;)
+ *             .secretName(&#34;example_secret_name&#34;)
+ *             .encryptedValue(var_.some_encrypted_secret_string())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * This resource can be imported using an ID made up of the `repository` and `secret_name`:
+ * 
+ * ```sh
+ *  $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+ * ```
+ *  NOTE: the implementation is limited in that it won&#39;t fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ * 
+ */
 @ResourceType(type="github:index/dependabotSecret:DependabotSecret")
 public class DependabotSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of &#39;dependabot_secret&#39; creation.
+     * Date of dependabot_secret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; creation.
+     * @return Date of dependabot_secret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -46,56 +101,56 @@ public class DependabotSecret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptedValue);
     }
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      * 
      */
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return Plaintext value of the secret to be encrypted
      * 
      */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
     /**
-     * Name of the repository.
+     * Name of the repository
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return Name of the repository.
+     * @return Name of the repository
      * 
      */
     public Output<String> repository() {
         return this.repository;
     }
     /**
-     * Name of the secret.
+     * Name of the secret
      * 
      */
     @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret.
+     * @return Name of the secret
      * 
      */
     public Output<String> secretName() {
         return this.secretName;
     }
     /**
-     * Date of &#39;dependabot_secret&#39; update.
+     * Date of dependabot_secret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; update.
+     * @return Date of dependabot_secret update.
      * 
      */
     public Output<String> updatedAt() {

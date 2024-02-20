@@ -36,6 +36,7 @@ namespace Pulumi.Github
     ///     {
     ///         Environment = "example",
     ///         Repository = exampleRepository.Name,
+    ///         PreventSelfReview = true,
     ///         Reviewers = new[]
     ///         {
     ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
@@ -84,6 +85,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("environment")]
         public Output<string> Environment { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// </summary>
+        [Output("preventSelfReview")]
+        public Output<bool?> PreventSelfReview { get; private set; } = null!;
 
         /// <summary>
         /// The repository of the environment.
@@ -168,6 +175,12 @@ namespace Pulumi.Github
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// </summary>
+        [Input("preventSelfReview")]
+        public Input<bool>? PreventSelfReview { get; set; }
+
+        /// <summary>
         /// The repository of the environment.
         /// </summary>
         [Input("repository", required: true)]
@@ -216,6 +229,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
+
+        /// <summary>
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// </summary>
+        [Input("preventSelfReview")]
+        public Input<bool>? PreventSelfReview { get; set; }
 
         /// <summary>
         /// The repository of the environment.

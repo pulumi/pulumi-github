@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("exampleRepositoryEnvironment", {
  *     environment: "example",
  *     repository: exampleRepository.name,
+ *     preventSelfReview: true,
  *     reviewers: [{
  *         users: [current.then(current => current.id)],
  *     }],
@@ -81,6 +82,10 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<string>;
     /**
+     * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     */
+    public readonly preventSelfReview!: pulumi.Output<boolean | undefined>;
+    /**
      * The repository of the environment.
      */
     public readonly repository!: pulumi.Output<string>;
@@ -109,6 +114,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             resourceInputs["canAdminsBypass"] = state ? state.canAdminsBypass : undefined;
             resourceInputs["deploymentBranchPolicy"] = state ? state.deploymentBranchPolicy : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["preventSelfReview"] = state ? state.preventSelfReview : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["reviewers"] = state ? state.reviewers : undefined;
             resourceInputs["waitTimer"] = state ? state.waitTimer : undefined;
@@ -123,6 +129,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             resourceInputs["canAdminsBypass"] = args ? args.canAdminsBypass : undefined;
             resourceInputs["deploymentBranchPolicy"] = args ? args.deploymentBranchPolicy : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["preventSelfReview"] = args ? args.preventSelfReview : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["reviewers"] = args ? args.reviewers : undefined;
             resourceInputs["waitTimer"] = args ? args.waitTimer : undefined;
@@ -148,6 +155,10 @@ export interface RepositoryEnvironmentState {
      * The name of the environment.
      */
     environment?: pulumi.Input<string>;
+    /**
+     * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     */
+    preventSelfReview?: pulumi.Input<boolean>;
     /**
      * The repository of the environment.
      */
@@ -178,6 +189,10 @@ export interface RepositoryEnvironmentArgs {
      * The name of the environment.
      */
     environment: pulumi.Input<string>;
+    /**
+     * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     */
+    preventSelfReview?: pulumi.Input<boolean>;
     /**
      * The repository of the environment.
      */

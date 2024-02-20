@@ -104,6 +104,18 @@ export interface GetIpRangesResult {
      */
     readonly importers: string[];
     /**
+     * An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+     */
+    readonly packages: string[];
+    /**
+     * A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+     */
+    readonly packagesIpv4s: string[];
+    /**
+     * A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+     */
+    readonly packagesIpv6s: string[];
+    /**
      * An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      */
     readonly pages: string[];

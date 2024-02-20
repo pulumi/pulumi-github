@@ -21,13 +21,16 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
+ * import * as tls from "@pulumi/tls";
  *
- * // Add a deploy key
- * const exampleRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKey", {
- *     key: "ssh-rsa AAA...",
- *     readOnly: false,
- *     repository: "test-repo",
+ * // Generate an ssh key using provider "hashicorp/tls"
+ * const exampleRepositoryDeployKeyPrivateKey = new tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", {algorithm: "ED25519"});
+ * // Add the ssh key as a deploy key
+ * const exampleRepositoryDeployKeyRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", {
  *     title: "Repository test key",
+ *     repository: "test-repo",
+ *     key: exampleRepositoryDeployKeyPrivateKey.publicKeyOpenssh,
+ *     readOnly: true,
  * });
  * ```
  *

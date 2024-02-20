@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +56,13 @@ type GetRestApiArgs struct {
 
 // A collection of values returned by getRestApi.
 type GetRestApiResult struct {
-	// A map of response body.
-	Body map[string]interface{} `pulumi:"body"`
+	// A JSON string containing response body.
+	Body string `pulumi:"body"`
 	// A response status code.
 	Code     int    `pulumi:"code"`
 	Endpoint string `pulumi:"endpoint"`
-	// A map of response headers.
-	Headers map[string]interface{} `pulumi:"headers"`
+	// A JSON string containing response headers.
+	Headers string `pulumi:"headers"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A response status string.
@@ -107,9 +107,9 @@ func (o GetRestApiResultOutput) ToGetRestApiResultOutputWithContext(ctx context.
 	return o
 }
 
-// A map of response body.
-func (o GetRestApiResultOutput) Body() pulumi.MapOutput {
-	return o.ApplyT(func(v GetRestApiResult) map[string]interface{} { return v.Body }).(pulumi.MapOutput)
+// A JSON string containing response body.
+func (o GetRestApiResultOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestApiResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
 // A response status code.
@@ -121,9 +121,9 @@ func (o GetRestApiResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRestApiResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// A map of response headers.
-func (o GetRestApiResultOutput) Headers() pulumi.MapOutput {
-	return o.ApplyT(func(v GetRestApiResult) map[string]interface{} { return v.Headers }).(pulumi.MapOutput)
+// A JSON string containing response headers.
+func (o GetRestApiResultOutput) Headers() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestApiResult) string { return v.Headers }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

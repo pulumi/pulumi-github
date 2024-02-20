@@ -63,6 +63,16 @@ namespace Pulumi.Github
             set => _insecure.Set(value);
         }
 
+        private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
+        /// <summary>
+        /// Number of times to retry a request after receiving an error status codeDefaults to 3
+        /// </summary>
+        public static int? MaxRetries
+        {
+            get => _maxRetries.Get();
+            set => _maxRetries.Set(value);
+        }
+
         private static readonly __Value<string?> _organization = new __Value<string?>(() => __config.Get("organization"));
         /// <summary>
         /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
@@ -103,6 +113,28 @@ namespace Pulumi.Github
         {
             get => _readDelayMs.Get();
             set => _readDelayMs.Set(value);
+        }
+
+        private static readonly __Value<int?> _retryDelayMs = new __Value<int?>(() => __config.GetInt32("retryDelayMs"));
+        /// <summary>
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+        /// 1s if not set, the max_retries must be set to greater than zero.
+        /// </summary>
+        public static int? RetryDelayMs
+        {
+            get => _retryDelayMs.Get();
+            set => _retryDelayMs.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<int>> _retryableErrors = new __Value<ImmutableArray<int>>(() => __config.GetObject<ImmutableArray<int>>("retryableErrors"));
+        /// <summary>
+        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+        /// to [500, 502, 503, 504]
+        /// </summary>
+        public static ImmutableArray<int> RetryableErrors
+        {
+            get => _retryableErrors.Get();
+            set => _retryableErrors.Set(value);
         }
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
