@@ -93,15 +93,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"github_actions_environment_secret": {
-				Tok:                 makeResource(mainMod, "ActionsEnvironmentSecret"),
-				DeleteBeforeReplace: true,
-			},
-			"github_actions_organization_secret":      {Tok: makeResource(mainMod, "ActionsOrganizationSecret")},
-			"github_actions_organization_permissions": {Tok: makeResource(mainMod, "ActionsOrganizationPermissions")},
-			"github_actions_organization_secret_repositories": {
-				Tok: makeResource(mainMod, "ActionsOrganizationSecretRepositories"),
-			},
+			"github_actions_environment_secret": {DeleteBeforeReplace: true},
+
 			"github_actions_repository_permissions": {Tok: makeResource(mainMod, "ActionsRepositoryPermissions")},
 			"github_actions_runner_group":           {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
 			"github_actions_secret":                 {Tok: makeResource(mainMod, "ActionsSecret")},
@@ -159,15 +152,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:                 makeResource(mainMod, "RepositoryAutolinkReference"),
 				DeleteBeforeReplace: true,
 			},
-			"github_team":                     {Tok: makeResource(mainMod, "Team")},
-			"github_team_members":             {Tok: makeResource(mainMod, "TeamMembers")},
-			"github_team_membership":          {Tok: makeResource(mainMod, "TeamMembership")},
-			"github_team_repository":          {Tok: makeResource(mainMod, "TeamRepository")},
-			"github_team_settings":            {Tok: makeResource(mainMod, "TeamSettings")},
-			"github_team_sync_group_mapping":  {Tok: makeResource(mainMod, "TeamSyncGroupMapping")},
-			"github_user_gpg_key":             {Tok: makeResource(mainMod, "UserGpgKey")},
-			"github_user_invitation_accepter": {Tok: makeResource(mainMod, "UserInvitationAccepter")},
-			"github_user_ssh_key":             {Tok: makeResource(mainMod, "UserSshKey")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"github_actions_public_key": {Tok: makeDataSource(mainMod, "getActionsPublicKey")},
@@ -209,11 +193,6 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_pull_requests":      {Tok: makeDataSource(mainMod, "getRepositoryPullRequests")},
 			"github_repository_teams":              {Tok: makeDataSource(mainMod, "getRepositoryTeams")},
 			"github_repository_webhooks":           {Tok: makeDataSource(mainMod, "getRepositoryWebhooks")},
-			"github_team":                          {Tok: makeDataSource(mainMod, "getTeam")},
-			"github_user":                          {Tok: makeDataSource(mainMod, "getUser")},
-			"github_users":                         {Tok: makeDataSource(mainMod, "getUsers")},
-			"github_ref":                           {Tok: makeDataSource(mainMod, "getRef")},
-			"github_tree":                          {Tok: makeDataSource(mainMod, "getTree")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
