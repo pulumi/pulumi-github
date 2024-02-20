@@ -2,13 +2,16 @@
     "auto-aliasing": {
         "resources": {
             "github_actions_environment_secret": {
-                "current": "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret"
+                "current": "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret",
+                "majorVersion": 6
             },
             "github_actions_environment_variable": {
-                "current": "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable"
+                "current": "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable",
+                "majorVersion": 6
             },
             "github_actions_organization_oidc_subject_claim_customization_template": {
                 "current": "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate",
+                "majorVersion": 6,
                 "fields": {
                     "include_claim_keys": {
                         "maxItemsOne": false
@@ -17,6 +20,7 @@
             },
             "github_actions_organization_permissions": {
                 "current": "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions",
+                "majorVersion": 6,
                 "fields": {
                     "allowed_actions_config": {
                         "maxItemsOne": true,
@@ -42,6 +46,7 @@
             },
             "github_actions_organization_secret": {
                 "current": "github:index/actionsOrganizationSecret:ActionsOrganizationSecret",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -50,6 +55,7 @@
             },
             "github_actions_organization_secret_repositories": {
                 "current": "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -58,6 +64,7 @@
             },
             "github_actions_organization_variable": {
                 "current": "github:index/actionsOrganizationVariable:ActionsOrganizationVariable",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -65,10 +72,12 @@
                 }
             },
             "github_actions_repository_access_level": {
-                "current": "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel"
+                "current": "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel",
+                "majorVersion": 6
             },
             "github_actions_repository_oidc_subject_claim_customization_template": {
                 "current": "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate",
+                "majorVersion": 6,
                 "fields": {
                     "include_claim_keys": {
                         "maxItemsOne": false
@@ -77,6 +86,7 @@
             },
             "github_actions_repository_permissions": {
                 "current": "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions",
+                "majorVersion": 6,
                 "fields": {
                     "allowed_actions_config": {
                         "maxItemsOne": true,
@@ -92,6 +102,7 @@
             },
             "github_actions_runner_group": {
                 "current": "github:index/actionsRunnerGroup:ActionsRunnerGroup",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -102,13 +113,16 @@
                 }
             },
             "github_actions_secret": {
-                "current": "github:index/actionsSecret:ActionsSecret"
+                "current": "github:index/actionsSecret:ActionsSecret",
+                "majorVersion": 6
             },
             "github_actions_variable": {
-                "current": "github:index/actionsVariable:ActionsVariable"
+                "current": "github:index/actionsVariable:ActionsVariable",
+                "majorVersion": 6
             },
             "github_app_installation_repositories": {
                 "current": "github:index/appInstallationRepositories:AppInstallationRepositories",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repositories": {
                         "maxItemsOne": false
@@ -116,21 +130,22 @@
                 }
             },
             "github_app_installation_repository": {
-                "current": "github:index/appInstallationRepository:AppInstallationRepository"
+                "current": "github:index/appInstallationRepository:AppInstallationRepository",
+                "majorVersion": 6
             },
             "github_branch": {
-                "current": "github:index/branch:Branch"
+                "current": "github:index/branch:Branch",
+                "majorVersion": 6
             },
             "github_branch_default": {
-                "current": "github:index/branchDefault:BranchDefault"
+                "current": "github:index/branchDefault:BranchDefault",
+                "majorVersion": 6
             },
             "github_branch_protection": {
                 "current": "github:index/branchProtection:BranchProtection",
+                "majorVersion": 6,
                 "fields": {
                     "force_push_bypassers": {
-                        "maxItemsOne": false
-                    },
-                    "push_restrictions": {
                         "maxItemsOne": false
                     },
                     "required_pull_request_reviews": {
@@ -155,11 +170,22 @@
                                 }
                             }
                         }
+                    },
+                    "restrict_pushes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "push_allowances": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
             "github_branch_protection_v3": {
                 "current": "github:index/branchProtectionV3:BranchProtectionV3",
+                "majorVersion": 6,
                 "fields": {
                     "required_pull_request_reviews": {
                         "maxItemsOne": true,
@@ -226,6 +252,7 @@
             },
             "github_codespaces_organization_secret": {
                 "current": "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -234,6 +261,7 @@
             },
             "github_codespaces_organization_secret_repositories": {
                 "current": "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -241,10 +269,12 @@
                 }
             },
             "github_codespaces_secret": {
-                "current": "github:index/codespacesSecret:CodespacesSecret"
+                "current": "github:index/codespacesSecret:CodespacesSecret",
+                "majorVersion": 6
             },
             "github_codespaces_user_secret": {
                 "current": "github:index/codespacesUserSecret:CodespacesUserSecret",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -253,6 +283,7 @@
             },
             "github_dependabot_organization_secret": {
                 "current": "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -261,6 +292,7 @@
             },
             "github_dependabot_organization_secret_repositories": {
                 "current": "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories",
+                "majorVersion": 6,
                 "fields": {
                     "selected_repository_ids": {
                         "maxItemsOne": false
@@ -268,13 +300,16 @@
                 }
             },
             "github_dependabot_secret": {
-                "current": "github:index/dependabotSecret:DependabotSecret"
+                "current": "github:index/dependabotSecret:DependabotSecret",
+                "majorVersion": 6
             },
             "github_emu_group_mapping": {
-                "current": "github:index/emuGroupMapping:EmuGroupMapping"
+                "current": "github:index/emuGroupMapping:EmuGroupMapping",
+                "majorVersion": 6
             },
             "github_enterprise_organization": {
                 "current": "github:index/enterpriseOrganization:EnterpriseOrganization",
+                "majorVersion": 6,
                 "fields": {
                     "admin_logins": {
                         "maxItemsOne": false
@@ -283,6 +318,7 @@
             },
             "github_issue": {
                 "current": "github:index/issue:Issue",
+                "majorVersion": 6,
                 "fields": {
                     "assignees": {
                         "maxItemsOne": false
@@ -293,10 +329,12 @@
                 }
             },
             "github_issue_label": {
-                "current": "github:index/issueLabel:IssueLabel"
+                "current": "github:index/issueLabel:IssueLabel",
+                "majorVersion": 6
             },
             "github_issue_labels": {
                 "current": "github:index/issueLabels:IssueLabels",
+                "majorVersion": 6,
                 "fields": {
                     "label": {
                         "maxItemsOne": false
@@ -304,13 +342,16 @@
                 }
             },
             "github_membership": {
-                "current": "github:index/membership:Membership"
+                "current": "github:index/membership:Membership",
+                "majorVersion": 6
             },
             "github_organization_block": {
-                "current": "github:index/organizationBlock:OrganizationBlock"
+                "current": "github:index/organizationBlock:OrganizationBlock",
+                "majorVersion": 6
             },
             "github_organization_custom_role": {
                 "current": "github:index/organizationCustomRole:OrganizationCustomRole",
+                "majorVersion": 6,
                 "fields": {
                     "permissions": {
                         "maxItemsOne": false
@@ -318,10 +359,12 @@
                 }
             },
             "github_organization_project": {
-                "current": "github:index/organizationProject:OrganizationProject"
+                "current": "github:index/organizationProject:OrganizationProject",
+                "majorVersion": 6
             },
             "github_organization_ruleset": {
                 "current": "github:index/organizationRuleset:OrganizationRuleset",
+                "majorVersion": 6,
                 "fields": {
                     "bypass_actors": {
                         "maxItemsOne": false
@@ -344,7 +387,7 @@
                                     }
                                 },
                                 "repository_id": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": false
                                 },
                                 "repository_name": {
                                     "maxItemsOne": true,
@@ -410,13 +453,16 @@
                 }
             },
             "github_organization_security_manager": {
-                "current": "github:index/organizationSecurityManager:OrganizationSecurityManager"
+                "current": "github:index/organizationSecurityManager:OrganizationSecurityManager",
+                "majorVersion": 6
             },
             "github_organization_settings": {
-                "current": "github:index/organizationSettings:OrganizationSettings"
+                "current": "github:index/organizationSettings:OrganizationSettings",
+                "majorVersion": 6
             },
             "github_organization_webhook": {
                 "current": "github:index/organizationWebhook:OrganizationWebhook",
+                "majorVersion": 6,
                 "fields": {
                     "configuration": {
                         "maxItemsOne": true
@@ -427,16 +473,20 @@
                 }
             },
             "github_project_card": {
-                "current": "github:index/projectCard:ProjectCard"
+                "current": "github:index/projectCard:ProjectCard",
+                "majorVersion": 6
             },
             "github_project_column": {
-                "current": "github:index/projectColumn:ProjectColumn"
+                "current": "github:index/projectColumn:ProjectColumn",
+                "majorVersion": 6
             },
             "github_release": {
-                "current": "github:index/release:Release"
+                "current": "github:index/release:Release",
+                "majorVersion": 6
             },
             "github_repository": {
                 "current": "github:index/repository:Repository",
+                "majorVersion": 6,
                 "fields": {
                     "pages": {
                         "maxItemsOne": true,
@@ -473,13 +523,16 @@
                 }
             },
             "github_repository_autolink_reference": {
-                "current": "github:index/repositoryAutolinkReference:RepositoryAutolinkReference"
+                "current": "github:index/repositoryAutolinkReference:RepositoryAutolinkReference",
+                "majorVersion": 6
             },
             "github_repository_collaborator": {
-                "current": "github:index/repositoryCollaborator:RepositoryCollaborator"
+                "current": "github:index/repositoryCollaborator:RepositoryCollaborator",
+                "majorVersion": 6
             },
             "github_repository_collaborators": {
                 "current": "github:index/repositoryCollaborators:RepositoryCollaborators",
+                "majorVersion": 6,
                 "fields": {
                     "team": {
                         "maxItemsOne": false
@@ -490,16 +543,20 @@
                 }
             },
             "github_repository_dependabot_security_updates": {
-                "current": "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates"
+                "current": "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates",
+                "majorVersion": 6
             },
             "github_repository_deploy_key": {
-                "current": "github:index/repositoryDeployKey:RepositoryDeployKey"
+                "current": "github:index/repositoryDeployKey:RepositoryDeployKey",
+                "majorVersion": 6
             },
             "github_repository_deployment_branch_policy": {
-                "current": "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy"
+                "current": "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy",
+                "majorVersion": 6
             },
             "github_repository_environment": {
                 "current": "github:index/repositoryEnvironment:RepositoryEnvironment",
+                "majorVersion": 6,
                 "fields": {
                     "deployment_branch_policy": {
                         "maxItemsOne": true
@@ -520,19 +577,24 @@
                 }
             },
             "github_repository_environment_deployment_policy": {
-                "current": "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy"
+                "current": "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy",
+                "majorVersion": 6
             },
             "github_repository_file": {
-                "current": "github:index/repositoryFile:RepositoryFile"
+                "current": "github:index/repositoryFile:RepositoryFile",
+                "majorVersion": 6
             },
             "github_repository_milestone": {
-                "current": "github:index/repositoryMilestone:RepositoryMilestone"
+                "current": "github:index/repositoryMilestone:RepositoryMilestone",
+                "majorVersion": 6
             },
             "github_repository_project": {
-                "current": "github:index/repositoryProject:RepositoryProject"
+                "current": "github:index/repositoryProject:RepositoryProject",
+                "majorVersion": 6
             },
             "github_repository_pull_request": {
                 "current": "github:index/repositoryPullRequest:RepositoryPullRequest",
+                "majorVersion": 6,
                 "fields": {
                     "labels": {
                         "maxItemsOne": false
@@ -541,6 +603,7 @@
             },
             "github_repository_ruleset": {
                 "current": "github:index/repositoryRuleset:RepositoryRuleset",
+                "majorVersion": 6,
                 "fields": {
                     "bypass_actors": {
                         "maxItemsOne": false
@@ -613,10 +676,12 @@
                 }
             },
             "github_repository_tag_protection": {
-                "current": "github:index/repositoryTagProtection:RepositoryTagProtection"
+                "current": "github:index/repositoryTagProtection:RepositoryTagProtection",
+                "majorVersion": 6
             },
             "github_repository_topics": {
                 "current": "github:index/repositoryTopics:RepositoryTopics",
+                "majorVersion": 6,
                 "fields": {
                     "topics": {
                         "maxItemsOne": false
@@ -625,6 +690,7 @@
             },
             "github_repository_webhook": {
                 "current": "github:index/repositoryWebhook:RepositoryWebhook",
+                "majorVersion": 6,
                 "fields": {
                     "configuration": {
                         "maxItemsOne": true
@@ -635,10 +701,12 @@
                 }
             },
             "github_team": {
-                "current": "github:index/team:Team"
+                "current": "github:index/team:Team",
+                "majorVersion": 6
             },
             "github_team_members": {
                 "current": "github:index/teamMembers:TeamMembers",
+                "majorVersion": 6,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -646,13 +714,16 @@
                 }
             },
             "github_team_membership": {
-                "current": "github:index/teamMembership:TeamMembership"
+                "current": "github:index/teamMembership:TeamMembership",
+                "majorVersion": 6
             },
             "github_team_repository": {
-                "current": "github:index/teamRepository:TeamRepository"
+                "current": "github:index/teamRepository:TeamRepository",
+                "majorVersion": 6
             },
             "github_team_settings": {
                 "current": "github:index/teamSettings:TeamSettings",
+                "majorVersion": 6,
                 "fields": {
                     "review_request_delegation": {
                         "maxItemsOne": true
@@ -661,6 +732,7 @@
             },
             "github_team_sync_group_mapping": {
                 "current": "github:index/teamSyncGroupMapping:TeamSyncGroupMapping",
+                "majorVersion": 6,
                 "fields": {
                     "group": {
                         "maxItemsOne": false
@@ -668,18 +740,22 @@
                 }
             },
             "github_user_gpg_key": {
-                "current": "github:index/userGpgKey:UserGpgKey"
+                "current": "github:index/userGpgKey:UserGpgKey",
+                "majorVersion": 6
             },
             "github_user_invitation_accepter": {
-                "current": "github:index/userInvitationAccepter:UserInvitationAccepter"
+                "current": "github:index/userInvitationAccepter:UserInvitationAccepter",
+                "majorVersion": 6
             },
             "github_user_ssh_key": {
-                "current": "github:index/userSshKey:UserSshKey"
+                "current": "github:index/userSshKey:UserSshKey",
+                "majorVersion": 6
             }
         },
         "datasources": {
             "github_actions_environment_secrets": {
                 "current": "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -688,6 +764,7 @@
             },
             "github_actions_environment_variables": {
                 "current": "github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables",
+                "majorVersion": 6,
                 "fields": {
                     "variables": {
                         "maxItemsOne": false
@@ -696,6 +773,7 @@
             },
             "github_actions_organization_oidc_subject_claim_customization_template": {
                 "current": "github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate",
+                "majorVersion": 6,
                 "fields": {
                     "include_claim_keys": {
                         "maxItemsOne": false
@@ -703,13 +781,16 @@
                 }
             },
             "github_actions_organization_public_key": {
-                "current": "github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey"
+                "current": "github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey",
+                "majorVersion": 6
             },
             "github_actions_organization_registration_token": {
-                "current": "github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken"
+                "current": "github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken",
+                "majorVersion": 6
             },
             "github_actions_organization_secrets": {
                 "current": "github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -718,6 +799,7 @@
             },
             "github_actions_organization_variables": {
                 "current": "github:index/getActionsOrganizationVariables:getActionsOrganizationVariables",
+                "majorVersion": 6,
                 "fields": {
                     "variables": {
                         "maxItemsOne": false
@@ -725,13 +807,16 @@
                 }
             },
             "github_actions_public_key": {
-                "current": "github:index/getActionsPublicKey:getActionsPublicKey"
+                "current": "github:index/getActionsPublicKey:getActionsPublicKey",
+                "majorVersion": 6
             },
             "github_actions_registration_token": {
-                "current": "github:index/getActionsRegistrationToken:getActionsRegistrationToken"
+                "current": "github:index/getActionsRegistrationToken:getActionsRegistrationToken",
+                "majorVersion": 6
             },
             "github_actions_repository_oidc_subject_claim_customization_template": {
                 "current": "github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate",
+                "majorVersion": 6,
                 "fields": {
                     "include_claim_keys": {
                         "maxItemsOne": false
@@ -740,6 +825,7 @@
             },
             "github_actions_secrets": {
                 "current": "github:index/getActionsSecrets:getActionsSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -748,6 +834,7 @@
             },
             "github_actions_variables": {
                 "current": "github:index/getActionsVariables:getActionsVariables",
+                "majorVersion": 6,
                 "fields": {
                     "variables": {
                         "maxItemsOne": false
@@ -755,16 +842,20 @@
                 }
             },
             "github_app": {
-                "current": "github:index/getGithubApp:getGithubApp"
+                "current": "github:index/getGithubApp:getGithubApp",
+                "majorVersion": 6
             },
             "github_app_token": {
-                "current": "github:index/getAppToken:getAppToken"
+                "current": "github:index/getAppToken:getAppToken",
+                "majorVersion": 6
             },
             "github_branch": {
-                "current": "github:index/getBranch:getBranch"
+                "current": "github:index/getBranch:getBranch",
+                "majorVersion": 6
             },
             "github_branch_protection_rules": {
                 "current": "github:index/getBranchProtectionRules:getBranchProtectionRules",
+                "majorVersion": 6,
                 "fields": {
                     "rules": {
                         "maxItemsOne": false
@@ -772,10 +863,12 @@
                 }
             },
             "github_codespaces_organization_public_key": {
-                "current": "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey"
+                "current": "github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey",
+                "majorVersion": 6
             },
             "github_codespaces_organization_secrets": {
                 "current": "github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -783,10 +876,12 @@
                 }
             },
             "github_codespaces_public_key": {
-                "current": "github:index/getCodespacesPublicKey:getCodespacesPublicKey"
+                "current": "github:index/getCodespacesPublicKey:getCodespacesPublicKey",
+                "majorVersion": 6
             },
             "github_codespaces_secrets": {
                 "current": "github:index/getCodespacesSecrets:getCodespacesSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -794,10 +889,12 @@
                 }
             },
             "github_codespaces_user_public_key": {
-                "current": "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey"
+                "current": "github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey",
+                "majorVersion": 6
             },
             "github_codespaces_user_secrets": {
                 "current": "github:index/getCodespacesUserSecrets:getCodespacesUserSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -806,6 +903,7 @@
             },
             "github_collaborators": {
                 "current": "github:index/getCollaborators:getCollaborators",
+                "majorVersion": 6,
                 "fields": {
                     "collaborator": {
                         "maxItemsOne": false
@@ -813,10 +911,12 @@
                 }
             },
             "github_dependabot_organization_public_key": {
-                "current": "github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey"
+                "current": "github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey",
+                "majorVersion": 6
             },
             "github_dependabot_organization_secrets": {
                 "current": "github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -824,10 +924,12 @@
                 }
             },
             "github_dependabot_public_key": {
-                "current": "github:index/getDependabotPublicKey:getDependabotPublicKey"
+                "current": "github:index/getDependabotPublicKey:getDependabotPublicKey",
+                "majorVersion": 6
             },
             "github_dependabot_secrets": {
                 "current": "github:index/getDependabotSecrets:getDependabotSecrets",
+                "majorVersion": 6,
                 "fields": {
                     "secrets": {
                         "maxItemsOne": false
@@ -835,10 +937,12 @@
                 }
             },
             "github_enterprise": {
-                "current": "github:index/getEnterprise:getEnterprise"
+                "current": "github:index/getEnterprise:getEnterprise",
+                "majorVersion": 6
             },
             "github_external_groups": {
                 "current": "github:index/getExternalGroups:getExternalGroups",
+                "majorVersion": 6,
                 "fields": {
                     "external_groups": {
                         "maxItemsOne": false
@@ -847,6 +951,7 @@
             },
             "github_ip_ranges": {
                 "current": "github:index/getIpRanges:getIpRanges",
+                "majorVersion": 6,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -902,6 +1007,15 @@
                     "importer_ipv6": {
                         "maxItemsOne": false
                     },
+                    "packages": {
+                        "maxItemsOne": false
+                    },
+                    "packages_ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "packages_ipv6": {
+                        "maxItemsOne": false
+                    },
                     "pages": {
                         "maxItemsOne": false
                     },
@@ -924,6 +1038,7 @@
             },
             "github_issue_labels": {
                 "current": "github:index/getIssueLabels:getIssueLabels",
+                "majorVersion": 6,
                 "fields": {
                     "labels": {
                         "maxItemsOne": false
@@ -931,10 +1046,12 @@
                 }
             },
             "github_membership": {
-                "current": "github:index/getMembership:getMembership"
+                "current": "github:index/getMembership:getMembership",
+                "majorVersion": 6
             },
             "github_organization": {
                 "current": "github:index/getOrganization:getOrganization",
+                "majorVersion": 6,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -949,6 +1066,7 @@
             },
             "github_organization_custom_role": {
                 "current": "github:index/getOrganizationCustomRole:getOrganizationCustomRole",
+                "majorVersion": 6,
                 "fields": {
                     "permissions": {
                         "maxItemsOne": false
@@ -957,6 +1075,7 @@
             },
             "github_organization_external_identities": {
                 "current": "github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities",
+                "majorVersion": 6,
                 "fields": {
                     "identities": {
                         "maxItemsOne": false
@@ -965,6 +1084,7 @@
             },
             "github_organization_ip_allow_list": {
                 "current": "github:index/getOrganizationIpAllowList:getOrganizationIpAllowList",
+                "majorVersion": 6,
                 "fields": {
                     "ip_allow_list": {
                         "maxItemsOne": false
@@ -973,6 +1093,7 @@
             },
             "github_organization_team_sync_groups": {
                 "current": "github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups",
+                "majorVersion": 6,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -981,6 +1102,7 @@
             },
             "github_organization_teams": {
                 "current": "github:index/getOrganizationTeams:getOrganizationTeams",
+                "majorVersion": 6,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false,
@@ -999,6 +1121,7 @@
             },
             "github_organization_webhooks": {
                 "current": "github:index/getOrganizationWebhooks:getOrganizationWebhooks",
+                "majorVersion": 6,
                 "fields": {
                     "webhooks": {
                         "maxItemsOne": false
@@ -1006,10 +1129,12 @@
                 }
             },
             "github_ref": {
-                "current": "github:index/getRef:getRef"
+                "current": "github:index/getRef:getRef",
+                "majorVersion": 6
             },
             "github_release": {
                 "current": "github:index/getRelease:getRelease",
+                "majorVersion": 6,
                 "fields": {
                     "assets": {
                         "maxItemsOne": false
@@ -1018,6 +1143,7 @@
             },
             "github_repositories": {
                 "current": "github:index/getRepositories:getRepositories",
+                "majorVersion": 6,
                 "fields": {
                     "full_names": {
                         "maxItemsOne": false
@@ -1032,6 +1158,7 @@
             },
             "github_repository": {
                 "current": "github:index/getRepository:getRepository",
+                "majorVersion": 6,
                 "fields": {
                     "pages": {
                         "maxItemsOne": false,
@@ -1067,7 +1194,7 @@
                         }
                     },
                     "template": {
-                        "maxItemsOne": true
+                        "maxItemsOne": false
                     },
                     "topics": {
                         "maxItemsOne": false
@@ -1076,6 +1203,7 @@
             },
             "github_repository_autolink_references": {
                 "current": "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences",
+                "majorVersion": 6,
                 "fields": {
                     "autolink_references": {
                         "maxItemsOne": false
@@ -1084,6 +1212,7 @@
             },
             "github_repository_branches": {
                 "current": "github:index/getRepositoryBranches:getRepositoryBranches",
+                "majorVersion": 6,
                 "fields": {
                     "branches": {
                         "maxItemsOne": false
@@ -1092,6 +1221,7 @@
             },
             "github_repository_deploy_keys": {
                 "current": "github:index/getRepositoryDeployKeys:getRepositoryDeployKeys",
+                "majorVersion": 6,
                 "fields": {
                     "keys": {
                         "maxItemsOne": false
@@ -1100,6 +1230,7 @@
             },
             "github_repository_deployment_branch_policies": {
                 "current": "github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies",
+                "majorVersion": 6,
                 "fields": {
                     "deployment_branch_policies": {
                         "maxItemsOne": false
@@ -1108,6 +1239,7 @@
             },
             "github_repository_environments": {
                 "current": "github:index/getRepositoryEnvironments:getRepositoryEnvironments",
+                "majorVersion": 6,
                 "fields": {
                     "environments": {
                         "maxItemsOne": false
@@ -1115,13 +1247,16 @@
                 }
             },
             "github_repository_file": {
-                "current": "github:index/getRepositoryFile:getRepositoryFile"
+                "current": "github:index/getRepositoryFile:getRepositoryFile",
+                "majorVersion": 6
             },
             "github_repository_milestone": {
-                "current": "github:index/getRepositoryMilestone:getRepositoryMilestone"
+                "current": "github:index/getRepositoryMilestone:getRepositoryMilestone",
+                "majorVersion": 6
             },
             "github_repository_pull_request": {
                 "current": "github:index/getRepositoryPullRequest:getRepositoryPullRequest",
+                "majorVersion": 6,
                 "fields": {
                     "labels": {
                         "maxItemsOne": false
@@ -1130,6 +1265,7 @@
             },
             "github_repository_pull_requests": {
                 "current": "github:index/getRepositoryPullRequests:getRepositoryPullRequests",
+                "majorVersion": 6,
                 "fields": {
                     "results": {
                         "maxItemsOne": false,
@@ -1145,6 +1281,7 @@
             },
             "github_repository_teams": {
                 "current": "github:index/getRepositoryTeams:getRepositoryTeams",
+                "majorVersion": 6,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false
@@ -1153,6 +1290,7 @@
             },
             "github_repository_webhooks": {
                 "current": "github:index/getRepositoryWebhooks:getRepositoryWebhooks",
+                "majorVersion": 6,
                 "fields": {
                     "webhooks": {
                         "maxItemsOne": false
@@ -1160,10 +1298,12 @@
                 }
             },
             "github_rest_api": {
-                "current": "github:index/getRestApi:getRestApi"
+                "current": "github:index/getRestApi:getRestApi",
+                "majorVersion": 6
             },
             "github_ssh_keys": {
                 "current": "github:index/getSshKeys:getSshKeys",
+                "majorVersion": 6,
                 "fields": {
                     "keys": {
                         "maxItemsOne": false
@@ -1172,6 +1312,7 @@
             },
             "github_team": {
                 "current": "github:index/getTeam:getTeam",
+                "majorVersion": 6,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -1186,6 +1327,7 @@
             },
             "github_tree": {
                 "current": "github:index/getTree:getTree",
+                "majorVersion": 6,
                 "fields": {
                     "entries": {
                         "maxItemsOne": false
@@ -1194,6 +1336,7 @@
             },
             "github_user": {
                 "current": "github:index/getUser:getUser",
+                "majorVersion": 6,
                 "fields": {
                     "gpg_keys": {
                         "maxItemsOne": false
@@ -1204,10 +1347,12 @@
                 }
             },
             "github_user_external_identity": {
-                "current": "github:index/getUserExternalIdentity:getUserExternalIdentity"
+                "current": "github:index/getUserExternalIdentity:getUserExternalIdentity",
+                "majorVersion": 6
             },
             "github_users": {
                 "current": "github:index/getUsers:getUsers",
+                "majorVersion": 6,
                 "fields": {
                     "emails": {
                         "maxItemsOne": false
@@ -1228,15 +1373,7 @@
             }
         }
     },
-    "auto-settings": {
-        "resources": {
-            "github_organization_ruleset": {
-                "maxItemsOneOverrides": {
-                    "conditions.$.repository_id": true
-                }
-            }
-        }
-    },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret": "github_actions_environment_secret",
@@ -1398,6 +1535,10 @@
                 "requiredApprovingReviewCount": "required_approving_review_count",
                 "restrictDismissals": "restrict_dismissals"
             },
+            "github:index/BranchProtectionRestrictPush:BranchProtectionRestrictPush": {
+                "blocksCreations": "blocks_creations",
+                "pushAllowances": "push_allowances"
+            },
             "github:index/BranchProtectionV3RequiredPullRequestReviews:BranchProtectionV3RequiredPullRequestReviews": {
                 "bypassPullRequestAllowances": "bypass_pull_request_allowances",
                 "dismissStaleReviews": "dismiss_stale_reviews",
@@ -1418,7 +1559,7 @@
             },
             "github:index/OrganizationRulesetConditions:OrganizationRulesetConditions": {
                 "refName": "ref_name",
-                "repositoryId": "repository_id",
+                "repositoryIds": "repository_id",
                 "repositoryName": "repository_name"
             },
             "github:index/OrganizationRulesetConditionsRefName:OrganizationRulesetConditionsRefName": {
@@ -1630,17 +1771,16 @@
             "github:index/branchProtection:BranchProtection": {
                 "allowsDeletions": "allows_deletions",
                 "allowsForcePushes": "allows_force_pushes",
-                "blocksCreations": "blocks_creations",
                 "enforceAdmins": "enforce_admins",
                 "forcePushBypassers": "force_push_bypassers",
                 "lockBranch": "lock_branch",
-                "pushRestrictions": "push_restrictions",
                 "repositoryId": "repository_id",
                 "requireConversationResolution": "require_conversation_resolution",
                 "requireSignedCommits": "require_signed_commits",
                 "requiredLinearHistory": "required_linear_history",
                 "requiredPullRequestReviews": "required_pull_request_reviews",
-                "requiredStatusChecks": "required_status_checks"
+                "requiredStatusChecks": "required_status_checks",
+                "restrictPushes": "restrict_pushes"
             },
             "github:index/branchProtectionV3:BranchProtectionV3": {
                 "enforceAdmins": "enforce_admins",
@@ -1853,6 +1993,8 @@
                 "importerIpv4s": "importer_ipv4",
                 "importerIpv6s": "importer_ipv6",
                 "importers": "importer",
+                "packagesIpv4s": "packages_ipv4",
+                "packagesIpv6s": "packages_ipv6",
                 "pagesIpv4s": "pages_ipv4",
                 "pagesIpv6s": "pages_ipv6",
                 "webIpv4s": "web_ipv4",
@@ -1962,7 +2104,8 @@
                 "squashMergeCommitMessage": "squash_merge_commit_message",
                 "squashMergeCommitTitle": "squash_merge_commit_title",
                 "sshCloneUrl": "ssh_clone_url",
-                "svnUrl": "svn_url"
+                "svnUrl": "svn_url",
+                "templates": "template"
             },
             "github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences": {
                 "autolinkReferences": "autolink_references"
@@ -2197,6 +2340,7 @@
             "github:index/repositoryEnvironment:RepositoryEnvironment": {
                 "canAdminsBypass": "can_admins_bypass",
                 "deploymentBranchPolicy": "deployment_branch_policy",
+                "preventSelfReview": "prevent_self_review",
                 "waitTimer": "wait_timer"
             },
             "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy": {
@@ -2270,16 +2414,22 @@
             "github:index:Provider": {
                 "appAuth": "app_auth",
                 "baseUrl": "base_url",
+                "maxRetries": "max_retries",
                 "parallelRequests": "parallel_requests",
                 "readDelayMs": "read_delay_ms",
+                "retryDelayMs": "retry_delay_ms",
+                "retryableErrors": "retryable_errors",
                 "writeDelayMs": "write_delay_ms"
             }
         },
         "renamedConfigProperties": {
             "appAuth": "app_auth",
             "baseUrl": "base_url",
+            "maxRetries": "max_retries",
             "parallelRequests": "parallel_requests",
             "readDelayMs": "read_delay_ms",
+            "retryDelayMs": "retry_delay_ms",
+            "retryableErrors": "retryable_errors",
             "writeDelayMs": "write_delay_ms"
         }
     }

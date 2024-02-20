@@ -30,6 +30,7 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+  VERSION_PREFIX: 6.0.0
 jobs:
   build_sdk:
     name: build_sdk
@@ -272,7 +273,7 @@ jobs:
     - name: Set PreRelease Version
       run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)" >> "$GITHUB_ENV"
     - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v2
+      uses: goreleaser/goreleaser-action@v5
       with:
         args: -p 3 release --rm-dist --timeout 60m0s
         version: latest
