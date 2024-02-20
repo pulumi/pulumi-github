@@ -107,6 +107,21 @@ public final class GetIpRangesResult {
      */
     private List<String> importers;
     /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+     * 
+     */
+    private List<String> packages;
+    /**
+     * @return A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    private List<String> packagesIpv4s;
+    /**
+     * @return A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    private List<String> packagesIpv6s;
+    /**
      * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      * 
      */
@@ -272,6 +287,27 @@ public final class GetIpRangesResult {
         return this.importers;
     }
     /**
+     * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+     * 
+     */
+    public List<String> packages() {
+        return this.packages;
+    }
+    /**
+     * @return A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    public List<String> packagesIpv4s() {
+        return this.packagesIpv4s;
+    }
+    /**
+     * @return A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    public List<String> packagesIpv6s() {
+        return this.packagesIpv6s;
+    }
+    /**
      * @return An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
      * 
      */
@@ -342,6 +378,9 @@ public final class GetIpRangesResult {
         private List<String> importerIpv4s;
         private List<String> importerIpv6s;
         private List<String> importers;
+        private List<String> packages;
+        private List<String> packagesIpv4s;
+        private List<String> packagesIpv6s;
         private List<String> pages;
         private List<String> pagesIpv4s;
         private List<String> pagesIpv6s;
@@ -370,6 +409,9 @@ public final class GetIpRangesResult {
     	      this.importerIpv4s = defaults.importerIpv4s;
     	      this.importerIpv6s = defaults.importerIpv6s;
     	      this.importers = defaults.importers;
+    	      this.packages = defaults.packages;
+    	      this.packagesIpv4s = defaults.packagesIpv4s;
+    	      this.packagesIpv6s = defaults.packagesIpv6s;
     	      this.pages = defaults.pages;
     	      this.pagesIpv4s = defaults.pagesIpv4s;
     	      this.pagesIpv6s = defaults.pagesIpv6s;
@@ -585,6 +627,39 @@ public final class GetIpRangesResult {
             return importers(List.of(importers));
         }
         @CustomType.Setter
+        public Builder packages(List<String> packages) {
+            if (packages == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "packages");
+            }
+            this.packages = packages;
+            return this;
+        }
+        public Builder packages(String... packages) {
+            return packages(List.of(packages));
+        }
+        @CustomType.Setter
+        public Builder packagesIpv4s(List<String> packagesIpv4s) {
+            if (packagesIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "packagesIpv4s");
+            }
+            this.packagesIpv4s = packagesIpv4s;
+            return this;
+        }
+        public Builder packagesIpv4s(String... packagesIpv4s) {
+            return packagesIpv4s(List.of(packagesIpv4s));
+        }
+        @CustomType.Setter
+        public Builder packagesIpv6s(List<String> packagesIpv6s) {
+            if (packagesIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "packagesIpv6s");
+            }
+            this.packagesIpv6s = packagesIpv6s;
+            return this;
+        }
+        public Builder packagesIpv6s(String... packagesIpv6s) {
+            return packagesIpv6s(List.of(packagesIpv6s));
+        }
+        @CustomType.Setter
         public Builder pages(List<String> pages) {
             if (pages == null) {
               throw new MissingRequiredPropertyException("GetIpRangesResult", "pages");
@@ -671,6 +746,9 @@ public final class GetIpRangesResult {
             _resultValue.importerIpv4s = importerIpv4s;
             _resultValue.importerIpv6s = importerIpv6s;
             _resultValue.importers = importers;
+            _resultValue.packages = packages;
+            _resultValue.packagesIpv4s = packagesIpv4s;
+            _resultValue.packagesIpv6s = packagesIpv6s;
             _resultValue.pages = pages;
             _resultValue.pagesIpv4s = pagesIpv4s;
             _resultValue.pagesIpv6s = pagesIpv6s;

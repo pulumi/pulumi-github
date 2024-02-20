@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +86,12 @@ type GetIpRangesResult struct {
 	ImporterIpv6s []string `pulumi:"importerIpv6s"`
 	// An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
 	Importers []string `pulumi:"importers"`
+	// An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+	Packages []string `pulumi:"packages"`
+	// A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+	PackagesIpv4s []string `pulumi:"packagesIpv4s"`
+	// A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+	PackagesIpv6s []string `pulumi:"packagesIpv6s"`
 	// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
 	Pages []string `pulumi:"pages"`
 	// A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
@@ -219,6 +225,21 @@ func (o GetIpRangesResultOutput) ImporterIpv6s() pulumi.StringArrayOutput {
 // An Array of IP addresses in CIDR format specifying the A records for GitHub Importer.
 func (o GetIpRangesResultOutput) Importers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Importers }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+func (o GetIpRangesResultOutput) Packages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Packages }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) PackagesIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.PackagesIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) PackagesIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.PackagesIpv6s }).(pulumi.StringArrayOutput)
 }
 
 // An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.

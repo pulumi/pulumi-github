@@ -39,6 +39,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('insecure')
 
     @property
+    def max_retries(self) -> Optional[int]:
+        """
+        Number of times to retry a request after receiving an error status codeDefaults to 3
+        """
+        return __config__.get_int('maxRetries')
+
+    @property
     def organization(self) -> Optional[str]:
         """
         The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
@@ -67,6 +74,22 @@ class _ExportableConfig(types.ModuleType):
         Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         """
         return __config__.get_int('readDelayMs')
+
+    @property
+    def retry_delay_ms(self) -> Optional[int]:
+        """
+        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+        1s if not set, the max_retries must be set to greater than zero.
+        """
+        return __config__.get_int('retryDelayMs')
+
+    @property
+    def retryable_errors(self) -> Optional[str]:
+        """
+        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+        to [500, 502, 503, 504]
+        """
+        return __config__.get('retryableErrors')
 
     @property
     def token(self) -> Optional[str]:

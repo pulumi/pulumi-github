@@ -28,16 +28,23 @@ namespace Pulumi.Github
     /// using System.Linq;
     /// using Pulumi;
     /// using Github = Pulumi.Github;
+    /// using Tls = Pulumi.Tls;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Add a deploy key
-    ///     var exampleRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKey", new()
+    ///     // Generate an ssh key using provider "hashicorp/tls"
+    ///     var exampleRepositoryDeployKeyPrivateKey = new Tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", new()
     ///     {
-    ///         Key = "ssh-rsa AAA...",
-    ///         ReadOnly = false,
-    ///         Repository = "test-repo",
+    ///         Algorithm = "ED25519",
+    ///     });
+    /// 
+    ///     // Add the ssh key as a deploy key
+    ///     var exampleRepositoryDeployKeyRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", new()
+    ///     {
     ///         Title = "Repository test key",
+    ///         Repository = "test-repo",
+    ///         Key = exampleRepositoryDeployKeyPrivateKey.PublicKeyOpenssh,
+    ///         ReadOnly = true,
     ///     });
     /// 
     /// });

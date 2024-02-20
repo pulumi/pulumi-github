@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -35,6 +35,11 @@ func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:insecure")
 }
 
+// Number of times to retry a request after receiving an error status codeDefaults to 3
+func GetMaxRetries(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "github:maxRetries")
+}
+
 // The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 //
 // Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
@@ -57,6 +62,18 @@ func GetParallelRequests(ctx *pulumi.Context) bool {
 // Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 func GetReadDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:readDelayMs")
+}
+
+// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+// 1s if not set, the maxRetries must be set to greater than zero.
+func GetRetryDelayMs(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "github:retryDelayMs")
+}
+
+// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
+// to [500, 502, 503, 504]
+func GetRetryableErrors(ctx *pulumi.Context) string {
+	return config.Get(ctx, "github:retryableErrors")
 }
 
 // The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.

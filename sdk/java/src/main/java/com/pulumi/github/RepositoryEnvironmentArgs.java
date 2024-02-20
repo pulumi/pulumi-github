@@ -67,6 +67,21 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     * 
+     */
+    @Import(name="preventSelfReview")
+    private @Nullable Output<Boolean> preventSelfReview;
+
+    /**
+     * @return Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> preventSelfReview() {
+        return Optional.ofNullable(this.preventSelfReview);
+    }
+
+    /**
      * The repository of the environment.
      * 
      */
@@ -117,6 +132,7 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
         this.canAdminsBypass = $.canAdminsBypass;
         this.deploymentBranchPolicy = $.deploymentBranchPolicy;
         this.environment = $.environment;
+        this.preventSelfReview = $.preventSelfReview;
         this.repository = $.repository;
         this.reviewers = $.reviewers;
         this.waitTimer = $.waitTimer;
@@ -201,6 +217,27 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
          */
         public Builder environment(String environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param preventSelfReview Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preventSelfReview(@Nullable Output<Boolean> preventSelfReview) {
+            $.preventSelfReview = preventSelfReview;
+            return this;
+        }
+
+        /**
+         * @param preventSelfReview Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preventSelfReview(Boolean preventSelfReview) {
+            return preventSelfReview(Output.of(preventSelfReview));
         }
 
         /**

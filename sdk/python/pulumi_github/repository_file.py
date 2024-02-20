@@ -31,7 +31,7 @@ class RepositoryFileArgs:
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the managed file.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         """
         pulumi.set(__self__, "content", content)
@@ -125,7 +125,7 @@ class RepositoryFileArgs:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating, updating or deleting the managed file.
         """
         return pulumi.get(self, "commit_message")
 
@@ -166,7 +166,7 @@ class _RepositoryFileState:
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the managed file.
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
@@ -239,7 +239,7 @@ class _RepositoryFileState:
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating, updating or deleting the managed file.
         """
         return pulumi.get(self, "commit_message")
 
@@ -387,7 +387,7 @@ class RepositoryFile(pulumi.CustomResource):
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the managed file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
@@ -515,7 +515,7 @@ class RepositoryFile(pulumi.CustomResource):
                The branch must already exist, it will not be created if it does not already exist.
         :param pulumi.Input[str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
         :param pulumi.Input[str] commit_email: Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
-        :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
+        :param pulumi.Input[str] commit_message: The commit message when creating, updating or deleting the managed file.
         :param pulumi.Input[str] commit_sha: The SHA of the commit that modified the file.
         :param pulumi.Input[str] content: The file content.
         :param pulumi.Input[str] file: The path of the file to manage.
@@ -570,7 +570,7 @@ class RepositoryFile(pulumi.CustomResource):
     @pulumi.getter(name="commitMessage")
     def commit_message(self) -> pulumi.Output[str]:
         """
-        Commit message when adding or updating the managed file.
+        The commit message when creating, updating or deleting the managed file.
         """
         return pulumi.get(self, "commit_message")
 

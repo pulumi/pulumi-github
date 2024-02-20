@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRefName;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRepositoryName;
 import java.lang.Integer;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +24,7 @@ public final class OrganizationRulesetConditions {
      * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
-    private @Nullable Integer repositoryId;
+    private @Nullable List<Integer> repositoryIds;
     /**
      * @return Conflicts with `repository_id`. (see below for nested schema)
      * 
@@ -44,8 +45,8 @@ public final class OrganizationRulesetConditions {
      * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
      * 
      */
-    public Optional<Integer> repositoryId() {
-        return Optional.ofNullable(this.repositoryId);
+    public List<Integer> repositoryIds() {
+        return this.repositoryIds == null ? List.of() : this.repositoryIds;
     }
     /**
      * @return Conflicts with `repository_id`. (see below for nested schema)
@@ -67,13 +68,13 @@ public final class OrganizationRulesetConditions {
     @CustomType.Builder
     public static final class Builder {
         private OrganizationRulesetConditionsRefName refName;
-        private @Nullable Integer repositoryId;
+        private @Nullable List<Integer> repositoryIds;
         private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
         public Builder() {}
         public Builder(OrganizationRulesetConditions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.refName = defaults.refName;
-    	      this.repositoryId = defaults.repositoryId;
+    	      this.repositoryIds = defaults.repositoryIds;
     	      this.repositoryName = defaults.repositoryName;
         }
 
@@ -86,10 +87,13 @@ public final class OrganizationRulesetConditions {
             return this;
         }
         @CustomType.Setter
-        public Builder repositoryId(@Nullable Integer repositoryId) {
+        public Builder repositoryIds(@Nullable List<Integer> repositoryIds) {
 
-            this.repositoryId = repositoryId;
+            this.repositoryIds = repositoryIds;
             return this;
+        }
+        public Builder repositoryIds(Integer... repositoryIds) {
+            return repositoryIds(List.of(repositoryIds));
         }
         @CustomType.Setter
         public Builder repositoryName(@Nullable OrganizationRulesetConditionsRepositoryName repositoryName) {
@@ -100,7 +104,7 @@ public final class OrganizationRulesetConditions {
         public OrganizationRulesetConditions build() {
             final var _resultValue = new OrganizationRulesetConditions();
             _resultValue.refName = refName;
-            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryIds = repositoryIds;
             _resultValue.repositoryName = repositoryName;
             return _resultValue;
         }

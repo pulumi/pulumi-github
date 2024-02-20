@@ -20,10 +20,10 @@ class DependabotSecretArgs:
                  plaintext_value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DependabotSecret resource.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "secret_name", secret_name)
@@ -36,7 +36,7 @@ class DependabotSecretArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        Name of the repository.
+        Name of the repository
         """
         return pulumi.get(self, "repository")
 
@@ -48,7 +48,7 @@ class DependabotSecretArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
         """
-        Name of the secret.
+        Name of the secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -72,7 +72,7 @@ class DependabotSecretArgs:
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        Plaintext value of the secret to be encrypted
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -92,12 +92,12 @@ class _DependabotSecretState:
                  updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DependabotSecret resources.
-        :param pulumi.Input[str] created_at: Date of 'dependabot_secret' creation.
+        :param pulumi.Input[str] created_at: Date of dependabot_secret creation.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] updated_at: Date of 'dependabot_secret' update.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] updated_at: Date of dependabot_secret update.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -116,7 +116,7 @@ class _DependabotSecretState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Date of 'dependabot_secret' creation.
+        Date of dependabot_secret creation.
         """
         return pulumi.get(self, "created_at")
 
@@ -140,7 +140,7 @@ class _DependabotSecretState:
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        Plaintext value of the secret to be encrypted
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -152,7 +152,7 @@ class _DependabotSecretState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the repository.
+        Name of the repository
         """
         return pulumi.get(self, "repository")
 
@@ -164,7 +164,7 @@ class _DependabotSecretState:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the secret.
+        Name of the secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -176,7 +176,7 @@ class _DependabotSecretState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Date of 'dependabot_secret' update.
+        Date of dependabot_secret update.
         """
         return pulumi.get(self, "updated_at")
 
@@ -196,13 +196,38 @@ class DependabotSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DependabotSecret resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_dependabot_public_key(repository="example_repository")
+        example_secret_dependabot_secret = github.DependabotSecret("exampleSecretDependabotSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_dependabot_secret_dependabot_secret = github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
+        ## Import
+
+        This resource can be imported using an ID made up of the `repository` and `secret_name`:
+
+        ```sh
+         $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+        ```
+         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
         """
         ...
     @overload
@@ -211,7 +236,32 @@ class DependabotSecret(pulumi.CustomResource):
                  args: DependabotSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DependabotSecret resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_public_key = github.get_dependabot_public_key(repository="example_repository")
+        example_secret_dependabot_secret = github.DependabotSecret("exampleSecretDependabotSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            plaintext_value=var["some_secret_string"])
+        example_secret_index_dependabot_secret_dependabot_secret = github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret",
+            repository="example_repository",
+            secret_name="example_secret_name",
+            encrypted_value=var["some_encrypted_secret_string"])
+        ```
+
+        ## Import
+
+        This resource can be imported using an ID made up of the `repository` and `secret_name`:
+
+        ```sh
+         $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+        ```
+         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+
         :param str resource_name: The name of the resource.
         :param DependabotSecretArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,12 +325,12 @@ class DependabotSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: Date of 'dependabot_secret' creation.
+        :param pulumi.Input[str] created_at: Date of dependabot_secret creation.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted.
-        :param pulumi.Input[str] repository: Name of the repository.
-        :param pulumi.Input[str] secret_name: Name of the secret.
-        :param pulumi.Input[str] updated_at: Date of 'dependabot_secret' update.
+        :param pulumi.Input[str] plaintext_value: Plaintext value of the secret to be encrypted
+        :param pulumi.Input[str] repository: Name of the repository
+        :param pulumi.Input[str] secret_name: Name of the secret
+        :param pulumi.Input[str] updated_at: Date of dependabot_secret update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,7 +348,7 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        Date of 'dependabot_secret' creation.
+        Date of dependabot_secret creation.
         """
         return pulumi.get(self, "created_at")
 
@@ -314,7 +364,7 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> pulumi.Output[Optional[str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        Plaintext value of the secret to be encrypted
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -322,7 +372,7 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        Name of the repository.
+        Name of the repository
         """
         return pulumi.get(self, "repository")
 
@@ -330,7 +380,7 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[str]:
         """
-        Name of the secret.
+        Name of the secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -338,7 +388,7 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
         """
-        Date of 'dependabot_secret' update.
+        Date of dependabot_secret update.
         """
         return pulumi.get(self, "updated_at")
 

@@ -9,11 +9,89 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Github
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleSecretDependabotOrganizationSecret = new Github.DependabotOrganizationSecret("exampleSecretDependabotOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "private",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_dependabotOrganizationSecretDependabotOrganizationSecret = new Github.DependabotOrganizationSecret("exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "private",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var exampleSecretDependabotOrganizationSecret = new Github.DependabotOrganizationSecret("exampleSecretDependabotOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         PlaintextValue = @var.Some_secret_string,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecretIndex_dependabotOrganizationSecretDependabotOrganizationSecret = new Github.DependabotOrganizationSecret("exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         EncryptedValue = @var.Some_encrypted_secret_string,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// This resource can be imported using an ID made up of the secret name:
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret test_secret test_secret_name
+    /// ```
+    /// 
+    ///  NOTE: the implementation is limited in that it won't fetch the value of the
+    /// 
+    ///  `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+    /// </summary>
     [GithubResourceType("github:index/dependabotOrganizationSecret:DependabotOrganizationSecret")]
     public partial class DependabotOrganizationSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of 'dependabot_secret' creation.
+        /// Date of dependabot_secret creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -25,13 +103,13 @@ namespace Pulumi.Github
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
@@ -43,14 +121,14 @@ namespace Pulumi.Github
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
         /// <summary>
-        /// Date of 'dependabot_secret' update.
+        /// Date of dependabot_secret update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
@@ -126,7 +204,7 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -139,7 +217,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -157,8 +235,8 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
@@ -172,7 +250,7 @@ namespace Pulumi.Github
     public sealed class DependabotOrganizationSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of 'dependabot_secret' creation.
+        /// Date of dependabot_secret creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -197,7 +275,7 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// Plaintext value of the secret to be encrypted
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -210,7 +288,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the secret.
+        /// Name of the secret
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
@@ -228,14 +306,14 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Date of 'dependabot_secret' update.
+        /// Date of dependabot_secret update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-        /// 'selected_repository_ids' is required if set to 'selected'.
+        /// Configures the access that repositories have to the organization secret.
+        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

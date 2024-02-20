@@ -17,14 +17,14 @@ public final class DependabotOrganizationSecretRepositoriesArgs extends com.pulu
     public static final DependabotOrganizationSecretRepositoriesArgs Empty = new DependabotOrganizationSecretRepositoriesArgs();
 
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the existing secret.
+     * @return Name of the existing secret
      * 
      */
     public Output<String> secretName() {
@@ -72,7 +72,7 @@ public final class DependabotOrganizationSecretRepositoriesArgs extends com.pulu
         }
 
         /**
-         * @param secretName Name of the existing secret.
+         * @param secretName Name of the existing secret
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DependabotOrganizationSecretRepositoriesArgs extends com.pulu
         }
 
         /**
-         * @param secretName Name of the existing secret.
+         * @param secretName Name of the existing secret
          * 
          * @return builder
          * 

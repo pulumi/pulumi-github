@@ -190,7 +190,7 @@ export interface GetRepositoryResult {
     /**
      * The repository source template configuration.
      */
-    readonly template: outputs.GetRepositoryTemplate;
+    readonly templates: outputs.GetRepositoryTemplate[];
     /**
      * The list of topics of the repository.
      */

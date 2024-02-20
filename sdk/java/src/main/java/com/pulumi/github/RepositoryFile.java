@@ -123,14 +123,14 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.commitEmail);
     }
     /**
-     * Commit message when adding or updating the managed file.
+     * The commit message when creating, updating or deleting the managed file.
      * 
      */
     @Export(name="commitMessage", refs={String.class}, tree="[0]")
     private Output<String> commitMessage;
 
     /**
-     * @return Commit message when adding or updating the managed file.
+     * @return The commit message when creating, updating or deleting the managed file.
      * 
      */
     public Output<String> commitMessage() {

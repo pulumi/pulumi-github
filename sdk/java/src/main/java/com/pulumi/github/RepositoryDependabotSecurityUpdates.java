@@ -14,6 +14,59 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * This resource allows you to manage dependabot automated security fixes for a single repository. See the
+ * [documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
+ * for details of usage and how this will impact your repository
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryDependabotSecurityUpdates;
+ * import com.pulumi.github.RepositoryDependabotSecurityUpdatesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;GitHub repo managed by Terraform&#34;)
+ *             .private_(false)
+ *             .vulnerabilityAlerts(true)
+ *             .build());
+ * 
+ *         var example = new RepositoryDependabotSecurityUpdates(&#34;example&#34;, RepositoryDependabotSecurityUpdatesArgs.builder()        
+ *             .repository(github_repository.test().id())
+ *             .enabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ### Import by name
+ * 
+ * ```sh
+ * $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
+ * ```
+ * 
+ */
 @ResourceType(type="github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates")
 public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.CustomResource {
     /**
@@ -31,14 +84,14 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
         return this.enabled;
     }
     /**
-     * The GitHub repository.
+     * The repository to manage.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository.
+     * @return The repository to manage.
      * 
      */
     public Output<String> repository() {

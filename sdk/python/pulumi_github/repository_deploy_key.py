@@ -199,13 +199,16 @@ class RepositoryDeployKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_github as github
+        import pulumi_tls as tls
 
-        # Add a deploy key
-        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
-            key="ssh-rsa AAA...",
-            read_only=False,
+        # Generate an ssh key using provider "hashicorp/tls"
+        example_repository_deploy_key_private_key = tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", algorithm="ED25519")
+        # Add the ssh key as a deploy key
+        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey",
+            title="Repository test key",
             repository="test-repo",
-            title="Repository test key")
+            key=example_repository_deploy_key_private_key.public_key_openssh,
+            read_only=True)
         ```
 
         ## Import
@@ -248,13 +251,16 @@ class RepositoryDeployKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_github as github
+        import pulumi_tls as tls
 
-        # Add a deploy key
-        example_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKey",
-            key="ssh-rsa AAA...",
-            read_only=False,
+        # Generate an ssh key using provider "hashicorp/tls"
+        example_repository_deploy_key_private_key = tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", algorithm="ED25519")
+        # Add the ssh key as a deploy key
+        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey",
+            title="Repository test key",
             repository="test-repo",
-            title="Repository test key")
+            key=example_repository_deploy_key_private_key.public_key_openssh,
+            read_only=True)
         ```
 
         ## Import

@@ -9,23 +9,6 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage webhooks for GitHub organization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const foo = new github.OrganizationWebhook("foo", {
- *     active: false,
- *     configuration: {
- *         contentType: "form",
- *         insecureSsl: false,
- *         url: "https://google.de/",
- *     },
- *     events: ["issues"],
- * });
- * ```
- *
  * ## Import
  *
  * Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.

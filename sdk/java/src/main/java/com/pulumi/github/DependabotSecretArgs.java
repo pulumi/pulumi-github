@@ -32,14 +32,14 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return Plaintext value of the secret to be encrypted
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -47,14 +47,14 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the repository.
+     * Name of the repository
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return Name of the repository.
+     * @return Name of the repository
      * 
      */
     public Output<String> repository() {
@@ -62,14 +62,14 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the secret.
+     * Name of the secret
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret.
+     * @return Name of the secret
      * 
      */
     public Output<String> secretName() {
@@ -125,7 +125,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repository Name of the repository.
+         * @param repository Name of the repository
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repository Name of the repository.
+         * @param repository Name of the repository
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DependabotSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 

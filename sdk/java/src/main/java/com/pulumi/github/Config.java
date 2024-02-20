@@ -3,11 +3,13 @@
 
 package com.pulumi.github;
 
+import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.config.inputs.AppAuth;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 public final class Config {
@@ -34,6 +36,13 @@ public final class Config {
  */
     public Optional<Boolean> insecure() {
         return Codegen.booleanProp("insecure").config(config).get();
+    }
+/**
+ * Number of times to retry a request after receiving an error status codeDefaults to 3
+ * 
+ */
+    public Optional<Integer> maxRetries() {
+        return Codegen.integerProp("maxRetries").config(config).get();
     }
 /**
  * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
@@ -64,6 +73,22 @@ public final class Config {
  */
     public Optional<Integer> readDelayMs() {
         return Codegen.integerProp("readDelayMs").config(config).get();
+    }
+/**
+ * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+ * 1s if not set, the max_retries must be set to greater than zero.
+ * 
+ */
+    public Optional<Integer> retryDelayMs() {
+        return Codegen.integerProp("retryDelayMs").config(config).get();
+    }
+/**
+ * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+ * to [500, 502, 503, 504]
+ * 
+ */
+    public Optional<List<Integer>> retryableErrors() {
+        return Codegen.objectProp("retryableErrors", TypeShape.<List<Integer>>builder(List.class).addParameter(Integer.class).build()).config(config).get();
     }
 /**
  * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.

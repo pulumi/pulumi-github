@@ -8,27 +8,120 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewDependabotOrganizationSecret(ctx, "exampleSecretDependabotOrganizationSecret", &github.DependabotOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("private"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewDependabotOrganizationSecret(ctx, "exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", &github.DependabotOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("private"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//				FullName: pulumi.StringRef("my-org/repo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewDependabotOrganizationSecret(ctx, "exampleSecretDependabotOrganizationSecret", &github.DependabotOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("selected"),
+//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					*pulumi.Int(repo.RepoId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewDependabotOrganizationSecret(ctx, "exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", &github.DependabotOrganizationSecretArgs{
+//				SecretName:     pulumi.String("example_secret_name"),
+//				Visibility:     pulumi.String("selected"),
+//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
+//				SelectedRepositoryIds: pulumi.IntArray{
+//					*pulumi.Int(repo.RepoId),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// This resource can be imported using an ID made up of the secret name:
+//
+// ```sh
+// $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret test_secret test_secret_name
+// ```
+//
+//	NOTE: the implementation is limited in that it won't fetch the value of the
+//
+//	`plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 type DependabotOrganizationSecret struct {
 	pulumi.CustomResourceState
 
-	// Date of 'dependabot_secret' creation.
+	// Date of dependabotSecret creation.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted.
+	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
-	// Name of the secret.
+	// Name of the secret
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
-	// Date of 'dependabot_secret' update.
+	// Date of dependabotSecret update.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-	// 'selected_repository_ids' is required if set to 'selected'.
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
@@ -79,38 +172,38 @@ func GetDependabotOrganizationSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DependabotOrganizationSecret resources.
 type dependabotOrganizationSecretState struct {
-	// Date of 'dependabot_secret' creation.
+	// Date of dependabotSecret creation.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted.
+	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	// Name of the secret.
+	// Name of the secret
 	SecretName *string `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Date of 'dependabot_secret' update.
+	// Date of dependabotSecret update.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-	// 'selected_repository_ids' is required if set to 'selected'.
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility *string `pulumi:"visibility"`
 }
 
 type DependabotOrganizationSecretState struct {
-	// Date of 'dependabot_secret' creation.
+	// Date of dependabotSecret creation.
 	CreatedAt pulumi.StringPtrInput
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
-	// Name of the secret.
+	// Name of the secret
 	SecretName pulumi.StringPtrInput
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Date of 'dependabot_secret' update.
+	// Date of dependabotSecret update.
 	UpdatedAt pulumi.StringPtrInput
-	// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-	// 'selected_repository_ids' is required if set to 'selected'.
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringPtrInput
 }
 
@@ -121,14 +214,14 @@ func (DependabotOrganizationSecretState) ElementType() reflect.Type {
 type dependabotOrganizationSecretArgs struct {
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// Plaintext value of the secret to be encrypted.
+	// Plaintext value of the secret to be encrypted
 	PlaintextValue *string `pulumi:"plaintextValue"`
-	// Name of the secret.
+	// Name of the secret
 	SecretName string `pulumi:"secretName"`
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-	// 'selected_repository_ids' is required if set to 'selected'.
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -136,14 +229,14 @@ type dependabotOrganizationSecretArgs struct {
 type DependabotOrganizationSecretArgs struct {
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// Plaintext value of the secret to be encrypted
 	PlaintextValue pulumi.StringPtrInput
-	// Name of the secret.
+	// Name of the secret
 	SecretName pulumi.StringInput
 	// An array of repository ids that can access the organization secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-	// 'selected_repository_ids' is required if set to 'selected'.
+	// Configures the access that repositories have to the organization secret.
+	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 	Visibility pulumi.StringInput
 }
 
@@ -234,7 +327,7 @@ func (o DependabotOrganizationSecretOutput) ToDependabotOrganizationSecretOutput
 	return o
 }
 
-// Date of 'dependabot_secret' creation.
+// Date of dependabotSecret creation.
 func (o DependabotOrganizationSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -244,12 +337,12 @@ func (o DependabotOrganizationSecretOutput) EncryptedValue() pulumi.StringPtrOut
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
 
-// Plaintext value of the secret to be encrypted.
+// Plaintext value of the secret to be encrypted
 func (o DependabotOrganizationSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
 
-// Name of the secret.
+// Name of the secret
 func (o DependabotOrganizationSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -259,13 +352,13 @@ func (o DependabotOrganizationSecretOutput) SelectedRepositoryIds() pulumi.IntAr
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
 }
 
-// Date of 'dependabot_secret' update.
+// Date of dependabotSecret update.
 func (o DependabotOrganizationSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-// 'selected_repository_ids' is required if set to 'selected'.
+// Configures the access that repositories have to the organization secret.
+// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
 func (o DependabotOrganizationSecretOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecret) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
 }

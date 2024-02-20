@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage webhooks for GitHub organization.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -51,6 +52,7 @@ import javax.annotation.Nullable;
  *                 .url(&#34;https://google.de/&#34;)
  *                 .build())
  *             .events(&#34;issues&#34;)
+ *             .name(&#34;web&#34;)
  *             .build());
  * 
  *     }

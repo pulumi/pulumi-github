@@ -64,11 +64,17 @@ namespace Pulumi.Github
     ///                 },
     ///             },
     ///         },
-    ///         PushRestrictions = new[]
+    ///         RestrictPushes = new[]
     ///         {
-    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
-    ///             "/exampleuser",
-    ///             "exampleorganization/exampleteam",
+    ///             new Github.Inputs.BranchProtectionRestrictPushArgs
+    ///             {
+    ///                 PushAllowances = new[]
+    ///                 {
+    ///                     exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///                     "/exampleuser",
+    ///                     "exampleorganization/exampleteam",
+    ///                 },
+    ///             },
     ///         },
     ///         ForcePushBypassers = new[]
     ///         {
@@ -106,16 +112,10 @@ namespace Pulumi.Github
         public Output<bool?> AllowsDeletions { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
         /// </summary>
         [Output("allowsForcePushes")]
         public Output<bool?> AllowsForcePushes { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean, setting this to `true` to block creating the branch.
-        /// </summary>
-        [Output("blocksCreations")]
-        public Output<bool?> BlocksCreations { get; private set; } = null!;
 
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -124,7 +124,7 @@ namespace Pulumi.Github
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
         /// </summary>
         [Output("forcePushBypassers")]
         public Output<ImmutableArray<string>> ForcePushBypassers { get; private set; } = null!;
@@ -140,12 +140,6 @@ namespace Pulumi.Github
         /// </summary>
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-        /// </summary>
-        [Output("pushRestrictions")]
-        public Output<ImmutableArray<string>> PushRestrictions { get; private set; } = null!;
 
         /// <summary>
         /// The name or node ID of the repository associated with this branch protection rule.
@@ -182,6 +176,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("requiredStatusChecks")]
         public Output<ImmutableArray<Outputs.BranchProtectionRequiredStatusCheck>> RequiredStatusChecks { get; private set; } = null!;
+
+        /// <summary>
+        /// Restrict pushes to matching branches. See Restrict Pushes below for details.
+        /// </summary>
+        [Output("restrictPushes")]
+        public Output<ImmutableArray<Outputs.BranchProtectionRestrictPush>> RestrictPushes { get; private set; } = null!;
 
 
         /// <summary>
@@ -236,16 +236,10 @@ namespace Pulumi.Github
         public Input<bool>? AllowsDeletions { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
         /// </summary>
         [Input("allowsForcePushes")]
         public Input<bool>? AllowsForcePushes { get; set; }
-
-        /// <summary>
-        /// Boolean, setting this to `true` to block creating the branch.
-        /// </summary>
-        [Input("blocksCreations")]
-        public Input<bool>? BlocksCreations { get; set; }
 
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -257,7 +251,7 @@ namespace Pulumi.Github
         private InputList<string>? _forcePushBypassers;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
         /// </summary>
         public InputList<string> ForcePushBypassers
         {
@@ -276,18 +270,6 @@ namespace Pulumi.Github
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
-
-        [Input("pushRestrictions")]
-        private InputList<string>? _pushRestrictions;
-
-        /// <summary>
-        /// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-        /// </summary>
-        public InputList<string> PushRestrictions
-        {
-            get => _pushRestrictions ?? (_pushRestrictions = new InputList<string>());
-            set => _pushRestrictions = value;
-        }
 
         /// <summary>
         /// The name or node ID of the repository associated with this branch protection rule.
@@ -337,6 +319,18 @@ namespace Pulumi.Github
             set => _requiredStatusChecks = value;
         }
 
+        [Input("restrictPushes")]
+        private InputList<Inputs.BranchProtectionRestrictPushArgs>? _restrictPushes;
+
+        /// <summary>
+        /// Restrict pushes to matching branches. See Restrict Pushes below for details.
+        /// </summary>
+        public InputList<Inputs.BranchProtectionRestrictPushArgs> RestrictPushes
+        {
+            get => _restrictPushes ?? (_restrictPushes = new InputList<Inputs.BranchProtectionRestrictPushArgs>());
+            set => _restrictPushes = value;
+        }
+
         public BranchProtectionArgs()
         {
         }
@@ -352,16 +346,10 @@ namespace Pulumi.Github
         public Input<bool>? AllowsDeletions { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch.
+        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
         /// </summary>
         [Input("allowsForcePushes")]
         public Input<bool>? AllowsForcePushes { get; set; }
-
-        /// <summary>
-        /// Boolean, setting this to `true` to block creating the branch.
-        /// </summary>
-        [Input("blocksCreations")]
-        public Input<bool>? BlocksCreations { get; set; }
 
         /// <summary>
         /// Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -373,7 +361,7 @@ namespace Pulumi.Github
         private InputList<string>? _forcePushBypassers;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
         /// </summary>
         public InputList<string> ForcePushBypassers
         {
@@ -392,18 +380,6 @@ namespace Pulumi.Github
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
-
-        [Input("pushRestrictions")]
-        private InputList<string>? _pushRestrictions;
-
-        /// <summary>
-        /// The list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-        /// </summary>
-        public InputList<string> PushRestrictions
-        {
-            get => _pushRestrictions ?? (_pushRestrictions = new InputList<string>());
-            set => _pushRestrictions = value;
-        }
 
         /// <summary>
         /// The name or node ID of the repository associated with this branch protection rule.
@@ -451,6 +427,18 @@ namespace Pulumi.Github
         {
             get => _requiredStatusChecks ?? (_requiredStatusChecks = new InputList<Inputs.BranchProtectionRequiredStatusCheckGetArgs>());
             set => _requiredStatusChecks = value;
+        }
+
+        [Input("restrictPushes")]
+        private InputList<Inputs.BranchProtectionRestrictPushGetArgs>? _restrictPushes;
+
+        /// <summary>
+        /// Restrict pushes to matching branches. See Restrict Pushes below for details.
+        /// </summary>
+        public InputList<Inputs.BranchProtectionRestrictPushGetArgs> RestrictPushes
+        {
+            get => _restrictPushes ?? (_restrictPushes = new InputList<Inputs.BranchProtectionRestrictPushGetArgs>());
+            set => _restrictPushes = value;
         }
 
         public BranchProtectionState()

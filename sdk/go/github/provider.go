@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,6 +59,8 @@ type providerArgs struct {
 	BaseUrl *string `pulumi:"baseUrl"`
 	// Enable `insecure` mode for testing purposes
 	Insecure *bool `pulumi:"insecure"`
+	// Number of times to retry a request after receiving an error status codeDefaults to 3
+	MaxRetries *int `pulumi:"maxRetries"`
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 	//
 	// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
@@ -71,6 +73,12 @@ type providerArgs struct {
 	ParallelRequests *bool `pulumi:"parallelRequests"`
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs *int `pulumi:"readDelayMs"`
+	// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+	// 1s if not set, the max_retries must be set to greater than zero.
+	RetryDelayMs *int `pulumi:"retryDelayMs"`
+	// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+	// to [500, 502, 503, 504]
+	RetryableErrors []int `pulumi:"retryableErrors"`
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token *string `pulumi:"token"`
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
@@ -86,6 +94,8 @@ type ProviderArgs struct {
 	BaseUrl pulumi.StringPtrInput
 	// Enable `insecure` mode for testing purposes
 	Insecure pulumi.BoolPtrInput
+	// Number of times to retry a request after receiving an error status codeDefaults to 3
+	MaxRetries pulumi.IntPtrInput
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
 	//
 	// Deprecated: Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
@@ -98,6 +108,12 @@ type ProviderArgs struct {
 	ParallelRequests pulumi.BoolPtrInput
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs pulumi.IntPtrInput
+	// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+	// 1s if not set, the max_retries must be set to greater than zero.
+	RetryDelayMs pulumi.IntPtrInput
+	// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+	// to [500, 502, 503, 504]
+	RetryableErrors pulumi.IntArrayInput
 	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
 	Token pulumi.StringPtrInput
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.

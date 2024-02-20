@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+ * You must have write access to an organization secret to use this resource.
+ *
+ * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const exampleSecret = new github.DependabotOrganizationSecret("exampleSecret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "private",
+ *     plaintextValue: _var.some_secret_string,
+ * });
+ * const orgSecretRepos = new github.DependabotOrganizationSecretRepositories("orgSecretRepos", {
+ *     secretName: exampleSecret.secretName,
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using an ID made up of the secret name:
+ *
+ * ```sh
+ * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+ * ```
+ */
 export class DependabotOrganizationSecretRepositories extends pulumi.CustomResource {
     /**
      * Get an existing DependabotOrganizationSecretRepositories resource's state with the given name, ID, and optional extra
@@ -33,7 +67,7 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
     }
 
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      */
     public readonly secretName!: pulumi.Output<string>;
     /**
@@ -77,7 +111,7 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
  */
 export interface DependabotOrganizationSecretRepositoriesState {
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      */
     secretName?: pulumi.Input<string>;
     /**
@@ -91,7 +125,7 @@ export interface DependabotOrganizationSecretRepositoriesState {
  */
 export interface DependabotOrganizationSecretRepositoriesArgs {
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      */
     secretName: pulumi.Input<string>;
     /**

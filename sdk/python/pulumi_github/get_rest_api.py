@@ -22,8 +22,8 @@ class GetRestApiResult:
     A collection of values returned by getRestApi.
     """
     def __init__(__self__, body=None, code=None, endpoint=None, headers=None, id=None, status=None):
-        if body and not isinstance(body, dict):
-            raise TypeError("Expected argument 'body' to be a dict")
+        if body and not isinstance(body, str):
+            raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
         if code and not isinstance(code, int):
             raise TypeError("Expected argument 'code' to be a int")
@@ -31,8 +31,8 @@ class GetRestApiResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
-        if headers and not isinstance(headers, dict):
-            raise TypeError("Expected argument 'headers' to be a dict")
+        if headers and not isinstance(headers, str):
+            raise TypeError("Expected argument 'headers' to be a str")
         pulumi.set(__self__, "headers", headers)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -43,9 +43,9 @@ class GetRestApiResult:
 
     @property
     @pulumi.getter
-    def body(self) -> Mapping[str, Any]:
+    def body(self) -> str:
         """
-        A map of response body.
+        A JSON string containing response body.
         """
         return pulumi.get(self, "body")
 
@@ -64,9 +64,9 @@ class GetRestApiResult:
 
     @property
     @pulumi.getter
-    def headers(self) -> Mapping[str, Any]:
+    def headers(self) -> str:
         """
-        A map of response headers.
+        A JSON string containing response headers.
         """
         return pulumi.get(self, "headers")
 

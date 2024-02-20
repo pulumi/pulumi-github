@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -128,7 +128,7 @@ type LookupRepositoryResult struct {
 	// URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
 	SvnUrl string `pulumi:"svnUrl"`
 	// The repository source template configuration.
-	Template GetRepositoryTemplate `pulumi:"template"`
+	Templates []GetRepositoryTemplate `pulumi:"templates"`
 	// The list of topics of the repository.
 	Topics []string `pulumi:"topics"`
 	// Whether the repository is public, private or internal.
@@ -344,8 +344,8 @@ func (o LookupRepositoryResultOutput) SvnUrl() pulumi.StringOutput {
 }
 
 // The repository source template configuration.
-func (o LookupRepositoryResultOutput) Template() GetRepositoryTemplateOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) GetRepositoryTemplate { return v.Template }).(GetRepositoryTemplateOutput)
+func (o LookupRepositoryResultOutput) Templates() GetRepositoryTemplateArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryTemplate { return v.Templates }).(GetRepositoryTemplateArrayOutput)
 }
 
 // The list of topics of the repository.

@@ -26,6 +26,11 @@ insecure: Optional[bool]
 Enable `insecure` mode for testing purposes
 """
 
+maxRetries: Optional[int]
+"""
+Number of times to retry a request after receiving an error status codeDefaults to 3
+"""
+
 organization: Optional[str]
 """
 The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
@@ -46,6 +51,18 @@ enforce the respect of github.com's best practices to avoid hitting abuse rate l
 readDelayMs: Optional[int]
 """
 Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
+"""
+
+retryDelayMs: Optional[int]
+"""
+Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+1s if not set, the max_retries must be set to greater than zero.
+"""
+
+retryableErrors: Optional[str]
+"""
+Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+to [500, 502, 503, 504]
 """
 
 token: Optional[str]

@@ -15,6 +15,7 @@ __all__ = [
     'ActionsRepositoryPermissionsAllowedActionsConfigArgs',
     'BranchProtectionRequiredPullRequestReviewArgs',
     'BranchProtectionRequiredStatusCheckArgs',
+    'BranchProtectionRestrictPushArgs',
     'BranchProtectionV3RequiredPullRequestReviewsArgs',
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs',
     'BranchProtectionV3RequiredStatusChecksArgs',
@@ -365,6 +366,45 @@ class BranchProtectionRequiredStatusCheckArgs:
     @strict.setter
     def strict(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "strict", value)
+
+
+@pulumi.input_type
+class BranchProtectionRestrictPushArgs:
+    def __init__(__self__, *,
+                 blocks_creations: Optional[pulumi.Input[bool]] = None,
+                 push_allowances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] blocks_creations: Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] push_allowances: A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+        """
+        if blocks_creations is not None:
+            pulumi.set(__self__, "blocks_creations", blocks_creations)
+        if push_allowances is not None:
+            pulumi.set(__self__, "push_allowances", push_allowances)
+
+    @property
+    @pulumi.getter(name="blocksCreations")
+    def blocks_creations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+        """
+        return pulumi.get(self, "blocks_creations")
+
+    @blocks_creations.setter
+    def blocks_creations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocks_creations", value)
+
+    @property
+    @pulumi.getter(name="pushAllowances")
+    def push_allowances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+        """
+        return pulumi.get(self, "push_allowances")
+
+    @push_allowances.setter
+    def push_allowances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "push_allowances", value)
 
 
 @pulumi.input_type
@@ -840,18 +880,18 @@ class OrganizationRulesetBypassActorArgs:
 class OrganizationRulesetConditionsArgs:
     def __init__(__self__, *,
                  ref_name: pulumi.Input['OrganizationRulesetConditionsRefNameArgs'],
-                 repository_id: Optional[pulumi.Input[int]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None):
         """
         :param pulumi.Input['OrganizationRulesetConditionsRefNameArgs'] ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
-        :param pulumi.Input[int] repository_id: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         :param pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs'] repository_name: Conflicts with `repository_id`. (see below for nested schema)
                
                One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
         """
         pulumi.set(__self__, "ref_name", ref_name)
-        if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ids is not None:
+            pulumi.set(__self__, "repository_ids", repository_ids)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
 
@@ -868,16 +908,16 @@ class OrganizationRulesetConditionsArgs:
         pulumi.set(self, "ref_name", value)
 
     @property
-    @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         """
-        return pulumi.get(self, "repository_id")
+        return pulumi.get(self, "repository_ids")
 
-    @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "repository_id", value)
+    @repository_ids.setter
+    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "repository_ids", value)
 
     @property
     @pulumi.getter(name="repositoryName")

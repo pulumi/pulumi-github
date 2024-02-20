@@ -60,10 +60,13 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["appAuth"] = pulumi.output(args ? args.appAuth : undefined).apply(JSON.stringify);
             resourceInputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["parallelRequests"] = pulumi.output(args ? args.parallelRequests : undefined).apply(JSON.stringify);
             resourceInputs["readDelayMs"] = pulumi.output(args ? args.readDelayMs : undefined).apply(JSON.stringify);
+            resourceInputs["retryDelayMs"] = pulumi.output(args ? args.retryDelayMs : undefined).apply(JSON.stringify);
+            resourceInputs["retryableErrors"] = pulumi.output(args ? args.retryableErrors : undefined).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
@@ -90,6 +93,10 @@ export interface ProviderArgs {
      */
     insecure?: pulumi.Input<boolean>;
     /**
+     * Number of times to retry a request after receiving an error status codeDefaults to 3
+     */
+    maxRetries?: pulumi.Input<number>;
+    /**
      * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
      *
      * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
@@ -109,6 +116,16 @@ export interface ProviderArgs {
      * Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
      */
     readDelayMs?: pulumi.Input<number>;
+    /**
+     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
+     * 1s if not set, the max_retries must be set to greater than zero.
+     */
+    retryDelayMs?: pulumi.Input<number>;
+    /**
+     * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+     * to [500, 502, 503, 504]
+     */
+    retryableErrors?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      */

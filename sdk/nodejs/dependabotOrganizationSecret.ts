@@ -4,6 +4,58 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleSecretDependabotOrganizationSecret = new github.DependabotOrganizationSecret("exampleSecretDependabotOrganizationSecret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "private",
+ *     plaintextValue: _var.some_secret_string,
+ * });
+ * const exampleSecretIndex_dependabotOrganizationSecretDependabotOrganizationSecret = new github.DependabotOrganizationSecret("exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "private",
+ *     encryptedValue: _var.some_encrypted_secret_string,
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const exampleSecretDependabotOrganizationSecret = new github.DependabotOrganizationSecret("exampleSecretDependabotOrganizationSecret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "selected",
+ *     plaintextValue: _var.some_secret_string,
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * const exampleSecretIndex_dependabotOrganizationSecretDependabotOrganizationSecret = new github.DependabotOrganizationSecret("exampleSecretIndex/dependabotOrganizationSecretDependabotOrganizationSecret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "selected",
+ *     encryptedValue: _var.some_encrypted_secret_string,
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource can be imported using an ID made up of the secret name:
+ *
+ * ```sh
+ * $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret test_secret test_secret_name
+ * ```
+ *
+ *  NOTE: the implementation is limited in that it won't fetch the value of the
+ *
+ *  `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ */
 export class DependabotOrganizationSecret extends pulumi.CustomResource {
     /**
      * Get an existing DependabotOrganizationSecret resource's state with the given name, ID, and optional extra
@@ -33,7 +85,7 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of 'dependabot_secret' creation.
+     * Date of dependabotSecret creation.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -41,11 +93,11 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
      */
     public readonly encryptedValue!: pulumi.Output<string | undefined>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     public readonly plaintextValue!: pulumi.Output<string | undefined>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     public readonly secretName!: pulumi.Output<string>;
     /**
@@ -53,12 +105,12 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
      */
     public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
     /**
-     * Date of 'dependabot_secret' update.
+     * Date of dependabotSecret update.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     /**
-     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-     * 'selected_repository_ids' is required if set to 'selected'.
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
     public readonly visibility!: pulumi.Output<string>;
 
@@ -110,7 +162,7 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
  */
 export interface DependabotOrganizationSecretState {
     /**
-     * Date of 'dependabot_secret' creation.
+     * Date of dependabotSecret creation.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -118,11 +170,11 @@ export interface DependabotOrganizationSecretState {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     secretName?: pulumi.Input<string>;
     /**
@@ -130,12 +182,12 @@ export interface DependabotOrganizationSecretState {
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Date of 'dependabot_secret' update.
+     * Date of dependabotSecret update.
      */
     updatedAt?: pulumi.Input<string>;
     /**
-     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-     * 'selected_repository_ids' is required if set to 'selected'.
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
     visibility?: pulumi.Input<string>;
 }
@@ -149,11 +201,11 @@ export interface DependabotOrganizationSecretArgs {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the secret.
+     * Name of the secret
      */
     secretName: pulumi.Input<string>;
     /**
@@ -161,8 +213,8 @@ export interface DependabotOrganizationSecretArgs {
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Configures the access that repositories have to the organization secret. Must be one of 'all', 'private' or 'selected'.
-     * 'selected_repository_ids' is required if set to 'selected'.
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
     visibility: pulumi.Input<string>;
 }

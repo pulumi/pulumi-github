@@ -143,6 +143,18 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Importers;
         /// <summary>
+        /// An Array of IP addresses in CIDR format specifying the A records for GitHub Packages.
+        /// </summary>
+        public readonly ImmutableArray<string> Packages;
+        /// <summary>
+        /// A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> PackagesIpv4s;
+        /// <summary>
+        /// A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> PackagesIpv6s;
+        /// <summary>
         /// An Array of IP addresses in CIDR format specifying the A records for GitHub Pages.
         /// </summary>
         public readonly ImmutableArray<string> Pages;
@@ -207,6 +219,12 @@ namespace Pulumi.Github
 
             ImmutableArray<string> importers,
 
+            ImmutableArray<string> packages,
+
+            ImmutableArray<string> packagesIpv4s,
+
+            ImmutableArray<string> packagesIpv6s,
+
             ImmutableArray<string> pages,
 
             ImmutableArray<string> pagesIpv4s,
@@ -238,6 +256,9 @@ namespace Pulumi.Github
             ImporterIpv4s = importerIpv4s;
             ImporterIpv6s = importerIpv6s;
             Importers = importers;
+            Packages = packages;
+            PackagesIpv4s = packagesIpv4s;
+            PackagesIpv6s = packagesIpv6s;
             Pages = pages;
             PagesIpv4s = pagesIpv4s;
             PagesIpv6s = pagesIpv6s;

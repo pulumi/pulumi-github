@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, template=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, templates=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -122,9 +122,9 @@ class GetRepositoryResult:
         if svn_url and not isinstance(svn_url, str):
             raise TypeError("Expected argument 'svn_url' to be a str")
         pulumi.set(__self__, "svn_url", svn_url)
-        if template and not isinstance(template, dict):
-            raise TypeError("Expected argument 'template' to be a dict")
-        pulumi.set(__self__, "template", template)
+        if templates and not isinstance(templates, list):
+            raise TypeError("Expected argument 'templates' to be a list")
+        pulumi.set(__self__, "templates", templates)
         if topics and not isinstance(topics, list):
             raise TypeError("Expected argument 'topics' to be a list")
         pulumi.set(__self__, "topics", topics)
@@ -395,11 +395,11 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter
-    def template(self) -> 'outputs.GetRepositoryTemplateResult':
+    def templates(self) -> Sequence['outputs.GetRepositoryTemplateResult']:
         """
         The repository source template configuration.
         """
-        return pulumi.get(self, "template")
+        return pulumi.get(self, "templates")
 
     @property
     @pulumi.getter
@@ -457,7 +457,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             squash_merge_commit_title=self.squash_merge_commit_title,
             ssh_clone_url=self.ssh_clone_url,
             svn_url=self.svn_url,
-            template=self.template,
+            templates=self.templates,
             topics=self.topics,
             visibility=self.visibility)
 
@@ -527,7 +527,7 @@ def get_repository(description: Optional[str] = None,
         squash_merge_commit_title=pulumi.get(__ret__, 'squash_merge_commit_title'),
         ssh_clone_url=pulumi.get(__ret__, 'ssh_clone_url'),
         svn_url=pulumi.get(__ret__, 'svn_url'),
-        template=pulumi.get(__ret__, 'template'),
+        templates=pulumi.get(__ret__, 'templates'),
         topics=pulumi.get(__ret__, 'topics'),
         visibility=pulumi.get(__ret__, 'visibility'))
 

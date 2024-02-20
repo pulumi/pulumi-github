@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.BranchProtectionRequiredPullRequestReviewArgs;
 import com.pulumi.github.inputs.BranchProtectionRequiredStatusCheckArgs;
+import com.pulumi.github.inputs.BranchProtectionRestrictPushArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -36,33 +37,18 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
      * 
      */
     @Import(name="allowsForcePushes")
     private @Nullable Output<Boolean> allowsForcePushes;
 
     /**
-     * @return Boolean, setting this to `true` to allow force pushes on the branch.
+     * @return Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
      * 
      */
     public Optional<Output<Boolean>> allowsForcePushes() {
         return Optional.ofNullable(this.allowsForcePushes);
-    }
-
-    /**
-     * Boolean, setting this to `true` to block creating the branch.
-     * 
-     */
-    @Import(name="blocksCreations")
-    private @Nullable Output<Boolean> blocksCreations;
-
-    /**
-     * @return Boolean, setting this to `true` to block creating the branch.
-     * 
-     */
-    public Optional<Output<Boolean>> blocksCreations() {
-        return Optional.ofNullable(this.blocksCreations);
     }
 
     /**
@@ -81,14 +67,14 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
      * 
      */
     @Import(name="forcePushBypassers")
     private @Nullable Output<List<String>> forcePushBypassers;
 
     /**
-     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
      * 
      */
     public Optional<Output<List<String>>> forcePushBypassers() {
@@ -123,21 +109,6 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
      */
     public Output<String> pattern() {
         return this.pattern;
-    }
-
-    /**
-     * The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-     * 
-     */
-    @Import(name="pushRestrictions")
-    private @Nullable Output<List<String>> pushRestrictions;
-
-    /**
-     * @return The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-     * 
-     */
-    public Optional<Output<List<String>>> pushRestrictions() {
-        return Optional.ofNullable(this.pushRestrictions);
     }
 
     /**
@@ -230,23 +201,37 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.requiredStatusChecks);
     }
 
+    /**
+     * Restrict pushes to matching branches. See Restrict Pushes below for details.
+     * 
+     */
+    @Import(name="restrictPushes")
+    private @Nullable Output<List<BranchProtectionRestrictPushArgs>> restrictPushes;
+
+    /**
+     * @return Restrict pushes to matching branches. See Restrict Pushes below for details.
+     * 
+     */
+    public Optional<Output<List<BranchProtectionRestrictPushArgs>>> restrictPushes() {
+        return Optional.ofNullable(this.restrictPushes);
+    }
+
     private BranchProtectionArgs() {}
 
     private BranchProtectionArgs(BranchProtectionArgs $) {
         this.allowsDeletions = $.allowsDeletions;
         this.allowsForcePushes = $.allowsForcePushes;
-        this.blocksCreations = $.blocksCreations;
         this.enforceAdmins = $.enforceAdmins;
         this.forcePushBypassers = $.forcePushBypassers;
         this.lockBranch = $.lockBranch;
         this.pattern = $.pattern;
-        this.pushRestrictions = $.pushRestrictions;
         this.repositoryId = $.repositoryId;
         this.requireConversationResolution = $.requireConversationResolution;
         this.requireSignedCommits = $.requireSignedCommits;
         this.requiredLinearHistory = $.requiredLinearHistory;
         this.requiredPullRequestReviews = $.requiredPullRequestReviews;
         this.requiredStatusChecks = $.requiredStatusChecks;
+        this.restrictPushes = $.restrictPushes;
     }
 
     public static Builder builder() {
@@ -289,7 +274,7 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch.
+         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
          * 
          * @return builder
          * 
@@ -300,34 +285,13 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch.
+         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
          * 
          * @return builder
          * 
          */
         public Builder allowsForcePushes(Boolean allowsForcePushes) {
             return allowsForcePushes(Output.of(allowsForcePushes));
-        }
-
-        /**
-         * @param blocksCreations Boolean, setting this to `true` to block creating the branch.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blocksCreations(@Nullable Output<Boolean> blocksCreations) {
-            $.blocksCreations = blocksCreations;
-            return this;
-        }
-
-        /**
-         * @param blocksCreations Boolean, setting this to `true` to block creating the branch.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blocksCreations(Boolean blocksCreations) {
-            return blocksCreations(Output.of(blocksCreations));
         }
 
         /**
@@ -352,7 +316,7 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
          * 
          * @return builder
          * 
@@ -363,7 +327,7 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
          * 
          * @return builder
          * 
@@ -373,7 +337,7 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
          * 
          * @return builder
          * 
@@ -422,37 +386,6 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
-        }
-
-        /**
-         * @param pushRestrictions The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pushRestrictions(@Nullable Output<List<String>> pushRestrictions) {
-            $.pushRestrictions = pushRestrictions;
-            return this;
-        }
-
-        /**
-         * @param pushRestrictions The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pushRestrictions(List<String> pushRestrictions) {
-            return pushRestrictions(Output.of(pushRestrictions));
-        }
-
-        /**
-         * @param pushRestrictions The list of actor Names/IDs that may push to the branch. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder pushRestrictions(String... pushRestrictions) {
-            return pushRestrictions(List.of(pushRestrictions));
         }
 
         /**
@@ -599,6 +532,37 @@ public final class BranchProtectionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder requiredStatusChecks(BranchProtectionRequiredStatusCheckArgs... requiredStatusChecks) {
             return requiredStatusChecks(List.of(requiredStatusChecks));
+        }
+
+        /**
+         * @param restrictPushes Restrict pushes to matching branches. See Restrict Pushes below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictPushes(@Nullable Output<List<BranchProtectionRestrictPushArgs>> restrictPushes) {
+            $.restrictPushes = restrictPushes;
+            return this;
+        }
+
+        /**
+         * @param restrictPushes Restrict pushes to matching branches. See Restrict Pushes below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictPushes(List<BranchProtectionRestrictPushArgs> restrictPushes) {
+            return restrictPushes(Output.of(restrictPushes));
+        }
+
+        /**
+         * @param restrictPushes Restrict pushes to matching branches. See Restrict Pushes below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restrictPushes(BranchProtectionRestrictPushArgs... restrictPushes) {
+            return restrictPushes(List.of(restrictPushes));
         }
 
         public BranchProtectionArgs build() {

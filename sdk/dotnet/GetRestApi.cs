@@ -102,18 +102,18 @@ namespace Pulumi.Github
     public sealed class GetRestApiResult
     {
         /// <summary>
-        /// A map of response body.
+        /// A JSON string containing response body.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Body;
+        public readonly string Body;
         /// <summary>
         /// A response status code.
         /// </summary>
         public readonly int Code;
         public readonly string Endpoint;
         /// <summary>
-        /// A map of response headers.
+        /// A JSON string containing response headers.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Headers;
+        public readonly string Headers;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -125,13 +125,13 @@ namespace Pulumi.Github
 
         [OutputConstructor]
         private GetRestApiResult(
-            ImmutableDictionary<string, object> body,
+            string body,
 
             int code,
 
             string endpoint,
 
-            ImmutableDictionary<string, object> headers,
+            string headers,
 
             string id,
 

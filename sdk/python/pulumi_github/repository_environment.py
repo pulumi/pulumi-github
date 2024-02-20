@@ -20,6 +20,7 @@ class RepositoryEnvironmentArgs:
                  repository: pulumi.Input[str],
                  can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
+                 prevent_self_review: Optional[pulumi.Input[bool]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
                  wait_timer: Optional[pulumi.Input[int]] = None):
         """
@@ -28,6 +29,7 @@ class RepositoryEnvironmentArgs:
         :param pulumi.Input[str] repository: The repository of the environment.
         :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
+        :param pulumi.Input[bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
@@ -37,6 +39,8 @@ class RepositoryEnvironmentArgs:
             pulumi.set(__self__, "can_admins_bypass", can_admins_bypass)
         if deployment_branch_policy is not None:
             pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
+        if prevent_self_review is not None:
+            pulumi.set(__self__, "prevent_self_review", prevent_self_review)
         if reviewers is not None:
             pulumi.set(__self__, "reviewers", reviewers)
         if wait_timer is not None:
@@ -91,6 +95,18 @@ class RepositoryEnvironmentArgs:
         pulumi.set(self, "deployment_branch_policy", value)
 
     @property
+    @pulumi.getter(name="preventSelfReview")
+    def prevent_self_review(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        """
+        return pulumi.get(self, "prevent_self_review")
+
+    @prevent_self_review.setter
+    def prevent_self_review(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_self_review", value)
+
+    @property
     @pulumi.getter
     def reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]]:
         """
@@ -121,6 +137,7 @@ class _RepositoryEnvironmentState:
                  can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs']] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 prevent_self_review: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
                  wait_timer: Optional[pulumi.Input[int]] = None):
@@ -129,6 +146,7 @@ class _RepositoryEnvironmentState:
         :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
+        :param pulumi.Input[bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[str] repository: The repository of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
@@ -139,6 +157,8 @@ class _RepositoryEnvironmentState:
             pulumi.set(__self__, "deployment_branch_policy", deployment_branch_policy)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if prevent_self_review is not None:
+            pulumi.set(__self__, "prevent_self_review", prevent_self_review)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if reviewers is not None:
@@ -181,6 +201,18 @@ class _RepositoryEnvironmentState:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="preventSelfReview")
+    def prevent_self_review(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        """
+        return pulumi.get(self, "prevent_self_review")
+
+    @prevent_self_review.setter
+    def prevent_self_review(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_self_review", value)
 
     @property
     @pulumi.getter
@@ -227,6 +259,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 prevent_self_review: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]]] = None,
                  wait_timer: Optional[pulumi.Input[int]] = None,
@@ -245,6 +278,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
             environment="example",
             repository=example_repository.name,
+            prevent_self_review=True,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
                 users=[current.id],
             )],
@@ -267,6 +301,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
+        :param pulumi.Input[bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[str] repository: The repository of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
@@ -291,6 +326,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
             environment="example",
             repository=example_repository.name,
+            prevent_self_review=True,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
                 users=[current.id],
             )],
@@ -326,6 +362,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
                  can_admins_bypass: Optional[pulumi.Input[bool]] = None,
                  deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 prevent_self_review: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]]] = None,
                  wait_timer: Optional[pulumi.Input[int]] = None,
@@ -343,6 +380,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["prevent_self_review"] = prevent_self_review
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -361,6 +399,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             can_admins_bypass: Optional[pulumi.Input[bool]] = None,
             deployment_branch_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']]] = None,
             environment: Optional[pulumi.Input[str]] = None,
+            prevent_self_review: Optional[pulumi.Input[bool]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]]] = None,
             wait_timer: Optional[pulumi.Input[int]] = None) -> 'RepositoryEnvironment':
@@ -374,6 +413,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param pulumi.Input[bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RepositoryEnvironmentDeploymentBranchPolicyArgs']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[str] environment: The name of the environment.
+        :param pulumi.Input[bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[str] repository: The repository of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEnvironmentReviewerArgs']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[int] wait_timer: Amount of time to delay a job after the job is initially triggered.
@@ -385,6 +425,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         __props__.__dict__["can_admins_bypass"] = can_admins_bypass
         __props__.__dict__["deployment_branch_policy"] = deployment_branch_policy
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["prevent_self_review"] = prevent_self_review
         __props__.__dict__["repository"] = repository
         __props__.__dict__["reviewers"] = reviewers
         __props__.__dict__["wait_timer"] = wait_timer
@@ -413,6 +454,14 @@ class RepositoryEnvironment(pulumi.CustomResource):
         The name of the environment.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="preventSelfReview")
+    def prevent_self_review(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        """
+        return pulumi.get(self, "prevent_self_review")
 
     @property
     @pulumi.getter

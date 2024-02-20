@@ -18,14 +18,14 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
     public static final DependabotOrganizationSecretRepositoriesState Empty = new DependabotOrganizationSecretRepositoriesState();
 
     /**
-     * Name of the existing secret.
+     * Name of the existing secret
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the existing secret.
+     * @return Name of the existing secret
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -73,7 +73,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param secretName Name of the existing secret.
+         * @param secretName Name of the existing secret
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param secretName Name of the existing secret.
+         * @param secretName Name of the existing secret
          * 
          * @return builder
          * 

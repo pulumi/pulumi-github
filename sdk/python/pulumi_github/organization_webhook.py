@@ -164,22 +164,6 @@ class OrganizationWebhook(pulumi.CustomResource):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
-
         ## Import
 
         Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `"https://github.com/organizations/foo-org/settings/hooks/123456789"`.
@@ -203,22 +187,6 @@ class OrganizationWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource allows you to create and manage webhooks for GitHub organization.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        foo = github.OrganizationWebhook("foo",
-            active=False,
-            configuration=github.OrganizationWebhookConfigurationArgs(
-                content_type="form",
-                insecure_ssl=False,
-                url="https://google.de/",
-            ),
-            events=["issues"])
-        ```
 
         ## Import
 

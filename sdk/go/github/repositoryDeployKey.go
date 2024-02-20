@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,18 +30,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
-//				Key:        pulumi.String("ssh-rsa AAA..."),
-//				ReadOnly:   pulumi.Bool(false),
-//				Repository: pulumi.String("test-repo"),
+//			exampleRepositoryDeployKeyPrivateKey, err := tls.NewPrivateKey(ctx, "exampleRepositoryDeployKeyPrivateKey", &tls.PrivateKeyArgs{
+//				Algorithm: pulumi.String("ED25519"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKeyRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
 //				Title:      pulumi.String("Repository test key"),
+//				Repository: pulumi.String("test-repo"),
+//				Key:        exampleRepositoryDeployKeyPrivateKey.PublicKeyOpenssh,
+//				ReadOnly:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

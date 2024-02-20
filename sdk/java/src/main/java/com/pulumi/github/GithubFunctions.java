@@ -4629,15 +4629,155 @@ public final class GithubFunctions {
     public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args) {
         return getDependabotPublicKey(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args) {
         return getDependabotPublicKeyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+     *             .repository(&#34;example_repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }

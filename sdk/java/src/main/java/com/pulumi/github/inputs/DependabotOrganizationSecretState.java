@@ -18,14 +18,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     public static final DependabotOrganizationSecretState Empty = new DependabotOrganizationSecretState();
 
     /**
-     * Date of &#39;dependabot_secret&#39; creation.
+     * Date of dependabot_secret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; creation.
+     * @return Date of dependabot_secret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -48,14 +48,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Plaintext value of the secret to be encrypted.
+     * Plaintext value of the secret to be encrypted
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return Plaintext value of the secret to be encrypted
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -63,14 +63,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Name of the secret.
+     * Name of the secret
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the secret.
+     * @return Name of the secret
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -93,14 +93,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Date of &#39;dependabot_secret&#39; update.
+     * Date of dependabot_secret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of &#39;dependabot_secret&#39; update.
+     * @return Date of dependabot_secret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -108,16 +108,16 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-     * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+     * Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-     * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+     * @return Configures the access that repositories have to the organization secret.
+     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -155,7 +155,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Date of &#39;dependabot_secret&#39; creation.
+         * @param createdAt Date of dependabot_secret creation.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Date of &#39;dependabot_secret&#39; creation.
+         * @param createdAt Date of dependabot_secret creation.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue Plaintext value of the secret to be encrypted
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param secretName Name of the secret.
+         * @param secretName Name of the secret
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param updatedAt Date of &#39;dependabot_secret&#39; update.
+         * @param updatedAt Date of dependabot_secret update.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param updatedAt Date of &#39;dependabot_secret&#39; update.
+         * @param updatedAt Date of dependabot_secret update.
          * 
          * @return builder
          * 
@@ -291,8 +291,8 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-         * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+         * @param visibility Configures the access that repositories have to the organization secret.
+         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -303,8 +303,8 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret. Must be one of &#39;all&#39;, &#39;private&#39; or &#39;selected&#39;.
-         * &#39;selected_repository_ids&#39; is required if set to &#39;selected&#39;.
+         * @param visibility Configures the access that repositories have to the organization secret.
+         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
          * 
          * @return builder
          * 

@@ -6,18 +6,16 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetRestApiResult {
     /**
-     * @return A map of response body.
+     * @return A JSON string containing response body.
      * 
      */
-    private Map<String,Object> body;
+    private String body;
     /**
      * @return A response status code.
      * 
@@ -25,10 +23,10 @@ public final class GetRestApiResult {
     private Integer code;
     private String endpoint;
     /**
-     * @return A map of response headers.
+     * @return A JSON string containing response headers.
      * 
      */
-    private Map<String,Object> headers;
+    private String headers;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,10 +40,10 @@ public final class GetRestApiResult {
 
     private GetRestApiResult() {}
     /**
-     * @return A map of response body.
+     * @return A JSON string containing response body.
      * 
      */
-    public Map<String,Object> body() {
+    public String body() {
         return this.body;
     }
     /**
@@ -59,10 +57,10 @@ public final class GetRestApiResult {
         return this.endpoint;
     }
     /**
-     * @return A map of response headers.
+     * @return A JSON string containing response headers.
      * 
      */
-    public Map<String,Object> headers() {
+    public String headers() {
         return this.headers;
     }
     /**
@@ -89,10 +87,10 @@ public final class GetRestApiResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,Object> body;
+        private String body;
         private Integer code;
         private String endpoint;
-        private Map<String,Object> headers;
+        private String headers;
         private String id;
         private String status;
         public Builder() {}
@@ -107,7 +105,7 @@ public final class GetRestApiResult {
         }
 
         @CustomType.Setter
-        public Builder body(Map<String,Object> body) {
+        public Builder body(String body) {
             if (body == null) {
               throw new MissingRequiredPropertyException("GetRestApiResult", "body");
             }
@@ -131,7 +129,7 @@ public final class GetRestApiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder headers(Map<String,Object> headers) {
+        public Builder headers(String headers) {
             if (headers == null) {
               throw new MissingRequiredPropertyException("GetRestApiResult", "headers");
             }

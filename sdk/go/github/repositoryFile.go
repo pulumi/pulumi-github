@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-github/sdk/v5/go/github/internal"
+	"github.com/pulumi/pulumi-github/sdk/v6/go/github/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +81,7 @@ type RepositoryFile struct {
 	CommitAuthor pulumi.StringPtrOutput `pulumi:"commitAuthor"`
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
 	CommitEmail pulumi.StringPtrOutput `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating, updating or deleting the managed file.
 	CommitMessage pulumi.StringOutput `pulumi:"commitMessage"`
 	// The SHA of the commit that modified the file.
 	CommitSha pulumi.StringOutput `pulumi:"commitSha"`
@@ -145,7 +145,7 @@ type repositoryFileState struct {
 	CommitAuthor *string `pulumi:"commitAuthor"`
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
 	CommitEmail *string `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating, updating or deleting the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
 	// The SHA of the commit that modified the file.
 	CommitSha *string `pulumi:"commitSha"`
@@ -171,7 +171,7 @@ type RepositoryFileState struct {
 	CommitAuthor pulumi.StringPtrInput
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
 	CommitEmail pulumi.StringPtrInput
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating, updating or deleting the managed file.
 	CommitMessage pulumi.StringPtrInput
 	// The SHA of the commit that modified the file.
 	CommitSha pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type repositoryFileArgs struct {
 	CommitAuthor *string `pulumi:"commitAuthor"`
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
 	CommitEmail *string `pulumi:"commitEmail"`
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating, updating or deleting the managed file.
 	CommitMessage *string `pulumi:"commitMessage"`
 	// The file content.
 	Content string `pulumi:"content"`
@@ -222,7 +222,7 @@ type RepositoryFileArgs struct {
 	CommitAuthor pulumi.StringPtrInput
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
 	CommitEmail pulumi.StringPtrInput
-	// Commit message when adding or updating the managed file.
+	// The commit message when creating, updating or deleting the managed file.
 	CommitMessage pulumi.StringPtrInput
 	// The file content.
 	Content pulumi.StringInput
@@ -337,7 +337,7 @@ func (o RepositoryFileOutput) CommitEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.CommitEmail }).(pulumi.StringPtrOutput)
 }
 
-// Commit message when adding or updating the managed file.
+// The commit message when creating, updating or deleting the managed file.
 func (o RepositoryFileOutput) CommitMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.CommitMessage }).(pulumi.StringOutput)
 }

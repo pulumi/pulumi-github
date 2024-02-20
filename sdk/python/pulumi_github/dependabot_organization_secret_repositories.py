@@ -18,7 +18,7 @@ class DependabotOrganizationSecretRepositoriesArgs:
                  selected_repository_ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
         """
         The set of arguments for constructing a DependabotOrganizationSecretRepositories resource.
-        :param pulumi.Input[str] secret_name: Name of the existing secret.
+        :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
         pulumi.set(__self__, "secret_name", secret_name)
@@ -28,7 +28,7 @@ class DependabotOrganizationSecretRepositoriesArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
         """
-        Name of the existing secret.
+        Name of the existing secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -56,7 +56,7 @@ class _DependabotOrganizationSecretRepositoriesState:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         Input properties used for looking up and filtering DependabotOrganizationSecretRepositories resources.
-        :param pulumi.Input[str] secret_name: Name of the existing secret.
+        :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
         if secret_name is not None:
@@ -68,7 +68,7 @@ class _DependabotOrganizationSecretRepositoriesState:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the existing secret.
+        Name of the existing secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -98,10 +98,38 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  __props__=None):
         """
-        Create a DependabotOrganizationSecretRepositories resource with the given unique name, props, and options.
+        This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+        You must have write access to an organization secret to use this resource.
+
+        This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_secret = github.DependabotOrganizationSecret("exampleSecret",
+            secret_name="example_secret_name",
+            visibility="private",
+            plaintext_value=var["some_secret_string"])
+        org_secret_repos = github.DependabotOrganizationSecretRepositories("orgSecretRepos",
+            secret_name=example_secret.secret_name,
+            selected_repository_ids=[repo.repo_id])
+        ```
+
+        ## Import
+
+        This resource can be imported using an ID made up of the secret name:
+
+        ```sh
+        $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] secret_name: Name of the existing secret.
+        :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
         ...
@@ -111,7 +139,35 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
                  args: DependabotOrganizationSecretRepositoriesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DependabotOrganizationSecretRepositories resource with the given unique name, props, and options.
+        This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+        You must have write access to an organization secret to use this resource.
+
+        This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_secret = github.DependabotOrganizationSecret("exampleSecret",
+            secret_name="example_secret_name",
+            visibility="private",
+            plaintext_value=var["some_secret_string"])
+        org_secret_repos = github.DependabotOrganizationSecretRepositories("orgSecretRepos",
+            secret_name=example_secret.secret_name,
+            selected_repository_ids=[repo.repo_id])
+        ```
+
+        ## Import
+
+        This resource can be imported using an ID made up of the secret name:
+
+        ```sh
+        $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param DependabotOrganizationSecretRepositoriesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +219,7 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] secret_name: Name of the existing secret.
+        :param pulumi.Input[str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -178,7 +234,7 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[str]:
         """
-        Name of the existing secret.
+        Name of the existing secret
         """
         return pulumi.get(self, "secret_name")
 
