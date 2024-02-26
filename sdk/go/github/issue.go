@@ -31,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a simple issue
 //			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
 //				AutoInit:  pulumi.Bool(true),
 //				HasIssues: pulumi.Bool(true),
@@ -65,6 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create an issue with milestone and project assignment
 //			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
 //				AutoInit:  pulumi.Bool(true),
 //				HasIssues: pulumi.Bool(true),

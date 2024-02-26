@@ -38,6 +38,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a repository.
 //			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
 //			if err != nil {
 //				return err

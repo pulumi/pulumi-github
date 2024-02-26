@@ -34,6 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Add a repository to the team
 //			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
 //				Description: pulumi.String("Some cool team"),
 //			})

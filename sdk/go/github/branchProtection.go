@@ -40,6 +40,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Protect the main branch of the foo repository. Additionally, require that
+//			// the "ci/travis" context to be passing and only allow the engineers team merge
+//			// to the branch.
 //			_, err = github.NewBranchProtection(ctx, "exampleBranchProtection", &github.BranchProtectionArgs{
 //				RepositoryId:    exampleRepository.NodeId,
 //				Pattern:         pulumi.String("main"),
