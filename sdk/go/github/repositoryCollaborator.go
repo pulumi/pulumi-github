@@ -51,6 +51,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Add a collaborator to a repository
 //			_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
 //				Permission: pulumi.String("admin"),
 //				Repository: pulumi.String("our-cool-repo"),
