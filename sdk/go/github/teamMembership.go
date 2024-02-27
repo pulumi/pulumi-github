@@ -37,6 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Add a user to the organization
 //			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
 //				Username: pulumi.String("SomeUser"),
 //				Role:     pulumi.String("member"),
