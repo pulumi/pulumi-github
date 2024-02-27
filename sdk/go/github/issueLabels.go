@@ -37,6 +37,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new, red colored label
 //			_, err := github.NewIssueLabels(ctx, "testRepo", &github.IssueLabelsArgs{
 //				Labels: github.IssueLabelsLabelArray{
 //					&github.IssueLabelsLabelArgs{

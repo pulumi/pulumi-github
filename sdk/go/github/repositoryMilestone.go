@@ -30,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a milestone for a repository
 //			_, err := github.NewRepositoryMilestone(ctx, "example", &github.RepositoryMilestoneArgs{
 //				Owner:      pulumi.String("example-owner"),
 //				Repository: pulumi.String("example-repository"),

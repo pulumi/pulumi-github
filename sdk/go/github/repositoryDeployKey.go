@@ -38,12 +38,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Generate an ssh key using provider "hashicorp/tls"
 //			exampleRepositoryDeployKeyPrivateKey, err := tls.NewPrivateKey(ctx, "exampleRepositoryDeployKeyPrivateKey", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("ED25519"),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			// Add the ssh key as a deploy key
 //			_, err = github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKeyRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
 //				Title:      pulumi.String("Repository test key"),
 //				Repository: pulumi.String("test-repo"),
