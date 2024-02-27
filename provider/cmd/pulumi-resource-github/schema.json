@@ -102,7 +102,13 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n"
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_TOKEN"
+                    ]
+                },
+                "secret": true
             },
             "writeDelayMs": {
                 "type": "integer",
@@ -2865,7 +2871,8 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n"
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "secret": true
             },
             "writeDelayMs": {
                 "type": "integer",
@@ -2925,7 +2932,13 @@
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n"
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "GITHUB_TOKEN"
+                    ]
+                },
+                "secret": true
             },
             "writeDelayMs": {
                 "type": "integer",
