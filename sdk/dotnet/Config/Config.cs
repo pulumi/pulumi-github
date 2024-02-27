@@ -137,7 +137,7 @@ namespace Pulumi.Github
             set => _retryableErrors.Set(value);
         }
 
-        private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
+        private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token") ?? Utilities.GetEnv("GITHUB_TOKEN"));
         /// <summary>
         /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         /// </summary>

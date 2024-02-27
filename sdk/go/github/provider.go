@@ -42,6 +42,18 @@ func NewProvider(ctx *pulumi.Context,
 			args.BaseUrl = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.Token == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "GITHUB_TOKEN"); d != nil {
+			args.Token = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:github", name, args, &resource, opts...)

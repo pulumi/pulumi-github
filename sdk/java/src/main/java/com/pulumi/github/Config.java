@@ -95,7 +95,7 @@ public final class Config {
  * 
  */
     public Optional<String> token() {
-        return Codegen.stringProp("token").config(config).get();
+        return Codegen.stringProp("token").config(config).env("GITHUB_TOKEN").get();
     }
 /**
  * Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.

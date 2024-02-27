@@ -96,7 +96,7 @@ class _ExportableConfig(types.ModuleType):
         """
         The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
-        return __config__.get('token')
+        return __config__.get('token') or _utilities.get_env('GITHUB_TOKEN')
 
     @property
     def write_delay_ms(self) -> Optional[int]:
