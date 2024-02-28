@@ -91,6 +91,12 @@ func Provider() tfbridge.ProviderInfo {
 					Value:   "https://api.github.com/",
 				},
 			},
+			"token": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"GITHUB_TOKEN"},
+				},
+				Secret: tfbridge.True(),
+			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"github_actions_environment_secret": {DeleteBeforeReplace: true},

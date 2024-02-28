@@ -536,6 +536,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public ProviderArgs build() {
             $.baseUrl = Codegen.stringProp("baseUrl").output().arg($.baseUrl).env("GITHUB_BASE_URL").def("https://api.github.com/").getNullable();
+            $.token = Codegen.stringProp("token").secret().arg($.token).env("GITHUB_TOKEN").getNullable();
             return $;
         }
     }

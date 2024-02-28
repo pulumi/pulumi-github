@@ -72,6 +72,8 @@ class ProviderArgs:
             pulumi.set(__self__, "retry_delay_ms", retry_delay_ms)
         if retryable_errors is not None:
             pulumi.set(__self__, "retryable_errors", retryable_errors)
+        if token is None:
+            token = _utilities.get_env('GITHUB_TOKEN')
         if token is not None:
             pulumi.set(__self__, "token", token)
         if write_delay_ms is not None:
@@ -334,8 +336,12 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["read_delay_ms"] = pulumi.Output.from_input(read_delay_ms).apply(pulumi.runtime.to_json) if read_delay_ms is not None else None
             __props__.__dict__["retry_delay_ms"] = pulumi.Output.from_input(retry_delay_ms).apply(pulumi.runtime.to_json) if retry_delay_ms is not None else None
             __props__.__dict__["retryable_errors"] = pulumi.Output.from_input(retryable_errors).apply(pulumi.runtime.to_json) if retryable_errors is not None else None
-            __props__.__dict__["token"] = token
+            if token is None:
+                token = _utilities.get_env('GITHUB_TOKEN')
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             __props__.__dict__["write_delay_ms"] = pulumi.Output.from_input(write_delay_ms).apply(pulumi.runtime.to_json) if write_delay_ms is not None else None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'github',
             resource_name,

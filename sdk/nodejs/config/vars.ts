@@ -130,7 +130,7 @@ Object.defineProperty(exports, "retryableErrors", {
 export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {
     get() {
-        return __config.get("token");
+        return __config.get("token") ?? utilities.getEnv("GITHUB_TOKEN");
     },
     enumerable: true,
 });

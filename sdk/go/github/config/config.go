@@ -78,7 +78,15 @@ func GetRetryableErrors(ctx *pulumi.Context) string {
 
 // The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 func GetToken(ctx *pulumi.Context) string {
-	return config.Get(ctx, "github:token")
+	v, err := config.Try(ctx, "github:token")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "GITHUB_TOKEN"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.

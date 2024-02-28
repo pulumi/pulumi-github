@@ -67,10 +67,12 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["readDelayMs"] = pulumi.output(args ? args.readDelayMs : undefined).apply(JSON.stringify);
             resourceInputs["retryDelayMs"] = pulumi.output(args ? args.retryDelayMs : undefined).apply(JSON.stringify);
             resourceInputs["retryableErrors"] = pulumi.output(args ? args.retryableErrors : undefined).apply(JSON.stringify);
-            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["token"] = (args?.token ? pulumi.secret(args.token) : undefined) ?? utilities.getEnv("GITHUB_TOKEN");
             resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
