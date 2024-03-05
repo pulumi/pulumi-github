@@ -115,8 +115,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"github_branch_default":       {Tok: makeResource(mainMod, "BranchDefault")},
-			"github_branch_protection":    {Tok: makeResource(mainMod, "BranchProtection")},
+			"github_branch_default": {Tok: makeResource(mainMod, "BranchDefault")},
+			"github_branch_protection": {
+				Tok:                makeResource(mainMod, "BranchProtection"),
+				TransformFromState: nil,
+			},
 			"github_branch_protection_v3": {Tok: makeResource(mainMod, "BranchProtectionV3")},
 			"github_dependabot_organization_secret": {
 				Tok:  makeResource(mainMod, "DependabotOrganizationSecret"),

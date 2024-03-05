@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/integrations/terraform-provider-github/v6 v6.0.1
+	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0
 )
