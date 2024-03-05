@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationResult {
@@ -48,6 +50,7 @@ public final class GetOrganizationResult {
      * 
      */
     private String id;
+    private @Nullable Boolean ignoreArchivedRepos;
     /**
      * @return The members login
      * 
@@ -207,6 +210,9 @@ public final class GetOrganizationResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<Boolean> ignoreArchivedRepos() {
+        return Optional.ofNullable(this.ignoreArchivedRepos);
     }
     /**
      * @return The members login
@@ -376,6 +382,7 @@ public final class GetOrganizationResult {
         private Boolean dependencyGraphEnabledForNewRepositories;
         private String description;
         private String id;
+        private @Nullable Boolean ignoreArchivedRepos;
         private String login;
         private List<String> members;
         private String membersAllowedRepositoryCreationType;
@@ -407,6 +414,7 @@ public final class GetOrganizationResult {
     	      this.dependencyGraphEnabledForNewRepositories = defaults.dependencyGraphEnabledForNewRepositories;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.ignoreArchivedRepos = defaults.ignoreArchivedRepos;
     	      this.login = defaults.login;
     	      this.members = defaults.members;
     	      this.membersAllowedRepositoryCreationType = defaults.membersAllowedRepositoryCreationType;
@@ -484,6 +492,12 @@ public final class GetOrganizationResult {
               throw new MissingRequiredPropertyException("GetOrganizationResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ignoreArchivedRepos(@Nullable Boolean ignoreArchivedRepos) {
+
+            this.ignoreArchivedRepos = ignoreArchivedRepos;
             return this;
         }
         @CustomType.Setter
@@ -669,6 +683,7 @@ public final class GetOrganizationResult {
             _resultValue.dependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.ignoreArchivedRepos = ignoreArchivedRepos;
             _resultValue.login = login;
             _resultValue.members = members;
             _resultValue.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;

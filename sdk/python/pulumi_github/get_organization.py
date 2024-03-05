@@ -21,7 +21,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, advanced_security_enabled_for_new_repositories=None, default_repository_permission=None, dependabot_alerts_enabled_for_new_repositories=None, dependabot_security_updates_enabled_for_new_repositories=None, dependency_graph_enabled_for_new_repositories=None, description=None, id=None, login=None, members=None, members_allowed_repository_creation_type=None, members_can_create_internal_repositories=None, members_can_create_pages=None, members_can_create_private_pages=None, members_can_create_private_repositories=None, members_can_create_public_pages=None, members_can_create_public_repositories=None, members_can_create_repositories=None, members_can_fork_private_repositories=None, name=None, node_id=None, orgname=None, plan=None, repositories=None, secret_scanning_enabled_for_new_repositories=None, secret_scanning_push_protection_enabled_for_new_repositories=None, two_factor_requirement_enabled=None, users=None, web_commit_signoff_required=None):
+    def __init__(__self__, advanced_security_enabled_for_new_repositories=None, default_repository_permission=None, dependabot_alerts_enabled_for_new_repositories=None, dependabot_security_updates_enabled_for_new_repositories=None, dependency_graph_enabled_for_new_repositories=None, description=None, id=None, ignore_archived_repos=None, login=None, members=None, members_allowed_repository_creation_type=None, members_can_create_internal_repositories=None, members_can_create_pages=None, members_can_create_private_pages=None, members_can_create_private_repositories=None, members_can_create_public_pages=None, members_can_create_public_repositories=None, members_can_create_repositories=None, members_can_fork_private_repositories=None, name=None, node_id=None, orgname=None, plan=None, repositories=None, secret_scanning_enabled_for_new_repositories=None, secret_scanning_push_protection_enabled_for_new_repositories=None, two_factor_requirement_enabled=None, users=None, web_commit_signoff_required=None):
         if advanced_security_enabled_for_new_repositories and not isinstance(advanced_security_enabled_for_new_repositories, bool):
             raise TypeError("Expected argument 'advanced_security_enabled_for_new_repositories' to be a bool")
         pulumi.set(__self__, "advanced_security_enabled_for_new_repositories", advanced_security_enabled_for_new_repositories)
@@ -43,6 +43,9 @@ class GetOrganizationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ignore_archived_repos and not isinstance(ignore_archived_repos, bool):
+            raise TypeError("Expected argument 'ignore_archived_repos' to be a bool")
+        pulumi.set(__self__, "ignore_archived_repos", ignore_archived_repos)
         if login and not isinstance(login, str):
             raise TypeError("Expected argument 'login' to be a str")
         pulumi.set(__self__, "login", login)
@@ -162,6 +165,11 @@ class GetOrganizationResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ignoreArchivedRepos")
+    def ignore_archived_repos(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_archived_repos")
 
     @property
     @pulumi.getter
@@ -348,6 +356,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             dependency_graph_enabled_for_new_repositories=self.dependency_graph_enabled_for_new_repositories,
             description=self.description,
             id=self.id,
+            ignore_archived_repos=self.ignore_archived_repos,
             login=self.login,
             members=self.members,
             members_allowed_repository_creation_type=self.members_allowed_repository_creation_type,
@@ -371,7 +380,8 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             web_commit_signoff_required=self.web_commit_signoff_required)
 
 
-def get_organization(name: Optional[str] = None,
+def get_organization(ignore_archived_repos: Optional[bool] = None,
+                     name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
     Use this data source to retrieve basic information about a GitHub Organization.
@@ -386,9 +396,11 @@ def get_organization(name: Optional[str] = None,
     ```
 
 
+    :param bool ignore_archived_repos: Whether or not to include archived repos in the `repositories` list
     :param str name: The organization's public profile name
     """
     __args__ = dict()
+    __args__['ignoreArchivedRepos'] = ignore_archived_repos
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
@@ -401,6 +413,7 @@ def get_organization(name: Optional[str] = None,
         dependency_graph_enabled_for_new_repositories=pulumi.get(__ret__, 'dependency_graph_enabled_for_new_repositories'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        ignore_archived_repos=pulumi.get(__ret__, 'ignore_archived_repos'),
         login=pulumi.get(__ret__, 'login'),
         members=pulumi.get(__ret__, 'members'),
         members_allowed_repository_creation_type=pulumi.get(__ret__, 'members_allowed_repository_creation_type'),
@@ -425,7 +438,8 @@ def get_organization(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_organization)
-def get_organization_output(name: Optional[pulumi.Input[str]] = None,
+def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optional[bool]]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Use this data source to retrieve basic information about a GitHub Organization.
@@ -440,6 +454,7 @@ def get_organization_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param bool ignore_archived_repos: Whether or not to include archived repos in the `repositories` list
     :param str name: The organization's public profile name
     """
     ...

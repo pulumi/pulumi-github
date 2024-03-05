@@ -22,6 +22,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganization:getOrganization", {
+        "ignoreArchivedRepos": args.ignoreArchivedRepos,
         "name": args.name,
     }, opts);
 }
@@ -30,6 +31,10 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationArgs {
+    /**
+     * Whether or not to include archived repos in the `repositories` list
+     */
+    ignoreArchivedRepos?: boolean;
     /**
      * The organization's public profile name
      */
@@ -68,6 +73,7 @@ export interface GetOrganizationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ignoreArchivedRepos?: boolean;
     /**
      * The members login
      */
@@ -177,6 +183,10 @@ export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pu
  * A collection of arguments for invoking getOrganization.
  */
 export interface GetOrganizationOutputArgs {
+    /**
+     * Whether or not to include archived repos in the `repositories` list
+     */
+    ignoreArchivedRepos?: pulumi.Input<boolean>;
     /**
      * The organization's public profile name
      */

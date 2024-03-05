@@ -6,13 +6,31 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetOrganizationArgs Empty = new GetOrganizationArgs();
+
+    /**
+     * Whether or not to include archived repos in the `repositories` list
+     * 
+     */
+    @Import(name="ignoreArchivedRepos")
+    private @Nullable Output<Boolean> ignoreArchivedRepos;
+
+    /**
+     * @return Whether or not to include archived repos in the `repositories` list
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreArchivedRepos() {
+        return Optional.ofNullable(this.ignoreArchivedRepos);
+    }
 
     /**
      * The organization&#39;s public profile name
@@ -32,6 +50,7 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
     private GetOrganizationArgs() {}
 
     private GetOrganizationArgs(GetOrganizationArgs $) {
+        this.ignoreArchivedRepos = $.ignoreArchivedRepos;
         this.name = $.name;
     }
 
@@ -51,6 +70,27 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetOrganizationArgs defaults) {
             $ = new GetOrganizationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreArchivedRepos(@Nullable Output<Boolean> ignoreArchivedRepos) {
+            $.ignoreArchivedRepos = ignoreArchivedRepos;
+            return this;
+        }
+
+        /**
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreArchivedRepos(Boolean ignoreArchivedRepos) {
+            return ignoreArchivedRepos(Output.of(ignoreArchivedRepos));
         }
 
         /**
