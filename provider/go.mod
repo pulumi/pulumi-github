@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/integrations/terraform-provider-github/v6 v6.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.1-0.20240305213006-a7493edf6ed6
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0
 )
 
@@ -248,4 +248,4 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
-replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
+replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
