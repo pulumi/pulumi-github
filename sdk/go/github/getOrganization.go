@@ -50,6 +50,8 @@ func GetOrganization(ctx *pulumi.Context, args *GetOrganizationArgs, opts ...pul
 
 // A collection of arguments for invoking getOrganization.
 type GetOrganizationArgs struct {
+	// Whether or not to include archived repos in the `repositories` list
+	IgnoreArchivedRepos *bool `pulumi:"ignoreArchivedRepos"`
 	// The organization's public profile name
 	Name string `pulumi:"name"`
 }
@@ -69,7 +71,8 @@ type GetOrganizationResult struct {
 	// The organization account description
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                  string `pulumi:"id"`
+	IgnoreArchivedRepos *bool  `pulumi:"ignoreArchivedRepos"`
 	// The members login
 	Login string `pulumi:"login"`
 	// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
@@ -131,6 +134,8 @@ func GetOrganizationOutput(ctx *pulumi.Context, args GetOrganizationOutputArgs, 
 
 // A collection of arguments for invoking getOrganization.
 type GetOrganizationOutputArgs struct {
+	// Whether or not to include archived repos in the `repositories` list
+	IgnoreArchivedRepos pulumi.BoolPtrInput `pulumi:"ignoreArchivedRepos"`
 	// The organization's public profile name
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -187,6 +192,10 @@ func (o GetOrganizationResultOutput) Description() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetOrganizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetOrganizationResultOutput) IgnoreArchivedRepos() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrganizationResult) *bool { return v.IgnoreArchivedRepos }).(pulumi.BoolPtrOutput)
 }
 
 // The members login

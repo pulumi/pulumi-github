@@ -5,13 +5,31 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetOrganizationPlainArgs Empty = new GetOrganizationPlainArgs();
+
+    /**
+     * Whether or not to include archived repos in the `repositories` list
+     * 
+     */
+    @Import(name="ignoreArchivedRepos")
+    private @Nullable Boolean ignoreArchivedRepos;
+
+    /**
+     * @return Whether or not to include archived repos in the `repositories` list
+     * 
+     */
+    public Optional<Boolean> ignoreArchivedRepos() {
+        return Optional.ofNullable(this.ignoreArchivedRepos);
+    }
 
     /**
      * The organization&#39;s public profile name
@@ -31,6 +49,7 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
     private GetOrganizationPlainArgs() {}
 
     private GetOrganizationPlainArgs(GetOrganizationPlainArgs $) {
+        this.ignoreArchivedRepos = $.ignoreArchivedRepos;
         this.name = $.name;
     }
 
@@ -50,6 +69,17 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
 
         public Builder(GetOrganizationPlainArgs defaults) {
             $ = new GetOrganizationPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreArchivedRepos(@Nullable Boolean ignoreArchivedRepos) {
+            $.ignoreArchivedRepos = ignoreArchivedRepos;
+            return this;
         }
 
         /**

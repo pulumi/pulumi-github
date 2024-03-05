@@ -72,6 +72,12 @@ namespace Pulumi.Github
     public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Whether or not to include archived repos in the `repositories` list
+        /// </summary>
+        [Input("ignoreArchivedRepos")]
+        public bool? IgnoreArchivedRepos { get; set; }
+
+        /// <summary>
         /// The organization's public profile name
         /// </summary>
         [Input("name", required: true)]
@@ -85,6 +91,12 @@ namespace Pulumi.Github
 
     public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Whether or not to include archived repos in the `repositories` list
+        /// </summary>
+        [Input("ignoreArchivedRepos")]
+        public Input<bool>? IgnoreArchivedRepos { get; set; }
+
         /// <summary>
         /// The organization's public profile name
         /// </summary>
@@ -129,6 +141,7 @@ namespace Pulumi.Github
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IgnoreArchivedRepos;
         /// <summary>
         /// The members login
         /// </summary>
@@ -230,6 +243,8 @@ namespace Pulumi.Github
 
             string id,
 
+            bool? ignoreArchivedRepos,
+
             string login,
 
             ImmutableArray<string> members,
@@ -279,6 +294,7 @@ namespace Pulumi.Github
             DependencyGraphEnabledForNewRepositories = dependencyGraphEnabledForNewRepositories;
             Description = description;
             Id = id;
+            IgnoreArchivedRepos = ignoreArchivedRepos;
             Login = login;
             Members = members;
             MembersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;

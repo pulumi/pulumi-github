@@ -11064,6 +11064,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getOrganization.\n",
                 "properties": {
+                    "ignoreArchivedRepos": {
+                        "type": "boolean",
+                        "description": "Whether or not to include archived repos in the `repositories` list\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The organization's public profile name\n"
@@ -11104,6 +11108,9 @@
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ignoreArchivedRepos": {
+                        "type": "boolean"
                     },
                     "login": {
                         "type": "string",
