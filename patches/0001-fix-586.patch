@@ -1,0 +1,15 @@
+diff --git a/github/migrate_github_branch_protection.go b/github/migrate_github_branch_protection.go
+index 2eccae49..42dcc1f2 100644
+--- a/github/migrate_github_branch_protection.go
++++ b/github/migrate_github_branch_protection.go
+@@ -64,7 +64,9 @@ func resourceGithubBranchProtectionUpgradeV1(_ context.Context, rawState map[str
+ 	var blocksCreations bool = false
+ 
+ 	if v, ok := rawState["blocks_creations"]; ok {
+-		blocksCreations = v.(bool)
++		// Equate type errors as false. This is a work-around for
++		// https://github.com/pulumi/pulumi-terraform-bridge/issues/1667.
++		blocksCreations, _ = v.(bool)
+ 	}
+ 
+ 	if v, ok := rawState["push_restrictions"]; ok {
