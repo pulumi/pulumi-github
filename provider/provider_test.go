@@ -188,7 +188,7 @@ func init() {
 	version.Version = "6.0.0"
 }
 
-func server(t *testing.T) pulumirpc.ResourceProviderServer {
+func server(*testing.T) pulumirpc.ResourceProviderServer {
 	p := github.Provider()
 	return tfbridge.NewProvider(context.Background(),
 		nil, "github", version.Version, p.P, p, []byte("{}"))
