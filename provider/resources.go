@@ -84,6 +84,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:               "integrations",
 		Version:                 version.Version,
 		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
+		UpstreamRepoPath:        "./upstream",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"base_url": {
 				Default: &tfbridge.DefaultInfo{

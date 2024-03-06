@@ -2,8 +2,10 @@ module github.com/pulumi/pulumi-github/provider/v6
 
 go 1.21
 
+replace github.com/integrations/terraform-provider-github/v6 => ../upstream
+
 require (
-	github.com/integrations/terraform-provider-github/v6 v6.0.1
+	github.com/integrations/terraform-provider-github/v6 v6.0.0 // => ../upstream
 	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0

@@ -12,123 +12,171 @@ import (
 	"github.com/pulumi/pulumi-github/provider/v6/pkg/version"
 )
 
-const repro586 = `[{
-    "method": "/pulumirpc.ResourceProvider/Diff",
-    "request": {
-        "id": "BPR_kwDOLcEl984C1wZz",
-        "urn": "urn:pulumi:dev::ts::github:index/branchProtection:BranchProtection::debug-pulumi-github-protection",
-        "olds": {
-            "__meta": "{\"schema_version\":\"1\"}",
-            "allowsDeletions": false,
-            "allowsForcePushes": false,
-            "blocksCreations": false,
-            "enforceAdmins": true,
-            "forcePushBypassers": [],
+const repro586 = `[
+{
+        "method": "/pulumirpc.ResourceProvider/Diff",
+        "request": {
             "id": "BPR_kwDOLcEl984C1wZz",
-            "lockBranch": false,
-            "pattern": "main",
-            "pushRestrictions": [
-                "/iwahbe"
-            ],
-            "repositoryId": "debug-pulumi-github",
-            "requireConversationResolution": false,
-            "requireSignedCommits": false,
-            "requiredLinearHistory": false,
-            "requiredPullRequestReviews": [
-                {
-                    "dismissStaleReviews": true,
-                    "dismissalRestrictions": [],
-                    "pullRequestBypassers": [],
-                    "requireCodeOwnerReviews": false,
-                    "requireLastPushApproval": false,
-                    "requiredApprovingReviewCount": 1,
-                    "restrictDismissals": false
-                }
-            ],
-            "requiredStatusChecks": []
+            "urn": "urn:pulumi:dev::ts::github:index/branchProtection:BranchProtection::debug-pulumi-github-protection",
+            "olds": {
+                "__meta": "{\"schema_version\":\"1\"}",
+                "allowsDeletions": false,
+                "allowsForcePushes": false,
+                "blocksCreations": false,
+                "enforceAdmins": true,
+                "forcePushBypassers": [],
+                "id": "BPR_kwDOLcEl984C1wZz",
+                "lockBranch": false,
+                "pattern": "main",
+                "pushRestrictions": [
+                    "/iwahbe"
+                ],
+                "repositoryId": "debug-pulumi-github",
+                "requireConversationResolution": false,
+                "requireSignedCommits": false,
+                "requiredLinearHistory": false,
+                "requiredPullRequestReviews": [
+                    {
+                        "dismissStaleReviews": true,
+                        "dismissalRestrictions": [],
+                        "pullRequestBypassers": [],
+                        "requireCodeOwnerReviews": false,
+                        "requireLastPushApproval": false,
+                        "requiredApprovingReviewCount": 1,
+                        "restrictDismissals": false
+                    }
+                ],
+                "requiredStatusChecks": []
+            },
+            "news": {
+                "__defaults": [
+                    "allowsForcePushes",
+                    "lockBranch",
+                    "requireConversationResolution",
+                    "requireSignedCommits",
+                    "requiredLinearHistory"
+                ],
+                "allowsDeletions": false,
+                "allowsForcePushes": false,
+                "enforceAdmins": true,
+                "lockBranch": false,
+                "pattern": "main",
+                "repositoryId": "debug-pulumi-github",
+                "requireConversationResolution": false,
+                "requireSignedCommits": false,
+                "requiredLinearHistory": false,
+                "requiredPullRequestReviews": [
+                    {
+                        "__defaults": [
+                            "requireLastPushApproval"
+                        ],
+                        "dismissStaleReviews": true,
+                        "requireLastPushApproval": false,
+                        "requiredApprovingReviewCount": 1
+                    }
+                ],
+                "restrictPushes": [
+                    {
+                        "__defaults": [
+                            "blocksCreations"
+                        ],
+                        "blocksCreations": true,
+                        "pushAllowances": [
+                            "/iwahbe"
+                        ]
+                    }
+                ]
+            },
+            "oldInputs": {
+                "__defaults": [
+                    "allowsForcePushes",
+                    "blocksCreations",
+                    "lockBranch",
+                    "requireConversationResolution",
+                    "requireSignedCommits",
+                    "requiredLinearHistory"
+                ],
+                "allowsDeletions": false,
+                "allowsForcePushes": false,
+                "blocksCreations": false,
+                "enforceAdmins": true,
+                "lockBranch": false,
+                "pattern": "main",
+                "pushRestrictions": [
+                    "/iwahbe"
+                ],
+                "repositoryId": "debug-pulumi-github",
+                "requireConversationResolution": false,
+                "requireSignedCommits": false,
+                "requiredLinearHistory": false,
+                "requiredPullRequestReviews": [
+                    {
+                        "__defaults": [
+                            "requireLastPushApproval"
+                        ],
+                        "dismissStaleReviews": true,
+                        "requireLastPushApproval": false,
+                        "requiredApprovingReviewCount": 1
+                    }
+                ]
+            }
         },
-        "news": {
-            "__defaults": [
-                "allowsForcePushes",
-                "lockBranch",
-                "requireConversationResolution",
-                "requireSignedCommits",
-                "requiredLinearHistory"
+        "response": {
+            "replaces": [
+                "repositoryId"
             ],
-            "allowsDeletions": false,
-            "allowsForcePushes": false,
-            "enforceAdmins": true,
-            "lockBranch": false,
-            "pattern": "main",
-            "repositoryId": "debug-pulumi-github",
-            "requireConversationResolution": false,
-            "requireSignedCommits": false,
-            "requiredLinearHistory": false,
-            "requiredPullRequestReviews": [
-                {
-                    "__defaults": [
-                        "requireLastPushApproval"
-                    ],
-                    "dismissStaleReviews": true,
-                    "requireLastPushApproval": false,
-                    "requiredApprovingReviewCount": 1
-                }
-            ],
-            "restrictPushes": [
-                {
-                    "__defaults": [
-                        "blocksCreations"
-                    ],
-                    "blocksCreations": true,
-                    "pushAllowances": [
-                        "/iwahbe"
-                    ]
-                }
-            ]
+            "changes": "DIFF_SOME",
+            "diffs": "*",
+            "detailedDiff": {
+                "allowsDeletions": {
+                    "kind": "UPDATE"
+                },
+                "allowsForcePushes": {
+                    "kind": "UPDATE"
+                },
+                "enforceAdmins": {
+                    "kind": "UPDATE"
+                },
+                "lockBranch": {
+                    "kind": "UPDATE"
+                },
+                "pattern": {
+                    "kind": "UPDATE"
+                },
+                "repositoryId": {
+                    "kind": "UPDATE_REPLACE"
+                },
+                "requireConversationResolution": {
+                    "kind": "UPDATE"
+                },
+                "requireSignedCommits": {
+                    "kind": "UPDATE"
+                },
+                "requiredLinearHistory": {
+                    "kind": "UPDATE"
+                },
+                "requiredPullRequestReviews[0].dismissStaleReviews": {
+                    "kind": "UPDATE"
+                },
+                "requiredPullRequestReviews[0].requireLastPushApproval": {
+                    "kind": "UPDATE"
+                },
+                "requiredPullRequestReviews[0].requiredApprovingReviewCount": {
+                    "kind": "UPDATE"
+                },
+                "restrictPushes[0].blocksCreations": {},
+                "restrictPushes[0].pushAllowances[0]": {}
+            },
+            "hasDetailedDiff": true
         },
-        "oldInputs": {
-            "__defaults": [
-                "allowsForcePushes",
-                "blocksCreations",
-                "lockBranch",
-                "requireConversationResolution",
-                "requireSignedCommits",
-                "requiredLinearHistory"
-            ],
-            "allowsDeletions": false,
-            "allowsForcePushes": false,
-            "blocksCreations": false,
-            "enforceAdmins": true,
-            "lockBranch": false,
-            "pattern": "main",
-            "pushRestrictions": [
-                "/iwahbe"
-            ],
-            "repositoryId": "debug-pulumi-github",
-            "requireConversationResolution": false,
-            "requireSignedCommits": false,
-            "requiredLinearHistory": false,
-            "requiredPullRequestReviews": [
-                {
-                    "__defaults": [
-                        "requireLastPushApproval"
-                    ],
-                    "dismissStaleReviews": true,
-                    "requireLastPushApproval": false,
-                    "requiredApprovingReviewCount": 1
-                }
-            ]
+        "metadata": {
+            "kind": "resource",
+            "mode": "client",
+            "name": "github"
         }
-    },
-    "errors": [
-        "rpc error: code = Unavailable desc = error reading from server: EOF"
-    ],
-    "metadata": {
-        "kind": "resource",
-        "mode": "client",
-        "name": "github"
     }
-}]`
+]
+`
 
 func TestRepros(t *testing.T) {
 	t.Run("586", func(t *testing.T) {
