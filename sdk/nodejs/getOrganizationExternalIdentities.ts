@@ -12,12 +12,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationExternalIdentities({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationExternalIdentities(opts?: pulumi.InvokeOptions): Promise<GetOrganizationExternalIdentitiesResult> {
 
@@ -45,12 +47,14 @@ export interface GetOrganizationExternalIdentitiesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationExternalIdentities({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationExternalIdentitiesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationExternalIdentitiesResult> {
     return pulumi.output(getOrganizationExternalIdentities(opts))

@@ -63,12 +63,14 @@ def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_organization_team_sync_groups()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -86,11 +88,13 @@ def get_organization_team_sync_groups_output(opts: Optional[pulumi.InvokeOptions
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_organization_team_sync_groups()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

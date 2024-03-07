@@ -136,7 +136,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
 
         ```sh
-         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+        $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,7 +165,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
 
         ```sh
-         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+        $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
         ```
 
         :param str resource_name: The name of the resource.

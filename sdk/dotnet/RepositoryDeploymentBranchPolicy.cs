@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,11 +48,12 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+    /// $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy")]

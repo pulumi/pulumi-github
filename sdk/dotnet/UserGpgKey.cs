@@ -16,6 +16,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,12 +35,13 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
     /// 
-    ///  does not return previously uploaded GPG key.
+    /// does not return previously uploaded GPG key.
     /// </summary>
     [GithubResourceType("github:index/userGpgKey:UserGpgKey")]
     public partial class UserGpgKey : global::Pulumi.CustomResource

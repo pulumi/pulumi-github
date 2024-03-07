@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCollaborators(ctx *pulumi.Context, args *GetCollaboratorsArgs, opts ...pulumi.InvokeOption) (*GetCollaboratorsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCollaboratorsResult

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage milestones for a GitHub Repository within an organization or user account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+ * $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
  * ```
  * 
  */

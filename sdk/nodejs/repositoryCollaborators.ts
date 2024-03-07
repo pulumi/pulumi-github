@@ -34,6 +34,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -53,13 +54,14 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Repository Collaborators can be imported using the name `name`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
+ * $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
  * ```
  */
 export class RepositoryCollaborators extends pulumi.CustomResource {

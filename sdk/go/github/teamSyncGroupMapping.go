@@ -23,9 +23,7 @@ import (
 // GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
-//
+// $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
 // ```
 type TeamSyncGroupMapping struct {
 	pulumi.CustomResourceState

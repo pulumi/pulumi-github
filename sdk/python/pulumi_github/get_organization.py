@@ -388,12 +388,14 @@ def get_organization(ignore_archived_repos: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_organization(name="github")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool ignore_archived_repos: Whether or not to include archived repos in the `repositories` list
@@ -446,12 +448,14 @@ def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optiona
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_organization(name="github")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool ignore_archived_repos: Whether or not to include archived repos in the `repositories` list

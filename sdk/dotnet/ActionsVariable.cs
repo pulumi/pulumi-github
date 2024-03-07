@@ -15,6 +15,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+    /// $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsVariable:ActionsVariable")]

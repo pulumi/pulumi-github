@@ -233,6 +233,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -244,13 +245,14 @@ class EnterpriseOrganization(pulumi.CustomResource):
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
 
         ```sh
-         $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+        $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,6 +275,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -284,13 +287,14 @@ class EnterpriseOrganization(pulumi.CustomResource):
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
 
         ```sh
-         $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+        $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
         ```
 
         :param str resource_name: The name of the resource.

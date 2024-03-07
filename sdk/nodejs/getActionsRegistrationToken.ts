@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsRegistrationToken(args: GetActionsRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsRegistrationTokenResult> {
 
@@ -59,6 +61,7 @@ export interface GetActionsRegistrationTokenResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -67,6 +70,7 @@ export interface GetActionsRegistrationTokenResult {
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsRegistrationTokenOutput(args: GetActionsRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRegistrationTokenResult> {
     return pulumi.output(args).apply((a: any) => getActionsRegistrationToken(a, opts))

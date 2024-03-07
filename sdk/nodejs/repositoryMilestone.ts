@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -22,13 +23,14 @@ import * as utilities from "./utilities";
  *     title: "v1.1.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+ * $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
  * ```
  */
 export class RepositoryMilestone extends pulumi.CustomResource {

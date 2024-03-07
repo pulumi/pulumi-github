@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -39,13 +40,14 @@ import * as utilities from "./utilities";
  *     repository: "test-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Issue Labels can be imported using the repository `name`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
+ * $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
  * ```
  */
 export class IssueLabels extends pulumi.CustomResource {

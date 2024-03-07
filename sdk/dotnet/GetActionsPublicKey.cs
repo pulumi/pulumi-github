@@ -15,10 +15,9 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActionsPublicKeyResult> InvokeAsync(GetActionsPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActionsPublicKeyResult> Invoke(GetActionsPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsPublicKeyResult>("github:index/getActionsPublicKey:getActionsPublicKey", args ?? new GetActionsPublicKeyInvokeArgs(), options.WithDefaults());

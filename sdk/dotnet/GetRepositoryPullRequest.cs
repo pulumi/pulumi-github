@@ -14,10 +14,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryPullRequestResult> InvokeAsync(GetRepositoryPullRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryPullRequestResult> Invoke(GetRepositoryPullRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestResult>("github:index/getRepositoryPullRequest:getRepositoryPullRequest", args ?? new GetRepositoryPullRequestInvokeArgs(), options.WithDefaults());

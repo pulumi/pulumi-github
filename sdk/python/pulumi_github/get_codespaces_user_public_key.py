@@ -75,12 +75,14 @@ def get_codespaces_user_public_key(opts: Optional[pulumi.InvokeOptions] = None) 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_codespaces_user_public_key()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -100,11 +102,13 @@ def get_codespaces_user_public_key_output(opts: Optional[pulumi.InvokeOptions] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_codespaces_user_public_key()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

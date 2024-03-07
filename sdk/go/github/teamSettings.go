@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,23 +58,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
-//
+// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
 // ```
-//
-//	or,
+// or,
 //
 // ```sh
-//
-//	$ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
-//
+// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
 // ```
 type TeamSettings struct {
 	pulumi.CustomResourceState

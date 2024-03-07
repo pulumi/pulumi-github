@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // SSH keys can be imported using their ID e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/userSshKey:UserSshKey example 1234567
-//
+// $ pulumi import github:index/userSshKey:UserSshKey example 1234567
 // ```
 type UserSshKey struct {
 	pulumi.CustomResourceState

@@ -170,6 +170,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -199,13 +200,15 @@ class OrganizationCustomRole(pulumi.CustomResource):
                 "write_code_scanning",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Custom roles can be imported using the `id` of the role. The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
+        Custom roles can be imported using the `id` of the role.
+        The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
 
         ```sh
-         $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
+        $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,6 +231,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -257,13 +261,15 @@ class OrganizationCustomRole(pulumi.CustomResource):
                 "write_code_scanning",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Custom roles can be imported using the `id` of the role. The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
+        Custom roles can be imported using the `id` of the role.
+        The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
 
         ```sh
-         $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
+        $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
         ```
 
         :param str resource_name: The name of the resource.

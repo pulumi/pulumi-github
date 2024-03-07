@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With GitHub Pages Enabled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Repositories can be imported using the `name`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repository:Repository terraform terraform
-//
+// $ pulumi import github:index/repository:Repository terraform terraform
 // ```
 type Repository struct {
 	pulumi.CustomResourceState

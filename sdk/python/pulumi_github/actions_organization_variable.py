@@ -204,6 +204,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -213,7 +214,9 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             visibility="private")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -225,13 +228,14 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
             value="example_variable_value",
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the variable name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,6 +258,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -263,7 +268,9 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             visibility="private")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -275,13 +282,14 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
             value="example_variable_value",
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the variable name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
         ```
 
         :param str resource_name: The name of the resource.

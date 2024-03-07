@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -32,9 +33,11 @@ import * as utilities from "./utilities";
  *     branch: development.branch,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Renaming to a branch that doesn't exist:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -49,13 +52,14 @@ import * as utilities from "./utilities";
  *     rename: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+ * $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
  * ```
  */
 export class BranchDefault extends pulumi.CustomResource {

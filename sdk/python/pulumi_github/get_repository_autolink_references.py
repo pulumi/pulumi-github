@@ -73,12 +73,14 @@ def get_repository_autolink_references(repository: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_autolink_references(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to retrieve the autolink references from.
@@ -102,12 +104,14 @@ def get_repository_autolink_references_output(repository: Optional[pulumi.Input[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_autolink_references(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to retrieve the autolink references from.

@@ -23,6 +23,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +53,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Issue Labels can be imported using the repository `name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
+    /// $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
     /// ```
     /// </summary>
     [GithubResourceType("github:index/issueLabels:IssueLabels")]

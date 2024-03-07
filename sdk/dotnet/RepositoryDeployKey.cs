@@ -23,6 +23,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,15 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+    /// Repository deploy keys can be imported using a colon-separated pair of repository name
+    /// and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+    /// $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryDeployKey:RepositoryDeployKey")]

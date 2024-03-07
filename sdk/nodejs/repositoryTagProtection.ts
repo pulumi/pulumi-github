@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -18,15 +19,17 @@ import * as utilities from "./utilities";
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).
+ * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character.
+ * The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).
  *
  * Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+ * $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
  * ```
  */
 export class RepositoryTagProtection extends pulumi.CustomResource {

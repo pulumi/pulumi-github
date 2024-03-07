@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetDependabotPublicKey(ctx *pulumi.Context, args *GetDependabotPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetDependabotPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDependabotPublicKeyResult

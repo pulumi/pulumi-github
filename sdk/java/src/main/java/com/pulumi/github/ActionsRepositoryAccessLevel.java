@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * You must have admin access to a repository to use this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * This resource can be imported using the name of the GitHub repository:
  * 
  * ```sh
- *  $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
+ * $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
  * ```
  * 
  */

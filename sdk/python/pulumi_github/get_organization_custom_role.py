@@ -98,12 +98,14 @@ def get_organization_custom_role(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_organization_custom_role(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the custom role.
@@ -131,12 +133,14 @@ def get_organization_custom_role_output(name: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_organization_custom_role(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the custom role.

@@ -45,6 +45,8 @@ import javax.annotation.Nullable;
  * - [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -92,13 +94,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Repository Collaborators can be imported using the name `name`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
+ * $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
  * ```
  * 
  */

@@ -24,6 +24,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,15 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+    /// GitHub App Installation Repository can be imported
+    /// using an ID made up of `installation_id:repository`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+    /// $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
     /// ```
     /// </summary>
     [GithubResourceType("github:index/appInstallationRepository:AppInstallationRepository")]

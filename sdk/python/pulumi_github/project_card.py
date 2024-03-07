@@ -209,6 +209,7 @@ class ProjectCard(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -219,8 +220,11 @@ class ProjectCard(pulumi.CustomResource):
             column_id=column.column_id,
             note="## Unaccepted 👇")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adding An Issue To A Project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -241,13 +245,14 @@ class ProjectCard(pulumi.CustomResource):
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):
 
         ```sh
-         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        $ pulumi import github:index/projectCard:ProjectCard card 01234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,6 +276,7 @@ class ProjectCard(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -281,8 +287,11 @@ class ProjectCard(pulumi.CustomResource):
             column_id=column.column_id,
             note="## Unaccepted 👇")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adding An Issue To A Project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -303,13 +312,14 @@ class ProjectCard(pulumi.CustomResource):
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):
 
         ```sh
-         $ pulumi import github:index/projectCard:ProjectCard card 01234567
+        $ pulumi import github:index/projectCard:ProjectCard card 01234567
         ```
 
         :param str resource_name: The name of the resource.

@@ -66,12 +66,14 @@ def get_organization_ip_allow_list(opts: Optional[pulumi.InvokeOptions] = None) 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     all = github.get_organization_ip_allow_list()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -91,11 +93,13 @@ def get_organization_ip_allow_list_output(opts: Optional[pulumi.InvokeOptions] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     all = github.get_organization_ip_allow_list()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

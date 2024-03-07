@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
-//
+// $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
 // ```
 type OrganizationSecurityManager struct {
 	pulumi.CustomResourceState

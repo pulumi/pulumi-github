@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Github
     ///     // The GitHub team name to modify
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+    /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
     /// ```
     /// </summary>
     [GithubResourceType("github:index/emuGroupMapping:EmuGroupMapping")]

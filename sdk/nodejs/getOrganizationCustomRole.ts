@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationCustomRole(args: GetOrganizationCustomRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationCustomRoleResult> {
 
@@ -67,6 +69,7 @@ export interface GetOrganizationCustomRoleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -75,6 +78,7 @@ export interface GetOrganizationCustomRoleResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationCustomRoleOutput(args: GetOrganizationCustomRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationCustomRoleResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationCustomRole(a, opts))

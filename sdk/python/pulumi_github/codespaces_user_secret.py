@@ -199,6 +199,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -213,6 +214,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,9 +224,9 @@ class CodespacesUserSecret(pulumi.CustomResource):
         $ pulumi import github:index/codespacesUserSecret:CodespacesUserSecret test_secret test_secret_name
         ```
 
-         NOTE: the implementation is limited in that it won't fetch the value of the
+        NOTE: the implementation is limited in that it won't fetch the value of the
 
-         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,6 +244,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -256,6 +259,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,9 +269,9 @@ class CodespacesUserSecret(pulumi.CustomResource):
         $ pulumi import github:index/codespacesUserSecret:CodespacesUserSecret test_secret test_secret_name
         ```
 
-         NOTE: the implementation is limited in that it won't fetch the value of the
+        NOTE: the implementation is limited in that it won't fetch the value of the
 
-         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param CodespacesUserSecretArgs args: The arguments to use to populate this resource's properties.

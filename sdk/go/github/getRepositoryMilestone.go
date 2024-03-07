@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRepositoryMilestone(ctx *pulumi.Context, args *LookupRepositoryMilestoneArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryMilestoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryMilestoneResult

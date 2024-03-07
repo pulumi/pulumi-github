@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,8 +70,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Renaming to a branch that doesn&#39;t exist:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -107,13 +112,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+ * $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
  * ```
  * 
  */

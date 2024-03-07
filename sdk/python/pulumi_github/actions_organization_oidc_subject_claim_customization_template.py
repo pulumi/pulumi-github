@@ -74,6 +74,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -84,13 +85,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
             "repository_owner",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the organization's name.
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
+        $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
         ```
 
         :param str resource_name: The name of the resource.
@@ -112,6 +114,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -122,13 +125,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
             "repository_owner",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the organization's name.
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
+        $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
         ```
 
         :param str resource_name: The name of the resource.

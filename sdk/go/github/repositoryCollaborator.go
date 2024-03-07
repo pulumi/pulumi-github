@@ -39,6 +39,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
-//
+// $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
 // ```
 type RepositoryCollaborator struct {
 	pulumi.CustomResourceState

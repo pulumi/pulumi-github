@@ -86,12 +86,14 @@ def get_dependabot_secrets(full_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_dependabot_secrets(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: Full name of the repository (in `org/name` format).
@@ -119,12 +121,14 @@ def get_dependabot_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_dependabot_secrets(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: Full name of the repository (in `org/name` format).

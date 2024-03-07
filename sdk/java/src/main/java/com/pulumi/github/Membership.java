@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * destroyed, either the invitation will be cancelled or the user will be removed.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+ * $ pulumi import github:index/membership:Membership member hashicorp:someuser
  * ```
  * 
  */

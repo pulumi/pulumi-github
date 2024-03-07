@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,8 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Allowing empty invitation IDs
     /// 
     /// Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.

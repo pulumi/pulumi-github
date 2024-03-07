@@ -18,14 +18,47 @@ import (
 //
 // This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+//			_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
+//				Repository: pulumi.Any(github_repository.Example.Name),
+//				Branch:     pulumi.String("main"),
+//				Restrictions: &github.BranchProtectionV3RestrictionsArgs{
+//					Users: pulumi.StringArray{
+//						pulumi.String("foo-user"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
-//
+// $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
 // ```
 type BranchProtectionV3 struct {
 	pulumi.CustomResourceState

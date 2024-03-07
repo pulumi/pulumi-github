@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsSecrets(args?: GetActionsSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsSecretsResult> {
     args = args || {};
@@ -67,6 +69,7 @@ export interface GetActionsSecretsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -75,6 +78,7 @@ export interface GetActionsSecretsResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsSecretsResult> {
     return pulumi.output(args).apply((a: any) => getActionsSecrets(a, opts))

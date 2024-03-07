@@ -165,6 +165,7 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -177,6 +178,7 @@ class TeamRepository(pulumi.CustomResource):
             repository=some_repo.name,
             permission="pull")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,6 +224,7 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -234,6 +237,7 @@ class TeamRepository(pulumi.CustomResource):
             repository=some_repo.name,
             permission="pull")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

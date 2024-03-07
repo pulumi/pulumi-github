@@ -14,10 +14,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a single tree.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,8 +49,7 @@ namespace Pulumi.Github
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTreeResult> InvokeAsync(GetTreeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeArgs(), options.WithDefaults());
@@ -59,10 +57,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve information about a single tree.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,8 +92,7 @@ namespace Pulumi.Github
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTreeResult> Invoke(GetTreeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());

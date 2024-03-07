@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCodespacesPublicKey(ctx *pulumi.Context, args *GetCodespacesPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetCodespacesPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCodespacesPublicKeyResult

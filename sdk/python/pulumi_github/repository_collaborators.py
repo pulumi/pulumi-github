@@ -179,6 +179,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -197,13 +198,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
                 team_id=some_team.slug,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Repository Collaborators can be imported using the name `name`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
+        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
         ```
 
         :param str resource_name: The name of the resource.
@@ -246,6 +248,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -264,13 +267,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
                 team_id=some_team.slug,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Repository Collaborators can be imported using the name `name`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
+        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
         ```
 
         :param str resource_name: The name of the resource.

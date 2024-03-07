@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage a repository tag protection for repositories within your GitHub organization or personal account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,15 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character. The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).
+ * Repository tag protections can be imported using the `name` of the repository, combined with the `id` of the tag protection, separated by a `/` character.
+ * The `id` of the tag protection can be found using the [GitHub API](https://docs.github.com/en/rest/repos/tags#list-tag-protection-states-for-a-repository).
  * 
  * Importing uses the name of the repository, as well as the ID of the tag protection, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
+ * $ pulumi import github:index/repositoryTagProtection:RepositoryTagProtection terraform my-repo/31077
  * ```
  * 
  */

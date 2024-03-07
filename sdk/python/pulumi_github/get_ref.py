@@ -104,6 +104,7 @@ def get_ref(owner: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -112,6 +113,7 @@ def get_ref(owner: Optional[str] = None,
         ref="heads/development",
         repository="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str owner: Owner of the repository.
@@ -144,6 +146,7 @@ def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -152,6 +155,7 @@ def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
         ref="heads/development",
         repository="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str owner: Owner of the repository.

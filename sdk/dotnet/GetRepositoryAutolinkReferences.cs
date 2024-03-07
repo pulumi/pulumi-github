@@ -14,10 +14,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve autolink references for a repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryAutolinkReferencesResult> InvokeAsync(GetRepositoryAutolinkReferencesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve autolink references for a repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryAutolinkReferencesResult> Invoke(GetRepositoryAutolinkReferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesInvokeArgs(), options.WithDefaults());

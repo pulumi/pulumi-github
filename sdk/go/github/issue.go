@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Milestone And Project Assignment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,15 +114,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/issue:Issue issue_15 myrepo:15
-//
+// $ pulumi import github:index/issue:Issue issue_15 myrepo:15
 // ```
 type Issue struct {
 	pulumi.CustomResourceState

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // This resource can be imported using the ID of the runner group:
 //
 // ```sh
-//
-//	$ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
-//
+// $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
 // ```
 type ActionsRunnerGroup struct {
 	pulumi.CustomResourceState

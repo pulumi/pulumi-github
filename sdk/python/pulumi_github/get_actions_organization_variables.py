@@ -63,12 +63,14 @@ def get_actions_organization_variables(opts: Optional[pulumi.InvokeOptions] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_variables()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -86,11 +88,13 @@ def get_actions_organization_variables_output(opts: Optional[pulumi.InvokeOption
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_variables()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

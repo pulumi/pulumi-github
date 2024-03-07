@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage PullRequests for repositories within your GitHub organization or personal account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="github:index/repositoryPullRequest:RepositoryPullRequest")

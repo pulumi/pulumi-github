@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +54,15 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Organization settings can be imported using the `id` of the organization. The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.
+    /// Organization settings can be imported using the `id` of the organization.
+    /// The `id` of the organization can be found using the [get an organization](https://docs.github.com/en/rest/orgs/orgs#get-an-organization) API.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/organizationSettings:OrganizationSettings test 123456789
+    /// $ pulumi import github:index/organizationSettings:OrganizationSettings test 123456789
     /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationSettings:OrganizationSettings")]

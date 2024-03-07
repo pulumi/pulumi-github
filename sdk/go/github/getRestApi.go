@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRestApi(ctx *pulumi.Context, args *GetRestApiArgs, opts ...pulumi.InvokeOption) (*GetRestApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRestApiResult

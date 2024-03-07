@@ -12,6 +12,40 @@ import (
 )
 
 // Use this data source to retrieve information about a GitHub release in a specific repository.
+//
+// ## Example Usage
+//
+// To retrieve the latest release that is present in a repository:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
+//				Owner:      "example-owner",
+//				Repository: "example-repository",
+//				RetrieveBy: "latest",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// To retrieve a specific release from a repository based on it's ID:
 func LookupRelease(ctx *pulumi.Context, args *LookupReleaseArgs, opts ...pulumi.InvokeOption) (*LookupReleaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReleaseResult

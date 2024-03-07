@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * If you change the case of a label&#39;s name, its&#39; color, or description, this resource will edit the existing label to match the new values. However, if you change the name of a label, this resource will create a new label with the new name and delete the old label. Beware that this will remove the label from any issues it was previously attached to.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,13 +69,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Issue Labels can be imported using the repository `name`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
+ * $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
  * ```
  * 
  */

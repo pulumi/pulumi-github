@@ -114,6 +114,7 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -132,13 +133,14 @@ class IssueLabels(pulumi.CustomResource):
             ],
             repository="test-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Issue Labels can be imported using the repository `name`, e.g.
 
         ```sh
-         $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
+        $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,6 +168,7 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -184,13 +187,14 @@ class IssueLabels(pulumi.CustomResource):
             ],
             repository="test-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Issue Labels can be imported using the repository `name`, e.g.
 
         ```sh
-         $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
+        $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
         ```
 
         :param str resource_name: The name of the resource.

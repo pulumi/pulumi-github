@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * You must have write access to a repository to use this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+ * $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
  * ```
  * 
  */
