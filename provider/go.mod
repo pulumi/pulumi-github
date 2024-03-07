@@ -6,8 +6,8 @@ replace github.com/integrations/terraform-provider-github/v6 => ../upstream
 
 require (
 	github.com/integrations/terraform-provider-github/v6 v6.0.0 // => ../upstream
-	github.com/pulumi/providertest v0.0.10
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
+	github.com/pulumi/providertest v0.0.11
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.1-0.20240307193710-29d9870c5f99
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0
 )
 
@@ -251,4 +251,4 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
-replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
+replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
