@@ -12,6 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,16 +59,13 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// ~&gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.
+    /// ~&gt; **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
     /// 
-    /// Using the team slug will result in terraform doing conversions between the team slug and team id.
-    /// 
-    /// This will cause team members associations to the team to be destroyed and recreated on import.
-    /// 
-    ///  GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
+    /// GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567

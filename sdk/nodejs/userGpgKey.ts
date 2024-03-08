@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,12 +21,13 @@ import * as utilities from "./utilities";
  * -----END PGP PUBLIC KEY BLOCK-----
  * `});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
  *
- *  does not return previously uploaded GPG key.
+ * does not return previously uploaded GPG key.
  */
 export class UserGpgKey extends pulumi.CustomResource {
     /**

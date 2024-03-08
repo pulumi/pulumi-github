@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Adding An Issue To A Project
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,15 +111,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):
 //
 // ```sh
-//
-//	$ pulumi import github:index/projectCard:ProjectCard card 01234567
-//
+// $ pulumi import github:index/projectCard:ProjectCard card 01234567
 // ```
 type ProjectCard struct {
 	pulumi.CustomResourceState

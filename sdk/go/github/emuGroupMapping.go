@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
-//
+// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
 // ```
 type EmuGroupMapping struct {
 	pulumi.CustomResourceState

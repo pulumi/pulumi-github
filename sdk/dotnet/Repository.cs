@@ -19,6 +19,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +42,11 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With GitHub Pages Enabled
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +71,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Repositories can be imported using the `name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repository:Repository terraform terraform
+    /// $ pulumi import github:index/repository:Repository terraform terraform
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repository:Repository")]

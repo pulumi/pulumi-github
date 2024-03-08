@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryDeployKeys(args: GetRepositoryDeployKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeployKeysResult> {
 
@@ -57,6 +59,7 @@ export interface GetRepositoryDeployKeysResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -65,6 +68,7 @@ export interface GetRepositoryDeployKeysResult {
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryDeployKeys(a, opts))

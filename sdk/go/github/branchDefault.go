@@ -22,6 +22,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,9 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Renaming to a branch that doesn't exist:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,15 +98,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
-//
+// $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
 // ```
 type BranchDefault struct {
 	pulumi.CustomResourceState

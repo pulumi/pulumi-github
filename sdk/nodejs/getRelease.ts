@@ -8,6 +8,25 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about a GitHub release in a specific repository.
+ *
+ * ## Example Usage
+ *
+ * To retrieve the latest release that is present in a repository:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     owner: "example-owner",
+ *     repository: "example-repository",
+ *     retrieveBy: "latest",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * To retrieve a specific release from a repository based on it's ID:
  */
 export function getRelease(args: GetReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseResult> {
 
@@ -131,6 +150,25 @@ export interface GetReleaseResult {
 }
 /**
  * Use this data source to retrieve information about a GitHub release in a specific repository.
+ *
+ * ## Example Usage
+ *
+ * To retrieve the latest release that is present in a repository:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     owner: "example-owner",
+ *     repository: "example-repository",
+ *     retrieveBy: "latest",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * To retrieve a specific release from a repository based on it's ID:
  */
 export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseResult> {
     return pulumi.output(args).apply((a: any) => getRelease(a, opts))

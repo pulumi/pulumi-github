@@ -13,12 +13,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationIpAllowList({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationIpAllowList(opts?: pulumi.InvokeOptions): Promise<GetOrganizationIpAllowListResult> {
 
@@ -48,12 +50,14 @@ export interface GetOrganizationIpAllowListResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationIpAllowList({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationIpAllowListOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationIpAllowListResult> {
     return pulumi.output(getOrganizationIpAllowList(opts))

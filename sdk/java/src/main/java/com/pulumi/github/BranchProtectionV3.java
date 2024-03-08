@@ -25,12 +25,50 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.BranchProtectionV3;
+ * import com.pulumi.github.BranchProtectionV3Args;
+ * import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BranchProtectionV3(&#34;example&#34;, BranchProtectionV3Args.builder()        
+ *             .repository(github_repository.example().name())
+ *             .branch(&#34;main&#34;)
+ *             .restrictions(BranchProtectionV3RestrictionsArgs.builder()
+ *                 .users(&#34;foo-user&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
+ * $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
  * ```
  * 
  */

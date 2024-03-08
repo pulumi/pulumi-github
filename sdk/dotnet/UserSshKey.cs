@@ -16,6 +16,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -33,13 +34,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// SSH keys can be imported using their ID e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+    /// $ pulumi import github:index/userSshKey:UserSshKey example 1234567
     /// ```
     /// </summary>
     [GithubResourceType("github:index/userSshKey:UserSshKey")]

@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,15 +59,17 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Organization webhooks can be imported using the `id` of the webhook. The `id` of the webhook can be found in the URL of the webhook. For example, `&#34;https://github.com/organizations/foo-org/settings/hooks/123456789&#34;`.
+ * Organization webhooks can be imported using the `id` of the webhook.
+ * The `id` of the webhook can be found in the URL of the webhook. For example, `&#34;https://github.com/organizations/foo-org/settings/hooks/123456789&#34;`.
  * 
  * ```sh
- *  $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
+ * $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
  * ```
- *  If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
+ * If secret is populated in the webhook&#39;s configuration, the value will be imported as &#34;********&#34;.
  * 
  */
 @ResourceType(type="github:index/organizationWebhook:OrganizationWebhook")

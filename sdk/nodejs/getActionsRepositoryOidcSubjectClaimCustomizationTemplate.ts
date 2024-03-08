@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     name: "example_repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsRepositoryOidcSubjectClaimCustomizationTemplate(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
 
@@ -59,6 +61,7 @@ export interface GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -67,6 +70,7 @@ export interface GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult
  *     name: "example_repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
     return pulumi.output(args).apply((a: any) => getActionsRepositoryOidcSubjectClaimCustomizationTemplate(a, opts))

@@ -199,6 +199,7 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -208,7 +209,9 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -223,13 +226,14 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the repository name, environment name, and variable name:
 
         ```sh
-         $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
+        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,6 +255,7 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -260,7 +265,9 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -275,13 +282,14 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the repository name, environment name, and variable name:
 
         ```sh
-         $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
+        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
         ```
 
         :param str resource_name: The name of the resource.

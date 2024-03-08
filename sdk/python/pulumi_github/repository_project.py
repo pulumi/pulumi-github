@@ -164,6 +164,7 @@ class RepositoryProject(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -175,6 +176,7 @@ class RepositoryProject(pulumi.CustomResource):
             body="This is a repository project.",
             repository=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,6 +195,7 @@ class RepositoryProject(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -204,6 +207,7 @@ class RepositoryProject(pulumi.CustomResource):
             body="This is a repository project.",
             repository=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RepositoryProjectArgs args: The arguments to use to populate this resource's properties.

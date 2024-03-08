@@ -251,6 +251,7 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -261,13 +262,14 @@ class RepositoryMilestone(pulumi.CustomResource):
             repository="example-repository",
             title="v1.1.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,6 +294,7 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -302,13 +305,14 @@ class RepositoryMilestone(pulumi.CustomResource):
             repository="example-repository",
             title="v1.1.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+        $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
         ```
 
         :param str resource_name: The name of the resource.

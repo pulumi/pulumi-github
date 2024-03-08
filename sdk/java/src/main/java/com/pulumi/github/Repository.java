@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * and `allow_squash_merge` attributes will be ignored, causing confusing diffs.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,7 +66,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With GitHub Pages Enabled
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,13 +108,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Repositories can be imported using the `name`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/repository:Repository terraform terraform
+ * $ pulumi import github:index/repository:Repository terraform terraform
  * ```
  * 
  */

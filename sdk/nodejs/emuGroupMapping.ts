@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,13 +20,14 @@ import * as utilities from "./utilities";
  * });
  * // The GitHub team name to modify
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+ * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
  * ```
  */
 export class EmuGroupMapping extends pulumi.CustomResource {

@@ -316,12 +316,29 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+        example = github.BranchProtectionV3("example",
+            repository=github_repository["example"]["name"],
+            branch="main",
+            restrictions=github.BranchProtectionV3RestrictionsArgs(
+                users=["foo-user"],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
+        $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
         ```
 
         :param str resource_name: The name of the resource.
@@ -348,12 +365,29 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
+        example = github.BranchProtectionV3("example",
+            repository=github_repository["example"]["name"],
+            branch="main",
+            restrictions=github.BranchProtectionV3RestrictionsArgs(
+                users=["foo-user"],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
+        $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
         ```
 
         :param str resource_name: The name of the resource.

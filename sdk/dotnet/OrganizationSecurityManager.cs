@@ -12,6 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+    /// $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
     /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationSecurityManager:OrganizationSecurityManager")]

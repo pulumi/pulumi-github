@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **Note** Organization owners may not be set as &#34;members&#34; of a team; they may only be set as &#34;maintainers&#34;. Attempting to set organization an owner to &#34;member&#34; of a may result in a `pulumi preview` diff that changes their status back to &#34;maintainer&#34;.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

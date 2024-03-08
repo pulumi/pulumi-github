@@ -76,12 +76,14 @@ def get_repository_webhooks(repository: Optional[str] = None,
 
     To retrieve webhooks of a repository:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     repo = github.get_repository_webhooks(repository="foo")
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['repository'] = repository
@@ -104,11 +106,13 @@ def get_repository_webhooks_output(repository: Optional[pulumi.Input[str]] = Non
 
     To retrieve webhooks of a repository:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     repo = github.get_repository_webhooks(repository="foo")
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

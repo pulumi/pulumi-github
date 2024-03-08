@@ -124,6 +124,7 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -134,13 +135,15 @@ class AppInstallationRepository(pulumi.CustomResource):
             installation_id="1234567",
             repository=some_repo.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+        GitHub App Installation Repository can be imported
+        using an ID made up of `installation_id:repository`, e.g.
 
         ```sh
-         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+        $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,6 +172,7 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -179,13 +183,15 @@ class AppInstallationRepository(pulumi.CustomResource):
             installation_id="1234567",
             repository=some_repo.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+        GitHub App Installation Repository can be imported
+        using an ID made up of `installation_id:repository`, e.g.
 
         ```sh
-         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+        $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
         ```
 
         :param str resource_name: The name of the resource.

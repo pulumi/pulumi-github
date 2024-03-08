@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     repository: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBranchProtectionRules(args: GetBranchProtectionRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchProtectionRulesResult> {
 
@@ -57,6 +59,7 @@ export interface GetBranchProtectionRulesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -65,6 +68,7 @@ export interface GetBranchProtectionRulesResult {
  *     repository: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBranchProtectionRulesOutput(args: GetBranchProtectionRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchProtectionRulesResult> {
     return pulumi.output(args).apply((a: any) => getBranchProtectionRules(a, opts))

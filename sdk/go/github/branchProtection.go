@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
-//
+// $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
 // ```
 type BranchProtection struct {
 	pulumi.CustomResourceState

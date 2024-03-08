@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * This resource allows you to add/remove SSH keys from your user account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * SSH keys can be imported using their ID e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+ * $ pulumi import github:index/userSshKey:UserSshKey example 1234567
  * ```
  * 
  */

@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Repository topics can be imported using the `name` of the repository.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
+ * $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
  * ```
  * 
  */

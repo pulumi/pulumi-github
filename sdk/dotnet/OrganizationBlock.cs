@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub organization block can be imported using a username, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+    /// $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
     /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationBlock:OrganizationBlock")]

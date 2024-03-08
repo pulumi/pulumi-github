@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage GitHub repository collaborator invitations.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +69,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Allowing empty invitation IDs
  * 
  * Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`&#39;s.

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetGithubApp(ctx *pulumi.Context, args *GetGithubAppArgs, opts ...pulumi.InvokeOption) (*GetGithubAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGithubAppResult

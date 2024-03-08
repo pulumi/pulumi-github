@@ -39,6 +39,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Repository Collaborators can be imported using the name `name`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
-//
+// $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
 // ```
 type RepositoryCollaborators struct {
 	pulumi.CustomResourceState

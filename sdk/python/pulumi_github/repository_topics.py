@@ -100,6 +100,7 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -112,13 +113,14 @@ class RepositoryTopics(pulumi.CustomResource):
                 "topic-2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository topics can be imported using the `name` of the repository.
 
         ```sh
-         $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
+        $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
         ```
 
         :param str resource_name: The name of the resource.
@@ -135,6 +137,7 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -147,13 +150,14 @@ class RepositoryTopics(pulumi.CustomResource):
                 "topic-2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository topics can be imported using the `name` of the repository.
 
         ```sh
-         $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
+        $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
         ```
 
         :param str resource_name: The name of the resource.

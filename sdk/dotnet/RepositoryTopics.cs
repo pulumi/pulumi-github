@@ -12,6 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Repository topics can be imported using the `name` of the repository.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
+    /// $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryTopics:RepositoryTopics")]

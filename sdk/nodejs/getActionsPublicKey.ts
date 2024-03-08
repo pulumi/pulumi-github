@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsPublicKeyResult> {
 
@@ -61,6 +63,7 @@ export interface GetActionsPublicKeyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -69,6 +72,7 @@ export interface GetActionsPublicKeyResult {
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getActionsPublicKey(a, opts))

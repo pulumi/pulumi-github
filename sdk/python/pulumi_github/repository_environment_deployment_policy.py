@@ -134,6 +134,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -156,13 +157,14 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy daily terraform:daily:123456
+        $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy daily terraform:daily:123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -204,13 +207,14 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy daily terraform:daily:123456
+        $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy daily terraform:daily:123456
         ```
 
         :param str resource_name: The name of the resource.

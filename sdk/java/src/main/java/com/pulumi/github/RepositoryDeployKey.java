@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub&#39;s key id. The latter can be obtained by GitHub&#39;s SDKs and API.
+ * Repository deploy keys can be imported using a colon-separated pair of repository name
+ * and GitHub&#39;s key id. The latter can be obtained by GitHub&#39;s SDKs and API.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+ * $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
  * ```
  * 
  */

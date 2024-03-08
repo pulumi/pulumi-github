@@ -198,6 +198,7 @@ class DependabotSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -212,15 +213,17 @@ class DependabotSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:
 
         ```sh
-         $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+        $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
         ```
-         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        NOTE: the implementation is limited in that it won't fetch the value of the
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,6 +241,7 @@ class DependabotSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -252,15 +256,17 @@ class DependabotSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:
 
         ```sh
-         $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
+        $ pulumi import github:index/dependabotSecret:DependabotSecret example_secret example_repository/example_secret
         ```
-         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        NOTE: the implementation is limited in that it won't fetch the value of the
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param DependabotSecretArgs args: The arguments to use to populate this resource's properties.

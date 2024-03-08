@@ -12,6 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -56,9 +58,9 @@ namespace Pulumi.Github
     /// $ pulumi import github:index/codespacesUserSecret:CodespacesUserSecret test_secret test_secret_name
     /// ```
     /// 
-    ///  NOTE: the implementation is limited in that it won't fetch the value of the
+    /// NOTE: the implementation is limited in that it won't fetch the value of the
     /// 
-    ///  `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+    /// `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/codespacesUserSecret:CodespacesUserSecret")]
     public partial class CodespacesUserSecret : global::Pulumi.CustomResource

@@ -68,6 +68,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -75,13 +76,14 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         some_team_team = github.Team("someTeamTeam", description="Some cool team")
         some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
 
         ```sh
-         $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+        $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -97,6 +99,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -104,13 +107,14 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         some_team_team = github.Team("someTeamTeam", description="Some cool team")
         some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
 
         ```sh
-         $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+        $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
         ```
 
         :param str resource_name: The name of the resource.

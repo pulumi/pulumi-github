@@ -160,6 +160,7 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -174,6 +175,7 @@ class TeamMembership(pulumi.CustomResource):
             username="SomeUser",
             role="member")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,6 +216,7 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -228,6 +231,7 @@ class TeamMembership(pulumi.CustomResource):
             username="SomeUser",
             role="member")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

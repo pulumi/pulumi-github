@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -30,8 +31,11 @@ import * as utilities from "./utilities";
  *     visibility: "public",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With GitHub Pages Enabled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -47,13 +51,14 @@ import * as utilities from "./utilities";
  *     "private": false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Repositories can be imported using the `name`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repository:Repository terraform terraform
+ * $ pulumi import github:index/repository:Repository terraform terraform
  * ```
  */
 export class Repository extends pulumi.CustomResource {

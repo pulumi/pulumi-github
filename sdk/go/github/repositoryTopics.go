@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Repository topics can be imported using the `name` of the repository.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
-//
+// $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
 // ```
 type RepositoryTopics struct {
 	pulumi.CustomResourceState

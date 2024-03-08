@@ -17,6 +17,7 @@ import (
 //
 // To retrieve *all* webhooks of the organization:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOrganizationWebhooks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationWebhooksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationWebhooksResult

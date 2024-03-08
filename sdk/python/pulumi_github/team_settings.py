@@ -143,6 +143,7 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -157,18 +158,19 @@ class TeamSettings(pulumi.CustomResource):
                 notify=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 
         ```sh
-         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
+        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
         ```
-         or,
+        or,
 
         ```sh
-         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
+        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
         ```
 
         :param str resource_name: The name of the resource.
@@ -193,6 +195,7 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -207,18 +210,19 @@ class TeamSettings(pulumi.CustomResource):
                 notify=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 
         ```sh
-         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
+        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
         ```
-         or,
+        or,
 
         ```sh
-         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
+        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
         ```
 
         :param str resource_name: The name of the resource.

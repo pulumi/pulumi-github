@@ -26,6 +26,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+// GitHub App Installation Repository can be imported
+// using an ID made up of `installation_id:repository`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
-//
+// $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
 // ```
 type AppInstallationRepository struct {
 	pulumi.CustomResourceState

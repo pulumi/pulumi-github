@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage environments for a GitHub repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+ * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
  * ```
  * 
  */

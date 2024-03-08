@@ -196,6 +196,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -210,13 +211,15 @@ class RepositoryDeployKey(pulumi.CustomResource):
             key=example_repository_deploy_key_private_key.public_key_openssh,
             read_only=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+        Repository deploy keys can be imported using a colon-separated pair of repository name
+        and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
 
         ```sh
-         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+        $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,6 +251,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -262,13 +266,15 @@ class RepositoryDeployKey(pulumi.CustomResource):
             key=example_repository_deploy_key_private_key.public_key_openssh,
             read_only=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+        Repository deploy keys can be imported using a colon-separated pair of repository name
+        and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
 
         ```sh
-         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+        $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
         ```
 
         :param str resource_name: The name of the resource.
