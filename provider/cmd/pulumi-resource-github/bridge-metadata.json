@@ -307,6 +307,32 @@
                 "current": "github:index/emuGroupMapping:EmuGroupMapping",
                 "majorVersion": 6
             },
+            "github_enterprise_actions_permissions": {
+                "current": "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_actions_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "patterns_allowed": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "enabled_organizations_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "organization_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "github_enterprise_organization": {
                 "current": "github:index/enterpriseOrganization:EnterpriseOrganization",
                 "majorVersion": 6,

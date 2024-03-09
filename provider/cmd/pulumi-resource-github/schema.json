@@ -403,6 +403,44 @@
             },
             "type": "object"
         },
+        "github:index/EnterpriseActionsPermissionsAllowedActionsConfig:EnterpriseActionsPermissionsAllowedActionsConfig": {
+            "properties": {
+                "githubOwnedAllowed": {
+                    "type": "boolean",
+                    "description": "Whether GitHub-owned actions are allowed in the organization.\n"
+                },
+                "patternsAlloweds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.\"\n"
+                },
+                "verifiedAllowed": {
+                    "type": "boolean",
+                    "description": "Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "githubOwnedAllowed"
+            ]
+        },
+        "github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig": {
+            "properties": {
+                "organizationIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "List of organization IDs to enable for GitHub Actions.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "organizationIds"
+            ]
+        },
         "github:index/IssueLabelsLabel:IssueLabelsLabel": {
             "properties": {
                 "color": {
@@ -5411,6 +5449,89 @@
                     "teamSlug": {
                         "type": "string",
                         "description": "Slug of the GitHub team\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions": {
+            "description": "This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.\nYou must have admin access to an enterprise to use this resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example-enterprise = github.getEnterprise({\n    slug: \"my-enterprise\",\n});\nconst example-org = github.getOrganization({\n    name: \"my-org\",\n});\nconst test = new github.EnterpriseActionsPermissions(\"test\", {\n    enterpriseId: example_enterprise.then(example_enterprise =\u003e example_enterprise.slug),\n    allowedActions: \"selected\",\n    enabledOrganizations: \"selected\",\n    allowedActionsConfig: {\n        githubOwnedAllowed: true,\n        patternsAlloweds: [\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verifiedAllowed: true,\n    },\n    enabledOrganizationsConfig: {\n        organizationIds: [example_org.then(example_org =\u003e example_org.id)],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_enterprise = github.get_enterprise(slug=\"my-enterprise\")\nexample_org = github.get_organization(name=\"my-org\")\ntest = github.EnterpriseActionsPermissions(\"test\",\n    enterprise_id=example_enterprise.slug,\n    allowed_actions=\"selected\",\n    enabled_organizations=\"selected\",\n    allowed_actions_config=github.EnterpriseActionsPermissionsAllowedActionsConfigArgs(\n        github_owned_allowed=True,\n        patterns_alloweds=[\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verified_allowed=True,\n    ),\n    enabled_organizations_config=github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs(\n        organization_ids=[example_org.id],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example_enterprise = Github.GetEnterprise.Invoke(new()\n    {\n        Slug = \"my-enterprise\",\n    });\n\n    var example_org = Github.GetOrganization.Invoke(new()\n    {\n        Name = \"my-org\",\n    });\n\n    var test = new Github.EnterpriseActionsPermissions(\"test\", new()\n    {\n        EnterpriseId = example_enterprise.Apply(example_enterprise =\u003e example_enterprise.Apply(getEnterpriseResult =\u003e getEnterpriseResult.Slug)),\n        AllowedActions = \"selected\",\n        EnabledOrganizations = \"selected\",\n        AllowedActionsConfig = new Github.Inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs\n        {\n            GithubOwnedAllowed = true,\n            PatternsAlloweds = new[]\n            {\n                \"actions/cache@*\",\n                \"actions/checkout@*\",\n            },\n            VerifiedAllowed = true,\n        },\n        EnabledOrganizationsConfig = new Github.Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs\n        {\n            OrganizationIds = new[]\n            {\n                example_org.Apply(example_org =\u003e example_org.Apply(getOrganizationResult =\u003e getOrganizationResult.Id)),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample_enterprise, err := github.GetEnterprise(ctx, \u0026github.GetEnterpriseArgs{\n\t\t\tSlug: \"my-enterprise\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample_org, err := github.GetOrganization(ctx, \u0026github.GetOrganizationArgs{\n\t\t\tName: \"my-org\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewEnterpriseActionsPermissions(ctx, \"test\", \u0026github.EnterpriseActionsPermissionsArgs{\n\t\t\tEnterpriseId:         *pulumi.String(example_enterprise.Slug),\n\t\t\tAllowedActions:       pulumi.String(\"selected\"),\n\t\t\tEnabledOrganizations: pulumi.String(\"selected\"),\n\t\t\tAllowedActionsConfig: \u0026github.EnterpriseActionsPermissionsAllowedActionsConfigArgs{\n\t\t\t\tGithubOwnedAllowed: pulumi.Bool(true),\n\t\t\t\tPatternsAlloweds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"actions/cache@*\"),\n\t\t\t\t\tpulumi.String(\"actions/checkout@*\"),\n\t\t\t\t},\n\t\t\t\tVerifiedAllowed: pulumi.Bool(true),\n\t\t\t},\n\t\t\tEnabledOrganizationsConfig: \u0026github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{\n\t\t\t\tOrganizationIds: pulumi.IntArray{\n\t\t\t\t\t*pulumi.String(example_org.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetEnterpriseArgs;\nimport com.pulumi.github.inputs.GetOrganizationArgs;\nimport com.pulumi.github.EnterpriseActionsPermissions;\nimport com.pulumi.github.EnterpriseActionsPermissionsArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example-enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()\n            .slug(\"my-enterprise\")\n            .build());\n\n        final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()\n            .name(\"my-org\")\n            .build());\n\n        var test = new EnterpriseActionsPermissions(\"test\", EnterpriseActionsPermissionsArgs.builder()        \n            .enterpriseId(example_enterprise.slug())\n            .allowedActions(\"selected\")\n            .enabledOrganizations(\"selected\")\n            .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()\n                .githubOwnedAllowed(true)\n                .patternsAlloweds(                \n                    \"actions/cache@*\",\n                    \"actions/checkout@*\")\n                .verifiedAllowed(true)\n                .build())\n            .enabledOrganizationsConfig(EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs.builder()\n                .organizationIds(example_org.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: github:EnterpriseActionsPermissions\n    properties:\n      enterpriseId: ${[\"example-enterprise\"].slug}\n      allowedActions: selected\n      enabledOrganizations: selected\n      allowedActionsConfig:\n        githubOwnedAllowed: true\n        patternsAlloweds:\n          - actions/cache@*\n          - actions/checkout@*\n        verifiedAllowed: true\n      enabledOrganizationsConfig:\n        organizationIds:\n          - ${[\"example-org\"].id}\nvariables:\n  example-enterprise:\n    fn::invoke:\n      Function: github:getEnterprise\n      Arguments:\n        slug: my-enterprise\n  example-org:\n    fn::invoke:\n      Function: github:getOrganization\n      Arguments:\n        name: my-org\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThis resource can be imported using the name of the GitHub enterprise:\n\n```sh\n $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name\n```\n ",
+            "properties": {
+                "allowedActions": {
+                    "type": "string",
+                    "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/EnterpriseActionsPermissionsAllowedActionsConfig:EnterpriseActionsPermissionsAllowedActionsConfig",
+                    "description": "Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                },
+                "enabledOrganizations": {
+                    "type": "string",
+                    "description": "The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                },
+                "enabledOrganizationsConfig": {
+                    "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
+                    "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
+                },
+                "enterpriseId": {
+                    "type": "string",
+                    "description": "The ID of the enterprise.\n"
+                }
+            },
+            "required": [
+                "enabledOrganizations",
+                "enterpriseId"
+            ],
+            "inputProperties": {
+                "allowedActions": {
+                    "type": "string",
+                    "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                },
+                "allowedActionsConfig": {
+                    "$ref": "#/types/github:index/EnterpriseActionsPermissionsAllowedActionsConfig:EnterpriseActionsPermissionsAllowedActionsConfig",
+                    "description": "Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                },
+                "enabledOrganizations": {
+                    "type": "string",
+                    "description": "The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                },
+                "enabledOrganizationsConfig": {
+                    "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
+                    "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
+                },
+                "enterpriseId": {
+                    "type": "string",
+                    "description": "The ID of the enterprise.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "enabledOrganizations",
+                "enterpriseId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EnterpriseActionsPermissions resources.\n",
+                "properties": {
+                    "allowedActions": {
+                        "type": "string",
+                        "description": "The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.\n"
+                    },
+                    "allowedActionsConfig": {
+                        "$ref": "#/types/github:index/EnterpriseActionsPermissionsAllowedActionsConfig:EnterpriseActionsPermissionsAllowedActionsConfig",
+                        "description": "Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.\n"
+                    },
+                    "enabledOrganizations": {
+                        "type": "string",
+                        "description": "The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.\n"
+                    },
+                    "enabledOrganizationsConfig": {
+                        "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
+                        "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
+                    },
+                    "enterpriseId": {
+                        "type": "string",
+                        "description": "The ID of the enterprise.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
