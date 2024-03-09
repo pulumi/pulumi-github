@@ -196,6 +196,28 @@ export interface BranchProtectionV3Restrictions {
     users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface EnterpriseActionsPermissionsAllowedActionsConfig {
+    /**
+     * Whether GitHub-owned actions are allowed in the organization.
+     */
+    githubOwnedAllowed: pulumi.Input<boolean>;
+    /**
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+     */
+    patternsAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     */
+    verifiedAllowed?: pulumi.Input<boolean>;
+}
+
+export interface EnterpriseActionsPermissionsEnabledOrganizationsConfig {
+    /**
+     * List of organization IDs to enable for GitHub Actions.
+     */
+    organizationIds: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface IssueLabelsLabel {
     /**
      * A 6 character hex code, **without the leading #**, identifying the color of the label.

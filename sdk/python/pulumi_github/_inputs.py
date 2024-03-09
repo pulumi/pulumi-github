@@ -20,6 +20,8 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs',
     'BranchProtectionV3RequiredStatusChecksArgs',
     'BranchProtectionV3RestrictionsArgs',
+    'EnterpriseActionsPermissionsAllowedActionsConfigArgs',
+    'EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs',
     'IssueLabelsLabelArgs',
     'OrganizationRulesetBypassActorArgs',
     'OrganizationRulesetConditionsArgs',
@@ -749,6 +751,82 @@ class BranchProtectionV3RestrictionsArgs:
     @users.setter
     def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class EnterpriseActionsPermissionsAllowedActionsConfigArgs:
+    def __init__(__self__, *,
+                 github_owned_allowed: pulumi.Input[bool],
+                 patterns_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verified_allowed: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        :param pulumi.Input[bool] verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> pulumi.Input[bool]:
+        """
+        Whether GitHub-owned actions are allowed in the organization.
+        """
+        return pulumi.get(self, "github_owned_allowed")
+
+    @github_owned_allowed.setter
+    def github_owned_allowed(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "github_owned_allowed", value)
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        """
+        return pulumi.get(self, "patterns_alloweds")
+
+    @patterns_alloweds.setter
+    def patterns_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "patterns_alloweds", value)
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        return pulumi.get(self, "verified_allowed")
+
+    @verified_allowed.setter
+    def verified_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verified_allowed", value)
+
+
+@pulumi.input_type
+class EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs:
+    def __init__(__self__, *,
+                 organization_ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] organization_ids: List of organization IDs to enable for GitHub Actions.
+        """
+        pulumi.set(__self__, "organization_ids", organization_ids)
+
+    @property
+    @pulumi.getter(name="organizationIds")
+    def organization_ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        List of organization IDs to enable for GitHub Actions.
+        """
+        return pulumi.get(self, "organization_ids")
+
+    @organization_ids.setter
+    def organization_ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "organization_ids", value)
 
 
 @pulumi.input_type

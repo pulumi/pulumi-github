@@ -32,6 +32,7 @@ from .dependabot_organization_secret import *
 from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
+from .enterprise_actions_permissions import *
 from .enterprise_organization import *
 from .get_actions_environment_secrets import *
 from .get_actions_environment_variables import *
@@ -362,6 +363,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/emuGroupMapping:EmuGroupMapping": "EmuGroupMapping"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/enterpriseActionsPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions": "EnterpriseActionsPermissions"
   }
  },
  {

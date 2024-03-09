@@ -21,6 +21,8 @@ __all__ = [
     'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances',
     'BranchProtectionV3RequiredStatusChecks',
     'BranchProtectionV3Restrictions',
+    'EnterpriseActionsPermissionsAllowedActionsConfig',
+    'EnterpriseActionsPermissionsEnabledOrganizationsConfig',
     'IssueLabelsLabel',
     'OrganizationRulesetBypassActor',
     'OrganizationRulesetConditions',
@@ -787,6 +789,104 @@ class BranchProtectionV3Restrictions(dict):
         The list of user logins with push access.
         """
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class EnterpriseActionsPermissionsAllowedActionsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "githubOwnedAllowed":
+            suggest = "github_owned_allowed"
+        elif key == "patternsAlloweds":
+            suggest = "patterns_alloweds"
+        elif key == "verifiedAllowed":
+            suggest = "verified_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnterpriseActionsPermissionsAllowedActionsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnterpriseActionsPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnterpriseActionsPermissionsAllowedActionsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 github_owned_allowed: bool,
+                 patterns_alloweds: Optional[Sequence[str]] = None,
+                 verified_allowed: Optional[bool] = None):
+        """
+        :param bool github_owned_allowed: Whether GitHub-owned actions are allowed in the organization.
+        :param Sequence[str] patterns_alloweds: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        :param bool verified_allowed: Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        pulumi.set(__self__, "github_owned_allowed", github_owned_allowed)
+        if patterns_alloweds is not None:
+            pulumi.set(__self__, "patterns_alloweds", patterns_alloweds)
+        if verified_allowed is not None:
+            pulumi.set(__self__, "verified_allowed", verified_allowed)
+
+    @property
+    @pulumi.getter(name="githubOwnedAllowed")
+    def github_owned_allowed(self) -> bool:
+        """
+        Whether GitHub-owned actions are allowed in the organization.
+        """
+        return pulumi.get(self, "github_owned_allowed")
+
+    @property
+    @pulumi.getter(name="patternsAlloweds")
+    def patterns_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+        """
+        return pulumi.get(self, "patterns_alloweds")
+
+    @property
+    @pulumi.getter(name="verifiedAllowed")
+    def verified_allowed(self) -> Optional[bool]:
+        """
+        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+        """
+        return pulumi.get(self, "verified_allowed")
+
+
+@pulumi.output_type
+class EnterpriseActionsPermissionsEnabledOrganizationsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationIds":
+            suggest = "organization_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnterpriseActionsPermissionsEnabledOrganizationsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnterpriseActionsPermissionsEnabledOrganizationsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnterpriseActionsPermissionsEnabledOrganizationsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organization_ids: Sequence[int]):
+        """
+        :param Sequence[int] organization_ids: List of organization IDs to enable for GitHub Actions.
+        """
+        pulumi.set(__self__, "organization_ids", organization_ids)
+
+    @property
+    @pulumi.getter(name="organizationIds")
+    def organization_ids(self) -> Sequence[int]:
+        """
+        List of organization IDs to enable for GitHub Actions.
+        """
+        return pulumi.get(self, "organization_ids")
 
 
 @pulumi.output_type

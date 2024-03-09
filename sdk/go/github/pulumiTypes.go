@@ -1747,6 +1747,318 @@ func (o BranchProtectionV3RestrictionsPtrOutput) Users() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type EnterpriseActionsPermissionsAllowedActionsConfig struct {
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed bool `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds []string `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed *bool `pulumi:"verifiedAllowed"`
+}
+
+// EnterpriseActionsPermissionsAllowedActionsConfigInput is an input type that accepts EnterpriseActionsPermissionsAllowedActionsConfigArgs and EnterpriseActionsPermissionsAllowedActionsConfigOutput values.
+// You can construct a concrete instance of `EnterpriseActionsPermissionsAllowedActionsConfigInput` via:
+//
+//	EnterpriseActionsPermissionsAllowedActionsConfigArgs{...}
+type EnterpriseActionsPermissionsAllowedActionsConfigInput interface {
+	pulumi.Input
+
+	ToEnterpriseActionsPermissionsAllowedActionsConfigOutput() EnterpriseActionsPermissionsAllowedActionsConfigOutput
+	ToEnterpriseActionsPermissionsAllowedActionsConfigOutputWithContext(context.Context) EnterpriseActionsPermissionsAllowedActionsConfigOutput
+}
+
+type EnterpriseActionsPermissionsAllowedActionsConfigArgs struct {
+	// Whether GitHub-owned actions are allowed in the organization.
+	GithubOwnedAllowed pulumi.BoolInput `pulumi:"githubOwnedAllowed"`
+	// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+	PatternsAlloweds pulumi.StringArrayInput `pulumi:"patternsAlloweds"`
+	// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+	VerifiedAllowed pulumi.BoolPtrInput `pulumi:"verifiedAllowed"`
+}
+
+func (EnterpriseActionsPermissionsAllowedActionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseActionsPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i EnterpriseActionsPermissionsAllowedActionsConfigArgs) ToEnterpriseActionsPermissionsAllowedActionsConfigOutput() EnterpriseActionsPermissionsAllowedActionsConfigOutput {
+	return i.ToEnterpriseActionsPermissionsAllowedActionsConfigOutputWithContext(context.Background())
+}
+
+func (i EnterpriseActionsPermissionsAllowedActionsConfigArgs) ToEnterpriseActionsPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsAllowedActionsConfigOutput)
+}
+
+func (i EnterpriseActionsPermissionsAllowedActionsConfigArgs) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutput() EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseActionsPermissionsAllowedActionsConfigArgs) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsAllowedActionsConfigOutput).ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(ctx)
+}
+
+// EnterpriseActionsPermissionsAllowedActionsConfigPtrInput is an input type that accepts EnterpriseActionsPermissionsAllowedActionsConfigArgs, EnterpriseActionsPermissionsAllowedActionsConfigPtr and EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput values.
+// You can construct a concrete instance of `EnterpriseActionsPermissionsAllowedActionsConfigPtrInput` via:
+//
+//	        EnterpriseActionsPermissionsAllowedActionsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnterpriseActionsPermissionsAllowedActionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutput() EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput
+	ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(context.Context) EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput
+}
+
+type enterpriseActionsPermissionsAllowedActionsConfigPtrType EnterpriseActionsPermissionsAllowedActionsConfigArgs
+
+func EnterpriseActionsPermissionsAllowedActionsConfigPtr(v *EnterpriseActionsPermissionsAllowedActionsConfigArgs) EnterpriseActionsPermissionsAllowedActionsConfigPtrInput {
+	return (*enterpriseActionsPermissionsAllowedActionsConfigPtrType)(v)
+}
+
+func (*enterpriseActionsPermissionsAllowedActionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseActionsPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (i *enterpriseActionsPermissionsAllowedActionsConfigPtrType) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutput() EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return i.ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseActionsPermissionsAllowedActionsConfigPtrType) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput)
+}
+
+type EnterpriseActionsPermissionsAllowedActionsConfigOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseActionsPermissionsAllowedActionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseActionsPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigOutput() EnterpriseActionsPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutput() EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return o.ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseActionsPermissionsAllowedActionsConfig) *EnterpriseActionsPermissionsAllowedActionsConfig {
+		return &v
+	}).(EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the organization.
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) GithubOwnedAllowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnterpriseActionsPermissionsAllowedActionsConfig) bool { return v.GithubOwnedAllowed }).(pulumi.BoolOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnterpriseActionsPermissionsAllowedActionsConfig) []string { return v.PatternsAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o EnterpriseActionsPermissionsAllowedActionsConfigOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnterpriseActionsPermissionsAllowedActionsConfig) *bool { return v.VerifiedAllowed }).(pulumi.BoolPtrOutput)
+}
+
+type EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseActionsPermissionsAllowedActionsConfig)(nil)).Elem()
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutput() EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) ToEnterpriseActionsPermissionsAllowedActionsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) Elem() EnterpriseActionsPermissionsAllowedActionsConfigOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsAllowedActionsConfig) EnterpriseActionsPermissionsAllowedActionsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseActionsPermissionsAllowedActionsConfig
+		return ret
+	}).(EnterpriseActionsPermissionsAllowedActionsConfigOutput)
+}
+
+// Whether GitHub-owned actions are allowed in the organization.
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) GithubOwnedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.GithubOwnedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) PatternsAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsAllowedActionsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PatternsAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+func (o EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput) VerifiedAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsAllowedActionsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+type EnterpriseActionsPermissionsEnabledOrganizationsConfig struct {
+	// List of organization IDs to enable for GitHub Actions.
+	OrganizationIds []int `pulumi:"organizationIds"`
+}
+
+// EnterpriseActionsPermissionsEnabledOrganizationsConfigInput is an input type that accepts EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs and EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput values.
+// You can construct a concrete instance of `EnterpriseActionsPermissionsEnabledOrganizationsConfigInput` via:
+//
+//	EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{...}
+type EnterpriseActionsPermissionsEnabledOrganizationsConfigInput interface {
+	pulumi.Input
+
+	ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput
+	ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutputWithContext(context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput
+}
+
+type EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs struct {
+	// List of organization IDs to enable for GitHub Actions.
+	OrganizationIds pulumi.IntArrayInput `pulumi:"organizationIds"`
+}
+
+func (EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseActionsPermissionsEnabledOrganizationsConfig)(nil)).Elem()
+}
+
+func (i EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput {
+	return i.ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutputWithContext(context.Background())
+}
+
+func (i EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput)
+}
+
+func (i EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return i.ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput).ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(ctx)
+}
+
+// EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput is an input type that accepts EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs, EnterpriseActionsPermissionsEnabledOrganizationsConfigPtr and EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput values.
+// You can construct a concrete instance of `EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput` via:
+//
+//	        EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput
+	ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput
+}
+
+type enterpriseActionsPermissionsEnabledOrganizationsConfigPtrType EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs
+
+func EnterpriseActionsPermissionsEnabledOrganizationsConfigPtr(v *EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput {
+	return (*enterpriseActionsPermissionsEnabledOrganizationsConfigPtrType)(v)
+}
+
+func (*enterpriseActionsPermissionsEnabledOrganizationsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseActionsPermissionsEnabledOrganizationsConfig)(nil)).Elem()
+}
+
+func (i *enterpriseActionsPermissionsEnabledOrganizationsConfigPtrType) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return i.ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseActionsPermissionsEnabledOrganizationsConfigPtrType) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput)
+}
+
+type EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseActionsPermissionsEnabledOrganizationsConfig)(nil)).Elem()
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return o.ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseActionsPermissionsEnabledOrganizationsConfig) *EnterpriseActionsPermissionsEnabledOrganizationsConfig {
+		return &v
+	}).(EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput)
+}
+
+// List of organization IDs to enable for GitHub Actions.
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput) OrganizationIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v EnterpriseActionsPermissionsEnabledOrganizationsConfig) []int { return v.OrganizationIds }).(pulumi.IntArrayOutput)
+}
+
+type EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseActionsPermissionsEnabledOrganizationsConfig)(nil)).Elem()
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput() EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput) ToEnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutputWithContext(ctx context.Context) EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput {
+	return o
+}
+
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput) Elem() EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsEnabledOrganizationsConfig) EnterpriseActionsPermissionsEnabledOrganizationsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseActionsPermissionsEnabledOrganizationsConfig
+		return ret
+	}).(EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput)
+}
+
+// List of organization IDs to enable for GitHub Actions.
+func (o EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput) OrganizationIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissionsEnabledOrganizationsConfig) []int {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationIds
+	}).(pulumi.IntArrayOutput)
+}
+
 type IssueLabelsLabel struct {
 	// A 6 character hex code, **without the leading #**, identifying the color of the label.
 	Color string `pulumi:"color"`
@@ -14404,6 +14716,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RequiredStatusChecksPtrInput)(nil)).Elem(), BranchProtectionV3RequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchProtectionV3RestrictionsPtrInput)(nil)).Elem(), BranchProtectionV3RestrictionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseActionsPermissionsAllowedActionsConfigInput)(nil)).Elem(), EnterpriseActionsPermissionsAllowedActionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseActionsPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), EnterpriseActionsPermissionsAllowedActionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseActionsPermissionsEnabledOrganizationsConfigInput)(nil)).Elem(), EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput)(nil)).Elem(), EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelsLabelInput)(nil)).Elem(), IssueLabelsLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IssueLabelsLabelArrayInput)(nil)).Elem(), IssueLabelsLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetBypassActorInput)(nil)).Elem(), OrganizationRulesetBypassActorArgs{})
@@ -14588,6 +14904,10 @@ func init() {
 	pulumi.RegisterOutputType(BranchProtectionV3RequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsOutput{})
 	pulumi.RegisterOutputType(BranchProtectionV3RestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseActionsPermissionsAllowedActionsConfigOutput{})
+	pulumi.RegisterOutputType(EnterpriseActionsPermissionsAllowedActionsConfigPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseActionsPermissionsEnabledOrganizationsConfigOutput{})
+	pulumi.RegisterOutputType(EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput{})
 	pulumi.RegisterOutputType(IssueLabelsLabelOutput{})
 	pulumi.RegisterOutputType(IssueLabelsLabelArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetBypassActorOutput{})

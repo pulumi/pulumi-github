@@ -196,6 +196,28 @@ export interface BranchProtectionV3Restrictions {
     users?: string[];
 }
 
+export interface EnterpriseActionsPermissionsAllowedActionsConfig {
+    /**
+     * Whether GitHub-owned actions are allowed in the organization.
+     */
+    githubOwnedAllowed: boolean;
+    /**
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+     */
+    patternsAlloweds?: string[];
+    /**
+     * Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+     */
+    verifiedAllowed?: boolean;
+}
+
+export interface EnterpriseActionsPermissionsEnabledOrganizationsConfig {
+    /**
+     * List of organization IDs to enable for GitHub Actions.
+     */
+    organizationIds: number[];
+}
+
 export interface GetActionsEnvironmentSecretsSecret {
     /**
      * Timestamp of the secret creation
