@@ -42,6 +42,7 @@
         "dependabotOrganizationSecretRepositories.ts",
         "dependabotSecret.ts",
         "emuGroupMapping.ts",
+        "enterpriseActionsPermissions.ts",
         "enterpriseOrganization.ts",
         "getActionsEnvironmentSecrets.ts",
         "getActionsEnvironmentVariables.ts",
