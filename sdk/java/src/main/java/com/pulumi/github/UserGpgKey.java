@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * This resource allows you to add/remove GPG keys from your user account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,12 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
  * 
- *  does not return previously uploaded GPG key.
+ * does not return previously uploaded GPG key.
  * 
  */
 @ResourceType(type="github:index/userGpgKey:UserGpgKey")

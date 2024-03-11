@@ -13,15 +13,18 @@ import * as utilities from "./utilities";
  *
  * To retrieve *all* teams of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationTeams({});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve only the team's at the root of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -30,6 +33,7 @@ import * as utilities from "./utilities";
  *     rootTeamsOnly: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamsResult> {
     args = args || {};
@@ -92,15 +96,18 @@ export interface GetOrganizationTeamsResult {
  *
  * To retrieve *all* teams of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationTeams({});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve only the team's at the root of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -109,6 +116,7 @@ export interface GetOrganizationTeamsResult {
  *     rootTeamsOnly: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamsResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationTeams(a, opts))

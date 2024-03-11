@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryBranches(args: GetRepositoryBranchesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryBranchesResult> {
 
@@ -69,6 +71,7 @@ export interface GetRepositoryBranchesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -77,6 +80,7 @@ export interface GetRepositoryBranchesResult {
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryBranchesOutput(args: GetRepositoryBranchesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryBranchesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryBranches(a, opts))

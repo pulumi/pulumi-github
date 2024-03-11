@@ -15,10 +15,9 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to an organization to retrieve it's Codespaces public key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,8 +30,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCodespacesOrganizationPublicKeyResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodespacesOrganizationPublicKeyResult>("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
@@ -41,10 +39,9 @@ namespace Pulumi.Github
         /// Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
         /// Note that the provider `token` must have admin rights to an organization to retrieve it's Codespaces public key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +54,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCodespacesOrganizationPublicKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesOrganizationPublicKeyResult>("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());

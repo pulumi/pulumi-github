@@ -163,6 +163,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -192,6 +194,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs args) {
@@ -201,6 +204,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -230,6 +235,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecretsPlain(GetActionsEnvironmentSecretsPlainArgs args) {
@@ -239,6 +245,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -268,6 +276,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs args, InvokeOptions options) {
@@ -277,6 +286,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +317,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecretsPlain(GetActionsEnvironmentSecretsPlainArgs args, InvokeOptions options) {
@@ -315,6 +327,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -344,6 +358,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args) {
@@ -353,6 +368,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -382,6 +399,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariablesPlain(GetActionsEnvironmentVariablesPlainArgs args) {
@@ -391,6 +409,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -420,6 +440,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args, InvokeOptions options) {
@@ -429,6 +450,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the repository environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -458,6 +481,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariablesPlain(GetActionsEnvironmentVariablesPlainArgs args, InvokeOptions options) {
@@ -467,6 +491,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -492,6 +518,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate() {
@@ -501,6 +528,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -526,6 +555,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain() {
@@ -535,6 +565,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +592,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args) {
@@ -569,6 +602,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -594,6 +629,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs args) {
@@ -603,6 +639,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,6 +666,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args, InvokeOptions options) {
@@ -637,6 +676,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -662,6 +703,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplatePlain(InvokeArgs args, InvokeOptions options) {
@@ -672,6 +714,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +741,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey() {
@@ -707,6 +752,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -732,6 +779,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain() {
@@ -742,6 +790,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -767,6 +817,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey(InvokeArgs args) {
@@ -777,6 +828,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -802,6 +855,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain(InvokeArgs args) {
@@ -812,6 +866,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +893,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
@@ -847,6 +904,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -872,6 +931,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -881,6 +941,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -906,6 +968,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationToken() {
@@ -915,6 +978,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -940,6 +1005,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationTokenPlain() {
@@ -949,6 +1015,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -974,6 +1042,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationToken(InvokeArgs args) {
@@ -983,6 +1052,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1008,6 +1079,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationTokenPlain(InvokeArgs args) {
@@ -1017,6 +1089,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1042,6 +1116,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationToken(InvokeArgs args, InvokeOptions options) {
@@ -1051,6 +1126,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1076,6 +1153,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationTokenPlain(InvokeArgs args, InvokeOptions options) {
@@ -1085,6 +1163,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1110,6 +1190,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationSecretsResult> getActionsOrganizationSecrets() {
@@ -1119,6 +1200,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1144,6 +1227,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationSecretsResult> getActionsOrganizationSecretsPlain() {
@@ -1153,6 +1237,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1178,6 +1264,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationSecretsResult> getActionsOrganizationSecrets(InvokeArgs args) {
@@ -1187,6 +1274,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1212,6 +1301,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationSecretsResult> getActionsOrganizationSecretsPlain(InvokeArgs args) {
@@ -1221,6 +1311,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1246,6 +1338,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationSecretsResult> getActionsOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
@@ -1255,6 +1348,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1280,6 +1375,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationSecretsResult> getActionsOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
@@ -1289,6 +1385,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1314,6 +1412,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables() {
@@ -1323,6 +1422,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1348,6 +1449,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain() {
@@ -1357,6 +1459,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1382,6 +1486,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables(InvokeArgs args) {
@@ -1391,6 +1496,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1416,6 +1523,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain(InvokeArgs args) {
@@ -1425,6 +1533,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1450,6 +1560,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables(InvokeArgs args, InvokeOptions options) {
@@ -1459,6 +1570,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1484,6 +1597,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain(InvokeArgs args, InvokeOptions options) {
@@ -1494,6 +1608,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1522,6 +1638,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsPublicKeyResult> getActionsPublicKey(GetActionsPublicKeyArgs args) {
@@ -1532,6 +1649,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1560,6 +1679,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsPublicKeyResult> getActionsPublicKeyPlain(GetActionsPublicKeyPlainArgs args) {
@@ -1570,6 +1690,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1598,6 +1720,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsPublicKeyResult> getActionsPublicKey(GetActionsPublicKeyArgs args, InvokeOptions options) {
@@ -1608,6 +1731,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1636,6 +1761,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsPublicKeyResult> getActionsPublicKeyPlain(GetActionsPublicKeyPlainArgs args, InvokeOptions options) {
@@ -1645,6 +1771,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1673,6 +1801,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsRegistrationTokenResult> getActionsRegistrationToken(GetActionsRegistrationTokenArgs args) {
@@ -1682,6 +1811,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1710,6 +1841,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsRegistrationTokenResult> getActionsRegistrationTokenPlain(GetActionsRegistrationTokenPlainArgs args) {
@@ -1719,6 +1851,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1747,6 +1881,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsRegistrationTokenResult> getActionsRegistrationToken(GetActionsRegistrationTokenArgs args, InvokeOptions options) {
@@ -1756,6 +1891,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1784,6 +1921,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsRegistrationTokenResult> getActionsRegistrationTokenPlain(GetActionsRegistrationTokenPlainArgs args, InvokeOptions options) {
@@ -1793,6 +1931,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1821,6 +1961,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args) {
@@ -1830,6 +1971,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1858,6 +2001,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplatePlain(GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs args) {
@@ -1867,6 +2011,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1895,6 +2041,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, InvokeOptions options) {
@@ -1904,6 +2051,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1932,6 +2081,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplatePlain(GetActionsRepositoryOidcSubjectClaimCustomizationTemplatePlainArgs args, InvokeOptions options) {
@@ -1941,6 +2091,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1969,6 +2121,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsSecretsResult> getActionsSecrets() {
@@ -1978,6 +2131,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2006,6 +2161,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsSecretsResult> getActionsSecretsPlain() {
@@ -2015,6 +2171,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2043,6 +2201,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsSecretsResult> getActionsSecrets(GetActionsSecretsArgs args) {
@@ -2052,6 +2211,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2080,6 +2241,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsSecretsResult> getActionsSecretsPlain(GetActionsSecretsPlainArgs args) {
@@ -2089,6 +2251,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2117,6 +2281,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsSecretsResult> getActionsSecrets(GetActionsSecretsArgs args, InvokeOptions options) {
@@ -2126,6 +2291,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2154,6 +2321,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsSecretsResult> getActionsSecretsPlain(GetActionsSecretsPlainArgs args, InvokeOptions options) {
@@ -2163,6 +2331,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2191,6 +2361,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsVariablesResult> getActionsVariables() {
@@ -2200,6 +2371,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2228,6 +2401,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain() {
@@ -2237,6 +2411,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2265,6 +2441,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsVariablesResult> getActionsVariables(GetActionsVariablesArgs args) {
@@ -2274,6 +2451,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2302,6 +2481,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args) {
@@ -2311,6 +2491,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2339,6 +2521,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionsVariablesResult> getActionsVariables(GetActionsVariablesArgs args, InvokeOptions options) {
@@ -2348,6 +2531,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of variables for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2376,6 +2561,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args, InvokeOptions options) {
@@ -2385,6 +2571,8 @@ public final class GithubFunctions {
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2415,6 +2603,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args) {
@@ -2424,6 +2613,8 @@ public final class GithubFunctions {
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2454,6 +2645,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args) {
@@ -2463,6 +2655,8 @@ public final class GithubFunctions {
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2493,6 +2687,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args, InvokeOptions options) {
@@ -2502,6 +2697,8 @@ public final class GithubFunctions {
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2532,6 +2729,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args, InvokeOptions options) {
@@ -2541,6 +2739,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository branch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2570,6 +2770,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBranchResult> getBranch(GetBranchArgs args) {
@@ -2579,6 +2780,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository branch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2608,6 +2811,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBranchResult> getBranchPlain(GetBranchPlainArgs args) {
@@ -2617,6 +2821,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository branch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2646,6 +2852,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBranchResult> getBranch(GetBranchArgs args, InvokeOptions options) {
@@ -2655,6 +2862,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository branch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2684,6 +2893,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBranchResult> getBranchPlain(GetBranchPlainArgs args, InvokeOptions options) {
@@ -2693,6 +2903,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of repository branch protection rules.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2721,6 +2933,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args) {
@@ -2730,6 +2943,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of repository branch protection rules.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2758,6 +2973,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBranchProtectionRulesResult> getBranchProtectionRulesPlain(GetBranchProtectionRulesPlainArgs args) {
@@ -2767,6 +2983,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of repository branch protection rules.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2795,6 +3013,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args, InvokeOptions options) {
@@ -2804,6 +3023,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of repository branch protection rules.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2832,6 +3053,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBranchProtectionRulesResult> getBranchProtectionRulesPlain(GetBranchProtectionRulesPlainArgs args, InvokeOptions options) {
@@ -2842,6 +3064,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2867,6 +3091,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey() {
@@ -2877,6 +3102,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2902,6 +3129,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain() {
@@ -2912,6 +3140,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2937,6 +3167,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey(InvokeArgs args) {
@@ -2947,6 +3178,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2972,6 +3205,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain(InvokeArgs args) {
@@ -2982,6 +3216,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3007,6 +3243,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
@@ -3017,6 +3254,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3042,6 +3281,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -3051,6 +3291,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3076,6 +3318,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets() {
@@ -3085,6 +3328,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3110,6 +3355,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain() {
@@ -3119,6 +3365,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3144,6 +3392,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets(InvokeArgs args) {
@@ -3153,6 +3402,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3178,6 +3429,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain(InvokeArgs args) {
@@ -3187,6 +3439,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3212,6 +3466,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
@@ -3221,6 +3476,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3246,6 +3503,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
@@ -3256,6 +3514,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3284,6 +3544,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args) {
@@ -3294,6 +3555,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3322,6 +3585,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesPublicKeyResult> getCodespacesPublicKeyPlain(GetCodespacesPublicKeyPlainArgs args) {
@@ -3332,6 +3596,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3360,6 +3626,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args, InvokeOptions options) {
@@ -3370,6 +3637,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3398,6 +3667,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesPublicKeyResult> getCodespacesPublicKeyPlain(GetCodespacesPublicKeyPlainArgs args, InvokeOptions options) {
@@ -3407,6 +3677,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3439,6 +3711,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesSecretsResult> getCodespacesSecrets() {
@@ -3448,6 +3721,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3480,6 +3755,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain() {
@@ -3489,6 +3765,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3521,6 +3799,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesSecretsResult> getCodespacesSecrets(GetCodespacesSecretsArgs args) {
@@ -3530,6 +3809,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3562,6 +3843,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs args) {
@@ -3571,6 +3853,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3603,6 +3887,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesSecretsResult> getCodespacesSecrets(GetCodespacesSecretsArgs args, InvokeOptions options) {
@@ -3612,6 +3897,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3644,6 +3931,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs args, InvokeOptions options) {
@@ -3654,6 +3942,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3679,6 +3969,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey() {
@@ -3689,6 +3980,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3714,6 +4007,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain() {
@@ -3724,6 +4018,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3749,6 +4045,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args) {
@@ -3759,6 +4056,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3784,6 +4083,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain(InvokeArgs args) {
@@ -3794,6 +4094,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3819,6 +4121,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args, InvokeOptions options) {
@@ -3829,6 +4132,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3854,6 +4159,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -3863,6 +4169,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3888,6 +4196,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets() {
@@ -3897,6 +4206,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3922,6 +4233,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain() {
@@ -3931,6 +4243,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3956,6 +4270,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets(InvokeArgs args) {
@@ -3965,6 +4280,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3990,6 +4307,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain(InvokeArgs args) {
@@ -3999,6 +4317,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4024,6 +4344,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets(InvokeArgs args, InvokeOptions options) {
@@ -4033,6 +4354,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of codespaces secrets of the user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4058,6 +4381,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain(InvokeArgs args, InvokeOptions options) {
@@ -4067,6 +4391,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the collaborators for a given repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4096,6 +4422,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCollaboratorsResult> getCollaborators(GetCollaboratorsArgs args) {
@@ -4105,6 +4432,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the collaborators for a given repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4134,6 +4463,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCollaboratorsResult> getCollaboratorsPlain(GetCollaboratorsPlainArgs args) {
@@ -4143,6 +4473,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the collaborators for a given repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4172,6 +4504,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCollaboratorsResult> getCollaborators(GetCollaboratorsArgs args, InvokeOptions options) {
@@ -4181,6 +4514,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the collaborators for a given repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4210,6 +4545,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCollaboratorsResult> getCollaboratorsPlain(GetCollaboratorsPlainArgs args, InvokeOptions options) {
@@ -4220,6 +4556,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4245,6 +4583,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey() {
@@ -4255,6 +4594,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4280,6 +4621,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain() {
@@ -4290,6 +4632,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4315,6 +4659,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey(InvokeArgs args) {
@@ -4325,6 +4670,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4350,6 +4697,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain(InvokeArgs args) {
@@ -4360,6 +4708,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4385,6 +4735,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey(InvokeArgs args, InvokeOptions options) {
@@ -4395,6 +4746,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4420,6 +4773,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -4429,6 +4783,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4454,6 +4810,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets() {
@@ -4463,6 +4820,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4488,6 +4847,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain() {
@@ -4497,6 +4857,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4522,6 +4884,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args) {
@@ -4531,6 +4894,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4556,6 +4921,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args) {
@@ -4565,6 +4931,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4590,6 +4958,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args, InvokeOptions options) {
@@ -4599,6 +4968,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets of the organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4624,6 +4995,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
@@ -4634,6 +5006,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4662,6 +5036,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args) {
@@ -4672,6 +5047,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4700,6 +5077,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args) {
@@ -4710,6 +5088,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4738,6 +5118,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args, InvokeOptions options) {
@@ -4748,6 +5129,8 @@ public final class GithubFunctions {
      * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4776,6 +5159,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotPublicKeyResult> getDependabotPublicKeyPlain(GetDependabotPublicKeyPlainArgs args, InvokeOptions options) {
@@ -4785,6 +5169,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4813,6 +5199,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotSecretsResult> getDependabotSecrets() {
@@ -4822,6 +5209,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4850,6 +5239,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain() {
@@ -4859,6 +5249,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4887,6 +5279,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args) {
@@ -4896,6 +5289,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4924,6 +5319,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args) {
@@ -4933,6 +5329,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4961,6 +5359,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args, InvokeOptions options) {
@@ -4970,6 +5369,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4998,6 +5399,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args, InvokeOptions options) {
@@ -5007,6 +5409,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub enterprise.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5035,6 +5439,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args) {
@@ -5044,6 +5449,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub enterprise.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5072,6 +5479,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnterpriseResult> getEnterprisePlain(GetEnterprisePlainArgs args) {
@@ -5081,6 +5489,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub enterprise.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5109,6 +5519,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args, InvokeOptions options) {
@@ -5118,6 +5529,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub enterprise.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5146,6 +5559,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnterpriseResult> getEnterprisePlain(GetEnterprisePlainArgs args, InvokeOptions options) {
@@ -5155,6 +5569,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5183,6 +5599,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalGroupsResult> getExternalGroups() {
@@ -5192,6 +5609,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5220,6 +5639,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain() {
@@ -5229,6 +5649,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5257,6 +5679,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalGroupsResult> getExternalGroups(InvokeArgs args) {
@@ -5266,6 +5689,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5294,6 +5719,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args) {
@@ -5303,6 +5729,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5331,6 +5759,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalGroupsResult> getExternalGroups(InvokeArgs args, InvokeOptions options) {
@@ -5340,6 +5769,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve external groups belonging to an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5368,6 +5799,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args, InvokeOptions options) {
@@ -5377,6 +5809,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about an app.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5405,6 +5839,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args) {
@@ -5414,6 +5849,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about an app.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5442,6 +5879,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGithubAppResult> getGithubAppPlain(GetGithubAppPlainArgs args) {
@@ -5451,6 +5889,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about an app.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5479,6 +5919,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args, InvokeOptions options) {
@@ -5488,6 +5929,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about an app.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5516,6 +5959,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGithubAppResult> getGithubAppPlain(GetGithubAppPlainArgs args, InvokeOptions options) {
@@ -5525,6 +5969,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5550,6 +5996,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges() {
@@ -5559,6 +6006,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5584,6 +6033,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain() {
@@ -5593,6 +6043,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5618,6 +6070,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args) {
@@ -5627,6 +6080,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5652,6 +6107,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args) {
@@ -5661,6 +6117,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5686,6 +6144,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args, InvokeOptions options) {
@@ -5695,6 +6154,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5720,6 +6181,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args, InvokeOptions options) {
@@ -5760,6 +6222,8 @@ public final class GithubFunctions {
      * the role they would have once they accept will be returned.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5788,6 +6252,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMembershipResult> getMembership(GetMembershipArgs args) {
@@ -5800,6 +6265,8 @@ public final class GithubFunctions {
      * the role they would have once they accept will be returned.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5828,6 +6295,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMembershipResult> getMembershipPlain(GetMembershipPlainArgs args) {
@@ -5840,6 +6308,8 @@ public final class GithubFunctions {
      * the role they would have once they accept will be returned.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5868,6 +6338,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMembershipResult> getMembership(GetMembershipArgs args, InvokeOptions options) {
@@ -5880,6 +6351,8 @@ public final class GithubFunctions {
      * the role they would have once they accept will be returned.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5908,6 +6381,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMembershipResult> getMembershipPlain(GetMembershipPlainArgs args, InvokeOptions options) {
@@ -5917,6 +6391,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub Organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5945,6 +6421,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args) {
@@ -5954,6 +6431,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub Organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5982,6 +6461,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args) {
@@ -5991,6 +6471,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub Organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6019,6 +6501,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOptions options) {
@@ -6028,6 +6511,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve basic information about a GitHub Organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6056,6 +6541,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
@@ -6067,6 +6553,8 @@ public final class GithubFunctions {
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6095,6 +6583,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args) {
@@ -6106,6 +6595,8 @@ public final class GithubFunctions {
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6134,6 +6625,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationCustomRoleResult> getOrganizationCustomRolePlain(GetOrganizationCustomRolePlainArgs args) {
@@ -6145,6 +6637,8 @@ public final class GithubFunctions {
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6173,6 +6667,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args, InvokeOptions options) {
@@ -6184,6 +6679,8 @@ public final class GithubFunctions {
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6212,6 +6709,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationCustomRoleResult> getOrganizationCustomRolePlain(GetOrganizationCustomRolePlainArgs args, InvokeOptions options) {
@@ -6222,6 +6720,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6247,6 +6747,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities() {
@@ -6257,6 +6758,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6282,6 +6785,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain() {
@@ -6292,6 +6796,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6317,6 +6823,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args) {
@@ -6327,6 +6834,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6352,6 +6861,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain(InvokeArgs args) {
@@ -6362,6 +6872,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6387,6 +6899,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args, InvokeOptions options) {
@@ -6397,6 +6910,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6422,6 +6937,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentitiesPlain(InvokeArgs args, InvokeOptions options) {
@@ -6433,6 +6949,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6458,6 +6976,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList() {
@@ -6469,6 +6988,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6494,6 +7015,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain() {
@@ -6505,6 +7027,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6530,6 +7054,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList(InvokeArgs args) {
@@ -6541,6 +7066,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6566,6 +7093,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args) {
@@ -6577,6 +7105,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6602,6 +7132,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList(InvokeArgs args, InvokeOptions options) {
@@ -6613,6 +7144,8 @@ public final class GithubFunctions {
      * and Git from any IP addresses that are not on the allow list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6638,6 +7171,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args, InvokeOptions options) {
@@ -6647,6 +7181,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6672,6 +7208,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups() {
@@ -6681,6 +7218,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6706,6 +7245,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain() {
@@ -6715,6 +7255,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6740,6 +7282,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args) {
@@ -6749,6 +7292,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6774,6 +7319,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain(InvokeArgs args) {
@@ -6783,6 +7329,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6808,6 +7356,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args, InvokeOptions options) {
@@ -6817,6 +7366,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6842,6 +7393,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroupsPlain(InvokeArgs args, InvokeOptions options) {
@@ -6853,6 +7405,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6879,8 +7433,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6909,6 +7466,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamsResult> getOrganizationTeams() {
@@ -6920,6 +7478,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6946,8 +7506,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6976,6 +7539,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamsResult> getOrganizationTeamsPlain() {
@@ -6987,6 +7551,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7013,8 +7579,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7043,6 +7612,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamsResult> getOrganizationTeams(GetOrganizationTeamsArgs args) {
@@ -7054,6 +7624,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7080,8 +7652,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7110,6 +7685,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamsResult> getOrganizationTeamsPlain(GetOrganizationTeamsPlainArgs args) {
@@ -7121,6 +7697,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7147,8 +7725,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7177,6 +7758,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationTeamsResult> getOrganizationTeams(GetOrganizationTeamsArgs args, InvokeOptions options) {
@@ -7188,6 +7770,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7214,8 +7798,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7244,6 +7831,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationTeamsResult> getOrganizationTeamsPlain(GetOrganizationTeamsPlainArgs args, InvokeOptions options) {
@@ -7255,6 +7843,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7280,6 +7870,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks() {
@@ -7291,6 +7882,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7316,6 +7909,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain() {
@@ -7327,6 +7921,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7352,6 +7948,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks(InvokeArgs args) {
@@ -7363,6 +7960,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7388,6 +7987,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain(InvokeArgs args) {
@@ -7399,6 +7999,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7424,6 +8026,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks(InvokeArgs args, InvokeOptions options) {
@@ -7435,6 +8038,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7460,6 +8065,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain(InvokeArgs args, InvokeOptions options) {
@@ -7469,6 +8075,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository ref.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7499,6 +8107,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRefResult> getRef(GetRefArgs args) {
@@ -7508,6 +8117,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository ref.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7538,6 +8149,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRefResult> getRefPlain(GetRefPlainArgs args) {
@@ -7547,6 +8159,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository ref.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7577,6 +8191,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRefResult> getRef(GetRefArgs args, InvokeOptions options) {
@@ -7586,6 +8201,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a repository ref.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7616,6 +8233,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRefResult> getRefPlain(GetRefPlainArgs args, InvokeOptions options) {
@@ -7627,6 +8245,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve the latest release that is present in a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7657,9 +8277,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7691,8 +8313,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7724,6 +8349,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReleaseResult> getRelease(GetReleaseArgs args) {
@@ -7735,6 +8361,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve the latest release that is present in a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7765,9 +8393,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7799,8 +8429,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7832,6 +8465,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args) {
@@ -7843,6 +8477,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve the latest release that is present in a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7873,9 +8509,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7907,8 +8545,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7940,6 +8581,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOptions options) {
@@ -7951,6 +8593,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve the latest release that is present in a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7981,9 +8625,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8015,8 +8661,11 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8048,6 +8697,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args, InvokeOptions options) {
@@ -8060,6 +8710,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8089,6 +8741,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args) {
@@ -8101,6 +8754,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8130,6 +8785,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args) {
@@ -8142,6 +8798,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8171,6 +8829,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
@@ -8183,6 +8842,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8212,6 +8873,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
@@ -8221,6 +8883,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8249,6 +8913,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository() {
@@ -8258,6 +8923,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8286,6 +8953,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain() {
@@ -8295,6 +8963,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8323,6 +8993,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args) {
@@ -8332,6 +9003,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8360,6 +9033,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args) {
@@ -8369,6 +9043,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8397,6 +9073,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOptions options) {
@@ -8406,6 +9083,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8434,6 +9113,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
@@ -8443,6 +9123,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve autolink references for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8471,6 +9153,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args) {
@@ -8480,6 +9163,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve autolink references for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8508,6 +9193,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferencesPlain(GetRepositoryAutolinkReferencesPlainArgs args) {
@@ -8517,6 +9203,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve autolink references for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8545,6 +9233,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args, InvokeOptions options) {
@@ -8554,6 +9243,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve autolink references for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8582,6 +9273,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferencesPlain(GetRepositoryAutolinkReferencesPlainArgs args, InvokeOptions options) {
@@ -8591,6 +9283,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about branches in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8619,6 +9313,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args) {
@@ -8628,6 +9323,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about branches in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8656,6 +9353,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args) {
@@ -8665,6 +9363,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about branches in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8693,6 +9393,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args, InvokeOptions options) {
@@ -8702,6 +9403,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about branches in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8730,6 +9433,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args, InvokeOptions options) {
@@ -8739,6 +9443,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve all deploy keys of a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8767,6 +9473,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args) {
@@ -8776,6 +9483,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve all deploy keys of a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8804,6 +9513,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryDeployKeysResult> getRepositoryDeployKeysPlain(GetRepositoryDeployKeysPlainArgs args) {
@@ -8813,6 +9523,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve all deploy keys of a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8841,6 +9553,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args, InvokeOptions options) {
@@ -8850,6 +9563,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve all deploy keys of a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8878,6 +9593,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryDeployKeysResult> getRepositoryDeployKeysPlain(GetRepositoryDeployKeysPlainArgs args, InvokeOptions options) {
@@ -8887,6 +9603,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8916,6 +9634,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs args) {
@@ -8925,6 +9644,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8954,6 +9675,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPoliciesPlain(GetRepositoryDeploymentBranchPoliciesPlainArgs args) {
@@ -8963,6 +9685,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8992,6 +9716,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs args, InvokeOptions options) {
@@ -9001,6 +9726,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9030,6 +9757,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPoliciesPlain(GetRepositoryDeploymentBranchPoliciesPlainArgs args, InvokeOptions options) {
@@ -9039,6 +9767,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about environments for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9067,6 +9797,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args) {
@@ -9076,6 +9807,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about environments for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9104,6 +9837,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEnvironmentsResult> getRepositoryEnvironmentsPlain(GetRepositoryEnvironmentsPlainArgs args) {
@@ -9113,6 +9847,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about environments for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9141,6 +9877,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args, InvokeOptions options) {
@@ -9150,6 +9887,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about environments for a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9178,6 +9917,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEnvironmentsResult> getRepositoryEnvironmentsPlain(GetRepositoryEnvironmentsPlainArgs args, InvokeOptions options) {
@@ -9188,6 +9928,8 @@ public final class GithubFunctions {
      * GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9218,6 +9960,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryFileResult> getRepositoryFile(GetRepositoryFileArgs args) {
@@ -9228,6 +9971,8 @@ public final class GithubFunctions {
      * GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9258,6 +10003,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryFileResult> getRepositoryFilePlain(GetRepositoryFilePlainArgs args) {
@@ -9268,6 +10014,8 @@ public final class GithubFunctions {
      * GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9298,6 +10046,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryFileResult> getRepositoryFile(GetRepositoryFileArgs args, InvokeOptions options) {
@@ -9308,6 +10057,8 @@ public final class GithubFunctions {
      * GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9338,6 +10089,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryFileResult> getRepositoryFilePlain(GetRepositoryFilePlainArgs args, InvokeOptions options) {
@@ -9347,6 +10099,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub milestone in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9377,6 +10131,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryMilestoneResult> getRepositoryMilestone(GetRepositoryMilestoneArgs args) {
@@ -9386,6 +10141,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub milestone in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9416,6 +10173,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryMilestoneResult> getRepositoryMilestonePlain(GetRepositoryMilestonePlainArgs args) {
@@ -9425,6 +10183,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub milestone in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9455,6 +10215,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryMilestoneResult> getRepositoryMilestone(GetRepositoryMilestoneArgs args, InvokeOptions options) {
@@ -9464,6 +10225,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub milestone in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9494,6 +10257,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryMilestoneResult> getRepositoryMilestonePlain(GetRepositoryMilestonePlainArgs args, InvokeOptions options) {
@@ -9503,6 +10267,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9532,6 +10298,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryPullRequestResult> getRepositoryPullRequest(GetRepositoryPullRequestArgs args) {
@@ -9541,6 +10308,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9570,6 +10339,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryPullRequestResult> getRepositoryPullRequestPlain(GetRepositoryPullRequestPlainArgs args) {
@@ -9579,6 +10349,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9608,6 +10380,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryPullRequestResult> getRepositoryPullRequest(GetRepositoryPullRequestArgs args, InvokeOptions options) {
@@ -9617,6 +10390,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9646,6 +10421,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryPullRequestResult> getRepositoryPullRequestPlain(GetRepositoryPullRequestPlainArgs args, InvokeOptions options) {
@@ -9655,6 +10431,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9687,6 +10465,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequests(GetRepositoryPullRequestsArgs args) {
@@ -9696,6 +10475,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9728,6 +10509,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequestsPlain(GetRepositoryPullRequestsPlainArgs args) {
@@ -9737,6 +10519,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9769,6 +10553,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequests(GetRepositoryPullRequestsArgs args, InvokeOptions options) {
@@ -9778,6 +10563,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9810,6 +10597,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequestsPlain(GetRepositoryPullRequestsPlainArgs args, InvokeOptions options) {
@@ -9819,6 +10607,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9847,6 +10637,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryTeamsResult> getRepositoryTeams() {
@@ -9856,6 +10647,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9884,6 +10677,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryTeamsResult> getRepositoryTeamsPlain() {
@@ -9893,6 +10687,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9921,6 +10717,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryTeamsResult> getRepositoryTeams(GetRepositoryTeamsArgs args) {
@@ -9930,6 +10727,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9958,6 +10757,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryTeamsResult> getRepositoryTeamsPlain(GetRepositoryTeamsPlainArgs args) {
@@ -9967,6 +10767,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9995,6 +10797,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryTeamsResult> getRepositoryTeams(GetRepositoryTeamsArgs args, InvokeOptions options) {
@@ -10004,6 +10807,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve the list of teams which have access to a GitHub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10032,6 +10837,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryTeamsResult> getRepositoryTeamsPlain(GetRepositoryTeamsPlainArgs args, InvokeOptions options) {
@@ -10043,6 +10849,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve webhooks of a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10071,6 +10879,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryWebhooksResult> getRepositoryWebhooks(GetRepositoryWebhooksArgs args) {
@@ -10082,6 +10891,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve webhooks of a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10110,6 +10921,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args) {
@@ -10121,6 +10933,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve webhooks of a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10149,6 +10963,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryWebhooksResult> getRepositoryWebhooks(GetRepositoryWebhooksArgs args, InvokeOptions options) {
@@ -10160,6 +10975,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * To retrieve webhooks of a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10188,6 +11005,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args, InvokeOptions options) {
@@ -10197,6 +11015,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub resource through REST API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10225,6 +11045,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args) {
@@ -10234,6 +11055,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub resource through REST API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10262,6 +11085,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args) {
@@ -10271,6 +11095,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub resource through REST API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10299,6 +11125,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOptions options) {
@@ -10308,6 +11135,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub resource through REST API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10336,6 +11165,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestApiResult> getRestApiPlain(GetRestApiPlainArgs args, InvokeOptions options) {
@@ -10345,6 +11175,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10370,6 +11202,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys() {
@@ -10379,6 +11212,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10404,6 +11239,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain() {
@@ -10413,6 +11249,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10438,6 +11276,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys(InvokeArgs args) {
@@ -10447,6 +11286,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10472,6 +11313,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(InvokeArgs args) {
@@ -10481,6 +11323,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10506,6 +11350,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshKeysResult> getSshKeys(InvokeArgs args, InvokeOptions options) {
@@ -10515,6 +11360,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about GitHub&#39;s SSH keys.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10540,6 +11387,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(InvokeArgs args, InvokeOptions options) {
@@ -10549,6 +11397,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10577,6 +11427,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
@@ -10586,6 +11437,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10614,6 +11467,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args) {
@@ -10623,6 +11477,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10651,6 +11507,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
@@ -10660,6 +11517,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10688,6 +11547,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
@@ -10697,6 +11557,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a single tree.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10739,6 +11601,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTreeResult> getTree(GetTreeArgs args) {
@@ -10748,6 +11611,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a single tree.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10790,6 +11655,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTreeResult> getTreePlain(GetTreePlainArgs args) {
@@ -10799,6 +11665,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a single tree.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10841,6 +11709,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTreeResult> getTree(GetTreeArgs args, InvokeOptions options) {
@@ -10850,6 +11719,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a single tree.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10892,6 +11763,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTreeResult> getTreePlain(GetTreePlainArgs args, InvokeOptions options) {
@@ -10901,6 +11773,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10934,6 +11808,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -10943,6 +11818,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10976,6 +11853,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -10985,6 +11863,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11018,6 +11898,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -11027,6 +11908,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about a GitHub user.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11060,6 +11943,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -11070,6 +11954,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11098,6 +11984,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserExternalIdentityResult> getUserExternalIdentity(GetUserExternalIdentityArgs args) {
@@ -11108,6 +11995,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11136,6 +12025,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserExternalIdentityResult> getUserExternalIdentityPlain(GetUserExternalIdentityPlainArgs args) {
@@ -11146,6 +12036,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11174,6 +12066,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserExternalIdentityResult> getUserExternalIdentity(GetUserExternalIdentityArgs args, InvokeOptions options) {
@@ -11184,6 +12077,8 @@ public final class GithubFunctions {
      * attributes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11212,6 +12107,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserExternalIdentityResult> getUserExternalIdentityPlain(GetUserExternalIdentityPlainArgs args, InvokeOptions options) {
@@ -11221,6 +12117,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub users at once.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11254,6 +12152,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -11263,6 +12162,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub users at once.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11296,6 +12197,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -11305,6 +12207,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub users at once.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11338,6 +12242,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -11347,6 +12252,8 @@ public final class GithubFunctions {
      * Use this data source to retrieve information about multiple GitHub users at once.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11380,6 +12287,7 @@ public final class GithubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

@@ -37,6 +37,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,13 +56,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Repository Collaborators can be imported using an ID made up of `repository:username`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
+    /// $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryCollaborator:RepositoryCollaborator")]

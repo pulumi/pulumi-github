@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * You must have admin access to an organization to use this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * This resource can be imported using the ID of the runner group:
  * 
  * ```sh
- *  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+ * $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
  * ```
  * 
  */

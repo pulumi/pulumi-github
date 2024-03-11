@@ -12,6 +12,7 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,13 +94,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+    /// $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchProtection:BranchProtection")]

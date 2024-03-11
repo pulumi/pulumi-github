@@ -165,6 +165,7 @@ def get_repository_file(branch: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -173,6 +174,7 @@ def get_repository_file(branch: Optional[str] = None,
         branch="main",
         file=".gitignore")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str branch: Git branch. Defaults to the repository's default branch.
@@ -211,6 +213,7 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -219,6 +222,7 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
         branch="main",
         file=".gitignore")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str branch: Git branch. Defaults to the repository's default branch.

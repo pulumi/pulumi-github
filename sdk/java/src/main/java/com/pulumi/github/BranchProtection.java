@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -98,13 +100,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+ * $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
  * ```
  * 
  */

@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -25,13 +26,14 @@ import * as utilities from "./utilities";
  *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * This resource can be imported using an ID made up of the secret name:
  *
  * ```sh
- *  $ pulumi import github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories org_secret_repos existing_secret_name
+ * $ pulumi import github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories org_secret_repos existing_secret_name
  * ```
  */
 export class CodespacesOrganizationSecretRepositories extends pulumi.CustomResource {

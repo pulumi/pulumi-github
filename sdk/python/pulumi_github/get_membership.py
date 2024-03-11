@@ -112,12 +112,14 @@ def get_membership(organization: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     membership_for_some_user = github.get_membership(username="SomeUser")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str organization: The organization to check for the above username.
@@ -150,12 +152,14 @@ def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     membership_for_some_user = github.get_membership(username="SomeUser")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str organization: The organization to check for the above username.

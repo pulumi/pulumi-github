@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryEnvironments(args: GetRepositoryEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEnvironmentsResult> {
 
@@ -57,6 +59,7 @@ export interface GetRepositoryEnvironmentsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -65,6 +68,7 @@ export interface GetRepositoryEnvironmentsResult {
  *     repository: "example-repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryEnvironmentsOutput(args: GetRepositoryEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEnvironmentsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryEnvironments(a, opts))

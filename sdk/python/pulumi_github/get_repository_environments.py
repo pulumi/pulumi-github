@@ -73,12 +73,14 @@ def get_repository_environments(repository: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_environments(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to retrieve the environments from.
@@ -102,12 +104,14 @@ def get_repository_environments_output(repository: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_environments(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to retrieve the environments from.

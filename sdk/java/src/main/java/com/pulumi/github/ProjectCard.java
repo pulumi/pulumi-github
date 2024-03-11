@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage cards for GitHub projects.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +62,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Adding An Issue To A Project
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,13 +125,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A GitHub Project Card can be imported using its [Card ID](https://developer.github.com/v3/projects/cards/#get-a-project-card):
  * 
  * ```sh
- *  $ pulumi import github:index/projectCard:ProjectCard card 01234567
+ * $ pulumi import github:index/projectCard:ProjectCard card 01234567
  * ```
  * 
  */

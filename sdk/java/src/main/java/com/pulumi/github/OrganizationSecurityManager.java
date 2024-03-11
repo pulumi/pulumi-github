@@ -15,6 +15,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
+ * $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
  * ```
  * 
  */

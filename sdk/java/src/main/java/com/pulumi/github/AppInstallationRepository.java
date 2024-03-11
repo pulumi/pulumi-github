@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * [link](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+ * GitHub App Installation Repository can be imported
+ * using an ID made up of `installation_id:repository`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+ * $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
  * ```
  * 
  */

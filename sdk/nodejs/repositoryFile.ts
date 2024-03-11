@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -26,18 +27,19 @@ import * as utilities from "./utilities";
  *     overwriteOnCreate: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Repository files can be imported using a combination of the `repo` and `file`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
  * ```
- *  To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+ * To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
  * ```
  */
 export class RepositoryFile extends pulumi.CustomResource {

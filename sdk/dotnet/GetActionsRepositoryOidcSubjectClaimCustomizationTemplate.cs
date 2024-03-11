@@ -14,10 +14,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> InvokeAsync(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult>("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", args ?? new GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> Invoke(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult>("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", args ?? new GetActionsRepositoryOidcSubjectClaimCustomizationTemplateInvokeArgs(), options.WithDefaults());

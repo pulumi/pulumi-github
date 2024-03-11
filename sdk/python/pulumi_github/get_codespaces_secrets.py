@@ -86,6 +86,7 @@ def get_codespaces_secrets(full_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -93,6 +94,7 @@ def get_codespaces_secrets(full_name: Optional[str] = None,
     example = github.get_codespaces_secrets(name="example_repository")
     example2 = github.get_codespaces_secrets(full_name="org/example_repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: Full name of the repository (in `org/name` format).
@@ -120,6 +122,7 @@ def get_codespaces_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -127,6 +130,7 @@ def get_codespaces_secrets_output(full_name: Optional[pulumi.Input[Optional[str]
     example = github.get_codespaces_secrets(name="example_repository")
     example2 = github.get_codespaces_secrets(full_name="org/example_repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str full_name: Full name of the repository (in `org/name` format).

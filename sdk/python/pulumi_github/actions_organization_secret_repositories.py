@@ -105,6 +105,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -114,13 +115,14 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -142,6 +144,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -151,13 +154,14 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
         ```
 
         :param str resource_name: The name of the resource.

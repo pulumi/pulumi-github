@@ -153,6 +153,7 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -167,9 +168,11 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
+        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -182,13 +185,14 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+        $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,6 +218,7 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -228,9 +233,11 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
+        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -243,13 +250,14 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+        $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
         ```
 
         :param str resource_name: The name of the resource.

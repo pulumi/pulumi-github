@@ -151,6 +151,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -167,11 +168,12 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
             environment_name="my_env",
             opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,6 +193,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -207,11 +210,12 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
             environment_name="my_env",
             opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
+        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
         ```
 
         :param str resource_name: The name of the resource.

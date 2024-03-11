@@ -14,10 +14,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCodespacesSecretsResult> InvokeAsync(GetCodespacesSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodespacesSecretsResult>("github:index/getCodespacesSecrets:getCodespacesSecrets", args ?? new GetCodespacesSecretsArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Github
         /// <summary>
         /// Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCodespacesSecretsResult> Invoke(GetCodespacesSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesSecretsResult>("github:index/getCodespacesSecrets:getCodespacesSecrets", args ?? new GetCodespacesSecretsInvokeArgs(), options.WithDefaults());

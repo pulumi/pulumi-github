@@ -93,12 +93,14 @@ def get_repository_branches(only_non_protected_branches: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_branches(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool only_non_protected_branches: . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
@@ -130,12 +132,14 @@ def get_repository_branches_output(only_non_protected_branches: Optional[pulumi.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_repository_branches(repository="example-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool only_non_protected_branches: . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.

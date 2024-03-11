@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,6 +57,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Allowing empty invitation IDs
 //
 // Set `allowEmptyId` when using `forEach` over a list of `github_repository_collaborator.invitation_id`'s.

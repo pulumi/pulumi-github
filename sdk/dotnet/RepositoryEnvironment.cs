@@ -14,6 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +57,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+    /// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryEnvironment:RepositoryEnvironment")]

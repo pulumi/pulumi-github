@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
+ * $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
  * ```
  * 
  */

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage a GitHub enterprise organization.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
  * 
  * ```sh
- *  $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+ * $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
  * ```
  * 
  */

@@ -15,6 +15,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,18 +43,19 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Repository files can be imported using a combination of the `repo` and `file`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
     /// ```
-    ///  To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+    /// To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryFile:RepositoryFile")]

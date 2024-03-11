@@ -17,6 +17,7 @@ import (
 //
 // To retrieve webhooks of a repository:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositoryWebhooks(ctx *pulumi.Context, args *GetRepositoryWebhooksArgs, opts ...pulumi.InvokeOption) (*GetRepositoryWebhooksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryWebhooksResult

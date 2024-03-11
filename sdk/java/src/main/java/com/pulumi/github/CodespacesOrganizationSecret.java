@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,6 +56,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -98,6 +103,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -107,9 +113,9 @@ import javax.annotation.Nullable;
  * $ pulumi import github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret test_secret test_secret_name
  * ```
  * 
- *  NOTE: the implementation is limited in that it won&#39;t fetch the value of the
+ * NOTE: the implementation is limited in that it won&#39;t fetch the value of the
  * 
- *  `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+ * `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  * 
  */
 @ResourceType(type="github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret")

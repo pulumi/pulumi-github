@@ -85,12 +85,14 @@ def get_dependabot_public_key(repository: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_dependabot_public_key(repository="example_repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to get public key from.
@@ -116,12 +118,14 @@ def get_dependabot_public_key_output(repository: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_dependabot_public_key(repository="example_repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to get public key from.

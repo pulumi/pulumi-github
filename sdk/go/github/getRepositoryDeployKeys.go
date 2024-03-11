@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositoryDeployKeys(ctx *pulumi.Context, args *GetRepositoryDeployKeysArgs, opts ...pulumi.InvokeOption) (*GetRepositoryDeployKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryDeployKeysResult

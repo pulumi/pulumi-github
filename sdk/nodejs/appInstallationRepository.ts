@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -30,13 +31,15 @@ import * as utilities from "./utilities";
  *     repository: someRepo.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * GitHub App Installation Repository can be imported using an ID made up of `installation_id:repository`, e.g.
+ * GitHub App Installation Repository can be imported
+ * using an ID made up of `installation_id:repository`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
+ * $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
  * ```
  */
 export class AppInstallationRepository extends pulumi.CustomResource {

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -59,13 +60,14 @@ import * as utilities from "./utilities";
  *     permission: "pull",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+ * $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
  * ```
  */
 export class BranchProtection extends pulumi.CustomResource {

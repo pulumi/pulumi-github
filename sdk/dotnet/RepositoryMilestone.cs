@@ -16,6 +16,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
+    /// $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryMilestone:RepositoryMilestone")]

@@ -20,6 +20,7 @@ namespace Pulumi.Github
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,9 +49,11 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Renaming to a branch that doesn't exist:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,13 +77,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
+    /// $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
     /// ```
     /// </summary>
     [GithubResourceType("github:index/branchDefault:BranchDefault")]

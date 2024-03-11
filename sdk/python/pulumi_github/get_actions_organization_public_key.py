@@ -75,12 +75,14 @@ def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_public_key()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -100,11 +102,13 @@ def get_actions_organization_public_key_output(opts: Optional[pulumi.InvokeOptio
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_public_key()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

@@ -17,6 +17,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +42,11 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Milestone And Project Assignment
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,13 +91,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+    /// $ pulumi import github:index/issue:Issue issue_15 myrepo:15
     /// ```
     /// </summary>
     [GithubResourceType("github:index/issue:Issue")]

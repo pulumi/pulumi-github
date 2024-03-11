@@ -235,6 +235,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -248,7 +249,9 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             visibility="private",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -265,15 +268,17 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
-         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        NOTE: the implementation is limited in that it won't fetch the value of the
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,6 +298,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -306,7 +312,9 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             visibility="private",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -323,15 +331,17 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
         ```
-         NOTE: the implementation is limited in that it won't fetch the value of the `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+        NOTE: the implementation is limited in that it won't fetch the value of the
+        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.

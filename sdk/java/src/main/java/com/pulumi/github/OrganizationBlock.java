@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * This resource allows you to create and manage blocks for GitHub organizations.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub organization block can be imported using a username, e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
+ * $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
  * ```
  * 
  */
