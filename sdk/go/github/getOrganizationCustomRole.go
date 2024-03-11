@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOrganizationCustomRole(ctx *pulumi.Context, args *LookupOrganizationCustomRoleArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationCustomRoleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationCustomRoleResult

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // A GitHub Repository Milestone can be imported using an ID made up of `owner/repository/number`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
-//
+// $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
 // ```
 type RepositoryMilestone struct {
 	pulumi.CustomResourceState

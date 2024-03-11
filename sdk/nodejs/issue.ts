@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -27,8 +28,11 @@ import * as utilities from "./utilities";
  *     body: "The body of my issue",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Milestone And Project Assignment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -58,13 +62,14 @@ import * as utilities from "./utilities";
  *     milestoneNumber: testRepositoryMilestone.number,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Issues can be imported using an ID made up of `repository:number`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/issue:Issue issue_15 myrepo:15
+ * $ pulumi import github:index/issue:Issue issue_15 myrepo:15
  * ```
  */
 export class Issue extends pulumi.CustomResource {

@@ -172,6 +172,7 @@ class Membership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -181,13 +182,14 @@ class Membership(pulumi.CustomResource):
             role="member",
             username="SomeUser")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
 
         ```sh
-         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        $ pulumi import github:index/membership:Membership member hashicorp:someuser
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,6 +218,7 @@ class Membership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -225,13 +228,14 @@ class Membership(pulumi.CustomResource):
             role="member",
             username="SomeUser")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
 
         ```sh
-         $ pulumi import github:index/membership:Membership member hashicorp:someuser
+        $ pulumi import github:index/membership:Membership member hashicorp:someuser
         ```
 
         :param str resource_name: The name of the resource.

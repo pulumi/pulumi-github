@@ -172,6 +172,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -189,13 +190,14 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             ),
             repository=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub repository:
 
         ```sh
-         $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
+        $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,6 +219,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -234,13 +237,14 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             ),
             repository=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub repository:
 
         ```sh
-         $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
+        $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
         ```
 
         :param str resource_name: The name of the resource.

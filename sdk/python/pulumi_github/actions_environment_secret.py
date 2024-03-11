@@ -230,6 +230,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -243,7 +244,9 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -258,6 +261,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             secret_name="test_secret_name",
             plaintext_value="%s")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -280,6 +284,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -293,7 +298,9 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -308,6 +315,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             secret_name="test_secret_name",
             plaintext_value="%s")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

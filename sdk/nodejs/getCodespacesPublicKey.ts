@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesPublicKey(args: GetCodespacesPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetCodespacesPublicKeyResult> {
 
@@ -61,6 +63,7 @@ export interface GetCodespacesPublicKeyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -69,6 +72,7 @@ export interface GetCodespacesPublicKeyResult {
  *     repository: "example_repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesPublicKeyOutput(args: GetCodespacesPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getCodespacesPublicKey(a, opts))

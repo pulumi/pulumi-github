@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,20 +58,19 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character. The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
+// The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
 //
 // Importing uses the name of the repository, as well as the ID of the webhook, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
-//
+// $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
 // ```
-//
-//	If secret is populated in the webhook's configuration, the value will be imported as "********".
+// If secret is populated in the webhook's configuration, the value will be imported as "********".
 type RepositoryWebhook struct {
 	pulumi.CustomResourceState
 

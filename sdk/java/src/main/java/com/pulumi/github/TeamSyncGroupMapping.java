@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
  * 
  * ```sh
- *  $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
+ * $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
  * ```
  * 
  */

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,31 +44,25 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Branch can be imported using an ID made up of `repository:branch`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/branch:Branch terraform terraform:main
-//
+// $ pulumi import github:index/branch:Branch terraform terraform:main
 // ```
-//
-//	Importing github branch into an instance object (when using a for each block to manage multiple branches)
+// Importing github branch into an instance object (when using a for each block to manage multiple branches)
 //
 // ```sh
-//
-//	$ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
-//
+// $ pulumi import github:index/branch:Branch terraform["terraform"] terraform:main
 // ```
-//
-//	Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`. This is useful for importing branches that do not branch directly off main.
+// Optionally, a source branch may be specified using an ID of `repository:branch:source_branch`.
+// This is useful for importing branches that do not branch directly off main.
 //
 // ```sh
-//
-//	$ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
-//
+// $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
 // ```
 type Branch struct {
 	pulumi.CustomResourceState

@@ -25,6 +25,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Issue Labels can be imported using the repository `name`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
-//
+// $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
 // ```
 type IssueLabels struct {
 	pulumi.CustomResourceState

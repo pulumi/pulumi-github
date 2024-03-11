@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+ * $ pulumi import github:index/membership:Membership member hashicorp:someuser
  * ```
  */
 export class Membership extends pulumi.CustomResource {

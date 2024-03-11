@@ -288,6 +288,23 @@ def get_release(owner: Optional[str] = None,
     """
     Use this data source to retrieve information about a GitHub release in a specific repository.
 
+    ## Example Usage
+
+    To retrieve the latest release that is present in a repository:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(owner="example-owner",
+        repository="example-repository",
+        retrieve_by="latest")
+    ```
+    <!--End PulumiCodeChooser -->
+
+    To retrieve a specific release from a repository based on it's ID:
+
 
     :param str owner: Owner of the repository.
     :param int release_id: ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
@@ -337,6 +354,23 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseResult]:
     """
     Use this data source to retrieve information about a GitHub release in a specific repository.
+
+    ## Example Usage
+
+    To retrieve the latest release that is present in a repository:
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_github as github
+
+    example = github.get_release(owner="example-owner",
+        repository="example-repository",
+        retrieve_by="latest")
+    ```
+    <!--End PulumiCodeChooser -->
+
+    To retrieve a specific release from a repository based on it's ID:
 
 
     :param str owner: Owner of the repository.

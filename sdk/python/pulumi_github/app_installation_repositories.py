@@ -120,10 +120,11 @@ class AppInstallationRepositories(pulumi.CustomResource):
 
         ## Import
 
-        GitHub App Installation Repositories can be imported using an ID made up of `installation_id`, e.g.
+        GitHub App Installation Repositories can be imported
+        using an ID made up of `installation_id`, e.g.
 
         ```sh
-         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
+        $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,10 +155,11 @@ class AppInstallationRepositories(pulumi.CustomResource):
 
         ## Import
 
-        GitHub App Installation Repositories can be imported using an ID made up of `installation_id`, e.g.
+        GitHub App Installation Repositories can be imported
+        using an ID made up of `installation_id`, e.g.
 
         ```sh
-         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
+        $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
         ```
 
         :param str resource_name: The name of the resource.

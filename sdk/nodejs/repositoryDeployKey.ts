@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -33,13 +34,15 @@ import * as utilities from "./utilities";
  *     readOnly: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Repository deploy keys can be imported using a colon-separated pair of repository name and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
+ * Repository deploy keys can be imported using a colon-separated pair of repository name
+ * and GitHub's key id. The latter can be obtained by GitHub's SDKs and API.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
+ * $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
  * ```
  */
 export class RepositoryDeployKey extends pulumi.CustomResource {

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositoryAutolinkReferences(ctx *pulumi.Context, args *GetRepositoryAutolinkReferencesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryAutolinkReferencesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryAutolinkReferencesResult

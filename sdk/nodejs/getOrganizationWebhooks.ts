@@ -13,12 +13,14 @@ import * as utilities from "./utilities";
  *
  * To retrieve *all* webhooks of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationWebhooks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationWebhooks(opts?: pulumi.InvokeOptions): Promise<GetOrganizationWebhooksResult> {
 
@@ -48,12 +50,14 @@ export interface GetOrganizationWebhooksResult {
  *
  * To retrieve *all* webhooks of the organization:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const all = github.getOrganizationWebhooks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationWebhooksResult> {
     return pulumi.output(getOrganizationWebhooks(opts))

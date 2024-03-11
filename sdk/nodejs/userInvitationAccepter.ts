@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -24,6 +25,8 @@ import * as utilities from "./utilities";
  *     provider: "github.invitee",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Allowing empty invitation IDs
  *
  * Set `allowEmptyId` when using `forEach` over a list of `github_repository_collaborator.invitation_id`'s.

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -32,13 +33,14 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+ * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
  * ```
  */
 export class RepositoryEnvironment extends pulumi.CustomResource {

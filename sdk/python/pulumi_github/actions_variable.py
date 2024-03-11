@@ -167,6 +167,7 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -176,13 +177,14 @@ class ActionsVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
 
         ```sh
-         $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+        $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,6 +205,7 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -212,13 +215,14 @@ class ActionsVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
 
         ```sh
-         $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+        $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
         ```
 
         :param str resource_name: The name of the resource.

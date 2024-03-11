@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     adminLogins: ["jon-snow"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
  *
  * ```sh
- *  $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
+ * $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
  * ```
  */
 export class EnterpriseOrganization extends pulumi.CustomResource {

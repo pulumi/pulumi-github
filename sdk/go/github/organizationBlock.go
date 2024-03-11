@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub organization block can be imported using a username, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
-//
+// $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
 // ```
 type OrganizationBlock struct {
 	pulumi.CustomResourceState

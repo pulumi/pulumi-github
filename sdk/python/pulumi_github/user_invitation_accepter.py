@@ -104,6 +104,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -117,6 +118,8 @@ class UserInvitationAccepter(pulumi.CustomResource):
         example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
         opts=pulumi.ResourceOptions(provider="github.invitee"))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Allowing empty invitation IDs
 
         Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.
@@ -145,6 +148,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -158,6 +162,8 @@ class UserInvitationAccepter(pulumi.CustomResource):
         example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
         opts=pulumi.ResourceOptions(provider="github.invitee"))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Allowing empty invitation IDs
 
         Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.

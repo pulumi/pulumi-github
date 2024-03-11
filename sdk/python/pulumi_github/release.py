@@ -346,6 +346,7 @@ class Release(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -357,8 +358,11 @@ class Release(pulumi.CustomResource):
             repository=repo.name,
             tag_name="v1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### On Non-Default Branch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -375,6 +379,7 @@ class Release(pulumi.CustomResource):
             draft=False,
             prerelease=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -408,6 +413,7 @@ class Release(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -419,8 +425,11 @@ class Release(pulumi.CustomResource):
             repository=repo.name,
             tag_name="v1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### On Non-Default Branch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -437,6 +446,7 @@ class Release(pulumi.CustomResource):
             draft=False,
             prerelease=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

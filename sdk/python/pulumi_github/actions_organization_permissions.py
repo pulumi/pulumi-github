@@ -172,6 +172,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -192,13 +193,14 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                 repository_ids=[example.repo_id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub organization:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
+        $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,6 +222,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -240,13 +243,14 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                 repository_ids=[example.repo_id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub organization:
 
         ```sh
-         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
+        $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
         ```
 
         :param str resource_name: The name of the resource.

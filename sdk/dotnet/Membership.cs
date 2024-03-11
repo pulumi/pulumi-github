@@ -18,6 +18,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// GitHub Membership can be imported using an ID made up of `organization:username`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import github:index/membership:Membership member hashicorp:someuser
+    /// $ pulumi import github:index/membership:Membership member hashicorp:someuser
     /// ```
     /// </summary>
     [GithubResourceType("github:index/membership:Membership")]

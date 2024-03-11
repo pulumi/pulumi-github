@@ -17,6 +17,7 @@ import (
 //
 // To retrieve *all* teams of the organization:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,9 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To retrieve only the team's at the root of the organization:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOrganizationTeams(ctx *pulumi.Context, args *GetOrganizationTeamsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationTeamsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationTeamsResult

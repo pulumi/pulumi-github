@@ -114,6 +114,7 @@ class EmuGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -123,13 +124,14 @@ class EmuGroupMapping(pulumi.CustomResource):
             team_slug="emu-test-team")
         # The GitHub team name to modify
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
 
         ```sh
-         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+        $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
         ```
 
         :param str resource_name: The name of the resource.
@@ -148,6 +150,7 @@ class EmuGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -157,13 +160,14 @@ class EmuGroupMapping(pulumi.CustomResource):
             team_slug="emu-test-team")
         # The GitHub team name to modify
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
 
         ```sh
-         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+        $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
         ```
 
         :param str resource_name: The name of the resource.

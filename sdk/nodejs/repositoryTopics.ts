@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -22,13 +23,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Repository topics can be imported using the `name` of the repository.
  *
  * ```sh
- *  $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
+ * $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
  * ```
  */
 export class RepositoryTopics extends pulumi.CustomResource {

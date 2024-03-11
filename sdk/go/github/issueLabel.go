@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Issue Labels can be imported using an ID made up of `repository:name`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
-//
+// $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
 // ```
 type IssueLabel struct {
 	pulumi.CustomResourceState

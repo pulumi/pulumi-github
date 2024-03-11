@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,13 +21,14 @@ import * as utilities from "./utilities";
  *     selectedRepositoryIds: [exampleRepository.repoId],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * This resource can be imported using the ID of the runner group:
  *
  * ```sh
- *  $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
+ * $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
  * ```
  */
 export class ActionsRunnerGroup extends pulumi.CustomResource {

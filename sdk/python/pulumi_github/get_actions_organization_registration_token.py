@@ -74,12 +74,14 @@ def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOpti
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_registration_token()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -98,11 +100,13 @@ def get_actions_organization_registration_token_output(opts: Optional[pulumi.Inv
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_registration_token()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

@@ -465,6 +465,7 @@ class BranchProtection(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -511,13 +512,14 @@ class BranchProtection(pulumi.CustomResource):
             repository=example_repository.name,
             permission="pull")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+        $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
         ```
 
         :param str resource_name: The name of the resource.
@@ -545,6 +547,7 @@ class BranchProtection(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -591,13 +594,14 @@ class BranchProtection(pulumi.CustomResource):
             repository=example_repository.name,
             permission="pull")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:pattern`, e.g.
 
         ```sh
-         $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
+        $ pulumi import github:index/branchProtection:BranchProtection terraform terraform:main
         ```
 
         :param str resource_name: The name of the resource.

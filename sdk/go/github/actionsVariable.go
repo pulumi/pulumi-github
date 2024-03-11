@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
-//
+// $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
 // ```
 type ActionsVariable struct {
 	pulumi.CustomResourceState

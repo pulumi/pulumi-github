@@ -352,6 +352,7 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -367,18 +368,19 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository files can be imported using a combination of the `repo` and `file`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
         ```
-         To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+        To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
         ```
 
         :param str resource_name: The name of the resource.
@@ -405,6 +407,7 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -420,18 +423,19 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository files can be imported using a combination of the `repo` and `file`, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
         ```
-         To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+        To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
 
         ```sh
-         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
         ```
 
         :param str resource_name: The name of the resource.

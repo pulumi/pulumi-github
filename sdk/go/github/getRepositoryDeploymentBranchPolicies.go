@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositoryDeploymentBranchPolicies(ctx *pulumi.Context, args *GetRepositoryDeploymentBranchPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryDeploymentBranchPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryDeploymentBranchPoliciesResult

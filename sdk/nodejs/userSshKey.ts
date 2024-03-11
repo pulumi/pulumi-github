@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * SSH keys can be imported using their ID e.g.
  *
  * ```sh
- *  $ pulumi import github:index/userSshKey:UserSshKey example 1234567
+ * $ pulumi import github:index/userSshKey:UserSshKey example 1234567
  * ```
  */
 export class UserSshKey extends pulumi.CustomResource {

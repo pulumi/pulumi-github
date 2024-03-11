@@ -93,6 +93,7 @@ def get_tree(recursive: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -105,6 +106,7 @@ def get_tree(recursive: Optional[bool] = None,
         tree_sha=this_branch.sha)
     pulumi.export("entries", this_tree.entries)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
@@ -136,6 +138,7 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -148,6 +151,7 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
         tree_sha=this_branch.sha)
     pulumi.export("entries", this_tree.entries)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool recursive: Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.

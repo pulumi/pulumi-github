@@ -204,6 +204,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -226,13 +227,14 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 organization_ids=[example_org.id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub enterprise:
 
         ```sh
-         $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
+        $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,6 +257,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -277,13 +280,14 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 organization_ids=[example_org.id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         This resource can be imported using the name of the GitHub enterprise:
 
         ```sh
-         $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
+        $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
         ```
 
         :param str resource_name: The name of the resource.

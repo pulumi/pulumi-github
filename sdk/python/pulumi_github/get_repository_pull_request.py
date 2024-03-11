@@ -257,6 +257,7 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -264,6 +265,7 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
     example = github.get_repository_pull_request(base_repository="example_repository",
         number=1)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str base_repository: Name of the base repository to retrieve the Pull Request from.
@@ -309,6 +311,7 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -316,6 +319,7 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
     example = github.get_repository_pull_request(base_repository="example_repository",
         number=1)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str base_repository: Name of the base repository to retrieve the Pull Request from.

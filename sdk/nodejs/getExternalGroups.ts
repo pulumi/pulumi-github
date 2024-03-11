@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  * const localGroups = exampleExternalGroups;
  * export const groups = localGroups;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExternalGroups(opts?: pulumi.InvokeOptions): Promise<GetExternalGroupsResult> {
 
@@ -45,6 +47,7 @@ export interface GetExternalGroupsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -53,6 +56,7 @@ export interface GetExternalGroupsResult {
  * const localGroups = exampleExternalGroups;
  * export const groups = localGroups;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getExternalGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalGroupsResult> {
     return pulumi.output(getExternalGroups(opts))

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // This resource can be imported using the name of the GitHub repository:
 //
 // ```sh
-//
-//	$ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
-//
+// $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
 // ```
 type ActionsRepositoryPermissions struct {
 	pulumi.CustomResourceState
