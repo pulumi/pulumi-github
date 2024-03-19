@@ -333,6 +333,18 @@
                     }
                 }
             },
+            "github_enterprise_actions_runner_group": {
+                "current": "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup",
+                "majorVersion": 6,
+                "fields": {
+                    "selected_organization_ids": {
+                        "maxItemsOne": false
+                    },
+                    "selected_workflows": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_enterprise_organization": {
                 "current": "github:index/enterpriseOrganization:EnterpriseOrganization",
                 "majorVersion": 6,
