@@ -33,6 +33,7 @@ from .dependabot_organization_secret_repositories import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
 from .enterprise_actions_permissions import *
+from .enterprise_actions_runner_group import *
 from .enterprise_organization import *
 from .get_actions_environment_secrets import *
 from .get_actions_environment_variables import *
@@ -371,6 +372,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions": "EnterpriseActionsPermissions"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/enterpriseActionsRunnerGroup",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup": "EnterpriseActionsRunnerGroup"
   }
  },
  {

@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +45,21 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> billingEmail() {
         return Optional.ofNullable(this.billingEmail);
+    }
+
+    /**
+     * The ID of the organization.
+     * 
+     */
+    @Import(name="databaseId")
+    private @Nullable Output<Integer> databaseId;
+
+    /**
+     * @return The ID of the organization.
+     * 
+     */
+    public Optional<Output<Integer>> databaseId() {
+        return Optional.ofNullable(this.databaseId);
     }
 
     /**
@@ -111,6 +127,7 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
     private EnterpriseOrganizationState(EnterpriseOrganizationState $) {
         this.adminLogins = $.adminLogins;
         this.billingEmail = $.billingEmail;
+        this.databaseId = $.databaseId;
         this.description = $.description;
         this.displayName = $.displayName;
         this.enterpriseId = $.enterpriseId;
@@ -185,6 +202,27 @@ public final class EnterpriseOrganizationState extends com.pulumi.resources.Reso
          */
         public Builder billingEmail(String billingEmail) {
             return billingEmail(Output.of(billingEmail));
+        }
+
+        /**
+         * @param databaseId The ID of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseId(@Nullable Output<Integer> databaseId) {
+            $.databaseId = databaseId;
+            return this;
+        }
+
+        /**
+         * @param databaseId The ID of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseId(Integer databaseId) {
+            return databaseId(Output.of(databaseId));
         }
 
         /**

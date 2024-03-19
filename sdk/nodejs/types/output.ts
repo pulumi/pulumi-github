@@ -132,6 +132,10 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     requireCodeOwnerReviews?: boolean;
     /**
+     * Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     */
+    requireLastPushApproval?: boolean;
+    /**
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      */
     requiredApprovingReviewCount?: number;

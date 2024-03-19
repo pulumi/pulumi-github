@@ -54,6 +54,11 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
      */
     private @Nullable Boolean requireCodeOwnerReviews;
     /**
+     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    private @Nullable Boolean requireLastPushApproval;
+    /**
      * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      * 
      */
@@ -113,6 +118,13 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         return Optional.ofNullable(this.requireCodeOwnerReviews);
     }
     /**
+     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    public Optional<Boolean> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
+    }
+    /**
      * @return Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      * 
      */
@@ -136,6 +148,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
         private @Nullable List<String> dismissalUsers;
         private @Nullable Boolean includeAdmins;
         private @Nullable Boolean requireCodeOwnerReviews;
+        private @Nullable Boolean requireLastPushApproval;
         private @Nullable Integer requiredApprovingReviewCount;
         public Builder() {}
         public Builder(BranchProtectionV3RequiredPullRequestReviews defaults) {
@@ -147,6 +160,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     	      this.dismissalUsers = defaults.dismissalUsers;
     	      this.includeAdmins = defaults.includeAdmins;
     	      this.requireCodeOwnerReviews = defaults.requireCodeOwnerReviews;
+    	      this.requireLastPushApproval = defaults.requireLastPushApproval;
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
         }
 
@@ -202,6 +216,12 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
             return this;
         }
         @CustomType.Setter
+        public Builder requireLastPushApproval(@Nullable Boolean requireLastPushApproval) {
+
+            this.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredApprovingReviewCount(@Nullable Integer requiredApprovingReviewCount) {
 
             this.requiredApprovingReviewCount = requiredApprovingReviewCount;
@@ -216,6 +236,7 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
             _resultValue.dismissalUsers = dismissalUsers;
             _resultValue.includeAdmins = includeAdmins;
             _resultValue.requireCodeOwnerReviews = requireCodeOwnerReviews;
+            _resultValue.requireLastPushApproval = requireLastPushApproval;
             _resultValue.requiredApprovingReviewCount = requiredApprovingReviewCount;
             return _resultValue;
         }

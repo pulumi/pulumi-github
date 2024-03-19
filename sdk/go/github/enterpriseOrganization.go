@@ -62,6 +62,8 @@ type EnterpriseOrganization struct {
 	AdminLogins pulumi.StringArrayOutput `pulumi:"adminLogins"`
 	// The billing email address.
 	BillingEmail pulumi.StringOutput `pulumi:"billingEmail"`
+	// The ID of the organization.
+	DatabaseId pulumi.IntOutput `pulumi:"databaseId"`
 	// The description of the organization.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the organization.
@@ -115,6 +117,8 @@ type enterpriseOrganizationState struct {
 	AdminLogins []string `pulumi:"adminLogins"`
 	// The billing email address.
 	BillingEmail *string `pulumi:"billingEmail"`
+	// The ID of the organization.
+	DatabaseId *int `pulumi:"databaseId"`
 	// The description of the organization.
 	Description *string `pulumi:"description"`
 	// The display name of the organization.
@@ -130,6 +134,8 @@ type EnterpriseOrganizationState struct {
 	AdminLogins pulumi.StringArrayInput
 	// The billing email address.
 	BillingEmail pulumi.StringPtrInput
+	// The ID of the organization.
+	DatabaseId pulumi.IntPtrInput
 	// The description of the organization.
 	Description pulumi.StringPtrInput
 	// The display name of the organization.
@@ -270,6 +276,11 @@ func (o EnterpriseOrganizationOutput) AdminLogins() pulumi.StringArrayOutput {
 // The billing email address.
 func (o EnterpriseOrganizationOutput) BillingEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.StringOutput { return v.BillingEmail }).(pulumi.StringOutput)
+}
+
+// The ID of the organization.
+func (o EnterpriseOrganizationOutput) DatabaseId() pulumi.IntOutput {
+	return o.ApplyT(func(v *EnterpriseOrganization) pulumi.IntOutput { return v.DatabaseId }).(pulumi.IntOutput)
 }
 
 // The description of the organization.

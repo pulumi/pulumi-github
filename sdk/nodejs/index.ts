@@ -145,6 +145,11 @@ export type EnterpriseActionsPermissions = import("./enterpriseActionsPermission
 export const EnterpriseActionsPermissions: typeof import("./enterpriseActionsPermissions").EnterpriseActionsPermissions = null as any;
 utilities.lazyLoad(exports, ["EnterpriseActionsPermissions"], () => require("./enterpriseActionsPermissions"));
 
+export { EnterpriseActionsRunnerGroupArgs, EnterpriseActionsRunnerGroupState } from "./enterpriseActionsRunnerGroup";
+export type EnterpriseActionsRunnerGroup = import("./enterpriseActionsRunnerGroup").EnterpriseActionsRunnerGroup;
+export const EnterpriseActionsRunnerGroup: typeof import("./enterpriseActionsRunnerGroup").EnterpriseActionsRunnerGroup = null as any;
+utilities.lazyLoad(exports, ["EnterpriseActionsRunnerGroup"], () => require("./enterpriseActionsRunnerGroup"));
+
 export { EnterpriseOrganizationArgs, EnterpriseOrganizationState } from "./enterpriseOrganization";
 export type EnterpriseOrganization = import("./enterpriseOrganization").EnterpriseOrganization;
 export const EnterpriseOrganization: typeof import("./enterpriseOrganization").EnterpriseOrganization = null as any;
@@ -730,6 +735,8 @@ const _module = {
                 return new EmuGroupMapping(name, <any>undefined, { urn })
             case "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions":
                 return new EnterpriseActionsPermissions(name, <any>undefined, { urn })
+            case "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup":
+                return new EnterpriseActionsRunnerGroup(name, <any>undefined, { urn })
             case "github:index/enterpriseOrganization:EnterpriseOrganization":
                 return new EnterpriseOrganization(name, <any>undefined, { urn })
             case "github:index/issue:Issue":
@@ -845,6 +852,7 @@ pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSec
 pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsPermissions", _module)
+pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsRunnerGroup", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseOrganization", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)

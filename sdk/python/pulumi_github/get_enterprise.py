@@ -21,10 +21,13 @@ class GetEnterpriseResult:
     """
     A collection of values returned by getEnterprise.
     """
-    def __init__(__self__, created_at=None, description=None, id=None, name=None, slug=None, url=None):
+    def __init__(__self__, created_at=None, database_id=None, description=None, id=None, name=None, slug=None, url=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if database_id and not isinstance(database_id, int):
+            raise TypeError("Expected argument 'database_id' to be a int")
+        pulumi.set(__self__, "database_id", database_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,6 +51,14 @@ class GetEnterpriseResult:
         The time the enterprise was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="databaseId")
+    def database_id(self) -> int:
+        """
+        The database ID of the enterprise.
+        """
+        return pulumi.get(self, "database_id")
 
     @property
     @pulumi.getter
@@ -97,6 +108,7 @@ class AwaitableGetEnterpriseResult(GetEnterpriseResult):
             yield self
         return GetEnterpriseResult(
             created_at=self.created_at,
+            database_id=self.database_id,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -130,6 +142,7 @@ def get_enterprise(slug: Optional[str] = None,
 
     return AwaitableGetEnterpriseResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        database_id=pulumi.get(__ret__, 'database_id'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
