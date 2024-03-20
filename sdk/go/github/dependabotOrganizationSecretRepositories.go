@@ -49,7 +49,7 @@ import (
 //			_, err = github.NewDependabotOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.DependabotOrganizationSecretRepositoriesArgs{
 //				SecretName: exampleSecret.SecretName,
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
+//					pulumi.Int(repo.RepoId),
 //				},
 //			})
 //			if err != nil {

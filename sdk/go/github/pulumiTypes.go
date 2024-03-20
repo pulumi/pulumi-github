@@ -893,7 +893,7 @@ type BranchProtectionV3RequiredPullRequestReviews struct {
 	DismissalTeams []string `pulumi:"dismissalTeams"`
 	// The list of user logins with dismissal access
 	DismissalUsers []string `pulumi:"dismissalUsers"`
-	// Deprecated: Use enforce_admins instead
+	// Deprecated: Use enforceAdmins instead
 	IncludeAdmins *bool `pulumi:"includeAdmins"`
 	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReviews *bool `pulumi:"requireCodeOwnerReviews"`
@@ -924,7 +924,7 @@ type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
 	DismissalTeams pulumi.StringArrayInput `pulumi:"dismissalTeams"`
 	// The list of user logins with dismissal access
 	DismissalUsers pulumi.StringArrayInput `pulumi:"dismissalUsers"`
-	// Deprecated: Use enforce_admins instead
+	// Deprecated: Use enforceAdmins instead
 	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
 	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReviews pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
@@ -1037,7 +1037,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) DismissalUsers() pul
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) []string { return v.DismissalUsers }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use enforce_admins instead
+// Deprecated: Use enforceAdmins instead
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
@@ -1127,7 +1127,7 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) DismissalUsers() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use enforce_admins instead
+// Deprecated: Use enforceAdmins instead
 func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
 		if v == nil {
@@ -1350,7 +1350,7 @@ type BranchProtectionV3RequiredStatusChecks struct {
 	//
 	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts []string `pulumi:"contexts"`
-	// Deprecated: Use enforce_admins instead
+	// Deprecated: Use enforceAdmins instead
 	IncludeAdmins *bool `pulumi:"includeAdmins"`
 	// Require branches to be up to date before merging. Defaults to `false`.
 	Strict *bool `pulumi:"strict"`
@@ -1379,7 +1379,7 @@ type BranchProtectionV3RequiredStatusChecksArgs struct {
 	//
 	// Deprecated: GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
 	Contexts pulumi.StringArrayInput `pulumi:"contexts"`
-	// Deprecated: Use enforce_admins instead
+	// Deprecated: Use enforceAdmins instead
 	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
 	// Require branches to be up to date before merging. Defaults to `false`.
 	Strict pulumi.BoolPtrInput `pulumi:"strict"`
@@ -1479,7 +1479,7 @@ func (o BranchProtectionV3RequiredStatusChecksOutput) Contexts() pulumi.StringAr
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) []string { return v.Contexts }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use enforce_admins instead
+// Deprecated: Use enforceAdmins instead
 func (o BranchProtectionV3RequiredStatusChecksOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredStatusChecks) *bool { return v.IncludeAdmins }).(pulumi.BoolPtrOutput)
 }
@@ -1540,7 +1540,7 @@ func (o BranchProtectionV3RequiredStatusChecksPtrOutput) Contexts() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: Use enforce_admins instead
+// Deprecated: Use enforceAdmins instead
 func (o BranchProtectionV3RequiredStatusChecksPtrOutput) IncludeAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchProtectionV3RequiredStatusChecks) *bool {
 		if v == nil {

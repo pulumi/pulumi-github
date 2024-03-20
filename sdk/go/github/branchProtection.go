@@ -62,7 +62,7 @@ import (
 //						DismissStaleReviews: pulumi.Bool(true),
 //						RestrictDismissals:  pulumi.Bool(true),
 //						DismissalRestrictions: pulumi.StringArray{
-//							*pulumi.String(exampleUser.NodeId),
+//							pulumi.String(exampleUser.NodeId),
 //							exampleTeam.NodeId,
 //							pulumi.String("/exampleuser"),
 //							pulumi.String("exampleorganization/exampleteam"),
@@ -72,14 +72,14 @@ import (
 //				RestrictPushes: github.BranchProtectionRestrictPushArray{
 //					&github.BranchProtectionRestrictPushArgs{
 //						PushAllowances: pulumi.StringArray{
-//							*pulumi.String(exampleUser.NodeId),
+//							pulumi.String(exampleUser.NodeId),
 //							pulumi.String("/exampleuser"),
 //							pulumi.String("exampleorganization/exampleteam"),
 //						},
 //					},
 //				},
 //				ForcePushBypassers: pulumi.StringArray{
-//					*pulumi.String(exampleUser.NodeId),
+//					pulumi.String(exampleUser.NodeId),
 //					pulumi.String("/exampleuser"),
 //					pulumi.String("exampleorganization/exampleteam"),
 //				},
