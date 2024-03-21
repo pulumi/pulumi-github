@@ -73,7 +73,7 @@ export interface GetReleaseResult {
     /**
      * **Deprecated**: Use `assetsUrl` resource instead
      *
-     * @deprecated use assets_url instead
+     * @deprecated use assetsUrl instead
      */
     readonly assertsUrl: string;
     /**

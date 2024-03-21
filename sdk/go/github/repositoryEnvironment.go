@@ -48,7 +48,7 @@ import (
 //				Reviewers: github.RepositoryEnvironmentReviewerArray{
 //					&github.RepositoryEnvironmentReviewerArgs{
 //						Users: pulumi.IntArray{
-//							*pulumi.String(current.Id),
+//							pulumi.String(current.Id),
 //						},
 //					},
 //				},

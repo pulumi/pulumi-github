@@ -70,14 +70,14 @@ import (
 //				return err
 //			}
 //			repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repoEnvironment", &github.RepositoryEnvironmentArgs{
-//				Repository:  *pulumi.String(repo.Name),
+//				Repository:  pulumi.String(repo.Name),
 //				Environment: pulumi.String("example_environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = github.NewActionsEnvironmentSecret(ctx, "testSecret", &github.ActionsEnvironmentSecretArgs{
-//				Repository:     *pulumi.String(repo.Name),
+//				Repository:     pulumi.String(repo.Name),
 //				Environment:    repoEnvironment.Environment,
 //				SecretName:     pulumi.String("test_secret_name"),
 //				PlaintextValue: pulumi.String("%s"),
