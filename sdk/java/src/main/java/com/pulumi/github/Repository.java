@@ -239,10 +239,10 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
-     * Use the github_branch_default resource instead
+     * Use the github.BranchDefault resource instead
      * 
      */
-    @Deprecated /* Use the github_branch_default resource instead */
+    @Deprecated /* Use the github.BranchDefault resource instead */
     @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output<String> defaultBranch;
 

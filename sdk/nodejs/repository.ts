@@ -126,7 +126,7 @@ export class Repository extends pulumi.CustomResource {
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
-     * @deprecated Use the github_branch_default resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      */
     public readonly defaultBranch!: pulumi.Output<string>;
     /**
@@ -422,7 +422,7 @@ export interface RepositoryState {
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
-     * @deprecated Use the github_branch_default resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      */
     defaultBranch?: pulumi.Input<string>;
     /**
@@ -610,7 +610,7 @@ export interface RepositoryArgs {
      * and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      *
-     * @deprecated Use the github_branch_default resource instead
+     * @deprecated Use the github.BranchDefault resource instead
      */
     defaultBranch?: pulumi.Input<string>;
     /**

@@ -74,7 +74,7 @@ type LookupReleaseArgs struct {
 type LookupReleaseResult struct {
 	// **Deprecated**: Use `assetsUrl` resource instead
 	//
-	// Deprecated: use assets_url instead
+	// Deprecated: use assetsUrl instead
 	AssertsUrl string `pulumi:"assertsUrl"`
 	// Collection of assets for the release. Each asset conforms to the following schema:
 	Assets []GetReleaseAsset `pulumi:"assets"`
@@ -163,7 +163,7 @@ func (o LookupReleaseResultOutput) ToLookupReleaseResultOutputWithContext(ctx co
 
 // **Deprecated**: Use `assetsUrl` resource instead
 //
-// Deprecated: use assets_url instead
+// Deprecated: use assetsUrl instead
 func (o LookupReleaseResultOutput) AssertsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReleaseResult) string { return v.AssertsUrl }).(pulumi.StringOutput)
 }

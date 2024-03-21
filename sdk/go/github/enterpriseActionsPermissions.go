@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewEnterpriseActionsPermissions(ctx, "test", &github.EnterpriseActionsPermissionsArgs{
-//				EnterpriseId:         *pulumi.String(example_enterprise.Slug),
+//				EnterpriseId:         pulumi.String(example_enterprise.Slug),
 //				AllowedActions:       pulumi.String("selected"),
 //				EnabledOrganizations: pulumi.String("selected"),
 //				AllowedActionsConfig: &github.EnterpriseActionsPermissionsAllowedActionsConfigArgs{
@@ -56,7 +56,7 @@ import (
 //				},
 //				EnabledOrganizationsConfig: &github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{
 //					OrganizationIds: pulumi.IntArray{
-//						*pulumi.String(example_org.Id),
+//						pulumi.String(example_org.Id),
 //					},
 //				},
 //			})

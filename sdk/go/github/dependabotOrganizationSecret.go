@@ -74,7 +74,7 @@ import (
 //				Visibility:     pulumi.String("selected"),
 //				PlaintextValue: pulumi.Any(_var.Some_secret_string),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
+//					pulumi.Int(repo.RepoId),
 //				},
 //			})
 //			if err != nil {
@@ -85,7 +85,7 @@ import (
 //				Visibility:     pulumi.String("selected"),
 //				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
+//					pulumi.Int(repo.RepoId),
 //				},
 //			})
 //			if err != nil {

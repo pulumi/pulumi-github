@@ -109,8 +109,8 @@ class RepositoryArgs:
         if auto_init is not None:
             pulumi.set(__self__, "auto_init", auto_init)
         if default_branch is not None:
-            warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-            pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+            warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
+            pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
         if default_branch is not None:
             pulumi.set(__self__, "default_branch", default_branch)
         if delete_branch_on_merge is not None:
@@ -271,8 +271,8 @@ class RepositoryArgs:
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
 
         return pulumi.get(self, "default_branch")
 
@@ -702,8 +702,8 @@ class _RepositoryState:
         if auto_init is not None:
             pulumi.set(__self__, "auto_init", auto_init)
         if default_branch is not None:
-            warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-            pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+            warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
+            pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
         if default_branch is not None:
             pulumi.set(__self__, "default_branch", default_branch)
         if delete_branch_on_merge is not None:
@@ -884,8 +884,8 @@ class _RepositoryState:
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
 
         return pulumi.get(self, "default_branch")
 
@@ -1845,8 +1845,8 @@ class Repository(pulumi.CustomResource):
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the github_branch_default resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the github_branch_default resource instead""")
+        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
 
         return pulumi.get(self, "default_branch")
 

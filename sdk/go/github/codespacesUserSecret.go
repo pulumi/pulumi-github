@@ -37,7 +37,7 @@ import (
 //				SecretName:     pulumi.String("example_secret_name"),
 //				PlaintextValue: pulumi.Any(_var.Some_secret_string),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
+//					pulumi.Int(repo.RepoId),
 //				},
 //			})
 //			if err != nil {
@@ -47,7 +47,7 @@ import (
 //				SecretName:     pulumi.String("example_secret_name"),
 //				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					*pulumi.Int(repo.RepoId),
+//					pulumi.Int(repo.RepoId),
 //				},
 //			})
 //			if err != nil {
