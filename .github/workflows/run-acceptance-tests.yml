@@ -243,9 +243,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         comment_tag: schemaCheck
         message: >+
-          ### Does the repo have any missing Configuration properties in README.md?
+          ### Is README.md missing any configuration options?
 
           ${{ env.MISSING_CONFIG }}
+
+          Details about these options can be found in either the upstream docs or the schema.json
 
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
