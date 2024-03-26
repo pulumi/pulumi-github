@@ -117,7 +117,7 @@ type Repository struct {
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
-	// Deprecated: Use the BranchDefault resource instead
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrOutput `pulumi:"deleteBranchOnMerge"`
@@ -245,7 +245,7 @@ type repositoryState struct {
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
-	// Deprecated: Use the BranchDefault resource instead
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge *bool `pulumi:"deleteBranchOnMerge"`
@@ -344,7 +344,7 @@ type RepositoryState struct {
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
-	// Deprecated: Use the BranchDefault resource instead
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringPtrInput
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrInput
@@ -447,7 +447,7 @@ type repositoryArgs struct {
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
-	// Deprecated: Use the BranchDefault resource instead
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge *bool `pulumi:"deleteBranchOnMerge"`
@@ -528,7 +528,7 @@ type RepositoryArgs struct {
 	// and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 	// initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 	//
-	// Deprecated: Use the BranchDefault resource instead
+	// Deprecated: Use the github_branch_default resource instead
 	DefaultBranch pulumi.StringPtrInput
 	// Automatically delete head branch after a pull request is merged. Defaults to `false`.
 	DeleteBranchOnMerge pulumi.BoolPtrInput
@@ -718,7 +718,7 @@ func (o RepositoryOutput) AutoInit() pulumi.BoolPtrOutput {
 // and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
 // initial repository creation and create the target branch inside of the repository prior to setting this attribute.
 //
-// Deprecated: Use the BranchDefault resource instead
+// Deprecated: Use the github_branch_default resource instead
 func (o RepositoryOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DefaultBranch }).(pulumi.StringOutput)
 }

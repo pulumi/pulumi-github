@@ -146,10 +146,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
-     * Use the github.BranchDefault resource instead
+     * Use the github_branch_default resource instead
      * 
      */
-    @Deprecated /* Use the github.BranchDefault resource instead */
+    @Deprecated /* Use the github_branch_default resource instead */
     @Import(name="defaultBranch")
     private @Nullable Output<String> defaultBranch;
 
@@ -159,10 +159,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
      * initial repository creation and create the target branch inside of the repository prior to setting this attribute.
      * 
      * @deprecated
-     * Use the github.BranchDefault resource instead
+     * Use the github_branch_default resource instead
      * 
      */
-    @Deprecated /* Use the github.BranchDefault resource instead */
+    @Deprecated /* Use the github_branch_default resource instead */
     public Optional<Output<String>> defaultBranch() {
         return Optional.ofNullable(this.defaultBranch);
     }
@@ -789,10 +789,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the github.BranchDefault resource instead
+         * Use the github_branch_default resource instead
          * 
          */
-        @Deprecated /* Use the github.BranchDefault resource instead */
+        @Deprecated /* Use the github_branch_default resource instead */
         public Builder defaultBranch(@Nullable Output<String> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
@@ -806,10 +806,10 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the github.BranchDefault resource instead
+         * Use the github_branch_default resource instead
          * 
          */
-        @Deprecated /* Use the github.BranchDefault resource instead */
+        @Deprecated /* Use the github_branch_default resource instead */
         public Builder defaultBranch(String defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
         }

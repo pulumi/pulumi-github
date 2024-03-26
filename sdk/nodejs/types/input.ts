@@ -124,7 +124,7 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     dismissalUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated Use enforceAdmins instead
+     * @deprecated Use enforce_admins instead
      */
     includeAdmins?: pulumi.Input<boolean>;
     /**
@@ -173,7 +173,7 @@ export interface BranchProtectionV3RequiredStatusChecks {
      */
     contexts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated Use enforceAdmins instead
+     * @deprecated Use enforce_admins instead
      */
     includeAdmins?: pulumi.Input<boolean>;
     /**
