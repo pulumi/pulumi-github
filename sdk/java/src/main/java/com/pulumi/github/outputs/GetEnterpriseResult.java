@@ -5,6 +5,7 @@ package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
@@ -15,6 +16,11 @@ public final class GetEnterpriseResult {
      * 
      */
     private String createdAt;
+    /**
+     * @return The database ID of the enterprise.
+     * 
+     */
+    private Integer databaseId;
     /**
      * @return The description of the enterprise.
      * 
@@ -48,6 +54,13 @@ public final class GetEnterpriseResult {
      */
     public String createdAt() {
         return this.createdAt;
+    }
+    /**
+     * @return The database ID of the enterprise.
+     * 
+     */
+    public Integer databaseId() {
+        return this.databaseId;
     }
     /**
      * @return The description of the enterprise.
@@ -95,6 +108,7 @@ public final class GetEnterpriseResult {
     @CustomType.Builder
     public static final class Builder {
         private String createdAt;
+        private Integer databaseId;
         private String description;
         private String id;
         private String name;
@@ -104,6 +118,7 @@ public final class GetEnterpriseResult {
         public Builder(GetEnterpriseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createdAt = defaults.createdAt;
+    	      this.databaseId = defaults.databaseId;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -117,6 +132,14 @@ public final class GetEnterpriseResult {
               throw new MissingRequiredPropertyException("GetEnterpriseResult", "createdAt");
             }
             this.createdAt = createdAt;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseId(Integer databaseId) {
+            if (databaseId == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseResult", "databaseId");
+            }
+            this.databaseId = databaseId;
             return this;
         }
         @CustomType.Setter
@@ -162,6 +185,7 @@ public final class GetEnterpriseResult {
         public GetEnterpriseResult build() {
             final var _resultValue = new GetEnterpriseResult();
             _resultValue.createdAt = createdAt;
+            _resultValue.databaseId = databaseId;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;

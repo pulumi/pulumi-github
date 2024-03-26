@@ -63,6 +63,12 @@ namespace Pulumi.Github
         public Output<string> BillingEmail { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the organization.
+        /// </summary>
+        [Output("databaseId")]
+        public Output<int> DatabaseId { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the organization.
         /// </summary>
         [Output("description")]
@@ -199,6 +205,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("billingEmail")]
         public Input<string>? BillingEmail { get; set; }
+
+        /// <summary>
+        /// The ID of the organization.
+        /// </summary>
+        [Input("databaseId")]
+        public Input<int>? DatabaseId { get; set; }
 
         /// <summary>
         /// The description of the organization.

@@ -117,6 +117,7 @@ class _EnterpriseOrganizationState:
     def __init__(__self__, *,
                  admin_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  billing_email: Optional[pulumi.Input[str]] = None,
+                 database_id: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enterprise_id: Optional[pulumi.Input[str]] = None,
@@ -125,6 +126,7 @@ class _EnterpriseOrganizationState:
         Input properties used for looking up and filtering EnterpriseOrganization resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
         :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[int] database_id: The ID of the organization.
         :param pulumi.Input[str] description: The description of the organization.
         :param pulumi.Input[str] display_name: The display name of the organization.
         :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
@@ -134,6 +136,8 @@ class _EnterpriseOrganizationState:
             pulumi.set(__self__, "admin_logins", admin_logins)
         if billing_email is not None:
             pulumi.set(__self__, "billing_email", billing_email)
+        if database_id is not None:
+            pulumi.set(__self__, "database_id", database_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -166,6 +170,18 @@ class _EnterpriseOrganizationState:
     @billing_email.setter
     def billing_email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "billing_email", value)
+
+    @property
+    @pulumi.getter(name="databaseId")
+    def database_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the organization.
+        """
+        return pulumi.get(self, "database_id")
+
+    @database_id.setter
+    def database_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "database_id", value)
 
     @property
     @pulumi.getter
@@ -339,6 +355,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enterprise_id'")
             __props__.__dict__["enterprise_id"] = enterprise_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["database_id"] = None
         super(EnterpriseOrganization, __self__).__init__(
             'github:index/enterpriseOrganization:EnterpriseOrganization',
             resource_name,
@@ -351,6 +368,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             billing_email: Optional[pulumi.Input[str]] = None,
+            database_id: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enterprise_id: Optional[pulumi.Input[str]] = None,
@@ -364,6 +382,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_logins: List of organization owner usernames.
         :param pulumi.Input[str] billing_email: The billing email address.
+        :param pulumi.Input[int] database_id: The ID of the organization.
         :param pulumi.Input[str] description: The description of the organization.
         :param pulumi.Input[str] display_name: The display name of the organization.
         :param pulumi.Input[str] enterprise_id: The ID of the enterprise.
@@ -375,6 +394,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         __props__.__dict__["admin_logins"] = admin_logins
         __props__.__dict__["billing_email"] = billing_email
+        __props__.__dict__["database_id"] = database_id
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enterprise_id"] = enterprise_id
@@ -396,6 +416,14 @@ class EnterpriseOrganization(pulumi.CustomResource):
         The billing email address.
         """
         return pulumi.get(self, "billing_email")
+
+    @property
+    @pulumi.getter(name="databaseId")
+    def database_id(self) -> pulumi.Output[int]:
+        """
+        The ID of the organization.
+        """
+        return pulumi.get(self, "database_id")
 
     @property
     @pulumi.getter

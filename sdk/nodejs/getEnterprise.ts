@@ -47,6 +47,10 @@ export interface GetEnterpriseResult {
      */
     readonly createdAt: string;
     /**
+     * The database ID of the enterprise.
+     */
+    readonly databaseId: number;
+    /**
      * The description of the enterprise.
      */
     readonly description: string;

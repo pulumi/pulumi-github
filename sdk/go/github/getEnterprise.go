@@ -60,6 +60,8 @@ type GetEnterpriseArgs struct {
 type GetEnterpriseResult struct {
 	// The time the enterprise was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// The database ID of the enterprise.
+	DatabaseId int `pulumi:"databaseId"`
 	// The description of the enterprise.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -113,6 +115,11 @@ func (o GetEnterpriseResultOutput) ToGetEnterpriseResultOutputWithContext(ctx co
 // The time the enterprise was created.
 func (o GetEnterpriseResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnterpriseResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The database ID of the enterprise.
+func (o GetEnterpriseResultOutput) DatabaseId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEnterpriseResult) int { return v.DatabaseId }).(pulumi.IntOutput)
 }
 
 // The description of the enterprise.

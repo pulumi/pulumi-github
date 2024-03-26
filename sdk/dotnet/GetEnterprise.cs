@@ -102,6 +102,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// The database ID of the enterprise.
+        /// </summary>
+        public readonly int DatabaseId;
+        /// <summary>
         /// The description of the enterprise.
         /// </summary>
         public readonly string Description;
@@ -126,6 +130,8 @@ namespace Pulumi.Github
         private GetEnterpriseResult(
             string createdAt,
 
+            int databaseId,
+
             string description,
 
             string id,
@@ -137,6 +143,7 @@ namespace Pulumi.Github
             string url)
         {
             CreatedAt = createdAt;
+            DatabaseId = databaseId;
             Description = description;
             Id = id;
             Name = name;
