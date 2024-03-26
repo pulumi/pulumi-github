@@ -229,10 +229,11 @@ jobs:
       name: Check Configuration section
       run: |
         sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
+        jq -r '.config[] | keys[]' < provider/cmd/pulumi-resource-github/schema.json >> keys.txt
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {
           echo "MISSING_CONFIG<<$EOF";
-          cat provider/cmd/pulumi-resource-github/schema.json | jq -r '.config[] | keys[]' | xargs -I {} sh -c "grep -q {} config_section.txt || echo \\\`{}\\\` not found in Configuration section"
+          xargs -I {} sh -c "grep -q {} config_section.txt || echo \\\`{}\\\` not found in Configuration section" < keys.txt
           echo "$EOF";
         } >> "$GITHUB_ENV"
 
@@ -245,7 +246,7 @@ jobs:
         message: >+
           ### Is README.md missing any configuration options?
 
-          ${{ env.MISSING_CONFIG }}
+          ${{ env.MISSING_CONFIG || 'No missing config!' }}
 
 
           Please add a description for each of these options to `README.md`.
