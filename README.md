@@ -52,6 +52,15 @@ The following configuration points are available:
 - `github:organization` - (Deprecated) This behaves the same as owner, which should be used instead. This value can also 
   be sourced from the `GITHUB_ORGANIZATION` environment variable.
 
+appAuth not found in Configuration section
+insecure not found in Configuration section
+maxRetries not found in Configuration section
+parallelRequests not found in Configuration section
+readDelayMs not found in Configuration section
+retryDelayMs not found in Configuration section
+retryableErrors not found in Configuration section
+writeDelayMs not found in Configuration section
+
 ## Reference
 
 For further information, please visit [the GitHub provider docs](https://www.pulumi.com/docs/intro/cloud-providers/github)
