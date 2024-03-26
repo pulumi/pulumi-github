@@ -897,6 +897,8 @@ type BranchProtectionV3RequiredPullRequestReviews struct {
 	IncludeAdmins *bool `pulumi:"includeAdmins"`
 	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReviews *bool `pulumi:"requireCodeOwnerReviews"`
+	// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
 	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
 }
@@ -928,6 +930,8 @@ type BranchProtectionV3RequiredPullRequestReviewsArgs struct {
 	IncludeAdmins pulumi.BoolPtrInput `pulumi:"includeAdmins"`
 	// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReviews pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReviews"`
+	// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
 	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
 }
@@ -1047,6 +1051,11 @@ func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequireCodeOwnerRevi
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.RequireCodeOwnerReviews }).(pulumi.BoolPtrOutput)
 }
 
+// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
+}
+
 // Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
 func (o BranchProtectionV3RequiredPullRequestReviewsOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionV3RequiredPullRequestReviews) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
@@ -1144,6 +1153,16 @@ func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequireCodeOwnerR
 			return nil
 		}
 		return v.RequireCodeOwnerReviews
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+func (o BranchProtectionV3RequiredPullRequestReviewsPtrOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchProtectionV3RequiredPullRequestReviews) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireLastPushApproval
 	}).(pulumi.BoolPtrOutput)
 }
 

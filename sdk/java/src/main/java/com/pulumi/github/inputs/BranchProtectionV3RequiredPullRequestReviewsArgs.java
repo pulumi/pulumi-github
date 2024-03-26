@@ -131,6 +131,21 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
     }
 
     /**
+     * Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    @Import(name="requireLastPushApproval")
+    private @Nullable Output<Boolean> requireLastPushApproval;
+
+    /**
+     * @return Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> requireLastPushApproval() {
+        return Optional.ofNullable(this.requireLastPushApproval);
+    }
+
+    /**
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub&#39;s API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
      * 
      */
@@ -155,6 +170,7 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
         this.dismissalUsers = $.dismissalUsers;
         this.includeAdmins = $.includeAdmins;
         this.requireCodeOwnerReviews = $.requireCodeOwnerReviews;
+        this.requireLastPushApproval = $.requireLastPushApproval;
         this.requiredApprovingReviewCount = $.requiredApprovingReviewCount;
     }
 
@@ -358,6 +374,27 @@ public final class BranchProtectionV3RequiredPullRequestReviewsArgs extends com.
          */
         public Builder requireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
             return requireCodeOwnerReviews(Output.of(requireCodeOwnerReviews));
+        }
+
+        /**
+         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireLastPushApproval(@Nullable Output<Boolean> requireLastPushApproval) {
+            $.requireLastPushApproval = requireLastPushApproval;
+            return this;
+        }
+
+        /**
+         * @param requireLastPushApproval Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireLastPushApproval(Boolean requireLastPushApproval) {
+            return requireLastPushApproval(Output.of(requireLastPushApproval));
         }
 
         /**

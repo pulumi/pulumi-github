@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.EnterpriseOrganizationArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.EnterpriseOrganizationState;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -93,6 +94,20 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      */
     public Output<String> billingEmail() {
         return this.billingEmail;
+    }
+    /**
+     * The ID of the organization.
+     * 
+     */
+    @Export(name="databaseId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> databaseId;
+
+    /**
+     * @return The ID of the organization.
+     * 
+     */
+    public Output<Integer> databaseId() {
+        return this.databaseId;
     }
     /**
      * The description of the organization.

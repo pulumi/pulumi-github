@@ -499,6 +499,8 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
             suggest = "include_admins"
         elif key == "requireCodeOwnerReviews":
             suggest = "require_code_owner_reviews"
+        elif key == "requireLastPushApproval":
+            suggest = "require_last_push_approval"
         elif key == "requiredApprovingReviewCount":
             suggest = "required_approving_review_count"
 
@@ -521,6 +523,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
                  dismissal_users: Optional[Sequence[str]] = None,
                  include_admins: Optional[bool] = None,
                  require_code_owner_reviews: Optional[bool] = None,
+                 require_last_push_approval: Optional[bool] = None,
                  required_approving_review_count: Optional[int] = None):
         """
         :param 'BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs' bypass_pull_request_allowances: Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
@@ -530,6 +533,7 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
                Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         :param Sequence[str] dismissal_users: The list of user logins with dismissal access
         :param bool require_code_owner_reviews: Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
         :param int required_approving_review_count: Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
         """
         if bypass_pull_request_allowances is not None:
@@ -546,6 +550,8 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
             pulumi.set(__self__, "include_admins", include_admins)
         if require_code_owner_reviews is not None:
             pulumi.set(__self__, "require_code_owner_reviews", require_code_owner_reviews)
+        if require_last_push_approval is not None:
+            pulumi.set(__self__, "require_last_push_approval", require_last_push_approval)
         if required_approving_review_count is not None:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
 
@@ -605,6 +611,14 @@ class BranchProtectionV3RequiredPullRequestReviews(dict):
         Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_reviews")
+
+    @property
+    @pulumi.getter(name="requireLastPushApproval")
+    def require_last_push_approval(self) -> Optional[bool]:
+        """
+        Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        """
+        return pulumi.get(self, "require_last_push_approval")
 
     @property
     @pulumi.getter(name="requiredApprovingReviewCount")

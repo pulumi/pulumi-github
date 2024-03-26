@@ -77,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmuGroupMapping{}
 	case "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions":
 		r = &EnterpriseActionsPermissions{}
+	case "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup":
+		r = &EnterpriseActionsRunnerGroup{}
 	case "github:index/enterpriseOrganization:EnterpriseOrganization":
 		r = &EnterpriseOrganization{}
 	case "github:index/issue:Issue":
@@ -328,6 +330,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/enterpriseActionsPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/enterpriseActionsRunnerGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

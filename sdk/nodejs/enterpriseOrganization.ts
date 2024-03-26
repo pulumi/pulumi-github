@@ -69,6 +69,10 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
      */
     public readonly billingEmail!: pulumi.Output<string>;
     /**
+     * The ID of the organization.
+     */
+    public /*out*/ readonly databaseId!: pulumi.Output<number>;
+    /**
      * The description of the organization.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
             const state = argsOrState as EnterpriseOrganizationState | undefined;
             resourceInputs["adminLogins"] = state ? state.adminLogins : undefined;
             resourceInputs["billingEmail"] = state ? state.billingEmail : undefined;
+            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enterpriseId"] = state ? state.enterpriseId : undefined;
@@ -121,6 +126,7 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enterpriseId"] = args ? args.enterpriseId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["databaseId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnterpriseOrganization.__pulumiType, name, resourceInputs, opts);
@@ -139,6 +145,10 @@ export interface EnterpriseOrganizationState {
      * The billing email address.
      */
     billingEmail?: pulumi.Input<string>;
+    /**
+     * The ID of the organization.
+     */
+    databaseId?: pulumi.Input<number>;
     /**
      * The description of the organization.
      */
