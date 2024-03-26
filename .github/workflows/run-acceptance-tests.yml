@@ -248,7 +248,8 @@ jobs:
           ${{ env.MISSING_CONFIG }}
 
 
-          Details about these options can be found in either the upstream docs or the schema.json
+          Please add a description for each of these options to `README.md`.
+          Details about them can be found in either the upstream docs or `schema.json`.
 
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
