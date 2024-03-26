@@ -225,6 +225,28 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
+    - if: github.event_name == 'pull_request'
+      name: Check Configuration section
+      run: |
+        sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "MISSING_CONFIG<<$EOF";
+          cat provider/cmd/pulumi-resource-github/schema.json | jq -r '.config[] | keys[]' | xargs -I {} sh -c "grep -q {} config_section.txt || echo {} not found in Configuration section"
+          echo "$EOF";
+        } >> "$GITHUB_ENV"
+
+    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+      name: Comment on PR with Details of Schema Check
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        comment_tag: schemaCheck
+        message: >+
+          ### Does the repo have any missing Configuration properties in README.md?
+
+          ${{ env.MISSING_CONFIG }}
+
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
