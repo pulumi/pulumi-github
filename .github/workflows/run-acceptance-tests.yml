@@ -237,11 +237,11 @@ jobs:
         } >> "$GITHUB_ENV"
 
     - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
-      name: Comment on PR with Details of Schema Check
+      name: Comment on PR with Details of Configuration check
       uses: thollander/actions-comment-pull-request@v2
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        comment_tag: schemaCheck
+        comment_tag: configurationCheck
         message: >+
           ### Is README.md missing any configuration options?
 
