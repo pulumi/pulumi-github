@@ -7245,7 +7245,7 @@
                 "defaultBranch": {
                     "type": "string",
                     "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
-                    "deprecationMessage": "Use the github.BranchDefault resource instead"
+                    "deprecationMessage": "Use the github_branch_default resource instead"
                 },
                 "deleteBranchOnMerge": {
                     "type": "boolean",
@@ -7445,7 +7445,7 @@
                 "defaultBranch": {
                     "type": "string",
                     "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
-                    "deprecationMessage": "Use the github.BranchDefault resource instead"
+                    "deprecationMessage": "Use the github_branch_default resource instead"
                 },
                 "deleteBranchOnMerge": {
                     "type": "boolean",
@@ -7590,7 +7590,7 @@
                     "defaultBranch": {
                         "type": "string",
                         "description": "(Deprecated: Use `github.BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,\nand after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the\ninitial repository creation and create the target branch inside of the repository prior to setting this attribute.\n",
-                        "deprecationMessage": "Use the github.BranchDefault resource instead"
+                        "deprecationMessage": "Use the github_branch_default resource instead"
                     },
                     "deleteBranchOnMerge": {
                         "type": "boolean",

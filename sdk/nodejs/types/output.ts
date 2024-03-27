@@ -124,7 +124,7 @@ export interface BranchProtectionV3RequiredPullRequestReviews {
      */
     dismissalUsers?: string[];
     /**
-     * @deprecated Use enforceAdmins instead
+     * @deprecated Use enforce_admins instead
      */
     includeAdmins?: boolean;
     /**
@@ -173,7 +173,7 @@ export interface BranchProtectionV3RequiredStatusChecks {
      */
     contexts?: string[];
     /**
-     * @deprecated Use enforceAdmins instead
+     * @deprecated Use enforce_admins instead
      */
     includeAdmins?: boolean;
     /**
