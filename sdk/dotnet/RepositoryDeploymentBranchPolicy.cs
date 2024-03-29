@@ -40,9 +40,9 @@ namespace Pulumi.Github
     ///         EnvironmentName = "my_env",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             env,
+    ///             env, 
     ///         },
     ///     });
     /// 

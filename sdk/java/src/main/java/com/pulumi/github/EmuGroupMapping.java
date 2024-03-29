@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *             .teamSlug(&#34;emu-test-team&#34;)
  *             .build());
  * 
+ *         // The GitHub team name to modify
  *     }
  * }
  * ```
