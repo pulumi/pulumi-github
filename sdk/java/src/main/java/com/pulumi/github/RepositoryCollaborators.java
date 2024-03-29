@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Add collaborators to a repository
  *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
  *             .description(&#34;Some cool team&#34;)
  *             .build());

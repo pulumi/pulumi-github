@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Add a repository to the team
  *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
  *             .description(&#34;Some cool team&#34;)
  *             .build());

@@ -61,6 +61,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTeam = new Team(&#34;exampleTeam&#34;);
  * 
+ *         // Protect the main branch of the foo repository. Additionally, require that
+ *         // the &#34;ci/travis&#34; context to be passing and only allow the engineers team merge
+ *         // to the branch.
  *         var exampleBranchProtection = new BranchProtection(&#34;exampleBranchProtection&#34;, BranchProtectionArgs.builder()        
  *             .repositoryId(exampleRepository.nodeId())
  *             .pattern(&#34;main&#34;)

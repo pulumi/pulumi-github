@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Add a user to the organization
  *         var membershipForSomeUser = new Membership(&#34;membershipForSomeUser&#34;, MembershipArgs.builder()        
  *             .username(&#34;SomeUser&#34;)
  *             .role(&#34;member&#34;)
