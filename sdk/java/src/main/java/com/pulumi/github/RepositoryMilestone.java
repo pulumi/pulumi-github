@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a milestone for a repository
  *         var example = new RepositoryMilestone(&#34;example&#34;, RepositoryMilestoneArgs.builder()        
  *             .owner(&#34;example-owner&#34;)
  *             .repository(&#34;example-repository&#34;)

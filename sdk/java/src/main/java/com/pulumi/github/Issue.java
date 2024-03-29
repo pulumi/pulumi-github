@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a simple issue
  *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
  *             .autoInit(true)
  *             .hasIssues(true)
@@ -92,6 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create an issue with milestone and project assignment
  *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
  *             .autoInit(true)
  *             .hasIssues(true)
