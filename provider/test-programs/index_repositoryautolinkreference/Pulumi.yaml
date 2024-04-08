@@ -1,0 +1,22 @@
+name: index_repositoryautolinkreferenceY7FcxlGp6vm5
+runtime: yaml
+description: A minimal Pulumi YAML program with a GitHub repository autolink reference.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/08130de2-74b6-4030-8e48-fbef440f3510.zip
+outputs:
+  autolinkReferenceId: ${myAutolinkReference.id}
+  repositoryName: ${myRepo.name}
+resources:
+  myAutolinkReference:
+    properties:
+      keyPrefix: KEY-
+      repository: ${myRepo.name}
+      targetUrlTemplate: https://example.com/KEY/<num>
+    type: github:RepositoryAutolinkReference
+  myRepo:
+    properties:
+      description: A repository with autolink references.
+      visibility: public
+    type: github:Repository

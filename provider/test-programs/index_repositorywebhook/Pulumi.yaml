@@ -1,0 +1,24 @@
+name: index_repositorywebhooklHnU5DDPM8yL
+runtime: yaml
+description: A minimal Pulumi program to create a GitHub repository webhook
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/eb4f4506-6538-4ee6-9fe4-e272ade53acd.zip
+resources:
+  myWebhook:
+    properties:
+      active: true
+      configuration:
+        contentType: json
+        url: https://www.example.com/webhook
+      events:
+        - push
+        - pull_request
+      repository: ${exampleRepository.name}
+    type: github:RepositoryWebhook
+  exampleRepository:
+    properties:
+      description: A repository to demonstrate GitHub Actions Environment Variables
+      visibility: public
+    type: github:Repository
