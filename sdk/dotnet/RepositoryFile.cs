@@ -24,14 +24,15 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooRepository = new Github.Repository("fooRepository", new()
+    ///     var foo = new Github.Repository("foo", new()
     ///     {
+    ///         Name = "tf-acc-test-%s",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new()
+    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
     ///     {
-    ///         Repository = fooRepository.Name,
+    ///         Repository = foo.Name,
     ///         Branch = "main",
     ///         File = ".gitignore",
     ///         Content = "**/*.tfstate",

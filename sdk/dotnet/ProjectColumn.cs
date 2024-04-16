@@ -25,12 +25,14 @@ namespace Pulumi.Github
     /// {
     ///     var project = new Github.OrganizationProject("project", new()
     ///     {
+    ///         Name = "A Organization Project",
     ///         Body = "This is an organization project.",
     ///     });
     /// 
     ///     var column = new Github.ProjectColumn("column", new()
     ///     {
     ///         ProjectId = project.Id,
+    ///         Name = "a column",
     ///     });
     /// 
     /// });

@@ -178,9 +178,9 @@ class Membership(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
+        membership_for_some_user = github.Membership("membership_for_some_user",
+            username="SomeUser",
+            role="member")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -224,9 +224,9 @@ class Membership(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
-            role="member",
-            username="SomeUser")
+        membership_for_some_user = github.Membership("membership_for_some_user",
+            username="SomeUser",
+            role="member")
         ```
         <!--End PulumiCodeChooser -->
 

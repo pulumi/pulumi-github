@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var org = new EnterpriseOrganization(&#34;org&#34;, EnterpriseOrganizationArgs.builder()        
- *             .enterpriseId(data.github_enterprise().enterprise().id())
+ *             .enterpriseId(enterprise.id())
+ *             .name(&#34;some-awesome-org&#34;)
  *             .displayName(&#34;Some Awesome Org&#34;)
  *             .description(&#34;Organization created with terraform&#34;)
  *             .billingEmail(&#34;jon@winteriscoming.com&#34;)

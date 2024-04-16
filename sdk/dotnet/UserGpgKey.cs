@@ -29,8 +29,7 @@ namespace Pulumi.Github
     ///     {
     ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
     /// ...
-    /// -----END PGP PUBLIC KEY BLOCK-----
-    /// ",
+    /// -----END PGP PUBLIC KEY BLOCK-----",
     ///     });
     /// 
     /// });

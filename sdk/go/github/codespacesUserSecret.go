@@ -14,52 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
-//				FullName: pulumi.StringRef("my-org/repo"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewCodespacesUserSecret(ctx, "exampleSecretCodespacesUserSecret", &github.CodespacesUserSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
-//				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewCodespacesUserSecret(ctx, "exampleSecretIndex/codespacesUserSecretCodespacesUserSecret", &github.CodespacesUserSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				EncryptedValue: pulumi.Any(_var.Some_encrypted_secret_string),
-//				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // This resource can be imported using an ID made up of the secret name:

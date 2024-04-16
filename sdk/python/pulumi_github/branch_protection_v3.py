@@ -325,7 +325,7 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
         example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
+            repository=example_github_repository["name"],
             branch="main",
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],
@@ -374,7 +374,7 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         # Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
         example = github.BranchProtectionV3("example",
-            repository=github_repository["example"]["name"],
+            repository=example_github_repository["name"],
             branch="main",
             restrictions=github.BranchProtectionV3RestrictionsArgs(
                 users=["foo-user"],

@@ -30,8 +30,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositories.Invoke(new()
         ///     {
-        ///         IncludeRepoId = true,
         ///         Query = "org:hashicorp language:Go",
+        ///         IncludeRepoId = true,
         ///     });
         /// 
         /// });
@@ -60,8 +60,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositories.Invoke(new()
         ///     {
-        ///         IncludeRepoId = true,
         ///         Query = "org:hashicorp language:Go",
+        ///         IncludeRepoId = true,
         ///     });
         /// 
         /// });

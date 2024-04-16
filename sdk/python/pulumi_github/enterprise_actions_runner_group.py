@@ -338,11 +338,13 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
         import pulumi_github as github
 
         enterprise = github.get_enterprise(slug="my-enterprise")
-        enterprise_organization = github.EnterpriseOrganization("enterpriseOrganization",
+        enterprise_organization = github.EnterpriseOrganization("enterprise_organization",
             enterprise_id=enterprise.id,
+            name="my-organization",
             billing_email="octocat@octo.cat",
             admin_logins=["octocat"])
         example = github.EnterpriseActionsRunnerGroup("example",
+            name="my-awesome-runner-group",
             enterprise_slug=enterprise.slug,
             allows_public_repositories=True,
             visibility="selected",
@@ -388,11 +390,13 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
         import pulumi_github as github
 
         enterprise = github.get_enterprise(slug="my-enterprise")
-        enterprise_organization = github.EnterpriseOrganization("enterpriseOrganization",
+        enterprise_organization = github.EnterpriseOrganization("enterprise_organization",
             enterprise_id=enterprise.id,
+            name="my-organization",
             billing_email="octocat@octo.cat",
             admin_logins=["octocat"])
         example = github.EnterpriseActionsRunnerGroup("example",
+            name="my-awesome-runner-group",
             enterprise_slug=enterprise.slug,
             allows_public_repositories=True,
             visibility="selected",

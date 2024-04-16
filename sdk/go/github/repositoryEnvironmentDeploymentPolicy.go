@@ -35,12 +35,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testRepository, err := github.NewRepository(ctx, "testRepository", nil)
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name: pulumi.String("tf-acc-test-%s"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			testRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "testRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
-//				Repository:  testRepository.Name,
+//			testRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "test", &github.RepositoryEnvironmentArgs{
+//				Repository:  test.Name,
 //				Environment: pulumi.String("environment/test"),
 //				WaitTimer:   pulumi.Int(10000),
 //				Reviewers: github.RepositoryEnvironmentReviewerArray{
@@ -58,8 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryEnvironmentDeploymentPolicy(ctx, "testRepositoryEnvironmentDeploymentPolicy", &github.RepositoryEnvironmentDeploymentPolicyArgs{
-//				Repository:    testRepository.Name,
+//			_, err = github.NewRepositoryEnvironmentDeploymentPolicy(ctx, "test", &github.RepositoryEnvironmentDeploymentPolicyArgs{
+//				Repository:    test.Name,
 //				Environment:   testRepositoryEnvironment.Environment,
 //				BranchPattern: pulumi.String("releases/*"),
 //			})

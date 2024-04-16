@@ -24,7 +24,10 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example");
+    ///     var example = new Github.Repository("example", new()
+    ///     {
+    ///         Name = "my-repository",
+    ///     });
     /// 
     ///     var test = new Github.ActionsOrganizationPermissions("test", new()
     ///     {

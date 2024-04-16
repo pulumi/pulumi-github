@@ -42,11 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleEmuGroupMapping = new EmuGroupMapping(&#34;exampleEmuGroupMapping&#34;, EmuGroupMappingArgs.builder()        
- *             .groupId(28836)
  *             .teamSlug(&#34;emu-test-team&#34;)
+ *             .groupId(28836)
  *             .build());
  * 
- *         // The GitHub team name to modify
  *     }
  * }
  * ```

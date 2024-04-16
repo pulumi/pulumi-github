@@ -321,10 +321,11 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
+        example = github.Repository("example", name="my-repository")
+        example_actions_runner_group = github.ActionsRunnerGroup("example",
+            name=example.name,
             visibility="selected",
-            selected_repository_ids=[example_repository.repo_id])
+            selected_repository_ids=[example.repo_id])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -362,10 +363,11 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_actions_runner_group = github.ActionsRunnerGroup("exampleActionsRunnerGroup",
+        example = github.Repository("example", name="my-repository")
+        example_actions_runner_group = github.ActionsRunnerGroup("example",
+            name=example.name,
             visibility="selected",
-            selected_repository_ids=[example_repository.repo_id])
+            selected_repository_ids=[example.repo_id])
         ```
         <!--End PulumiCodeChooser -->
 

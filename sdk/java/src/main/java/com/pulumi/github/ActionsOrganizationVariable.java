@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleVariable = new ActionsOrganizationVariable(&#34;exampleVariable&#34;, ActionsOrganizationVariableArgs.builder()        
- *             .value(&#34;example_variable_value&#34;)
  *             .variableName(&#34;example_variable_name&#34;)
  *             .visibility(&#34;private&#34;)
+ *             .value(&#34;example_variable_value&#34;)
  *             .build());
  * 
  *     }

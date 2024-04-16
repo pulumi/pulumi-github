@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "foo",
  *     description: "Terraform acceptance tests",
  *     homepageUrl: "http://example.com/",
  *     visibility: "public",

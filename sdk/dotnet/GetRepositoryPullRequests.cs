@@ -27,8 +27,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
         ///     {
-        ///         BaseRef = "main",
         ///         BaseRepository = "example-repository",
+        ///         BaseRef = "main",
         ///         SortBy = "updated",
         ///         SortDirection = "desc",
         ///         State = "open",
@@ -57,8 +57,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
         ///     {
-        ///         BaseRef = "main",
         ///         BaseRepository = "example-repository",
+        ///         BaseRef = "main",
         ///         SortBy = "updated",
         ///         SortDirection = "desc",
         ///         State = "open",

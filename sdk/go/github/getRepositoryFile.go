@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRepositoryFile(ctx, &github.LookupRepositoryFileArgs{
-//				Repository: github_repository.Foo.Name,
+//				Repository: fooGithubRepository.Name,
 //				Branch:     pulumi.StringRef("main"),
 //				File:       ".gitignore",
 //			}, nil)

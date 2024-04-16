@@ -111,7 +111,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("org_secret_repos",
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
@@ -150,7 +150,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("org_secret_repos",
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```

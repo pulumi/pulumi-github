@@ -297,8 +297,8 @@ def get_release(owner: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    example = github.get_release(owner="example-owner",
-        repository="example-repository",
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
         retrieve_by="latest")
     ```
     <!--End PulumiCodeChooser -->
@@ -364,8 +364,8 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_github as github
 
-    example = github.get_release(owner="example-owner",
-        repository="example-repository",
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
         retrieve_by="latest")
     ```
     <!--End PulumiCodeChooser -->

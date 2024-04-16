@@ -200,9 +200,10 @@ class IssueLabel(pulumi.CustomResource):
         import pulumi_github as github
 
         # Create a new, red colored label
-        test_repo = github.IssueLabel("testRepo",
-            color="FF0000",
-            repository="test-repo")
+        test_repo = github.IssueLabel("test_repo",
+            repository="test-repo",
+            name="Urgent",
+            color="FF0000")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -236,9 +237,10 @@ class IssueLabel(pulumi.CustomResource):
         import pulumi_github as github
 
         # Create a new, red colored label
-        test_repo = github.IssueLabel("testRepo",
-            color="FF0000",
-            repository="test-repo")
+        test_repo = github.IssueLabel("test_repo",
+            repository="test-repo",
+            name="Urgent",
+            color="FF0000")
         ```
         <!--End PulumiCodeChooser -->
 

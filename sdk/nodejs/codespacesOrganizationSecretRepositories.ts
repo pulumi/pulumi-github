@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * const repo = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const orgSecretRepos = new github.CodespacesOrganizationSecretRepositories("orgSecretRepos", {
+ * const orgSecretRepos = new github.CodespacesOrganizationSecretRepositories("org_secret_repos", {
  *     secretName: "existing_secret_name",
  *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
  * });

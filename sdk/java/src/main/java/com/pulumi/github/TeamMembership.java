@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;SomeTeam&#34;)
  *             .description(&#34;Some cool team&#34;)
  *             .build());
  * 

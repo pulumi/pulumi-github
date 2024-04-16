@@ -40,9 +40,12 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add collaborators to a repository
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someRepo = new github.Repository("someRepo", {});
- * const someRepoCollaborators = new github.RepositoryCollaborators("someRepoCollaborators", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const someRepo = new github.Repository("some_repo", {name: "some-repo"});
+ * const someRepoCollaborators = new github.RepositoryCollaborators("some_repo_collaborators", {
  *     repository: someRepo.name,
  *     users: [{
  *         permission: "admin",

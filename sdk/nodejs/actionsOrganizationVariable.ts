@@ -15,10 +15,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleVariable = new github.ActionsOrganizationVariable("exampleVariable", {
- *     value: "example_variable_value",
+ * const exampleVariable = new github.ActionsOrganizationVariable("example_variable", {
  *     variableName: "example_variable_name",
  *     visibility: "private",
+ *     value: "example_variable_value",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * const repo = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const exampleVariable = new github.ActionsOrganizationVariable("exampleVariable", {
+ * const exampleVariable = new github.ActionsOrganizationVariable("example_variable", {
  *     variableName: "example_variable_name",
  *     visibility: "selected",
  *     value: "example_variable_value",

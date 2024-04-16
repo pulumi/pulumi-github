@@ -159,6 +159,7 @@ class BranchDefault(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         development = github.Branch("development",
@@ -178,6 +179,7 @@ class BranchDefault(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         default = github.BranchDefault("default",
@@ -224,6 +226,7 @@ class BranchDefault(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         development = github.Branch("development",
@@ -243,6 +246,7 @@ class BranchDefault(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         default = github.BranchDefault("default",

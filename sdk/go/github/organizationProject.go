@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Name: pulumi.String("A Organization Project"),
 //				Body: pulumi.String("This is a organization project."),
 //			})
 //			if err != nil {

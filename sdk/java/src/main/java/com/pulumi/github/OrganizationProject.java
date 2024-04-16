@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
+ *             .name(&#34;A Organization Project&#34;)
  *             .body(&#34;This is a organization project.&#34;)
  *             .build());
  * 

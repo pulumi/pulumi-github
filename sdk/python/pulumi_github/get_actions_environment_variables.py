@@ -101,8 +101,8 @@ def get_actions_environment_variables(environment: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_variables(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_variables(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -139,8 +139,8 @@ def get_actions_environment_variables_output(environment: Optional[pulumi.Input[
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_variables(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_variables(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
     <!--End PulumiCodeChooser -->
 

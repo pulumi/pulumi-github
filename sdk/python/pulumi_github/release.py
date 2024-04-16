@@ -352,6 +352,7 @@ class Release(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="repo",
             description="GitHub repo managed by Terraform",
             private=False)
         example = github.Release("example",
@@ -367,13 +368,15 @@ class Release(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository", auto_init=True)
-        example_branch = github.Branch("exampleBranch",
-            repository=example_repository.name,
+        example = github.Repository("example",
+            name="repo",
+            auto_init=True)
+        example_branch = github.Branch("example",
+            repository=example.name,
             branch="branch_name",
-            source_branch=example_repository.default_branch)
-        example_release = github.Release("exampleRelease",
-            repository=example_repository.name,
+            source_branch=example.default_branch)
+        example_release = github.Release("example",
+            repository=example.name,
             tag_name="v1.0.0",
             target_commitish=example_branch.branch,
             draft=False,
@@ -419,6 +422,7 @@ class Release(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="repo",
             description="GitHub repo managed by Terraform",
             private=False)
         example = github.Release("example",
@@ -434,13 +438,15 @@ class Release(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository", auto_init=True)
-        example_branch = github.Branch("exampleBranch",
-            repository=example_repository.name,
+        example = github.Repository("example",
+            name="repo",
+            auto_init=True)
+        example_branch = github.Branch("example",
+            repository=example.name,
             branch="branch_name",
-            source_branch=example_repository.default_branch)
-        example_release = github.Release("exampleRelease",
-            repository=example_repository.name,
+            source_branch=example.default_branch)
+        example_release = github.Release("example",
+            repository=example.name,
             tag_name="v1.0.0",
             target_commitish=example_branch.branch,
             draft=False,

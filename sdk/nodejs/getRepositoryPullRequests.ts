@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryPullRequests({
- *     baseRef: "main",
  *     baseRepository: "example-repository",
+ *     baseRef: "main",
  *     sortBy: "updated",
  *     sortDirection: "desc",
  *     state: "open",
@@ -114,8 +114,8 @@ export interface GetRepositoryPullRequestsResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryPullRequests({
- *     baseRef: "main",
  *     baseRepository: "example-repository",
+ *     baseRef: "main",
  *     sortBy: "updated",
  *     sortDirection: "desc",
  *     state: "open",

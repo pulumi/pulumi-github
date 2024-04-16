@@ -32,7 +32,7 @@ namespace Pulumi.Github
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories("org_secret_repos", new()
     ///     {
     ///         SecretName = "existing_secret_name",
     ///         SelectedRepositoryIds = new[]

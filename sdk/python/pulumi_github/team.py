@@ -375,7 +375,8 @@ class Team(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a team to the organization
-        some_team = github.Team("someTeam",
+        some_team = github.Team("some_team",
+            name="some-team",
             description="Some cool team",
             privacy="closed")
         ```
@@ -425,7 +426,8 @@ class Team(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a team to the organization
-        some_team = github.Team("someTeam",
+        some_team = github.Team("some_team",
+            name="some-team",
             description="Some cool team",
             privacy="closed")
         ```

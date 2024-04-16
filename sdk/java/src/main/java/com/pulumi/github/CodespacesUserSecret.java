@@ -19,51 +19,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetRepositoryArgs;
- * import com.pulumi.github.CodespacesUserSecret;
- * import com.pulumi.github.CodespacesUserSecretArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName(&#34;my-org/repo&#34;)
- *             .build());
- * 
- *         var exampleSecretCodespacesUserSecret = new CodespacesUserSecret(&#34;exampleSecretCodespacesUserSecret&#34;, CodespacesUserSecretArgs.builder()        
- *             .secretName(&#34;example_secret_name&#34;)
- *             .plaintextValue(var_.some_secret_string())
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
- *             .build());
- * 
- *         var exampleSecretIndex_codespacesUserSecretCodespacesUserSecret = new CodespacesUserSecret(&#34;exampleSecretIndex/codespacesUserSecretCodespacesUserSecret&#34;, CodespacesUserSecretArgs.builder()        
- *             .secretName(&#34;example_secret_name&#34;)
- *             .encryptedValue(var_.some_encrypted_secret_string())
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * This resource can be imported using an ID made up of the secret name:

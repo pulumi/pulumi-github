@@ -30,10 +30,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsEnvironmentVariable(ctx, "exampleVariable", &github.ActionsEnvironmentVariableArgs{
+//			_, err := github.NewActionsEnvironmentVariable(ctx, "example_variable", &github.ActionsEnvironmentVariableArgs{
 //				Environment:  pulumi.String("example_environment"),
-//				Value:        pulumi.String("example_variable_value"),
 //				VariableName: pulumi.String("example_variable_name"),
+//				Value:        pulumi.String("example_variable_value"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,14 +64,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repoEnvironment", &github.RepositoryEnvironmentArgs{
+//			repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repo_environment", &github.RepositoryEnvironmentArgs{
 //				Repository:  pulumi.String(repo.Name),
 //				Environment: pulumi.String("example_environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsEnvironmentVariable(ctx, "exampleVariable", &github.ActionsEnvironmentVariableArgs{
+//			_, err = github.NewActionsEnvironmentVariable(ctx, "example_variable", &github.ActionsEnvironmentVariableArgs{
 //				Repository:   pulumi.String(repo.Name),
 //				Environment:  repoEnvironment.Environment,
 //				VariableName: pulumi.String("example_variable_name"),

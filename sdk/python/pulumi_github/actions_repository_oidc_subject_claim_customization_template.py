@@ -156,8 +156,8 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
-        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate",
+        example = github.Repository("example", name="example-repository")
+        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template",
             repository=example.name,
             use_default=False,
             include_claim_keys=[
@@ -211,8 +211,8 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
-        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate",
+        example = github.Repository("example", name="example-repository")
+        example_template = github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template",
             repository=example.name,
             use_default=False,
             include_claim_keys=[

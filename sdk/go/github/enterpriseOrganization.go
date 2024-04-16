@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewEnterpriseOrganization(ctx, "org", &github.EnterpriseOrganizationArgs{
-//				EnterpriseId: pulumi.Any(data.Github_enterprise.Enterprise.Id),
+//				EnterpriseId: pulumi.Any(enterprise.Id),
+//				Name:         pulumi.String("some-awesome-org"),
 //				DisplayName:  pulumi.String("Some Awesome Org"),
 //				Description:  pulumi.String("Organization created with terraform"),
 //				BillingEmail: pulumi.String("jon@winteriscoming.com"),

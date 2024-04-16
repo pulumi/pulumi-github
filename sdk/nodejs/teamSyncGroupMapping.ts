@@ -13,6 +13,25 @@ import * as utilities from "./utilities";
  * To learn more about team synchronization between IdPs and GitHub, please refer to:
  * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleGroups = github.getOrganizationTeamSyncGroups({});
+ * const exampleGroupMapping = new github.TeamSyncGroupMapping("example_group_mapping", {
+ *     groups: .map(entry => ({
+ *         groupId: entry.value.groupId,
+ *         groupName: entry.value.groupName,
+ *         groupDescription: entry.value.groupDescription,
+ *     })),
+ *     teamSlug: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.

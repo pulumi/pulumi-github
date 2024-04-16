@@ -39,20 +39,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a user to the organization
-//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//			_, err := github.NewMembership(ctx, "membership_for_some_user", &github.MembershipArgs{
 //				Username: pulumi.String("SomeUser"),
 //				Role:     pulumi.String("member"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewTeamMembership(ctx, "someTeamMembership", &github.TeamMembershipArgs{
+//			_, err = github.NewTeamMembership(ctx, "some_team_membership", &github.TeamMembershipArgs{
 //				TeamId:   someTeam.ID(),
 //				Username: pulumi.String("SomeUser"),
 //				Role:     pulumi.String("member"),

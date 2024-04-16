@@ -22,13 +22,14 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
+ *     visibility: "public",
  *     template: {
- *         includeAllBranches: true,
  *         owner: "github",
  *         repository: "terraform-template-module",
+ *         includeAllBranches: true,
  *     },
- *     visibility: "public",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -41,14 +42,15 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome web page",
+ *     "private": false,
  *     pages: {
  *         source: {
  *             branch: "master",
  *             path: "/docs",
  *         },
  *     },
- *     "private": false,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

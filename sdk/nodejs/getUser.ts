@@ -14,9 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Retrieve information about a GitHub user.
  * const example = github.getUser({
  *     username: "example",
  * });
+ * // Retrieve information about the currently authenticated user.
  * const current = github.getUser({
  *     username: "",
  * });
@@ -142,9 +144,11 @@ export interface GetUserResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Retrieve information about a GitHub user.
  * const example = github.getUser({
  *     username: "example",
  * });
+ * // Retrieve information about the currently authenticated user.
  * const current = github.getUser({
  *     username: "",
  * });

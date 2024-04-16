@@ -9,21 +9,6 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to add/remove SSH keys from your user account.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.UserSshKey("example", {
- *     title: "example title",
- *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * SSH keys can be imported using their ID e.g.

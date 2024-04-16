@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "my-repo",
  *     description: "GitHub repo managed by Terraform",
  *     "private": false,
  * });

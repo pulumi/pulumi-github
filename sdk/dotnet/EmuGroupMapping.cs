@@ -23,13 +23,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEmuGroupMapping = new Github.EmuGroupMapping("exampleEmuGroupMapping", new()
+    ///     var exampleEmuGroupMapping = new Github.EmuGroupMapping("example_emu_group_mapping", new()
     ///     {
-    ///         GroupId = 28836,
     ///         TeamSlug = "emu-test-team",
+    ///         GroupId = 28836,
     ///     });
     /// 
-    ///     // The GitHub team name to modify
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;

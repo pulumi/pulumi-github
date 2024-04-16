@@ -36,8 +36,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			enterpriseOrganization, err := github.NewEnterpriseOrganization(ctx, "enterpriseOrganization", &github.EnterpriseOrganizationArgs{
+//			enterpriseOrganization, err := github.NewEnterpriseOrganization(ctx, "enterprise_organization", &github.EnterpriseOrganizationArgs{
 //				EnterpriseId: pulumi.String(enterprise.Id),
+//				Name:         pulumi.String("my-organization"),
 //				BillingEmail: pulumi.String("octocat@octo.cat"),
 //				AdminLogins: pulumi.StringArray{
 //					pulumi.String("octocat"),
@@ -47,6 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewEnterpriseActionsRunnerGroup(ctx, "example", &github.EnterpriseActionsRunnerGroupArgs{
+//				Name:                     pulumi.String("my-awesome-runner-group"),
 //				EnterpriseSlug:           pulumi.String(enterprise.Slug),
 //				AllowsPublicRepositories: pulumi.Bool(true),
 //				Visibility:               pulumi.String("selected"),

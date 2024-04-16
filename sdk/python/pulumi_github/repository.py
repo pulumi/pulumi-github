@@ -1373,13 +1373,14 @@ class Repository(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
+            visibility="public",
             template=github.RepositoryTemplateArgs(
-                include_all_branches=True,
                 owner="github",
                 repository="terraform-template-module",
-            ),
-            visibility="public")
+                include_all_branches=True,
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1391,14 +1392,15 @@ class Repository(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome web page",
+            private=False,
             pages=github.RepositoryPagesArgs(
                 source=github.RepositoryPagesSourceArgs(
                     branch="master",
                     path="/docs",
                 ),
-            ),
-            private=False)
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1474,13 +1476,14 @@ class Repository(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
+            visibility="public",
             template=github.RepositoryTemplateArgs(
-                include_all_branches=True,
                 owner="github",
                 repository="terraform-template-module",
-            ),
-            visibility="public")
+                include_all_branches=True,
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1492,14 +1495,15 @@ class Repository(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome web page",
+            private=False,
             pages=github.RepositoryPagesArgs(
                 source=github.RepositoryPagesSourceArgs(
                     branch="master",
                     path="/docs",
                 ),
-            ),
-            private=False)
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

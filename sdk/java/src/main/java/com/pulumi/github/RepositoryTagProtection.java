@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RepositoryTagProtection(&#34;example&#34;, RepositoryTagProtectionArgs.builder()        
- *             .pattern(&#34;v*&#34;)
  *             .repository(&#34;example-repository&#34;)
+ *             .pattern(&#34;v*&#34;)
  *             .build());
  * 
  *     }

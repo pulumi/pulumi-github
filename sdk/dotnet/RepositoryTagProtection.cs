@@ -25,8 +25,8 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.RepositoryTagProtection("example", new()
     ///     {
-    ///         Pattern = "v*",
     ///         Repository = "example-repository",
+    ///         Pattern = "v*",
     ///     });
     /// 
     /// });

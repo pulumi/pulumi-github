@@ -305,7 +305,9 @@ def get_user(username: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
+    # Retrieve information about a GitHub user.
     example = github.get_user(username="example")
+    # Retrieve information about the currently authenticated user.
     current = github.get_user(username="")
     pulumi.export("currentGithubLogin", current.login)
     ```
@@ -357,7 +359,9 @@ def get_user_output(username: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_github as github
 
+    # Retrieve information about a GitHub user.
     example = github.get_user(username="example")
+    # Retrieve information about the currently authenticated user.
     current = github.get_user(username="")
     pulumi.export("currentGithubLogin", current.login)
     ```

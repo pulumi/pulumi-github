@@ -131,6 +131,24 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         To learn more about team synchronization between IdPs and GitHub, please refer to:
         https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_groups = github.get_organization_team_sync_groups()
+        example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
+            groups=[github.TeamSyncGroupMappingGroupArgs(
+                group_id=entry["value"],
+                group_name=entry["value"],
+                group_description=entry["value"],
+            ) for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
+            team_slug="example")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
@@ -159,6 +177,24 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         To learn more about team synchronization between IdPs and GitHub, please refer to:
         https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_groups = github.get_organization_team_sync_groups()
+        example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
+            groups=[github.TeamSyncGroupMappingGroupArgs(
+                group_id=entry["value"],
+                group_name=entry["value"],
+                group_description=entry["value"],
+            ) for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
+            team_slug="example")
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

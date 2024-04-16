@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;my-repo&#34;)
  *             .description(&#34;GitHub repo managed by Terraform&#34;)
  *             .private_(false)
  *             .vulnerabilityAlerts(true)
  *             .build());
  * 
  *         var example = new RepositoryDependabotSecurityUpdates(&#34;example&#34;, RepositoryDependabotSecurityUpdatesArgs.builder()        
- *             .repository(github_repository.test().id())
+ *             .repository(test.id())
  *             .enabled(true)
  *             .build());
  * 

@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsOrganizationPermissions;
  * import com.pulumi.github.ActionsOrganizationPermissionsArgs;
  * import com.pulumi.github.inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs;
@@ -47,7 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;);
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;my-repository&#34;)
+ *             .build());
  * 
  *         var test = new ActionsOrganizationPermissions(&#34;test&#34;, ActionsOrganizationPermissionsArgs.builder()        
  *             .allowedActions(&#34;selected&#34;)

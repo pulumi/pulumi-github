@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetActionsEnvironmentVariables(ctx, &github.GetActionsEnvironmentVariablesArgs{
-//				Environment: "exampleEnvironment",
 //				Name:        pulumi.StringRef("exampleRepo"),
+//				Environment: "exampleEnvironment",
 //			}, nil)
 //			if err != nil {
 //				return err

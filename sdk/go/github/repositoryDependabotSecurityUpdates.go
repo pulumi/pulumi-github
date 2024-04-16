@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Name:                pulumi.String("my-repo"),
 //				Description:         pulumi.String("GitHub repo managed by Terraform"),
 //				Private:             pulumi.Bool(false),
 //				VulnerabilityAlerts: pulumi.Bool(true),
@@ -40,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryDependabotSecurityUpdates(ctx, "example", &github.RepositoryDependabotSecurityUpdatesArgs{
-//				Repository: pulumi.Any(github_repository.Test.Id),
+//				Repository: pulumi.Any(test.Id),
 //				Enabled:    pulumi.Bool(true),
 //			})
 //			if err != nil {

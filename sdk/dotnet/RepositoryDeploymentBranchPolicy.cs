@@ -38,6 +38,7 @@ namespace Pulumi.Github
     ///     {
     ///         Repository = "my_repo",
     ///         EnvironmentName = "my_env",
+    ///         Name = "foo",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

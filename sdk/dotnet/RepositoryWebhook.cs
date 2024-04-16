@@ -26,6 +26,7 @@ namespace Pulumi.Github
     /// {
     ///     var repo = new Github.Repository("repo", new()
     ///     {
+    ///         Name = "foo",
     ///         Description = "Terraform acceptance tests",
     ///         HomepageUrl = "http://example.com/",
     ///         Visibility = "public",

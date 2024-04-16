@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewBranch(ctx, "development", &github.BranchArgs{
-//				Branch:     pulumi.String("development"),
 //				Repository: pulumi.String("example"),
+//				Branch:     pulumi.String("development"),
 //			})
 //			if err != nil {
 //				return err

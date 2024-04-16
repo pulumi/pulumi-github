@@ -31,14 +31,14 @@ namespace Pulumi.Github
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var exampleSecret = new Github.DependabotOrganizationSecret("exampleSecret", new()
+    ///     var exampleSecret = new Github.DependabotOrganizationSecret("example_secret", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "private",
-    ///         PlaintextValue = @var.Some_secret_string,
+    ///         PlaintextValue = someSecretString,
     ///     });
     /// 
-    ///     var orgSecretRepos = new Github.DependabotOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     var orgSecretRepos = new Github.DependabotOrganizationSecretRepositories("org_secret_repos", new()
     ///     {
     ///         SecretName = exampleSecret.SecretName,
     ///         SelectedRepositoryIds = new[]

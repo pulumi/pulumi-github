@@ -15,12 +15,14 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     hasProjects: true,
  * });
  * const project = new github.RepositoryProject("project", {
- *     body: "This is a repository project.",
+ *     name: "A Repository Project",
  *     repository: example.name,
+ *     body: "This is a repository project.",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

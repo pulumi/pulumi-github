@@ -28,13 +28,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.RepositoryCollaborator;
  * import com.pulumi.github.RepositoryCollaboratorArgs;
- * import com.pulumi.github.Provider;
- * import com.pulumi.github.ProviderArgs;
  * import com.pulumi.github.UserInvitationAccepter;
  * import com.pulumi.github.UserInvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,23 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;example-repo&#34;)
+ *             .build());
  * 
  *         var exampleRepositoryCollaborator = new RepositoryCollaborator(&#34;exampleRepositoryCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
- *             .repository(exampleRepository.name())
+ *             .repository(example.name())
  *             .username(&#34;example-username&#34;)
  *             .permission(&#34;push&#34;)
  *             .build());
  * 
- *         var invitee = new Provider(&#34;invitee&#34;, ProviderArgs.builder()        
- *             .token(var_.invitee_token())
- *             .build());
- * 
  *         var exampleUserInvitationAccepter = new UserInvitationAccepter(&#34;exampleUserInvitationAccepter&#34;, UserInvitationAccepterArgs.builder()        
  *             .invitationId(exampleRepositoryCollaborator.invitationId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;github.invitee&#34;)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

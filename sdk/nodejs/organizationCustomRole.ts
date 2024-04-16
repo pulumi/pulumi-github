@@ -17,8 +17,9 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.OrganizationCustomRole("example", {
- *     baseRole: "read",
+ *     name: "example",
  *     description: "Example custom role that uses the read role as its base",
+ *     baseRole: "read",
  *     permissions: [
  *         "add_assignee",
  *         "add_label",

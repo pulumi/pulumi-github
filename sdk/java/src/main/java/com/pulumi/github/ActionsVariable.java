@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleVariable = new ActionsVariable(&#34;exampleVariable&#34;, ActionsVariableArgs.builder()        
  *             .repository(&#34;example_repository&#34;)
- *             .value(&#34;example_variable_value&#34;)
  *             .variableName(&#34;example_variable_name&#34;)
+ *             .value(&#34;example_variable_value&#34;)
  *             .build());
  * 
  *     }

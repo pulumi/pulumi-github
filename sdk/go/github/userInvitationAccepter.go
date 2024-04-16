@@ -28,27 +28,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name: pulumi.String("example-repo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "exampleRepositoryCollaborator", &github.RepositoryCollaboratorArgs{
-//				Repository: exampleRepository.Name,
+//			exampleRepositoryCollaborator, err := github.NewRepositoryCollaborator(ctx, "example", &github.RepositoryCollaboratorArgs{
+//				Repository: example.Name,
 //				Username:   pulumi.String("example-username"),
 //				Permission: pulumi.String("push"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewProvider(ctx, "invitee", &github.ProviderArgs{
-//				Token: pulumi.Any(_var.Invitee_token),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewUserInvitationAccepter(ctx, "exampleUserInvitationAccepter", &github.UserInvitationAccepterArgs{
+//			_, err = github.NewUserInvitationAccepter(ctx, "example", &github.UserInvitationAccepterArgs{
 //				InvitationId: exampleRepositoryCollaborator.InvitationId,
-//			}, pulumi.Provider("github.invitee"))
+//			})
 //			if err != nil {
 //				return err
 //			}

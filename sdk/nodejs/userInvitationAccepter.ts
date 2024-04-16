@@ -14,16 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("exampleRepositoryCollaborator", {
- *     repository: exampleRepository.name,
+ * const example = new github.Repository("example", {name: "example-repo"});
+ * const exampleRepositoryCollaborator = new github.RepositoryCollaborator("example", {
+ *     repository: example.name,
  *     username: "example-username",
  *     permission: "push",
  * });
- * const invitee = new github.Provider("invitee", {token: _var.invitee_token});
- * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("exampleUserInvitationAccepter", {invitationId: exampleRepositoryCollaborator.invitationId}, {
- *     provider: "github.invitee",
- * });
+ * const exampleUserInvitationAccepter = new github.UserInvitationAccepter("example", {invitationId: exampleRepositoryCollaborator.invitationId});
  * ```
  * <!--End PulumiCodeChooser -->
  *

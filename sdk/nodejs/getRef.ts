@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  *
  * const development = github.getRef({
  *     owner: "example",
- *     ref: "heads/development",
  *     repository: "example",
+ *     ref: "heads/development",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -82,8 +82,8 @@ export interface GetRefResult {
  *
  * const development = github.getRef({
  *     owner: "example",
- *     ref: "heads/development",
  *     repository: "example",
+ *     ref: "heads/development",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -230,43 +230,6 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
-            repository=repo.name,
-            environment="example_environment")
-        test_secret = github.ActionsEnvironmentSecret("testSecret",
-            repository=repo.name,
-            environment=repo_environment.environment,
-            secret_name="test_secret_name",
-            plaintext_value="%s")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ## Import
-
-        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -283,43 +246,6 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_actions_environment_secret_actions_environment_secret = github.ActionsEnvironmentSecret("exampleSecretIndex/actionsEnvironmentSecretActionsEnvironmentSecret",
-            environment="example_environment",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
-            repository=repo.name,
-            environment="example_environment")
-        test_secret = github.ActionsEnvironmentSecret("testSecret",
-            repository=repo.name,
-            environment=repo_environment.environment,
-            secret_name="test_secret_name",
-            plaintext_value="%s")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ## Import
-
-        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 
         :param str resource_name: The name of the resource.
         :param ActionsEnvironmentSecretArgs args: The arguments to use to populate this resource's properties.

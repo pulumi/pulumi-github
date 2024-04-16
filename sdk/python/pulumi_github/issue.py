@@ -287,44 +287,14 @@ class Issue(pulumi.CustomResource):
         import pulumi_github as github
 
         # Create a simple issue
-        test_repository = github.Repository("testRepository",
+        test = github.Repository("test",
+            name="tf-acc-test-%s",
             auto_init=True,
             has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
+        test_issue = github.Issue("test",
+            repository=test.name,
             title="My issue title",
             body="The body of my issue")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### With Milestone And Project Assignment
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create an issue with milestone and project assignment
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
-            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
-            repository=test_repository.name,
-            title="v1.0.0",
-            description="General Availability",
-            due_date="2022-11-22",
-            state="open")
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue",
-            body="My issue body",
-            labels=[
-                "bug",
-                "documentation",
-            ],
-            assignees=["bob-github"],
-            milestone_number=test_repository_milestone.number)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -365,44 +335,14 @@ class Issue(pulumi.CustomResource):
         import pulumi_github as github
 
         # Create a simple issue
-        test_repository = github.Repository("testRepository",
+        test = github.Repository("test",
+            name="tf-acc-test-%s",
             auto_init=True,
             has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
+        test_issue = github.Issue("test",
+            repository=test.name,
             title="My issue title",
             body="The body of my issue")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### With Milestone And Project Assignment
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        # Create an issue with milestone and project assignment
-        test_repository = github.Repository("testRepository",
-            auto_init=True,
-            has_issues=True)
-        test_repository_milestone = github.RepositoryMilestone("testRepositoryMilestone",
-            owner=test_repository.full_name.apply(lambda full_name: full_name.split("/")).apply(lambda split: split[0]),
-            repository=test_repository.name,
-            title="v1.0.0",
-            description="General Availability",
-            due_date="2022-11-22",
-            state="open")
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.name,
-            title="My issue",
-            body="My issue body",
-            labels=[
-                "bug",
-                "documentation",
-            ],
-            assignees=["bob-github"],
-            milestone_number=test_repository_milestone.number)
         ```
         <!--End PulumiCodeChooser -->
 

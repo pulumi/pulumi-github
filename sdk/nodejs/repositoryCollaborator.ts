@@ -38,10 +38,10 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a collaborator to a repository
- * const aRepoCollaborator = new github.RepositoryCollaborator("aRepoCollaborator", {
- *     permission: "admin",
+ * const aRepoCollaborator = new github.RepositoryCollaborator("a_repo_collaborator", {
  *     repository: "our-cool-repo",
  *     username: "SomeUser",
+ *     permission: "admin",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

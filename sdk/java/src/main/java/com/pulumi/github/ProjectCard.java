@@ -47,11 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
+ *             .name(&#34;An Organization Project&#34;)
  *             .body(&#34;This is an organization project.&#34;)
  *             .build());
  * 
  *         var column = new ProjectColumn(&#34;column&#34;, ProjectColumnArgs.builder()        
  *             .projectId(project.id())
+ *             .name(&#34;Backlog&#34;)
  *             .build());
  * 
  *         var card = new ProjectCard(&#34;card&#34;, ProjectCardArgs.builder()        
@@ -96,24 +98,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;myrepo&#34;)
  *             .hasProjects(true)
  *             .hasIssues(true)
  *             .build());
  * 
  *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.id())
+ *             .repository(test.id())
  *             .title(&#34;Test issue title&#34;)
  *             .body(&#34;Test issue body&#34;)
  *             .build());
  * 
  *         var testRepositoryProject = new RepositoryProject(&#34;testRepositoryProject&#34;, RepositoryProjectArgs.builder()        
- *             .repository(testRepository.name())
+ *             .name(&#34;test&#34;)
+ *             .repository(test.name())
  *             .body(&#34;this is a test project&#34;)
  *             .build());
  * 
  *         var testProjectColumn = new ProjectColumn(&#34;testProjectColumn&#34;, ProjectColumnArgs.builder()        
  *             .projectId(testRepositoryProject.id())
+ *             .name(&#34;Backlog&#34;)
  *             .build());
  * 
  *         var testProjectCard = new ProjectCard(&#34;testProjectCard&#34;, ProjectCardArgs.builder()        

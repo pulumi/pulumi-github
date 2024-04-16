@@ -111,8 +111,8 @@ def get_branch(branch: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    development = github.get_branch(branch="development",
-        repository="example")
+    development = github.get_branch(repository="example",
+        branch="development")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -149,8 +149,8 @@ def get_branch_output(branch: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_github as github
 
-    development = github.get_branch(branch="development",
-        repository="example")
+    development = github.get_branch(repository="example",
+        branch="development")
     ```
     <!--End PulumiCodeChooser -->
 

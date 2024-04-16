@@ -35,9 +35,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.OrganizationRuleset;
  * import com.pulumi.github.OrganizationRulesetArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetConditionsArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetConditionsRefNameArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
  * import java.util.List;
@@ -54,32 +54,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationRuleset(&#34;example&#34;, OrganizationRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .target(&#34;branch&#34;)
+ *             .enforcement(&#34;active&#34;)
+ *             .conditions(OrganizationRulesetConditionsArgs.builder()
+ *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
+ *                     .includes(&#34;~ALL&#34;)
+ *                     .excludes()
+ *                     .build())
+ *                 .build())
  *             .bypassActors(OrganizationRulesetBypassActorArgs.builder()
  *                 .actorId(13473)
  *                 .actorType(&#34;Integration&#34;)
  *                 .bypassMode(&#34;always&#34;)
  *                 .build())
- *             .conditions(OrganizationRulesetConditionsArgs.builder()
- *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
- *                     .exclude()
- *                     .include(&#34;~ALL&#34;)
- *                     .build())
- *                 .build())
- *             .enforcement(&#34;active&#34;)
  *             .rules(OrganizationRulesetRulesArgs.builder()
+ *                 .creation(true)
+ *                 .update(true)
+ *                 .deletion(true)
+ *                 .requiredLinearHistory(true)
+ *                 .requiredSignatures(true)
  *                 .branchNamePattern(OrganizationRulesetRulesBranchNamePatternArgs.builder()
  *                     .name(&#34;example&#34;)
  *                     .negate(false)
  *                     .operator(&#34;starts_with&#34;)
  *                     .pattern(&#34;ex&#34;)
  *                     .build())
- *                 .creation(true)
- *                 .deletion(true)
- *                 .requiredLinearHistory(true)
- *                 .requiredSignatures(true)
- *                 .update(true)
  *                 .build())
- *             .target(&#34;branch&#34;)
  *             .build());
  * 
  *     }

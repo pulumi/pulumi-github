@@ -56,13 +56,14 @@ import javax.annotation.Nullable;
  *             .username(&#34;&#34;)
  *             .build());
  * 
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;A Repository Project&#34;)
  *             .description(&#34;My awesome codebase&#34;)
  *             .build());
  * 
  *         var exampleRepositoryEnvironment = new RepositoryEnvironment(&#34;exampleRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
  *             .environment(&#34;example&#34;)
- *             .repository(exampleRepository.name())
+ *             .repository(example.name())
  *             .preventSelfReview(true)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
  *                 .users(current.applyValue(getUserResult -&gt; getUserResult.id()))

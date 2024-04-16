@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
  *     repository: "example-repository",
+ *     environmentName: "env_name",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -72,8 +72,8 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
  *     repository: "example-repository",
+ *     environmentName: "env_name",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

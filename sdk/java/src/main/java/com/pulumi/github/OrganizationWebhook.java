@@ -46,14 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new OrganizationWebhook(&#34;foo&#34;, OrganizationWebhookArgs.builder()        
- *             .active(false)
+ *             .name(&#34;web&#34;)
  *             .configuration(OrganizationWebhookConfigurationArgs.builder()
+ *                 .url(&#34;https://google.de/&#34;)
  *                 .contentType(&#34;form&#34;)
  *                 .insecureSsl(false)
- *                 .url(&#34;https://google.de/&#34;)
  *                 .build())
+ *             .active(false)
  *             .events(&#34;issues&#34;)
- *             .name(&#34;web&#34;)
  *             .build());
  * 
  *     }

@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
-//				Owner:      "example-owner",
 //				Repository: "example-repository",
+//				Owner:      "example-owner",
 //				RetrieveBy: "latest",
 //			}, nil)
 //			if err != nil {

@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Add a collaborator to a repository
  *         var aRepoCollaborator = new RepositoryCollaborator(&#34;aRepoCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
- *             .permission(&#34;admin&#34;)
  *             .repository(&#34;our-cool-repo&#34;)
  *             .username(&#34;SomeUser&#34;)
+ *             .permission(&#34;admin&#34;)
  *             .build());
  * 
  *     }

@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RepositoryPullRequest(&#34;example&#34;, RepositoryPullRequestArgs.builder()        
- *             .baseRef(&#34;main&#34;)
  *             .baseRepository(&#34;example-repository&#34;)
- *             .body(&#34;This will change everything&#34;)
+ *             .baseRef(&#34;main&#34;)
  *             .headRef(&#34;feature-branch&#34;)
  *             .title(&#34;My newest feature&#34;)
+ *             .body(&#34;This will change everything&#34;)
  *             .build());
  * 
  *     }

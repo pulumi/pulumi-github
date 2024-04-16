@@ -15,10 +15,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleVariable = new github.ActionsEnvironmentVariable("exampleVariable", {
+ * const exampleVariable = new github.ActionsEnvironmentVariable("example_variable", {
  *     environment: "example_environment",
- *     value: "example_variable_value",
  *     variableName: "example_variable_name",
+ *     value: "example_variable_value",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -31,11 +31,11 @@ import * as utilities from "./utilities";
  * const repo = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const repoEnvironment = new github.RepositoryEnvironment("repoEnvironment", {
+ * const repoEnvironment = new github.RepositoryEnvironment("repo_environment", {
  *     repository: repo.then(repo => repo.name),
  *     environment: "example_environment",
  * });
- * const exampleVariable = new github.ActionsEnvironmentVariable("exampleVariable", {
+ * const exampleVariable = new github.ActionsEnvironmentVariable("example_variable", {
  *     repository: repo.then(repo => repo.name),
  *     environment: repoEnvironment.environment,
  *     variableName: "example_variable_name",

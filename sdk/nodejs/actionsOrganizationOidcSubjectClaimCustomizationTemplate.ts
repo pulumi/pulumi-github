@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleTemplate = new github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", {includeClaimKeys: [
+ * const exampleTemplate = new github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", {includeClaimKeys: [
  *     "actor",
  *     "context",
  *     "repository_owner",

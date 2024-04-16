@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
- *     role: "member",
+ * const membershipForSomeUser = new github.Membership("membership_for_some_user", {
  *     username: "SomeUser",
+ *     role: "member",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

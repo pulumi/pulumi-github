@@ -235,41 +235,6 @@ class CodespacesOrganizationSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
@@ -299,41 +264,6 @@ class CodespacesOrganizationSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="private",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_organization_secret_codespaces_organization_secret = github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret",
-            secret_name="example_secret_name",
-            visibility="selected",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

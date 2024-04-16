@@ -25,14 +25,16 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "Example repository",
     ///     });
     /// 
-    ///     var exampleRepositoryRuleset = new Github.RepositoryRuleset("exampleRepositoryRuleset", new()
+    ///     var exampleRepositoryRuleset = new Github.RepositoryRuleset("example", new()
     ///     {
-    ///         Repository = exampleRepository.Name,
+    ///         Name = "example",
+    ///         Repository = example.Name,
     ///         Target = "branch",
     ///         Enforcement = "active",
     ///         Conditions = new Github.Inputs.RepositoryRulesetConditionsArgs

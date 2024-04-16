@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var exampleSecret = new DependabotOrganizationSecret(&#34;exampleSecret&#34;, DependabotOrganizationSecretArgs.builder()        
  *             .secretName(&#34;example_secret_name&#34;)
  *             .visibility(&#34;private&#34;)
- *             .plaintextValue(var_.some_secret_string())
+ *             .plaintextValue(someSecretString)
  *             .build());
  * 
  *         var orgSecretRepos = new DependabotOrganizationSecretRepositories(&#34;orgSecretRepos&#34;, DependabotOrganizationSecretRepositoriesArgs.builder()        

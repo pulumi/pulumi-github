@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.GithubFunctions;
  * import com.pulumi.github.inputs.GetUserArgs;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.RepositoryEnvironment;
  * import com.pulumi.github.RepositoryEnvironmentArgs;
  * import com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;
@@ -51,10 +52,12 @@ import javax.annotation.Nullable;
  *             .username(&#34;&#34;)
  *             .build());
  * 
- *         var testRepository = new Repository(&#34;testRepository&#34;);
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;tf-acc-test-%s&#34;)
+ *             .build());
  * 
  *         var testRepositoryEnvironment = new RepositoryEnvironment(&#34;testRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
- *             .repository(testRepository.name())
+ *             .repository(test.name())
  *             .environment(&#34;environment/test&#34;)
  *             .waitTimer(10000)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
@@ -67,7 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy(&#34;testRepositoryEnvironmentDeploymentPolicy&#34;, RepositoryEnvironmentDeploymentPolicyArgs.builder()        
- *             .repository(testRepository.name())
+ *             .repository(test.name())
  *             .environment(testRepositoryEnvironment.environment())
  *             .branchPattern(&#34;releases/*&#34;)
  *             .build());

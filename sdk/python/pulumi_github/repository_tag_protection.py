@@ -124,8 +124,8 @@ class RepositoryTagProtection(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.RepositoryTagProtection("example",
-            pattern="v*",
-            repository="example-repository")
+            repository="example-repository",
+            pattern="v*")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -162,8 +162,8 @@ class RepositoryTagProtection(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.RepositoryTagProtection("example",
-            pattern="v*",
-            repository="example-repository")
+            repository="example-repository",
+            pattern="v*")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -14,28 +14,6 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to add/remove SSH keys from your user account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Github.UserSshKey("example", new()
-    ///     {
-    ///         Title = "example title",
-    ///         Key = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// SSH keys can be imported using their ID e.g.

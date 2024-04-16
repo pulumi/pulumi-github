@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Name:        pulumi.String("repo"),
 //				Description: pulumi.String("GitHub repo managed by Terraform"),
 //				Private:     pulumi.Bool(false),
 //			})
@@ -66,22 +67,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:     pulumi.String("repo"),
 //				AutoInit: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBranch, err := github.NewBranch(ctx, "exampleBranch", &github.BranchArgs{
-//				Repository:   exampleRepository.Name,
+//			exampleBranch, err := github.NewBranch(ctx, "example", &github.BranchArgs{
+//				Repository:   example.Name,
 //				Branch:       pulumi.String("branch_name"),
-//				SourceBranch: exampleRepository.DefaultBranch,
+//				SourceBranch: example.DefaultBranch,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRelease(ctx, "exampleRelease", &github.ReleaseArgs{
-//				Repository:      exampleRepository.Name,
+//			_, err = github.NewRelease(ctx, "example", &github.ReleaseArgs{
+//				Repository:      example.Name,
 //				TagName:         pulumi.String("v1.0.0"),
 //				TargetCommitish: exampleBranch.Branch,
 //				Draft:           pulumi.Bool(false),

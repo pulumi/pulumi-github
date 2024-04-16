@@ -31,6 +31,7 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         AutoInit = true,
     ///     });
@@ -64,6 +65,7 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         AutoInit = true,
     ///     });

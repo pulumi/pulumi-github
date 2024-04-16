@@ -16,6 +16,29 @@ namespace Pulumi.Github
     /// To learn more about team synchronization between IdPs and GitHub, please refer to:
     /// https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleGroups = Github.GetOrganizationTeamSyncGroups.Invoke();
+    /// 
+    ///     var exampleGroupMapping = new Github.TeamSyncGroupMapping("example_group_mapping", new()
+    ///     {
+    ///         Groups = ,
+    ///         TeamSlug = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.

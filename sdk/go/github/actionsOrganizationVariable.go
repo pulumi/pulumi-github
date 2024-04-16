@@ -30,10 +30,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsOrganizationVariable(ctx, "exampleVariable", &github.ActionsOrganizationVariableArgs{
-//				Value:        pulumi.String("example_variable_value"),
+//			_, err := github.NewActionsOrganizationVariable(ctx, "example_variable", &github.ActionsOrganizationVariableArgs{
 //				VariableName: pulumi.String("example_variable_name"),
 //				Visibility:   pulumi.String("private"),
+//				Value:        pulumi.String("example_variable_value"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsOrganizationVariable(ctx, "exampleVariable", &github.ActionsOrganizationVariableArgs{
+//			_, err = github.NewActionsOrganizationVariable(ctx, "example_variable", &github.ActionsOrganizationVariableArgs{
 //				VariableName: pulumi.String("example_variable_name"),
 //				Visibility:   pulumi.String("selected"),
 //				Value:        pulumi.String("example_variable_value"),

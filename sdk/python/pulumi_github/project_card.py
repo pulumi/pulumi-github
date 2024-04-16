@@ -214,8 +214,12 @@ class ProjectCard(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="An Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="Backlog")
         card = github.ProjectCard("card",
             column_id=column.column_id,
             note="## Unaccepted 👇")
@@ -229,18 +233,22 @@ class ProjectCard(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        test_repository = github.Repository("testRepository",
+        test = github.Repository("test",
+            name="myrepo",
             has_projects=True,
             has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.id,
+        test_issue = github.Issue("test",
+            repository=test.id,
             title="Test issue title",
             body="Test issue body")
-        test_repository_project = github.RepositoryProject("testRepositoryProject",
-            repository=test_repository.name,
+        test_repository_project = github.RepositoryProject("test",
+            name="test",
+            repository=test.name,
             body="this is a test project")
-        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
-        test_project_card = github.ProjectCard("testProjectCard",
+        test_project_column = github.ProjectColumn("test",
+            project_id=test_repository_project.id,
+            name="Backlog")
+        test_project_card = github.ProjectCard("test",
             column_id=test_project_column.column_id,
             content_id=test_issue.issue_id,
             content_type="Issue")
@@ -281,8 +289,12 @@ class ProjectCard(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="An Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="Backlog")
         card = github.ProjectCard("card",
             column_id=column.column_id,
             note="## Unaccepted 👇")
@@ -296,18 +308,22 @@ class ProjectCard(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        test_repository = github.Repository("testRepository",
+        test = github.Repository("test",
+            name="myrepo",
             has_projects=True,
             has_issues=True)
-        test_issue = github.Issue("testIssue",
-            repository=test_repository.id,
+        test_issue = github.Issue("test",
+            repository=test.id,
             title="Test issue title",
             body="Test issue body")
-        test_repository_project = github.RepositoryProject("testRepositoryProject",
-            repository=test_repository.name,
+        test_repository_project = github.RepositoryProject("test",
+            name="test",
+            repository=test.name,
             body="this is a test project")
-        test_project_column = github.ProjectColumn("testProjectColumn", project_id=test_repository_project.id)
-        test_project_card = github.ProjectCard("testProjectCard",
+        test_project_column = github.ProjectColumn("test",
+            project_id=test_repository_project.id,
+            name="Backlog")
+        test_project_card = github.ProjectCard("test",
             column_id=test_project_column.column_id,
             content_id=test_issue.issue_id,
             content_type="Issue")

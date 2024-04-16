@@ -26,8 +26,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example = new github.Repository("example", {});
- * const exampleTemplate = new github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", {
+ * const example = new github.Repository("example", {name: "example-repository"});
+ * const exampleTemplate = new github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template", {
  *     repository: example.name,
  *     useDefault: false,
  *     includeClaimKeys: [

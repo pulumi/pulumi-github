@@ -39,18 +39,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new, red colored label
-//			_, err := github.NewIssueLabels(ctx, "testRepo", &github.IssueLabelsArgs{
+//			_, err := github.NewIssueLabels(ctx, "test_repo", &github.IssueLabelsArgs{
+//				Repository: pulumi.String("test-repo"),
 //				Labels: github.IssueLabelsLabelArray{
 //					&github.IssueLabelsLabelArgs{
-//						Color: pulumi.String("FF0000"),
 //						Name:  pulumi.String("Urgent"),
+//						Color: pulumi.String("FF0000"),
 //					},
 //					&github.IssueLabelsLabelArgs{
-//						Color: pulumi.String("FF0000"),
 //						Name:  pulumi.String("Critical"),
+//						Color: pulumi.String("FF0000"),
 //					},
 //				},
-//				Repository: pulumi.String("test-repo"),
 //			})
 //			if err != nil {
 //				return err

@@ -28,15 +28,16 @@ namespace Pulumi.Github
     ///         Username = "",
     ///     });
     /// 
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "A Repository Project",
     ///         Description = "My awesome codebase",
     ///     });
     /// 
-    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("exampleRepositoryEnvironment", new()
+    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("example", new()
     ///     {
     ///         Environment = "example",
-    ///         Repository = exampleRepository.Name,
+    ///         Repository = example.Name,
     ///         PreventSelfReview = true,
     ///         Reviewers = new[]
     ///         {

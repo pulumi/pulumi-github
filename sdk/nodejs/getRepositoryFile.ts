@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const foo = github.getRepositoryFile({
- *     repository: github_repository.foo.name,
+ *     repository: fooGithubRepository.name,
  *     branch: "main",
  *     file: ".gitignore",
  * });
@@ -103,7 +103,7 @@ export interface GetRepositoryFileResult {
  * import * as github from "@pulumi/github";
  *
  * const foo = github.getRepositoryFile({
- *     repository: github_repository.foo.name,
+ *     repository: fooGithubRepository.name,
  *     branch: "main",
  *     file: ".gitignore",
  * });

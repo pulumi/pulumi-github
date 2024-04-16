@@ -25,11 +25,11 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.RepositoryPullRequest("example", new()
     ///     {
-    ///         BaseRef = "main",
     ///         BaseRepository = "example-repository",
-    ///         Body = "This will change everything",
+    ///         BaseRef = "main",
     ///         HeadRef = "feature-branch",
     ///         Title = "My newest feature",
+    ///         Body = "This will change everything",
     ///     });
     /// 
     /// });

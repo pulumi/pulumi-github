@@ -18,48 +18,15 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Create a simple issue
- * const testRepository = new github.Repository("testRepository", {
+ * const test = new github.Repository("test", {
+ *     name: "tf-acc-test-%s",
  *     autoInit: true,
  *     hasIssues: true,
  * });
- * const testIssue = new github.Issue("testIssue", {
- *     repository: testRepository.name,
+ * const testIssue = new github.Issue("test", {
+ *     repository: test.name,
  *     title: "My issue title",
  *     body: "The body of my issue",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ### With Milestone And Project Assignment
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * // Create an issue with milestone and project assignment
- * const testRepository = new github.Repository("testRepository", {
- *     autoInit: true,
- *     hasIssues: true,
- * });
- * const testRepositoryMilestone = new github.RepositoryMilestone("testRepositoryMilestone", {
- *     owner: testRepository.fullName.apply(fullName => fullName.split("/")).apply(split => split[0]),
- *     repository: testRepository.name,
- *     title: "v1.0.0",
- *     description: "General Availability",
- *     dueDate: "2022-11-22",
- *     state: "open",
- * });
- * const testIssue = new github.Issue("testIssue", {
- *     repository: testRepository.name,
- *     title: "My issue",
- *     body: "My issue body",
- *     labels: [
- *         "bug",
- *         "documentation",
- *     ],
- *     assignees: ["bob-github"],
- *     milestoneNumber: testRepositoryMilestone.number,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

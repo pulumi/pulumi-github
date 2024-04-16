@@ -28,8 +28,8 @@ namespace Pulumi.Github
     /// {
     ///     var development = new Github.Branch("development", new()
     ///     {
-    ///         BranchName = "development",
     ///         Repository = "example",
+    ///         BranchName = "development",
     ///     });
     /// 
     /// });

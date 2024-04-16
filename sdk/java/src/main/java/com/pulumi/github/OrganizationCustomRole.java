@@ -45,8 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationCustomRole(&#34;example&#34;, OrganizationCustomRoleArgs.builder()        
- *             .baseRole(&#34;read&#34;)
+ *             .name(&#34;example&#34;)
  *             .description(&#34;Example custom role that uses the read role as its base&#34;)
+ *             .baseRole(&#34;read&#34;)
  *             .permissions(            
  *                 &#34;add_assignee&#34;,
  *                 &#34;add_label&#34;,

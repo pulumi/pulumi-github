@@ -177,7 +177,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
+        example = github.Repository("example", name="my-repository")
         test = github.ActionsOrganizationPermissions("test",
             allowed_actions="selected",
             enabled_repositories="selected",
@@ -227,7 +227,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
+        example = github.Repository("example", name="my-repository")
         test = github.ActionsOrganizationPermissions("test",
             allowed_actions="selected",
             enabled_repositories="selected",

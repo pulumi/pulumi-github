@@ -14,8 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
- * const column = new github.ProjectColumn("column", {projectId: project.id});
+ * const project = new github.OrganizationProject("project", {
+ *     name: "An Organization Project",
+ *     body: "This is an organization project.",
+ * });
+ * const column = new github.ProjectColumn("column", {
+ *     projectId: project.id,
+ *     name: "Backlog",
+ * });
  * const card = new github.ProjectCard("card", {
  *     columnId: column.columnId,
  *     note: "## Unaccepted 👇",
@@ -30,21 +36,26 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const testRepository = new github.Repository("testRepository", {
+ * const test = new github.Repository("test", {
+ *     name: "myrepo",
  *     hasProjects: true,
  *     hasIssues: true,
  * });
- * const testIssue = new github.Issue("testIssue", {
- *     repository: testRepository.id,
+ * const testIssue = new github.Issue("test", {
+ *     repository: test.id,
  *     title: "Test issue title",
  *     body: "Test issue body",
  * });
- * const testRepositoryProject = new github.RepositoryProject("testRepositoryProject", {
- *     repository: testRepository.name,
+ * const testRepositoryProject = new github.RepositoryProject("test", {
+ *     name: "test",
+ *     repository: test.name,
  *     body: "this is a test project",
  * });
- * const testProjectColumn = new github.ProjectColumn("testProjectColumn", {projectId: testRepositoryProject.id});
- * const testProjectCard = new github.ProjectCard("testProjectCard", {
+ * const testProjectColumn = new github.ProjectColumn("test", {
+ *     projectId: testRepositoryProject.id,
+ *     name: "Backlog",
+ * });
+ * const testProjectCard = new github.ProjectCard("test", {
  *     columnId: testProjectColumn.columnId,
  *     contentId: testIssue.issueId,
  *     contentType: "Issue",

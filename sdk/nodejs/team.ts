@@ -18,7 +18,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a team to the organization
- * const someTeam = new github.Team("someTeam", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "some-team",
  *     description: "Some cool team",
  *     privacy: "closed",
  * });

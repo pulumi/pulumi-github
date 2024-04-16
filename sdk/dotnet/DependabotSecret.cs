@@ -12,38 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePublicKey = Github.GetDependabotPublicKey.Invoke(new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///     });
-    /// 
-    ///     var exampleSecretDependabotSecret = new Github.DependabotSecret("exampleSecretDependabotSecret", new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///         SecretName = "example_secret_name",
-    ///         PlaintextValue = @var.Some_secret_string,
-    ///     });
-    /// 
-    ///     var exampleSecretIndex_dependabotSecretDependabotSecret = new Github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret", new()
-    ///     {
-    ///         Repository = "example_repository",
-    ///         SecretName = "example_secret_name",
-    ///         EncryptedValue = @var.Some_encrypted_secret_string,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// This resource can be imported using an ID made up of the `repository` and `secret_name`:

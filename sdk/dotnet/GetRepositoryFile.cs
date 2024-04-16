@@ -29,7 +29,7 @@ namespace Pulumi.Github
         /// {
         ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         Repository = github_repository.Foo.Name,
+        ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
         ///         File = ".gitignore",
         ///     });
@@ -59,7 +59,7 @@ namespace Pulumi.Github
         /// {
         ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         Repository = github_repository.Foo.Name,
+        ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
         ///         File = ".gitignore",
         ///     });

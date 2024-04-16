@@ -44,13 +44,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;My awesome codebase&#34;)
  *             .hasProjects(true)
  *             .build());
  * 
  *         var project = new RepositoryProject(&#34;project&#34;, RepositoryProjectArgs.builder()        
- *             .body(&#34;This is a repository project.&#34;)
+ *             .name(&#34;A Repository Project&#34;)
  *             .repository(example.name())
+ *             .body(&#34;This is a repository project.&#34;)
  *             .build());
  * 
  *     }

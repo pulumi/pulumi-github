@@ -27,8 +27,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetActionsEnvironmentVariables.Invoke(new()
         ///     {
-        ///         Environment = "exampleEnvironment",
         ///         Name = "exampleRepo",
+        ///         Environment = "exampleEnvironment",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetActionsEnvironmentVariables.Invoke(new()
         ///     {
-        ///         Environment = "exampleEnvironment",
         ///         Name = "exampleRepo",
+        ///         Environment = "exampleEnvironment",
         ///     });
         /// 
         /// });

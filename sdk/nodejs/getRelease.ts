@@ -19,8 +19,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRelease({
- *     owner: "example-owner",
  *     repository: "example-repository",
+ *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
  * ```
@@ -161,8 +161,8 @@ export interface GetReleaseResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRelease({
- *     owner: "example-owner",
  *     repository: "example-repository",
+ *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
  * ```

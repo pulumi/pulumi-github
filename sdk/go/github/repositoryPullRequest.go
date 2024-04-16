@@ -30,11 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewRepositoryPullRequest(ctx, "example", &github.RepositoryPullRequestArgs{
-//				BaseRef:        pulumi.String("main"),
 //				BaseRepository: pulumi.String("example-repository"),
-//				Body:           pulumi.String("This will change everything"),
+//				BaseRef:        pulumi.String("main"),
 //				HeadRef:        pulumi.String("feature-branch"),
 //				Title:          pulumi.String("My newest feature"),
+//				Body:           pulumi.String("This will change everything"),
 //			})
 //			if err != nil {
 //				return err

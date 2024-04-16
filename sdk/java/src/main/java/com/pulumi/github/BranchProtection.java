@@ -30,9 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.GithubFunctions;
  * import com.pulumi.github.inputs.GetUserArgs;
  * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.BranchProtection;
  * import com.pulumi.github.BranchProtectionArgs;
  * import com.pulumi.github.inputs.BranchProtectionRequiredStatusCheckArgs;
@@ -53,13 +55,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;test&#34;)
+ *             .build());
  * 
- *         final var exampleUser = GithubFunctions.getUser(GetUserArgs.builder()
+ *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
  *             .username(&#34;example&#34;)
  *             .build());
  * 
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;);
+ *         var exampleTeam = new Team(&#34;exampleTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Example Name&#34;)
+ *             .build());
  * 
  *         // Protect the main branch of the foo repository. Additionally, require that
  *         // the &#34;ci/travis&#34; context to be passing and only allow the engineers team merge
@@ -77,19 +83,19 @@ import javax.annotation.Nullable;
  *                 .dismissStaleReviews(true)
  *                 .restrictDismissals(true)
  *                 .dismissalRestrictions(                
- *                     exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                     example.applyValue(getUserResult -&gt; getUserResult.nodeId()),
  *                     exampleTeam.nodeId(),
  *                     &#34;/exampleuser&#34;,
  *                     &#34;exampleorganization/exampleteam&#34;)
  *                 .build())
  *             .restrictPushes(BranchProtectionRestrictPushArgs.builder()
  *                 .pushAllowances(                
- *                     exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                     example.applyValue(getUserResult -&gt; getUserResult.nodeId()),
  *                     &#34;/exampleuser&#34;,
  *                     &#34;exampleorganization/exampleteam&#34;)
  *                 .build())
  *             .forcePushBypassers(            
- *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                 example.applyValue(getUserResult -&gt; getUserResult.nodeId()),
  *                 &#34;/exampleuser&#34;,
  *                 &#34;exampleorganization/exampleteam&#34;)
  *             .build());

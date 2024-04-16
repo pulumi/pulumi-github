@@ -24,12 +24,15 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a user to the organization
- * const membershipForSomeUser = new github.Membership("membershipForSomeUser", {
+ * const membershipForSomeUser = new github.Membership("membership_for_some_user", {
  *     username: "SomeUser",
  *     role: "member",
  * });
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someTeamMembership = new github.TeamMembership("someTeamMembership", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const someTeamMembership = new github.TeamMembership("some_team_membership", {
  *     teamId: someTeam.id,
  *     username: "SomeUser",
  *     role: "member",

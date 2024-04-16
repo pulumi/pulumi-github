@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:       pulumi.String("my-repository"),
 //				Visibility: pulumi.String("private"),
 //			})
 //			if err != nil {

@@ -13,58 +13,12 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.IO;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Github.GetAppToken.Invoke(new()
-        ///     {
-        ///         AppId = "123456",
-        ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppTokenResult> InvokeAsync(GetAppTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppTokenResult>("github:index/getAppToken:getAppToken", args ?? new GetAppTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.IO;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Github = Pulumi.Github;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Github.GetAppToken.Invoke(new()
-        ///     {
-        ///         AppId = "123456",
-        ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppTokenResult> Invoke(GetAppTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppTokenResult>("github:index/getAppToken:getAppToken", args ?? new GetAppTokenInvokeArgs(), options.WithDefaults());

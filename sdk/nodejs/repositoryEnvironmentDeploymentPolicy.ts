@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * const current = github.getUser({
  *     username: "",
  * });
- * const testRepository = new github.Repository("testRepository", {});
- * const testRepositoryEnvironment = new github.RepositoryEnvironment("testRepositoryEnvironment", {
- *     repository: testRepository.name,
+ * const test = new github.Repository("test", {name: "tf-acc-test-%s"});
+ * const testRepositoryEnvironment = new github.RepositoryEnvironment("test", {
+ *     repository: test.name,
  *     environment: "environment/test",
  *     waitTimer: 10000,
  *     reviewers: [{
@@ -30,8 +30,8 @@ import * as utilities from "./utilities";
  *         customBranchPolicies: true,
  *     },
  * });
- * const testRepositoryEnvironmentDeploymentPolicy = new github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", {
- *     repository: testRepository.name,
+ * const testRepositoryEnvironmentDeploymentPolicy = new github.RepositoryEnvironmentDeploymentPolicy("test", {
+ *     repository: test.name,
  *     environment: testRepositoryEnvironment.environment,
  *     branchPattern: "releases/*",
  * });
