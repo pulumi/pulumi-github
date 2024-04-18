@@ -66,6 +66,66 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With Milestone And Project Assignment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryMilestone;
+ * import com.pulumi.github.RepositoryMilestoneArgs;
+ * import com.pulumi.github.Issue;
+ * import com.pulumi.github.IssueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create an issue with milestone and project assignment
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;tf-acc-test-%s&#34;)
+ *             .autoInit(true)
+ *             .hasIssues(true)
+ *             .build());
+ * 
+ *         var testRepositoryMilestone = new RepositoryMilestone(&#34;testRepositoryMilestone&#34;, RepositoryMilestoneArgs.builder()        
+ *             .owner(StdFunctions.split().applyValue(invoke -&gt; invoke.result()[0]))
+ *             .repository(test.name())
+ *             .title(&#34;v1.0.0&#34;)
+ *             .description(&#34;General Availability&#34;)
+ *             .dueDate(&#34;2022-11-22&#34;)
+ *             .state(&#34;open&#34;)
+ *             .build());
+ * 
+ *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
+ *             .repository(test.name())
+ *             .title(&#34;My issue&#34;)
+ *             .body(&#34;My issue body&#34;)
+ *             .labels(            
+ *                 &#34;bug&#34;,
+ *                 &#34;documentation&#34;)
+ *             .assignees(&#34;bob-github&#34;)
+ *             .milestoneNumber(testRepositoryMilestone.number())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

@@ -31,6 +31,45 @@ import * as utilities from "./utilities";
  * ```
  * <!--End PulumiCodeChooser -->
  *
+ * ### With Milestone And Project Assignment
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ * import * as std from "@pulumi/std";
+ *
+ * // Create an issue with milestone and project assignment
+ * const test = new github.Repository("test", {
+ *     name: "tf-acc-test-%s",
+ *     autoInit: true,
+ *     hasIssues: true,
+ * });
+ * const testRepositoryMilestone = new github.RepositoryMilestone("test", {
+ *     owner: std.splitOutput({
+ *         separator: "/",
+ *         text: test.fullName,
+ *     }).apply(invoke => invoke.result?.[0]),
+ *     repository: test.name,
+ *     title: "v1.0.0",
+ *     description: "General Availability",
+ *     dueDate: "2022-11-22",
+ *     state: "open",
+ * });
+ * const testIssue = new github.Issue("test", {
+ *     repository: test.name,
+ *     title: "My issue",
+ *     body: "My issue body",
+ *     labels: [
+ *         "bug",
+ *         "documentation",
+ *     ],
+ *     assignees: ["bob-github"],
+ *     milestoneNumber: testRepositoryMilestone.number,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

@@ -45,6 +45,61 @@ namespace Pulumi.Github
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### With Milestone And Project Assignment
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create an issue with milestone and project assignment
+    ///     var test = new Github.Repository("test", new()
+    ///     {
+    ///         Name = "tf-acc-test-%s",
+    ///         AutoInit = true,
+    ///         HasIssues = true,
+    ///     });
+    /// 
+    ///     var testRepositoryMilestone = new Github.RepositoryMilestone("test", new()
+    ///     {
+    ///         Owner = Std.Split.Invoke(new()
+    ///         {
+    ///             Separator = "/",
+    ///             Text = test.FullName,
+    ///         }).Apply(invoke =&gt; invoke.Result[0]),
+    ///         Repository = test.Name,
+    ///         Title = "v1.0.0",
+    ///         Description = "General Availability",
+    ///         DueDate = "2022-11-22",
+    ///         State = "open",
+    ///     });
+    /// 
+    ///     var testIssue = new Github.Issue("test", new()
+    ///     {
+    ///         Repository = test.Name,
+    ///         Title = "My issue",
+    ///         Body = "My issue body",
+    ///         Labels = new[]
+    ///         {
+    ///             "bug",
+    ///             "documentation",
+    ///         },
+    ///         Assignees = new[]
+    ///         {
+    ///             "bob-github",
+    ///         },
+    ///         MilestoneNumber = testRepositoryMilestone.Number,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

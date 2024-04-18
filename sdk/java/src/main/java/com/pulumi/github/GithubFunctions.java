@@ -2570,12 +2570,86 @@ public final class GithubFunctions {
     /**
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args) {
         return getAppToken(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args) {
@@ -2584,12 +2658,86 @@ public final class GithubFunctions {
     /**
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("github:index/getAppToken:getAppToken", TypeShape.of(GetAppTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId(&#34;123456&#34;)
+     *             .installationId(&#34;78910&#34;)
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppTokenResult> getAppTokenPlain(GetAppTokenPlainArgs args, InvokeOptions options) {

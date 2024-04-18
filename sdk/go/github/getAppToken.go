@@ -12,6 +12,41 @@ import (
 )
 
 // Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := github.GetAppToken(ctx, invokeFile, err := std.File(ctx, &std.FileArgs{
+// Input: "foo/bar.pem",
+// }, nil)
+// if err != nil {
+// return err
+// }
+// &github.GetAppTokenArgs{
+// AppId: "123456",
+// InstallationId: "78910",
+// PemFile: invokeFile.Result,
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 func GetAppToken(ctx *pulumi.Context, args *GetAppTokenArgs, opts ...pulumi.InvokeOption) (*GetAppTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppTokenResult

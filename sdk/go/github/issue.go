@@ -56,6 +56,70 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
+// ### With Milestone And Project Assignment
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create an issue with milestone and project assignment
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name:      pulumi.String("tf-acc-test-%s"),
+//				AutoInit:  pulumi.Bool(true),
+//				HasIssues: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "test", &github.RepositoryMilestoneArgs{
+//				Owner: std.SplitOutput(ctx, std.SplitOutputArgs{
+//					Separator: pulumi.String("/"),
+//					Text:      test.FullName,
+//				}, nil).ApplyT(func(invoke std.SplitResult) (*string, error) {
+//					return invoke.Result[0], nil
+//				}).(pulumi.StringPtrOutput),
+//				Repository:  test.Name,
+//				Title:       pulumi.String("v1.0.0"),
+//				Description: pulumi.String("General Availability"),
+//				DueDate:     pulumi.String("2022-11-22"),
+//				State:       pulumi.String("open"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewIssue(ctx, "test", &github.IssueArgs{
+//				Repository: test.Name,
+//				Title:      pulumi.String("My issue"),
+//				Body:       pulumi.String("My issue body"),
+//				Labels: pulumi.StringArray{
+//					pulumi.String("bug"),
+//					pulumi.String("documentation"),
+//				},
+//				Assignees: pulumi.StringArray{
+//					pulumi.String("bob-github"),
+//				},
+//				MilestoneNumber: testRepositoryMilestone.Number,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // GitHub Issues can be imported using an ID made up of `repository:number`, e.g.

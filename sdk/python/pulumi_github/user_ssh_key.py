@@ -130,6 +130,20 @@ class UserSshKey(pulumi.CustomResource):
 
         This resource allows you to add/remove SSH keys from your user account.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+        import pulumi_std as std
+
+        example = github.UserSshKey("example",
+            title="example title",
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         SSH keys can be imported using their ID e.g.
@@ -153,6 +167,20 @@ class UserSshKey(pulumi.CustomResource):
         Provides a GitHub user's SSH key resource.
 
         This resource allows you to add/remove SSH keys from your user account.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_github as github
+        import pulumi_std as std
+
+        example = github.UserSshKey("example",
+            title="example title",
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
