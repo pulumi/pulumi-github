@@ -895,7 +895,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -927,7 +926,6 @@ class OrganizationSettings(pulumi.CustomResource):
             twitter_username="Test",
             web_commit_signoff_required=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -978,7 +976,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1010,7 +1007,6 @@ class OrganizationSettings(pulumi.CustomResource):
             twitter_username="Test",
             web_commit_signoff_required=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

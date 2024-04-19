@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     fullName: "hashicorp/terraform",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     args = args || {};
@@ -207,7 +205,6 @@ export interface GetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -216,7 +213,6 @@ export interface GetRepositoryResult {
  *     fullName: "hashicorp/terraform",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))

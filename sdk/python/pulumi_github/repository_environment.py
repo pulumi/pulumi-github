@@ -269,7 +269,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -288,7 +287,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 custom_branch_policies=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,7 +317,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -338,7 +335,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 custom_branch_policies=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

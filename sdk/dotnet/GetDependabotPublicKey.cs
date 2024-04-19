@@ -17,7 +17,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDependabotPublicKeyResult> InvokeAsync(GetDependabotPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDependabotPublicKeyResult> Invoke(GetDependabotPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDependabotPublicKeyResult>("github:index/getDependabotPublicKey:getDependabotPublicKey", args ?? new GetDependabotPublicKeyInvokeArgs(), options.WithDefaults());

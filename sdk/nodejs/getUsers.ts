@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  * export const validUsers = example.then(example => example.logins);
  * export const invalidUsers = example.then(example => example.unknownLogins);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
 
@@ -75,7 +73,6 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -90,7 +87,6 @@ export interface GetUsersResult {
  * export const validUsers = example.then(example => example.logins);
  * export const invalidUsers = example.then(example => example.unknownLogins);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

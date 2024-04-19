@@ -235,7 +235,6 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -249,9 +248,7 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
             visibility="private",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -268,7 +265,6 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +296,6 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -314,9 +309,7 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
             visibility="private",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -333,7 +326,6 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
             encrypted_value=var["some_encrypted_secret_string"],
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

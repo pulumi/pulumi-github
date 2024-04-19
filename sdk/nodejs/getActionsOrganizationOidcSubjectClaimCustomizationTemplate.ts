@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
 
@@ -43,14 +41,12 @@ export interface GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResu
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
     return pulumi.output(getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts))

@@ -249,7 +249,6 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -261,7 +260,6 @@ class EnterpriseOrganization(pulumi.CustomResource):
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -291,7 +289,6 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -303,7 +300,6 @@ class EnterpriseOrganization(pulumi.CustomResource):
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

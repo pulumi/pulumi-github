@@ -93,7 +93,6 @@ def get_collaborators(affiliation: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -101,7 +100,6 @@ def get_collaborators(affiliation: Optional[str] = None,
     test = github.get_collaborators(owner="example_owner",
         repository="example_repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
@@ -133,7 +131,6 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -141,7 +138,6 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
     test = github.get_collaborators(owner="example_owner",
         repository="example_repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.

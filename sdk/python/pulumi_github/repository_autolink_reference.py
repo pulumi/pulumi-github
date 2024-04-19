@@ -183,7 +183,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -196,7 +195,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
             key_prefix="TICKET-",
             target_url_template="https://example.com/TICKET?query=<num>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,7 +222,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -237,7 +234,6 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
             key_prefix="TICKET-",
             target_url_template="https://example.com/TICKET?query=<num>")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

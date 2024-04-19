@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -28,11 +27,9 @@ import * as utilities from "./utilities";
  *     body: "The body of my issue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Milestone And Project Assignment
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -62,7 +59,6 @@ import * as utilities from "./utilities";
  *     milestoneNumber: testRepositoryMilestone.number,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

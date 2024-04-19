@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -24,11 +23,9 @@ import * as utilities from "./utilities";
  *     tagName: "v1.0.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### On Non-Default Branch
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -47,7 +44,6 @@ import * as utilities from "./utilities";
  *     prerelease: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -332,7 +332,6 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -350,7 +349,6 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
             restricted_to_workflows=True,
             selected_workflows=["my-organization/my-repo/.github/workflows/cool-workflow.yaml@refs/tags/v1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -382,7 +380,6 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -400,7 +397,6 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
             restricted_to_workflows=True,
             selected_workflows=["my-organization/my-repo/.github/workflows/cool-workflow.yaml@refs/tags/v1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

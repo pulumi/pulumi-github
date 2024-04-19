@@ -83,7 +83,6 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -91,7 +90,6 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
     example = github.get_repository_deployment_branch_policies(environment_name="env_name",
         repository="example-repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str environment_name: Name of the environment to retrieve the deployment branch policies  from.
@@ -119,7 +117,6 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -127,7 +124,6 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
     example = github.get_repository_deployment_branch_policies(environment_name="env_name",
         repository="example-repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str environment_name: Name of the environment to retrieve the deployment branch policies  from.

@@ -100,7 +100,6 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -113,7 +112,6 @@ class RepositoryTopics(pulumi.CustomResource):
                 "topic-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -137,7 +135,6 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -150,7 +147,6 @@ class RepositoryTopics(pulumi.CustomResource):
                 "topic-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

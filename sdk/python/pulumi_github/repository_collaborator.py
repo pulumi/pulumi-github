@@ -223,7 +223,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -234,7 +233,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
             repository="our-cool-repo",
             username="SomeUser")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -300,7 +297,6 @@ class RepositoryCollaborator(pulumi.CustomResource):
             repository="our-cool-repo",
             username="SomeUser")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

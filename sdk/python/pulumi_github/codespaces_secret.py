@@ -198,7 +198,6 @@ class CodespacesSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -213,7 +212,6 @@ class CodespacesSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +239,6 @@ class CodespacesSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -256,7 +253,6 @@ class CodespacesSecret(pulumi.CustomResource):
             secret_name="example_secret_name",
             encrypted_value=var["some_encrypted_secret_string"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

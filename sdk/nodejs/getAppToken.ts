@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppToken(args: GetAppTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAppTokenResult> {
 
@@ -72,7 +70,6 @@ export interface GetAppTokenResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
@@ -84,7 +81,6 @@ export interface GetAppTokenResult {
  *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppTokenResult> {
     return pulumi.output(args).apply((a: any) => getAppToken(a, opts))

@@ -172,7 +172,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -193,7 +192,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                 repository_ids=[example.repo_id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -243,7 +240,6 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
                 repository_ids=[example.repo_id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

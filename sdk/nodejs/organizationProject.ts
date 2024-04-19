@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const project = new github.OrganizationProject("project", {body: "This is a organization project."});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class OrganizationProject extends pulumi.CustomResource {
     /**

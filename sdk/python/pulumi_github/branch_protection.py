@@ -465,7 +465,6 @@ class BranchProtection(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -512,7 +511,6 @@ class BranchProtection(pulumi.CustomResource):
             repository=example_repository.name,
             permission="pull")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -547,7 +545,6 @@ class BranchProtection(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -594,7 +591,6 @@ class BranchProtection(pulumi.CustomResource):
             repository=example_repository.name,
             permission="pull")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

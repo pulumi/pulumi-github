@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -15,7 +14,6 @@ import * as utilities from "./utilities";
  * const someTeamTeam = new github.Team("someTeamTeam", {description: "Some cool team"});
  * const someTeamOrganizationSecurityManager = new github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", {teamSlug: someTeamTeam.slug});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTreeResult

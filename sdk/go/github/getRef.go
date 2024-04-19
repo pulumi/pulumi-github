@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) (*GetRefResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRefResult

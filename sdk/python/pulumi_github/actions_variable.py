@@ -167,7 +167,6 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -177,7 +176,6 @@ class ActionsVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,7 +203,6 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -215,7 +212,6 @@ class ActionsVariable(pulumi.CustomResource):
             value="example_variable_value",
             variable_name="example_variable_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

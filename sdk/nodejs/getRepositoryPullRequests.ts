@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     state: "open",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryPullRequests(args: GetRepositoryPullRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestsResult> {
 
@@ -108,7 +106,6 @@ export interface GetRepositoryPullRequestsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -121,7 +118,6 @@ export interface GetRepositoryPullRequestsResult {
  *     state: "open",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryPullRequestsOutput(args: GetRepositoryPullRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryPullRequests(a, opts))

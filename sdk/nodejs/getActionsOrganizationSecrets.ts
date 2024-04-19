@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationSecrets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationSecrets(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationSecretsResult> {
 
@@ -45,14 +43,12 @@ export interface GetActionsOrganizationSecretsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationSecrets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationSecretsResult> {
     return pulumi.output(getActionsOrganizationSecrets(opts))

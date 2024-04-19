@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  * }));
  * export const entries = thisTree.then(thisTree => thisTree.entries);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise<GetTreeResult> {
 
@@ -81,7 +79,6 @@ export interface GetTreeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -100,7 +97,6 @@ export interface GetTreeResult {
  * }));
  * export const entries = thisTree.then(thisTree => thisTree.entries);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTreeResult> {
     return pulumi.output(args).apply((a: any) => getTree(a, opts))

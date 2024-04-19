@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     repository: "example-repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryAutolinkReferences(args: GetRepositoryAutolinkReferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAutolinkReferencesResult> {
 
@@ -59,7 +57,6 @@ export interface GetRepositoryAutolinkReferencesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -68,7 +65,6 @@ export interface GetRepositoryAutolinkReferencesResult {
  *     repository: "example-repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryAutolinkReferencesOutput(args: GetRepositoryAutolinkReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAutolinkReferencesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryAutolinkReferences(a, opts))

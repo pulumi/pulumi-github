@@ -108,14 +108,12 @@ def get_rest_api(endpoint: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_rest_api(endpoint="repos/example_repo/git/refs/heads/main")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint: REST API endpoint to send the GET request to.
@@ -142,14 +140,12 @@ def get_rest_api_output(endpoint: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_rest_api(endpoint="repos/example_repo/git/refs/heads/main")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint: REST API endpoint to send the GET request to.

@@ -106,7 +106,6 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -116,7 +115,6 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -146,7 +144,6 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -156,7 +153,6 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

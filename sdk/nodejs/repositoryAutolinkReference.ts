@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     targetUrlTemplate: "https://example.com/TICKET?query=<num>",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

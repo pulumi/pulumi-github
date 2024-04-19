@@ -209,7 +209,6 @@ class ProjectCard(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -220,11 +219,9 @@ class ProjectCard(pulumi.CustomResource):
             column_id=column.column_id,
             note="## Unaccepted 👇")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Adding An Issue To A Project
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -245,7 +242,6 @@ class ProjectCard(pulumi.CustomResource):
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,7 +272,6 @@ class ProjectCard(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -287,11 +282,9 @@ class ProjectCard(pulumi.CustomResource):
             column_id=column.column_id,
             note="## Unaccepted 👇")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Adding An Issue To A Project
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -312,7 +305,6 @@ class ProjectCard(pulumi.CustomResource):
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

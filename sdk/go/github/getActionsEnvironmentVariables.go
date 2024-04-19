@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetActionsEnvironmentVariables(ctx *pulumi.Context, args *GetActionsEnvironmentVariablesArgs, opts ...pulumi.InvokeOption) (*GetActionsEnvironmentVariablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsEnvironmentVariablesResult

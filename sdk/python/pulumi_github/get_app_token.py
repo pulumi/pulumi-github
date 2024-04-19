@@ -92,7 +92,6 @@ def get_app_token(app_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -101,7 +100,6 @@ def get_app_token(app_id: Optional[str] = None,
         installation_id="78910",
         pem_file=(lambda path: open(path).read())("foo/bar.pem"))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str app_id: This is the ID of the GitHub App.
@@ -133,7 +131,6 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -142,7 +139,6 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
         installation_id="78910",
         pem_file=(lambda path: open(path).read())("foo/bar.pem"))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str app_id: This is the ID of the GitHub App.

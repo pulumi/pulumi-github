@@ -134,7 +134,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -157,7 +156,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -207,7 +204,6 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

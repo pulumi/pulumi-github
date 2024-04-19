@@ -318,7 +318,6 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -331,7 +330,6 @@ class BranchProtectionV3(pulumi.CustomResource):
                 users=["foo-user"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -367,7 +365,6 @@ class BranchProtectionV3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -380,7 +377,6 @@ class BranchProtectionV3(pulumi.CustomResource):
                 users=["foo-user"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     query: "org:hashicorp language:Go",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositories(args: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
 
@@ -84,7 +82,6 @@ export interface GetRepositoriesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -94,7 +91,6 @@ export interface GetRepositoriesResult {
  *     query: "org:hashicorp language:Go",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoriesOutput(args: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => getRepositories(a, opts))

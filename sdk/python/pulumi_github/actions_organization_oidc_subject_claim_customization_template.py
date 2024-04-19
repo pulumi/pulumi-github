@@ -74,7 +74,6 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -85,7 +84,6 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
             "repository_owner",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -114,7 +112,6 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -125,7 +122,6 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
             "repository_owner",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

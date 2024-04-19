@@ -199,7 +199,6 @@ class RepositoryWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -218,7 +217,6 @@ class RepositoryWebhook(pulumi.CustomResource):
             active=False,
             events=["issues"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,7 +249,6 @@ class RepositoryWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -270,7 +267,6 @@ class RepositoryWebhook(pulumi.CustomResource):
             active=False,
             events=["issues"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

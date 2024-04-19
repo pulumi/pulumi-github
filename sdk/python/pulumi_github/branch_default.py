@@ -153,7 +153,6 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -168,11 +167,9 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
-        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -185,7 +182,6 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,7 +214,6 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -233,11 +228,9 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
-        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -250,7 +243,6 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

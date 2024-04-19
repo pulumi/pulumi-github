@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     repository: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<GetRefResult> {
 
@@ -75,7 +73,6 @@ export interface GetRefResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -86,7 +83,6 @@ export interface GetRefResult {
  *     repository: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRefResult> {
     return pulumi.output(args).apply((a: any) => getRef(a, opts))

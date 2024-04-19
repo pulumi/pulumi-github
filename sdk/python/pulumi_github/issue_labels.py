@@ -114,7 +114,6 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -133,7 +132,6 @@ class IssueLabels(pulumi.CustomResource):
             ],
             repository="test-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,7 +166,6 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -187,7 +184,6 @@ class IssueLabels(pulumi.CustomResource):
             ],
             repository="test-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

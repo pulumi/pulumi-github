@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx *pulumi.Context, args *LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs, opts ...pulumi.InvokeOption) (*LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateResult

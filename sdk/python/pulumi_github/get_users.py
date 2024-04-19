@@ -108,7 +108,6 @@ def get_users(usernames: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -121,7 +120,6 @@ def get_users(usernames: Optional[Sequence[str]] = None,
     pulumi.export("validUsers", example.logins)
     pulumi.export("invalidUsers", example.unknown_logins)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] usernames: List of usernames.
@@ -148,7 +146,6 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -161,7 +158,6 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
     pulumi.export("validUsers", example.logins)
     pulumi.export("invalidUsers", example.unknown_logins)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] usernames: List of usernames.

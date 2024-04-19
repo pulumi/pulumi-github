@@ -123,7 +123,6 @@ def get_repositories(include_repo_id: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -131,7 +130,6 @@ def get_repositories(include_repo_id: Optional[bool] = None,
     example = github.get_repositories(include_repo_id=True,
         query="org:hashicorp language:Go")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_repo_id: Returns a list of found repository IDs
@@ -172,7 +170,6 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -180,7 +177,6 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
     example = github.get_repositories(include_repo_id=True,
         query="org:hashicorp language:Go")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_repo_id: Returns a list of found repository IDs

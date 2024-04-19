@@ -352,7 +352,6 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -368,7 +367,6 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -407,7 +405,6 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -423,7 +420,6 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

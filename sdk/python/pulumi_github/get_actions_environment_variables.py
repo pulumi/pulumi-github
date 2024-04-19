@@ -96,7 +96,6 @@ def get_actions_environment_variables(environment: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -104,7 +103,6 @@ def get_actions_environment_variables(environment: Optional[str] = None,
     example = github.get_actions_environment_variables(environment="exampleEnvironment",
         name="exampleRepo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the variable
@@ -134,7 +132,6 @@ def get_actions_environment_variables_output(environment: Optional[pulumi.Input[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -142,7 +139,6 @@ def get_actions_environment_variables_output(environment: Optional[pulumi.Input[
     example = github.get_actions_environment_variables(environment="exampleEnvironment",
         name="exampleRepo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the variable
