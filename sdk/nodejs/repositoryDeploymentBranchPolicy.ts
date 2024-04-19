@@ -25,6 +25,7 @@ import * as utilities from "./utilities";
  * const foo = new github.RepositoryDeploymentBranchPolicy("foo", {
  *     repository: "my_repo",
  *     environmentName: "my_env",
+ *     name: "foo",
  * }, {
  *     dependsOn: [env],
  * });

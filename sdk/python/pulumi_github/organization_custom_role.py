@@ -176,8 +176,9 @@ class OrganizationCustomRole(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.OrganizationCustomRole("example",
-            base_role="read",
+            name="example",
             description="Example custom role that uses the read role as its base",
+            base_role="read",
             permissions=[
                 "add_assignee",
                 "add_label",
@@ -237,8 +238,9 @@ class OrganizationCustomRole(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.OrganizationCustomRole("example",
-            base_role="read",
+            name="example",
             description="Example custom role that uses the read role as its base",
+            base_role="read",
             permissions=[
                 "add_assignee",
                 "add_label",

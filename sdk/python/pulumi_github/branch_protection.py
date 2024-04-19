@@ -470,13 +470,13 @@ class BranchProtection(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
+        example_repository = github.Repository("example", name="test")
+        example = github.get_user(username="example")
+        example_team = github.Team("example", name="Example Name")
         # Protect the main branch of the foo repository. Additionally, require that
         # the "ci/travis" context to be passing and only allow the engineers team merge
         # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
+        example_branch_protection = github.BranchProtection("example",
             repository_id=example_repository.node_id,
             pattern="main",
             enforce_admins=True,
@@ -489,7 +489,7 @@ class BranchProtection(pulumi.CustomResource):
                 dismiss_stale_reviews=True,
                 restrict_dismissals=True,
                 dismissal_restrictions=[
-                    example_user.node_id,
+                    example.node_id,
                     example_team.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
@@ -497,17 +497,17 @@ class BranchProtection(pulumi.CustomResource):
             )],
             restrict_pushes=[github.BranchProtectionRestrictPushArgs(
                 push_allowances=[
-                    example_user.node_id,
+                    example.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
             )],
             force_push_bypassers=[
-                example_user.node_id,
+                example.node_id,
                 "/exampleuser",
                 "exampleorganization/exampleteam",
             ])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
+        example_team_repository = github.TeamRepository("example",
             team_id=example_team.id,
             repository=example_repository.name,
             permission="pull")
@@ -552,13 +552,13 @@ class BranchProtection(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_user = github.get_user(username="example")
-        example_team = github.Team("exampleTeam")
+        example_repository = github.Repository("example", name="test")
+        example = github.get_user(username="example")
+        example_team = github.Team("example", name="Example Name")
         # Protect the main branch of the foo repository. Additionally, require that
         # the "ci/travis" context to be passing and only allow the engineers team merge
         # to the branch.
-        example_branch_protection = github.BranchProtection("exampleBranchProtection",
+        example_branch_protection = github.BranchProtection("example",
             repository_id=example_repository.node_id,
             pattern="main",
             enforce_admins=True,
@@ -571,7 +571,7 @@ class BranchProtection(pulumi.CustomResource):
                 dismiss_stale_reviews=True,
                 restrict_dismissals=True,
                 dismissal_restrictions=[
-                    example_user.node_id,
+                    example.node_id,
                     example_team.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
@@ -579,17 +579,17 @@ class BranchProtection(pulumi.CustomResource):
             )],
             restrict_pushes=[github.BranchProtectionRestrictPushArgs(
                 push_allowances=[
-                    example_user.node_id,
+                    example.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
             )],
             force_push_bypassers=[
-                example_user.node_id,
+                example.node_id,
                 "/exampleuser",
                 "exampleorganization/exampleteam",
             ])
-        example_team_repository = github.TeamRepository("exampleTeamRepository",
+        example_team_repository = github.TeamRepository("example",
             team_id=example_team.id,
             repository=example_repository.name,
             permission="pull")

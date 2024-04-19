@@ -44,17 +44,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a repository to the team
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			someRepo, err := github.NewRepository(ctx, "some_repo", &github.RepositoryArgs{
+//				Name: pulumi.String("some-repo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewTeamRepository(ctx, "someTeamRepo", &github.TeamRepositoryArgs{
+//			_, err = github.NewTeamRepository(ctx, "some_team_repo", &github.TeamRepositoryArgs{
 //				TeamId:     someTeam.ID(),
 //				Repository: someRepo.Name,
 //				Permission: pulumi.String("pull"),

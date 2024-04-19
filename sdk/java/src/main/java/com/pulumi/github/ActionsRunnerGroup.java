@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsRunnerGroup;
  * import com.pulumi.github.ActionsRunnerGroupArgs;
  * import java.util.List;
@@ -46,11 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;my-repository&#34;)
+ *             .build());
  * 
  *         var exampleActionsRunnerGroup = new ActionsRunnerGroup(&#34;exampleActionsRunnerGroup&#34;, ActionsRunnerGroupArgs.builder()        
+ *             .name(example.name())
  *             .visibility(&#34;selected&#34;)
- *             .selectedRepositoryIds(exampleRepository.repoId())
+ *             .selectedRepositoryIds(example.repoId())
  *             .build());
  * 
  *     }

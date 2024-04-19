@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  *         var foo = new RepositoryDeploymentBranchPolicy(&#34;foo&#34;, RepositoryDeploymentBranchPolicyArgs.builder()        
  *             .repository(&#34;my_repo&#34;)
  *             .environmentName(&#34;my_env&#34;)
+ *             .name(&#34;foo&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(env)
  *                 .build());

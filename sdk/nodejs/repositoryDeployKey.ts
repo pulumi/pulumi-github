@@ -25,12 +25,12 @@ import * as utilities from "./utilities";
  * import * as tls from "@pulumi/tls";
  *
  * // Generate an ssh key using provider "hashicorp/tls"
- * const exampleRepositoryDeployKeyPrivateKey = new tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", {algorithm: "ED25519"});
+ * const exampleRepositoryDeployKey = new tls.PrivateKey("example_repository_deploy_key", {algorithm: "ED25519"});
  * // Add the ssh key as a deploy key
- * const exampleRepositoryDeployKeyRepositoryDeployKey = new github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", {
+ * const exampleRepositoryDeployKeyRepositoryDeployKey = new github.RepositoryDeployKey("example_repository_deploy_key", {
  *     title: "Repository test key",
  *     repository: "test-repo",
- *     key: exampleRepositoryDeployKeyPrivateKey.publicKeyOpenssh,
+ *     key: exampleRepositoryDeployKey.publicKeyOpenssh,
  *     readOnly: true,
  * });
  * ```

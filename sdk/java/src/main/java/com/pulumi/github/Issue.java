@@ -49,13 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a simple issue
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;tf-acc-test-%s&#34;)
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
  *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
+ *             .repository(test.name())
  *             .title(&#34;My issue title&#34;)
  *             .body(&#34;The body of my issue&#34;)
  *             .build());
@@ -94,14 +95,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create an issue with milestone and project assignment
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;tf-acc-test-%s&#34;)
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
  *         var testRepositoryMilestone = new RepositoryMilestone(&#34;testRepositoryMilestone&#34;, RepositoryMilestoneArgs.builder()        
- *             .owner(testRepository.fullName().applyValue(fullName -&gt; fullName.split(&#34;/&#34;)).applyValue(split -&gt; split[0]))
- *             .repository(testRepository.name())
+ *             .owner(StdFunctions.split().applyValue(invoke -&gt; invoke.result()[0]))
+ *             .repository(test.name())
  *             .title(&#34;v1.0.0&#34;)
  *             .description(&#34;General Availability&#34;)
  *             .dueDate(&#34;2022-11-22&#34;)
@@ -109,7 +111,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
+ *             .repository(test.name())
  *             .title(&#34;My issue&#34;)
  *             .body(&#34;My issue body&#34;)
  *             .labels(            

@@ -36,13 +36,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a repository to the team
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewTeamSettings(ctx, "codeReviewSettings", &github.TeamSettingsArgs{
+//			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
 //				TeamId: someTeam.ID(),
 //				ReviewRequestDelegation: &github.TeamSettingsReviewRequestDelegationArgs{
 //					Algorithm:   pulumi.String("ROUND_ROBIN"),

@@ -18,12 +18,14 @@ import * as utilities from "./utilities";
  * const enterprise = github.getEnterprise({
  *     slug: "my-enterprise",
  * });
- * const enterpriseOrganization = new github.EnterpriseOrganization("enterpriseOrganization", {
+ * const enterpriseOrganization = new github.EnterpriseOrganization("enterprise_organization", {
  *     enterpriseId: enterprise.then(enterprise => enterprise.id),
+ *     name: "my-organization",
  *     billingEmail: "octocat@octo.cat",
  *     adminLogins: ["octocat"],
  * });
  * const example = new github.EnterpriseActionsRunnerGroup("example", {
+ *     name: "my-awesome-runner-group",
  *     enterpriseSlug: enterprise.then(enterprise => enterprise.slug),
  *     allowsPublicRepositories: true,
  *     visibility: "selected",

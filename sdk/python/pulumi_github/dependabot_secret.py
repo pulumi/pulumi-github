@@ -198,23 +198,6 @@ class DependabotSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_public_key = github.get_dependabot_public_key(repository="example_repository")
-        example_secret_dependabot_secret = github.DependabotSecret("exampleSecretDependabotSecret",
-            repository="example_repository",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_dependabot_secret_dependabot_secret = github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret",
-            repository="example_repository",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         This resource can be imported using an ID made up of the `repository` and `secret_name`:
@@ -240,23 +223,6 @@ class DependabotSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example_public_key = github.get_dependabot_public_key(repository="example_repository")
-        example_secret_dependabot_secret = github.DependabotSecret("exampleSecretDependabotSecret",
-            repository="example_repository",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"])
-        example_secret_index_dependabot_secret_dependabot_secret = github.DependabotSecret("exampleSecretIndex/dependabotSecretDependabotSecret",
-            repository="example_repository",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

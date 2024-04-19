@@ -185,9 +185,11 @@ class RepositoryCollaborators(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add collaborators to a repository
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_repo_collaborators = github.RepositoryCollaborators("some_repo_collaborators",
             repository=some_repo.name,
             users=[github.RepositoryCollaboratorsUserArgs(
                 permission="admin",
@@ -254,9 +256,11 @@ class RepositoryCollaborators(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add collaborators to a repository
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_repo_collaborators = github.RepositoryCollaborators("someRepoCollaborators",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_repo_collaborators = github.RepositoryCollaborators("some_repo_collaborators",
             repository=some_repo.name,
             users=[github.RepositoryCollaboratorsUserArgs(
                 permission="admin",

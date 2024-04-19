@@ -34,17 +34,17 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Generate an ssh key using provider "hashicorp/tls"
-    ///     var exampleRepositoryDeployKeyPrivateKey = new Tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", new()
+    ///     var exampleRepositoryDeployKey = new Tls.PrivateKey("example_repository_deploy_key", new()
     ///     {
     ///         Algorithm = "ED25519",
     ///     });
     /// 
     ///     // Add the ssh key as a deploy key
-    ///     var exampleRepositoryDeployKeyRepositoryDeployKey = new Github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", new()
+    ///     var exampleRepositoryDeployKeyRepositoryDeployKey = new Github.RepositoryDeployKey("example_repository_deploy_key", new()
     ///     {
     ///         Title = "Repository test key",
     ///         Repository = "test-repo",
-    ///         Key = exampleRepositoryDeployKeyPrivateKey.PublicKeyOpenssh,
+    ///         Key = exampleRepositoryDeployKey.PublicKeyOpenssh,
     ///         ReadOnly = true,
     ///     });
     /// 

@@ -172,10 +172,10 @@ class ActionsVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsVariable("exampleVariable",
+        example_variable = github.ActionsVariable("example_variable",
             repository="example_repository",
-            value="example_variable_value",
-            variable_name="example_variable_name")
+            variable_name="example_variable_name",
+            value="example_variable_value")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -210,10 +210,10 @@ class ActionsVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsVariable("exampleVariable",
+        example_variable = github.ActionsVariable("example_variable",
             repository="example_repository",
-            value="example_variable_value",
-            variable_name="example_variable_name")
+            variable_name="example_variable_name",
+            value="example_variable_value")
         ```
         <!--End PulumiCodeChooser -->
 

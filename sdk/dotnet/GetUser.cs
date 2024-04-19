@@ -25,11 +25,13 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Retrieve information about a GitHub user.
         ///     var example = Github.GetUser.Invoke(new()
         ///     {
         ///         Username = "example",
         ///     });
         /// 
+        ///     // Retrieve information about the currently authenticated user.
         ///     var current = Github.GetUser.Invoke(new()
         ///     {
         ///         Username = "",
@@ -60,11 +62,13 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Retrieve information about a GitHub user.
         ///     var example = Github.GetUser.Invoke(new()
         ///     {
         ///         Username = "example",
         ///     });
         /// 
+        ///     // Retrieve information about the currently authenticated user.
         ///     var current = Github.GetUser.Invoke(new()
         ///     {
         ///         Username = "",

@@ -11,6 +11,45 @@ import * as utilities from "./utilities";
  *
  * This resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new github.OrganizationRuleset("example", {
+ *     name: "example",
+ *     target: "branch",
+ *     enforcement: "active",
+ *     conditions: {
+ *         refName: {
+ *             includes: ["~ALL"],
+ *             excludes: [],
+ *         },
+ *     },
+ *     bypassActors: [{
+ *         actorId: 13473,
+ *         actorType: "Integration",
+ *         bypassMode: "always",
+ *     }],
+ *     rules: {
+ *         creation: true,
+ *         update: true,
+ *         deletion: true,
+ *         requiredLinearHistory: true,
+ *         requiredSignatures: true,
+ *         branchNamePattern: {
+ *             name: "example",
+ *             negate: false,
+ *             operator: "starts_with",
+ *             pattern: "ex",
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.

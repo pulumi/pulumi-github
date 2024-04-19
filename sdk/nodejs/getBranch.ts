@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const development = github.getBranch({
- *     branch: "development",
  *     repository: "example",
+ *     branch: "development",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -78,8 +78,8 @@ export interface GetBranchResult {
  * import * as github from "@pulumi/github";
  *
  * const development = github.getBranch({
- *     branch: "development",
  *     repository: "example",
+ *     branch: "development",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

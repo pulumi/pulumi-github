@@ -209,10 +209,10 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
-            value="example_variable_value",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
-            visibility="private")
+            visibility="private",
+            value="example_variable_value")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -222,7 +222,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
             visibility="selected",
             value="example_variable_value",
@@ -263,10 +263,10 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
-            value="example_variable_value",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
-            visibility="private")
+            visibility="private",
+            value="example_variable_value")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -276,7 +276,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
             visibility="selected",
             value="example_variable_value",

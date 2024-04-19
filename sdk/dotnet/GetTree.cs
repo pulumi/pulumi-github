@@ -25,27 +25,27 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var thisRepository = Github.GetRepository.Invoke(new()
+        ///     var @this = Github.GetRepository.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
         /// 
-        ///     var thisBranch = Github.GetBranch.Invoke(new()
+        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
         ///     {
-        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
         ///     });
         /// 
-        ///     var thisTree = Github.GetTree.Invoke(new()
+        ///     var thisGetTree = Github.GetTree.Invoke(new()
         ///     {
         ///         Recursive = false,
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         TreeSha = thisGetBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
+        ///         ["entries"] = thisGetTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
         ///     };
         /// });
         /// ```
@@ -68,27 +68,27 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var thisRepository = Github.GetRepository.Invoke(new()
+        ///     var @this = Github.GetRepository.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
         /// 
-        ///     var thisBranch = Github.GetBranch.Invoke(new()
+        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
         ///     {
-        ///         Branch = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
         ///     });
         /// 
-        ///     var thisTree = Github.GetTree.Invoke(new()
+        ///     var thisGetTree = Github.GetTree.Invoke(new()
         ///     {
         ///         Recursive = false,
-        ///         Repository = thisRepository.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-        ///         TreeSha = thisBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         TreeSha = thisGetBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["entries"] = thisTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
+        ///         ["entries"] = thisGetTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
         ///     };
         /// });
         /// ```

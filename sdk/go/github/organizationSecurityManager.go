@@ -27,14 +27,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			someTeamTeam, err := github.NewTeam(ctx, "someTeamTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewOrganizationSecurityManager(ctx, "someTeamOrganizationSecurityManager", &github.OrganizationSecurityManagerArgs{
-//				TeamSlug: someTeamTeam.Slug,
+//			_, err = github.NewOrganizationSecurityManager(ctx, "some_team", &github.OrganizationSecurityManagerArgs{
+//				TeamSlug: someTeam.Slug,
 //			})
 //			if err != nil {
 //				return err

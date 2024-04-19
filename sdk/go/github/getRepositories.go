@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRepositories(ctx, &github.GetRepositoriesArgs{
-//				IncludeRepoId: pulumi.BoolRef(true),
 //				Query:         "org:hashicorp language:Go",
+//				IncludeRepoId: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

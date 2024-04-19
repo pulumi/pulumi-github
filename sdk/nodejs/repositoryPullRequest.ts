@@ -15,11 +15,11 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.RepositoryPullRequest("example", {
- *     baseRef: "main",
  *     baseRepository: "example-repository",
- *     body: "This will change everything",
+ *     baseRef: "main",
  *     headRef: "feature-branch",
  *     title: "My newest feature",
+ *     body: "This will change everything",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

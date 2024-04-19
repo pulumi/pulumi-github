@@ -25,14 +25,16 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         HasProjects = true,
     ///     });
     /// 
     ///     var project = new Github.RepositoryProject("project", new()
     ///     {
-    ///         Body = "This is a repository project.",
+    ///         Name = "A Repository Project",
     ///         Repository = example.Name,
+    ///         Body = "This is a repository project.",
     ///     });
     /// 
     /// });

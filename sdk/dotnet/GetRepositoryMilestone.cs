@@ -27,9 +27,9 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositoryMilestone.Invoke(new()
         ///     {
-        ///         Number = 1,
         ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Number = 1,
         ///     });
         /// 
         /// });
@@ -55,9 +55,9 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRepositoryMilestone.Invoke(new()
         ///     {
-        ///         Number = 1,
         ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Number = 1,
         ///     });
         /// 
         /// });

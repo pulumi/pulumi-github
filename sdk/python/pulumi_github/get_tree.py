@@ -98,13 +98,13 @@ def get_tree(recursive: Optional[bool] = None,
     import pulumi
     import pulumi_github as github
 
-    this_repository = github.get_repository(name="example")
-    this_branch = github.get_branch(branch=this_repository.default_branch,
-        repository=this_repository.name)
-    this_tree = github.get_tree(recursive=False,
-        repository=this_repository.name,
-        tree_sha=this_branch.sha)
-    pulumi.export("entries", this_tree.entries)
+    this = github.get_repository(name="example")
+    this_get_branch = github.get_branch(branch=this.default_branch,
+        repository=this.name)
+    this_get_tree = github.get_tree(recursive=False,
+        repository=this.name,
+        tree_sha=this_get_branch.sha)
+    pulumi.export("entries", this_get_tree.entries)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -143,13 +143,13 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
     import pulumi
     import pulumi_github as github
 
-    this_repository = github.get_repository(name="example")
-    this_branch = github.get_branch(branch=this_repository.default_branch,
-        repository=this_repository.name)
-    this_tree = github.get_tree(recursive=False,
-        repository=this_repository.name,
-        tree_sha=this_branch.sha)
-    pulumi.export("entries", this_tree.entries)
+    this = github.get_repository(name="example")
+    this_get_branch = github.get_branch(branch=this.default_branch,
+        repository=this.name)
+    this_get_tree = github.get_tree(recursive=False,
+        repository=this.name,
+        tree_sha=this_get_branch.sha)
+    pulumi.export("entries", this_get_tree.entries)
     ```
     <!--End PulumiCodeChooser -->
 

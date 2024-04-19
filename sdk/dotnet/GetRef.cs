@@ -28,8 +28,8 @@ namespace Pulumi.Github
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
-        ///         Ref = "heads/development",
         ///         Repository = "example",
+        ///         Ref = "heads/development",
         ///     });
         /// 
         /// });
@@ -56,8 +56,8 @@ namespace Pulumi.Github
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
-        ///         Ref = "heads/development",
         ///         Repository = "example",
+        ///         Ref = "heads/development",
         ///     });
         /// 
         /// });

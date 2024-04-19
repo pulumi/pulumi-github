@@ -225,8 +225,8 @@ class Branch(pulumi.CustomResource):
         import pulumi_github as github
 
         development = github.Branch("development",
-            branch="development",
-            repository="example")
+            repository="example",
+            branch="development")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -276,8 +276,8 @@ class Branch(pulumi.CustomResource):
         import pulumi_github as github
 
         development = github.Branch("development",
-            branch="development",
-            repository="example")
+            repository="example",
+            branch="development")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -26,38 +26,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.TeamSyncGroupMapping;
- * import com.pulumi.github.TeamSyncGroupMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleGroups = GithubFunctions.getOrganizationTeamSyncGroups();
- * 
- *         var exampleGroupMapping = new TeamSyncGroupMapping(&#34;exampleGroupMapping&#34;, TeamSyncGroupMappingArgs.builder()        
- *             .teamSlug(&#34;example&#34;)
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

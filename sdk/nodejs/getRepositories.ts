@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositories({
- *     includeRepoId: true,
  *     query: "org:hashicorp language:Go",
+ *     includeRepoId: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -90,8 +90,8 @@ export interface GetRepositoriesResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositories({
- *     includeRepoId: true,
  *     query: "org:hashicorp language:Go",
+ *     includeRepoId: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

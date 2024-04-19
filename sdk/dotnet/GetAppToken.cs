@@ -19,10 +19,10 @@ namespace Pulumi.Github
         /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
-        /// using System.IO;
         /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
+        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -30,7 +30,10 @@ namespace Pulumi.Github
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
+        ///         PemFile = Std.File.Invoke(new()
+        ///         {
+        ///             Input = "foo/bar.pem",
+        ///         }).Result,
         ///     });
         /// 
         /// });
@@ -48,10 +51,10 @@ namespace Pulumi.Github
         /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
-        /// using System.IO;
         /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
+        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -59,7 +62,10 @@ namespace Pulumi.Github
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
+        ///         PemFile = Std.File.Invoke(new()
+        ///         {
+        ///             Input = "foo/bar.pem",
+        ///         }).Result,
         ///     });
         /// 
         /// });

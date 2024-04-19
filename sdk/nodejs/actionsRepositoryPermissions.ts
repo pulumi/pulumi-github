@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example = new github.Repository("example", {});
+ * const example = new github.Repository("example", {name: "my-repository"});
  * const test = new github.ActionsRepositoryPermissions("test", {
  *     allowedActions: "selected",
  *     allowedActionsConfig: {

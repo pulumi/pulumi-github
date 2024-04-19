@@ -88,8 +88,8 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
     import pulumi
     import pulumi_github as github
 
-    example = github.get_repository_deployment_branch_policies(environment_name="env_name",
-        repository="example-repository")
+    example = github.get_repository_deployment_branch_policies(repository="example-repository",
+        environment_name="env_name")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -124,8 +124,8 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
     import pulumi
     import pulumi_github as github
 
-    example = github.get_repository_deployment_branch_policies(environment_name="env_name",
-        repository="example-repository")
+    example = github.get_repository_deployment_branch_policies(repository="example-repository",
+        environment_name="env_name")
     ```
     <!--End PulumiCodeChooser -->
 

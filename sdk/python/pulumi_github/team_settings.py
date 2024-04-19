@@ -149,8 +149,10 @@ class TeamSettings(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        code_review_settings = github.TeamSettings("codeReviewSettings",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
             review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
                 algorithm="ROUND_ROBIN",
@@ -201,8 +203,10 @@ class TeamSettings(pulumi.CustomResource):
         import pulumi_github as github
 
         # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        code_review_settings = github.TeamSettings("codeReviewSettings",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
             review_request_delegation=github.TeamSettingsReviewRequestDelegationArgs(
                 algorithm="ROUND_ROBIN",

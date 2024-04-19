@@ -15,9 +15,9 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryMilestone({
- *     number: 1,
  *     owner: "example-owner",
  *     repository: "example-repository",
+ *     number: 1,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -89,9 +89,9 @@ export interface GetRepositoryMilestoneResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryMilestone({
- *     number: 1,
  *     owner: "example-owner",
  *     repository: "example-repository",
+ *     number: 1,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

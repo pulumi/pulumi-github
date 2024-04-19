@@ -23,8 +23,11 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Add a repository to the team
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const codeReviewSettings = new github.TeamSettings("codeReviewSettings", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const codeReviewSettings = new github.TeamSettings("code_review_settings", {
  *     teamId: someTeam.id,
  *     reviewRequestDelegation: {
  *         algorithm: "ROUND_ROBIN",

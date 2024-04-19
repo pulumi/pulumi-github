@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;repo&#34;)
  *             .description(&#34;GitHub repo managed by Terraform&#34;)
  *             .private_(false)
  *             .build());
@@ -88,18 +89,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;repo&#34;)
  *             .autoInit(true)
  *             .build());
  * 
  *         var exampleBranch = new Branch(&#34;exampleBranch&#34;, BranchArgs.builder()        
- *             .repository(exampleRepository.name())
+ *             .repository(example.name())
  *             .branch(&#34;branch_name&#34;)
- *             .sourceBranch(exampleRepository.defaultBranch())
+ *             .sourceBranch(example.defaultBranch())
  *             .build());
  * 
  *         var exampleRelease = new Release(&#34;exampleRelease&#34;, ReleaseArgs.builder()        
- *             .repository(exampleRepository.name())
+ *             .repository(example.name())
  *             .tagName(&#34;v1.0.0&#34;)
  *             .targetCommitish(exampleBranch.branch())
  *             .draft(false)

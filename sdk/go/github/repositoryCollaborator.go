@@ -53,10 +53,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a collaborator to a repository
-//			_, err := github.NewRepositoryCollaborator(ctx, "aRepoCollaborator", &github.RepositoryCollaboratorArgs{
-//				Permission: pulumi.String("admin"),
+//			_, err := github.NewRepositoryCollaborator(ctx, "a_repo_collaborator", &github.RepositoryCollaboratorArgs{
 //				Repository: pulumi.String("our-cool-repo"),
 //				Username:   pulumi.String("SomeUser"),
+//				Permission: pulumi.String("admin"),
 //			})
 //			if err != nil {
 //				return err

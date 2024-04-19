@@ -47,11 +47,11 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a collaborator to a repository
-    ///     var aRepoCollaborator = new Github.RepositoryCollaborator("aRepoCollaborator", new()
+    ///     var aRepoCollaborator = new Github.RepositoryCollaborator("a_repo_collaborator", new()
     ///     {
-    ///         Permission = "admin",
     ///         Repository = "our-cool-repo",
     ///         Username = "SomeUser",
+    ///         Permission = "admin",
     ///     });
     /// 
     /// });

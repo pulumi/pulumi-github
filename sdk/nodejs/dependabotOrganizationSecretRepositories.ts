@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  * const repo = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const exampleSecret = new github.DependabotOrganizationSecret("exampleSecret", {
+ * const exampleSecret = new github.DependabotOrganizationSecret("example_secret", {
  *     secretName: "example_secret_name",
  *     visibility: "private",
- *     plaintextValue: _var.some_secret_string,
+ *     plaintextValue: someSecretString,
  * });
- * const orgSecretRepos = new github.DependabotOrganizationSecretRepositories("orgSecretRepos", {
+ * const orgSecretRepos = new github.DependabotOrganizationSecretRepositories("org_secret_repos", {
  *     secretName: exampleSecret.secretName,
  *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
  * });

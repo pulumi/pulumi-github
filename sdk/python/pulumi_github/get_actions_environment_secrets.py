@@ -101,8 +101,8 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_secrets(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -139,8 +139,8 @@ def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[st
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_secrets(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
     <!--End PulumiCodeChooser -->
 

@@ -205,6 +205,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="foo",
             description="Terraform acceptance tests",
             homepage_url="http://example.com/",
             visibility="public")
@@ -257,6 +258,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="foo",
             description="Terraform acceptance tests",
             homepage_url="http://example.com/",
             visibility="public")

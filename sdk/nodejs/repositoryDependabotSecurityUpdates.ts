@@ -17,12 +17,13 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "my-repo",
  *     description: "GitHub repo managed by Terraform",
  *     "private": false,
  *     vulnerabilityAlerts: true,
  * });
  * const example = new github.RepositoryDependabotSecurityUpdates("example", {
- *     repository: github_repository.test.id,
+ *     repository: test.id,
  *     enabled: true,
  * });
  * ```

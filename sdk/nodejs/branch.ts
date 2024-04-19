@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const development = new github.Branch("development", {
- *     branch: "development",
  *     repository: "example",
+ *     branch: "development",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

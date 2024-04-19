@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Retrieve information about multiple GitHub users.
 //			example, err := github.GetUsers(ctx, &github.GetUsersArgs{
 //				Usernames: []string{
 //					"example1",

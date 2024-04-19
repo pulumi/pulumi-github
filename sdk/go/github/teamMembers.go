@@ -28,27 +28,28 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a user to the organization
-//			_, err := github.NewMembership(ctx, "membershipForSomeUser", &github.MembershipArgs{
+//			_, err := github.NewMembership(ctx, "membership_for_some_user", &github.MembershipArgs{
 //				Username: pulumi.String("SomeUser"),
 //				Role:     pulumi.String("member"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewMembership(ctx, "membershipForAnotherUser", &github.MembershipArgs{
+//			_, err = github.NewMembership(ctx, "membership_for_another_user", &github.MembershipArgs{
 //				Username: pulumi.String("AnotherUser"),
 //				Role:     pulumi.String("member"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewTeamMembers(ctx, "someTeamMembers", &github.TeamMembersArgs{
+//			_, err = github.NewTeamMembers(ctx, "some_team_members", &github.TeamMembersArgs{
 //				TeamId: someTeam.ID(),
 //				Members: github.TeamMembersMemberArray{
 //					&github.TeamMembersMemberArgs{

@@ -32,8 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewOrganizationCustomRole(ctx, "example", &github.OrganizationCustomRoleArgs{
-//				BaseRole:    pulumi.String("read"),
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example custom role that uses the read role as its base"),
+//				BaseRole:    pulumi.String("read"),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("add_assignee"),
 //					pulumi.String("add_label"),

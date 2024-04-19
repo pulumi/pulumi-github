@@ -113,6 +113,7 @@ def get_users(usernames: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_github as github
 
+    # Retrieve information about multiple GitHub users.
     example = github.get_users(usernames=[
         "example1",
         "example2",
@@ -153,6 +154,7 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
     import pulumi
     import pulumi_github as github
 
+    # Retrieve information about multiple GitHub users.
     example = github.get_users(usernames=[
         "example1",
         "example2",

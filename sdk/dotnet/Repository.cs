@@ -30,14 +30,15 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
+    ///         Visibility = "public",
     ///         Template = new Github.Inputs.RepositoryTemplateArgs
     ///         {
-    ///             IncludeAllBranches = true,
     ///             Owner = "github",
     ///             Repository = "terraform-template-module",
+    ///             IncludeAllBranches = true,
     ///         },
-    ///         Visibility = "public",
     ///     });
     /// 
     /// });
@@ -57,7 +58,9 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome web page",
+    ///         Private = false,
     ///         Pages = new Github.Inputs.RepositoryPagesArgs
     ///         {
     ///             Source = new Github.Inputs.RepositoryPagesSourceArgs
@@ -66,7 +69,6 @@ namespace Pulumi.Github
     ///                 Path = "/docs",
     ///             },
     ///         },
-    ///         Private = false,
     ///     });
     /// 
     /// });

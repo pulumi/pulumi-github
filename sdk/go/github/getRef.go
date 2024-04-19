@@ -30,8 +30,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRef(ctx, &github.GetRefArgs{
 //				Owner:      pulumi.StringRef("example"),
-//				Ref:        "heads/development",
 //				Repository: "example",
+//				Ref:        "heads/development",
 //			}, nil)
 //			if err != nil {
 //				return err

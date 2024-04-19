@@ -14,12 +14,14 @@ import * as utilities from "./utilities";
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as github from "@pulumi/github";
+ * import * as std from "@pulumi/std";
  *
  * const example = new github.UserSshKey("example", {
  *     title: "example title",
- *     key: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
+ *     key: std.file({
+ *         input: "~/.ssh/id_rsa.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

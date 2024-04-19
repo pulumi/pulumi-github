@@ -31,14 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example repository"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryRuleset(ctx, "exampleRepositoryRuleset", &github.RepositoryRulesetArgs{
-//				Repository:  exampleRepository.Name,
+//			_, err = github.NewRepositoryRuleset(ctx, "example", &github.RepositoryRulesetArgs{
+//				Name:        pulumi.String("example"),
+//				Repository:  example.Name,
 //				Target:      pulumi.String("branch"),
 //				Enforcement: pulumi.String("active"),
 //				Conditions: &github.RepositoryRulesetConditionsArgs{

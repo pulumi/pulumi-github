@@ -40,12 +40,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var someTeamTeam = new Team(&#34;someTeamTeam&#34;, TeamArgs.builder()        
+ *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;SomeTeam&#34;)
  *             .description(&#34;Some cool team&#34;)
  *             .build());
  * 
  *         var someTeamOrganizationSecurityManager = new OrganizationSecurityManager(&#34;someTeamOrganizationSecurityManager&#34;, OrganizationSecurityManagerArgs.builder()        
- *             .teamSlug(someTeamTeam.slug())
+ *             .teamSlug(someTeam.slug())
  *             .build());
  * 
  *     }

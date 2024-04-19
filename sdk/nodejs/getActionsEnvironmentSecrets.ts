@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsEnvironmentSecrets({
- *     environment: "exampleEnvironment",
  *     name: "exampleRepo",
+ *     environment: "exampleEnvironment",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -75,8 +75,8 @@ export interface GetActionsEnvironmentSecretsResult {
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsEnvironmentSecrets({
- *     environment: "exampleEnvironment",
  *     name: "exampleRepo",
+ *     environment: "exampleEnvironment",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

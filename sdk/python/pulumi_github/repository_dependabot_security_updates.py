@@ -110,11 +110,12 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="my-repo",
             description="GitHub repo managed by Terraform",
             private=False,
             vulnerability_alerts=True)
         example = github.RepositoryDependabotSecurityUpdates("example",
-            repository=github_repository["test"]["id"],
+            repository=test["id"],
             enabled=True)
         ```
         <!--End PulumiCodeChooser -->
@@ -151,11 +152,12 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="my-repo",
             description="GitHub repo managed by Terraform",
             private=False,
             vulnerability_alerts=True)
         example = github.RepositoryDependabotSecurityUpdates("example",
-            repository=github_repository["test"]["id"],
+            repository=test["id"],
             enabled=True)
         ```
         <!--End PulumiCodeChooser -->

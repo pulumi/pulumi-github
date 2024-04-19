@@ -137,7 +137,9 @@ class OrganizationProject(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is a organization project.")
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is a organization project.")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -162,7 +164,9 @@ class OrganizationProject(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is a organization project.")
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is a organization project.")
         ```
         <!--End PulumiCodeChooser -->
 

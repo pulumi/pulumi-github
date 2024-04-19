@@ -79,7 +79,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         import pulumi
         import pulumi_github as github
 
-        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", include_claim_keys=[
+        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", include_claim_keys=[
             "actor",
             "context",
             "repository_owner",
@@ -119,7 +119,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         import pulumi
         import pulumi_github as github
 
-        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", include_claim_keys=[
+        example_template = github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", include_claim_keys=[
             "actor",
             "context",
             "repository_owner",

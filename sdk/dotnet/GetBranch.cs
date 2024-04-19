@@ -27,8 +27,8 @@ namespace Pulumi.Github
         /// {
         ///     var development = Github.GetBranch.Invoke(new()
         ///     {
-        ///         Branch = "development",
         ///         Repository = "example",
+        ///         Branch = "development",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Github
         /// {
         ///     var development = Github.GetBranch.Invoke(new()
         ///     {
-        ///         Branch = "development",
         ///         Repository = "example",
+        ///         Branch = "development",
         ///     });
         /// 
         /// });

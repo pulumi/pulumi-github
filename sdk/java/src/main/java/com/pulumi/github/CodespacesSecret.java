@@ -18,51 +18,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
- * import com.pulumi.github.CodespacesSecret;
- * import com.pulumi.github.CodespacesSecretArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePublicKey = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
- *             .repository(&#34;example_repository&#34;)
- *             .build());
- * 
- *         var exampleSecretCodespacesSecret = new CodespacesSecret(&#34;exampleSecretCodespacesSecret&#34;, CodespacesSecretArgs.builder()        
- *             .repository(&#34;example_repository&#34;)
- *             .secretName(&#34;example_secret_name&#34;)
- *             .plaintextValue(var_.some_secret_string())
- *             .build());
- * 
- *         var exampleSecretIndex_codespacesSecretCodespacesSecret = new CodespacesSecret(&#34;exampleSecretIndex/codespacesSecretCodespacesSecret&#34;, CodespacesSecretArgs.builder()        
- *             .repository(&#34;example_repository&#34;)
- *             .secretName(&#34;example_secret_name&#34;)
- *             .encryptedValue(var_.some_encrypted_secret_string())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * This resource can be imported using an ID made up of the `repository` and `secret_name`:

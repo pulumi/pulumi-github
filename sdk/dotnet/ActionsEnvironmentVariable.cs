@@ -24,11 +24,11 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("exampleVariable", new()
+    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("example_variable", new()
     ///     {
     ///         Environment = "example_environment",
-    ///         Value = "example_variable_value",
     ///         VariableName = "example_variable_name",
+    ///         Value = "example_variable_value",
     ///     });
     /// 
     /// });
@@ -49,13 +49,13 @@ namespace Pulumi.Github
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var repoEnvironment = new Github.RepositoryEnvironment("repoEnvironment", new()
+    ///     var repoEnvironment = new Github.RepositoryEnvironment("repo_environment", new()
     ///     {
     ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
     ///         Environment = "example_environment",
     ///     });
     /// 
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("exampleVariable", new()
+    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("example_variable", new()
     ///     {
     ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
     ///         Environment = repoEnvironment.Environment,

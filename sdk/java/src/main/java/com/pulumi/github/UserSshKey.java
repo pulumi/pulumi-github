@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserSshKey(&#34;example&#34;, UserSshKeyArgs.builder()        
  *             .title(&#34;example title&#34;)
- *             .key(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *             .key(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

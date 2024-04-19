@@ -109,14 +109,12 @@ class UserInvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
-            repository=example_repository.name,
+        example = github.Repository("example", name="example-repo")
+        example_repository_collaborator = github.RepositoryCollaborator("example",
+            repository=example.name,
             username="example-username",
             permission="push")
-        invitee = github.Provider("invitee", token=var["invitee_token"])
-        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
-        opts=pulumi.ResourceOptions(provider="github.invitee"))
+        example_user_invitation_accepter = github.UserInvitationAccepter("example", invitation_id=example_repository_collaborator.invitation_id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -153,14 +151,12 @@ class UserInvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository")
-        example_repository_collaborator = github.RepositoryCollaborator("exampleRepositoryCollaborator",
-            repository=example_repository.name,
+        example = github.Repository("example", name="example-repo")
+        example_repository_collaborator = github.RepositoryCollaborator("example",
+            repository=example.name,
             username="example-username",
             permission="push")
-        invitee = github.Provider("invitee", token=var["invitee_token"])
-        example_user_invitation_accepter = github.UserInvitationAccepter("exampleUserInvitationAccepter", invitation_id=example_repository_collaborator.invitation_id,
-        opts=pulumi.ResourceOptions(provider="github.invitee"))
+        example_user_invitation_accepter = github.UserInvitationAccepter("example", invitation_id=example_repository_collaborator.invitation_id)
         ```
         <!--End PulumiCodeChooser -->
 

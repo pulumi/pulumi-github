@@ -44,11 +44,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
+ *             .name(&#34;A Organization Project&#34;)
  *             .body(&#34;This is an organization project.&#34;)
  *             .build());
  * 
  *         var column = new ProjectColumn(&#34;column&#34;, ProjectColumnArgs.builder()        
  *             .projectId(project.id())
+ *             .name(&#34;a column&#34;)
  *             .build());
  * 
  *     }

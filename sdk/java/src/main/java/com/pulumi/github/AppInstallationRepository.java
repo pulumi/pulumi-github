@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.AppInstallationRepository;
  * import com.pulumi.github.AppInstallationRepositoryArgs;
  * import java.util.List;
@@ -53,7 +54,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a repository.
- *         var someRepo = new Repository(&#34;someRepo&#34;);
+ *         var someRepo = new Repository(&#34;someRepo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;some-repo&#34;)
+ *             .build());
  * 
  *         var someAppRepo = new AppInstallationRepository(&#34;someAppRepo&#34;, AppInstallationRepositoryArgs.builder()        
  *             .installationId(&#34;1234567&#34;)

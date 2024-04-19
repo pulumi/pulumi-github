@@ -40,11 +40,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a repository.
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			someRepo, err := github.NewRepository(ctx, "some_repo", &github.RepositoryArgs{
+//				Name: pulumi.String("some-repo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewAppInstallationRepository(ctx, "someAppRepo", &github.AppInstallationRepositoryArgs{
+//			_, err = github.NewAppInstallationRepository(ctx, "some_app_repo", &github.AppInstallationRepositoryArgs{
 //				InstallationId: pulumi.String("1234567"),
 //				Repository:     someRepo.Name,
 //			})

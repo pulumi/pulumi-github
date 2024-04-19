@@ -21,35 +21,30 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.GetAppToken(ctx, &github.GetAppTokenArgs{
-//				AppId:          "123456",
-//				InstallationId: "78910",
-//				PemFile:        readFileOrPanic("foo/bar.pem"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := github.GetAppToken(ctx, invokeFile, err := std.File(ctx, &std.FileArgs{
+// Input: "foo/bar.pem",
+// }, nil)
+// if err != nil {
+// return err
+// }
+// &github.GetAppTokenArgs{
+// AppId: "123456",
+// InstallationId: "78910",
+// PemFile: invokeFile.Result,
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // <!--End PulumiCodeChooser -->
 func GetAppToken(ctx *pulumi.Context, args *GetAppTokenArgs, opts ...pulumi.InvokeOption) (*GetAppTokenResult, error) {

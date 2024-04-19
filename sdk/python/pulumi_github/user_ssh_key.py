@@ -136,10 +136,11 @@ class UserSshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_github as github
+        import pulumi_std as std
 
         example = github.UserSshKey("example",
             title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -173,10 +174,11 @@ class UserSshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_github as github
+        import pulumi_std as std
 
         example = github.UserSshKey("example",
             title="example title",
-            key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+            key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 

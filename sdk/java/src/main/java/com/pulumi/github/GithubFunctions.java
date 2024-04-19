@@ -187,8 +187,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -228,8 +228,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -269,8 +269,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -310,8 +310,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -351,8 +351,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -392,8 +392,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -433,8 +433,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -474,8 +474,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
      *             .name(&#34;exampleRepo&#34;)
+     *             .environment(&#34;exampleEnvironment&#34;)
      *             .build());
      * 
      *     }
@@ -2597,7 +2597,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId(&#34;123456&#34;)
      *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -2639,7 +2641,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId(&#34;123456&#34;)
      *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -2681,7 +2685,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId(&#34;123456&#34;)
      *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -2723,7 +2729,9 @@ public final class GithubFunctions {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
      *             .appId(&#34;123456&#34;)
      *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input(&#34;foo/bar.pem&#34;)
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -2763,8 +2771,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .branch(&#34;development&#34;)
      *             .build());
      * 
      *     }
@@ -2804,8 +2812,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .branch(&#34;development&#34;)
      *             .build());
      * 
      *     }
@@ -2845,8 +2853,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .branch(&#34;development&#34;)
      *             .build());
      * 
      *     }
@@ -2886,8 +2894,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .branch(&#34;development&#34;)
      *             .build());
      * 
      *     }
@@ -8100,8 +8108,8 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
      *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .ref(&#34;heads/development&#34;)
      *             .build());
      * 
      *     }
@@ -8142,8 +8150,8 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
      *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .ref(&#34;heads/development&#34;)
      *             .build());
      * 
      *     }
@@ -8184,8 +8192,8 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
      *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .ref(&#34;heads/development&#34;)
      *             .build());
      * 
      *     }
@@ -8226,8 +8234,8 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
      *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
      *             .repository(&#34;example&#34;)
+     *             .ref(&#34;heads/development&#34;)
      *             .build());
      * 
      *     }
@@ -8269,8 +8277,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;latest&#34;)
      *             .build());
      * 
@@ -8304,10 +8312,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;id&#34;)
+     *             .id(12345)
      *             .build());
      * 
      *     }
@@ -8340,10 +8348,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;tag&#34;)
+     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .build());
      * 
      *     }
@@ -8385,8 +8393,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;latest&#34;)
      *             .build());
      * 
@@ -8420,10 +8428,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;id&#34;)
+     *             .id(12345)
      *             .build());
      * 
      *     }
@@ -8456,10 +8464,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;tag&#34;)
+     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .build());
      * 
      *     }
@@ -8501,8 +8509,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;latest&#34;)
      *             .build());
      * 
@@ -8536,10 +8544,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;id&#34;)
+     *             .id(12345)
      *             .build());
      * 
      *     }
@@ -8572,10 +8580,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;tag&#34;)
+     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .build());
      * 
      *     }
@@ -8617,8 +8625,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;latest&#34;)
      *             .build());
      * 
@@ -8652,10 +8660,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;id&#34;)
+     *             .id(12345)
      *             .build());
      * 
      *     }
@@ -8688,10 +8696,10 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .owner(&#34;example-owner&#34;)
      *             .retrieveBy(&#34;tag&#34;)
+     *             .releaseTag(&#34;v1.0.0&#34;)
      *             .build());
      * 
      *     }
@@ -8734,8 +8742,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .includeRepoId(true)
      *             .query(&#34;org:hashicorp language:Go&#34;)
+     *             .includeRepoId(true)
      *             .build());
      * 
      *     }
@@ -8778,8 +8786,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .includeRepoId(true)
      *             .query(&#34;org:hashicorp language:Go&#34;)
+     *             .includeRepoId(true)
      *             .build());
      * 
      *     }
@@ -8822,8 +8830,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .includeRepoId(true)
      *             .query(&#34;org:hashicorp language:Go&#34;)
+     *             .includeRepoId(true)
      *             .build());
      * 
      *     }
@@ -8866,8 +8874,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .includeRepoId(true)
      *             .query(&#34;org:hashicorp language:Go&#34;)
+     *             .includeRepoId(true)
      *             .build());
      * 
      *     }
@@ -9627,8 +9635,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .environmentName(&#34;env_name&#34;)
      *             .build());
      * 
      *     }
@@ -9668,8 +9676,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .environmentName(&#34;env_name&#34;)
      *             .build());
      * 
      *     }
@@ -9709,8 +9717,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .environmentName(&#34;env_name&#34;)
      *             .build());
      * 
      *     }
@@ -9750,8 +9758,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .environmentName(&#34;env_name&#34;)
      *             .build());
      * 
      *     }
@@ -9952,7 +9960,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
+     *             .repository(fooGithubRepository.name())
      *             .branch(&#34;main&#34;)
      *             .file(&#34;.gitignore&#34;)
      *             .build());
@@ -9995,7 +10003,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
+     *             .repository(fooGithubRepository.name())
      *             .branch(&#34;main&#34;)
      *             .file(&#34;.gitignore&#34;)
      *             .build());
@@ -10038,7 +10046,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
+     *             .repository(fooGithubRepository.name())
      *             .branch(&#34;main&#34;)
      *             .file(&#34;.gitignore&#34;)
      *             .build());
@@ -10081,7 +10089,7 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
+     *             .repository(fooGithubRepository.name())
      *             .branch(&#34;main&#34;)
      *             .file(&#34;.gitignore&#34;)
      *             .build());
@@ -10123,9 +10131,9 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
-     *             .number(1)
      *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .number(1)
      *             .build());
      * 
      *     }
@@ -10165,9 +10173,9 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
-     *             .number(1)
      *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .number(1)
      *             .build());
      * 
      *     }
@@ -10207,9 +10215,9 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
-     *             .number(1)
      *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .number(1)
      *             .build());
      * 
      *     }
@@ -10249,9 +10257,9 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
-     *             .number(1)
      *             .owner(&#34;example-owner&#34;)
      *             .repository(&#34;example-repository&#34;)
+     *             .number(1)
      *             .build());
      * 
      *     }
@@ -10455,8 +10463,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
      *             .baseRepository(&#34;example-repository&#34;)
+     *             .baseRef(&#34;main&#34;)
      *             .sortBy(&#34;updated&#34;)
      *             .sortDirection(&#34;desc&#34;)
      *             .state(&#34;open&#34;)
@@ -10499,8 +10507,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
      *             .baseRepository(&#34;example-repository&#34;)
+     *             .baseRef(&#34;main&#34;)
      *             .sortBy(&#34;updated&#34;)
      *             .sortDirection(&#34;desc&#34;)
      *             .state(&#34;open&#34;)
@@ -10543,8 +10551,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
      *             .baseRepository(&#34;example-repository&#34;)
+     *             .baseRef(&#34;main&#34;)
      *             .sortBy(&#34;updated&#34;)
      *             .sortDirection(&#34;desc&#34;)
      *             .state(&#34;open&#34;)
@@ -10587,8 +10595,8 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
      *             .baseRepository(&#34;example-repository&#34;)
+     *             .baseRef(&#34;main&#34;)
      *             .sortBy(&#34;updated&#34;)
      *             .sortDirection(&#34;desc&#34;)
      *             .state(&#34;open&#34;)
@@ -11582,22 +11590,22 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;example&#34;)
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export(&#34;entries&#34;, thisGetTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
      *     }
      * }
      * ```
@@ -11636,22 +11644,22 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;example&#34;)
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export(&#34;entries&#34;, thisGetTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
      *     }
      * }
      * ```
@@ -11690,22 +11698,22 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;example&#34;)
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export(&#34;entries&#34;, thisGetTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
      *     }
      * }
      * ```
@@ -11744,22 +11752,22 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;example&#34;)
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export(&#34;entries&#34;, thisGetTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
      *     }
      * }
      * ```
@@ -11796,10 +11804,12 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;example&#34;)
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;&#34;)
      *             .build());
@@ -11841,10 +11851,12 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;example&#34;)
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;&#34;)
      *             .build());
@@ -11886,10 +11898,12 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;example&#34;)
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;&#34;)
      *             .build());
@@ -11931,10 +11945,12 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;example&#34;)
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
      *             .username(&#34;&#34;)
      *             .build());
@@ -12140,6 +12156,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
      *                 &#34;example1&#34;,
@@ -12185,6 +12202,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
      *                 &#34;example1&#34;,
@@ -12230,6 +12248,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
      *                 &#34;example1&#34;,
@@ -12275,6 +12294,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
      *                 &#34;example1&#34;,

@@ -12,8 +12,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const someTeamTeam = new github.Team("someTeamTeam", {description: "Some cool team"});
- * const someTeamOrganizationSecurityManager = new github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", {teamSlug: someTeamTeam.slug});
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const someTeamOrganizationSecurityManager = new github.OrganizationSecurityManager("some_team", {teamSlug: someTeam.slug});
  * ```
  * <!--End PulumiCodeChooser -->
  *

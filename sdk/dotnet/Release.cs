@@ -26,6 +26,7 @@ namespace Pulumi.Github
     /// {
     ///     var repo = new Github.Repository("repo", new()
     ///     {
+    ///         Name = "repo",
     ///         Description = "GitHub repo managed by Terraform",
     ///         Private = false,
     ///     });
@@ -51,21 +52,22 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository", new()
+    ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "repo",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var exampleBranch = new Github.Branch("exampleBranch", new()
+    ///     var exampleBranch = new Github.Branch("example", new()
     ///     {
-    ///         Repository = exampleRepository.Name,
+    ///         Repository = example.Name,
     ///         BranchName = "branch_name",
-    ///         SourceBranch = exampleRepository.DefaultBranch,
+    ///         SourceBranch = example.DefaultBranch,
     ///     });
     /// 
-    ///     var exampleRelease = new Github.Release("exampleRelease", new()
+    ///     var exampleRelease = new Github.Release("example", new()
     ///     {
-    ///         Repository = exampleRepository.Name,
+    ///         Repository = example.Name,
     ///         TagName = "v1.0.0",
     ///         TargetCommitish = exampleBranch.BranchName,
     ///         Draft = false,

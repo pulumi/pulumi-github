@@ -28,11 +28,14 @@ namespace Pulumi.Github
     ///         Username = "",
     ///     });
     /// 
-    ///     var testRepository = new Github.Repository("testRepository");
-    /// 
-    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("testRepositoryEnvironment", new()
+    ///     var test = new Github.Repository("test", new()
     ///     {
-    ///         Repository = testRepository.Name,
+    ///         Name = "tf-acc-test-%s",
+    ///     });
+    /// 
+    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("test", new()
+    ///     {
+    ///         Repository = test.Name,
     ///         Environment = "environment/test",
     ///         WaitTimer = 10000,
     ///         Reviewers = new[]
@@ -52,9 +55,9 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", new()
+    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("test", new()
     ///     {
-    ///         Repository = testRepository.Name,
+    ///         Repository = test.Name,
     ///         Environment = testRepositoryEnvironment.Environment,
     ///         BranchPattern = "releases/*",
     ///     });

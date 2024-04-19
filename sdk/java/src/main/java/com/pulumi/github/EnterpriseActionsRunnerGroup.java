@@ -55,11 +55,13 @@ import javax.annotation.Nullable;
  * 
  *         var enterpriseOrganization = new EnterpriseOrganization(&#34;enterpriseOrganization&#34;, EnterpriseOrganizationArgs.builder()        
  *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -&gt; getEnterpriseResult.id()))
+ *             .name(&#34;my-organization&#34;)
  *             .billingEmail(&#34;octocat@octo.cat&#34;)
  *             .adminLogins(&#34;octocat&#34;)
  *             .build());
  * 
  *         var example = new EnterpriseActionsRunnerGroup(&#34;example&#34;, EnterpriseActionsRunnerGroupArgs.builder()        
+ *             .name(&#34;my-awesome-runner-group&#34;)
  *             .enterpriseSlug(enterprise.applyValue(getEnterpriseResult -&gt; getEnterpriseResult.slug()))
  *             .allowsPublicRepositories(true)
  *             .visibility(&#34;selected&#34;)

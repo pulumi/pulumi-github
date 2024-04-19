@@ -189,6 +189,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="my-repo",
             description="GitHub repo managed by Terraform",
             private=False)
         autolink = github.RepositoryAutolinkReference("autolink",
@@ -230,6 +231,7 @@ class RepositoryAutolinkReference(pulumi.CustomResource):
         import pulumi_github as github
 
         repo = github.Repository("repo",
+            name="my-repo",
             description="GitHub repo managed by Terraform",
             private=False)
         autolink = github.RepositoryAutolinkReference("autolink",

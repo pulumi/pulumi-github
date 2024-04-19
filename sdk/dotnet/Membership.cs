@@ -28,10 +28,10 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membershipForSomeUser", new()
+    ///     var membershipForSomeUser = new Github.Membership("membership_for_some_user", new()
     ///     {
-    ///         Role = "member",
     ///         Username = "SomeUser",
+    ///         Role = "member",
     ///     });
     /// 
     /// });

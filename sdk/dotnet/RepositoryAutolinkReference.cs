@@ -25,6 +25,7 @@ namespace Pulumi.Github
     /// {
     ///     var repo = new Github.Repository("repo", new()
     ///     {
+    ///         Name = "my-repo",
     ///         Description = "GitHub repo managed by Terraform",
     ///         Private = false,
     ///     });

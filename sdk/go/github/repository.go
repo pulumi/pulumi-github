@@ -34,13 +34,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
+//				Visibility:  pulumi.String("public"),
 //				Template: &github.RepositoryTemplateArgs{
-//					IncludeAllBranches: pulumi.Bool(true),
 //					Owner:              pulumi.String("github"),
 //					Repository:         pulumi.String("terraform-template-module"),
+//					IncludeAllBranches: pulumi.Bool(true),
 //				},
-//				Visibility: pulumi.String("public"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,14 +69,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome web page"),
+//				Private:     pulumi.Bool(false),
 //				Pages: &github.RepositoryPagesArgs{
 //					Source: &github.RepositoryPagesSourceArgs{
 //						Branch: pulumi.String("master"),
 //						Path:   pulumi.String("/docs"),
 //					},
 //				},
-//				Private: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

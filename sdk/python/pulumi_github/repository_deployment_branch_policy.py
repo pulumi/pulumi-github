@@ -166,6 +166,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         foo = github.RepositoryDeploymentBranchPolicy("foo",
             repository="my_repo",
             environment_name="my_env",
+            name="foo",
             opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
         <!--End PulumiCodeChooser -->
@@ -208,6 +209,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         foo = github.RepositoryDeploymentBranchPolicy("foo",
             repository="my_repo",
             environment_name="my_env",
+            name="foo",
             opts=pulumi.ResourceOptions(depends_on=[env]))
         ```
         <!--End PulumiCodeChooser -->

@@ -26,6 +26,7 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "my-repository",
     ///         Visibility = "private",
     ///     });
     /// 

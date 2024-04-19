@@ -415,11 +415,11 @@ class RepositoryPullRequest(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.RepositoryPullRequest("example",
-            base_ref="main",
             base_repository="example-repository",
-            body="This will change everything",
+            base_ref="main",
             head_ref="feature-branch",
-            title="My newest feature")
+            title="My newest feature",
+            body="This will change everything")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -450,11 +450,11 @@ class RepositoryPullRequest(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.RepositoryPullRequest("example",
-            base_ref="main",
             base_repository="example-repository",
-            body="This will change everything",
+            base_ref="main",
             head_ref="feature-branch",
-            title="My newest feature")
+            title="My newest feature",
+            body="This will change everything")
         ```
         <!--End PulumiCodeChooser -->
 

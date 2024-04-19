@@ -46,8 +46,7 @@ import javax.annotation.Nullable;
  *             .armoredPublicKey(&#34;&#34;&#34;
  * -----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...
- * -----END PGP PUBLIC KEY BLOCK-----
- *             &#34;&#34;&#34;)
+ * -----END PGP PUBLIC KEY BLOCK-----            &#34;&#34;&#34;)
  *             .build());
  * 
  *     }

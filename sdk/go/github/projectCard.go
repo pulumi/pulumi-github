@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Name: pulumi.String("An Organization Project"),
 //				Body: pulumi.String("This is an organization project."),
 //			})
 //			if err != nil {
@@ -37,6 +38,7 @@ import (
 //			}
 //			column, err := github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
 //				ProjectId: project.ID(),
+//				Name:      pulumi.String("Backlog"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,35 +72,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name:        pulumi.String("myrepo"),
 //				HasProjects: pulumi.Bool(true),
 //				HasIssues:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testIssue, err := github.NewIssue(ctx, "testIssue", &github.IssueArgs{
-//				Repository: testRepository.ID(),
+//			testIssue, err := github.NewIssue(ctx, "test", &github.IssueArgs{
+//				Repository: test.ID(),
 //				Title:      pulumi.String("Test issue title"),
 //				Body:       pulumi.String("Test issue body"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testRepositoryProject, err := github.NewRepositoryProject(ctx, "testRepositoryProject", &github.RepositoryProjectArgs{
-//				Repository: testRepository.Name,
+//			testRepositoryProject, err := github.NewRepositoryProject(ctx, "test", &github.RepositoryProjectArgs{
+//				Name:       pulumi.String("test"),
+//				Repository: test.Name,
 //				Body:       pulumi.String("this is a test project"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testProjectColumn, err := github.NewProjectColumn(ctx, "testProjectColumn", &github.ProjectColumnArgs{
+//			testProjectColumn, err := github.NewProjectColumn(ctx, "test", &github.ProjectColumnArgs{
 //				ProjectId: testRepositoryProject.ID(),
+//				Name:      pulumi.String("Backlog"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewProjectCard(ctx, "testProjectCard", &github.ProjectCardArgs{
+//			_, err = github.NewProjectCard(ctx, "test", &github.ProjectCardArgs{
 //				ColumnId:    testProjectColumn.ColumnId,
 //				ContentId:   testIssue.IssueId,
 //				ContentType: pulumi.String("Issue"),

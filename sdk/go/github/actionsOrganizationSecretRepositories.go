@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.ActionsOrganizationSecretRepositoriesArgs{
+//			_, err = github.NewActionsOrganizationSecretRepositories(ctx, "org_secret_repos", &github.ActionsOrganizationSecretRepositoriesArgs{
 //				SecretName: pulumi.String("existing_secret_name"),
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(repo.RepoId),

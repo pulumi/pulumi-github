@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;my-repo&#34;)
  *             .description(&#34;GitHub repo managed by Terraform&#34;)
  *             .private_(false)
  *             .build());

@@ -96,10 +96,11 @@ def get_app_token(app_id: Optional[str] = None,
     ```python
     import pulumi
     import pulumi_github as github
+    import pulumi_std as std
 
     this = github.get_app_token(app_id="123456",
         installation_id="78910",
-        pem_file=(lambda path: open(path).read())("foo/bar.pem"))
+        pem_file=std.file(input="foo/bar.pem").result)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -137,10 +138,11 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
     ```python
     import pulumi
     import pulumi_github as github
+    import pulumi_std as std
 
     this = github.get_app_token(app_id="123456",
         installation_id="78910",
-        pem_file=(lambda path: open(path).read())("foo/bar.pem"))
+        pem_file=std.file(input="foo/bar.pem").result)
     ```
     <!--End PulumiCodeChooser -->
 

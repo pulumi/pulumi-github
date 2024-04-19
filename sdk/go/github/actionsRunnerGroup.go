@@ -30,14 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name: pulumi.String("my-repository"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsRunnerGroup(ctx, "exampleActionsRunnerGroup", &github.ActionsRunnerGroupArgs{
+//			_, err = github.NewActionsRunnerGroup(ctx, "example", &github.ActionsRunnerGroupArgs{
+//				Name:       example.Name,
 //				Visibility: pulumi.String("selected"),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					exampleRepository.RepoId,
+//					example.RepoId,
 //				},
 //			})
 //			if err != nil {

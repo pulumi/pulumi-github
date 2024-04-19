@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.Team;
  * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.RepositoryCollaborators;
  * import com.pulumi.github.RepositoryCollaboratorsArgs;
  * import com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;
@@ -75,10 +76,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Add collaborators to a repository
  *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;SomeTeam&#34;)
  *             .description(&#34;Some cool team&#34;)
  *             .build());
  * 
- *         var someRepo = new Repository(&#34;someRepo&#34;);
+ *         var someRepo = new Repository(&#34;someRepo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;some-repo&#34;)
+ *             .build());
  * 
  *         var someRepoCollaborators = new RepositoryCollaborators(&#34;someRepoCollaborators&#34;, RepositoryCollaboratorsArgs.builder()        
  *             .repository(someRepo.name())

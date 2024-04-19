@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Retrieve information about multiple GitHub users.
  * const example = github.getUsers({
  *     usernames: [
  *         "example1",
@@ -80,6 +81,7 @@ export interface GetUsersResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
+ * // Retrieve information about multiple GitHub users.
  * const example = github.getUsers({
  *     usernames: [
  *         "example1",

@@ -29,8 +29,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRelease.Invoke(new()
         ///     {
-        ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
@@ -61,8 +61,8 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRelease.Invoke(new()
         ///     {
-        ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 

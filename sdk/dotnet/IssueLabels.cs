@@ -33,22 +33,22 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new, red colored label
-    ///     var testRepo = new Github.IssueLabels("testRepo", new()
+    ///     var testRepo = new Github.IssueLabels("test_repo", new()
     ///     {
+    ///         Repository = "test-repo",
     ///         Labels = new[]
     ///         {
     ///             new Github.Inputs.IssueLabelsLabelArgs
     ///             {
-    ///                 Color = "FF0000",
     ///                 Name = "Urgent",
+    ///                 Color = "FF0000",
     ///             },
     ///             new Github.Inputs.IssueLabelsLabelArgs
     ///             {
-    ///                 Color = "FF0000",
     ///                 Name = "Critical",
+    ///                 Color = "FF0000",
     ///             },
     ///         },
-    ///         Repository = "test-repo",
     ///     });
     /// 
     /// });

@@ -27,24 +27,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", nil)
+//			exampleRepository, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name: pulumi.String("test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := github.GetUser(ctx, &github.GetUserArgs{
+//			example, err := github.GetUser(ctx, &github.GetUserArgs{
 //				Username: "example",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleTeam, err := github.NewTeam(ctx, "exampleTeam", nil)
+//			exampleTeam, err := github.NewTeam(ctx, "example", &github.TeamArgs{
+//				Name: pulumi.String("Example Name"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			// Protect the main branch of the foo repository. Additionally, require that
 //			// the "ci/travis" context to be passing and only allow the engineers team merge
 //			// to the branch.
-//			_, err = github.NewBranchProtection(ctx, "exampleBranchProtection", &github.BranchProtectionArgs{
+//			_, err = github.NewBranchProtection(ctx, "example", &github.BranchProtectionArgs{
 //				RepositoryId:    exampleRepository.NodeId,
 //				Pattern:         pulumi.String("main"),
 //				EnforceAdmins:   pulumi.Bool(true),
@@ -62,7 +66,7 @@ import (
 //						DismissStaleReviews: pulumi.Bool(true),
 //						RestrictDismissals:  pulumi.Bool(true),
 //						DismissalRestrictions: pulumi.StringArray{
-//							pulumi.String(exampleUser.NodeId),
+//							pulumi.String(example.NodeId),
 //							exampleTeam.NodeId,
 //							pulumi.String("/exampleuser"),
 //							pulumi.String("exampleorganization/exampleteam"),
@@ -72,14 +76,14 @@ import (
 //				RestrictPushes: github.BranchProtectionRestrictPushArray{
 //					&github.BranchProtectionRestrictPushArgs{
 //						PushAllowances: pulumi.StringArray{
-//							pulumi.String(exampleUser.NodeId),
+//							pulumi.String(example.NodeId),
 //							pulumi.String("/exampleuser"),
 //							pulumi.String("exampleorganization/exampleteam"),
 //						},
 //					},
 //				},
 //				ForcePushBypassers: pulumi.StringArray{
-//					pulumi.String(exampleUser.NodeId),
+//					pulumi.String(example.NodeId),
 //					pulumi.String("/exampleuser"),
 //					pulumi.String("exampleorganization/exampleteam"),
 //				},
@@ -87,7 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewTeamRepository(ctx, "exampleTeamRepository", &github.TeamRepositoryArgs{
+//			_, err = github.NewTeamRepository(ctx, "example", &github.TeamRepositoryArgs{
 //				TeamId:     exampleTeam.ID(),
 //				Repository: exampleRepository.Name,
 //				Permission: pulumi.String("pull"),

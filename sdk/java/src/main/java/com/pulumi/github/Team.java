@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Add a team to the organization
  *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;some-team&#34;)
  *             .description(&#34;Some cool team&#34;)
  *             .privacy(&#34;closed&#34;)
  *             .build());

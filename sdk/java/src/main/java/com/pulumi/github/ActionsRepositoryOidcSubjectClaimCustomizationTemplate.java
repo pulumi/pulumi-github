@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate;
  * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
  * import java.util.List;
@@ -56,7 +57,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;);
+ *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;example-repository&#34;)
+ *             .build());
  * 
  *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate(&#34;exampleTemplate&#34;, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()        
  *             .repository(example.name())

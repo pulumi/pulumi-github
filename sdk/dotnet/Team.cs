@@ -27,8 +27,9 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a team to the organization
-    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     var someTeam = new Github.Team("some_team", new()
     ///     {
+    ///         Name = "some-team",
     ///         Description = "Some cool team",
     ///         Privacy = "closed",
     ///     });

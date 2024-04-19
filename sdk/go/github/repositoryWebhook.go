@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Name:        pulumi.String("foo"),
 //				Description: pulumi.String("Terraform acceptance tests"),
 //				HomepageUrl: pulumi.String("http://example.com/"),
 //				Visibility:  pulumi.String("public"),

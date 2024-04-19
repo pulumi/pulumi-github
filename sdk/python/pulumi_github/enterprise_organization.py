@@ -255,7 +255,8 @@ class EnterpriseOrganization(pulumi.CustomResource):
         import pulumi_github as github
 
         org = github.EnterpriseOrganization("org",
-            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            enterprise_id=enterprise["id"],
+            name="some-awesome-org",
             display_name="Some Awesome Org",
             description="Organization created with terraform",
             billing_email="jon@winteriscoming.com",
@@ -297,7 +298,8 @@ class EnterpriseOrganization(pulumi.CustomResource):
         import pulumi_github as github
 
         org = github.EnterpriseOrganization("org",
-            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            enterprise_id=enterprise["id"],
+            name="some-awesome-org",
             display_name="Some Awesome Org",
             description="Organization created with terraform",
             billing_email="jon@winteriscoming.com",

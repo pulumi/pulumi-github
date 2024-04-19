@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     autoInit: true,
  * });
@@ -43,6 +44,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     autoInit: true,
  * });

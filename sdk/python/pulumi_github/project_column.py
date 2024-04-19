@@ -136,8 +136,12 @@ class ProjectColumn(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="a column")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -162,8 +166,12 @@ class ProjectColumn(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="a column")
         ```
         <!--End PulumiCodeChooser -->
 

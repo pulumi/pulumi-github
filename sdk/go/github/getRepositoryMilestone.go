@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRepositoryMilestone(ctx, &github.LookupRepositoryMilestoneArgs{
-//				Number:     1,
 //				Owner:      "example-owner",
 //				Repository: "example-repository",
+//				Number:     1,
 //			}, nil)
 //			if err != nil {
 //				return err

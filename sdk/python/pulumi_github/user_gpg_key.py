@@ -111,8 +111,7 @@ class UserGpgKey(pulumi.CustomResource):
 
         example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
         ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
+        -----END PGP PUBLIC KEY BLOCK-----\"\"\")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -147,8 +146,7 @@ class UserGpgKey(pulumi.CustomResource):
 
         example = github.UserGpgKey("example", armored_public_key=\"\"\"-----BEGIN PGP PUBLIC KEY BLOCK-----
         ...
-        -----END PGP PUBLIC KEY BLOCK-----
-        \"\"\")
+        -----END PGP PUBLIC KEY BLOCK-----\"\"\")
         ```
         <!--End PulumiCodeChooser -->
 

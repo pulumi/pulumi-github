@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
-//				Branch:     "development",
 //				Repository: "example",
+//				Branch:     "development",
 //			}, nil)
 //			if err != nil {
 //				return err

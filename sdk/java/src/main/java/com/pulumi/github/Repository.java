@@ -54,13 +54,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;My awesome codebase&#34;)
+ *             .visibility(&#34;public&#34;)
  *             .template(RepositoryTemplateArgs.builder()
- *                 .includeAllBranches(true)
  *                 .owner(&#34;github&#34;)
  *                 .repository(&#34;terraform-template-module&#34;)
+ *                 .includeAllBranches(true)
  *                 .build())
- *             .visibility(&#34;public&#34;)
  *             .build());
  * 
  *     }
@@ -95,14 +96,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;My awesome web page&#34;)
+ *             .private_(false)
  *             .pages(RepositoryPagesArgs.builder()
  *                 .source(RepositoryPagesSourceArgs.builder()
  *                     .branch(&#34;master&#34;)
  *                     .path(&#34;/docs&#34;)
  *                     .build())
  *                 .build())
- *             .private_(false)
  *             .build());
  * 
  *     }

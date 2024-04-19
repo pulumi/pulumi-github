@@ -18,8 +18,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.UserGpgKey("example", {armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...
- * -----END PGP PUBLIC KEY BLOCK-----
- * `});
+ * -----END PGP PUBLIC KEY BLOCK-----`});
  * ```
  * <!--End PulumiCodeChooser -->
  *

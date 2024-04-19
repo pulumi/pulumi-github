@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewRepositoryTagProtection(ctx, "example", &github.RepositoryTagProtectionArgs{
-//				Pattern:    pulumi.String("v*"),
 //				Repository: pulumi.String("example-repository"),
+//				Pattern:    pulumi.String("v*"),
 //			})
 //			if err != nil {
 //				return err

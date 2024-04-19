@@ -36,6 +36,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
 //				AutoInit:    pulumi.Bool(true),
 //			})
@@ -79,6 +80,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
 //				AutoInit:    pulumi.Bool(true),
 //			})

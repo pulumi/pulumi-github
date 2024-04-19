@@ -25,8 +25,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * // Create a repository.
- * const someRepo = new github.Repository("someRepo", {});
- * const someAppRepo = new github.AppInstallationRepository("someAppRepo", {
+ * const someRepo = new github.Repository("some_repo", {name: "some-repo"});
+ * const someAppRepo = new github.AppInstallationRepository("some_app_repo", {
  *     installationId: "1234567",
  *     repository: someRepo.name,
  * });

@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.RepositoryTagProtection("example", {
- *     pattern: "v*",
  *     repository: "example-repository",
+ *     pattern: "v*",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

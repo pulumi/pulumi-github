@@ -12,14 +12,16 @@ import * as utilities from "./utilities";
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as github from "@pulumi/github";
+ * import * as std from "@pulumi/std";
  *
- * const this = github.getAppToken({
+ * const this = std.file({
+ *     input: "foo/bar.pem",
+ * }).then(invoke => github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
- * });
+ *     pemFile: invoke.result,
+ * }));
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -75,14 +77,16 @@ export interface GetAppTokenResult {
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
  * import * as github from "@pulumi/github";
+ * import * as std from "@pulumi/std";
  *
- * const this = github.getAppToken({
+ * const this = std.file({
+ *     input: "foo/bar.pem",
+ * }).then(invoke => github.getAppToken({
  *     appId: "123456",
  *     installationId: "78910",
- *     pemFile: fs.readFileSync("foo/bar.pem", "utf8"),
- * });
+ *     pemFile: invoke.result,
+ * }));
  * ```
  * <!--End PulumiCodeChooser -->
  */

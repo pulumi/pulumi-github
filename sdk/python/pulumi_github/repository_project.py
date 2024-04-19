@@ -170,11 +170,13 @@ class RepositoryProject(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             has_projects=True)
         project = github.RepositoryProject("project",
-            body="This is a repository project.",
-            repository=example.name)
+            name="A Repository Project",
+            repository=example.name,
+            body="This is a repository project.")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -201,11 +203,13 @@ class RepositoryProject(pulumi.CustomResource):
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             has_projects=True)
         project = github.RepositoryProject("project",
-            body="This is a repository project.",
-            repository=example.name)
+            name="A Repository Project",
+            repository=example.name,
+            body="This is a repository project.")
         ```
         <!--End PulumiCodeChooser -->
 

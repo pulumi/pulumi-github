@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var development = new Branch(&#34;development&#34;, BranchArgs.builder()        
- *             .branch(&#34;development&#34;)
  *             .repository(&#34;example&#34;)
+ *             .branch(&#34;development&#34;)
  *             .build());
  * 
  *     }

@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRepositoryPullRequests(ctx, &github.LookupRepositoryPullRequestsArgs{
-//				BaseRef:        pulumi.StringRef("main"),
 //				BaseRepository: "example-repository",
+//				BaseRef:        pulumi.StringRef("main"),
 //				SortBy:         pulumi.StringRef("updated"),
 //				SortDirection:  pulumi.StringRef("desc"),
 //				State:          pulumi.StringRef("open"),
