@@ -43,7 +43,7 @@ namespace Pulumi.Github
     ///     {
     ///         DependsOn =
     ///         {
-    ///             env, 
+    ///             env,
     ///         },
     ///     });
     /// 
