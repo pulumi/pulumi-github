@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredStatusChecks
     {
         /// <summary>
-        /// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        /// Status checks that are required. Several can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> RequiredChecks;
         /// <summary>
-        /// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        /// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? StrictRequiredStatusChecksPolicy;
 

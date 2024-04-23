@@ -19,19 +19,19 @@ namespace Pulumi.Github.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Boolean) If true, the rule will fail if the pattern matches.
+        /// If true, the rule will fail if the pattern matches.
         /// </summary>
         [Input("negate")]
         public Input<bool>? Negate { get; set; }
 
         /// <summary>
-        /// (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        /// The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// (String) The pattern to match with.
+        /// The pattern to match with.
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;

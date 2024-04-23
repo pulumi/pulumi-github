@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -34,7 +33,6 @@ import * as utilities from "./utilities";
  *     events: ["issues"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -94,7 +92,7 @@ export class RepositoryWebhook extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * The URL of the webhook.
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -159,7 +157,7 @@ export interface RepositoryWebhookState {
      */
     repository?: pulumi.Input<string>;
     /**
-     * The URL of the webhook.
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
     url?: pulumi.Input<string>;
 }

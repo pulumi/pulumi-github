@@ -251,7 +251,6 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -262,7 +261,6 @@ class RepositoryMilestone(pulumi.CustomResource):
             repository="example-repository",
             title="v1.1.0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -294,7 +292,6 @@ class RepositoryMilestone(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -305,7 +302,6 @@ class RepositoryMilestone(pulumi.CustomResource):
             repository="example-repository",
             title="v1.1.0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

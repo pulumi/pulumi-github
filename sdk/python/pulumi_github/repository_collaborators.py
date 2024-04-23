@@ -179,7 +179,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -200,7 +199,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
                 team_id=some_team.slug,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -250,7 +248,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -271,7 +268,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
                 team_id=some_team.slug,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

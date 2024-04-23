@@ -14,15 +14,15 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow
     {
         /// <summary>
-        /// (String) The path to the YAML definition file of the workflow.
+        /// The path to the workflow YAML definition file.
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        /// The ref (branch or tag) of the workflow file to use.
         /// </summary>
         public readonly string? Ref;
         /// <summary>
-        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        /// The repository in which the workflow is defined.
         /// </summary>
         public readonly int RepositoryId;
 

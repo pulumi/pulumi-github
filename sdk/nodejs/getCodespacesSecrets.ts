@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     fullName: "org/example_repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesSecrets(args?: GetCodespacesSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetCodespacesSecretsResult> {
     args = args || {};
@@ -72,7 +70,6 @@ export interface GetCodespacesSecretsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -84,7 +81,6 @@ export interface GetCodespacesSecretsResult {
  *     fullName: "org/example_repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesSecretsOutput(args?: GetCodespacesSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesSecretsResult> {
     return pulumi.output(args).apply((a: any) => getCodespacesSecrets(a, opts))

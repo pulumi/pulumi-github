@@ -124,7 +124,6 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -135,7 +134,6 @@ class AppInstallationRepository(pulumi.CustomResource):
             installation_id="1234567",
             repository=some_repo.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,7 +170,6 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -183,7 +180,6 @@ class AppInstallationRepository(pulumi.CustomResource):
             installation_id="1234567",
             repository=some_repo.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

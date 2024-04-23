@@ -133,7 +133,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -147,7 +146,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
             ) for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
             team_slug="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,7 +178,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -194,7 +191,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
             ) for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
             team_slug="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

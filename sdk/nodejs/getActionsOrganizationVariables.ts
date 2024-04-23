@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationVariables({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationVariables(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationVariablesResult> {
 
@@ -45,14 +43,12 @@ export interface GetActionsOrganizationVariablesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationVariables({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationVariablesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationVariablesResult> {
     return pulumi.output(getActionsOrganizationVariables(opts))

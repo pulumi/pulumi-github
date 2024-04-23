@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetActionsOrganizationRegistrationToken(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetActionsOrganizationRegistrationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsOrganizationRegistrationTokenResult

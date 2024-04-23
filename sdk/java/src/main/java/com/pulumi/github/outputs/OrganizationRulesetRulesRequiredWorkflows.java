@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class OrganizationRulesetRulesRequiredWorkflows {
     /**
-     * @return (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * @return Actions workflows that are required. Several can be defined.
      * 
      */
     private List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows;
 
     private OrganizationRulesetRulesRequiredWorkflows() {}
     /**
-     * @return (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * @return Actions workflows that are required. Several can be defined.
      * 
      */
     public List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows() {

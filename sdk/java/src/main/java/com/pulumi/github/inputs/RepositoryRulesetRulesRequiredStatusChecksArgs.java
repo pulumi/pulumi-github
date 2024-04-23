@@ -19,14 +19,14 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
     public static final RepositoryRulesetRulesRequiredStatusChecksArgs Empty = new RepositoryRulesetRulesRequiredStatusChecksArgs();
 
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      * 
      */
     @Import(name="requiredChecks", required=true)
     private Output<List<RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs>> requiredChecks;
 
     /**
-     * @return (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * @return Status checks that are required. Several can be defined.
      * 
      */
     public Output<List<RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs>> requiredChecks() {
@@ -34,14 +34,14 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
     }
 
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     @Import(name="strictRequiredStatusChecksPolicy")
     private @Nullable Output<Boolean> strictRequiredStatusChecksPolicy;
 
     /**
-     * @return (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * @return Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> strictRequiredStatusChecksPolicy() {
@@ -74,7 +74,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         /**
-         * @param strictRequiredStatusChecksPolicy (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+         * @param strictRequiredStatusChecksPolicy Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecksArgs extends com.pu
         }
 
         /**
-         * @param strictRequiredStatusChecksPolicy (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+         * @param strictRequiredStatusChecksPolicy Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     username: "example-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserExternalIdentity(args: GetUserExternalIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserExternalIdentityResult> {
 
@@ -72,7 +70,6 @@ export interface GetUserExternalIdentityResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -81,7 +78,6 @@ export interface GetUserExternalIdentityResult {
  *     username: "example-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserExternalIdentityOutput(args: GetUserExternalIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserExternalIdentityResult> {
     return pulumi.output(args).apply((a: any) => getUserExternalIdentity(a, opts))

@@ -194,7 +194,6 @@ class IssueLabel(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -205,7 +204,6 @@ class IssueLabel(pulumi.CustomResource):
             name="Urgent",
             color="FF0000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class IssueLabel(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -242,7 +239,6 @@ class IssueLabel(pulumi.CustomResource):
             name="Urgent",
             color="FF0000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

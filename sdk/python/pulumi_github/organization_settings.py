@@ -895,7 +895,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -928,7 +927,6 @@ class OrganizationSettings(pulumi.CustomResource):
             secret_scanning_enabled_for_new_repositories=False,
             secret_scanning_push_protection_enabled_for_new_repositories=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -979,7 +977,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1012,7 +1009,6 @@ class OrganizationSettings(pulumi.CustomResource):
             secret_scanning_enabled_for_new_repositories=False,
             secret_scanning_push_protection_enabled_for_new_repositories=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

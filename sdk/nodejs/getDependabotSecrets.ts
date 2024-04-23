@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotSecrets(args?: GetDependabotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotSecretsResult> {
     args = args || {};
@@ -69,7 +67,6 @@ export interface GetDependabotSecretsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -78,7 +75,6 @@ export interface GetDependabotSecretsResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotSecretsOutput(args?: GetDependabotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotSecretsResult> {
     return pulumi.output(args).apply((a: any) => getDependabotSecrets(a, opts))

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     pemFile: invoke.result,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppToken(args: GetAppTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAppTokenResult> {
 
@@ -74,7 +72,6 @@ export interface GetAppTokenResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -88,7 +85,6 @@ export interface GetAppTokenResult {
  *     pemFile: invoke.result,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppTokenResult> {
     return pulumi.output(args).apply((a: any) => getAppToken(a, opts))

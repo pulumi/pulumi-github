@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
-     * @return (String) The status check context name that must be present on the commit.
+     * @return The status check context name that must be present on the commit.
      * 
      */
     private String context;
     /**
-     * @return (Number) The optional integration ID that this status check must originate from.
+     * @return The optional integration ID that this status check must originate from.
      * 
      */
     private @Nullable Integer integrationId;
 
     private RepositoryRulesetRulesRequiredStatusChecksRequiredCheck() {}
     /**
-     * @return (String) The status check context name that must be present on the commit.
+     * @return The status check context name that must be present on the commit.
      * 
      */
     public String context() {
         return this.context;
     }
     /**
-     * @return (Number) The optional integration ID that this status check must originate from.
+     * @return The optional integration ID that this status check must originate from.
      * 
      */
     public Optional<Integer> integrationId() {

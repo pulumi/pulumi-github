@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryRulesetRulesRequiredDeployments {
     /**
-     * @return (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * @return The environments that must be successfully deployed to before branches can be merged.
      * 
      */
     private List<String> requiredDeploymentEnvironments;
 
     private RepositoryRulesetRulesRequiredDeployments() {}
     /**
-     * @return (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * @return The environments that must be successfully deployed to before branches can be merged.
      * 
      */
     public List<String> requiredDeploymentEnvironments() {

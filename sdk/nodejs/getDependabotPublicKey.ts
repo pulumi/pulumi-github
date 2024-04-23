@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     repository: "example_repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotPublicKey(args: GetDependabotPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotPublicKeyResult> {
 
@@ -63,7 +61,6 @@ export interface GetDependabotPublicKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -72,7 +69,6 @@ export interface GetDependabotPublicKeyResult {
  *     repository: "example_repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getDependabotPublicKey(a, opts))
