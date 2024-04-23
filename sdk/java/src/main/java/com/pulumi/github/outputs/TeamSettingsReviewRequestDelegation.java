@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TeamSettingsReviewRequestDelegation {
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
      * 
      */
     private @Nullable String algorithm;
     /**
-     * @return The number of team members to assign to a pull request
+     * @return The number of team members to assign to a pull request.
      * 
      */
     private @Nullable Integer memberCount;
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request
+     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
      * 
      */
     private @Nullable Boolean notify;
 
     private TeamSettingsReviewRequestDelegation() {}
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
      * 
      */
     public Optional<String> algorithm() {
         return Optional.ofNullable(this.algorithm);
     }
     /**
-     * @return The number of team members to assign to a pull request
+     * @return The number of team members to assign to a pull request.
      * 
      */
     public Optional<Integer> memberCount() {
         return Optional.ofNullable(this.memberCount);
     }
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request
+     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
      * 
      */
     public Optional<Boolean> notify_() {

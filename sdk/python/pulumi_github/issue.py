@@ -281,7 +281,6 @@ class Issue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -296,11 +295,9 @@ class Issue(pulumi.CustomResource):
             title="My issue title",
             body="The body of my issue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Milestone And Project Assignment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -330,7 +327,6 @@ class Issue(pulumi.CustomResource):
             assignees=["bob-github"],
             milestone_number=test_repository_milestone.number)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +359,6 @@ class Issue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -378,11 +373,9 @@ class Issue(pulumi.CustomResource):
             title="My issue title",
             body="The body of my issue")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Milestone And Project Assignment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -412,7 +405,6 @@ class Issue(pulumi.CustomResource):
             assignees=["bob-github"],
             milestone_number=test_repository_milestone.number)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

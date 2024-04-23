@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsVariables(args?: GetActionsVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsVariablesResult> {
     args = args || {};
@@ -69,7 +67,6 @@ export interface GetActionsVariablesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -78,7 +75,6 @@ export interface GetActionsVariablesResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsVariablesOutput(args?: GetActionsVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsVariablesResult> {
     return pulumi.output(args).apply((a: any) => getActionsVariables(a, opts))

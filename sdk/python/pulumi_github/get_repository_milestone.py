@@ -128,7 +128,6 @@ def get_repository_milestone(number: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -137,7 +136,6 @@ def get_repository_milestone(number: Optional[int] = None,
         repository="example-repository",
         number=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int number: The number of the milestone.
@@ -172,7 +170,6 @@ def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -181,7 +178,6 @@ def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
         repository="example-repository",
         number=1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int number: The number of the milestone.

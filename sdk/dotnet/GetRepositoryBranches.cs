@@ -16,7 +16,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryBranchesResult> InvokeAsync(GetRepositoryBranchesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryBranchesResult> Invoke(GetRepositoryBranchesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryBranchesResult>("github:index/getRepositoryBranches:getRepositoryBranches", args ?? new GetRepositoryBranchesInvokeArgs(), options.WithDefaults());

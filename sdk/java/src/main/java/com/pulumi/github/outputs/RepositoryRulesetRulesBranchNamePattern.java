@@ -19,17 +19,17 @@ public final class RepositoryRulesetRulesBranchNamePattern {
      */
     private @Nullable String name;
     /**
-     * @return (Boolean) If true, the rule will fail if the pattern matches.
+     * @return If true, the rule will fail if the pattern matches.
      * 
      */
     private @Nullable Boolean negate;
     /**
-     * @return (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
      * 
      */
     private String operator;
     /**
-     * @return (String) The pattern to match with.
+     * @return The pattern to match with.
      * 
      */
     private String pattern;
@@ -43,21 +43,21 @@ public final class RepositoryRulesetRulesBranchNamePattern {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return (Boolean) If true, the rule will fail if the pattern matches.
+     * @return If true, the rule will fail if the pattern matches.
      * 
      */
     public Optional<Boolean> negate() {
         return Optional.ofNullable(this.negate);
     }
     /**
-     * @return (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
      * 
      */
     public String operator() {
         return this.operator;
     }
     /**
-     * @return (String) The pattern to match with.
+     * @return The pattern to match with.
      * 
      */
     public String pattern() {

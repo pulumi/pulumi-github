@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
     /**
-     * @return (String) The path to the YAML definition file of the workflow.
+     * @return The path to the workflow YAML definition file.
      * 
      */
     private String path;
     /**
-     * @return (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * @return The ref (branch or tag) of the workflow file to use.
      * 
      */
     private @Nullable String ref;
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository in which the workflow is defined.
      * 
      */
     private Integer repositoryId;
 
     private OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow() {}
     /**
-     * @return (String) The path to the YAML definition file of the workflow.
+     * @return The path to the workflow YAML definition file.
      * 
      */
     public String path() {
         return this.path;
     }
     /**
-     * @return (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * @return The ref (branch or tag) of the workflow file to use.
      * 
      */
     public Optional<String> ref() {
         return Optional.ofNullable(this.ref);
     }
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository in which the workflow is defined.
      * 
      */
     public Integer repositoryId() {

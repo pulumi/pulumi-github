@@ -73,14 +73,12 @@ def get_branch_protection_rules(repository: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_branch_protection_rules(repository="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository: The GitHub repository name.
@@ -104,14 +102,12 @@ def get_branch_protection_rules_output(repository: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_branch_protection_rules(repository="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository: The GitHub repository name.

@@ -16,14 +16,14 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
     public static final OrganizationRulesetRulesRequiredWorkflowsArgs Empty = new OrganizationRulesetRulesRequiredWorkflowsArgs();
 
     /**
-     * (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * Actions workflows that are required. Several can be defined.
      * 
      */
     @Import(name="requiredWorkflows", required=true)
     private Output<List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs>> requiredWorkflows;
 
     /**
-     * @return (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * @return Actions workflows that are required. Several can be defined.
      * 
      */
     public Output<List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs>> requiredWorkflows() {
@@ -55,7 +55,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
         }
 
         /**
-         * @param requiredWorkflows (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+         * @param requiredWorkflows Actions workflows that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
         }
 
         /**
-         * @param requiredWorkflows (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+         * @param requiredWorkflows Actions workflows that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
         }
 
         /**
-         * @param requiredWorkflows (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+         * @param requiredWorkflows Actions workflows that are required. Several can be defined.
          * 
          * @return builder
          * 

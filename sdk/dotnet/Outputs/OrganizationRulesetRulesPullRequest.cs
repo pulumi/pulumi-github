@@ -14,23 +14,23 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesPullRequest
     {
         /// <summary>
-        /// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        /// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         /// </summary>
         public readonly bool? DismissStaleReviewsOnPush;
         /// <summary>
-        /// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        /// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         /// </summary>
         public readonly bool? RequireCodeOwnerReview;
         /// <summary>
-        /// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        /// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         /// </summary>
         public readonly bool? RequireLastPushApproval;
         /// <summary>
-        /// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        /// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         /// </summary>
         public readonly int? RequiredApprovingReviewCount;
         /// <summary>
-        /// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        /// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         /// </summary>
         public readonly bool? RequiredReviewThreadResolution;
 

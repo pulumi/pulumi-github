@@ -16,7 +16,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActionsEnvironmentVariablesResult> InvokeAsync(GetActionsEnvironmentVariablesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsEnvironmentVariablesResult>("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args ?? new GetActionsEnvironmentVariablesArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActionsEnvironmentVariablesResult> Invoke(GetActionsEnvironmentVariablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentVariablesResult>("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args ?? new GetActionsEnvironmentVariablesInvokeArgs(), options.WithDefaults());

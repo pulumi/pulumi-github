@@ -18,7 +18,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve *all* teams of the organization:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,11 +30,9 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve only the team's at the root of the organization:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +48,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationTeamsResult> InvokeAsync(GetOrganizationTeamsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsArgs(), options.WithDefaults());
@@ -63,7 +59,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve *all* teams of the organization:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,11 +71,9 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve only the team's at the root of the organization:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,7 +89,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());

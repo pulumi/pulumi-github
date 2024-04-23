@@ -199,7 +199,6 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -209,9 +208,7 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -226,7 +223,6 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -255,7 +251,6 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -265,9 +260,7 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -282,7 +275,6 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

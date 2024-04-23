@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -27,11 +26,9 @@ import * as utilities from "./utilities";
  *     note: "## Unaccepted 👇",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Adding An Issue To A Project
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -61,7 +58,6 @@ import * as utilities from "./utilities";
  *     contentType: "Issue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

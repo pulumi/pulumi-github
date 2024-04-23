@@ -62,14 +62,12 @@ def get_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSsh
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_ssh_keys()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -87,13 +85,11 @@ def get_ssh_keys_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.O
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_ssh_keys()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

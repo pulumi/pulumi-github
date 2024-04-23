@@ -18,7 +18,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve webhooks of a repository:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryWebhooksResult> InvokeAsync(GetRepositoryWebhooksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryWebhooksResult>("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args ?? new GetRepositoryWebhooksArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve webhooks of a repository:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryWebhooksResult> Invoke(GetRepositoryWebhooksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryWebhooksResult>("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args ?? new GetRepositoryWebhooksInvokeArgs(), options.WithDefaults());

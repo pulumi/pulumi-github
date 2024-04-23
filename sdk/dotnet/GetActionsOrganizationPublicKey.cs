@@ -17,7 +17,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActionsOrganizationPublicKeyResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsOrganizationPublicKeyResult>("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
@@ -41,7 +39,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActionsOrganizationPublicKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationPublicKeyResult>("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());

@@ -300,7 +300,6 @@ def get_user(username: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -311,7 +310,6 @@ def get_user(username: Optional[str] = None,
     current = github.get_user(username="")
     pulumi.export("currentGithubLogin", current.login)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.
@@ -354,7 +352,6 @@ def get_user_output(username: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
@@ -365,7 +362,6 @@ def get_user_output(username: Optional[pulumi.Input[str]] = None,
     current = github.get_user(username="")
     pulumi.export("currentGithubLogin", current.login)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str username: The username. Use an empty string `""` to retrieve information about the currently authenticated user.

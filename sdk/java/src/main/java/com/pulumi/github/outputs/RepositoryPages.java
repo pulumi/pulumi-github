@@ -39,7 +39,7 @@ public final class RepositoryPages {
      */
     private @Nullable RepositoryPagesSource source;
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     private @Nullable String status;
@@ -82,7 +82,7 @@ public final class RepositoryPages {
         return Optional.ofNullable(this.source);
     }
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     public Optional<String> status() {

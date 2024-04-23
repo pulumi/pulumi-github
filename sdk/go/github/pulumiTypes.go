@@ -2509,9 +2509,9 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRul
 }
 
 type OrganizationRulesetConditionsRefName struct {
-	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -2527,9 +2527,9 @@ type OrganizationRulesetConditionsRefNameInput interface {
 }
 
 type OrganizationRulesetConditionsRefNameArgs struct {
-	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -2610,12 +2610,12 @@ func (o OrganizationRulesetConditionsRefNameOutput) ToOrganizationRulesetConditi
 	}).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 func (o OrganizationRulesetConditionsRefNameOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRefName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2644,7 +2644,7 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Elem() OrganizationRulese
 	}).(OrganizationRulesetConditionsRefNameOutput)
 }
 
-// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
 		if v == nil {
@@ -2654,7 +2654,7 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRefName) []string {
 		if v == nil {
@@ -2665,9 +2665,9 @@ func (o OrganizationRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringA
 }
 
 type OrganizationRulesetConditionsRepositoryName struct {
-	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	// Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes []string `pulumi:"includes"`
 	// Whether renaming of target repositories is prevented.
 	Protected *bool `pulumi:"protected"`
@@ -2685,9 +2685,9 @@ type OrganizationRulesetConditionsRepositoryNameInput interface {
 }
 
 type OrganizationRulesetConditionsRepositoryNameArgs struct {
-	// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+	// Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 	// Whether renaming of target repositories is prevented.
 	Protected pulumi.BoolPtrInput `pulumi:"protected"`
@@ -2770,12 +2770,12 @@ func (o OrganizationRulesetConditionsRepositoryNameOutput) ToOrganizationRuleset
 	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
 }
 
-// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+// Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRepositoryNameOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2809,7 +2809,7 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Elem() Organizatio
 	}).(OrganizationRulesetConditionsRepositoryNameOutput)
 }
 
-// (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
 		if v == nil {
@@ -2819,7 +2819,7 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Excludes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+// Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
 func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryName) []string {
 		if v == nil {
@@ -3238,11 +3238,11 @@ func (o OrganizationRulesetRulesPtrOutput) Update() pulumi.BoolPtrOutput {
 type OrganizationRulesetRulesBranchNamePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -3260,11 +3260,11 @@ type OrganizationRulesetRulesBranchNamePatternInput interface {
 type OrganizationRulesetRulesBranchNamePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -3350,17 +3350,17 @@ func (o OrganizationRulesetRulesBranchNamePatternOutput) Name() pulumi.StringPtr
 	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesBranchNamePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesBranchNamePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesBranchNamePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesBranchNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -3399,7 +3399,7 @@ func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Name() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *bool {
 		if v == nil {
@@ -3409,7 +3409,7 @@ func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *string {
 		if v == nil {
@@ -3419,7 +3419,7 @@ func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesBranchNamePattern) *string {
 		if v == nil {
@@ -3432,11 +3432,11 @@ func (o OrganizationRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.Str
 type OrganizationRulesetRulesCommitAuthorEmailPattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -3454,11 +3454,11 @@ type OrganizationRulesetRulesCommitAuthorEmailPatternInput interface {
 type OrganizationRulesetRulesCommitAuthorEmailPatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -3544,17 +3544,17 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Name() pulumi.St
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitAuthorEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -3593,7 +3593,7 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *bool {
 		if v == nil {
@@ -3603,7 +3603,7 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *string {
 		if v == nil {
@@ -3613,7 +3613,7 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitAuthorEmailPattern) *string {
 		if v == nil {
@@ -3626,11 +3626,11 @@ func (o OrganizationRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pul
 type OrganizationRulesetRulesCommitMessagePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -3648,11 +3648,11 @@ type OrganizationRulesetRulesCommitMessagePatternInput interface {
 type OrganizationRulesetRulesCommitMessagePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -3738,17 +3738,17 @@ func (o OrganizationRulesetRulesCommitMessagePatternOutput) Name() pulumi.String
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitMessagePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitMessagePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitMessagePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitMessagePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -3787,7 +3787,7 @@ func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *bool {
 		if v == nil {
@@ -3797,7 +3797,7 @@ func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *string {
 		if v == nil {
@@ -3807,7 +3807,7 @@ func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitMessagePattern) *string {
 		if v == nil {
@@ -3820,11 +3820,11 @@ func (o OrganizationRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.
 type OrganizationRulesetRulesCommitterEmailPattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -3842,11 +3842,11 @@ type OrganizationRulesetRulesCommitterEmailPatternInput interface {
 type OrganizationRulesetRulesCommitterEmailPatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -3932,17 +3932,17 @@ func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitterEmailPatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesCommitterEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -3981,7 +3981,7 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Name() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *bool {
 		if v == nil {
@@ -3991,7 +3991,7 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *string {
 		if v == nil {
@@ -4001,7 +4001,7 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesCommitterEmailPattern) *string {
 		if v == nil {
@@ -4012,15 +4012,15 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi
 }
 
 type OrganizationRulesetRulesPullRequest struct {
-	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
-	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReview *bool `pulumi:"requireCodeOwnerReview"`
-	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
-	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
-	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
 }
 
@@ -4036,15 +4036,15 @@ type OrganizationRulesetRulesPullRequestInput interface {
 }
 
 type OrganizationRulesetRulesPullRequestArgs struct {
-	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
-	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReview pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReview"`
-	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
-	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
-	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
 }
 
@@ -4125,27 +4125,27 @@ func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPul
 	}).(OrganizationRulesetRulesPullRequestPtrOutput)
 }
 
-// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequireCodeOwnerReview }).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
 }
 
-// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 func (o OrganizationRulesetRulesPullRequestOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
 
-// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
 }
@@ -4174,7 +4174,7 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) Elem() OrganizationRuleset
 	}).(OrganizationRulesetRulesPullRequestOutput)
 }
 
-// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -4184,7 +4184,7 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -4194,7 +4194,7 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -4204,7 +4204,7 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *int {
 		if v == nil {
@@ -4214,7 +4214,7 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -4225,9 +4225,9 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolu
 }
 
 type OrganizationRulesetRulesRequiredStatusChecks struct {
-	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	// Status checks that are required. Several can be defined.
 	RequiredChecks []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
-	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 	StrictRequiredStatusChecksPolicy *bool `pulumi:"strictRequiredStatusChecksPolicy"`
 }
 
@@ -4243,9 +4243,9 @@ type OrganizationRulesetRulesRequiredStatusChecksInput interface {
 }
 
 type OrganizationRulesetRulesRequiredStatusChecksArgs struct {
-	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	// Status checks that are required. Several can be defined.
 	RequiredChecks OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
-	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 	StrictRequiredStatusChecksPolicy pulumi.BoolPtrInput `pulumi:"strictRequiredStatusChecksPolicy"`
 }
 
@@ -4326,14 +4326,14 @@ func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulese
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
-// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+// Status checks that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredStatusChecksOutput) RequiredChecks() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 		return v.RequiredChecks
 	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 func (o OrganizationRulesetRulesRequiredStatusChecksOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) *bool { return v.StrictRequiredStatusChecksPolicy }).(pulumi.BoolPtrOutput)
 }
@@ -4362,7 +4362,7 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) Elem() Organizati
 	}).(OrganizationRulesetRulesRequiredStatusChecksOutput)
 }
 
-// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+// Status checks that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 		if v == nil {
@@ -4372,7 +4372,7 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() 
 	}).(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) *bool {
 		if v == nil {
@@ -4383,9 +4383,9 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredSta
 }
 
 type OrganizationRulesetRulesRequiredStatusChecksRequiredCheck struct {
-	// (String) The status check context name that must be present on the commit.
+	// The status check context name that must be present on the commit.
 	Context string `pulumi:"context"`
-	// (Number) The optional integration ID that this status check must originate from.
+	// The optional integration ID that this status check must originate from.
 	IntegrationId *int `pulumi:"integrationId"`
 }
 
@@ -4401,9 +4401,9 @@ type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput interface {
 }
 
 type OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs struct {
-	// (String) The status check context name that must be present on the commit.
+	// The status check context name that must be present on the commit.
 	Context pulumi.StringInput `pulumi:"context"`
-	// (Number) The optional integration ID that this status check must originate from.
+	// The optional integration ID that this status check must originate from.
 	IntegrationId pulumi.IntPtrInput `pulumi:"integrationId"`
 }
 
@@ -4458,12 +4458,12 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToOrgan
 	return o
 }
 
-// (String) The status check context name that must be present on the commit.
+// The status check context name that must be present on the commit.
 func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) Context() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecksRequiredCheck) string { return v.Context }).(pulumi.StringOutput)
 }
 
-// (Number) The optional integration ID that this status check must originate from.
+// The optional integration ID that this status check must originate from.
 func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput) IntegrationId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecksRequiredCheck) *int { return v.IntegrationId }).(pulumi.IntPtrOutput)
 }
@@ -4489,7 +4489,7 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) In
 }
 
 type OrganizationRulesetRulesRequiredWorkflows struct {
-	// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+	// Actions workflows that are required. Several can be defined.
 	RequiredWorkflows []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow `pulumi:"requiredWorkflows"`
 }
 
@@ -4505,7 +4505,7 @@ type OrganizationRulesetRulesRequiredWorkflowsInput interface {
 }
 
 type OrganizationRulesetRulesRequiredWorkflowsArgs struct {
-	// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+	// Actions workflows that are required. Several can be defined.
 	RequiredWorkflows OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput `pulumi:"requiredWorkflows"`
 }
 
@@ -4586,7 +4586,7 @@ func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRu
 	}).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
 }
 
-// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+// Actions workflows that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredWorkflowsOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflows) []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
 		return v.RequiredWorkflows
@@ -4617,7 +4617,7 @@ func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) Elem() OrganizationR
 	}).(OrganizationRulesetRulesRequiredWorkflowsOutput)
 }
 
-// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+// Actions workflows that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredWorkflows) []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
 		if v == nil {
@@ -4628,11 +4628,11 @@ func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) RequiredWorkflows() 
 }
 
 type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow struct {
-	// (String) The path to the YAML definition file of the workflow.
+	// The path to the workflow YAML definition file.
 	Path string `pulumi:"path"`
-	// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+	// The ref (branch or tag) of the workflow file to use.
 	Ref *string `pulumi:"ref"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// The repository in which the workflow is defined.
 	RepositoryId int `pulumi:"repositoryId"`
 }
 
@@ -4648,11 +4648,11 @@ type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowInput interface {
 }
 
 type OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs struct {
-	// (String) The path to the YAML definition file of the workflow.
+	// The path to the workflow YAML definition file.
 	Path pulumi.StringInput `pulumi:"path"`
-	// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+	// The ref (branch or tag) of the workflow file to use.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// The repository in which the workflow is defined.
 	RepositoryId pulumi.IntInput `pulumi:"repositoryId"`
 }
 
@@ -4707,17 +4707,17 @@ func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) ToOrgan
 	return o
 }
 
-// (String) The path to the YAML definition file of the workflow.
+// The path to the workflow YAML definition file.
 func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+// The ref (branch or tag) of the workflow file to use.
 func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) Ref() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
 
-// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+// The repository in which the workflow is defined.
 func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowOutput) RepositoryId() pulumi.IntOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow) int { return v.RepositoryId }).(pulumi.IntOutput)
 }
@@ -4745,11 +4745,11 @@ func (o OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput) In
 type OrganizationRulesetRulesTagNamePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -4767,11 +4767,11 @@ type OrganizationRulesetRulesTagNamePatternInput interface {
 type OrganizationRulesetRulesTagNamePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -4857,17 +4857,17 @@ func (o OrganizationRulesetRulesTagNamePatternOutput) Name() pulumi.StringPtrOut
 	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesTagNamePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesTagNamePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesTagNamePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesTagNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -4906,7 +4906,7 @@ func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *bool {
 		if v == nil {
@@ -4916,7 +4916,7 @@ func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *string {
 		if v == nil {
@@ -4926,7 +4926,7 @@ func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o OrganizationRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesTagNamePattern) *string {
 		if v == nil {
@@ -5802,7 +5802,7 @@ type RepositoryPages struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 	Source *RepositoryPagesSource `pulumi:"source"`
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status *string `pulumi:"status"`
 	Url    *string `pulumi:"url"`
 }
@@ -5829,7 +5829,7 @@ type RepositoryPagesArgs struct {
 	HtmlUrl pulumi.StringPtrInput `pulumi:"htmlUrl"`
 	// The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
 	Source RepositoryPagesSourcePtrInput `pulumi:"source"`
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -5936,7 +5936,7 @@ func (o RepositoryPagesOutput) Source() RepositoryPagesSourcePtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *RepositoryPagesSource { return v.Source }).(RepositoryPagesSourcePtrOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositoryPagesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPages) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -6019,7 +6019,7 @@ func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPages) *string {
 		if v == nil {
@@ -6453,9 +6453,9 @@ func (o RepositoryRulesetConditionsPtrOutput) RefName() RepositoryRulesetConditi
 }
 
 type RepositoryRulesetConditionsRefName struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes []string `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -6471,9 +6471,9 @@ type RepositoryRulesetConditionsRefNameInput interface {
 }
 
 type RepositoryRulesetConditionsRefNameArgs struct {
-	// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+	// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+	// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -6554,12 +6554,12 @@ func (o RepositoryRulesetConditionsRefNameOutput) ToRepositoryRulesetConditionsR
 	}).(RepositoryRulesetConditionsRefNamePtrOutput)
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o RepositoryRulesetConditionsRefNameOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetConditionsRefName) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 func (o RepositoryRulesetConditionsRefNameOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetConditionsRefName) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -6588,7 +6588,7 @@ func (o RepositoryRulesetConditionsRefNamePtrOutput) Elem() RepositoryRulesetCon
 	}).(RepositoryRulesetConditionsRefNameOutput)
 }
 
-// (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+// Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
 func (o RepositoryRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryRulesetConditionsRefName) []string {
 		if v == nil {
@@ -6598,7 +6598,7 @@ func (o RepositoryRulesetConditionsRefNamePtrOutput) Excludes() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+// Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
 func (o RepositoryRulesetConditionsRefNamePtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryRulesetConditionsRefName) []string {
 		if v == nil {
@@ -7024,11 +7024,11 @@ func (o RepositoryRulesetRulesPtrOutput) UpdateAllowsFetchAndMerge() pulumi.Bool
 type RepositoryRulesetRulesBranchNamePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -7046,11 +7046,11 @@ type RepositoryRulesetRulesBranchNamePatternInput interface {
 type RepositoryRulesetRulesBranchNamePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -7136,17 +7136,17 @@ func (o RepositoryRulesetRulesBranchNamePatternOutput) Name() pulumi.StringPtrOu
 	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesBranchNamePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesBranchNamePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesBranchNamePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesBranchNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -7185,7 +7185,7 @@ func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *bool {
 		if v == nil {
@@ -7195,7 +7195,7 @@ func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Negate() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *string {
 		if v == nil {
@@ -7205,7 +7205,7 @@ func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Operator() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesBranchNamePattern) *string {
 		if v == nil {
@@ -7218,11 +7218,11 @@ func (o RepositoryRulesetRulesBranchNamePatternPtrOutput) Pattern() pulumi.Strin
 type RepositoryRulesetRulesCommitAuthorEmailPattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -7240,11 +7240,11 @@ type RepositoryRulesetRulesCommitAuthorEmailPatternInput interface {
 type RepositoryRulesetRulesCommitAuthorEmailPatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -7330,17 +7330,17 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Name() pulumi.Stri
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitAuthorEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -7379,7 +7379,7 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Name() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *bool {
 		if v == nil {
@@ -7389,7 +7389,7 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Negate() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *string {
 		if v == nil {
@@ -7399,7 +7399,7 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Operator() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitAuthorEmailPattern) *string {
 		if v == nil {
@@ -7412,11 +7412,11 @@ func (o RepositoryRulesetRulesCommitAuthorEmailPatternPtrOutput) Pattern() pulum
 type RepositoryRulesetRulesCommitMessagePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -7434,11 +7434,11 @@ type RepositoryRulesetRulesCommitMessagePatternInput interface {
 type RepositoryRulesetRulesCommitMessagePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -7524,17 +7524,17 @@ func (o RepositoryRulesetRulesCommitMessagePatternOutput) Name() pulumi.StringPt
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitMessagePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitMessagePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitMessagePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitMessagePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -7573,7 +7573,7 @@ func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *bool {
 		if v == nil {
@@ -7583,7 +7583,7 @@ func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Negate() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *string {
 		if v == nil {
@@ -7593,7 +7593,7 @@ func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Operator() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitMessagePattern) *string {
 		if v == nil {
@@ -7606,11 +7606,11 @@ func (o RepositoryRulesetRulesCommitMessagePatternPtrOutput) Pattern() pulumi.St
 type RepositoryRulesetRulesCommitterEmailPattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -7628,11 +7628,11 @@ type RepositoryRulesetRulesCommitterEmailPatternInput interface {
 type RepositoryRulesetRulesCommitterEmailPatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -7718,17 +7718,17 @@ func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Name() pulumi.StringP
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitterEmailPatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesCommitterEmailPattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -7767,7 +7767,7 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Name() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *bool {
 		if v == nil {
@@ -7777,7 +7777,7 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Negate() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *string {
 		if v == nil {
@@ -7787,7 +7787,7 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Operator() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesCommitterEmailPattern) *string {
 		if v == nil {
@@ -7798,15 +7798,15 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.S
 }
 
 type RepositoryRulesetRulesPullRequest struct {
-	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
-	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReview *bool `pulumi:"requireCodeOwnerReview"`
-	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
-	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
-	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
 }
 
@@ -7822,15 +7822,15 @@ type RepositoryRulesetRulesPullRequestInput interface {
 }
 
 type RepositoryRulesetRulesPullRequestArgs struct {
-	// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
-	// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 	RequireCodeOwnerReview pulumi.BoolPtrInput `pulumi:"requireCodeOwnerReview"`
-	// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+	// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
-	// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+	// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
-	// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
 }
 
@@ -7911,27 +7911,27 @@ func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullReq
 	}).(RepositoryRulesetRulesPullRequestPtrOutput)
 }
 
-// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequireCodeOwnerReview }).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequireLastPushApproval }).(pulumi.BoolPtrOutput)
 }
 
-// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 func (o RepositoryRulesetRulesPullRequestOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }
 
-// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
 }
@@ -7960,7 +7960,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) Elem() RepositoryRulesetRule
 	}).(RepositoryRulesetRulesPullRequestOutput)
 }
 
-// (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -7970,7 +7970,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) DismissStaleReviewsOnPush() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -7980,7 +7980,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireCodeOwnerReview() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+// Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -7990,7 +7990,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequireLastPushApproval() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+// The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
 func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *int {
 		if v == nil {
@@ -8000,7 +8000,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredApprovingReviewCount
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) *bool {
 		if v == nil {
@@ -8011,7 +8011,7 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResoluti
 }
 
 type RepositoryRulesetRulesRequiredDeployments struct {
-	// (List of String) The environments that must be successfully deployed to before branches can be merged.
+	// The environments that must be successfully deployed to before branches can be merged.
 	RequiredDeploymentEnvironments []string `pulumi:"requiredDeploymentEnvironments"`
 }
 
@@ -8027,7 +8027,7 @@ type RepositoryRulesetRulesRequiredDeploymentsInput interface {
 }
 
 type RepositoryRulesetRulesRequiredDeploymentsArgs struct {
-	// (List of String) The environments that must be successfully deployed to before branches can be merged.
+	// The environments that must be successfully deployed to before branches can be merged.
 	RequiredDeploymentEnvironments pulumi.StringArrayInput `pulumi:"requiredDeploymentEnvironments"`
 }
 
@@ -8108,7 +8108,7 @@ func (o RepositoryRulesetRulesRequiredDeploymentsOutput) ToRepositoryRulesetRule
 	}).(RepositoryRulesetRulesRequiredDeploymentsPtrOutput)
 }
 
-// (List of String) The environments that must be successfully deployed to before branches can be merged.
+// The environments that must be successfully deployed to before branches can be merged.
 func (o RepositoryRulesetRulesRequiredDeploymentsOutput) RequiredDeploymentEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredDeployments) []string { return v.RequiredDeploymentEnvironments }).(pulumi.StringArrayOutput)
 }
@@ -8137,7 +8137,7 @@ func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) Elem() RepositoryRul
 	}).(RepositoryRulesetRulesRequiredDeploymentsOutput)
 }
 
-// (List of String) The environments that must be successfully deployed to before branches can be merged.
+// The environments that must be successfully deployed to before branches can be merged.
 func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) RequiredDeploymentEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredDeployments) []string {
 		if v == nil {
@@ -8148,9 +8148,9 @@ func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) RequiredDeploymentEn
 }
 
 type RepositoryRulesetRulesRequiredStatusChecks struct {
-	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	// Status checks that are required. Several can be defined.
 	RequiredChecks []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
-	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 	StrictRequiredStatusChecksPolicy *bool `pulumi:"strictRequiredStatusChecksPolicy"`
 }
 
@@ -8166,9 +8166,9 @@ type RepositoryRulesetRulesRequiredStatusChecksInput interface {
 }
 
 type RepositoryRulesetRulesRequiredStatusChecksArgs struct {
-	// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+	// Status checks that are required. Several can be defined.
 	RequiredChecks RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
-	// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 	StrictRequiredStatusChecksPolicy pulumi.BoolPtrInput `pulumi:"strictRequiredStatusChecksPolicy"`
 }
 
@@ -8249,14 +8249,14 @@ func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRul
 	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
-// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+// Status checks that are required. Several can be defined.
 func (o RepositoryRulesetRulesRequiredStatusChecksOutput) RequiredChecks() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
 		return v.RequiredChecks
 	}).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 func (o RepositoryRulesetRulesRequiredStatusChecksOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) *bool { return v.StrictRequiredStatusChecksPolicy }).(pulumi.BoolPtrOutput)
 }
@@ -8285,7 +8285,7 @@ func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) Elem() RepositoryRu
 	}).(RepositoryRulesetRulesRequiredStatusChecksOutput)
 }
 
-// (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+// Status checks that are required. Several can be defined.
 func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
 		if v == nil {
@@ -8295,7 +8295,7 @@ func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) RequiredChecks() Re
 	}).(RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput)
 }
 
-// (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
 func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredStatusChecksPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) *bool {
 		if v == nil {
@@ -8306,9 +8306,9 @@ func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) StrictRequiredStatu
 }
 
 type RepositoryRulesetRulesRequiredStatusChecksRequiredCheck struct {
-	// (String) The status check context name that must be present on the commit.
+	// The status check context name that must be present on the commit.
 	Context string `pulumi:"context"`
-	// (Number) The optional integration ID that this status check must originate from.
+	// The optional integration ID that this status check must originate from.
 	IntegrationId *int `pulumi:"integrationId"`
 }
 
@@ -8324,9 +8324,9 @@ type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckInput interface {
 }
 
 type RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs struct {
-	// (String) The status check context name that must be present on the commit.
+	// The status check context name that must be present on the commit.
 	Context pulumi.StringInput `pulumi:"context"`
-	// (Number) The optional integration ID that this status check must originate from.
+	// The optional integration ID that this status check must originate from.
 	IntegrationId pulumi.IntPtrInput `pulumi:"integrationId"`
 }
 
@@ -8381,12 +8381,12 @@ func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) ToReposit
 	return o
 }
 
-// (String) The status check context name that must be present on the commit.
+// The status check context name that must be present on the commit.
 func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) Context() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecksRequiredCheck) string { return v.Context }).(pulumi.StringOutput)
 }
 
-// (Number) The optional integration ID that this status check must originate from.
+// The optional integration ID that this status check must originate from.
 func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckOutput) IntegrationId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecksRequiredCheck) *int { return v.IntegrationId }).(pulumi.IntPtrOutput)
 }
@@ -8414,11 +8414,11 @@ func (o RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) Inde
 type RepositoryRulesetRulesTagNamePattern struct {
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate *bool `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator string `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -8436,11 +8436,11 @@ type RepositoryRulesetRulesTagNamePatternInput interface {
 type RepositoryRulesetRulesTagNamePatternArgs struct {
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// (Boolean) If true, the rule will fail if the pattern matches.
+	// If true, the rule will fail if the pattern matches.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+	// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// (String) The pattern to match with.
+	// The pattern to match with.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -8526,17 +8526,17 @@ func (o RepositoryRulesetRulesTagNamePatternOutput) Name() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesTagNamePatternOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesTagNamePatternOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesTagNamePatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesTagNamePattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -8575,7 +8575,7 @@ func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Boolean) If true, the rule will fail if the pattern matches.
+// If true, the rule will fail if the pattern matches.
 func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *bool {
 		if v == nil {
@@ -8585,7 +8585,7 @@ func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Negate() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+// The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
 func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *string {
 		if v == nil {
@@ -8595,7 +8595,7 @@ func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Operator() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (String) The pattern to match with.
+// The pattern to match with.
 func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesTagNamePattern) *string {
 		if v == nil {
@@ -8924,7 +8924,7 @@ func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Status() pulumi.
 }
 
 type RepositorySecurityAndAnalysisSecretScanning struct {
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status string `pulumi:"status"`
 }
 
@@ -8940,7 +8940,7 @@ type RepositorySecurityAndAnalysisSecretScanningInput interface {
 }
 
 type RepositorySecurityAndAnalysisSecretScanningArgs struct {
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -9021,7 +9021,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningOutput) ToRepositorySecurityA
 	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositorySecurityAndAnalysisSecretScanningOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanning) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -9050,7 +9050,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Elem() RepositoryS
 	}).(RepositorySecurityAndAnalysisSecretScanningOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) *string {
 		if v == nil {
@@ -9061,7 +9061,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.St
 }
 
 type RepositorySecurityAndAnalysisSecretScanningPushProtection struct {
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status string `pulumi:"status"`
 }
 
@@ -9077,7 +9077,7 @@ type RepositorySecurityAndAnalysisSecretScanningPushProtectionInput interface {
 }
 
 type RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs struct {
-	// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -9158,7 +9158,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) ToRepos
 	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningPushProtection) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -9187,7 +9187,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Elem
 	}).(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput)
 }
 
-// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+// The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningPushProtection) *string {
 		if v == nil {
@@ -9676,11 +9676,11 @@ func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMember
 }
 
 type TeamSettingsReviewRequestDelegation struct {
-	// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+	// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
 	Algorithm *string `pulumi:"algorithm"`
-	// The number of team members to assign to a pull request
+	// The number of team members to assign to a pull request.
 	MemberCount *int `pulumi:"memberCount"`
-	// whether to notify the entire team when at least one member is also assigned to the pull request
+	// whether to notify the entire team when at least one member is also assigned to the pull request.
 	Notify *bool `pulumi:"notify"`
 }
 
@@ -9696,11 +9696,11 @@ type TeamSettingsReviewRequestDelegationInput interface {
 }
 
 type TeamSettingsReviewRequestDelegationArgs struct {
-	// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+	// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// The number of team members to assign to a pull request
+	// The number of team members to assign to a pull request.
 	MemberCount pulumi.IntPtrInput `pulumi:"memberCount"`
-	// whether to notify the entire team when at least one member is also assigned to the pull request
+	// whether to notify the entire team when at least one member is also assigned to the pull request.
 	Notify pulumi.BoolPtrInput `pulumi:"notify"`
 }
 
@@ -9781,17 +9781,17 @@ func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDe
 	}).(TeamSettingsReviewRequestDelegationPtrOutput)
 }
 
-// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
 func (o TeamSettingsReviewRequestDelegationOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// The number of team members to assign to a pull request
+// The number of team members to assign to a pull request.
 func (o TeamSettingsReviewRequestDelegationOutput) MemberCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *int { return v.MemberCount }).(pulumi.IntPtrOutput)
 }
 
-// whether to notify the entire team when at least one member is also assigned to the pull request
+// whether to notify the entire team when at least one member is also assigned to the pull request.
 func (o TeamSettingsReviewRequestDelegationOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *bool { return v.Notify }).(pulumi.BoolPtrOutput)
 }
@@ -9820,7 +9820,7 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) Elem() TeamSettingsReviewR
 	}).(TeamSettingsReviewRequestDelegationOutput)
 }
 
-// The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
 func (o TeamSettingsReviewRequestDelegationPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *string {
 		if v == nil {
@@ -9830,7 +9830,7 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) Algorithm() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of team members to assign to a pull request
+// The number of team members to assign to a pull request.
 func (o TeamSettingsReviewRequestDelegationPtrOutput) MemberCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *int {
 		if v == nil {
@@ -9840,7 +9840,7 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) MemberCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// whether to notify the entire team when at least one member is also assigned to the pull request
+// whether to notify the entire team when at least one member is also assigned to the pull request.
 func (o TeamSettingsReviewRequestDelegationPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *bool {
 		if v == nil {

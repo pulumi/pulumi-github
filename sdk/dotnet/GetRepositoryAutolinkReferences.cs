@@ -16,7 +16,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryAutolinkReferencesResult> InvokeAsync(GetRepositoryAutolinkReferencesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Github
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryAutolinkReferencesResult> Invoke(GetRepositoryAutolinkReferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAutolinkReferencesResult>("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args ?? new GetRepositoryAutolinkReferencesInvokeArgs(), options.WithDefaults());

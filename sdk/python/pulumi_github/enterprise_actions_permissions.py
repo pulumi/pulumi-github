@@ -204,7 +204,6 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -227,7 +226,6 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 organization_ids=[example_org.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,7 +255,6 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -280,7 +277,6 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 organization_ids=[example_org.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

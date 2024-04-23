@@ -143,7 +143,6 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -160,7 +159,6 @@ class TeamSettings(pulumi.CustomResource):
                 notify=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +195,6 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -214,7 +211,6 @@ class TeamSettings(pulumi.CustomResource):
                 notify=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,7 @@ namespace Pulumi.Github.Inputs
         private InputList<Inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs>? _requiredWorkflows;
 
         /// <summary>
-        /// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        /// Actions workflows that are required. Several can be defined.
         /// </summary>
         public InputList<Inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs> RequiredWorkflows
         {

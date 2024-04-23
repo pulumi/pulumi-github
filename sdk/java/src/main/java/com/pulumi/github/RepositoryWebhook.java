@@ -149,14 +149,14 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
         return this.repository;
     }
     /**
-     * The URL of the webhook.
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return The URL of the webhook.
+     * @return URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     public Output<String> url() {

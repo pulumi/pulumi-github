@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     branch: "development",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
 
@@ -72,7 +70,6 @@ export interface GetBranchResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -82,7 +79,6 @@ export interface GetBranchResult {
  *     branch: "development",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
     return pulumi.output(args).apply((a: any) => getBranch(a, opts))

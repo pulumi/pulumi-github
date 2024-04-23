@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RepositorySecurityAndAnalysisSecretScanning {
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     private String status;
 
     private RepositorySecurityAndAnalysisSecretScanning() {}
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     public String status() {

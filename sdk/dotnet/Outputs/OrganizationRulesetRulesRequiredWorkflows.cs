@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredWorkflows
     {
         /// <summary>
-        /// (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        /// Actions workflows that are required. Several can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> RequiredWorkflows;
 

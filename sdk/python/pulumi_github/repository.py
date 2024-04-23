@@ -1367,7 +1367,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1382,11 +1381,9 @@ class Repository(pulumi.CustomResource):
                 include_all_branches=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With GitHub Pages Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1402,7 +1399,6 @@ class Repository(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1470,7 +1466,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1485,11 +1480,9 @@ class Repository(pulumi.CustomResource):
                 include_all_branches=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With GitHub Pages Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -1505,7 +1498,6 @@ class Repository(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
