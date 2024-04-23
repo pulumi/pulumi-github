@@ -531,14 +531,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                    "description": "Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
+                    "description": "Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
                 }
             },
             "type": "object",
@@ -554,14 +554,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                    "description": "Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
+                    "description": "Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.\n"
                 },
                 "protected": {
                     "type": "boolean",
@@ -643,15 +643,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -668,15 +668,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -693,15 +693,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -718,15 +718,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -739,23 +739,23 @@
             "properties": {
                 "dismissStaleReviewsOnPush": {
                     "type": "boolean",
-                    "description": "(Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
+                    "description": "New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
                 },
                 "requireCodeOwnerReview": {
                     "type": "boolean",
-                    "description": "(Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
+                    "description": "Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
                 },
                 "requireLastPushApproval": {
                     "type": "boolean",
-                    "description": "(Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
+                    "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
                 },
                 "requiredApprovingReviewCount": {
                     "type": "integer",
-                    "description": "(Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
+                    "description": "The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
                 },
                 "requiredReviewThreadResolution": {
                     "type": "boolean",
-                    "description": "(Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
+                    "description": "All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
                 }
             },
             "type": "object"
@@ -767,11 +767,11 @@
                     "items": {
                         "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredStatusChecksRequiredCheck:OrganizationRulesetRulesRequiredStatusChecksRequiredCheck"
                     },
-                    "description": "(Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)\n"
+                    "description": "Status checks that are required. Several can be defined.\n"
                 },
                 "strictRequiredStatusChecksPolicy": {
                     "type": "boolean",
-                    "description": "(Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
+                    "description": "Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
                 }
             },
             "type": "object",
@@ -783,11 +783,11 @@
             "properties": {
                 "context": {
                     "type": "string",
-                    "description": "(String) The status check context name that must be present on the commit.\n"
+                    "description": "The status check context name that must be present on the commit.\n"
                 },
                 "integrationId": {
                     "type": "integer",
-                    "description": "(Number) The optional integration ID that this status check must originate from.\n"
+                    "description": "The optional integration ID that this status check must originate from.\n"
                 }
             },
             "type": "object",
@@ -802,7 +802,7 @@
                     "items": {
                         "$ref": "#/types/github:index/OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow:OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow"
                     },
-                    "description": "(Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)\n"
+                    "description": "Actions workflows that are required. Several can be defined.\n"
                 }
             },
             "type": "object",
@@ -814,15 +814,15 @@
             "properties": {
                 "path": {
                     "type": "string",
-                    "description": "(String) The path to the YAML definition file of the workflow.\n"
+                    "description": "The path to the workflow YAML definition file.\n"
                 },
                 "ref": {
                     "type": "string",
-                    "description": "(String) The optional ref from which to fetch the workflow. Defaults to `master`.\n"
+                    "description": "The ref (branch or tag) of the workflow file to use.\n"
                 },
                 "repositoryId": {
                     "type": "integer",
-                    "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.\n"
+                    "description": "The repository in which the workflow is defined.\n"
                 }
             },
             "type": "object",
@@ -839,15 +839,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1002,7 +1002,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.\n"
+                    "description": "The GitHub Pages site's build status e.g. `building` or `built`.\n"
                 },
                 "url": {
                     "type": "string"
@@ -1077,14 +1077,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
+                    "description": "Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
+                    "description": "Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.\n"
                 }
             },
             "type": "object",
@@ -1166,15 +1166,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1191,15 +1191,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1216,15 +1216,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1241,15 +1241,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1262,23 +1262,23 @@
             "properties": {
                 "dismissStaleReviewsOnPush": {
                     "type": "boolean",
-                    "description": "(Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
+                    "description": "New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.\n"
                 },
                 "requireCodeOwnerReview": {
                     "type": "boolean",
-                    "description": "(Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
+                    "description": "Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.\n"
                 },
                 "requireLastPushApproval": {
                     "type": "boolean",
-                    "description": "(Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
+                    "description": "Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.\n"
                 },
                 "requiredApprovingReviewCount": {
                     "type": "integer",
-                    "description": "(Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
+                    "description": "The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.\n"
                 },
                 "requiredReviewThreadResolution": {
                     "type": "boolean",
-                    "description": "(Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
+                    "description": "All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.\n"
                 }
             },
             "type": "object"
@@ -1290,7 +1290,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(List of String) The environments that must be successfully deployed to before branches can be merged.\n"
+                    "description": "The environments that must be successfully deployed to before branches can be merged.\n"
                 }
             },
             "type": "object",
@@ -1305,11 +1305,11 @@
                     "items": {
                         "$ref": "#/types/github:index/RepositoryRulesetRulesRequiredStatusChecksRequiredCheck:RepositoryRulesetRulesRequiredStatusChecksRequiredCheck"
                     },
-                    "description": "(Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)\n"
+                    "description": "Status checks that are required. Several can be defined.\n"
                 },
                 "strictRequiredStatusChecksPolicy": {
                     "type": "boolean",
-                    "description": "(Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
+                    "description": "Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.\n"
                 }
             },
             "type": "object",
@@ -1321,11 +1321,11 @@
             "properties": {
                 "context": {
                     "type": "string",
-                    "description": "(String) The status check context name that must be present on the commit.\n"
+                    "description": "The status check context name that must be present on the commit.\n"
                 },
                 "integrationId": {
                     "type": "integer",
-                    "description": "(Number) The optional integration ID that this status check must originate from.\n"
+                    "description": "The optional integration ID that this status check must originate from.\n"
                 }
             },
             "type": "object",
@@ -1341,15 +1341,15 @@
                 },
                 "negate": {
                     "type": "boolean",
-                    "description": "(Boolean) If true, the rule will fail if the pattern matches.\n"
+                    "description": "If true, the rule will fail if the pattern matches.\n"
                 },
                 "operator": {
                     "type": "string",
-                    "description": "(String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
+                    "description": "The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.\n"
                 },
                 "pattern": {
                     "type": "string",
-                    "description": "(String) The pattern to match with.\n"
+                    "description": "The pattern to match with.\n"
                 }
             },
             "type": "object",
@@ -1391,7 +1391,7 @@
             "properties": {
                 "status": {
                     "type": "string",
-                    "description": "Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.\n"
+                    "description": "The GitHub Pages site's build status e.g. `building` or `built`.\n"
                 }
             },
             "type": "object",
@@ -1403,7 +1403,7 @@
             "properties": {
                 "status": {
                     "type": "string",
-                    "description": "Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.\n"
+                    "description": "The GitHub Pages site's build status e.g. `building` or `built`.\n"
                 }
             },
             "type": "object",
@@ -1478,15 +1478,15 @@
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`\n"
+                    "description": "The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.\n"
                 },
                 "memberCount": {
                     "type": "integer",
-                    "description": "The number of team members to assign to a pull request\n"
+                    "description": "The number of team members to assign to a pull request.\n"
                 },
                 "notify": {
                     "type": "boolean",
-                    "description": "whether to notify the entire team when at least one member is also assigned to the pull request\n"
+                    "description": "whether to notify the entire team when at least one member is also assigned to the pull request.\n"
                 }
             },
             "type": "object"
@@ -8135,7 +8135,7 @@
             }
         },
         "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy": {
-            "description": "This resource allows you to create and manage deployment branch policies.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst env = new github.RepositoryEnvironment(\"env\", {\n    repository: \"my_repo\",\n    environment: \"my_env\",\n    deploymentBranchPolicy: {\n        protectedBranches: false,\n        customBranchPolicies: true,\n    },\n});\nconst foo = new github.RepositoryDeploymentBranchPolicy(\"foo\", {\n    repository: \"my_repo\",\n    environmentName: \"my_env\",\n    name: \"foo\",\n}, {\n    dependsOn: [env],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nenv = github.RepositoryEnvironment(\"env\",\n    repository=\"my_repo\",\n    environment=\"my_env\",\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=False,\n        custom_branch_policies=True,\n    ))\nfoo = github.RepositoryDeploymentBranchPolicy(\"foo\",\n    repository=\"my_repo\",\n    environment_name=\"my_env\",\n    name=\"foo\",\n    opts=pulumi.ResourceOptions(depends_on=[env]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var env = new Github.RepositoryEnvironment(\"env\", new()\n    {\n        Repository = \"my_repo\",\n        Environment = \"my_env\",\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = false,\n            CustomBranchPolicies = true,\n        },\n    });\n\n    var foo = new Github.RepositoryDeploymentBranchPolicy(\"foo\", new()\n    {\n        Repository = \"my_repo\",\n        EnvironmentName = \"my_env\",\n        Name = \"foo\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            env, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tenv, err := github.NewRepositoryEnvironment(ctx, \"env\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  pulumi.String(\"my_repo\"),\n\t\t\tEnvironment: pulumi.String(\"my_env\"),\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(false),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, \"foo\", \u0026github.RepositoryDeploymentBranchPolicyArgs{\n\t\t\tRepository:      pulumi.String(\"my_repo\"),\n\t\t\tEnvironmentName: pulumi.String(\"my_env\"),\n\t\t\tName:            pulumi.String(\"foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tenv,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicy;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var env = new RepositoryEnvironment(\"env\", RepositoryEnvironmentArgs.builder()        \n            .repository(\"my_repo\")\n            .environment(\"my_env\")\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(false)\n                .customBranchPolicies(true)\n                .build())\n            .build());\n\n        var foo = new RepositoryDeploymentBranchPolicy(\"foo\", RepositoryDeploymentBranchPolicyArgs.builder()        \n            .repository(\"my_repo\")\n            .environmentName(\"my_env\")\n            .name(\"foo\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(env)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  env:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: my_repo\n      environment: my_env\n      deploymentBranchPolicy:\n        protectedBranches: false\n        customBranchPolicies: true\n  foo:\n    type: github:RepositoryDeploymentBranchPolicy\n    properties:\n      repository: my_repo\n      environmentName: my_env\n      name: foo\n    options:\n      dependson:\n        - ${env}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id\n```\n",
+            "description": "This resource allows you to create and manage deployment branch policies.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst env = new github.RepositoryEnvironment(\"env\", {\n    repository: \"my_repo\",\n    environment: \"my_env\",\n    deploymentBranchPolicy: {\n        protectedBranches: false,\n        customBranchPolicies: true,\n    },\n});\nconst foo = new github.RepositoryDeploymentBranchPolicy(\"foo\", {\n    repository: \"my_repo\",\n    environmentName: \"my_env\",\n    name: \"foo\",\n}, {\n    dependsOn: [env],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nenv = github.RepositoryEnvironment(\"env\",\n    repository=\"my_repo\",\n    environment=\"my_env\",\n    deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(\n        protected_branches=False,\n        custom_branch_policies=True,\n    ))\nfoo = github.RepositoryDeploymentBranchPolicy(\"foo\",\n    repository=\"my_repo\",\n    environment_name=\"my_env\",\n    name=\"foo\",\n    opts=pulumi.ResourceOptions(depends_on=[env]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var env = new Github.RepositoryEnvironment(\"env\", new()\n    {\n        Repository = \"my_repo\",\n        Environment = \"my_env\",\n        DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs\n        {\n            ProtectedBranches = false,\n            CustomBranchPolicies = true,\n        },\n    });\n\n    var foo = new Github.RepositoryDeploymentBranchPolicy(\"foo\", new()\n    {\n        Repository = \"my_repo\",\n        EnvironmentName = \"my_env\",\n        Name = \"foo\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            env,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tenv, err := github.NewRepositoryEnvironment(ctx, \"env\", \u0026github.RepositoryEnvironmentArgs{\n\t\t\tRepository:  pulumi.String(\"my_repo\"),\n\t\t\tEnvironment: pulumi.String(\"my_env\"),\n\t\t\tDeploymentBranchPolicy: \u0026github.RepositoryEnvironmentDeploymentBranchPolicyArgs{\n\t\t\t\tProtectedBranches:    pulumi.Bool(false),\n\t\t\t\tCustomBranchPolicies: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, \"foo\", \u0026github.RepositoryDeploymentBranchPolicyArgs{\n\t\t\tRepository:      pulumi.String(\"my_repo\"),\n\t\t\tEnvironmentName: pulumi.String(\"my_env\"),\n\t\t\tName:            pulumi.String(\"foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tenv,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.RepositoryEnvironment;\nimport com.pulumi.github.RepositoryEnvironmentArgs;\nimport com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicy;\nimport com.pulumi.github.RepositoryDeploymentBranchPolicyArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var env = new RepositoryEnvironment(\"env\", RepositoryEnvironmentArgs.builder()        \n            .repository(\"my_repo\")\n            .environment(\"my_env\")\n            .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()\n                .protectedBranches(false)\n                .customBranchPolicies(true)\n                .build())\n            .build());\n\n        var foo = new RepositoryDeploymentBranchPolicy(\"foo\", RepositoryDeploymentBranchPolicyArgs.builder()        \n            .repository(\"my_repo\")\n            .environmentName(\"my_env\")\n            .name(\"foo\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(env)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  env:\n    type: github:RepositoryEnvironment\n    properties:\n      repository: my_repo\n      environment: my_env\n      deploymentBranchPolicy:\n        protectedBranches: false\n        customBranchPolicies: true\n  foo:\n    type: github:RepositoryDeploymentBranchPolicy\n    properties:\n      repository: my_repo\n      environmentName: my_env\n      name: foo\n    options:\n      dependson:\n        - ${env}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id\n```\n",
             "properties": {
                 "environmentName": {
                     "type": "string",
@@ -9203,7 +9203,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "The URL of the webhook.\n"
+                    "description": "URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.\n"
                 }
             },
             "required": [
@@ -9266,7 +9266,7 @@
                     },
                     "url": {
                         "type": "string",
-                        "description": "The URL of the webhook.\n"
+                        "description": "URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.\n"
                     }
                 },
                 "type": "object"
