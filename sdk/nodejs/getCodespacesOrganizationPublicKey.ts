@@ -10,14 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetCodespacesOrganizationPublicKeyResult> {
 
@@ -49,14 +47,12 @@ export interface GetCodespacesOrganizationPublicKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationPublicKeyResult> {
     return pulumi.output(getCodespacesOrganizationPublicKey(opts))

@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (String) The status check context name that must be present on the commit.
+        /// The status check context name that must be present on the commit.
         /// </summary>
         [Input("context", required: true)]
         public Input<string> Context { get; set; } = null!;
 
         /// <summary>
-        /// (Number) The optional integration ID that this status check must originate from.
+        /// The optional integration ID that this status check must originate from.
         /// </summary>
         [Input("integrationId")]
         public Input<int>? IntegrationId { get; set; }

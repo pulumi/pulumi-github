@@ -10,14 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getDependabotOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetDependabotOrganizationPublicKeyResult> {
 
@@ -49,14 +47,12 @@ export interface GetDependabotOrganizationPublicKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getDependabotOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDependabotOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotOrganizationPublicKeyResult> {
     return pulumi.output(getDependabotOrganizationPublicKey(opts))

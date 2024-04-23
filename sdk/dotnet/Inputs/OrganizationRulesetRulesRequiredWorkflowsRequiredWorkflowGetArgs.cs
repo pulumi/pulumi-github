@@ -13,19 +13,19 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (String) The path to the YAML definition file of the workflow.
+        /// The path to the workflow YAML definition file.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        /// The ref (branch or tag) of the workflow file to use.
         /// </summary>
         [Input("ref")]
         public Input<string>? Ref { get; set; }
 
         /// <summary>
-        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        /// The repository in which the workflow is defined.
         /// </summary>
         [Input("repositoryId", required: true)]
         public Input<int> RepositoryId { get; set; } = null!;

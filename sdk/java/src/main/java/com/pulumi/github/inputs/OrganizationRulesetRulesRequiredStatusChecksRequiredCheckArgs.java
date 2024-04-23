@@ -18,14 +18,14 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
     public static final OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs Empty = new OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs();
 
     /**
-     * (String) The status check context name that must be present on the commit.
+     * The status check context name that must be present on the commit.
      * 
      */
     @Import(name="context", required=true)
     private Output<String> context;
 
     /**
-     * @return (String) The status check context name that must be present on the commit.
+     * @return The status check context name that must be present on the commit.
      * 
      */
     public Output<String> context() {
@@ -33,14 +33,14 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
     }
 
     /**
-     * (Number) The optional integration ID that this status check must originate from.
+     * The optional integration ID that this status check must originate from.
      * 
      */
     @Import(name="integrationId")
     private @Nullable Output<Integer> integrationId;
 
     /**
-     * @return (Number) The optional integration ID that this status check must originate from.
+     * @return The optional integration ID that this status check must originate from.
      * 
      */
     public Optional<Output<Integer>> integrationId() {
@@ -73,7 +73,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
         }
 
         /**
-         * @param context (String) The status check context name that must be present on the commit.
+         * @param context The status check context name that must be present on the commit.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
         }
 
         /**
-         * @param context (String) The status check context name that must be present on the commit.
+         * @param context The status check context name that must be present on the commit.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
         }
 
         /**
-         * @param integrationId (Number) The optional integration ID that this status check must originate from.
+         * @param integrationId The optional integration ID that this status check must originate from.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs
         }
 
         /**
-         * @param integrationId (Number) The optional integration ID that this status check must originate from.
+         * @param integrationId The optional integration ID that this status check must originate from.
          * 
          * @return builder
          * 

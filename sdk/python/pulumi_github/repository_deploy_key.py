@@ -196,7 +196,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -211,7 +210,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
             key=example_repository_deploy_key.public_key_openssh,
             read_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,7 +249,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -266,7 +263,6 @@ class RepositoryDeployKey(pulumi.CustomResource):
             key=example_repository_deploy_key.public_key_openssh,
             read_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

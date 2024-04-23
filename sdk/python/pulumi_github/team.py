@@ -369,7 +369,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -380,7 +379,6 @@ class Team(pulumi.CustomResource):
             description="Some cool team",
             privacy="closed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -420,7 +418,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
@@ -431,7 +428,6 @@ class Team(pulumi.CustomResource):
             description="Some cool team",
             privacy="closed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRepositoryPullRequest(ctx *pulumi.Context, args *LookupRepositoryPullRequestArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryPullRequestResult

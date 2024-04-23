@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetRulesRequiredDeployments
     {
         /// <summary>
-        /// (List of String) The environments that must be successfully deployed to before branches can be merged.
+        /// The environments that must be successfully deployed to before branches can be merged.
         /// </summary>
         public readonly ImmutableArray<string> RequiredDeploymentEnvironments;
 

@@ -33,14 +33,14 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
     }
 
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      * 
      */
     @Import(name="negate")
     private @Nullable Output<Boolean> negate;
 
     /**
-     * @return (Boolean) If true, the rule will fail if the pattern matches.
+     * @return If true, the rule will fail if the pattern matches.
      * 
      */
     public Optional<Output<Boolean>> negate() {
@@ -48,14 +48,14 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
     }
 
     /**
-     * (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
      * 
      */
     public Output<String> operator() {
@@ -63,14 +63,14 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
     }
 
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return (String) The pattern to match with.
+     * @return The pattern to match with.
      * 
      */
     public Output<String> pattern() {
@@ -126,7 +126,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param negate (Boolean) If true, the rule will fail if the pattern matches.
+         * @param negate If true, the rule will fail if the pattern matches.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param negate (Boolean) If true, the rule will fail if the pattern matches.
+         * @param negate If true, the rule will fail if the pattern matches.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param operator (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+         * @param operator The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param operator (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+         * @param operator The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param pattern (String) The pattern to match with.
+         * @param pattern The pattern to match with.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class OrganizationRulesetRulesCommitAuthorEmailPatternArgs extends 
         }
 
         /**
-         * @param pattern (String) The pattern to match with.
+         * @param pattern The pattern to match with.
          * 
          * @return builder
          * 

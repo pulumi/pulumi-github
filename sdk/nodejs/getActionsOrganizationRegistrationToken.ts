@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationRegistrationToken({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationRegistrationToken(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationRegistrationTokenResult> {
 
@@ -47,14 +45,12 @@ export interface GetActionsOrganizationRegistrationTokenResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationRegistrationToken({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationRegistrationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationRegistrationTokenResult> {
     return pulumi.output(getActionsOrganizationRegistrationToken(opts))

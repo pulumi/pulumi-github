@@ -17,14 +17,14 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     public static final RepositoryRulesetRulesPullRequestArgs Empty = new RepositoryRulesetRulesPullRequestArgs();
 
     /**
-     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
      */
     @Import(name="dismissStaleReviewsOnPush")
     private @Nullable Output<Boolean> dismissStaleReviewsOnPush;
 
     /**
-     * @return (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * @return New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> dismissStaleReviewsOnPush() {
@@ -32,14 +32,14 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     }
 
     /**
-     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      * 
      */
     @Import(name="requireCodeOwnerReview")
     private @Nullable Output<Boolean> requireCodeOwnerReview;
 
     /**
-     * @return (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * @return Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> requireCodeOwnerReview() {
@@ -47,14 +47,14 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     }
 
     /**
-     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      * 
      */
     @Import(name="requireLastPushApproval")
     private @Nullable Output<Boolean> requireLastPushApproval;
 
     /**
-     * @return (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * @return Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> requireLastPushApproval() {
@@ -62,14 +62,14 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     }
 
     /**
-     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      * 
      */
     @Import(name="requiredApprovingReviewCount")
     private @Nullable Output<Integer> requiredApprovingReviewCount;
 
     /**
-     * @return (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * @return The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> requiredApprovingReviewCount() {
@@ -77,14 +77,14 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     }
 
     /**
-     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      * 
      */
     @Import(name="requiredReviewThreadResolution")
     private @Nullable Output<Boolean> requiredReviewThreadResolution;
 
     /**
-     * @return (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * @return All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> requiredReviewThreadResolution() {
@@ -120,7 +120,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dismissStaleReviewsOnPush (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+         * @param dismissStaleReviewsOnPush New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dismissStaleReviewsOnPush (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+         * @param dismissStaleReviewsOnPush New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requireCodeOwnerReview (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+         * @param requireCodeOwnerReview Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requireCodeOwnerReview (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+         * @param requireCodeOwnerReview Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requireLastPushApproval (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+         * @param requireLastPushApproval Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requireLastPushApproval (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+         * @param requireLastPushApproval Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requiredApprovingReviewCount (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+         * @param requiredApprovingReviewCount The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requiredApprovingReviewCount (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+         * @param requiredApprovingReviewCount The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requiredReviewThreadResolution (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+         * @param requiredReviewThreadResolution All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         }
 
         /**
-         * @param requiredReviewThreadResolution (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+         * @param requiredReviewThreadResolution All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
          * 
          * @return builder
          * 

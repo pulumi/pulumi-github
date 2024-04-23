@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetUserExternalIdentity(ctx *pulumi.Context, args *GetUserExternalIdentityArgs, opts ...pulumi.InvokeOption) (*GetUserExternalIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserExternalIdentityResult

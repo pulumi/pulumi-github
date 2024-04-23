@@ -10,14 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationPublicKeyResult> {
 
@@ -49,14 +47,12 @@ export interface GetActionsOrganizationPublicKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getActionsOrganizationPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionsOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationPublicKeyResult> {
     return pulumi.output(getActionsOrganizationPublicKey(opts))

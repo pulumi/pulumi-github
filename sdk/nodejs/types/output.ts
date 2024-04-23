@@ -1062,22 +1062,22 @@ export interface OrganizationRulesetConditions {
 
 export interface OrganizationRulesetConditionsRefName {
     /**
-     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: string[];
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      */
     includes: string[];
 }
 
 export interface OrganizationRulesetConditionsRepositoryName {
     /**
-     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: string[];
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: string[];
     /**
@@ -1151,15 +1151,15 @@ export interface OrganizationRulesetRulesBranchNamePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1170,15 +1170,15 @@ export interface OrganizationRulesetRulesCommitAuthorEmailPattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1189,15 +1189,15 @@ export interface OrganizationRulesetRulesCommitMessagePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1208,82 +1208,82 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
 
 export interface OrganizationRulesetRulesPullRequest {
     /**
-     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
     dismissStaleReviewsOnPush?: boolean;
     /**
-     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
     requireCodeOwnerReview?: boolean;
     /**
-     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
     requireLastPushApproval?: boolean;
     /**
-     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
     requiredApprovingReviewCount?: number;
     /**
-     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: boolean;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      */
     requiredChecks: outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck[];
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
     strictRequiredStatusChecksPolicy?: boolean;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
-     * (String) The status check context name that must be present on the commit.
+     * The status check context name that must be present on the commit.
      */
     context: string;
     /**
-     * (Number) The optional integration ID that this status check must originate from.
+     * The optional integration ID that this status check must originate from.
      */
     integrationId?: number;
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflows {
     /**
-     * (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * Actions workflows that are required. Several can be defined.
      */
     requiredWorkflows: outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow[];
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
     /**
-     * (String) The path to the YAML definition file of the workflow.
+     * The path to the workflow YAML definition file.
      */
     path: string;
     /**
-     * (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * The ref (branch or tag) of the workflow file to use.
      */
     ref?: string;
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * The repository in which the workflow is defined.
      */
     repositoryId: number;
 }
@@ -1294,15 +1294,15 @@ export interface OrganizationRulesetRulesTagNamePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1396,7 +1396,7 @@ export interface RepositoryPages {
      */
     source?: outputs.RepositoryPagesSource;
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status: string;
     url: string;
@@ -1439,11 +1439,11 @@ export interface RepositoryRulesetConditions {
 
 export interface RepositoryRulesetConditionsRefName {
     /**
-     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: string[];
     /**
-     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      */
     includes: string[];
 }
@@ -1517,15 +1517,15 @@ export interface RepositoryRulesetRulesBranchNamePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1536,15 +1536,15 @@ export interface RepositoryRulesetRulesCommitAuthorEmailPattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1555,15 +1555,15 @@ export interface RepositoryRulesetRulesCommitMessagePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1574,67 +1574,67 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
 
 export interface RepositoryRulesetRulesPullRequest {
     /**
-     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
     dismissStaleReviewsOnPush?: boolean;
     /**
-     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
     requireCodeOwnerReview?: boolean;
     /**
-     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
     requireLastPushApproval?: boolean;
     /**
-     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
     requiredApprovingReviewCount?: number;
     /**
-     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: boolean;
 }
 
 export interface RepositoryRulesetRulesRequiredDeployments {
     /**
-     * (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * The environments that must be successfully deployed to before branches can be merged.
      */
     requiredDeploymentEnvironments: string[];
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecks {
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      */
     requiredChecks: outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck[];
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
     strictRequiredStatusChecksPolicy?: boolean;
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
-     * (String) The status check context name that must be present on the commit.
+     * The status check context name that must be present on the commit.
      */
     context: string;
     /**
-     * (Number) The optional integration ID that this status check must originate from.
+     * The optional integration ID that this status check must originate from.
      */
     integrationId?: number;
 }
@@ -1645,15 +1645,15 @@ export interface RepositoryRulesetRulesTagNamePattern {
      */
     name?: string;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: boolean;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: string;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: string;
 }
@@ -1682,14 +1682,14 @@ export interface RepositorySecurityAndAnalysisAdvancedSecurity {
 
 export interface RepositorySecurityAndAnalysisSecretScanning {
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status: string;
 }
 
 export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status: string;
 }
@@ -1742,15 +1742,15 @@ export interface TeamMembersMember {
 
 export interface TeamSettingsReviewRequestDelegation {
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
      */
     algorithm?: string;
     /**
-     * The number of team members to assign to a pull request
+     * The number of team members to assign to a pull request.
      */
     memberCount?: number;
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request
+     * whether to notify the entire team when at least one member is also assigned to the pull request.
      */
     notify?: boolean;
 }

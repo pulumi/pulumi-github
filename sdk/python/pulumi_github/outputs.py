@@ -1094,8 +1094,8 @@ class OrganizationRulesetConditionsRefName(dict):
                  excludes: Sequence[str],
                  includes: Sequence[str]):
         """
-        :param Sequence[str] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
-        :param Sequence[str] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        :param Sequence[str] excludes: Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] includes: Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
         pulumi.set(__self__, "excludes", excludes)
         pulumi.set(__self__, "includes", includes)
@@ -1104,7 +1104,7 @@ class OrganizationRulesetConditionsRefName(dict):
     @pulumi.getter
     def excludes(self) -> Sequence[str]:
         """
-        (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+        Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
         """
         return pulumi.get(self, "excludes")
 
@@ -1112,7 +1112,7 @@ class OrganizationRulesetConditionsRefName(dict):
     @pulumi.getter
     def includes(self) -> Sequence[str]:
         """
-        (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
         return pulumi.get(self, "includes")
 
@@ -1124,8 +1124,8 @@ class OrganizationRulesetConditionsRepositoryName(dict):
                  includes: Sequence[str],
                  protected: Optional[bool] = None):
         """
-        :param Sequence[str] excludes: (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
-        :param Sequence[str] includes: (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        :param Sequence[str] excludes: Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] includes: Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         :param bool protected: Whether renaming of target repositories is prevented.
         """
         pulumi.set(__self__, "excludes", excludes)
@@ -1137,7 +1137,7 @@ class OrganizationRulesetConditionsRepositoryName(dict):
     @pulumi.getter
     def excludes(self) -> Sequence[str]:
         """
-        (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+        Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
         """
         return pulumi.get(self, "excludes")
 
@@ -1145,7 +1145,7 @@ class OrganizationRulesetConditionsRepositoryName(dict):
     @pulumi.getter
     def includes(self) -> Sequence[str]:
         """
-        (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+        Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
         """
         return pulumi.get(self, "includes")
 
@@ -1378,10 +1378,10 @@ class OrganizationRulesetRulesBranchNamePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -1394,7 +1394,7 @@ class OrganizationRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -1402,7 +1402,7 @@ class OrganizationRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -1418,7 +1418,7 @@ class OrganizationRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -1431,10 +1431,10 @@ class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -1447,7 +1447,7 @@ class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -1455,7 +1455,7 @@ class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -1471,7 +1471,7 @@ class OrganizationRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -1484,10 +1484,10 @@ class OrganizationRulesetRulesCommitMessagePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -1500,7 +1500,7 @@ class OrganizationRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -1508,7 +1508,7 @@ class OrganizationRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -1524,7 +1524,7 @@ class OrganizationRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -1537,10 +1537,10 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -1553,7 +1553,7 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -1561,7 +1561,7 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -1577,7 +1577,7 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -1616,11 +1616,11 @@ class OrganizationRulesetRulesPullRequest(dict):
                  required_approving_review_count: Optional[int] = None,
                  required_review_thread_resolution: Optional[bool] = None):
         """
-        :param bool dismiss_stale_reviews_on_push: (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
-        :param bool require_code_owner_review: (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
-        :param bool require_last_push_approval: (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
-        :param int required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
-        :param bool required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        :param bool dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        :param bool require_code_owner_review: Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        :param int required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        :param bool required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         if dismiss_stale_reviews_on_push is not None:
             pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
@@ -1637,7 +1637,7 @@ class OrganizationRulesetRulesPullRequest(dict):
     @pulumi.getter(name="dismissStaleReviewsOnPush")
     def dismiss_stale_reviews_on_push(self) -> Optional[bool]:
         """
-        (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews_on_push")
 
@@ -1645,7 +1645,7 @@ class OrganizationRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requireCodeOwnerReview")
     def require_code_owner_review(self) -> Optional[bool]:
         """
-        (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_review")
 
@@ -1653,7 +1653,7 @@ class OrganizationRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requireLastPushApproval")
     def require_last_push_approval(self) -> Optional[bool]:
         """
-        (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         """
         return pulumi.get(self, "require_last_push_approval")
 
@@ -1661,7 +1661,7 @@ class OrganizationRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> Optional[int]:
         """
-        (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         """
         return pulumi.get(self, "required_approving_review_count")
 
@@ -1669,7 +1669,7 @@ class OrganizationRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requiredReviewThreadResolution")
     def required_review_thread_resolution(self) -> Optional[bool]:
         """
-        (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
 
@@ -1699,8 +1699,8 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
                  required_checks: Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck'],
                  strict_required_status_checks_policy: Optional[bool] = None):
         """
-        :param Sequence['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
-        :param bool strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        :param Sequence['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: Status checks that are required. Several can be defined.
+        :param bool strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
@@ -1710,7 +1710,7 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
     @pulumi.getter(name="requiredChecks")
     def required_checks(self) -> Sequence['outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck']:
         """
-        (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        Status checks that are required. Several can be defined.
         """
         return pulumi.get(self, "required_checks")
 
@@ -1718,7 +1718,7 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
     def strict_required_status_checks_policy(self) -> Optional[bool]:
         """
-        (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "strict_required_status_checks_policy")
 
@@ -1746,8 +1746,8 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck(dict):
                  context: str,
                  integration_id: Optional[int] = None):
         """
-        :param str context: (String) The status check context name that must be present on the commit.
-        :param int integration_id: (Number) The optional integration ID that this status check must originate from.
+        :param str context: The status check context name that must be present on the commit.
+        :param int integration_id: The optional integration ID that this status check must originate from.
         """
         pulumi.set(__self__, "context", context)
         if integration_id is not None:
@@ -1757,7 +1757,7 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @pulumi.getter
     def context(self) -> str:
         """
-        (String) The status check context name that must be present on the commit.
+        The status check context name that must be present on the commit.
         """
         return pulumi.get(self, "context")
 
@@ -1765,7 +1765,7 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> Optional[int]:
         """
-        (Number) The optional integration ID that this status check must originate from.
+        The optional integration ID that this status check must originate from.
         """
         return pulumi.get(self, "integration_id")
 
@@ -1792,7 +1792,7 @@ class OrganizationRulesetRulesRequiredWorkflows(dict):
     def __init__(__self__, *,
                  required_workflows: Sequence['outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow']):
         """
-        :param Sequence['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs'] required_workflows: (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        :param Sequence['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs'] required_workflows: Actions workflows that are required. Several can be defined.
         """
         pulumi.set(__self__, "required_workflows", required_workflows)
 
@@ -1800,7 +1800,7 @@ class OrganizationRulesetRulesRequiredWorkflows(dict):
     @pulumi.getter(name="requiredWorkflows")
     def required_workflows(self) -> Sequence['outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow']:
         """
-        (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+        Actions workflows that are required. Several can be defined.
         """
         return pulumi.get(self, "required_workflows")
 
@@ -1829,9 +1829,9 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow(dict):
                  repository_id: int,
                  ref: Optional[str] = None):
         """
-        :param str path: (String) The path to the YAML definition file of the workflow.
-        :param int repository_id: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
-        :param str ref: (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        :param str path: The path to the workflow YAML definition file.
+        :param int repository_id: The repository in which the workflow is defined.
+        :param str ref: The ref (branch or tag) of the workflow file to use.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "repository_id", repository_id)
@@ -1842,7 +1842,7 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        (String) The path to the YAML definition file of the workflow.
+        The path to the workflow YAML definition file.
         """
         return pulumi.get(self, "path")
 
@@ -1850,7 +1850,7 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow(dict):
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> int:
         """
-        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        The repository in which the workflow is defined.
         """
         return pulumi.get(self, "repository_id")
 
@@ -1858,7 +1858,7 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow(dict):
     @pulumi.getter
     def ref(self) -> Optional[str]:
         """
-        (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+        The ref (branch or tag) of the workflow file to use.
         """
         return pulumi.get(self, "ref")
 
@@ -1871,10 +1871,10 @@ class OrganizationRulesetRulesTagNamePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -1887,7 +1887,7 @@ class OrganizationRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -1895,7 +1895,7 @@ class OrganizationRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -1911,7 +1911,7 @@ class OrganizationRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -2188,7 +2188,7 @@ class RepositoryPages(dict):
         :param bool custom404: Whether the rendered GitHub Pages site has a custom 404 page.
         :param str html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param 'RepositoryPagesSourceArgs' source: The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        :param str status: The GitHub Pages site's build status e.g. `building` or `built`.
         """
         if build_type is not None:
             pulumi.set(__self__, "build_type", build_type)
@@ -2249,7 +2249,7 @@ class RepositoryPages(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        The GitHub Pages site's build status e.g. `building` or `built`.
         """
         return pulumi.get(self, "status")
 
@@ -2395,8 +2395,8 @@ class RepositoryRulesetConditionsRefName(dict):
                  excludes: Sequence[str],
                  includes: Sequence[str]):
         """
-        :param Sequence[str] excludes: (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
-        :param Sequence[str] includes: (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        :param Sequence[str] excludes: Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        :param Sequence[str] includes: Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
         pulumi.set(__self__, "excludes", excludes)
         pulumi.set(__self__, "includes", includes)
@@ -2405,7 +2405,7 @@ class RepositoryRulesetConditionsRefName(dict):
     @pulumi.getter
     def excludes(self) -> Sequence[str]:
         """
-        (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+        Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
         """
         return pulumi.get(self, "excludes")
 
@@ -2413,7 +2413,7 @@ class RepositoryRulesetConditionsRefName(dict):
     @pulumi.getter
     def includes(self) -> Sequence[str]:
         """
-        (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+        Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
         """
         return pulumi.get(self, "includes")
 
@@ -2652,10 +2652,10 @@ class RepositoryRulesetRulesBranchNamePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -2668,7 +2668,7 @@ class RepositoryRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -2676,7 +2676,7 @@ class RepositoryRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -2692,7 +2692,7 @@ class RepositoryRulesetRulesBranchNamePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -2705,10 +2705,10 @@ class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -2721,7 +2721,7 @@ class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -2729,7 +2729,7 @@ class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -2745,7 +2745,7 @@ class RepositoryRulesetRulesCommitAuthorEmailPattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -2758,10 +2758,10 @@ class RepositoryRulesetRulesCommitMessagePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -2774,7 +2774,7 @@ class RepositoryRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -2782,7 +2782,7 @@ class RepositoryRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -2798,7 +2798,7 @@ class RepositoryRulesetRulesCommitMessagePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -2811,10 +2811,10 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -2827,7 +2827,7 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -2835,7 +2835,7 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -2851,7 +2851,7 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -2890,11 +2890,11 @@ class RepositoryRulesetRulesPullRequest(dict):
                  required_approving_review_count: Optional[int] = None,
                  required_review_thread_resolution: Optional[bool] = None):
         """
-        :param bool dismiss_stale_reviews_on_push: (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
-        :param bool require_code_owner_review: (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
-        :param bool require_last_push_approval: (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
-        :param int required_approving_review_count: (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
-        :param bool required_review_thread_resolution: (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        :param bool dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        :param bool require_code_owner_review: Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        :param bool require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        :param int required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        :param bool required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         if dismiss_stale_reviews_on_push is not None:
             pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
@@ -2911,7 +2911,7 @@ class RepositoryRulesetRulesPullRequest(dict):
     @pulumi.getter(name="dismissStaleReviewsOnPush")
     def dismiss_stale_reviews_on_push(self) -> Optional[bool]:
         """
-        (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+        New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         """
         return pulumi.get(self, "dismiss_stale_reviews_on_push")
 
@@ -2919,7 +2919,7 @@ class RepositoryRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requireCodeOwnerReview")
     def require_code_owner_review(self) -> Optional[bool]:
         """
-        (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+        Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         """
         return pulumi.get(self, "require_code_owner_review")
 
@@ -2927,7 +2927,7 @@ class RepositoryRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requireLastPushApproval")
     def require_last_push_approval(self) -> Optional[bool]:
         """
-        (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+        Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         """
         return pulumi.get(self, "require_last_push_approval")
 
@@ -2935,7 +2935,7 @@ class RepositoryRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requiredApprovingReviewCount")
     def required_approving_review_count(self) -> Optional[int]:
         """
-        (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+        The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         """
         return pulumi.get(self, "required_approving_review_count")
 
@@ -2943,7 +2943,7 @@ class RepositoryRulesetRulesPullRequest(dict):
     @pulumi.getter(name="requiredReviewThreadResolution")
     def required_review_thread_resolution(self) -> Optional[bool]:
         """
-        (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
 
@@ -2970,7 +2970,7 @@ class RepositoryRulesetRulesRequiredDeployments(dict):
     def __init__(__self__, *,
                  required_deployment_environments: Sequence[str]):
         """
-        :param Sequence[str] required_deployment_environments: (List of String) The environments that must be successfully deployed to before branches can be merged.
+        :param Sequence[str] required_deployment_environments: The environments that must be successfully deployed to before branches can be merged.
         """
         pulumi.set(__self__, "required_deployment_environments", required_deployment_environments)
 
@@ -2978,7 +2978,7 @@ class RepositoryRulesetRulesRequiredDeployments(dict):
     @pulumi.getter(name="requiredDeploymentEnvironments")
     def required_deployment_environments(self) -> Sequence[str]:
         """
-        (List of String) The environments that must be successfully deployed to before branches can be merged.
+        The environments that must be successfully deployed to before branches can be merged.
         """
         return pulumi.get(self, "required_deployment_environments")
 
@@ -3008,8 +3008,8 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
                  required_checks: Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck'],
                  strict_required_status_checks_policy: Optional[bool] = None):
         """
-        :param Sequence['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
-        :param bool strict_required_status_checks_policy: (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        :param Sequence['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: Status checks that are required. Several can be defined.
+        :param bool strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
         if strict_required_status_checks_policy is not None:
@@ -3019,7 +3019,7 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
     @pulumi.getter(name="requiredChecks")
     def required_checks(self) -> Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck']:
         """
-        (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+        Status checks that are required. Several can be defined.
         """
         return pulumi.get(self, "required_checks")
 
@@ -3027,7 +3027,7 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
     def strict_required_status_checks_policy(self) -> Optional[bool]:
         """
-        (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "strict_required_status_checks_policy")
 
@@ -3055,8 +3055,8 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck(dict):
                  context: str,
                  integration_id: Optional[int] = None):
         """
-        :param str context: (String) The status check context name that must be present on the commit.
-        :param int integration_id: (Number) The optional integration ID that this status check must originate from.
+        :param str context: The status check context name that must be present on the commit.
+        :param int integration_id: The optional integration ID that this status check must originate from.
         """
         pulumi.set(__self__, "context", context)
         if integration_id is not None:
@@ -3066,7 +3066,7 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @pulumi.getter
     def context(self) -> str:
         """
-        (String) The status check context name that must be present on the commit.
+        The status check context name that must be present on the commit.
         """
         return pulumi.get(self, "context")
 
@@ -3074,7 +3074,7 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheck(dict):
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> Optional[int]:
         """
-        (Number) The optional integration ID that this status check must originate from.
+        The optional integration ID that this status check must originate from.
         """
         return pulumi.get(self, "integration_id")
 
@@ -3087,10 +3087,10 @@ class RepositoryRulesetRulesTagNamePattern(dict):
                  name: Optional[str] = None,
                  negate: Optional[bool] = None):
         """
-        :param str operator: (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        :param str pattern: (String) The pattern to match with.
+        :param str operator: The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        :param str pattern: The pattern to match with.
         :param str name: (String) The name of the ruleset.
-        :param bool negate: (Boolean) If true, the rule will fail if the pattern matches.
+        :param bool negate: If true, the rule will fail if the pattern matches.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "pattern", pattern)
@@ -3103,7 +3103,7 @@ class RepositoryRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         """
         return pulumi.get(self, "operator")
 
@@ -3111,7 +3111,7 @@ class RepositoryRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        (String) The pattern to match with.
+        The pattern to match with.
         """
         return pulumi.get(self, "pattern")
 
@@ -3127,7 +3127,7 @@ class RepositoryRulesetRulesTagNamePattern(dict):
     @pulumi.getter
     def negate(self) -> Optional[bool]:
         """
-        (Boolean) If true, the rule will fail if the pattern matches.
+        If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
 
@@ -3219,7 +3219,7 @@ class RepositorySecurityAndAnalysisSecretScanning(dict):
     def __init__(__self__, *,
                  status: str):
         """
-        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        :param str status: The GitHub Pages site's build status e.g. `building` or `built`.
         """
         pulumi.set(__self__, "status", status)
 
@@ -3227,7 +3227,7 @@ class RepositorySecurityAndAnalysisSecretScanning(dict):
     @pulumi.getter
     def status(self) -> str:
         """
-        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        The GitHub Pages site's build status e.g. `building` or `built`.
         """
         return pulumi.get(self, "status")
 
@@ -3237,7 +3237,7 @@ class RepositorySecurityAndAnalysisSecretScanningPushProtection(dict):
     def __init__(__self__, *,
                  status: str):
         """
-        :param str status: Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        :param str status: The GitHub Pages site's build status e.g. `building` or `built`.
         """
         pulumi.set(__self__, "status", status)
 
@@ -3245,7 +3245,7 @@ class RepositorySecurityAndAnalysisSecretScanningPushProtection(dict):
     @pulumi.getter
     def status(self) -> str:
         """
-        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        The GitHub Pages site's build status e.g. `building` or `built`.
         """
         return pulumi.get(self, "status")
 
@@ -3437,9 +3437,9 @@ class TeamSettingsReviewRequestDelegation(dict):
                  member_count: Optional[int] = None,
                  notify: Optional[bool] = None):
         """
-        :param str algorithm: The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
-        :param int member_count: The number of team members to assign to a pull request
-        :param bool notify: whether to notify the entire team when at least one member is also assigned to the pull request
+        :param str algorithm: The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        :param int member_count: The number of team members to assign to a pull request.
+        :param bool notify: whether to notify the entire team when at least one member is also assigned to the pull request.
         """
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
@@ -3452,7 +3452,7 @@ class TeamSettingsReviewRequestDelegation(dict):
     @pulumi.getter
     def algorithm(self) -> Optional[str]:
         """
-        The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+        The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
         """
         return pulumi.get(self, "algorithm")
 
@@ -3460,7 +3460,7 @@ class TeamSettingsReviewRequestDelegation(dict):
     @pulumi.getter(name="memberCount")
     def member_count(self) -> Optional[int]:
         """
-        The number of team members to assign to a pull request
+        The number of team members to assign to a pull request.
         """
         return pulumi.get(self, "member_count")
 
@@ -3468,7 +3468,7 @@ class TeamSettingsReviewRequestDelegation(dict):
     @pulumi.getter
     def notify(self) -> Optional[bool]:
         """
-        whether to notify the entire team when at least one member is also assigned to the pull request
+        whether to notify the entire team when at least one member is also assigned to the pull request.
         """
         return pulumi.get(self, "notify")
 

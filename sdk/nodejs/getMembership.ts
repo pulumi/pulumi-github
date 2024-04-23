@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     username: "SomeUser",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
 
@@ -80,7 +78,6 @@ export interface GetMembershipResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -89,7 +86,6 @@ export interface GetMembershipResult {
  *     username: "SomeUser",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
     return pulumi.output(args).apply((a: any) => getMembership(a, opts))

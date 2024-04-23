@@ -16,7 +16,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _requiredDeploymentEnvironments;
 
         /// <summary>
-        /// (List of String) The environments that must be successfully deployed to before branches can be merged.
+        /// The environments that must be successfully deployed to before branches can be merged.
         /// </summary>
         public InputList<string> RequiredDeploymentEnvironments
         {

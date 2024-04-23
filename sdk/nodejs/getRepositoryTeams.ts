@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryTeams(args?: GetRepositoryTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryTeamsResult> {
     args = args || {};
@@ -69,7 +67,6 @@ export interface GetRepositoryTeamsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -78,7 +75,6 @@ export interface GetRepositoryTeamsResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryTeamsResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryTeams(a, opts))

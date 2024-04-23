@@ -187,14 +187,12 @@ def get_team(membership_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_team(slug="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
@@ -237,14 +235,12 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_team(slug="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
