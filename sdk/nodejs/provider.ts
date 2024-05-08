@@ -42,7 +42,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly owner!: pulumi.Output<string | undefined>;
     /**
-     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
     public readonly token!: pulumi.Output<string | undefined>;
 
@@ -83,7 +83,7 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     /**
      * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-     * and `app_auth` are not set.
+     * and `appAuth` are not set.
      */
     appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
     /**
@@ -120,16 +120,16 @@ export interface ProviderArgs {
     readDelayMs?: pulumi.Input<number>;
     /**
      * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-     * 1s if not set, the max_retries must be set to greater than zero.
+     * 1s if not set, the maxRetries must be set to greater than zero.
      */
     retryDelayMs?: pulumi.Input<number>;
     /**
-     * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+     * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
      * to [500, 502, 503, 504]
      */
     retryableErrors?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
     token?: pulumi.Input<string>;
     /**
