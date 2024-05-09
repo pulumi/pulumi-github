@@ -26,7 +26,7 @@ type Provider struct {
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
 
@@ -65,7 +65,7 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-	// and `app_auth` are not set.
+	// and `appAuth` are not set.
 	AppAuth *ProviderAppAuth `pulumi:"appAuth"`
 	// The GitHub Base API URL
 	BaseUrl *string `pulumi:"baseUrl"`
@@ -86,12 +86,12 @@ type providerArgs struct {
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs *int `pulumi:"readDelayMs"`
 	// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-	// 1s if not set, the max_retries must be set to greater than zero.
+	// 1s if not set, the maxRetries must be set to greater than zero.
 	RetryDelayMs *int `pulumi:"retryDelayMs"`
-	// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+	// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
 	// to [500, 502, 503, 504]
 	RetryableErrors []int `pulumi:"retryableErrors"`
-	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 	Token *string `pulumi:"token"`
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
 	WriteDelayMs *int `pulumi:"writeDelayMs"`
@@ -100,7 +100,7 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-	// and `app_auth` are not set.
+	// and `appAuth` are not set.
 	AppAuth ProviderAppAuthPtrInput
 	// The GitHub Base API URL
 	BaseUrl pulumi.StringPtrInput
@@ -121,12 +121,12 @@ type ProviderArgs struct {
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs pulumi.IntPtrInput
 	// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-	// 1s if not set, the max_retries must be set to greater than zero.
+	// 1s if not set, the maxRetries must be set to greater than zero.
 	RetryDelayMs pulumi.IntPtrInput
-	// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
+	// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
 	// to [500, 502, 503, 504]
 	RetryableErrors pulumi.IntArrayInput
-	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+	// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 	Token pulumi.StringPtrInput
 	// Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
 	WriteDelayMs pulumi.IntPtrInput
@@ -186,7 +186,7 @@ func (o ProviderOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 func (o ProviderOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }
