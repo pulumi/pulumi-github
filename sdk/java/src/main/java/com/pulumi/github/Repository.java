@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +54,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;My awesome codebase&#34;)
- *             .visibility(&#34;public&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example")
+ *             .description("My awesome codebase")
+ *             .visibility("public")
  *             .template(RepositoryTemplateArgs.builder()
- *                 .owner(&#34;github&#34;)
- *                 .repository(&#34;terraform-template-module&#34;)
+ *                 .owner("github")
+ *                 .repository("terraform-template-module")
  *                 .includeAllBranches(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With GitHub Pages Enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,21 +98,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;My awesome web page&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example")
+ *             .description("My awesome web page")
  *             .private_(false)
  *             .pages(RepositoryPagesArgs.builder()
  *                 .source(RepositoryPagesSourceArgs.builder()
- *                     .branch(&#34;master&#34;)
- *                     .path(&#34;/docs&#34;)
+ *                     .branch("master")
+ *                     .path("/docs")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OrganizationSettings(&#34;test&#34;, OrganizationSettingsArgs.builder()        
- *             .billingEmail(&#34;test@example.com&#34;)
- *             .company(&#34;Test Company&#34;)
- *             .blog(&#34;https://example.com&#34;)
- *             .email(&#34;test@example.com&#34;)
- *             .twitterUsername(&#34;Test&#34;)
- *             .location(&#34;Test Location&#34;)
- *             .name(&#34;Test Name&#34;)
- *             .description(&#34;Test Description&#34;)
+ *         var test = new OrganizationSettings("test", OrganizationSettingsArgs.builder()        
+ *             .billingEmail("test{@literal @}example.com")
+ *             .company("Test Company")
+ *             .blog("https://example.com")
+ *             .email("test{@literal @}example.com")
+ *             .twitterUsername("Test")
+ *             .location("Test Location")
+ *             .name("Test Name")
+ *             .description("Test Description")
  *             .hasOrganizationProjects(true)
  *             .hasRepositoryProjects(true)
- *             .defaultRepositoryPermission(&#34;read&#34;)
+ *             .defaultRepositoryPermission("read")
  *             .membersCanCreateRepositories(true)
  *             .membersCanCreatePublicRepositories(true)
  *             .membersCanCreatePrivateRepositories(true)
@@ -73,7 +74,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

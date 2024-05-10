@@ -34,14 +34,14 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfigArgs extends 
     }
 
     /**
-     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
      * 
      */
     @Import(name="patternsAlloweds")
     private @Nullable Output<List<String>> patternsAlloweds;
 
     /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
      * 
      */
     public Optional<Output<List<String>>> patternsAlloweds() {
@@ -111,7 +111,7 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfigArgs extends 
         }
 
         /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfigArgs extends 
         }
 
         /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ActionsRepositoryPermissionsAllowedActionsConfigArgs extends 
         }
 
         /**
-         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+         * @param patternsAlloweds Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
          * 
          * @return builder
          * 

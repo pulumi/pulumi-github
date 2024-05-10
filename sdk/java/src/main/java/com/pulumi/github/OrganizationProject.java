@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
- *             .name(&#34;A Organization Project&#34;)
- *             .body(&#34;This is a organization project.&#34;)
+ *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()        
+ *             .name("A Organization Project")
+ *             .body("This is a organization project.")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

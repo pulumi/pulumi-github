@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var test = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .name(&#34;test&#34;)
+ *             .name("test")
  *             .build());
  * 
- *         var testRepositoryTopics = new RepositoryTopics(&#34;testRepositoryTopics&#34;, RepositoryTopicsArgs.builder()        
+ *         var testRepositoryTopics = new RepositoryTopics("testRepositoryTopics", RepositoryTopicsArgs.builder()        
  *             .repository(testGithubRepository.name())
  *             .topics(            
- *                 &#34;topic-1&#34;,
- *                 &#34;topic-2&#34;)
+ *                 "topic-1",
+ *                 "topic-2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

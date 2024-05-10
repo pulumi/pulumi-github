@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,41 +45,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationCustomRole(&#34;example&#34;, OrganizationCustomRoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;Example custom role that uses the read role as its base&#34;)
- *             .baseRole(&#34;read&#34;)
+ *         var example = new OrganizationCustomRole("example", OrganizationCustomRoleArgs.builder()        
+ *             .name("example")
+ *             .description("Example custom role that uses the read role as its base")
+ *             .baseRole("read")
  *             .permissions(            
- *                 &#34;add_assignee&#34;,
- *                 &#34;add_label&#34;,
- *                 &#34;bypass_branch_protection&#34;,
- *                 &#34;close_issue&#34;,
- *                 &#34;close_pull_request&#34;,
- *                 &#34;mark_as_duplicate&#34;,
- *                 &#34;create_tag&#34;,
- *                 &#34;delete_issue&#34;,
- *                 &#34;delete_tag&#34;,
- *                 &#34;manage_deploy_keys&#34;,
- *                 &#34;push_protected_branch&#34;,
- *                 &#34;read_code_scanning&#34;,
- *                 &#34;reopen_issue&#34;,
- *                 &#34;reopen_pull_request&#34;,
- *                 &#34;request_pr_review&#34;,
- *                 &#34;resolve_dependabot_alerts&#34;,
- *                 &#34;resolve_secret_scanning_alerts&#34;,
- *                 &#34;view_secret_scanning_alerts&#34;,
- *                 &#34;write_code_scanning&#34;)
+ *                 "add_assignee",
+ *                 "add_label",
+ *                 "bypass_branch_protection",
+ *                 "close_issue",
+ *                 "close_pull_request",
+ *                 "mark_as_duplicate",
+ *                 "create_tag",
+ *                 "delete_issue",
+ *                 "delete_tag",
+ *                 "manage_deploy_keys",
+ *                 "push_protected_branch",
+ *                 "read_code_scanning",
+ *                 "reopen_issue",
+ *                 "reopen_pull_request",
+ *                 "request_pr_review",
+ *                 "resolve_dependabot_alerts",
+ *                 "resolve_secret_scanning_alerts",
+ *                 "view_secret_scanning_alerts",
+ *                 "write_code_scanning")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Custom roles can be imported using the `id` of the role.
- * The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
+ * The `id` of the custom role can be found using the [list custom roles in an organization](https://docs.github.com/en/enterprise-cloud{@literal @}latest/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) API.
  * 
  * ```sh
  * $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
@@ -130,14 +132,14 @@ public class OrganizationCustomRole extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
+     * A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud{@literal @}latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
      * 
      */
     @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissions;
 
     /**
-     * @return A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
+     * @return A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud{@literal @}latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
      * 
      */
     public Output<List<String>> permissions() {

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,19 +50,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
- *             .username(&#34;&#34;)
+ *             .username("")
  *             .build());
  * 
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .name(&#34;tf-acc-test-%s&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .name("tf-acc-test-%s")
  *             .build());
  * 
- *         var testRepositoryEnvironment = new RepositoryEnvironment(&#34;testRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
+ *         var testRepositoryEnvironment = new RepositoryEnvironment("testRepositoryEnvironment", RepositoryEnvironmentArgs.builder()        
  *             .repository(test.name())
- *             .environment(&#34;environment/test&#34;)
+ *             .environment("environment/test")
  *             .waitTimer(10000)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
- *                 .users(current.applyValue(getUserResult -&gt; getUserResult.id()))
+ *                 .users(current.applyValue(getUserResult -> getUserResult.id()))
  *                 .build())
  *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
  *                 .protectedBranches(false)
@@ -69,15 +70,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy(&#34;testRepositoryEnvironmentDeploymentPolicy&#34;, RepositoryEnvironmentDeploymentPolicyArgs.builder()        
+ *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", RepositoryEnvironmentDeploymentPolicyArgs.builder()        
  *             .repository(test.name())
  *             .environment(testRepositoryEnvironment.environment())
- *             .branchPattern(&#34;releases/*&#34;)
+ *             .branchPattern("releases/*")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,23 +51,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName(&#34;my-org/repo&#34;)
+ *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var exampleSecret = new DependabotOrganizationSecret(&#34;exampleSecret&#34;, DependabotOrganizationSecretArgs.builder()        
- *             .secretName(&#34;example_secret_name&#34;)
- *             .visibility(&#34;private&#34;)
+ *         var exampleSecret = new DependabotOrganizationSecret("exampleSecret", DependabotOrganizationSecretArgs.builder()        
+ *             .secretName("example_secret_name")
+ *             .visibility("private")
  *             .plaintextValue(someSecretString)
  *             .build());
  * 
- *         var orgSecretRepos = new DependabotOrganizationSecretRepositories(&#34;orgSecretRepos&#34;, DependabotOrganizationSecretRepositoriesArgs.builder()        
+ *         var orgSecretRepos = new DependabotOrganizationSecretRepositories("orgSecretRepos", DependabotOrganizationSecretRepositoriesArgs.builder()        
  *             .secretName(exampleSecret.secretName())
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

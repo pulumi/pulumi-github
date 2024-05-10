@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName(&#34;my-org/repo&#34;)
+ *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var orgSecretRepos = new ActionsOrganizationSecretRepositories(&#34;orgSecretRepos&#34;, ActionsOrganizationSecretRepositoriesArgs.builder()        
- *             .secretName(&#34;existing_secret_name&#34;)
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *         var orgSecretRepos = new ActionsOrganizationSecretRepositories("orgSecretRepos", ActionsOrganizationSecretRepositoriesArgs.builder()        
+ *             .secretName("existing_secret_name")
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

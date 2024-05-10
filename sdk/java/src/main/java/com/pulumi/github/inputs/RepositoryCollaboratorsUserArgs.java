@@ -18,7 +18,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
 
     /**
      * The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
@@ -27,7 +27,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
 
     /**
      * @return The permission of the outside collaborators for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
@@ -77,7 +77,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
 
         /**
          * @param permission The permission of the outside collaborators for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
          * Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
@@ -90,7 +90,7 @@ public final class RepositoryCollaboratorsUserArgs extends com.pulumi.resources.
 
         /**
          * @param permission The permission of the outside collaborators for the repository.
-         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+         * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
          * Must be `push` for personal repositories. Defaults to `push`.
          * 
          * @return builder
