@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,15 +67,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a collaborator to a repository
- *         var aRepoCollaborator = new RepositoryCollaborator(&#34;aRepoCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
- *             .repository(&#34;our-cool-repo&#34;)
- *             .username(&#34;SomeUser&#34;)
- *             .permission(&#34;admin&#34;)
+ *         var aRepoCollaborator = new RepositoryCollaborator("aRepoCollaborator", RepositoryCollaboratorArgs.builder()        
+ *             .repository("our-cool-repo")
+ *             .username("SomeUser")
+ *             .permission("admin")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -104,7 +106,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
     }
     /**
      * The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      * 
      */
@@ -113,7 +115,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
 
     /**
      * @return The permission of the outside collaborator for the repository.
-     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+     * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      * 
      */

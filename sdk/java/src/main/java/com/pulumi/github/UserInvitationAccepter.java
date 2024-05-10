@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,23 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example-repo")
  *             .build());
  * 
- *         var exampleRepositoryCollaborator = new RepositoryCollaborator(&#34;exampleRepositoryCollaborator&#34;, RepositoryCollaboratorArgs.builder()        
+ *         var exampleRepositoryCollaborator = new RepositoryCollaborator("exampleRepositoryCollaborator", RepositoryCollaboratorArgs.builder()        
  *             .repository(example.name())
- *             .username(&#34;example-username&#34;)
- *             .permission(&#34;push&#34;)
+ *             .username("example-username")
+ *             .permission("push")
  *             .build());
  * 
- *         var exampleUserInvitationAccepter = new UserInvitationAccepter(&#34;exampleUserInvitationAccepter&#34;, UserInvitationAccepterArgs.builder()        
+ *         var exampleUserInvitationAccepter = new UserInvitationAccepter("exampleUserInvitationAccepter", UserInvitationAccepterArgs.builder()        
  *             .invitationId(exampleRepositoryCollaborator.invitationId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Allowing empty invitation IDs

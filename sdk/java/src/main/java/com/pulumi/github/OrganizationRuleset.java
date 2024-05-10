@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,20 +54,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationRuleset(&#34;example&#34;, OrganizationRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .target(&#34;branch&#34;)
- *             .enforcement(&#34;active&#34;)
+ *         var example = new OrganizationRuleset("example", OrganizationRulesetArgs.builder()        
+ *             .name("example")
+ *             .target("branch")
+ *             .enforcement("active")
  *             .conditions(OrganizationRulesetConditionsArgs.builder()
  *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
- *                     .includes(&#34;~ALL&#34;)
+ *                     .includes("~ALL")
  *                     .excludes()
  *                     .build())
  *                 .build())
  *             .bypassActors(OrganizationRulesetBypassActorArgs.builder()
  *                 .actorId(13473)
- *                 .actorType(&#34;Integration&#34;)
- *                 .bypassMode(&#34;always&#34;)
+ *                 .actorType("Integration")
+ *                 .bypassMode("always")
  *                 .build())
  *             .rules(OrganizationRulesetRulesArgs.builder()
  *                 .creation(true)
@@ -75,17 +76,18 @@ import javax.annotation.Nullable;
  *                 .requiredLinearHistory(true)
  *                 .requiredSignatures(true)
  *                 .branchNamePattern(OrganizationRulesetRulesBranchNamePatternArgs.builder()
- *                     .name(&#34;example&#34;)
+ *                     .name("example")
  *                     .negate(false)
- *                     .operator(&#34;starts_with&#34;)
- *                     .pattern(&#34;ex&#34;)
+ *                     .operator("starts_with")
+ *                     .pattern("ex")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;my-repository&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("my-repository")
  *             .build());
  * 
- *         var test = new ActionsOrganizationPermissions(&#34;test&#34;, ActionsOrganizationPermissionsArgs.builder()        
- *             .allowedActions(&#34;selected&#34;)
- *             .enabledRepositories(&#34;selected&#34;)
+ *         var test = new ActionsOrganizationPermissions("test", ActionsOrganizationPermissionsArgs.builder()        
+ *             .allowedActions("selected")
+ *             .enabledRepositories("selected")
  *             .allowedActionsConfig(ActionsOrganizationPermissionsAllowedActionsConfigArgs.builder()
  *                 .githubOwnedAllowed(true)
  *                 .patternsAlloweds(                
- *                     &#34;actions/cache@*&#34;,
- *                     &#34;actions/checkout@*&#34;)
+ *                     "actions/cache{@literal @}*",
+ *                     "actions/checkout{@literal @}*")
  *                 .verifiedAllowed(true)
  *                 .build())
  *             .enabledRepositoriesConfig(ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs.builder()
@@ -69,7 +70,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

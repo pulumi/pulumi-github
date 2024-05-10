@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,26 +56,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;Example repository&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("example")
+ *             .description("Example repository")
  *             .build());
  * 
- *         var exampleRepositoryRuleset = new RepositoryRuleset(&#34;exampleRepositoryRuleset&#34;, RepositoryRulesetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRepositoryRuleset = new RepositoryRuleset("exampleRepositoryRuleset", RepositoryRulesetArgs.builder()        
+ *             .name("example")
  *             .repository(example.name())
- *             .target(&#34;branch&#34;)
- *             .enforcement(&#34;active&#34;)
+ *             .target("branch")
+ *             .enforcement("active")
  *             .conditions(RepositoryRulesetConditionsArgs.builder()
  *                 .refName(RepositoryRulesetConditionsRefNameArgs.builder()
- *                     .includes(&#34;~ALL&#34;)
+ *                     .includes("~ALL")
  *                     .excludes()
  *                     .build())
  *                 .build())
  *             .bypassActors(RepositoryRulesetBypassActorArgs.builder()
  *                 .actorId(13473)
- *                 .actorType(&#34;Integration&#34;)
- *                 .bypassMode(&#34;always&#34;)
+ *                 .actorType("Integration")
+ *                 .bypassMode("always")
  *                 .build())
  *             .rules(RepositoryRulesetRulesArgs.builder()
  *                 .creation(true)
@@ -83,14 +84,15 @@ import javax.annotation.Nullable;
  *                 .requiredLinearHistory(true)
  *                 .requiredSignatures(true)
  *                 .requiredDeployments(RepositoryRulesetRulesRequiredDeploymentsArgs.builder()
- *                     .requiredDeploymentEnvironments(&#34;test&#34;)
+ *                     .requiredDeploymentEnvironments("test")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

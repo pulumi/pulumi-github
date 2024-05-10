@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserGpgKey(&#34;example&#34;, UserGpgKeyArgs.builder()        
- *             .armoredPublicKey(&#34;&#34;&#34;
+ *         var example = new UserGpgKey("example", UserGpgKeyArgs.builder()        
+ *             .armoredPublicKey("""
  * -----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...
- * -----END PGP PUBLIC KEY BLOCK-----            &#34;&#34;&#34;)
+ * -----END PGP PUBLIC KEY BLOCK-----            """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

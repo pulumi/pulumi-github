@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,22 +51,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example-enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
- *             .slug(&#34;my-enterprise&#34;)
+ *             .slug("my-enterprise")
  *             .build());
  * 
  *         final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
- *             .name(&#34;my-org&#34;)
+ *             .name("my-org")
  *             .build());
  * 
- *         var test = new EnterpriseActionsPermissions(&#34;test&#34;, EnterpriseActionsPermissionsArgs.builder()        
+ *         var test = new EnterpriseActionsPermissions("test", EnterpriseActionsPermissionsArgs.builder()        
  *             .enterpriseId(example_enterprise.slug())
- *             .allowedActions(&#34;selected&#34;)
- *             .enabledOrganizations(&#34;selected&#34;)
+ *             .allowedActions("selected")
+ *             .enabledOrganizations("selected")
  *             .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()
  *                 .githubOwnedAllowed(true)
  *                 .patternsAlloweds(                
- *                     &#34;actions/cache@*&#34;,
- *                     &#34;actions/checkout@*&#34;)
+ *                     "actions/cache{@literal @}*",
+ *                     "actions/checkout{@literal @}*")
  *                 .verifiedAllowed(true)
  *                 .build())
  *             .enabledOrganizationsConfig(EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs.builder()
@@ -75,7 +76,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

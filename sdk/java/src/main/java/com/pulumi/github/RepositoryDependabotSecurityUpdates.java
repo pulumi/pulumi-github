@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
- *             .name(&#34;my-repo&#34;)
- *             .description(&#34;GitHub repo managed by Terraform&#34;)
+ *         var repo = new Repository("repo", RepositoryArgs.builder()        
+ *             .name("my-repo")
+ *             .description("GitHub repo managed by Terraform")
  *             .private_(false)
  *             .vulnerabilityAlerts(true)
  *             .build());
  * 
- *         var example = new RepositoryDependabotSecurityUpdates(&#34;example&#34;, RepositoryDependabotSecurityUpdatesArgs.builder()        
+ *         var example = new RepositoryDependabotSecurityUpdates("example", RepositoryDependabotSecurityUpdatesArgs.builder()        
  *             .repository(test.id())
  *             .enabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

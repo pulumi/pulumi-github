@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmuGroupMapping = new EmuGroupMapping(&#34;exampleEmuGroupMapping&#34;, EmuGroupMappingArgs.builder()        
- *             .teamSlug(&#34;emu-test-team&#34;)
+ *         var exampleEmuGroupMapping = new EmuGroupMapping("exampleEmuGroupMapping", EmuGroupMappingArgs.builder()        
+ *             .teamSlug("emu-test-team")
  *             .groupId(28836)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

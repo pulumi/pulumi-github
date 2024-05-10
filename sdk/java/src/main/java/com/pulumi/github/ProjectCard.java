@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,30 +47,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new OrganizationProject(&#34;project&#34;, OrganizationProjectArgs.builder()        
- *             .name(&#34;An Organization Project&#34;)
- *             .body(&#34;This is an organization project.&#34;)
+ *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()        
+ *             .name("An Organization Project")
+ *             .body("This is an organization project.")
  *             .build());
  * 
- *         var column = new ProjectColumn(&#34;column&#34;, ProjectColumnArgs.builder()        
+ *         var column = new ProjectColumn("column", ProjectColumnArgs.builder()        
  *             .projectId(project.id())
- *             .name(&#34;Backlog&#34;)
+ *             .name("Backlog")
  *             .build());
  * 
- *         var card = new ProjectCard(&#34;card&#34;, ProjectCardArgs.builder()        
+ *         var card = new ProjectCard("card", ProjectCardArgs.builder()        
  *             .columnId(column.columnId())
- *             .note(&#34;## Unaccepted 👇&#34;)
+ *             .note("## Unaccepted 👇")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Adding An Issue To A Project
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,38 +101,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
- *             .name(&#34;myrepo&#34;)
+ *         var test = new Repository("test", RepositoryArgs.builder()        
+ *             .name("myrepo")
  *             .hasProjects(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()        
  *             .repository(test.id())
- *             .title(&#34;Test issue title&#34;)
- *             .body(&#34;Test issue body&#34;)
+ *             .title("Test issue title")
+ *             .body("Test issue body")
  *             .build());
  * 
- *         var testRepositoryProject = new RepositoryProject(&#34;testRepositoryProject&#34;, RepositoryProjectArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var testRepositoryProject = new RepositoryProject("testRepositoryProject", RepositoryProjectArgs.builder()        
+ *             .name("test")
  *             .repository(test.name())
- *             .body(&#34;this is a test project&#34;)
+ *             .body("this is a test project")
  *             .build());
  * 
- *         var testProjectColumn = new ProjectColumn(&#34;testProjectColumn&#34;, ProjectColumnArgs.builder()        
+ *         var testProjectColumn = new ProjectColumn("testProjectColumn", ProjectColumnArgs.builder()        
  *             .projectId(testRepositoryProject.id())
- *             .name(&#34;Backlog&#34;)
+ *             .name("Backlog")
  *             .build());
  * 
- *         var testProjectCard = new ProjectCard(&#34;testProjectCard&#34;, ProjectCardArgs.builder()        
+ *         var testProjectCard = new ProjectCard("testProjectCard", ProjectCardArgs.builder()        
  *             .columnId(testProjectColumn.columnId())
  *             .contentId(testIssue.issueId())
- *             .contentType(&#34;Issue&#34;)
+ *             .contentType("Issue")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

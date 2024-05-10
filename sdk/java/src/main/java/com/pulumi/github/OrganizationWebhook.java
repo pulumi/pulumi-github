@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new OrganizationWebhook(&#34;foo&#34;, OrganizationWebhookArgs.builder()        
- *             .name(&#34;web&#34;)
+ *         var foo = new OrganizationWebhook("foo", OrganizationWebhookArgs.builder()        
+ *             .name("web")
  *             .configuration(OrganizationWebhookConfigurationArgs.builder()
- *                 .url(&#34;https://google.de/&#34;)
- *                 .contentType(&#34;form&#34;)
+ *                 .url("https://google.de/")
+ *                 .contentType("form")
  *                 .insecureSsl(false)
  *                 .build())
  *             .active(false)
- *             .events(&#34;issues&#34;)
+ *             .events("issues")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

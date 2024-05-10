@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,20 +54,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
- *             .username(&#34;&#34;)
+ *             .username("")
  *             .build());
  * 
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;A Repository Project&#34;)
- *             .description(&#34;My awesome codebase&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()        
+ *             .name("A Repository Project")
+ *             .description("My awesome codebase")
  *             .build());
  * 
- *         var exampleRepositoryEnvironment = new RepositoryEnvironment(&#34;exampleRepositoryEnvironment&#34;, RepositoryEnvironmentArgs.builder()        
- *             .environment(&#34;example&#34;)
+ *         var exampleRepositoryEnvironment = new RepositoryEnvironment("exampleRepositoryEnvironment", RepositoryEnvironmentArgs.builder()        
+ *             .environment("example")
  *             .repository(example.name())
  *             .preventSelfReview(true)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
- *                 .users(current.applyValue(getUserResult -&gt; getUserResult.id()))
+ *                 .users(current.applyValue(getUserResult -> getUserResult.id()))
  *                 .build())
  *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
  *                 .protectedBranches(true)
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
