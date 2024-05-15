@@ -254,6 +254,9 @@ export interface OrganizationRulesetBypassActor {
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     *
+     * * `OrganizationAdmin` > `1`
+     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
 }
@@ -656,6 +659,8 @@ export interface RepositoryRulesetBypassActor {
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     * * `OrganizationAdmin` > `1`
+     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
 }
