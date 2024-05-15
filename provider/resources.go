@@ -150,7 +150,8 @@ func Provider() tfbridge.ProviderInfo {
 			"github_repository_dependabot_security_updates": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"github_repository_deploy_key": {
 				Tok:                 makeResource(mainMod, "RepositoryDeployKey"),
-				DeleteBeforeReplace: true},
+				DeleteBeforeReplace: true,
+			},
 			"github_repository_environment":    {Tok: makeResource(mainMod, "RepositoryEnvironment")},
 			"github_repository_file":           {Tok: makeResource(mainMod, "RepositoryFile")},
 			"github_repository_pull_request":   {Tok: makeResource(mainMod, "RepositoryPullRequest")},
@@ -213,8 +214,10 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
+			RespectSchemaVersion: true,
 		},
 		Python: &tfbridge.PythonInfo{
+			RespectSchemaVersion: true,
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
@@ -228,8 +231,10 @@ func Provider() tfbridge.ProviderInfo {
 				mainPkg,
 			),
 			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
