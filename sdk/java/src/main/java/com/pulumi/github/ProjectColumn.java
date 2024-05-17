@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()        
+ *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()
  *             .name("A Organization Project")
  *             .body("This is an organization project.")
  *             .build());
  * 
- *         var column = new ProjectColumn("column", ProjectColumnArgs.builder()        
+ *         var column = new ProjectColumn("column", ProjectColumnArgs.builder()
  *             .projectId(project.id())
  *             .name("a column")
  *             .build());

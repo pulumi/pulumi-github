@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a simple issue
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testIssue = new Issue("testIssue", IssueArgs.builder()        
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()
  *             .repository(test.name())
  *             .title("My issue title")
  *             .body("The body of my issue")
@@ -98,13 +98,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create an issue with milestone and project assignment
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testRepositoryMilestone = new RepositoryMilestone("testRepositoryMilestone", RepositoryMilestoneArgs.builder()        
+ *         var testRepositoryMilestone = new RepositoryMilestone("testRepositoryMilestone", RepositoryMilestoneArgs.builder()
  *             .owner(StdFunctions.split().applyValue(invoke -> invoke.result()[0]))
  *             .repository(test.name())
  *             .title("v1.0.0")
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .state("open")
  *             .build());
  * 
- *         var testIssue = new Issue("testIssue", IssueArgs.builder()        
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()
  *             .repository(test.name())
  *             .title("My issue")
  *             .body("My issue body")

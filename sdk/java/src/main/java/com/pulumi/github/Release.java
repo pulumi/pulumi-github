@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository("repo", RepositoryArgs.builder()        
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
  *             .name("repo")
  *             .description("GitHub repo managed by Terraform")
  *             .private_(false)
  *             .build());
  * 
- *         var example = new Release("example", ReleaseArgs.builder()        
+ *         var example = new Release("example", ReleaseArgs.builder()
  *             .repository(repo.name())
  *             .tagName("v1.0.0")
  *             .build());
@@ -92,18 +92,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("repo")
  *             .autoInit(true)
  *             .build());
  * 
- *         var exampleBranch = new Branch("exampleBranch", BranchArgs.builder()        
+ *         var exampleBranch = new Branch("exampleBranch", BranchArgs.builder()
  *             .repository(example.name())
  *             .branch("branch_name")
  *             .sourceBranch(example.defaultBranch())
  *             .build());
  * 
- *         var exampleRelease = new Release("exampleRelease", ReleaseArgs.builder()        
+ *         var exampleRelease = new Release("exampleRelease", ReleaseArgs.builder()
  *             .repository(example.name())
  *             .tagName("v1.0.0")
  *             .targetCommitish(exampleBranch.branch())

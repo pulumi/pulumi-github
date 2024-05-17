@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RepositoryPullRequest("example", RepositoryPullRequestArgs.builder()        
+ *         var example = new RepositoryPullRequest("example", RepositoryPullRequestArgs.builder()
  *             .baseRepository("example-repository")
  *             .baseRef("main")
  *             .headRef("feature-branch")

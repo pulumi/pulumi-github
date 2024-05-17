@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *             .username("")
  *             .build());
  * 
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("A Repository Project")
  *             .description("My awesome codebase")
  *             .build());
  * 
- *         var exampleRepositoryEnvironment = new RepositoryEnvironment("exampleRepositoryEnvironment", RepositoryEnvironmentArgs.builder()        
+ *         var exampleRepositoryEnvironment = new RepositoryEnvironment("exampleRepositoryEnvironment", RepositoryEnvironmentArgs.builder()
  *             .environment("example")
  *             .repository(example.name())
  *             .preventSelfReview(true)

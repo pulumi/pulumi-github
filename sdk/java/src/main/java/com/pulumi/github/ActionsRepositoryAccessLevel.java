@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("my-repository")
  *             .visibility("private")
  *             .build());
  * 
- *         var test = new ActionsRepositoryAccessLevel("test", ActionsRepositoryAccessLevelArgs.builder()        
+ *         var test = new ActionsRepositoryAccessLevel("test", ActionsRepositoryAccessLevelArgs.builder()
  *             .accessLevel("user")
  *             .repository(example.name())
  *             .build());

@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Generate an ssh key using provider "hashicorp/tls"
- *         var exampleRepositoryDeployKey = new PrivateKey("exampleRepositoryDeployKey", PrivateKeyArgs.builder()        
+ *         var exampleRepositoryDeployKey = new PrivateKey("exampleRepositoryDeployKey", PrivateKeyArgs.builder()
  *             .algorithm("ED25519")
  *             .build());
  * 
  *         // Add the ssh key as a deploy key
- *         var exampleRepositoryDeployKeyRepositoryDeployKey = new RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", RepositoryDeployKeyArgs.builder()        
+ *         var exampleRepositoryDeployKeyRepositoryDeployKey = new RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", RepositoryDeployKeyArgs.builder()
  *             .title("Repository test key")
  *             .repository("test-repo")
  *             .key(exampleRepositoryDeployKey.publicKeyOpenssh())

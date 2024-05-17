@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()        
+ *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()
  *             .environment("example_environment")
  *             .variableName("example_variable_name")
  *             .value("example_variable_value")
@@ -85,12 +85,12 @@ import javax.annotation.Nullable;
  *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var repoEnvironment = new RepositoryEnvironment("repoEnvironment", RepositoryEnvironmentArgs.builder()        
+ *         var repoEnvironment = new RepositoryEnvironment("repoEnvironment", RepositoryEnvironmentArgs.builder()
  *             .repository(repo.applyValue(getRepositoryResult -> getRepositoryResult.name()))
  *             .environment("example_environment")
  *             .build());
  * 
- *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()        
+ *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()
  *             .repository(repo.applyValue(getRepositoryResult -> getRepositoryResult.name()))
  *             .environment(repoEnvironment.environment())
  *             .variableName("example_variable_name")
