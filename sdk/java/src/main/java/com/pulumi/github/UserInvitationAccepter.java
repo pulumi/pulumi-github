@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example-repo")
  *             .build());
  * 
- *         var exampleRepositoryCollaborator = new RepositoryCollaborator("exampleRepositoryCollaborator", RepositoryCollaboratorArgs.builder()        
+ *         var exampleRepositoryCollaborator = new RepositoryCollaborator("exampleRepositoryCollaborator", RepositoryCollaboratorArgs.builder()
  *             .repository(example.name())
  *             .username("example-username")
  *             .permission("push")
  *             .build());
  * 
- *         var exampleUserInvitationAccepter = new UserInvitationAccepter("exampleUserInvitationAccepter", UserInvitationAccepterArgs.builder()        
+ *         var exampleUserInvitationAccepter = new UserInvitationAccepter("exampleUserInvitationAccepter", UserInvitationAccepterArgs.builder()
  *             .invitationId(exampleRepositoryCollaborator.invitationId())
  *             .build());
  * 

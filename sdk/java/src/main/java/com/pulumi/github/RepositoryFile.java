@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository("foo", RepositoryArgs.builder()        
+ *         var foo = new Repository("foo", RepositoryArgs.builder()
  *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .build());
  * 
- *         var fooRepositoryFile = new RepositoryFile("fooRepositoryFile", RepositoryFileArgs.builder()        
+ *         var fooRepositoryFile = new RepositoryFile("fooRepositoryFile", RepositoryFileArgs.builder()
  *             .repository(foo.name())
  *             .branch("main")
  *             .file(".gitignore")

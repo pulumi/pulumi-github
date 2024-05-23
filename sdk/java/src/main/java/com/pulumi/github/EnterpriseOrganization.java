@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var org = new EnterpriseOrganization("org", EnterpriseOrganizationArgs.builder()        
+ *         var org = new EnterpriseOrganization("org", EnterpriseOrganizationArgs.builder()
  *             .enterpriseId(enterprise.id())
  *             .name("some-awesome-org")
  *             .displayName("Some Awesome Org")

@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example-repository")
  *             .build());
  * 
- *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()        
+ *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
  *             .repository(example.name())
  *             .useDefault(false)
  *             .includeClaimKeys(            

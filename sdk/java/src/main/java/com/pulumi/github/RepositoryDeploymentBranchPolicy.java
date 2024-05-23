@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env = new RepositoryEnvironment("env", RepositoryEnvironmentArgs.builder()        
+ *         var env = new RepositoryEnvironment("env", RepositoryEnvironmentArgs.builder()
  *             .repository("my_repo")
  *             .environment("my_env")
  *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foo = new RepositoryDeploymentBranchPolicy("foo", RepositoryDeploymentBranchPolicyArgs.builder()        
+ *         var foo = new RepositoryDeploymentBranchPolicy("foo", RepositoryDeploymentBranchPolicyArgs.builder()
  *             .repository("my_repo")
  *             .environmentName("my_env")
  *             .name("foo")

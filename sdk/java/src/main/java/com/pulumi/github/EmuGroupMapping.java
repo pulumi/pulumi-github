@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmuGroupMapping = new EmuGroupMapping("exampleEmuGroupMapping", EmuGroupMappingArgs.builder()        
+ *         var exampleEmuGroupMapping = new EmuGroupMapping("exampleEmuGroupMapping", EmuGroupMappingArgs.builder()
  *             .teamSlug("emu-test-team")
  *             .groupId(28836)
  *             .build());

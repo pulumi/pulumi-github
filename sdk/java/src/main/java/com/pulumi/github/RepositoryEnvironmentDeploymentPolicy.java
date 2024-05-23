@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *             .username("")
  *             .build());
  * 
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .name("tf-acc-test-%s")
  *             .build());
  * 
- *         var testRepositoryEnvironment = new RepositoryEnvironment("testRepositoryEnvironment", RepositoryEnvironmentArgs.builder()        
+ *         var testRepositoryEnvironment = new RepositoryEnvironment("testRepositoryEnvironment", RepositoryEnvironmentArgs.builder()
  *             .repository(test.name())
  *             .environment("environment/test")
  *             .waitTimer(10000)
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", RepositoryEnvironmentDeploymentPolicyArgs.builder()        
+ *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", RepositoryEnvironmentDeploymentPolicyArgs.builder()
  *             .repository(test.name())
  *             .environment(testRepositoryEnvironment.environment())
  *             .branchPattern("releases/*")

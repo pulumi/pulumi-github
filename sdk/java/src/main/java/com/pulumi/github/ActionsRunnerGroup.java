@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("my-repository")
  *             .build());
  * 
- *         var exampleActionsRunnerGroup = new ActionsRunnerGroup("exampleActionsRunnerGroup", ActionsRunnerGroupArgs.builder()        
+ *         var exampleActionsRunnerGroup = new ActionsRunnerGroup("exampleActionsRunnerGroup", ActionsRunnerGroupArgs.builder()
  *             .name(example.name())
  *             .visibility("selected")
  *             .selectedRepositoryIds(example.repoId())
