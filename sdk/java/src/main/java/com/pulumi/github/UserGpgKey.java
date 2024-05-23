@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserGpgKey("example", UserGpgKeyArgs.builder()        
+ *         var example = new UserGpgKey("example", UserGpgKeyArgs.builder()
  *             .armoredPublicKey("""
  * -----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...

@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository("repo", RepositoryArgs.builder()        
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
  *             .name("my-repo")
  *             .description("GitHub repo managed by Terraform")
  *             .private_(false)
  *             .build());
  * 
- *         var autolink = new RepositoryAutolinkReference("autolink", RepositoryAutolinkReferenceArgs.builder()        
+ *         var autolink = new RepositoryAutolinkReference("autolink", RepositoryAutolinkReferenceArgs.builder()
  *             .repository(repo.name())
  *             .keyPrefix("TICKET-")
  *             .targetUrlTemplate("https://example.com/TICKET?query=<num>")

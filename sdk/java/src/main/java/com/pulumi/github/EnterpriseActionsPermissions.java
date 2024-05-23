@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .name("my-org")
  *             .build());
  * 
- *         var test = new EnterpriseActionsPermissions("test", EnterpriseActionsPermissionsArgs.builder()        
+ *         var test = new EnterpriseActionsPermissions("test", EnterpriseActionsPermissionsArgs.builder()
  *             .enterpriseId(example_enterprise.slug())
  *             .allowedActions("selected")
  *             .enabledOrganizations("selected")

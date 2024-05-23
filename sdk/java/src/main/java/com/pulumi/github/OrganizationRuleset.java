@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationRuleset("example", OrganizationRulesetArgs.builder()        
+ *         var example = new OrganizationRuleset("example", OrganizationRulesetArgs.builder()
  *             .name("example")
  *             .target("branch")
  *             .enforcement("active")

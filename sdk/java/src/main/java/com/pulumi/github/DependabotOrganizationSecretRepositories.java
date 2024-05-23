@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var exampleSecret = new DependabotOrganizationSecret("exampleSecret", DependabotOrganizationSecretArgs.builder()        
+ *         var exampleSecret = new DependabotOrganizationSecret("exampleSecret", DependabotOrganizationSecretArgs.builder()
  *             .secretName("example_secret_name")
  *             .visibility("private")
  *             .plaintextValue(someSecretString)
  *             .build());
  * 
- *         var orgSecretRepos = new DependabotOrganizationSecretRepositories("orgSecretRepos", DependabotOrganizationSecretRepositoriesArgs.builder()        
+ *         var orgSecretRepos = new DependabotOrganizationSecretRepositories("orgSecretRepos", DependabotOrganizationSecretRepositoriesArgs.builder()
  *             .secretName(exampleSecret.secretName())
  *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
  *             .build());

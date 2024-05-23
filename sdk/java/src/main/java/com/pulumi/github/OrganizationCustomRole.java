@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationCustomRole("example", OrganizationCustomRoleArgs.builder()        
+ *         var example = new OrganizationCustomRole("example", OrganizationCustomRoleArgs.builder()
  *             .name("example")
  *             .description("Example custom role that uses the read role as its base")
  *             .baseRole("read")

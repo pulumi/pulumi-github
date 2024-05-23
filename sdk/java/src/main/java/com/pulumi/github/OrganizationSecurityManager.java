@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var someTeam = new Team("someTeam", TeamArgs.builder()        
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
  *             .build());
  * 
- *         var someTeamOrganizationSecurityManager = new OrganizationSecurityManager("someTeamOrganizationSecurityManager", OrganizationSecurityManagerArgs.builder()        
+ *         var someTeamOrganizationSecurityManager = new OrganizationSecurityManager("someTeamOrganizationSecurityManager", OrganizationSecurityManagerArgs.builder()
  *             .teamSlug(someTeam.slug())
  *             .build());
  * 

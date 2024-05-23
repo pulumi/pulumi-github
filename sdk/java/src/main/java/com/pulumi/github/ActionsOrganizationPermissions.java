@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("my-repository")
  *             .build());
  * 
- *         var test = new ActionsOrganizationPermissions("test", ActionsOrganizationPermissionsArgs.builder()        
+ *         var test = new ActionsOrganizationPermissions("test", ActionsOrganizationPermissionsArgs.builder()
  *             .allowedActions("selected")
  *             .enabledRepositories("selected")
  *             .allowedActionsConfig(ActionsOrganizationPermissionsAllowedActionsConfigArgs.builder()

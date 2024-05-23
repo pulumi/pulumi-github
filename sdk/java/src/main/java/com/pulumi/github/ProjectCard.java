@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()        
+ *         var project = new OrganizationProject("project", OrganizationProjectArgs.builder()
  *             .name("An Organization Project")
  *             .body("This is an organization project.")
  *             .build());
  * 
- *         var column = new ProjectColumn("column", ProjectColumnArgs.builder()        
+ *         var column = new ProjectColumn("column", ProjectColumnArgs.builder()
  *             .projectId(project.id())
  *             .name("Backlog")
  *             .build());
  * 
- *         var card = new ProjectCard("card", ProjectCardArgs.builder()        
+ *         var card = new ProjectCard("card", ProjectCardArgs.builder()
  *             .columnId(column.columnId())
  *             .note("## Unaccepted 👇")
  *             .build());
@@ -101,30 +101,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .name("myrepo")
  *             .hasProjects(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testIssue = new Issue("testIssue", IssueArgs.builder()        
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()
  *             .repository(test.id())
  *             .title("Test issue title")
  *             .body("Test issue body")
  *             .build());
  * 
- *         var testRepositoryProject = new RepositoryProject("testRepositoryProject", RepositoryProjectArgs.builder()        
+ *         var testRepositoryProject = new RepositoryProject("testRepositoryProject", RepositoryProjectArgs.builder()
  *             .name("test")
  *             .repository(test.name())
  *             .body("this is a test project")
  *             .build());
  * 
- *         var testProjectColumn = new ProjectColumn("testProjectColumn", ProjectColumnArgs.builder()        
+ *         var testProjectColumn = new ProjectColumn("testProjectColumn", ProjectColumnArgs.builder()
  *             .projectId(testRepositoryProject.id())
  *             .name("Backlog")
  *             .build());
  * 
- *         var testProjectCard = new ProjectCard("testProjectCard", ProjectCardArgs.builder()        
+ *         var testProjectCard = new ProjectCard("testProjectCard", ProjectCardArgs.builder()
  *             .columnId(testProjectColumn.columnId())
  *             .contentId(testIssue.issueId())
  *             .contentType("Issue")

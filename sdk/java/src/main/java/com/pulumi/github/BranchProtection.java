@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .name("test")
  *             .build());
  * 
@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *             .username("example")
  *             .build());
  * 
- *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()        
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .name("Example Name")
  *             .build());
  * 
  *         // Protect the main branch of the foo repository. Additionally, require that
  *         // the "ci/travis" context to be passing and only allow the engineers team merge
  *         // to the branch.
- *         var exampleBranchProtection = new BranchProtection("exampleBranchProtection", BranchProtectionArgs.builder()        
+ *         var exampleBranchProtection = new BranchProtection("exampleBranchProtection", BranchProtectionArgs.builder()
  *             .repositoryId(exampleRepository.nodeId())
  *             .pattern("main")
  *             .enforceAdmins(true)
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                 "exampleorganization/exampleteam")
  *             .build());
  * 
- *         var exampleTeamRepository = new TeamRepository("exampleTeamRepository", TeamRepositoryArgs.builder()        
+ *         var exampleTeamRepository = new TeamRepository("exampleTeamRepository", TeamRepositoryArgs.builder()
  *             .teamId(exampleTeam.id())
  *             .repository(exampleRepository.name())
  *             .permission("pull")

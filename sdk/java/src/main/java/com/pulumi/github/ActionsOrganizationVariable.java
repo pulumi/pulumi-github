@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()        
+ *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()
  *             .variableName("example_variable_name")
  *             .visibility("private")
  *             .value("example_variable_value")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()        
+ *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()
  *             .variableName("example_variable_name")
  *             .visibility("selected")
  *             .value("example_variable_value")

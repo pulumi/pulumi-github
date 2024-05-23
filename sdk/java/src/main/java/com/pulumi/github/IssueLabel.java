@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new, red colored label
- *         var testRepo = new IssueLabel("testRepo", IssueLabelArgs.builder()        
+ *         var testRepo = new IssueLabel("testRepo", IssueLabelArgs.builder()
  *             .repository("test-repo")
  *             .name("Urgent")
  *             .color("FF0000")
