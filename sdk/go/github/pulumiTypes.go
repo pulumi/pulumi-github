@@ -2210,6 +2210,9 @@ type OrganizationRulesetBypassActor struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	//
+	// * `OrganizationAdmin` > `1`
+	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode string `pulumi:"bypassMode"`
 }
 
@@ -2232,6 +2235,9 @@ type OrganizationRulesetBypassActorArgs struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	//
+	// * `OrganizationAdmin` > `1`
+	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
@@ -2299,6 +2305,9 @@ func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 // (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 //
 // ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+//
+// * `OrganizationAdmin` > `1`
+// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 func (o OrganizationRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }
@@ -6202,6 +6211,8 @@ type RepositoryRulesetBypassActor struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	// * `OrganizationAdmin` > `1`
+	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode string `pulumi:"bypassMode"`
 }
 
@@ -6224,6 +6235,8 @@ type RepositoryRulesetBypassActorArgs struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	// * `OrganizationAdmin` > `1`
+	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
@@ -6291,6 +6304,8 @@ func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 // (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 //
 // > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+// * `OrganizationAdmin` > `1`
+// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }

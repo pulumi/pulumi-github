@@ -76,16 +76,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add collaborators to a repository
- *         var someTeam = new Team("someTeam", TeamArgs.builder()        
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
  *             .build());
  * 
- *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()        
+ *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()
  *             .name("some-repo")
  *             .build());
  * 
- *         var someRepoCollaborators = new RepositoryCollaborators("someRepoCollaborators", RepositoryCollaboratorsArgs.builder()        
+ *         var someRepoCollaborators = new RepositoryCollaborators("someRepoCollaborators", RepositoryCollaboratorsArgs.builder()
  *             .repository(someRepo.name())
  *             .users(RepositoryCollaboratorsUserArgs.builder()
  *                 .permission("admin")

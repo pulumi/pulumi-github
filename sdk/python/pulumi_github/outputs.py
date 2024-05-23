@@ -989,6 +989,9 @@ class OrganizationRulesetBypassActor(dict):
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+               
+               * `OrganizationAdmin` > `1`
+               * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
@@ -1017,6 +1020,9 @@ class OrganizationRulesetBypassActor(dict):
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+
+        * `OrganizationAdmin` > `1`
+        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
 
@@ -2322,6 +2328,8 @@ class RepositoryRulesetBypassActor(dict):
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+               * `OrganizationAdmin` > `1`
+               * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
@@ -2350,6 +2358,8 @@ class RepositoryRulesetBypassActor(dict):
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+        * `OrganizationAdmin` > `1`
+        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
 

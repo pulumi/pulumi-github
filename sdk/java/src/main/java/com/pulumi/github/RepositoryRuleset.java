@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("Example repository")
  *             .build());
  * 
- *         var exampleRepositoryRuleset = new RepositoryRuleset("exampleRepositoryRuleset", RepositoryRulesetArgs.builder()        
+ *         var exampleRepositoryRuleset = new RepositoryRuleset("exampleRepositoryRuleset", RepositoryRulesetArgs.builder()
  *             .name("example")
  *             .repository(example.name())
  *             .target("branch")

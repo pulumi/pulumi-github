@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTemplate = new ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs.builder()        
+ *         var exampleTemplate = new ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs.builder()
  *             .includeClaimKeys(            
  *                 "actor",
  *                 "context",

@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a repository to the team
- *         var someTeam = new Team("someTeam", TeamArgs.builder()        
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
  *             .build());
  * 
- *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()        
+ *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()
  *             .teamId(someTeam.id())
  *             .reviewRequestDelegation(TeamSettingsReviewRequestDelegationArgs.builder()
  *                 .algorithm("ROUND_ROBIN")

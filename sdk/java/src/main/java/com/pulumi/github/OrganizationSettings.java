@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OrganizationSettings("test", OrganizationSettingsArgs.builder()        
+ *         var test = new OrganizationSettings("test", OrganizationSettingsArgs.builder()
  *             .billingEmail("test{@literal @}example.com")
  *             .company("Test Company")
  *             .blog("https://example.com")

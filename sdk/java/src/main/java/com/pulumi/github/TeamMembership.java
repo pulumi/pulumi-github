@@ -56,17 +56,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a user to the organization
- *         var membershipForSomeUser = new Membership("membershipForSomeUser", MembershipArgs.builder()        
+ *         var membershipForSomeUser = new Membership("membershipForSomeUser", MembershipArgs.builder()
  *             .username("SomeUser")
  *             .role("member")
  *             .build());
  * 
- *         var someTeam = new Team("someTeam", TeamArgs.builder()        
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
  *             .build());
  * 
- *         var someTeamMembership = new TeamMembership("someTeamMembership", TeamMembershipArgs.builder()        
+ *         var someTeamMembership = new TeamMembership("someTeamMembership", TeamMembershipArgs.builder()
  *             .teamId(someTeam.id())
  *             .username("SomeUser")
  *             .role("member")

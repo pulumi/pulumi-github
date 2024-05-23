@@ -54,14 +54,14 @@ import javax.annotation.Nullable;
  *             .slug("my-enterprise")
  *             .build());
  * 
- *         var enterpriseOrganization = new EnterpriseOrganization("enterpriseOrganization", EnterpriseOrganizationArgs.builder()        
+ *         var enterpriseOrganization = new EnterpriseOrganization("enterpriseOrganization", EnterpriseOrganizationArgs.builder()
  *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.id()))
  *             .name("my-organization")
  *             .billingEmail("octocat{@literal @}octo.cat")
  *             .adminLogins("octocat")
  *             .build());
  * 
- *         var example = new EnterpriseActionsRunnerGroup("example", EnterpriseActionsRunnerGroupArgs.builder()        
+ *         var example = new EnterpriseActionsRunnerGroup("example", EnterpriseActionsRunnerGroupArgs.builder()
  *             .name("my-awesome-runner-group")
  *             .enterpriseSlug(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.slug()))
  *             .allowsPublicRepositories(true)

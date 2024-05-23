@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *             .name("test")
  *             .build());
  * 
- *         var testRepositoryTopics = new RepositoryTopics("testRepositoryTopics", RepositoryTopicsArgs.builder()        
+ *         var testRepositoryTopics = new RepositoryTopics("testRepositoryTopics", RepositoryTopicsArgs.builder()
  *             .repository(testGithubRepository.name())
  *             .topics(            
  *                 "topic-1",
