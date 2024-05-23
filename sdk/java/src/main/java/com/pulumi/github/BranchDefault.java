@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("My awesome codebase")
  *             .autoInit(true)
  *             .build());
  * 
- *         var development = new Branch("development", BranchArgs.builder()        
+ *         var development = new Branch("development", BranchArgs.builder()
  *             .repository(example.name())
  *             .branch("development")
  *             .build());
  * 
- *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()        
+ *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()
  *             .repository(example.name())
  *             .branch(development.branch())
  *             .build());
@@ -102,13 +102,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
  *             .name("example")
  *             .description("My awesome codebase")
  *             .autoInit(true)
  *             .build());
  * 
- *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()        
+ *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()
  *             .repository(example.name())
  *             .branch("development")
  *             .rename(true)

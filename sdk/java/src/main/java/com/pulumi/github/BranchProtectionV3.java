@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
- *         var example = new BranchProtectionV3("example", BranchProtectionV3Args.builder()        
+ *         var example = new BranchProtectionV3("example", BranchProtectionV3Args.builder()
  *             .repository(exampleGithubRepository.name())
  *             .branch("main")
  *             .restrictions(BranchProtectionV3RestrictionsArgs.builder()

@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a repository.
- *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()        
+ *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()
  *             .name("some-repo")
  *             .build());
  * 
- *         var someAppRepo = new AppInstallationRepository("someAppRepo", AppInstallationRepositoryArgs.builder()        
+ *         var someAppRepo = new AppInstallationRepository("someAppRepo", AppInstallationRepositoryArgs.builder()
  *             .installationId("1234567")
  *             .repository(someRepo.name())
  *             .build());

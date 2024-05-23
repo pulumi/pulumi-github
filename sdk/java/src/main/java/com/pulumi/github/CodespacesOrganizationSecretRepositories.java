@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var orgSecretRepos = new CodespacesOrganizationSecretRepositories("orgSecretRepos", CodespacesOrganizationSecretRepositoriesArgs.builder()        
+ *         var orgSecretRepos = new CodespacesOrganizationSecretRepositories("orgSecretRepos", CodespacesOrganizationSecretRepositoriesArgs.builder()
  *             .secretName("existing_secret_name")
  *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
  *             .build());

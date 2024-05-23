@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository("repo", RepositoryArgs.builder()        
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
  *             .name("foo")
  *             .description("Terraform acceptance tests")
  *             .homepageUrl("http://example.com/")
  *             .visibility("public")
  *             .build());
  * 
- *         var foo = new RepositoryWebhook("foo", RepositoryWebhookArgs.builder()        
+ *         var foo = new RepositoryWebhook("foo", RepositoryWebhookArgs.builder()
  *             .repository(repo.name())
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
  *                 .url("https://google.de/")

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a team to the organization
- *         var someTeam = new Team("someTeam", TeamArgs.builder()        
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("some-team")
  *             .description("Some cool team")
  *             .privacy("closed")

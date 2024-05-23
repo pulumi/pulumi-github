@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationBlock("example", OrganizationBlockArgs.builder()        
+ *         var example = new OrganizationBlock("example", OrganizationBlockArgs.builder()
  *             .username("paultyng")
  *             .build());
  * 

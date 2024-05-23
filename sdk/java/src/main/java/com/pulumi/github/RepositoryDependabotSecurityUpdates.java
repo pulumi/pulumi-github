@@ -46,14 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository("repo", RepositoryArgs.builder()        
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
  *             .name("my-repo")
  *             .description("GitHub repo managed by Terraform")
  *             .private_(false)
  *             .vulnerabilityAlerts(true)
  *             .build());
  * 
- *         var example = new RepositoryDependabotSecurityUpdates("example", RepositoryDependabotSecurityUpdatesArgs.builder()        
+ *         var example = new RepositoryDependabotSecurityUpdates("example", RepositoryDependabotSecurityUpdatesArgs.builder()
  *             .repository(test.id())
  *             .enabled(true)
  *             .build());
