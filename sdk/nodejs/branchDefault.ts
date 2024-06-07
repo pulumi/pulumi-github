@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     autoInit: true,
  * });
@@ -33,16 +33,15 @@ import * as utilities from "./utilities";
  *     branch: development.branch,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Renaming to a branch that doesn't exist:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     autoInit: true,
  * });
@@ -52,7 +51,6 @@ import * as utilities from "./utilities";
  *     rename: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

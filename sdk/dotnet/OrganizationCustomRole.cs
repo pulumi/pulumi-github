@@ -16,7 +16,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,8 +26,9 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.OrganizationCustomRole("example", new()
     ///     {
-    ///         BaseRole = "read",
+    ///         Name = "example",
     ///         Description = "Example custom role that uses the read role as its base",
+    ///         BaseRole = "read",
     ///         Permissions = new[]
     ///         {
     ///             "add_assignee",
@@ -55,7 +55,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

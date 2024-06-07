@@ -100,20 +100,18 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        test_repository = github.get_repository(name="test")
-        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
-            repository=github_repository["test"]["name"],
+        test = github.get_repository(name="test")
+        test_repository_topics = github.RepositoryTopics("test",
+            repository=test_github_repository["name"],
             topics=[
                 "topic-1",
                 "topic-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -137,20 +135,18 @@ class RepositoryTopics(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        test_repository = github.get_repository(name="test")
-        test_repository_topics = github.RepositoryTopics("testRepositoryTopics",
-            repository=github_repository["test"]["name"],
+        test = github.get_repository(name="test")
+        test_repository_topics = github.RepositoryTopics("test",
+            repository=test_github_repository["name"],
             topics=[
                 "topic-1",
                 "topic-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

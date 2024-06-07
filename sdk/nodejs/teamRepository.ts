@@ -23,21 +23,22 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a repository to the team
- * const someTeam = new github.Team("someTeam", {description: "Some cool team"});
- * const someRepo = new github.Repository("someRepo", {});
- * const someTeamRepo = new github.TeamRepository("someTeamRepo", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const someRepo = new github.Repository("some_repo", {name: "some-repo"});
+ * const someTeamRepo = new github.TeamRepository("some_team_repo", {
  *     teamId: someTeam.id,
  *     repository: someRepo.name,
  *     permission: "pull",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

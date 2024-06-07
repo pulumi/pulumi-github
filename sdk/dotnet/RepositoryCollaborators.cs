@@ -37,7 +37,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,14 +46,18 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add collaborators to a repository
-    ///     var someTeam = new Github.Team("someTeam", new()
+    ///     var someTeam = new Github.Team("some_team", new()
     ///     {
+    ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var someRepo = new Github.Repository("someRepo");
+    ///     var someRepo = new Github.Repository("some_repo", new()
+    ///     {
+    ///         Name = "some-repo",
+    ///     });
     /// 
-    ///     var someRepoCollaborators = new Github.RepositoryCollaborators("someRepoCollaborators", new()
+    ///     var someRepoCollaborators = new Github.RepositoryCollaborators("some_repo_collaborators", new()
     ///     {
     ///         Repository = someRepo.Name,
     ///         Users = new[]
@@ -77,7 +80,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

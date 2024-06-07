@@ -12,7 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,15 +21,15 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new, red colored label
-    ///     var testRepo = new Github.IssueLabel("testRepo", new()
+    ///     var testRepo = new Github.IssueLabel("test_repo", new()
     ///     {
-    ///         Color = "FF0000",
     ///         Repository = "test-repo",
+    ///         Name = "Urgent",
+    ///         Color = "FF0000",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

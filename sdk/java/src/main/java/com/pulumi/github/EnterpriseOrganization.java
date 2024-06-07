@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var org = new EnterpriseOrganization(&#34;org&#34;, EnterpriseOrganizationArgs.builder()        
- *             .enterpriseId(data.github_enterprise().enterprise().id())
- *             .displayName(&#34;Some Awesome Org&#34;)
- *             .description(&#34;Organization created with terraform&#34;)
- *             .billingEmail(&#34;jon@winteriscoming.com&#34;)
- *             .adminLogins(&#34;jon-snow&#34;)
+ *         var org = new EnterpriseOrganization("org", EnterpriseOrganizationArgs.builder()
+ *             .enterpriseId(enterprise.id())
+ *             .name("some-awesome-org")
+ *             .displayName("Some Awesome Org")
+ *             .description("Organization created with terraform")
+ *             .billingEmail("jon{@literal @}winteriscoming.com")
+ *             .adminLogins("jon-snow")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -269,16 +269,17 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
+        example = github.Repository("example",
+            name="A Repository Project",
+            description="My awesome codebase")
+        example_repository_environment = github.RepositoryEnvironment("example",
             environment="example",
-            repository=example_repository.name,
+            repository=example.name,
             prevent_self_review=True,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
                 users=[current.id],
@@ -288,7 +289,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 custom_branch_policies=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,16 +319,17 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         current = github.get_user(username="")
-        example_repository = github.Repository("exampleRepository", description="My awesome codebase")
-        example_repository_environment = github.RepositoryEnvironment("exampleRepositoryEnvironment",
+        example = github.Repository("example",
+            name="A Repository Project",
+            description="My awesome codebase")
+        example_repository_environment = github.RepositoryEnvironment("example",
             environment="example",
-            repository=example_repository.name,
+            repository=example.name,
             prevent_self_review=True,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
                 users=[current.id],
@@ -338,7 +339,6 @@ class RepositoryEnvironment(pulumi.CustomResource):
                 custom_branch_policies=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

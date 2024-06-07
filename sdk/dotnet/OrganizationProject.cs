@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +24,12 @@ namespace Pulumi.Github
     /// {
     ///     var project = new Github.OrganizationProject("project", new()
     ///     {
+    ///         Name = "A Organization Project",
     ///         Body = "This is a organization project.",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [GithubResourceType("github:index/organizationProject:OrganizationProject")]
     public partial class OrganizationProject : global::Pulumi.CustomResource

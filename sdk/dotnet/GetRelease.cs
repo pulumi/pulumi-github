@@ -18,7 +18,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve the latest release that is present in a repository:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,14 +28,13 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRelease.Invoke(new()
         ///     {
-        ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a specific release from a repository based on it's ID:
         /// </summary>
@@ -50,7 +48,6 @@ namespace Pulumi.Github
         /// 
         /// To retrieve the latest release that is present in a repository:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,14 +58,13 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetRelease.Invoke(new()
         ///     {
-        ///         Owner = "example-owner",
         ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a specific release from a repository based on it's ID:
         /// </summary>

@@ -23,16 +23,19 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.GithubFunctions;
  * import com.pulumi.github.inputs.GetUserArgs;
  * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.BranchProtection;
  * import com.pulumi.github.BranchProtectionArgs;
  * import com.pulumi.github.inputs.BranchProtectionRequiredStatusCheckArgs;
@@ -53,56 +56,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
- * 
- *         final var exampleUser = GithubFunctions.getUser(GetUserArgs.builder()
- *             .username(&#34;example&#34;)
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
+ *             .name("test")
  *             .build());
  * 
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;);
+ *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
+ *             .username("example")
+ *             .build());
+ * 
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
+ *             .name("Example Name")
+ *             .build());
  * 
  *         // Protect the main branch of the foo repository. Additionally, require that
- *         // the &#34;ci/travis&#34; context to be passing and only allow the engineers team merge
+ *         // the "ci/travis" context to be passing and only allow the engineers team merge
  *         // to the branch.
- *         var exampleBranchProtection = new BranchProtection(&#34;exampleBranchProtection&#34;, BranchProtectionArgs.builder()        
+ *         var exampleBranchProtection = new BranchProtection("exampleBranchProtection", BranchProtectionArgs.builder()
  *             .repositoryId(exampleRepository.nodeId())
- *             .pattern(&#34;main&#34;)
+ *             .pattern("main")
  *             .enforceAdmins(true)
  *             .allowsDeletions(true)
  *             .requiredStatusChecks(BranchProtectionRequiredStatusCheckArgs.builder()
  *                 .strict(false)
- *                 .contexts(&#34;ci/travis&#34;)
+ *                 .contexts("ci/travis")
  *                 .build())
  *             .requiredPullRequestReviews(BranchProtectionRequiredPullRequestReviewArgs.builder()
  *                 .dismissStaleReviews(true)
  *                 .restrictDismissals(true)
  *                 .dismissalRestrictions(                
- *                     exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
+ *                     example.applyValue(getUserResult -> getUserResult.nodeId()),
  *                     exampleTeam.nodeId(),
- *                     &#34;/exampleuser&#34;,
- *                     &#34;exampleorganization/exampleteam&#34;)
+ *                     "/exampleuser",
+ *                     "exampleorganization/exampleteam")
  *                 .build())
  *             .restrictPushes(BranchProtectionRestrictPushArgs.builder()
  *                 .pushAllowances(                
- *                     exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
- *                     &#34;/exampleuser&#34;,
- *                     &#34;exampleorganization/exampleteam&#34;)
+ *                     example.applyValue(getUserResult -> getUserResult.nodeId()),
+ *                     "/exampleuser",
+ *                     "exampleorganization/exampleteam")
  *                 .build())
  *             .forcePushBypassers(            
- *                 exampleUser.applyValue(getUserResult -&gt; getUserResult.nodeId()),
- *                 &#34;/exampleuser&#34;,
- *                 &#34;exampleorganization/exampleteam&#34;)
+ *                 example.applyValue(getUserResult -> getUserResult.nodeId()),
+ *                 "/exampleuser",
+ *                 "exampleorganization/exampleteam")
  *             .build());
  * 
- *         var exampleTeamRepository = new TeamRepository(&#34;exampleTeamRepository&#34;, TeamRepositoryArgs.builder()        
+ *         var exampleTeamRepository = new TeamRepository("exampleTeamRepository", TeamRepositoryArgs.builder()
  *             .teamId(exampleTeam.id())
  *             .repository(exampleRepository.name())
- *             .permission(&#34;pull&#34;)
+ *             .permission("pull")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

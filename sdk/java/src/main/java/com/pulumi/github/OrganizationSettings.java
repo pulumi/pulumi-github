@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,37 +43,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OrganizationSettings(&#34;test&#34;, OrganizationSettingsArgs.builder()        
+ *         var test = new OrganizationSettings("test", OrganizationSettingsArgs.builder()
+ *             .billingEmail("test{@literal @}example.com")
+ *             .company("Test Company")
+ *             .blog("https://example.com")
+ *             .email("test{@literal @}example.com")
+ *             .twitterUsername("Test")
+ *             .location("Test Location")
+ *             .name("Test Name")
+ *             .description("Test Description")
+ *             .hasOrganizationProjects(true)
+ *             .hasRepositoryProjects(true)
+ *             .defaultRepositoryPermission("read")
+ *             .membersCanCreateRepositories(true)
+ *             .membersCanCreatePublicRepositories(true)
+ *             .membersCanCreatePrivateRepositories(true)
+ *             .membersCanCreateInternalRepositories(true)
+ *             .membersCanCreatePages(true)
+ *             .membersCanCreatePublicPages(true)
+ *             .membersCanCreatePrivatePages(true)
+ *             .membersCanForkPrivateRepositories(true)
+ *             .webCommitSignoffRequired(true)
  *             .advancedSecurityEnabledForNewRepositories(false)
- *             .billingEmail(&#34;test@example.com&#34;)
- *             .blog(&#34;https://example.com&#34;)
- *             .company(&#34;Test Company&#34;)
- *             .defaultRepositoryPermission(&#34;read&#34;)
  *             .dependabotAlertsEnabledForNewRepositories(false)
  *             .dependabotSecurityUpdatesEnabledForNewRepositories(false)
  *             .dependencyGraphEnabledForNewRepositories(false)
- *             .description(&#34;Test Description&#34;)
- *             .email(&#34;test@example.com&#34;)
- *             .hasOrganizationProjects(true)
- *             .hasRepositoryProjects(true)
- *             .location(&#34;Test Location&#34;)
- *             .membersCanCreateInternalRepositories(true)
- *             .membersCanCreatePages(true)
- *             .membersCanCreatePrivatePages(true)
- *             .membersCanCreatePrivateRepositories(true)
- *             .membersCanCreatePublicPages(true)
- *             .membersCanCreatePublicRepositories(true)
- *             .membersCanCreateRepositories(true)
- *             .membersCanForkPrivateRepositories(true)
  *             .secretScanningEnabledForNewRepositories(false)
  *             .secretScanningPushProtectionEnabledForNewRepositories(false)
- *             .twitterUsername(&#34;Test&#34;)
- *             .webCommitSignoffRequired(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

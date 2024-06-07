@@ -254,6 +254,9 @@ export interface OrganizationRulesetBypassActor {
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     *
+     * * `OrganizationAdmin` > `1`
+     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
 }
@@ -277,22 +280,22 @@ export interface OrganizationRulesetConditions {
 
 export interface OrganizationRulesetConditionsRefName {
     /**
-     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      */
     includes: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface OrganizationRulesetConditionsRepositoryName {
     /**
-     * (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      */
     includes: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -366,15 +369,15 @@ export interface OrganizationRulesetRulesBranchNamePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -385,15 +388,15 @@ export interface OrganizationRulesetRulesCommitAuthorEmailPattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -404,15 +407,15 @@ export interface OrganizationRulesetRulesCommitMessagePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -423,82 +426,82 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
 
 export interface OrganizationRulesetRulesPullRequest {
     /**
-     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
     dismissStaleReviewsOnPush?: pulumi.Input<boolean>;
     /**
-     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
     requireCodeOwnerReview?: pulumi.Input<boolean>;
     /**
-     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
     requireLastPushApproval?: pulumi.Input<boolean>;
     /**
-     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
     requiredApprovingReviewCount?: pulumi.Input<number>;
     /**
-     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      */
     requiredChecks: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck>[]>;
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
     strictRequiredStatusChecksPolicy?: pulumi.Input<boolean>;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
-     * (String) The status check context name that must be present on the commit.
+     * The status check context name that must be present on the commit.
      */
     context: pulumi.Input<string>;
     /**
-     * (Number) The optional integration ID that this status check must originate from.
+     * The optional integration ID that this status check must originate from.
      */
     integrationId?: pulumi.Input<number>;
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflows {
     /**
-     * (Block Set, Min: 1) Actions workflows that are required. Multiple can be defined. (see below for nested schema)
+     * Actions workflows that are required. Several can be defined.
      */
     requiredWorkflows: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow>[]>;
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
     /**
-     * (String) The path to the YAML definition file of the workflow.
+     * The path to the workflow YAML definition file.
      */
     path: pulumi.Input<string>;
     /**
-     * (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * The ref (branch or tag) of the workflow file to use.
      */
     ref?: pulumi.Input<string>;
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * The repository in which the workflow is defined.
      */
     repositoryId: pulumi.Input<number>;
 }
@@ -509,15 +512,15 @@ export interface OrganizationRulesetRulesTagNamePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -626,7 +629,7 @@ export interface RepositoryPages {
      */
     source?: pulumi.Input<inputs.RepositoryPagesSource>;
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status?: pulumi.Input<string>;
     url?: pulumi.Input<string>;
@@ -656,6 +659,8 @@ export interface RepositoryRulesetBypassActor {
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     * * `OrganizationAdmin` > `1`
+     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: pulumi.Input<string>;
 }
@@ -669,11 +674,11 @@ export interface RepositoryRulesetConditions {
 
 export interface RepositoryRulesetConditionsRefName {
     /**
-     * (List of String) Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
      */
     excludes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (List of String) Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+     * Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
      */
     includes: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -747,15 +752,15 @@ export interface RepositoryRulesetRulesBranchNamePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -766,15 +771,15 @@ export interface RepositoryRulesetRulesCommitAuthorEmailPattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -785,15 +790,15 @@ export interface RepositoryRulesetRulesCommitMessagePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -804,67 +809,67 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
 
 export interface RepositoryRulesetRulesPullRequest {
     /**
-     * (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
     dismissStaleReviewsOnPush?: pulumi.Input<boolean>;
     /**
-     * (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      */
     requireCodeOwnerReview?: pulumi.Input<boolean>;
     /**
-     * (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      */
     requireLastPushApproval?: pulumi.Input<boolean>;
     /**
-     * (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      */
     requiredApprovingReviewCount?: pulumi.Input<number>;
     /**
-     * (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
 }
 
 export interface RepositoryRulesetRulesRequiredDeployments {
     /**
-     * (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * The environments that must be successfully deployed to before branches can be merged.
      */
     requiredDeploymentEnvironments: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecks {
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      */
     requiredChecks: pulumi.Input<pulumi.Input<inputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck>[]>;
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      */
     strictRequiredStatusChecksPolicy?: pulumi.Input<boolean>;
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
     /**
-     * (String) The status check context name that must be present on the commit.
+     * The status check context name that must be present on the commit.
      */
     context: pulumi.Input<string>;
     /**
-     * (Number) The optional integration ID that this status check must originate from.
+     * The optional integration ID that this status check must originate from.
      */
     integrationId?: pulumi.Input<number>;
 }
@@ -875,15 +880,15 @@ export interface RepositoryRulesetRulesTagNamePattern {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Boolean) If true, the rule will fail if the pattern matches.
+     * If true, the rule will fail if the pattern matches.
      */
     negate?: pulumi.Input<boolean>;
     /**
-     * (String) The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      */
     operator: pulumi.Input<string>;
     /**
-     * (String) The pattern to match with.
+     * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
 }
@@ -912,14 +917,14 @@ export interface RepositorySecurityAndAnalysisAdvancedSecurity {
 
 export interface RepositorySecurityAndAnalysisSecretScanning {
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status: pulumi.Input<string>;
 }
 
 export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site's build status e.g. `building` or `built`.
      */
     status: pulumi.Input<string>;
 }
@@ -972,15 +977,15 @@ export interface TeamMembersMember {
 
 export interface TeamSettingsReviewRequestDelegation {
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
      */
     algorithm?: pulumi.Input<string>;
     /**
-     * The number of team members to assign to a pull request
+     * The number of team members to assign to a pull request.
      */
     memberCount?: pulumi.Input<number>;
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request
+     * whether to notify the entire team when at least one member is also assigned to the pull request.
      */
     notify?: pulumi.Input<boolean>;
 }

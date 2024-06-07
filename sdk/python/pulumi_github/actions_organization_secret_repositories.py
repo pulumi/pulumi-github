@@ -105,17 +105,15 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("org_secret_repos",
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -144,17 +142,15 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepositories("orgSecretRepos",
+        org_secret_repos = github.ActionsOrganizationSecretRepositories("org_secret_repos",
             secret_name="existing_secret_name",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

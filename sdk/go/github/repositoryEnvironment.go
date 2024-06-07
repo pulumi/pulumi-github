@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,15 +34,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRepository, err := github.NewRepository(ctx, "exampleRepository", &github.RepositoryArgs{
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("A Repository Project"),
 //				Description: pulumi.String("My awesome codebase"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryEnvironment(ctx, "exampleRepositoryEnvironment", &github.RepositoryEnvironmentArgs{
+//			_, err = github.NewRepositoryEnvironment(ctx, "example", &github.RepositoryEnvironmentArgs{
 //				Environment:       pulumi.String("example"),
-//				Repository:        exampleRepository.Name,
+//				Repository:        example.Name,
 //				PreventSelfReview: pulumi.Bool(true),
 //				Reviewers: github.RepositoryEnvironmentReviewerArray{
 //					&github.RepositoryEnvironmentReviewerArgs{
@@ -65,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -1367,40 +1367,38 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
+            visibility="public",
             template=github.RepositoryTemplateArgs(
-                include_all_branches=True,
                 owner="github",
                 repository="terraform-template-module",
-            ),
-            visibility="public")
+                include_all_branches=True,
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With GitHub Pages Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome web page",
+            private=False,
             pages=github.RepositoryPagesArgs(
                 source=github.RepositoryPagesSourceArgs(
                     branch="master",
                     path="/docs",
                 ),
-            ),
-            private=False)
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1468,40 +1466,38 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
+            visibility="public",
             template=github.RepositoryTemplateArgs(
-                include_all_branches=True,
                 owner="github",
                 repository="terraform-template-module",
-            ),
-            visibility="public")
+                include_all_branches=True,
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With GitHub Pages Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome web page",
+            private=False,
             pages=github.RepositoryPagesArgs(
                 source=github.RepositoryPagesSourceArgs(
                     branch="master",
                     path="/docs",
                 ),
-            ),
-            private=False)
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

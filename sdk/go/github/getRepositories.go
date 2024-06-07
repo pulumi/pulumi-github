@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRepositories(ctx, &github.GetRepositoriesArgs{
-//				IncludeRepoId: pulumi.BoolRef(true),
 //				Query:         "org:hashicorp language:Go",
+//				IncludeRepoId: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoriesResult

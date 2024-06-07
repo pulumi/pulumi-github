@@ -23,42 +23,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.OrganizationWebhook;
- * import com.pulumi.github.OrganizationWebhookArgs;
- * import com.pulumi.github.inputs.OrganizationWebhookConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new OrganizationWebhook(&#34;foo&#34;, OrganizationWebhookArgs.builder()        
- *             .active(false)
- *             .configuration(OrganizationWebhookConfigurationArgs.builder()
- *                 .contentType(&#34;form&#34;)
- *                 .insecureSsl(false)
- *                 .url(&#34;https://google.de/&#34;)
- *                 .build())
- *             .events(&#34;issues&#34;)
- *             .name(&#34;web&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

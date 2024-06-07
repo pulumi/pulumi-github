@@ -18,7 +18,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +26,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTemplate = new Github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", new()
+    ///     var exampleTemplate = new Github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", new()
     ///     {
     ///         IncludeClaimKeys = new[]
     ///         {
@@ -39,7 +38,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

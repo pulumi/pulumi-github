@@ -9,17 +9,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.RepositoryTagProtection("example", {
- *     pattern: "v*",
  *     repository: "example-repository",
+ *     pattern: "v*",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

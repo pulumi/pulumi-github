@@ -13,18 +13,16 @@ import * as utilities from "./utilities";
  *
  * To retrieve the latest release that is present in a repository:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRelease({
- *     owner: "example-owner",
  *     repository: "example-repository",
+ *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * To retrieve a specific release from a repository based on it's ID:
  */
@@ -155,18 +153,16 @@ export interface GetReleaseResult {
  *
  * To retrieve the latest release that is present in a repository:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRelease({
- *     owner: "example-owner",
  *     repository: "example-repository",
+ *     owner: "example-owner",
  *     retrieveBy: "latest",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * To retrieve a specific release from a repository based on it's ID:
  */

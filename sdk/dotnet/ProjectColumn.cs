@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,17 +24,18 @@ namespace Pulumi.Github
     /// {
     ///     var project = new Github.OrganizationProject("project", new()
     ///     {
+    ///         Name = "A Organization Project",
     ///         Body = "This is an organization project.",
     ///     });
     /// 
     ///     var column = new Github.ProjectColumn("column", new()
     ///     {
     ///         ProjectId = project.Id,
+    ///         Name = "a column",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [GithubResourceType("github:index/projectColumn:ProjectColumn")]
     public partial class ProjectColumn : global::Pulumi.CustomResource

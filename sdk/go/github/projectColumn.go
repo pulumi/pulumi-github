@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			project, err := github.NewOrganizationProject(ctx, "project", &github.OrganizationProjectArgs{
+//				Name: pulumi.String("A Organization Project"),
 //				Body: pulumi.String("This is an organization project."),
 //			})
 //			if err != nil {
@@ -37,6 +37,7 @@ import (
 //			}
 //			_, err = github.NewProjectColumn(ctx, "column", &github.ProjectColumnArgs{
 //				ProjectId: project.ID(),
+//				Name:      pulumi.String("a column"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type ProjectColumn struct {
 	pulumi.CustomResourceState
 

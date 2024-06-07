@@ -23,13 +23,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsRepositoryPermissions;
  * import com.pulumi.github.ActionsRepositoryPermissionsArgs;
  * import com.pulumi.github.inputs.ActionsRepositoryPermissionsAllowedActionsConfigArgs;
@@ -46,15 +48,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;);
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("my-repository")
+ *             .build());
  * 
- *         var test = new ActionsRepositoryPermissions(&#34;test&#34;, ActionsRepositoryPermissionsArgs.builder()        
- *             .allowedActions(&#34;selected&#34;)
+ *         var test = new ActionsRepositoryPermissions("test", ActionsRepositoryPermissionsArgs.builder()
+ *             .allowedActions("selected")
  *             .allowedActionsConfig(ActionsRepositoryPermissionsAllowedActionsConfigArgs.builder()
  *                 .githubOwnedAllowed(true)
  *                 .patternsAlloweds(                
- *                     &#34;actions/cache@*&#34;,
- *                     &#34;actions/checkout@*&#34;)
+ *                     "actions/cache{@literal @}*",
+ *                     "actions/checkout{@literal @}*")
  *                 .verifiedAllowed(true)
  *                 .build())
  *             .repository(example.name())
@@ -62,7 +66,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

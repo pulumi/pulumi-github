@@ -204,31 +204,27 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
-            value="example_variable_value",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
-            visibility="private")
+            visibility="private",
+            value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
             visibility="selected",
             value="example_variable_value",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,31 +254,27 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
-            value="example_variable_value",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
-            visibility="private")
+            visibility="private",
+            value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_variable = github.ActionsOrganizationVariable("exampleVariable",
+        example_variable = github.ActionsOrganizationVariable("example_variable",
             variable_name="example_variable_name",
             visibility="selected",
             value="example_variable_value",
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

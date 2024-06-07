@@ -105,21 +105,19 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_secret = github.DependabotOrganizationSecret("exampleSecret",
+        example_secret = github.DependabotOrganizationSecret("example_secret",
             secret_name="example_secret_name",
             visibility="private",
-            plaintext_value=var["some_secret_string"])
-        org_secret_repos = github.DependabotOrganizationSecretRepositories("orgSecretRepos",
+            plaintext_value=some_secret_string)
+        org_secret_repos = github.DependabotOrganizationSecretRepositories("org_secret_repos",
             secret_name=example_secret.secret_name,
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,21 +146,19 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        example_secret = github.DependabotOrganizationSecret("exampleSecret",
+        example_secret = github.DependabotOrganizationSecret("example_secret",
             secret_name="example_secret_name",
             visibility="private",
-            plaintext_value=var["some_secret_string"])
-        org_secret_repos = github.DependabotOrganizationSecretRepositories("orgSecretRepos",
+            plaintext_value=some_secret_string)
+        org_secret_repos = github.DependabotOrganizationSecretRepositories("org_secret_repos",
             secret_name=example_secret.secret_name,
             selected_repository_ids=[repo.repo_id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

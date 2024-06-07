@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new, red colored label
- *         var testRepo = new IssueLabel(&#34;testRepo&#34;, IssueLabelArgs.builder()        
- *             .color(&#34;FF0000&#34;)
- *             .repository(&#34;test-repo&#34;)
+ *         var testRepo = new IssueLabel("testRepo", IssueLabelArgs.builder()
+ *             .repository("test-repo")
+ *             .name("Urgent")
+ *             .color("FF0000")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

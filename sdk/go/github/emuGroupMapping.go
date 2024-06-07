@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewEmuGroupMapping(ctx, "exampleEmuGroupMapping", &github.EmuGroupMappingArgs{
-//				GroupId:  pulumi.Int(28836),
+//			_, err := github.NewEmuGroupMapping(ctx, "example_emu_group_mapping", &github.EmuGroupMappingArgs{
 //				TeamSlug: pulumi.String("emu-test-team"),
+//				GroupId:  pulumi.Int(28836),
 //			})
 //			if err != nil {
 //				return err
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -16,42 +16,40 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
+ *     visibility: "public",
  *     template: {
- *         includeAllBranches: true,
  *         owner: "github",
  *         repository: "terraform-template-module",
+ *         includeAllBranches: true,
  *     },
- *     visibility: "public",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With GitHub Pages Enabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome web page",
+ *     "private": false,
  *     pages: {
  *         source: {
  *             branch: "master",
  *             path: "/docs",
  *         },
  *     },
- *     "private": false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

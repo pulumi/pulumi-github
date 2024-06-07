@@ -199,34 +199,30 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+        example_variable = github.ActionsEnvironmentVariable("example_variable",
             environment="example_environment",
-            value="example_variable_value",
-            variable_name="example_variable_name")
+            variable_name="example_variable_name",
+            value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+        repo_environment = github.RepositoryEnvironment("repo_environment",
             repository=repo.name,
             environment="example_environment")
-        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+        example_variable = github.ActionsEnvironmentVariable("example_variable",
             repository=repo.name,
             environment=repo_environment.environment,
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -255,34 +251,30 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+        example_variable = github.ActionsEnvironmentVariable("example_variable",
             environment="example_environment",
-            value="example_variable_value",
-            variable_name="example_variable_name")
+            variable_name="example_variable_name",
+            value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         repo = github.get_repository(full_name="my-org/repo")
-        repo_environment = github.RepositoryEnvironment("repoEnvironment",
+        repo_environment = github.RepositoryEnvironment("repo_environment",
             repository=repo.name,
             environment="example_environment")
-        example_variable = github.ActionsEnvironmentVariable("exampleVariable",
+        example_variable = github.ActionsEnvironmentVariable("example_variable",
             repository=repo.name,
             environment=repo_environment.environment,
             variable_name="example_variable_name",
             value="example_variable_value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

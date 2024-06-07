@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,8 +32,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryTopics(ctx, "testRepositoryTopics", &github.RepositoryTopicsArgs{
-//				Repository: pulumi.Any(github_repository.Test.Name),
+//			_, err = github.NewRepositoryTopics(ctx, "test", &github.RepositoryTopicsArgs{
+//				Repository: pulumi.Any(testGithubRepository.Name),
 //				Topics: pulumi.StringArray{
 //					pulumi.String("topic-1"),
 //					pulumi.String("topic-2"),
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

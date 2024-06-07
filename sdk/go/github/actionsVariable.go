@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsVariable(ctx, "exampleVariable", &github.ActionsVariableArgs{
+//			_, err := github.NewActionsVariable(ctx, "example_variable", &github.ActionsVariableArgs{
 //				Repository:   pulumi.String("example_repository"),
-//				Value:        pulumi.String("example_variable_value"),
 //				VariableName: pulumi.String("example_variable_name"),
+//				Value:        pulumi.String("example_variable_value"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

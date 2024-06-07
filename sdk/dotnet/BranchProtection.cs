@@ -12,7 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,19 +20,25 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Github.Repository("exampleRepository");
+    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
     /// 
-    ///     var exampleUser = Github.GetUser.Invoke(new()
+    ///     var example = Github.GetUser.Invoke(new()
     ///     {
     ///         Username = "example",
     ///     });
     /// 
-    ///     var exampleTeam = new Github.Team("exampleTeam");
+    ///     var exampleTeam = new Github.Team("example", new()
+    ///     {
+    ///         Name = "Example Name",
+    ///     });
     /// 
     ///     // Protect the main branch of the foo repository. Additionally, require that
     ///     // the "ci/travis" context to be passing and only allow the engineers team merge
     ///     // to the branch.
-    ///     var exampleBranchProtection = new Github.BranchProtection("exampleBranchProtection", new()
+    ///     var exampleBranchProtection = new Github.BranchProtection("example", new()
     ///     {
     ///         RepositoryId = exampleRepository.NodeId,
     ///         Pattern = "main",
@@ -58,7 +63,7 @@ namespace Pulumi.Github
     ///                 RestrictDismissals = true,
     ///                 DismissalRestrictions = new[]
     ///                 {
-    ///                     exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///                     example.Apply(getUserResult =&gt; getUserResult.NodeId),
     ///                     exampleTeam.NodeId,
     ///                     "/exampleuser",
     ///                     "exampleorganization/exampleteam",
@@ -71,7 +76,7 @@ namespace Pulumi.Github
     ///             {
     ///                 PushAllowances = new[]
     ///                 {
-    ///                     exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///                     example.Apply(getUserResult =&gt; getUserResult.NodeId),
     ///                     "/exampleuser",
     ///                     "exampleorganization/exampleteam",
     ///                 },
@@ -79,13 +84,13 @@ namespace Pulumi.Github
     ///         },
     ///         ForcePushBypassers = new[]
     ///         {
-    ///             exampleUser.Apply(getUserResult =&gt; getUserResult.NodeId),
+    ///             example.Apply(getUserResult =&gt; getUserResult.NodeId),
     ///             "/exampleuser",
     ///             "exampleorganization/exampleteam",
     ///         },
     ///     });
     /// 
-    ///     var exampleTeamRepository = new Github.TeamRepository("exampleTeamRepository", new()
+    ///     var exampleTeamRepository = new Github.TeamRepository("example", new()
     ///     {
     ///         TeamId = exampleTeam.Id,
     ///         Repository = exampleRepository.Name,
@@ -94,7 +99,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

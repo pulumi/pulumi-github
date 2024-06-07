@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("My awesome codebase"),
 //				HasProjects: pulumi.Bool(true),
 //			})
@@ -37,8 +37,9 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryProject(ctx, "project", &github.RepositoryProjectArgs{
-//				Body:       pulumi.String("This is a repository project."),
+//				Name:       pulumi.String("A Repository Project"),
 //				Repository: example.Name,
+//				Body:       pulumi.String("This is a repository project."),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type RepositoryProject struct {
 	pulumi.CustomResourceState
 

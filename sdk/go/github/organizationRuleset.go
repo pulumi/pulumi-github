@@ -16,6 +16,62 @@ import (
 //
 // This resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationRuleset(ctx, "example", &github.OrganizationRulesetArgs{
+//				Name:        pulumi.String("example"),
+//				Target:      pulumi.String("branch"),
+//				Enforcement: pulumi.String("active"),
+//				Conditions: &github.OrganizationRulesetConditionsArgs{
+//					RefName: &github.OrganizationRulesetConditionsRefNameArgs{
+//						Includes: pulumi.StringArray{
+//							pulumi.String("~ALL"),
+//						},
+//						Excludes: pulumi.StringArray{},
+//					},
+//				},
+//				BypassActors: github.OrganizationRulesetBypassActorArray{
+//					&github.OrganizationRulesetBypassActorArgs{
+//						ActorId:    pulumi.Int(13473),
+//						ActorType:  pulumi.String("Integration"),
+//						BypassMode: pulumi.String("always"),
+//					},
+//				},
+//				Rules: &github.OrganizationRulesetRulesArgs{
+//					Creation:              pulumi.Bool(true),
+//					Update:                pulumi.Bool(true),
+//					Deletion:              pulumi.Bool(true),
+//					RequiredLinearHistory: pulumi.Bool(true),
+//					RequiredSignatures:    pulumi.Bool(true),
+//					BranchNamePattern: &github.OrganizationRulesetRulesBranchNamePatternArgs{
+//						Name:     pulumi.String("example"),
+//						Negate:   pulumi.Bool(false),
+//						Operator: pulumi.String("starts_with"),
+//						Pattern:  pulumi.String("ex"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.

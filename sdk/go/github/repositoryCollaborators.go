@@ -39,7 +39,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,17 +52,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add collaborators to a repository
-//			someTeam, err := github.NewTeam(ctx, "someTeam", &github.TeamArgs{
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			someRepo, err := github.NewRepository(ctx, "someRepo", nil)
+//			someRepo, err := github.NewRepository(ctx, "some_repo", &github.RepositoryArgs{
+//				Name: pulumi.String("some-repo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryCollaborators(ctx, "someRepoCollaborators", &github.RepositoryCollaboratorsArgs{
+//			_, err = github.NewRepositoryCollaborators(ctx, "some_repo_collaborators", &github.RepositoryCollaboratorsArgs{
 //				Repository: someRepo.Name,
 //				Users: github.RepositoryCollaboratorsUserArray{
 //					&github.RepositoryCollaboratorsUserArgs{
@@ -86,7 +88,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -11,17 +11,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
  *     repository: "example-repository",
+ *     environmentName: "env_name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryDeploymentBranchPolicies(args: GetRepositoryDeploymentBranchPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeploymentBranchPoliciesResult> {
 
@@ -66,17 +64,15 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryDeploymentBranchPolicies({
- *     environmentName: "env_name",
  *     repository: "example-repository",
+ *     environmentName: "env_name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryDeploymentBranchPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeploymentBranchPoliciesResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryDeploymentBranchPolicies(a, opts))

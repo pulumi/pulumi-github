@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env = new RepositoryEnvironment(&#34;env&#34;, RepositoryEnvironmentArgs.builder()        
- *             .repository(&#34;my_repo&#34;)
- *             .environment(&#34;my_env&#34;)
+ *         var env = new RepositoryEnvironment("env", RepositoryEnvironmentArgs.builder()
+ *             .repository("my_repo")
+ *             .environment("my_env")
  *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
  *                 .protectedBranches(false)
  *                 .customBranchPolicies(true)
  *                 .build())
  *             .build());
  * 
- *         var foo = new RepositoryDeploymentBranchPolicy(&#34;foo&#34;, RepositoryDeploymentBranchPolicyArgs.builder()        
- *             .repository(&#34;my_repo&#34;)
- *             .environmentName(&#34;my_env&#34;)
+ *         var foo = new RepositoryDeploymentBranchPolicy("foo", RepositoryDeploymentBranchPolicyArgs.builder()
+ *             .repository("my_repo")
+ *             .environmentName("my_env")
+ *             .name("foo")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(env)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

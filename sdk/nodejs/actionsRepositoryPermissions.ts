@@ -12,12 +12,11 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example = new github.Repository("example", {});
+ * const example = new github.Repository("example", {name: "my-repository"});
  * const test = new github.ActionsRepositoryPermissions("test", {
  *     allowedActions: "selected",
  *     allowedActionsConfig: {
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     repository: example.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

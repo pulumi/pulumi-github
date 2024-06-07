@@ -104,25 +104,21 @@ def get_organization_teams(results_per_page: Optional[int] = None,
 
     To retrieve *all* teams of the organization:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     all = github.get_organization_teams()
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve only the team's at the root of the organization:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     root_teams = github.get_organization_teams(root_teams_only=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int results_per_page: (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
@@ -156,25 +152,21 @@ def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Option
 
     To retrieve *all* teams of the organization:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     all = github.get_organization_teams()
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve only the team's at the root of the organization:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     root_teams = github.get_organization_teams(root_teams_only=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int results_per_page: (Optional) Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.

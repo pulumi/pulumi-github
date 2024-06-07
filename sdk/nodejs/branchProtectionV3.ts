@@ -15,21 +15,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
  * const example = new github.BranchProtectionV3("example", {
- *     repository: github_repository.example.name,
+ *     repository: exampleGithubRepository.name,
  *     branch: "main",
  *     restrictions: {
  *         users: ["foo-user"],
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

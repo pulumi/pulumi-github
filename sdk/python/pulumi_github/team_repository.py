@@ -165,20 +165,20 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_team_repo = github.TeamRepository("some_team_repo",
             team_id=some_team.id,
             repository=some_repo.name,
             permission="pull")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,20 +224,20 @@ class TeamRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Add a repository to the team
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_repo = github.Repository("someRepo")
-        some_team_repo = github.TeamRepository("someTeamRepo",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_team_repo = github.TeamRepository("some_team_repo",
             team_id=some_team.id,
             repository=some_repo.name,
             permission="pull")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

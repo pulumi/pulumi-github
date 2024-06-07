@@ -165,7 +165,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -187,13 +188,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +208,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,13 +231,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -247,7 +251,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -269,13 +274,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -288,7 +294,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -310,13 +317,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +337,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,13 +360,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -370,7 +380,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -392,13 +403,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -411,7 +423,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -433,13 +446,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -452,7 +466,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -474,13 +489,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
-     *             .environment(&#34;exampleEnvironment&#34;)
-     *             .name(&#34;exampleRepo&#34;)
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -493,7 +509,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -517,7 +534,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -530,7 +548,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -554,7 +573,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -567,7 +587,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -591,7 +612,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -604,7 +626,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -628,7 +651,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -641,7 +665,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -665,7 +690,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -678,7 +704,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -702,7 +729,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -716,7 +744,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -740,7 +769,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -754,7 +784,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -778,7 +809,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +824,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -816,7 +849,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -830,7 +864,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -854,7 +889,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -868,7 +904,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -892,7 +929,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -906,7 +944,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -930,7 +969,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -943,7 +983,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -967,7 +1008,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -980,7 +1022,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1004,7 +1047,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1017,7 +1061,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1041,7 +1086,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1054,7 +1100,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1078,7 +1125,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1091,7 +1139,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1115,7 +1164,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1128,7 +1178,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1152,7 +1203,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1165,7 +1217,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,7 +1242,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1202,7 +1256,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1226,7 +1281,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1239,7 +1295,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1263,7 +1320,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1276,7 +1334,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1300,7 +1359,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1313,7 +1373,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1337,7 +1398,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1350,7 +1412,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1374,7 +1437,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1387,7 +1451,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1411,7 +1476,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1424,7 +1490,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1448,7 +1515,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1461,7 +1529,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1485,7 +1554,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1498,7 +1568,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1522,7 +1593,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1535,7 +1607,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1559,7 +1632,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1572,7 +1646,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1596,7 +1671,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1610,7 +1686,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1632,12 +1709,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1651,7 +1729,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1673,12 +1752,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1692,7 +1772,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1714,12 +1795,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1733,7 +1815,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1755,12 +1838,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1773,7 +1857,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1795,12 +1880,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRegistrationToken(GetActionsRegistrationTokenArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1813,7 +1899,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1835,12 +1922,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRegistrationToken(GetActionsRegistrationTokenArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1853,7 +1941,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1875,12 +1964,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRegistrationToken(GetActionsRegistrationTokenArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1893,7 +1983,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1915,12 +2006,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRegistrationToken(GetActionsRegistrationTokenArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1933,7 +2025,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1955,12 +2048,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1973,7 +2067,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1995,12 +2090,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2013,7 +2109,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2035,12 +2132,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2053,7 +2151,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2075,12 +2174,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2093,7 +2193,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2115,12 +2216,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2133,7 +2235,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2155,12 +2258,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2173,7 +2277,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2195,12 +2300,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2213,7 +2319,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2235,12 +2342,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2253,7 +2361,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2275,12 +2384,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2293,7 +2403,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2315,12 +2426,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2333,7 +2445,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2355,12 +2468,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2373,7 +2487,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2395,12 +2510,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2413,7 +2529,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2435,12 +2552,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2453,7 +2571,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2475,12 +2594,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2493,7 +2613,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2515,12 +2636,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2533,7 +2655,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2555,12 +2678,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2573,7 +2697,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2595,14 +2720,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
-     *             .appId(&#34;123456&#34;)
-     *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .appId("123456")
+     *             .installationId("78910")
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2615,7 +2743,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2637,14 +2766,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
-     *             .appId(&#34;123456&#34;)
-     *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .appId("123456")
+     *             .installationId("78910")
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2657,7 +2789,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2679,14 +2812,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
-     *             .appId(&#34;123456&#34;)
-     *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .appId("123456")
+     *             .installationId("78910")
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2699,7 +2835,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2721,14 +2858,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
-     *             .appId(&#34;123456&#34;)
-     *             .installationId(&#34;78910&#34;)
-     *             .pemFile(Files.readString(Paths.get(&#34;foo/bar.pem&#34;)))
+     *             .appId("123456")
+     *             .installationId("78910")
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2741,7 +2881,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2763,13 +2904,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
+     *             .branch("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2782,7 +2924,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2804,13 +2947,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
+     *             .branch("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2823,7 +2967,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2845,13 +2990,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
+     *             .branch("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2864,7 +3010,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2886,13 +3033,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(&#34;development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
+     *             .branch("development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2905,7 +3053,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2927,12 +3076,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2945,7 +3095,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2967,12 +3118,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2985,7 +3137,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3007,12 +3160,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3025,7 +3179,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3047,12 +3202,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
-     *             .repository(&#34;example&#34;)
+     *             .repository("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3066,7 +3222,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3090,7 +3247,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3104,7 +3262,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3128,7 +3287,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3142,7 +3302,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3166,7 +3327,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3180,7 +3342,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3204,7 +3367,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3218,7 +3382,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3242,7 +3407,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3256,7 +3422,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3280,7 +3447,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3293,7 +3461,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3317,7 +3486,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3330,7 +3500,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3354,7 +3525,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3367,7 +3539,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3391,7 +3564,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3404,7 +3578,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3428,7 +3603,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3441,7 +3617,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3465,7 +3642,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3478,7 +3656,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3502,7 +3681,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3516,7 +3696,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3538,12 +3719,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3557,7 +3739,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3579,12 +3762,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3598,7 +3782,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3620,12 +3805,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3639,7 +3825,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3661,12 +3848,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3679,7 +3867,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3701,16 +3890,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3723,7 +3913,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3745,16 +3936,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3767,7 +3959,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3789,16 +3982,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3811,7 +4005,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3833,16 +4028,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3855,7 +4051,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3877,16 +4074,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3899,7 +4097,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3921,16 +4120,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .name(&#34;example_repository&#34;)
+     *             .name("example_repository")
      *             .build());
      * 
      *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
-     *             .fullName(&#34;org/example_repository&#34;)
+     *             .fullName("org/example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3944,7 +4144,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3968,7 +4169,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3982,7 +4184,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4006,7 +4209,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4020,7 +4224,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4044,7 +4249,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4058,7 +4264,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4082,7 +4289,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4096,7 +4304,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4120,7 +4329,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4134,7 +4344,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4158,7 +4369,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4171,7 +4383,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4195,7 +4408,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4208,7 +4422,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4232,7 +4447,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4245,7 +4461,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4269,7 +4486,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4282,7 +4500,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4306,7 +4525,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4319,7 +4539,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4343,7 +4564,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4356,7 +4578,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4380,7 +4603,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4393,7 +4617,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4415,13 +4640,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()
-     *             .owner(&#34;example_owner&#34;)
-     *             .repository(&#34;example_repository&#34;)
+     *             .owner("example_owner")
+     *             .repository("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4434,7 +4660,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4456,13 +4683,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()
-     *             .owner(&#34;example_owner&#34;)
-     *             .repository(&#34;example_repository&#34;)
+     *             .owner("example_owner")
+     *             .repository("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4475,7 +4703,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4497,13 +4726,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()
-     *             .owner(&#34;example_owner&#34;)
-     *             .repository(&#34;example_repository&#34;)
+     *             .owner("example_owner")
+     *             .repository("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4516,7 +4746,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4538,13 +4769,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()
-     *             .owner(&#34;example_owner&#34;)
-     *             .repository(&#34;example_repository&#34;)
+     *             .owner("example_owner")
+     *             .repository("example_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4558,7 +4790,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4582,7 +4815,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4596,7 +4830,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4620,7 +4855,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4634,7 +4870,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4658,7 +4895,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4672,7 +4910,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4696,7 +4935,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4710,7 +4950,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4734,7 +4975,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4748,7 +4990,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4772,7 +5015,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4785,7 +5029,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4809,7 +5054,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4822,7 +5068,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4846,7 +5093,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4859,7 +5107,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4883,7 +5132,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4896,7 +5146,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4920,7 +5171,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4933,7 +5185,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4957,7 +5210,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4970,7 +5224,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4994,7 +5249,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5008,7 +5264,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5030,12 +5287,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5049,7 +5307,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5071,12 +5330,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5090,7 +5350,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5112,12 +5373,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5131,7 +5393,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5153,12 +5416,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
-     *             .repository(&#34;example_repo&#34;)
+     *             .repository("example_repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5171,7 +5435,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5193,12 +5458,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5211,7 +5477,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5233,12 +5500,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5251,7 +5519,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5273,12 +5542,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5291,7 +5561,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5313,12 +5584,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5331,7 +5603,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5353,12 +5626,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5371,7 +5645,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5393,12 +5668,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5411,7 +5687,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5433,12 +5710,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
-     *             .slug(&#34;example-co&#34;)
+     *             .slug("example-co")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5451,7 +5729,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5473,12 +5752,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
-     *             .slug(&#34;example-co&#34;)
+     *             .slug("example-co")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5491,7 +5771,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5513,12 +5794,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
-     *             .slug(&#34;example-co&#34;)
+     *             .slug("example-co")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5531,7 +5813,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5553,12 +5836,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
-     *             .slug(&#34;example-co&#34;)
+     *             .slug("example-co")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5571,7 +5855,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5593,12 +5878,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5611,7 +5897,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5633,12 +5920,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5651,7 +5939,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5673,12 +5962,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5691,7 +5981,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5713,12 +6004,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5731,7 +6023,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5753,12 +6046,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5771,7 +6065,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5793,12 +6088,13 @@ public final class GithubFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -&gt; getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
      * 
-     *         ctx.export(&#34;groups&#34;, localGroups);
+     *         ctx.export("groups", localGroups);
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5811,7 +6107,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5833,12 +6130,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foobar = GithubFunctions.getGithubApp(GetGithubAppArgs.builder()
-     *             .slug(&#34;foobar&#34;)
+     *             .slug("foobar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5851,7 +6149,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5873,12 +6172,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foobar = GithubFunctions.getGithubApp(GetGithubAppArgs.builder()
-     *             .slug(&#34;foobar&#34;)
+     *             .slug("foobar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5891,7 +6191,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5913,12 +6214,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foobar = GithubFunctions.getGithubApp(GetGithubAppArgs.builder()
-     *             .slug(&#34;foobar&#34;)
+     *             .slug("foobar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5931,7 +6233,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5953,12 +6256,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foobar = GithubFunctions.getGithubApp(GetGithubAppArgs.builder()
-     *             .slug(&#34;foobar&#34;)
+     *             .slug("foobar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5971,7 +6275,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5995,7 +6300,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6008,7 +6314,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6032,7 +6339,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6045,7 +6353,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6069,7 +6378,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6082,7 +6392,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6106,7 +6417,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6119,7 +6431,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6143,7 +6456,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6156,7 +6470,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6180,7 +6495,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6224,7 +6540,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6246,12 +6563,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var membershipForSomeUser = GithubFunctions.getMembership(GetMembershipArgs.builder()
-     *             .username(&#34;SomeUser&#34;)
+     *             .username("SomeUser")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6267,7 +6585,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6289,12 +6608,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var membershipForSomeUser = GithubFunctions.getMembership(GetMembershipArgs.builder()
-     *             .username(&#34;SomeUser&#34;)
+     *             .username("SomeUser")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6310,7 +6630,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6332,12 +6653,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var membershipForSomeUser = GithubFunctions.getMembership(GetMembershipArgs.builder()
-     *             .username(&#34;SomeUser&#34;)
+     *             .username("SomeUser")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6353,7 +6675,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6375,12 +6698,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var membershipForSomeUser = GithubFunctions.getMembership(GetMembershipArgs.builder()
-     *             .username(&#34;SomeUser&#34;)
+     *             .username("SomeUser")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6393,7 +6717,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6415,12 +6740,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
-     *             .name(&#34;github&#34;)
+     *             .name("github")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6433,7 +6759,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6455,12 +6782,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
-     *             .name(&#34;github&#34;)
+     *             .name("github")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6473,7 +6801,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6495,12 +6824,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
-     *             .name(&#34;github&#34;)
+     *             .name("github")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6513,7 +6843,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6535,12 +6866,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
-     *             .name(&#34;github&#34;)
+     *             .name("github")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6555,7 +6887,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6577,12 +6910,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6597,7 +6931,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6619,12 +6954,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6639,7 +6975,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6661,12 +6998,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6681,7 +7019,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6703,12 +7042,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6722,7 +7062,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6746,7 +7087,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6760,7 +7102,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6784,7 +7127,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6798,7 +7142,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6822,7 +7167,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6836,7 +7182,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6860,7 +7207,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6874,7 +7222,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6898,7 +7247,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6912,7 +7262,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6936,7 +7287,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6951,7 +7303,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6975,7 +7328,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6990,7 +7344,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7014,7 +7369,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7029,7 +7385,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7053,7 +7410,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7068,7 +7426,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7092,7 +7451,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7107,7 +7467,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7131,7 +7492,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7146,7 +7508,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7170,7 +7533,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7183,7 +7547,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7207,7 +7572,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7220,7 +7586,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7244,7 +7611,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7257,7 +7625,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7281,7 +7650,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7294,7 +7664,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7318,7 +7689,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7331,7 +7703,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7355,7 +7728,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7368,7 +7742,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7392,7 +7767,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7407,7 +7783,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7432,13 +7809,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7465,7 +7844,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7480,7 +7860,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7505,13 +7886,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7538,7 +7921,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7553,7 +7937,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7578,13 +7963,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7611,7 +7998,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7626,7 +8014,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7651,13 +8040,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7684,7 +8075,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7699,7 +8091,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7724,13 +8117,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7757,7 +8152,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7772,7 +8168,8 @@ public final class GithubFunctions {
      * To retrieve *all* teams of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7797,13 +8194,15 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve only the team&#39;s at the root of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7830,7 +8229,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7845,7 +8245,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7869,7 +8270,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7884,7 +8286,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7908,7 +8311,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7923,7 +8327,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7947,7 +8352,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7962,7 +8368,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7986,7 +8393,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8001,7 +8409,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8025,7 +8434,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8040,7 +8450,8 @@ public final class GithubFunctions {
      * To retrieve *all* webhooks of the organization:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8064,7 +8475,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8077,7 +8489,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8099,14 +8512,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
-     *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .owner("example")
+     *             .repository("example")
+     *             .ref("heads/development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8119,7 +8533,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8141,14 +8556,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
-     *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .owner("example")
+     *             .repository("example")
+     *             .ref("heads/development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8161,7 +8577,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8183,14 +8600,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
-     *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .owner("example")
+     *             .repository("example")
+     *             .ref("heads/development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8203,7 +8621,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8225,14 +8644,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
-     *             .owner(&#34;example&#34;)
-     *             .ref(&#34;heads/development&#34;)
-     *             .repository(&#34;example&#34;)
+     *             .owner("example")
+     *             .repository("example")
+     *             .ref("heads/development")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8247,7 +8667,8 @@ public final class GithubFunctions {
      * To retrieve the latest release that is present in a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8269,20 +8690,22 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;latest&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8304,21 +8727,23 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
      *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;id&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8340,15 +8765,16 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;tag&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8363,7 +8789,8 @@ public final class GithubFunctions {
      * To retrieve the latest release that is present in a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8385,20 +8812,22 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;latest&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8420,21 +8849,23 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
      *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;id&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8456,15 +8887,16 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;tag&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8479,7 +8911,8 @@ public final class GithubFunctions {
      * To retrieve the latest release that is present in a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8501,20 +8934,22 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;latest&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8536,21 +8971,23 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
      *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;id&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8572,15 +9009,16 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;tag&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8595,7 +9033,8 @@ public final class GithubFunctions {
      * To retrieve the latest release that is present in a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8617,20 +9056,22 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;latest&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8652,21 +9093,23 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
      *             .id(12345)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;id&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8688,15 +9131,16 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .owner(&#34;example-owner&#34;)
-     *             .releaseTag(&#34;v1.0.0&#34;)
-     *             .repository(&#34;example-repository&#34;)
-     *             .retrieveBy(&#34;tag&#34;)
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8712,7 +9156,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8734,13 +9179,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .query("org:hashicorp language:Go")
      *             .includeRepoId(true)
-     *             .query(&#34;org:hashicorp language:Go&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8756,7 +9202,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8778,13 +9225,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .query("org:hashicorp language:Go")
      *             .includeRepoId(true)
-     *             .query(&#34;org:hashicorp language:Go&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8800,7 +9248,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8822,13 +9271,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .query("org:hashicorp language:Go")
      *             .includeRepoId(true)
-     *             .query(&#34;org:hashicorp language:Go&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8844,7 +9294,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8866,13 +9317,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .query("org:hashicorp language:Go")
      *             .includeRepoId(true)
-     *             .query(&#34;org:hashicorp language:Go&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8885,7 +9337,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8907,12 +9360,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8925,7 +9379,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8947,12 +9402,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8965,7 +9421,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8987,12 +9444,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9005,7 +9463,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9027,12 +9486,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9045,7 +9505,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9067,12 +9528,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9085,7 +9547,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9107,12 +9570,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .fullName(&#34;hashicorp/terraform&#34;)
+     *             .fullName("hashicorp/terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9125,7 +9589,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9147,12 +9612,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9165,7 +9631,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9187,12 +9654,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9205,7 +9673,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9227,12 +9696,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9245,7 +9715,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9267,12 +9738,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9285,7 +9757,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9307,12 +9780,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9325,7 +9799,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9347,12 +9822,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9365,7 +9841,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9387,12 +9864,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9405,7 +9883,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9427,12 +9906,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9445,7 +9925,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9467,12 +9948,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeployKeys(GetRepositoryDeployKeysArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9485,7 +9967,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9507,12 +9990,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeployKeys(GetRepositoryDeployKeysArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9525,7 +10009,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9547,12 +10032,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeployKeys(GetRepositoryDeployKeysArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9565,7 +10051,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9587,12 +10074,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeployKeys(GetRepositoryDeployKeysArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9605,7 +10093,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9627,13 +10116,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
+     *             .environmentName("env_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9646,7 +10136,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9668,13 +10159,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
+     *             .environmentName("env_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9687,7 +10179,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9709,13 +10202,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
+     *             .environmentName("env_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9728,7 +10222,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9750,13 +10245,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
-     *             .environmentName(&#34;env_name&#34;)
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
+     *             .environmentName("env_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9769,7 +10265,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9791,12 +10288,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9809,7 +10307,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9831,12 +10330,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9849,7 +10349,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9871,12 +10372,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9889,7 +10391,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9911,12 +10414,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
-     *             .repository(&#34;example-repository&#34;)
+     *             .repository("example-repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9930,7 +10434,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9952,14 +10457,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
-     *             .branch(&#34;main&#34;)
-     *             .file(&#34;.gitignore&#34;)
+     *             .repository(fooGithubRepository.name())
+     *             .branch("main")
+     *             .file(".gitignore")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9973,7 +10479,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9995,14 +10502,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
-     *             .branch(&#34;main&#34;)
-     *             .file(&#34;.gitignore&#34;)
+     *             .repository(fooGithubRepository.name())
+     *             .branch("main")
+     *             .file(".gitignore")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10016,7 +10524,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10038,14 +10547,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
-     *             .branch(&#34;main&#34;)
-     *             .file(&#34;.gitignore&#34;)
+     *             .repository(fooGithubRepository.name())
+     *             .branch("main")
+     *             .file(".gitignore")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10059,7 +10569,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10081,14 +10592,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
-     *             .repository(github_repository.foo().name())
-     *             .branch(&#34;main&#34;)
-     *             .file(&#34;.gitignore&#34;)
+     *             .repository(fooGithubRepository.name())
+     *             .branch("main")
+     *             .file(".gitignore")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10101,7 +10613,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10123,14 +10636,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
+     *             .owner("example-owner")
+     *             .repository("example-repository")
      *             .number(1)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10143,7 +10657,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10165,14 +10680,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
+     *             .owner("example-owner")
+     *             .repository("example-repository")
      *             .number(1)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10185,7 +10701,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10207,14 +10724,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
+     *             .owner("example-owner")
+     *             .repository("example-repository")
      *             .number(1)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10227,7 +10745,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10249,14 +10768,15 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
+     *             .owner("example-owner")
+     *             .repository("example-repository")
      *             .number(1)
-     *             .owner(&#34;example-owner&#34;)
-     *             .repository(&#34;example-repository&#34;)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10269,7 +10789,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10291,13 +10812,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequest(GetRepositoryPullRequestArgs.builder()
-     *             .baseRepository(&#34;example_repository&#34;)
+     *             .baseRepository("example_repository")
      *             .number(1)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10310,7 +10832,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10332,13 +10855,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequest(GetRepositoryPullRequestArgs.builder()
-     *             .baseRepository(&#34;example_repository&#34;)
+     *             .baseRepository("example_repository")
      *             .number(1)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10351,7 +10875,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10373,13 +10898,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequest(GetRepositoryPullRequestArgs.builder()
-     *             .baseRepository(&#34;example_repository&#34;)
+     *             .baseRepository("example_repository")
      *             .number(1)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10392,7 +10918,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10414,13 +10941,14 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequest(GetRepositoryPullRequestArgs.builder()
-     *             .baseRepository(&#34;example_repository&#34;)
+     *             .baseRepository("example_repository")
      *             .number(1)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10433,7 +10961,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10455,16 +10984,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
-     *             .baseRepository(&#34;example-repository&#34;)
-     *             .sortBy(&#34;updated&#34;)
-     *             .sortDirection(&#34;desc&#34;)
-     *             .state(&#34;open&#34;)
+     *             .baseRepository("example-repository")
+     *             .baseRef("main")
+     *             .sortBy("updated")
+     *             .sortDirection("desc")
+     *             .state("open")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10477,7 +11007,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10499,16 +11030,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
-     *             .baseRepository(&#34;example-repository&#34;)
-     *             .sortBy(&#34;updated&#34;)
-     *             .sortDirection(&#34;desc&#34;)
-     *             .state(&#34;open&#34;)
+     *             .baseRepository("example-repository")
+     *             .baseRef("main")
+     *             .sortBy("updated")
+     *             .sortDirection("desc")
+     *             .state("open")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10521,7 +11053,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10543,16 +11076,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
-     *             .baseRepository(&#34;example-repository&#34;)
-     *             .sortBy(&#34;updated&#34;)
-     *             .sortDirection(&#34;desc&#34;)
-     *             .state(&#34;open&#34;)
+     *             .baseRepository("example-repository")
+     *             .baseRef("main")
+     *             .sortBy("updated")
+     *             .sortDirection("desc")
+     *             .state("open")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10565,7 +11099,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10587,16 +11122,17 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
-     *             .baseRef(&#34;main&#34;)
-     *             .baseRepository(&#34;example-repository&#34;)
-     *             .sortBy(&#34;updated&#34;)
-     *             .sortDirection(&#34;desc&#34;)
-     *             .state(&#34;open&#34;)
+     *             .baseRepository("example-repository")
+     *             .baseRef("main")
+     *             .sortBy("updated")
+     *             .sortDirection("desc")
+     *             .state("open")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10609,7 +11145,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10631,12 +11168,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10649,7 +11187,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10671,12 +11210,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10689,7 +11229,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10711,12 +11252,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10729,7 +11271,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10751,12 +11294,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10769,7 +11313,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10791,12 +11336,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10809,7 +11355,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10831,12 +11378,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10851,7 +11399,8 @@ public final class GithubFunctions {
      * To retrieve webhooks of a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10873,12 +11422,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var repo = GithubFunctions.getRepositoryWebhooks(GetRepositoryWebhooksArgs.builder()
-     *             .repository(&#34;foo&#34;)
+     *             .repository("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10893,7 +11443,8 @@ public final class GithubFunctions {
      * To retrieve webhooks of a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10915,12 +11466,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var repo = GithubFunctions.getRepositoryWebhooks(GetRepositoryWebhooksArgs.builder()
-     *             .repository(&#34;foo&#34;)
+     *             .repository("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10935,7 +11487,8 @@ public final class GithubFunctions {
      * To retrieve webhooks of a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10957,12 +11510,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var repo = GithubFunctions.getRepositoryWebhooks(GetRepositoryWebhooksArgs.builder()
-     *             .repository(&#34;foo&#34;)
+     *             .repository("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10977,7 +11531,8 @@ public final class GithubFunctions {
      * To retrieve webhooks of a repository:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10999,12 +11554,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var repo = GithubFunctions.getRepositoryWebhooks(GetRepositoryWebhooksArgs.builder()
-     *             .repository(&#34;foo&#34;)
+     *             .repository("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11017,7 +11573,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11039,12 +11596,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .endpoint("repos/example_repo/git/refs/heads/main")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11057,7 +11615,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11079,12 +11638,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .endpoint("repos/example_repo/git/refs/heads/main")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11097,7 +11657,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11119,12 +11680,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .endpoint("repos/example_repo/git/refs/heads/main")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11137,7 +11699,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11159,12 +11722,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .endpoint(&#34;repos/example_repo/git/refs/heads/main&#34;)
+     *             .endpoint("repos/example_repo/git/refs/heads/main")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11177,7 +11741,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11201,7 +11766,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11214,7 +11780,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11238,7 +11805,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11251,7 +11819,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11275,7 +11844,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11288,7 +11858,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11312,7 +11883,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11325,7 +11897,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11349,7 +11922,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11362,7 +11936,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11386,7 +11961,8 @@ public final class GithubFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11399,7 +11975,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11421,12 +11998,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getTeam(GetTeamArgs.builder()
-     *             .slug(&#34;example&#34;)
+     *             .slug("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11439,7 +12017,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11461,12 +12040,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getTeam(GetTeamArgs.builder()
-     *             .slug(&#34;example&#34;)
+     *             .slug("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11479,7 +12059,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11501,12 +12082,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getTeam(GetTeamArgs.builder()
-     *             .slug(&#34;example&#34;)
+     *             .slug("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11519,7 +12101,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11541,12 +12124,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = GithubFunctions.getTeam(GetTeamArgs.builder()
-     *             .slug(&#34;example&#34;)
+     *             .slug("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11559,7 +12143,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11582,25 +12167,26 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;example&#34;)
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .name("example")
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11613,7 +12199,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11636,25 +12223,26 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;example&#34;)
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .name("example")
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11667,7 +12255,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11690,25 +12279,26 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;example&#34;)
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .name("example")
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11721,7 +12311,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11744,25 +12335,26 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var thisRepository = GithubFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;example&#34;)
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .name("example")
      *             .build());
      * 
-     *         final var thisBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
-     *             .branch(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.defaultBranch()))
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
      *             .build());
      * 
-     *         final var thisTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
-     *             .repository(thisRepository.applyValue(getRepositoryResult -&gt; getRepositoryResult.name()))
-     *             .treeSha(thisBranch.applyValue(getBranchResult -&gt; getBranchResult.sha()))
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
      *             .build());
      * 
-     *         ctx.export(&#34;entries&#34;, thisTree.applyValue(getTreeResult -&gt; getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11775,7 +12367,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11796,18 +12389,21 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;example&#34;)
+     *             .username("example")
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;&#34;)
+     *             .username("")
      *             .build());
      * 
-     *         ctx.export(&#34;currentGithubLogin&#34;, current.applyValue(getUserResult -&gt; getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11820,7 +12416,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11841,18 +12438,21 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;example&#34;)
+     *             .username("example")
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;&#34;)
+     *             .username("")
      *             .build());
      * 
-     *         ctx.export(&#34;currentGithubLogin&#34;, current.applyValue(getUserResult -&gt; getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11865,7 +12465,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11886,18 +12487,21 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;example&#34;)
+     *             .username("example")
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;&#34;)
+     *             .username("")
      *             .build());
      * 
-     *         ctx.export(&#34;currentGithubLogin&#34;, current.applyValue(getUserResult -&gt; getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11910,7 +12514,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11931,18 +12536,21 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
      *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;example&#34;)
+     *             .username("example")
      *             .build());
      * 
+     *         // Retrieve information about the currently authenticated user.
      *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
-     *             .username(&#34;&#34;)
+     *             .username("")
      *             .build());
      * 
-     *         ctx.export(&#34;currentGithubLogin&#34;, current.applyValue(getUserResult -&gt; getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11956,7 +12564,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11978,12 +12587,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
-     *             .username(&#34;example-user&#34;)
+     *             .username("example-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11997,7 +12607,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12019,12 +12630,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
-     *             .username(&#34;example-user&#34;)
+     *             .username("example-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12038,7 +12650,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12060,12 +12673,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
-     *             .username(&#34;example-user&#34;)
+     *             .username("example-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12079,7 +12693,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12101,12 +12716,13 @@ public final class GithubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
-     *             .username(&#34;example-user&#34;)
+     *             .username("example-user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12119,7 +12735,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12140,18 +12757,20 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
-     *                 &#34;example1&#34;,
-     *                 &#34;example2&#34;,
-     *                 &#34;example3&#34;)
+     *                 "example1",
+     *                 "example2",
+     *                 "example3")
      *             .build());
      * 
-     *         ctx.export(&#34;validUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.logins()));
-     *         ctx.export(&#34;invalidUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
+     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12164,7 +12783,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12185,18 +12805,20 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
-     *                 &#34;example1&#34;,
-     *                 &#34;example2&#34;,
-     *                 &#34;example3&#34;)
+     *                 "example1",
+     *                 "example2",
+     *                 "example3")
      *             .build());
      * 
-     *         ctx.export(&#34;validUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.logins()));
-     *         ctx.export(&#34;invalidUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
+     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12209,7 +12831,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12230,18 +12853,20 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
-     *                 &#34;example1&#34;,
-     *                 &#34;example2&#34;,
-     *                 &#34;example3&#34;)
+     *                 "example1",
+     *                 "example2",
+     *                 "example3")
      *             .build());
      * 
-     *         ctx.export(&#34;validUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.logins()));
-     *         ctx.export(&#34;invalidUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
+     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12254,7 +12879,8 @@ public final class GithubFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12275,18 +12901,20 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
      *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
      *             .usernames(            
-     *                 &#34;example1&#34;,
-     *                 &#34;example2&#34;,
-     *                 &#34;example3&#34;)
+     *                 "example1",
+     *                 "example2",
+     *                 "example3")
      *             .build());
      * 
-     *         ctx.export(&#34;validUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.logins()));
-     *         ctx.export(&#34;invalidUsers&#34;, example.applyValue(getUsersResult -&gt; getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
+     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -9,21 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.Repository("example", {
+ *     name: "example",
  *     description: "My awesome codebase",
  *     hasProjects: true,
  * });
  * const project = new github.RepositoryProject("project", {
- *     body: "This is a repository project.",
+ *     name: "A Repository Project",
  *     repository: example.name,
+ *     body: "This is a repository project.",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class RepositoryProject extends pulumi.CustomResource {
     /**

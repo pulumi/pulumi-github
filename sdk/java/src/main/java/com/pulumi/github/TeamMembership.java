@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,24 +56,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a user to the organization
- *         var membershipForSomeUser = new Membership(&#34;membershipForSomeUser&#34;, MembershipArgs.builder()        
- *             .username(&#34;SomeUser&#34;)
- *             .role(&#34;member&#34;)
+ *         var membershipForSomeUser = new Membership("membershipForSomeUser", MembershipArgs.builder()
+ *             .username("SomeUser")
+ *             .role("member")
  *             .build());
  * 
- *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
- *             .description(&#34;Some cool team&#34;)
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
+ *             .name("SomeTeam")
+ *             .description("Some cool team")
  *             .build());
  * 
- *         var someTeamMembership = new TeamMembership(&#34;someTeamMembership&#34;, TeamMembershipArgs.builder()        
+ *         var someTeamMembership = new TeamMembership("someTeamMembership", TeamMembershipArgs.builder()
  *             .teamId(someTeam.id())
- *             .username(&#34;SomeUser&#34;)
- *             .role(&#34;member&#34;)
+ *             .username("SomeUser")
+ *             .role("member")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

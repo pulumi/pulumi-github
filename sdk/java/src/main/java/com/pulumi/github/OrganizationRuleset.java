@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -35,9 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.OrganizationRuleset;
  * import com.pulumi.github.OrganizationRulesetArgs;
- * import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetConditionsArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetConditionsRefNameArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
  * import java.util.List;
@@ -53,38 +54,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationRuleset(&#34;example&#34;, OrganizationRulesetArgs.builder()        
- *             .bypassActors(OrganizationRulesetBypassActorArgs.builder()
- *                 .actorId(13473)
- *                 .actorType(&#34;Integration&#34;)
- *                 .bypassMode(&#34;always&#34;)
- *                 .build())
+ *         var example = new OrganizationRuleset("example", OrganizationRulesetArgs.builder()
+ *             .name("example")
+ *             .target("branch")
+ *             .enforcement("active")
  *             .conditions(OrganizationRulesetConditionsArgs.builder()
  *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
- *                     .exclude()
- *                     .include(&#34;~ALL&#34;)
+ *                     .includes("~ALL")
+ *                     .excludes()
  *                     .build())
  *                 .build())
- *             .enforcement(&#34;active&#34;)
+ *             .bypassActors(OrganizationRulesetBypassActorArgs.builder()
+ *                 .actorId(13473)
+ *                 .actorType("Integration")
+ *                 .bypassMode("always")
+ *                 .build())
  *             .rules(OrganizationRulesetRulesArgs.builder()
- *                 .branchNamePattern(OrganizationRulesetRulesBranchNamePatternArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .negate(false)
- *                     .operator(&#34;starts_with&#34;)
- *                     .pattern(&#34;ex&#34;)
- *                     .build())
  *                 .creation(true)
+ *                 .update(true)
  *                 .deletion(true)
  *                 .requiredLinearHistory(true)
  *                 .requiredSignatures(true)
- *                 .update(true)
+ *                 .branchNamePattern(OrganizationRulesetRulesBranchNamePatternArgs.builder()
+ *                     .name("example")
+ *                     .negate(false)
+ *                     .operator("starts_with")
+ *                     .pattern("ex")
+ *                     .build())
  *                 .build())
- *             .target(&#34;branch&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

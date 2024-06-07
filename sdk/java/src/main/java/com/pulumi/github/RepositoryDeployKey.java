@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,22 +54,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Generate an ssh key using provider &#34;hashicorp/tls&#34;
- *         var exampleRepositoryDeployKeyPrivateKey = new PrivateKey(&#34;exampleRepositoryDeployKeyPrivateKey&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;ED25519&#34;)
+ *         // Generate an ssh key using provider "hashicorp/tls"
+ *         var exampleRepositoryDeployKey = new PrivateKey("exampleRepositoryDeployKey", PrivateKeyArgs.builder()
+ *             .algorithm("ED25519")
  *             .build());
  * 
  *         // Add the ssh key as a deploy key
- *         var exampleRepositoryDeployKeyRepositoryDeployKey = new RepositoryDeployKey(&#34;exampleRepositoryDeployKeyRepositoryDeployKey&#34;, RepositoryDeployKeyArgs.builder()        
- *             .title(&#34;Repository test key&#34;)
- *             .repository(&#34;test-repo&#34;)
- *             .key(exampleRepositoryDeployKeyPrivateKey.publicKeyOpenssh())
+ *         var exampleRepositoryDeployKeyRepositoryDeployKey = new RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey", RepositoryDeployKeyArgs.builder()
+ *             .title("Repository test key")
+ *             .repository("test-repo")
+ *             .key(exampleRepositoryDeployKey.publicKeyOpenssh())
  *             .readOnly(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

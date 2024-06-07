@@ -9,15 +9,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const project = new github.OrganizationProject("project", {body: "This is an organization project."});
- * const column = new github.ProjectColumn("column", {projectId: project.id});
+ * const project = new github.OrganizationProject("project", {
+ *     name: "A Organization Project",
+ *     body: "This is an organization project.",
+ * });
+ * const column = new github.ProjectColumn("column", {
+ *     projectId: project.id,
+ *     name: "a column",
+ * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class ProjectColumn extends pulumi.CustomResource {
     /**

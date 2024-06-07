@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetActionsEnvironmentSecrets(ctx, &github.GetActionsEnvironmentSecretsArgs{
-//				Environment: "exampleEnvironment",
 //				Name:        pulumi.StringRef("exampleRepo"),
+//				Environment: "exampleEnvironment",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetActionsEnvironmentSecrets(ctx *pulumi.Context, args *GetActionsEnvironmentSecretsArgs, opts ...pulumi.InvokeOption) (*GetActionsEnvironmentSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetActionsEnvironmentSecretsResult

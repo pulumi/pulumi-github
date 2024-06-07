@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,31 +29,32 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewOrganizationSettings(ctx, "test", &github.OrganizationSettingsArgs{
-//				AdvancedSecurityEnabledForNewRepositories: pulumi.Bool(false),
-//				BillingEmail:                pulumi.String("test@example.com"),
-//				Blog:                        pulumi.String("https://example.com"),
-//				Company:                     pulumi.String("Test Company"),
-//				DefaultRepositoryPermission: pulumi.String("read"),
+//				BillingEmail:                         pulumi.String("test@example.com"),
+//				Company:                              pulumi.String("Test Company"),
+//				Blog:                                 pulumi.String("https://example.com"),
+//				Email:                                pulumi.String("test@example.com"),
+//				TwitterUsername:                      pulumi.String("Test"),
+//				Location:                             pulumi.String("Test Location"),
+//				Name:                                 pulumi.String("Test Name"),
+//				Description:                          pulumi.String("Test Description"),
+//				HasOrganizationProjects:              pulumi.Bool(true),
+//				HasRepositoryProjects:                pulumi.Bool(true),
+//				DefaultRepositoryPermission:          pulumi.String("read"),
+//				MembersCanCreateRepositories:         pulumi.Bool(true),
+//				MembersCanCreatePublicRepositories:   pulumi.Bool(true),
+//				MembersCanCreatePrivateRepositories:  pulumi.Bool(true),
+//				MembersCanCreateInternalRepositories: pulumi.Bool(true),
+//				MembersCanCreatePages:                pulumi.Bool(true),
+//				MembersCanCreatePublicPages:          pulumi.Bool(true),
+//				MembersCanCreatePrivatePages:         pulumi.Bool(true),
+//				MembersCanForkPrivateRepositories:    pulumi.Bool(true),
+//				WebCommitSignoffRequired:             pulumi.Bool(true),
+//				AdvancedSecurityEnabledForNewRepositories:             pulumi.Bool(false),
 //				DependabotAlertsEnabledForNewRepositories:             pulumi.Bool(false),
 //				DependabotSecurityUpdatesEnabledForNewRepositories:    pulumi.Bool(false),
 //				DependencyGraphEnabledForNewRepositories:              pulumi.Bool(false),
-//				Description:                                           pulumi.String("Test Description"),
-//				Email:                                                 pulumi.String("test@example.com"),
-//				HasOrganizationProjects:                               pulumi.Bool(true),
-//				HasRepositoryProjects:                                 pulumi.Bool(true),
-//				Location:                                              pulumi.String("Test Location"),
-//				MembersCanCreateInternalRepositories:                  pulumi.Bool(true),
-//				MembersCanCreatePages:                                 pulumi.Bool(true),
-//				MembersCanCreatePrivatePages:                          pulumi.Bool(true),
-//				MembersCanCreatePrivateRepositories:                   pulumi.Bool(true),
-//				MembersCanCreatePublicPages:                           pulumi.Bool(true),
-//				MembersCanCreatePublicRepositories:                    pulumi.Bool(true),
-//				MembersCanCreateRepositories:                          pulumi.Bool(true),
-//				MembersCanForkPrivateRepositories:                     pulumi.Bool(true),
 //				SecretScanningEnabledForNewRepositories:               pulumi.Bool(false),
 //				SecretScanningPushProtectionEnabledForNewRepositories: pulumi.Bool(false),
-//				TwitterUsername:                                       pulumi.String("Test"),
-//				WebCommitSignoffRequired:                              pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

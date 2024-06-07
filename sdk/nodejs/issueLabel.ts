@@ -7,18 +7,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Create a new, red colored label
- * const testRepo = new github.IssueLabel("testRepo", {
- *     color: "FF0000",
+ * const testRepo = new github.IssueLabel("test_repo", {
  *     repository: "test-repo",
+ *     name: "Urgent",
+ *     color: "FF0000",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

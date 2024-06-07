@@ -9,20 +9,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const org = new github.EnterpriseOrganization("org", {
- *     enterpriseId: data.github_enterprise.enterprise.id,
+ *     enterpriseId: enterprise.id,
+ *     name: "some-awesome-org",
  *     displayName: "Some Awesome Org",
  *     description: "Organization created with terraform",
  *     billingEmail: "jon@winteriscoming.com",
  *     adminLogins: ["jon-snow"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

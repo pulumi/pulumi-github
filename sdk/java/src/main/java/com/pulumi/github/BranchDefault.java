@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .description(&#34;My awesome codebase&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("example")
+ *             .description("My awesome codebase")
  *             .autoInit(true)
  *             .build());
  * 
- *         var development = new Branch(&#34;development&#34;, BranchArgs.builder()        
+ *         var development = new Branch("development", BranchArgs.builder()
  *             .repository(example.name())
- *             .branch(&#34;development&#34;)
+ *             .branch("development")
  *             .build());
  * 
- *         var default_ = new BranchDefault(&#34;default&#34;, BranchDefaultArgs.builder()        
+ *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()
  *             .repository(example.name())
  *             .branch(development.branch())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Renaming to a branch that doesn&#39;t exist:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,20 +102,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .description(&#34;My awesome codebase&#34;)
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("example")
+ *             .description("My awesome codebase")
  *             .autoInit(true)
  *             .build());
  * 
- *         var default_ = new BranchDefault(&#34;default&#34;, BranchDefaultArgs.builder()        
+ *         var default_ = new BranchDefault("default", BranchDefaultArgs.builder()
  *             .repository(example.name())
- *             .branch(&#34;development&#34;)
+ *             .branch("development")
  *             .rename(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

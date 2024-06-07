@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,26 +50,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a simple issue
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
+ *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
- *             .title(&#34;My issue title&#34;)
- *             .body(&#34;The body of my issue&#34;)
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()
+ *             .repository(test.name())
+ *             .title("My issue title")
+ *             .body("The body of my issue")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Milestone And Project Assignment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,34 +98,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create an issue with milestone and project assignment
- *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
+ *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .hasIssues(true)
  *             .build());
  * 
- *         var testRepositoryMilestone = new RepositoryMilestone(&#34;testRepositoryMilestone&#34;, RepositoryMilestoneArgs.builder()        
- *             .owner(testRepository.fullName().applyValue(fullName -&gt; fullName.split(&#34;/&#34;)).applyValue(split -&gt; split[0]))
- *             .repository(testRepository.name())
- *             .title(&#34;v1.0.0&#34;)
- *             .description(&#34;General Availability&#34;)
- *             .dueDate(&#34;2022-11-22&#34;)
- *             .state(&#34;open&#34;)
+ *         var testRepositoryMilestone = new RepositoryMilestone("testRepositoryMilestone", RepositoryMilestoneArgs.builder()
+ *             .owner(StdFunctions.split().applyValue(invoke -> invoke.result()[0]))
+ *             .repository(test.name())
+ *             .title("v1.0.0")
+ *             .description("General Availability")
+ *             .dueDate("2022-11-22")
+ *             .state("open")
  *             .build());
  * 
- *         var testIssue = new Issue(&#34;testIssue&#34;, IssueArgs.builder()        
- *             .repository(testRepository.name())
- *             .title(&#34;My issue&#34;)
- *             .body(&#34;My issue body&#34;)
+ *         var testIssue = new Issue("testIssue", IssueArgs.builder()
+ *             .repository(test.name())
+ *             .title("My issue")
+ *             .body("My issue body")
  *             .labels(            
- *                 &#34;bug&#34;,
- *                 &#34;documentation&#34;)
- *             .assignees(&#34;bob-github&#34;)
+ *                 "bug",
+ *                 "documentation")
+ *             .assignees("bob-github")
  *             .milestoneNumber(testRepositoryMilestone.number())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

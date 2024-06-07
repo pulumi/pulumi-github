@@ -11,22 +11,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "my-repo",
  *     description: "GitHub repo managed by Terraform",
  *     "private": false,
  *     vulnerabilityAlerts: true,
  * });
  * const example = new github.RepositoryDependabotSecurityUpdates("example", {
- *     repository: github_repository.test.id,
+ *     repository: test.id,
  *     enabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

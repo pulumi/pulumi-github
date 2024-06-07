@@ -106,15 +106,13 @@ def get_branch(branch: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    development = github.get_branch(branch="development",
-        repository="example")
+    development = github.get_branch(repository="example",
+        branch="development")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str branch: The repository branch to retrieve.
@@ -144,15 +142,13 @@ def get_branch_output(branch: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    development = github.get_branch(branch="development",
-        repository="example")
+    development = github.get_branch(repository="example",
+        branch="development")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str branch: The repository branch to retrieve.

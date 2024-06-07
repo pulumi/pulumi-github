@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -20,12 +19,11 @@ import * as utilities from "./utilities";
  * const repo = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const orgSecretRepos = new github.ActionsOrganizationSecretRepositories("orgSecretRepos", {
+ * const orgSecretRepos = new github.ActionsOrganizationSecretRepositories("org_secret_repos", {
  *     secretName: "existing_secret_name",
  *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

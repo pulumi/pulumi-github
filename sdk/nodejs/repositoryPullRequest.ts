@@ -9,20 +9,18 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.RepositoryPullRequest("example", {
- *     baseRef: "main",
  *     baseRepository: "example-repository",
- *     body: "This will change everything",
+ *     baseRef: "main",
  *     headRef: "feature-branch",
  *     title: "My newest feature",
+ *     body: "This will change everything",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class RepositoryPullRequest extends pulumi.CustomResource {
     /**

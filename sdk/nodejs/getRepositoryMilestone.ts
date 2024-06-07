@@ -9,18 +9,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryMilestone({
- *     number: 1,
  *     owner: "example-owner",
  *     repository: "example-repository",
+ *     number: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryMilestone(args: GetRepositoryMilestoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryMilestoneResult> {
 
@@ -83,18 +81,16 @@ export interface GetRepositoryMilestoneResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getRepositoryMilestone({
- *     number: 1,
  *     owner: "example-owner",
  *     repository: "example-repository",
+ *     number: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryMilestoneResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryMilestone(a, opts))

@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooRepository, err := github.NewRepository(ctx, "fooRepository", &github.RepositoryArgs{
+//			foo, err := github.NewRepository(ctx, "foo", &github.RepositoryArgs{
+//				Name:     pulumi.String("tf-acc-test-%s"),
 //				AutoInit: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewRepositoryFile(ctx, "fooRepositoryFile", &github.RepositoryFileArgs{
-//				Repository:        fooRepository.Name,
+//			_, err = github.NewRepositoryFile(ctx, "foo", &github.RepositoryFileArgs{
+//				Repository:        foo.Name,
 //				Branch:            pulumi.String("main"),
 //				File:              pulumi.String(".gitignore"),
 //				Content:           pulumi.String("**/*.tfstate"),
@@ -54,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

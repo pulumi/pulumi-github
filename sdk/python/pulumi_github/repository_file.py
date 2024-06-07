@@ -352,14 +352,15 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        foo_repository = github.Repository("fooRepository", auto_init=True)
-        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
-            repository=foo_repository.name,
+        foo = github.Repository("foo",
+            name="tf-acc-test-%s",
+            auto_init=True)
+        foo_repository_file = github.RepositoryFile("foo",
+            repository=foo.name,
             branch="main",
             file=".gitignore",
             content="**/*.tfstate",
@@ -368,7 +369,6 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -407,14 +407,15 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        foo_repository = github.Repository("fooRepository", auto_init=True)
-        foo_repository_file = github.RepositoryFile("fooRepositoryFile",
-            repository=foo_repository.name,
+        foo = github.Repository("foo",
+            name="tf-acc-test-%s",
+            auto_init=True)
+        foo_repository_file = github.RepositoryFile("foo",
+            repository=foo.name,
             branch="main",
             file=".gitignore",
             content="**/*.tfstate",
@@ -423,7 +424,6 @@ class RepositoryFile(pulumi.CustomResource):
             commit_email="terraform@example.com",
             overwrite_on_create=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

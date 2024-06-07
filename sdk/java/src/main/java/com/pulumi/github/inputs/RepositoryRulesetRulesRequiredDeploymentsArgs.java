@@ -16,14 +16,14 @@ public final class RepositoryRulesetRulesRequiredDeploymentsArgs extends com.pul
     public static final RepositoryRulesetRulesRequiredDeploymentsArgs Empty = new RepositoryRulesetRulesRequiredDeploymentsArgs();
 
     /**
-     * (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * The environments that must be successfully deployed to before branches can be merged.
      * 
      */
     @Import(name="requiredDeploymentEnvironments", required=true)
     private Output<List<String>> requiredDeploymentEnvironments;
 
     /**
-     * @return (List of String) The environments that must be successfully deployed to before branches can be merged.
+     * @return The environments that must be successfully deployed to before branches can be merged.
      * 
      */
     public Output<List<String>> requiredDeploymentEnvironments() {
@@ -55,7 +55,7 @@ public final class RepositoryRulesetRulesRequiredDeploymentsArgs extends com.pul
         }
 
         /**
-         * @param requiredDeploymentEnvironments (List of String) The environments that must be successfully deployed to before branches can be merged.
+         * @param requiredDeploymentEnvironments The environments that must be successfully deployed to before branches can be merged.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RepositoryRulesetRulesRequiredDeploymentsArgs extends com.pul
         }
 
         /**
-         * @param requiredDeploymentEnvironments (List of String) The environments that must be successfully deployed to before branches can be merged.
+         * @param requiredDeploymentEnvironments The environments that must be successfully deployed to before branches can be merged.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RepositoryRulesetRulesRequiredDeploymentsArgs extends com.pul
         }
 
         /**
-         * @param requiredDeploymentEnvironments (List of String) The environments that must be successfully deployed to before branches can be merged.
+         * @param requiredDeploymentEnvironments The environments that must be successfully deployed to before branches can be merged.
          * 
          * @return builder
          * 

@@ -25,7 +25,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,17 +39,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Generate an ssh key using provider "hashicorp/tls"
-//			exampleRepositoryDeployKeyPrivateKey, err := tls.NewPrivateKey(ctx, "exampleRepositoryDeployKeyPrivateKey", &tls.PrivateKeyArgs{
+//			exampleRepositoryDeployKey, err := tls.NewPrivateKey(ctx, "example_repository_deploy_key", &tls.PrivateKeyArgs{
 //				Algorithm: pulumi.String("ED25519"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Add the ssh key as a deploy key
-//			_, err = github.NewRepositoryDeployKey(ctx, "exampleRepositoryDeployKeyRepositoryDeployKey", &github.RepositoryDeployKeyArgs{
+//			_, err = github.NewRepositoryDeployKey(ctx, "example_repository_deploy_key", &github.RepositoryDeployKeyArgs{
 //				Title:      pulumi.String("Repository test key"),
 //				Repository: pulumi.String("test-repo"),
-//				Key:        exampleRepositoryDeployKeyPrivateKey.PublicKeyOpenssh,
+//				Key:        exampleRepositoryDeployKey.PublicKeyOpenssh,
 //				ReadOnly:   pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

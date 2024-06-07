@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,34 +27,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisRepository, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			this, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
 //				Name: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			thisBranch, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
-//				Branch:     thisRepository.DefaultBranch,
-//				Repository: thisRepository.Name,
+//			thisGetBranch, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
+//				Branch:     this.DefaultBranch,
+//				Repository: this.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			thisTree, err := github.GetTree(ctx, &github.GetTreeArgs{
+//			thisGetTree, err := github.GetTree(ctx, &github.GetTreeArgs{
 //				Recursive:  pulumi.BoolRef(false),
-//				Repository: thisRepository.Name,
-//				TreeSha:    thisBranch.Sha,
+//				Repository: this.Name,
+//				TreeSha:    thisGetBranch.Sha,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("entries", thisTree.Entries)
+//			ctx.Export("entries", thisGetTree.Entries)
 //			return nil
 //		})
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTree(ctx *pulumi.Context, args *GetTreeArgs, opts ...pulumi.InvokeOption) (*GetTreeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTreeResult

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,14 +53,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a repository to the team
- *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
- *             .description(&#34;Some cool team&#34;)
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
+ *             .name("SomeTeam")
+ *             .description("Some cool team")
  *             .build());
  * 
- *         var codeReviewSettings = new TeamSettings(&#34;codeReviewSettings&#34;, TeamSettingsArgs.builder()        
+ *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()
  *             .teamId(someTeam.id())
  *             .reviewRequestDelegation(TeamSettingsReviewRequestDelegationArgs.builder()
- *                 .algorithm(&#34;ROUND_ROBIN&#34;)
+ *                 .algorithm("ROUND_ROBIN")
  *                 .memberCount(1)
  *                 .notify(true)
  *                 .build())
@@ -67,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

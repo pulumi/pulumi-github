@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Name:        pulumi.String("foo"),
 //				Description: pulumi.String("Terraform acceptance tests"),
 //				HomepageUrl: pulumi.String("http://example.com/"),
 //				Visibility:  pulumi.String("public"),
@@ -58,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -83,7 +82,7 @@ type RepositoryWebhook struct {
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// The repository of the webhook.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The URL of the webhook.
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -132,7 +131,7 @@ type repositoryWebhookState struct {
 	Events []string `pulumi:"events"`
 	// The repository of the webhook.
 	Repository *string `pulumi:"repository"`
-	// The URL of the webhook.
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url *string `pulumi:"url"`
 }
 
@@ -146,7 +145,7 @@ type RepositoryWebhookState struct {
 	Events pulumi.StringArrayInput
 	// The repository of the webhook.
 	Repository pulumi.StringPtrInput
-	// The URL of the webhook.
+	// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 	Url pulumi.StringPtrInput
 }
 
@@ -288,7 +287,7 @@ func (o RepositoryWebhookOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The URL of the webhook.
+// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
 func (o RepositoryWebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryWebhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

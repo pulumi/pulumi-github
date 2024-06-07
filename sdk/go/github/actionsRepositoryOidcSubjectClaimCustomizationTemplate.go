@@ -28,7 +28,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +40,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.NewRepository(ctx, "example", nil)
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name: pulumi.String("example-repository"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx, "exampleTemplate", &github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs{
+//			_, err = github.NewActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx, "example_template", &github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs{
 //				Repository: example.Name,
 //				UseDefault: pulumi.Bool(false),
 //				IncludeClaimKeys: pulumi.StringArray{
@@ -62,7 +63,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

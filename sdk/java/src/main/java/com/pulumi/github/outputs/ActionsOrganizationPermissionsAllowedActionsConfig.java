@@ -20,7 +20,7 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfig {
      */
     private Boolean githubOwnedAllowed;
     /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
      * 
      */
     private @Nullable List<String> patternsAlloweds;
@@ -39,7 +39,7 @@ public final class ActionsOrganizationPermissionsAllowedActionsConfig {
         return this.githubOwnedAllowed;
     }
     /**
-     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*.&#34;
+     * @return Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat{@literal @}*, monalisa/octocat{@literal @}v2, monalisa/*.&#34;
      * 
      */
     public List<String> patternsAlloweds() {

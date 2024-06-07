@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRulesPullRequest {
     /**
-     * @return (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * @return New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
      */
     private @Nullable Boolean dismissStaleReviewsOnPush;
     /**
-     * @return (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * @return Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      * 
      */
     private @Nullable Boolean requireCodeOwnerReview;
     /**
-     * @return (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * @return Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      * 
      */
     private @Nullable Boolean requireLastPushApproval;
     /**
-     * @return (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * @return The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      * 
      */
     private @Nullable Integer requiredApprovingReviewCount;
     /**
-     * @return (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * @return All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      * 
      */
     private @Nullable Boolean requiredReviewThreadResolution;
 
     private OrganizationRulesetRulesPullRequest() {}
     /**
-     * @return (Boolean) New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+     * @return New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
      */
     public Optional<Boolean> dismissStaleReviewsOnPush() {
         return Optional.ofNullable(this.dismissStaleReviewsOnPush);
     }
     /**
-     * @return (Boolean) Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+     * @return Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
      * 
      */
     public Optional<Boolean> requireCodeOwnerReview() {
         return Optional.ofNullable(this.requireCodeOwnerReview);
     }
     /**
-     * @return (Boolean) Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+     * @return Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
      * 
      */
     public Optional<Boolean> requireLastPushApproval() {
         return Optional.ofNullable(this.requireLastPushApproval);
     }
     /**
-     * @return (Number) The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+     * @return The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
      * 
      */
     public Optional<Integer> requiredApprovingReviewCount() {
         return Optional.ofNullable(this.requiredApprovingReviewCount);
     }
     /**
-     * @return (Boolean) All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+     * @return All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      * 
      */
     public Optional<Boolean> requiredReviewThreadResolution() {

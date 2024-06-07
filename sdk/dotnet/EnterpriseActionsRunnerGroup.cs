@@ -15,7 +15,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,9 +28,10 @@ namespace Pulumi.Github
     ///         Slug = "my-enterprise",
     ///     });
     /// 
-    ///     var enterpriseOrganization = new Github.EnterpriseOrganization("enterpriseOrganization", new()
+    ///     var enterpriseOrganization = new Github.EnterpriseOrganization("enterprise_organization", new()
     ///     {
     ///         EnterpriseId = enterprise.Apply(getEnterpriseResult =&gt; getEnterpriseResult.Id),
+    ///         Name = "my-organization",
     ///         BillingEmail = "octocat@octo.cat",
     ///         AdminLogins = new[]
     ///         {
@@ -41,6 +41,7 @@ namespace Pulumi.Github
     /// 
     ///     var example = new Github.EnterpriseActionsRunnerGroup("example", new()
     ///     {
+    ///         Name = "my-awesome-runner-group",
     ///         EnterpriseSlug = enterprise.Apply(getEnterpriseResult =&gt; getEnterpriseResult.Slug),
     ///         AllowsPublicRepositories = true,
     ///         Visibility = "selected",
@@ -57,7 +58,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

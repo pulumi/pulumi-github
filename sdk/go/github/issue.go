@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,15 +32,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a simple issue
-//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name:      pulumi.String("tf-acc-test-%s"),
 //				AutoInit:  pulumi.Bool(true),
 //				HasIssues: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
-//				Repository: testRepository.Name,
+//			_, err = github.NewIssue(ctx, "test", &github.IssueArgs{
+//				Repository: test.Name,
 //				Title:      pulumi.String("My issue title"),
 //				Body:       pulumi.String("The body of my issue"),
 //			})
@@ -53,17 +53,16 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Milestone And Project Assignment
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
 //	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,20 +70,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create an issue with milestone and project assignment
-//			testRepository, err := github.NewRepository(ctx, "testRepository", &github.RepositoryArgs{
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name:      pulumi.String("tf-acc-test-%s"),
 //				AutoInit:  pulumi.Bool(true),
 //				HasIssues: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "testRepositoryMilestone", &github.RepositoryMilestoneArgs{
-//				Owner: testRepository.FullName.ApplyT(func(fullName string) (pulumi.StringArray, error) {
-//					return pulumi.StringArray("TODO: call split"), nil
-//				}).(pulumi.StringArrayOutput).ApplyT(func(split []string) (string, error) {
-//					return split[0], nil
-//				}).(pulumi.StringOutput),
-//				Repository:  testRepository.Name,
+//			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "test", &github.RepositoryMilestoneArgs{
+//				Owner: std.SplitOutput(ctx, std.SplitOutputArgs{
+//					Separator: pulumi.String("/"),
+//					Text:      test.FullName,
+//				}, nil).ApplyT(func(invoke std.SplitResult) (*string, error) {
+//					return invoke.Result[0], nil
+//				}).(pulumi.StringPtrOutput),
+//				Repository:  test.Name,
 //				Title:       pulumi.String("v1.0.0"),
 //				Description: pulumi.String("General Availability"),
 //				DueDate:     pulumi.String("2022-11-22"),
@@ -93,8 +94,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewIssue(ctx, "testIssue", &github.IssueArgs{
-//				Repository: testRepository.Name,
+//			_, err = github.NewIssue(ctx, "test", &github.IssueArgs{
+//				Repository: test.Name,
 //				Title:      pulumi.String("My issue"),
 //				Body:       pulumi.String("My issue body"),
 //				Labels: pulumi.StringArray{
@@ -114,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

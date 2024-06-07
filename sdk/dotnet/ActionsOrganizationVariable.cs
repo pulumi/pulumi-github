@@ -15,7 +15,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,18 +23,16 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVariable = new Github.ActionsOrganizationVariable("exampleVariable", new()
+    ///     var exampleVariable = new Github.ActionsOrganizationVariable("example_variable", new()
     ///     {
-    ///         Value = "example_variable_value",
     ///         VariableName = "example_variable_name",
     ///         Visibility = "private",
+    ///         Value = "example_variable_value",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +46,7 @@ namespace Pulumi.Github
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var exampleVariable = new Github.ActionsOrganizationVariable("exampleVariable", new()
+    ///     var exampleVariable = new Github.ActionsOrganizationVariable("example_variable", new()
     ///     {
     ///         VariableName = "example_variable_name",
     ///         Visibility = "selected",
@@ -62,7 +59,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

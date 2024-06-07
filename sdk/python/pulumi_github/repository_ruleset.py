@@ -318,14 +318,16 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository", description="Example repository")
-        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
-            repository=example_repository.name,
+        example = github.Repository("example",
+            name="example",
+            description="Example repository")
+        example_repository_ruleset = github.RepositoryRuleset("example",
+            name="example",
+            repository=example.name,
             target="branch",
             enforcement="active",
             conditions=github.RepositoryRulesetConditionsArgs(
@@ -350,7 +352,6 @@ class RepositoryRuleset(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -383,14 +384,16 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_repository = github.Repository("exampleRepository", description="Example repository")
-        example_repository_ruleset = github.RepositoryRuleset("exampleRepositoryRuleset",
-            repository=example_repository.name,
+        example = github.Repository("example",
+            name="example",
+            description="Example repository")
+        example_repository_ruleset = github.RepositoryRuleset("example",
+            name="example",
+            repository=example.name,
             target="branch",
             enforcement="active",
             conditions=github.RepositoryRulesetConditionsArgs(
@@ -415,7 +418,6 @@ class RepositoryRuleset(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

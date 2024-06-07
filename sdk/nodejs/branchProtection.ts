@@ -9,20 +9,19 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleUser = github.getUser({
+ * const exampleRepository = new github.Repository("example", {name: "test"});
+ * const example = github.getUser({
  *     username: "example",
  * });
- * const exampleTeam = new github.Team("exampleTeam", {});
+ * const exampleTeam = new github.Team("example", {name: "Example Name"});
  * // Protect the main branch of the foo repository. Additionally, require that
  * // the "ci/travis" context to be passing and only allow the engineers team merge
  * // to the branch.
- * const exampleBranchProtection = new github.BranchProtection("exampleBranchProtection", {
+ * const exampleBranchProtection = new github.BranchProtection("example", {
  *     repositoryId: exampleRepository.nodeId,
  *     pattern: "main",
  *     enforceAdmins: true,
@@ -35,7 +34,7 @@ import * as utilities from "./utilities";
  *         dismissStaleReviews: true,
  *         restrictDismissals: true,
  *         dismissalRestrictions: [
- *             exampleUser.then(exampleUser => exampleUser.nodeId),
+ *             example.then(example => example.nodeId),
  *             exampleTeam.nodeId,
  *             "/exampleuser",
  *             "exampleorganization/exampleteam",
@@ -43,24 +42,23 @@ import * as utilities from "./utilities";
  *     }],
  *     restrictPushes: [{
  *         pushAllowances: [
- *             exampleUser.then(exampleUser => exampleUser.nodeId),
+ *             example.then(example => example.nodeId),
  *             "/exampleuser",
  *             "exampleorganization/exampleteam",
  *         ],
  *     }],
  *     forcePushBypassers: [
- *         exampleUser.then(exampleUser => exampleUser.nodeId),
+ *         example.then(example => example.nodeId),
  *         "/exampleuser",
  *         "exampleorganization/exampleteam",
  *     ],
  * });
- * const exampleTeamRepository = new github.TeamRepository("exampleTeamRepository", {
+ * const exampleTeamRepository = new github.TeamRepository("example", {
  *     teamId: exampleTeam.id,
  *     repository: exampleRepository.name,
  *     permission: "pull",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

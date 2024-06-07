@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     slug: "foobar",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGithubApp(args: GetGithubAppArgs, opts?: pulumi.InvokeOptions): Promise<GetGithubAppResult> {
 
@@ -65,7 +63,6 @@ export interface GetGithubAppResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -74,7 +71,6 @@ export interface GetGithubAppResult {
  *     slug: "foobar",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGithubAppResult> {
     return pulumi.output(args).apply((a: any) => getGithubApp(a, opts))

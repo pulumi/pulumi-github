@@ -114,26 +114,24 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Create a new, red colored label
-        test_repo = github.IssueLabels("testRepo",
+        test_repo = github.IssueLabels("test_repo",
+            repository="test-repo",
             labels=[
                 github.IssueLabelsLabelArgs(
-                    color="FF0000",
                     name="Urgent",
+                    color="FF0000",
                 ),
                 github.IssueLabelsLabelArgs(
-                    color="FF0000",
                     name="Critical",
+                    color="FF0000",
                 ),
-            ],
-            repository="test-repo")
+            ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,26 +166,24 @@ class IssueLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Create a new, red colored label
-        test_repo = github.IssueLabels("testRepo",
+        test_repo = github.IssueLabels("test_repo",
+            repository="test-repo",
             labels=[
                 github.IssueLabelsLabelArgs(
-                    color="FF0000",
                     name="Urgent",
+                    color="FF0000",
                 ),
                 github.IssueLabelsLabelArgs(
-                    color="FF0000",
                     name="Critical",
+                    color="FF0000",
                 ),
-            ],
-            repository="test-repo")
+            ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

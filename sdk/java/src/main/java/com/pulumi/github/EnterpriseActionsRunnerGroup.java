@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,27 +51,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
- *             .slug(&#34;my-enterprise&#34;)
+ *             .slug("my-enterprise")
  *             .build());
  * 
- *         var enterpriseOrganization = new EnterpriseOrganization(&#34;enterpriseOrganization&#34;, EnterpriseOrganizationArgs.builder()        
- *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -&gt; getEnterpriseResult.id()))
- *             .billingEmail(&#34;octocat@octo.cat&#34;)
- *             .adminLogins(&#34;octocat&#34;)
+ *         var enterpriseOrganization = new EnterpriseOrganization("enterpriseOrganization", EnterpriseOrganizationArgs.builder()
+ *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.id()))
+ *             .name("my-organization")
+ *             .billingEmail("octocat{@literal @}octo.cat")
+ *             .adminLogins("octocat")
  *             .build());
  * 
- *         var example = new EnterpriseActionsRunnerGroup(&#34;example&#34;, EnterpriseActionsRunnerGroupArgs.builder()        
- *             .enterpriseSlug(enterprise.applyValue(getEnterpriseResult -&gt; getEnterpriseResult.slug()))
+ *         var example = new EnterpriseActionsRunnerGroup("example", EnterpriseActionsRunnerGroupArgs.builder()
+ *             .name("my-awesome-runner-group")
+ *             .enterpriseSlug(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.slug()))
  *             .allowsPublicRepositories(true)
- *             .visibility(&#34;selected&#34;)
+ *             .visibility("selected")
  *             .selectedOrganizationIds(enterpriseOrganization.databaseId())
  *             .restrictedToWorkflows(true)
- *             .selectedWorkflows(&#34;my-organization/my-repo/.github/workflows/cool-workflow.yaml@refs/tags/v1&#34;)
+ *             .selectedWorkflows("my-organization/my-repo/.github/workflows/cool-workflow.yaml{@literal @}refs/tags/v1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

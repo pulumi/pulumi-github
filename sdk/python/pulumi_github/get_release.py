@@ -292,16 +292,14 @@ def get_release(owner: Optional[str] = None,
 
     To retrieve the latest release that is present in a repository:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_release(owner="example-owner",
-        repository="example-repository",
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
         retrieve_by="latest")
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve a specific release from a repository based on it's ID:
 
@@ -359,16 +357,14 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
 
     To retrieve the latest release that is present in a repository:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_release(owner="example-owner",
-        repository="example-repository",
+    example = github.get_release(repository="example-repository",
+        owner="example-owner",
         retrieve_by="latest")
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve a specific release from a repository based on it's ID:
 

@@ -18,7 +18,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +29,7 @@ namespace Pulumi.Github
     ///     // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
     ///     var example = new Github.BranchProtectionV3("example", new()
     ///     {
-    ///         Repository = github_repository.Example.Name,
+    ///         Repository = exampleGithubRepository.Name,
     ///         Branch = "main",
     ///         Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
     ///         {
@@ -43,7 +42,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

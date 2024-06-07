@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRef(ctx, &github.GetRefArgs{
 //				Owner:      pulumi.StringRef("example"),
-//				Ref:        "heads/development",
 //				Repository: "example",
+//				Ref:        "heads/development",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRef(ctx *pulumi.Context, args *GetRefArgs, opts ...pulumi.InvokeOption) (*GetRefResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRefResult

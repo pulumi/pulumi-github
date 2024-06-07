@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,7 +24,8 @@ namespace Pulumi.Github
     /// {
     ///     var org = new Github.EnterpriseOrganization("org", new()
     ///     {
-    ///         EnterpriseId = data.Github_enterprise.Enterprise.Id,
+    ///         EnterpriseId = enterprise.Id,
+    ///         Name = "some-awesome-org",
     ///         DisplayName = "Some Awesome Org",
     ///         Description = "Organization created with terraform",
     ///         BillingEmail = "jon@winteriscoming.com",
@@ -37,7 +37,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

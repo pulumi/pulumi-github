@@ -17,7 +17,6 @@ import (
 //
 // To retrieve the latest release that is present in a repository:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
-//				Owner:      "example-owner",
 //				Repository: "example-repository",
+//				Owner:      "example-owner",
 //				RetrieveBy: "latest",
 //			}, nil)
 //			if err != nil {
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // To retrieve a specific release from a repository based on it's ID:
 func LookupRelease(ctx *pulumi.Context, args *LookupReleaseArgs, opts ...pulumi.InvokeOption) (*LookupReleaseResult, error) {

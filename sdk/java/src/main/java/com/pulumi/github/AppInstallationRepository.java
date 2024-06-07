@@ -30,13 +30,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.AppInstallationRepository;
  * import com.pulumi.github.AppInstallationRepositoryArgs;
  * import java.util.List;
@@ -53,16 +55,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a repository.
- *         var someRepo = new Repository(&#34;someRepo&#34;);
+ *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()
+ *             .name("some-repo")
+ *             .build());
  * 
- *         var someAppRepo = new AppInstallationRepository(&#34;someAppRepo&#34;, AppInstallationRepositoryArgs.builder()        
- *             .installationId(&#34;1234567&#34;)
+ *         var someAppRepo = new AppInstallationRepository("someAppRepo", AppInstallationRepositoryArgs.builder()
+ *             .installationId("1234567")
  *             .repository(someRepo.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

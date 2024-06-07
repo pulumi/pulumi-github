@@ -16,7 +16,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +28,11 @@ namespace Pulumi.Github
     ///     {
     ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
     /// ...
-    /// -----END PGP PUBLIC KEY BLOCK-----
-    /// ",
+    /// -----END PGP PUBLIC KEY BLOCK-----",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

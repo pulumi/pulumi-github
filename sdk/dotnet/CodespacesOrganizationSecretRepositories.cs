@@ -18,7 +18,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,7 @@ namespace Pulumi.Github
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories("orgSecretRepos", new()
+    ///     var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories("org_secret_repos", new()
     ///     {
     ///         SecretName = "existing_secret_name",
     ///         SelectedRepositoryIds = new[]
@@ -43,7 +42,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

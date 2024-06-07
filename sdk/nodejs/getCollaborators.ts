@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     repository: "example_repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaboratorsResult> {
 
@@ -72,7 +70,6 @@ export interface GetCollaboratorsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -82,7 +79,6 @@ export interface GetCollaboratorsResult {
  *     repository: "example_repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaboratorsResult> {
     return pulumi.output(args).apply((a: any) => getCollaborators(a, opts))

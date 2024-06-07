@@ -110,20 +110,21 @@ class TeamMembers(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
+        membership_for_some_user = github.Membership("membership_for_some_user",
             username="SomeUser",
             role="member")
-        membership_for_another_user = github.Membership("membershipForAnotherUser",
+        membership_for_another_user = github.Membership("membership_for_another_user",
             username="AnotherUser",
             role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_members = github.TeamMembers("someTeamMembers",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_team_members = github.TeamMembers("some_team_members",
             team_id=some_team.id,
             members=[
                 github.TeamMembersMemberArgs(
@@ -136,7 +137,6 @@ class TeamMembers(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,20 +168,21 @@ class TeamMembers(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Add a user to the organization
-        membership_for_some_user = github.Membership("membershipForSomeUser",
+        membership_for_some_user = github.Membership("membership_for_some_user",
             username="SomeUser",
             role="member")
-        membership_for_another_user = github.Membership("membershipForAnotherUser",
+        membership_for_another_user = github.Membership("membership_for_another_user",
             username="AnotherUser",
             role="member")
-        some_team = github.Team("someTeam", description="Some cool team")
-        some_team_members = github.TeamMembers("someTeamMembers",
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_team_members = github.TeamMembers("some_team_members",
             team_id=some_team.id,
             members=[
                 github.TeamMembersMemberArgs(
@@ -194,7 +195,6 @@ class TeamMembers(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

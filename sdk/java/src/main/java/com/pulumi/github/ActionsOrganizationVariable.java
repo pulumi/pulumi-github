@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVariable = new ActionsOrganizationVariable(&#34;exampleVariable&#34;, ActionsOrganizationVariableArgs.builder()        
- *             .value(&#34;example_variable_value&#34;)
- *             .variableName(&#34;example_variable_name&#34;)
- *             .visibility(&#34;private&#34;)
+ *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()
+ *             .variableName("example_variable_name")
+ *             .visibility("private")
+ *             .value("example_variable_value")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,19 +83,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName(&#34;my-org/repo&#34;)
+ *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var exampleVariable = new ActionsOrganizationVariable(&#34;exampleVariable&#34;, ActionsOrganizationVariableArgs.builder()        
- *             .variableName(&#34;example_variable_name&#34;)
- *             .visibility(&#34;selected&#34;)
- *             .value(&#34;example_variable_value&#34;)
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -&gt; getRepositoryResult.repoId()))
+ *         var exampleVariable = new ActionsOrganizationVariable("exampleVariable", ActionsOrganizationVariableArgs.builder()
+ *             .variableName("example_variable_name")
+ *             .visibility("selected")
+ *             .value("example_variable_value")
+ *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

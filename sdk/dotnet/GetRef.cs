@@ -16,7 +16,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Github
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
-        ///         Ref = "heads/development",
         ///         Repository = "example",
+        ///         Ref = "heads/development",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRefResult> InvokeAsync(GetRefArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,13 +53,12 @@ namespace Pulumi.Github
         ///     var development = Github.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
-        ///         Ref = "heads/development",
         ///         Repository = "example",
+        ///         Ref = "heads/development",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRefResult> Invoke(GetRefInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());

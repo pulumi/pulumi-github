@@ -7,23 +7,21 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const testRepository = github.getRepository({
+ * const test = github.getRepository({
  *     name: "test",
  * });
- * const testRepositoryTopics = new github.RepositoryTopics("testRepositoryTopics", {
- *     repository: github_repository.test.name,
+ * const testRepositoryTopics = new github.RepositoryTopics("test", {
+ *     repository: testGithubRepository.name,
  *     topics: [
  *         "topic-1",
  *         "topic-2",
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

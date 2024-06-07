@@ -134,15 +134,14 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         current = github.get_user(username="")
-        test_repository = github.Repository("testRepository")
-        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
-            repository=test_repository.name,
+        test = github.Repository("test", name="tf-acc-test-%s")
+        test_repository_environment = github.RepositoryEnvironment("test",
+            repository=test.name,
             environment="environment/test",
             wait_timer=10000,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
@@ -152,12 +151,11 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
                 protected_branches=False,
                 custom_branch_policies=True,
             ))
-        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
-            repository=test_repository.name,
+        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("test",
+            repository=test.name,
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,15 +182,14 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         current = github.get_user(username="")
-        test_repository = github.Repository("testRepository")
-        test_repository_environment = github.RepositoryEnvironment("testRepositoryEnvironment",
-            repository=test_repository.name,
+        test = github.Repository("test", name="tf-acc-test-%s")
+        test_repository_environment = github.RepositoryEnvironment("test",
+            repository=test.name,
             environment="environment/test",
             wait_timer=10000,
             reviewers=[github.RepositoryEnvironmentReviewerArgs(
@@ -202,12 +199,11 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
                 protected_branches=False,
                 custom_branch_policies=True,
             ))
-        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy",
-            repository=test_repository.name,
+        test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("test",
+            repository=test.name,
             environment=test_repository_environment.environment,
             branch_pattern="releases/*")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

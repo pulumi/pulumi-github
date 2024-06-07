@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetConditionsRepositoryName {
     /**
-     * @return (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * @return Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      * 
      */
     private List<String> excludes;
     /**
-     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * @return Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      * 
      */
     private List<String> includes;
@@ -32,14 +32,14 @@ public final class OrganizationRulesetConditionsRepositoryName {
 
     private OrganizationRulesetConditionsRepositoryName() {}
     /**
-     * @return (List of String) Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+     * @return Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
      * 
      */
     public List<String> excludes() {
         return this.excludes;
     }
     /**
-     * @return (List of String) Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+     * @return Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
      * 
      */
     public List<String> includes() {

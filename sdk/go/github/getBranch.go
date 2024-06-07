@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
-//				Branch:     "development",
 //				Repository: "example",
+//				Branch:     "development",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.InvokeOption) (*LookupBranchResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBranchResult

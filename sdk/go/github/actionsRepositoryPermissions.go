@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.NewRepository(ctx, "example", nil)
+//			example, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name: pulumi.String("my-repository"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -54,7 +55,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

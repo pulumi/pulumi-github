@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTemplate = new ActionsOrganizationOidcSubjectClaimCustomizationTemplate(&#34;exampleTemplate&#34;, ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs.builder()        
+ *         var exampleTemplate = new ActionsOrganizationOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs.builder()
  *             .includeClaimKeys(            
- *                 &#34;actor&#34;,
- *                 &#34;context&#34;,
- *                 &#34;repository_owner&#34;)
+ *                 "actor",
+ *                 "context",
+ *                 "repository_owner")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

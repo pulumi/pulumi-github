@@ -170,14 +170,14 @@ class OrganizationCustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.OrganizationCustomRole("example",
-            base_role="read",
+            name="example",
             description="Example custom role that uses the read role as its base",
+            base_role="read",
             permissions=[
                 "add_assignee",
                 "add_label",
@@ -200,7 +200,6 @@ class OrganizationCustomRole(pulumi.CustomResource):
                 "write_code_scanning",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,14 +230,14 @@ class OrganizationCustomRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.OrganizationCustomRole("example",
-            base_role="read",
+            name="example",
             description="Example custom role that uses the read role as its base",
+            base_role="read",
             permissions=[
                 "add_assignee",
                 "add_label",
@@ -261,7 +260,6 @@ class OrganizationCustomRole(pulumi.CustomResource):
                 "write_code_scanning",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -374,14 +374,12 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_ip_ranges()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -425,13 +423,11 @@ def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     test = github.get_ip_ranges()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

@@ -13,14 +13,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleRepository = new github.Repository("exampleRepository", {description: "Example repository"});
- * const exampleRepositoryRuleset = new github.RepositoryRuleset("exampleRepositoryRuleset", {
- *     repository: exampleRepository.name,
+ * const example = new github.Repository("example", {
+ *     name: "example",
+ *     description: "Example repository",
+ * });
+ * const exampleRepositoryRuleset = new github.RepositoryRuleset("example", {
+ *     name: "example",
+ *     repository: example.name,
  *     target: "branch",
  *     enforcement: "active",
  *     conditions: {
@@ -46,7 +49,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

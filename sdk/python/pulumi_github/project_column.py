@@ -131,15 +131,17 @@ class ProjectColumn(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="a column")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,15 +159,17 @@ class ProjectColumn(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is an organization project.")
-        column = github.ProjectColumn("column", project_id=project.id)
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is an organization project.")
+        column = github.ProjectColumn("column",
+            project_id=project.id,
+            name="a column")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ProjectColumnArgs args: The arguments to use to populate this resource's properties.

@@ -96,15 +96,13 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_secrets(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the secret
@@ -134,15 +132,13 @@ def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_actions_environment_secrets(environment="exampleEnvironment",
-        name="exampleRepo")
+    example = github.get_actions_environment_secrets(name="exampleRepo",
+        environment="exampleEnvironment")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the secret

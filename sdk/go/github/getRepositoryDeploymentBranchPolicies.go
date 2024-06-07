@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.GetRepositoryDeploymentBranchPolicies(ctx, &github.GetRepositoryDeploymentBranchPoliciesArgs{
-//				EnvironmentName: "env_name",
 //				Repository:      "example-repository",
+//				EnvironmentName: "env_name",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRepositoryDeploymentBranchPolicies(ctx *pulumi.Context, args *GetRepositoryDeploymentBranchPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRepositoryDeploymentBranchPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryDeploymentBranchPoliciesResult

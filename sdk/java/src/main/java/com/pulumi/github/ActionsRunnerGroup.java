@@ -24,13 +24,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsRunnerGroup;
  * import com.pulumi.github.ActionsRunnerGroupArgs;
  * import java.util.List;
@@ -46,16 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;);
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("my-repository")
+ *             .build());
  * 
- *         var exampleActionsRunnerGroup = new ActionsRunnerGroup(&#34;exampleActionsRunnerGroup&#34;, ActionsRunnerGroupArgs.builder()        
- *             .visibility(&#34;selected&#34;)
- *             .selectedRepositoryIds(exampleRepository.repoId())
+ *         var exampleActionsRunnerGroup = new ActionsRunnerGroup("exampleActionsRunnerGroup", ActionsRunnerGroupArgs.builder()
+ *             .name(example.name())
+ *             .visibility("selected")
+ *             .selectedRepositoryIds(example.repoId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

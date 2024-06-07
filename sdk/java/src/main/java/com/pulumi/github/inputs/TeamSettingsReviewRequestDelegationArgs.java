@@ -18,14 +18,14 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     public static final TeamSettingsReviewRequestDelegationArgs Empty = new TeamSettingsReviewRequestDelegationArgs();
 
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
      * 
      */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
      * 
      */
     public Optional<Output<String>> algorithm() {
@@ -33,14 +33,14 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     }
 
     /**
-     * The number of team members to assign to a pull request
+     * The number of team members to assign to a pull request.
      * 
      */
     @Import(name="memberCount")
     private @Nullable Output<Integer> memberCount;
 
     /**
-     * @return The number of team members to assign to a pull request
+     * @return The number of team members to assign to a pull request.
      * 
      */
     public Optional<Output<Integer>> memberCount() {
@@ -48,14 +48,14 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     }
 
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request
+     * whether to notify the entire team when at least one member is also assigned to the pull request.
      * 
      */
     @Import(name="notify")
     private @Nullable Output<Boolean> notify;
 
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request
+     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
      * 
      */
     public Optional<Output<Boolean>> notify_() {
@@ -89,7 +89,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are `ROUND_ROBIN` and `LOAD_BALANCE`. Default value is `ROUND_ROBIN`
+         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param memberCount The number of team members to assign to a pull request
+         * @param memberCount The number of team members to assign to a pull request.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param memberCount The number of team members to assign to a pull request
+         * @param memberCount The number of team members to assign to a pull request.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request
+         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request
+         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request.
          * 
          * @return builder
          * 

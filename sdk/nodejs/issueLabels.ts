@@ -20,27 +20,25 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Create a new, red colored label
- * const testRepo = new github.IssueLabels("testRepo", {
+ * const testRepo = new github.IssueLabels("test_repo", {
+ *     repository: "test-repo",
  *     labels: [
  *         {
- *             color: "FF0000",
  *             name: "Urgent",
+ *             color: "FF0000",
  *         },
  *         {
- *             color: "FF0000",
  *             name: "Critical",
+ *             color: "FF0000",
  *         },
  *     ],
- *     repository: "test-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

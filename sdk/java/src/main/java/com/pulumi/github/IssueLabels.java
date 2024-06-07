@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,22 +55,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new, red colored label
- *         var testRepo = new IssueLabels(&#34;testRepo&#34;, IssueLabelsArgs.builder()        
+ *         var testRepo = new IssueLabels("testRepo", IssueLabelsArgs.builder()
+ *             .repository("test-repo")
  *             .labels(            
  *                 IssueLabelsLabelArgs.builder()
- *                     .color(&#34;FF0000&#34;)
- *                     .name(&#34;Urgent&#34;)
+ *                     .name("Urgent")
+ *                     .color("FF0000")
  *                     .build(),
  *                 IssueLabelsLabelArgs.builder()
- *                     .color(&#34;FF0000&#34;)
- *                     .name(&#34;Critical&#34;)
+ *                     .name("Critical")
+ *                     .color("FF0000")
  *                     .build())
- *             .repository(&#34;test-repo&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

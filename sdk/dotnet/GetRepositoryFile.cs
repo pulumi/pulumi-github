@@ -18,7 +18,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,14 +28,13 @@ namespace Pulumi.Github
         /// {
         ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         Repository = github_repository.Foo.Name,
+        ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
         ///         File = ".gitignore",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryFileResult> InvokeAsync(GetRepositoryFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,14 +56,13 @@ namespace Pulumi.Github
         /// {
         ///     var foo = Github.GetRepositoryFile.Invoke(new()
         ///     {
-        ///         Repository = github_repository.Foo.Name,
+        ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
         ///         File = ".gitignore",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryFileResult> Invoke(GetRepositoryFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryFileResult>("github:index/getRepositoryFile:getRepositoryFile", args ?? new GetRepositoryFileInvokeArgs(), options.WithDefaults());

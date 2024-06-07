@@ -10,12 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "repo",
  *     description: "GitHub repo managed by Terraform",
  *     "private": false,
  * });
@@ -24,30 +24,30 @@ import * as utilities from "./utilities";
  *     tagName: "v1.0.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### On Non-Default Branch
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleRepository = new github.Repository("exampleRepository", {autoInit: true});
- * const exampleBranch = new github.Branch("exampleBranch", {
- *     repository: exampleRepository.name,
- *     branch: "branch_name",
- *     sourceBranch: exampleRepository.defaultBranch,
+ * const example = new github.Repository("example", {
+ *     name: "repo",
+ *     autoInit: true,
  * });
- * const exampleRelease = new github.Release("exampleRelease", {
- *     repository: exampleRepository.name,
+ * const exampleBranch = new github.Branch("example", {
+ *     repository: example.name,
+ *     branch: "branch_name",
+ *     sourceBranch: example.defaultBranch,
+ * });
+ * const exampleRelease = new github.Release("example", {
+ *     repository: example.name,
  *     tagName: "v1.0.0",
  *     targetCommitish: exampleBranch.branch,
  *     draft: false,
  *     prerelease: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

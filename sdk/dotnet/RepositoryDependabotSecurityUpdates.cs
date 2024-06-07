@@ -16,7 +16,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +26,7 @@ namespace Pulumi.Github
     /// {
     ///     var repo = new Github.Repository("repo", new()
     ///     {
+    ///         Name = "my-repo",
     ///         Description = "GitHub repo managed by Terraform",
     ///         Private = false,
     ///         VulnerabilityAlerts = true,
@@ -34,13 +34,12 @@ namespace Pulumi.Github
     /// 
     ///     var example = new Github.RepositoryDependabotSecurityUpdates("example", new()
     ///     {
-    ///         Repository = github_repository.Test.Id,
+    ///         Repository = test.Id,
     ///         Enabled = true,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

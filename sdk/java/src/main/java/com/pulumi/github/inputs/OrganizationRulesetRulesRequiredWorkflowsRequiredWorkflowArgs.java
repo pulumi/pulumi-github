@@ -18,14 +18,14 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
     public static final OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs Empty = new OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs();
 
     /**
-     * (String) The path to the YAML definition file of the workflow.
+     * The path to the workflow YAML definition file.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return (String) The path to the YAML definition file of the workflow.
+     * @return The path to the workflow YAML definition file.
      * 
      */
     public Output<String> path() {
@@ -33,14 +33,14 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
     }
 
     /**
-     * (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * The ref (branch or tag) of the workflow file to use.
      * 
      */
     @Import(name="ref")
     private @Nullable Output<String> ref;
 
     /**
-     * @return (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+     * @return The ref (branch or tag) of the workflow file to use.
      * 
      */
     public Optional<Output<String>> ref() {
@@ -48,14 +48,14 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
     }
 
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * The repository in which the workflow is defined.
      * 
      */
     @Import(name="repositoryId", required=true)
     private Output<Integer> repositoryId;
 
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository in which the workflow is defined.
      * 
      */
     public Output<Integer> repositoryId() {
@@ -89,7 +89,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param path (String) The path to the YAML definition file of the workflow.
+         * @param path The path to the workflow YAML definition file.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param path (String) The path to the YAML definition file of the workflow.
+         * @param path The path to the workflow YAML definition file.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param ref (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+         * @param ref The ref (branch or tag) of the workflow file to use.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param ref (String) The optional ref from which to fetch the workflow. Defaults to `master`.
+         * @param ref The ref (branch or tag) of the workflow file to use.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param repositoryId The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryId The repository in which the workflow is defined.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
         }
 
         /**
-         * @param repositoryId The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryId The repository in which the workflow is defined.
          * 
          * @return builder
          * 

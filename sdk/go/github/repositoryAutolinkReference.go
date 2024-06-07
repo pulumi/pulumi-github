@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			repo, err := github.NewRepository(ctx, "repo", &github.RepositoryArgs{
+//				Name:        pulumi.String("my-repo"),
 //				Description: pulumi.String("GitHub repo managed by Terraform"),
 //				Private:     pulumi.Bool(false),
 //			})
@@ -49,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

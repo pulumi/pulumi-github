@@ -12,18 +12,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a team to the organization
- * const someTeam = new github.Team("someTeam", {
+ * const someTeam = new github.Team("some_team", {
+ *     name: "some-team",
  *     description: "Some cool team",
  *     privacy: "closed",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

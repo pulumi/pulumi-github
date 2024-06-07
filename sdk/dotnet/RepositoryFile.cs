@@ -15,7 +15,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,14 +23,15 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooRepository = new Github.Repository("fooRepository", new()
+    ///     var foo = new Github.Repository("foo", new()
     ///     {
+    ///         Name = "tf-acc-test-%s",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("fooRepositoryFile", new()
+    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
     ///     {
-    ///         Repository = fooRepository.Name,
+    ///         Repository = foo.Name,
     ///         Branch = "main",
     ///         File = ".gitignore",
     ///         Content = "**/*.tfstate",
@@ -43,7 +43,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

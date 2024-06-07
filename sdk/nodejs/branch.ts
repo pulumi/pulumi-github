@@ -12,17 +12,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const development = new github.Branch("development", {
- *     branch: "development",
  *     repository: "example",
+ *     branch: "development",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

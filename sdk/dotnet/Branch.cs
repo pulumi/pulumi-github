@@ -17,7 +17,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +27,12 @@ namespace Pulumi.Github
     /// {
     ///     var development = new Github.Branch("development", new()
     ///     {
-    ///         BranchName = "development",
     ///         Repository = "example",
+    ///         BranchName = "development",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

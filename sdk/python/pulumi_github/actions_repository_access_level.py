@@ -103,17 +103,17 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example", visibility="private")
+        example = github.Repository("example",
+            name="my-repository",
+            visibility="private")
         test = github.ActionsRepositoryAccessLevel("test",
             access_level="user",
             repository=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -140,17 +140,17 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example", visibility="private")
+        example = github.Repository("example",
+            name="my-repository",
+            visibility="private")
         test = github.ActionsRepositoryAccessLevel("test",
             access_level="user",
             repository=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

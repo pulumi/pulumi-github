@@ -895,39 +895,38 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         test = github.OrganizationSettings("test",
-            advanced_security_enabled_for_new_repositories=False,
             billing_email="test@example.com",
-            blog="https://example.com",
             company="Test Company",
+            blog="https://example.com",
+            email="test@example.com",
+            twitter_username="Test",
+            location="Test Location",
+            name="Test Name",
+            description="Test Description",
+            has_organization_projects=True,
+            has_repository_projects=True,
             default_repository_permission="read",
+            members_can_create_repositories=True,
+            members_can_create_public_repositories=True,
+            members_can_create_private_repositories=True,
+            members_can_create_internal_repositories=True,
+            members_can_create_pages=True,
+            members_can_create_public_pages=True,
+            members_can_create_private_pages=True,
+            members_can_fork_private_repositories=True,
+            web_commit_signoff_required=True,
+            advanced_security_enabled_for_new_repositories=False,
             dependabot_alerts_enabled_for_new_repositories=False,
             dependabot_security_updates_enabled_for_new_repositories=False,
             dependency_graph_enabled_for_new_repositories=False,
-            description="Test Description",
-            email="test@example.com",
-            has_organization_projects=True,
-            has_repository_projects=True,
-            location="Test Location",
-            members_can_create_internal_repositories=True,
-            members_can_create_pages=True,
-            members_can_create_private_pages=True,
-            members_can_create_private_repositories=True,
-            members_can_create_public_pages=True,
-            members_can_create_public_repositories=True,
-            members_can_create_repositories=True,
-            members_can_fork_private_repositories=True,
             secret_scanning_enabled_for_new_repositories=False,
-            secret_scanning_push_protection_enabled_for_new_repositories=False,
-            twitter_username="Test",
-            web_commit_signoff_required=True)
+            secret_scanning_push_protection_enabled_for_new_repositories=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -978,39 +977,38 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         test = github.OrganizationSettings("test",
-            advanced_security_enabled_for_new_repositories=False,
             billing_email="test@example.com",
-            blog="https://example.com",
             company="Test Company",
+            blog="https://example.com",
+            email="test@example.com",
+            twitter_username="Test",
+            location="Test Location",
+            name="Test Name",
+            description="Test Description",
+            has_organization_projects=True,
+            has_repository_projects=True,
             default_repository_permission="read",
+            members_can_create_repositories=True,
+            members_can_create_public_repositories=True,
+            members_can_create_private_repositories=True,
+            members_can_create_internal_repositories=True,
+            members_can_create_pages=True,
+            members_can_create_public_pages=True,
+            members_can_create_private_pages=True,
+            members_can_fork_private_repositories=True,
+            web_commit_signoff_required=True,
+            advanced_security_enabled_for_new_repositories=False,
             dependabot_alerts_enabled_for_new_repositories=False,
             dependabot_security_updates_enabled_for_new_repositories=False,
             dependency_graph_enabled_for_new_repositories=False,
-            description="Test Description",
-            email="test@example.com",
-            has_organization_projects=True,
-            has_repository_projects=True,
-            location="Test Location",
-            members_can_create_internal_repositories=True,
-            members_can_create_pages=True,
-            members_can_create_private_pages=True,
-            members_can_create_private_repositories=True,
-            members_can_create_public_pages=True,
-            members_can_create_public_repositories=True,
-            members_can_create_repositories=True,
-            members_can_fork_private_repositories=True,
             secret_scanning_enabled_for_new_repositories=False,
-            secret_scanning_push_protection_enabled_for_new_repositories=False,
-            twitter_username="Test",
-            web_commit_signoff_required=True)
+            secret_scanning_push_protection_enabled_for_new_repositories=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

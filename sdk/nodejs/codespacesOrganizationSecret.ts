@@ -7,47 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const exampleSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret", {
- *     secretName: "example_secret_name",
- *     visibility: "private",
- *     plaintextValue: _var.some_secret_string,
- * });
- * const exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret", {
- *     secretName: "example_secret_name",
- *     visibility: "private",
- *     encryptedValue: _var.some_encrypted_secret_string,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const repo = github.getRepository({
- *     fullName: "my-org/repo",
- * });
- * const exampleSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret("exampleSecretCodespacesOrganizationSecret", {
- *     secretName: "example_secret_name",
- *     visibility: "selected",
- *     plaintextValue: _var.some_secret_string,
- *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
- * });
- * const exampleSecretIndex_codespacesOrganizationSecretCodespacesOrganizationSecret = new github.CodespacesOrganizationSecret("exampleSecretIndex/codespacesOrganizationSecretCodespacesOrganizationSecret", {
- *     secretName: "example_secret_name",
- *     visibility: "selected",
- *     encryptedValue: _var.some_encrypted_secret_string,
- *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * This resource can be imported using an ID made up of the secret name:

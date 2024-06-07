@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,17 +52,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
- *         var example = new BranchProtectionV3(&#34;example&#34;, BranchProtectionV3Args.builder()        
- *             .repository(github_repository.example().name())
- *             .branch(&#34;main&#34;)
+ *         var example = new BranchProtectionV3("example", BranchProtectionV3Args.builder()
+ *             .repository(exampleGithubRepository.name())
+ *             .branch("main")
  *             .restrictions(BranchProtectionV3RestrictionsArgs.builder()
- *                 .users(&#34;foo-user&#34;)
+ *                 .users("foo-user")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

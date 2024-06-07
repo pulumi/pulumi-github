@@ -32,19 +32,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * // Add a collaborator to a repository
- * const aRepoCollaborator = new github.RepositoryCollaborator("aRepoCollaborator", {
- *     permission: "admin",
+ * const aRepoCollaborator = new github.RepositoryCollaborator("a_repo_collaborator", {
  *     repository: "our-cool-repo",
  *     username: "SomeUser",
+ *     permission: "admin",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

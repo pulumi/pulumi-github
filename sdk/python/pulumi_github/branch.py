@@ -219,16 +219,14 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         development = github.Branch("development",
-            branch="development",
-            repository="example")
+            repository="example",
+            branch="development")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,16 +268,14 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         development = github.Branch("development",
-            branch="development",
-            repository="example")
+            repository="example",
+            branch="development")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -93,14 +93,14 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -250,7 +250,7 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class RepositoryPagesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
          * 
          * @return builder
          * 

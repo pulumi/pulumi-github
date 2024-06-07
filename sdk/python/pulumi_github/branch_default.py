@@ -153,12 +153,12 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         development = github.Branch("development",
@@ -168,16 +168,15 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
-        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         default = github.BranchDefault("default",
@@ -185,7 +184,6 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,12 +216,12 @@ class BranchDefault(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         development = github.Branch("development",
@@ -233,16 +231,15 @@ class BranchDefault(pulumi.CustomResource):
             repository=example.name,
             branch=development.branch)
         ```
-        <!--End PulumiCodeChooser -->
 
         Renaming to a branch that doesn't exist:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         example = github.Repository("example",
+            name="example",
             description="My awesome codebase",
             auto_init=True)
         default = github.BranchDefault("default",
@@ -250,7 +247,6 @@ class BranchDefault(pulumi.CustomResource):
             branch="development",
             rename=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

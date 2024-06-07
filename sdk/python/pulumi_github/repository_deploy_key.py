@@ -196,22 +196,20 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
         import pulumi_tls as tls
 
         # Generate an ssh key using provider "hashicorp/tls"
-        example_repository_deploy_key_private_key = tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", algorithm="ED25519")
+        example_repository_deploy_key = tls.PrivateKey("example_repository_deploy_key", algorithm="ED25519")
         # Add the ssh key as a deploy key
-        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey",
+        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("example_repository_deploy_key",
             title="Repository test key",
             repository="test-repo",
-            key=example_repository_deploy_key_private_key.public_key_openssh,
+            key=example_repository_deploy_key.public_key_openssh,
             read_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,22 +249,20 @@ class RepositoryDeployKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
         import pulumi_tls as tls
 
         # Generate an ssh key using provider "hashicorp/tls"
-        example_repository_deploy_key_private_key = tls.PrivateKey("exampleRepositoryDeployKeyPrivateKey", algorithm="ED25519")
+        example_repository_deploy_key = tls.PrivateKey("example_repository_deploy_key", algorithm="ED25519")
         # Add the ssh key as a deploy key
-        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("exampleRepositoryDeployKeyRepositoryDeployKey",
+        example_repository_deploy_key_repository_deploy_key = github.RepositoryDeployKey("example_repository_deploy_key",
             title="Repository test key",
             repository="test-repo",
-            key=example_repository_deploy_key_private_key.public_key_openssh,
+            key=example_repository_deploy_key.public_key_openssh,
             read_only=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

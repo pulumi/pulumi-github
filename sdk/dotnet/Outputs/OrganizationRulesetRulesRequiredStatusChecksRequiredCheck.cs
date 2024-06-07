@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredStatusChecksRequiredCheck
     {
         /// <summary>
-        /// (String) The status check context name that must be present on the commit.
+        /// The status check context name that must be present on the commit.
         /// </summary>
         public readonly string Context;
         /// <summary>
-        /// (Number) The optional integration ID that this status check must originate from.
+        /// The optional integration ID that this status check must originate from.
         /// </summary>
         public readonly int? IntegrationId;
 

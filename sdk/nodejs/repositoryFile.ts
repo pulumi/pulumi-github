@@ -10,14 +10,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const fooRepository = new github.Repository("fooRepository", {autoInit: true});
- * const fooRepositoryFile = new github.RepositoryFile("fooRepositoryFile", {
- *     repository: fooRepository.name,
+ * const foo = new github.Repository("foo", {
+ *     name: "tf-acc-test-%s",
+ *     autoInit: true,
+ * });
+ * const fooRepositoryFile = new github.RepositoryFile("foo", {
+ *     repository: foo.name,
  *     branch: "main",
  *     file: ".gitignore",
  *     content: "**&#47;*.tfstate",
@@ -27,7 +29,6 @@ import * as utilities from "./utilities";
  *     overwriteOnCreate: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

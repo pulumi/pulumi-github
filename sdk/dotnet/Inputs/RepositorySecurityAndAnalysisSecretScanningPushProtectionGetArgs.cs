@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositorySecurityAndAnalysisSecretScanningPushProtectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        /// The GitHub Pages site's build status e.g. `building` or `built`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

@@ -15,14 +15,14 @@ public final class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs
     public static final RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs Empty = new RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs();
 
     /**
-     * Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
      * 
      */
     public Output<String> status() {
@@ -54,7 +54,7 @@ public final class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs
         }
 
         /**
-         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs
         }
 
         /**
-         * @param status Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
          * 
          * @return builder
          * 

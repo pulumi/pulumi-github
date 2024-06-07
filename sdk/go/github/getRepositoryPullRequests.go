@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRepositoryPullRequests(ctx, &github.LookupRepositoryPullRequestsArgs{
-//				BaseRef:        pulumi.StringRef("main"),
 //				BaseRepository: "example-repository",
+//				BaseRef:        pulumi.StringRef("main"),
 //				SortBy:         pulumi.StringRef("updated"),
 //				SortDirection:  pulumi.StringRef("desc"),
 //				State:          pulumi.StringRef("open"),
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRepositoryPullRequests(ctx *pulumi.Context, args *LookupRepositoryPullRequestsArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryPullRequestsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryPullRequestsResult

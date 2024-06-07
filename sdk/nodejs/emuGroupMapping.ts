@@ -9,18 +9,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleEmuGroupMapping = new github.EmuGroupMapping("exampleEmuGroupMapping", {
- *     groupId: 28836,
+ * const exampleEmuGroupMapping = new github.EmuGroupMapping("example_emu_group_mapping", {
  *     teamSlug: "emu-test-team",
+ *     groupId: 28836,
  * });
- * // The GitHub team name to modify
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

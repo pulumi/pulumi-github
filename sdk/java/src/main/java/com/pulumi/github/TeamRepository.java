@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.Team;
  * import com.pulumi.github.TeamArgs;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.TeamRepository;
  * import com.pulumi.github.TeamRepositoryArgs;
  * import java.util.List;
@@ -59,21 +61,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a repository to the team
- *         var someTeam = new Team(&#34;someTeam&#34;, TeamArgs.builder()        
- *             .description(&#34;Some cool team&#34;)
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
+ *             .name("SomeTeam")
+ *             .description("Some cool team")
  *             .build());
  * 
- *         var someRepo = new Repository(&#34;someRepo&#34;);
+ *         var someRepo = new Repository("someRepo", RepositoryArgs.builder()
+ *             .name("some-repo")
+ *             .build());
  * 
- *         var someTeamRepo = new TeamRepository(&#34;someTeamRepo&#34;, TeamRepositoryArgs.builder()        
+ *         var someTeamRepo = new TeamRepository("someTeamRepo", TeamRepositoryArgs.builder()
  *             .teamId(someTeam.id())
  *             .repository(someRepo.name())
- *             .permission(&#34;pull&#34;)
+ *             .permission("pull")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -99,7 +105,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     @Export(name="permission", refs={String.class}, tree="[0]")
@@ -107,7 +113,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The permissions of team members regarding the repository.
-     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+     * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud{@literal @}latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      * 
      */
     public Output<Optional<String>> permission() {

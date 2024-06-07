@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +27,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new, red colored label
-//			_, err := github.NewIssueLabel(ctx, "testRepo", &github.IssueLabelArgs{
-//				Color:      pulumi.String("FF0000"),
+//			_, err := github.NewIssueLabel(ctx, "test_repo", &github.IssueLabelArgs{
 //				Repository: pulumi.String("test-repo"),
+//				Name:       pulumi.String("Urgent"),
+//				Color:      pulumi.String("FF0000"),
 //			})
 //			if err != nil {
 //				return err
@@ -40,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +24,20 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         HasProjects = true,
     ///     });
     /// 
     ///     var project = new Github.RepositoryProject("project", new()
     ///     {
-    ///         Body = "This is a repository project.",
+    ///         Name = "A Repository Project",
     ///         Repository = example.Name,
+    ///         Body = "This is a repository project.",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [GithubResourceType("github:index/repositoryProject:RepositoryProject")]
     public partial class RepositoryProject : global::Pulumi.CustomResource

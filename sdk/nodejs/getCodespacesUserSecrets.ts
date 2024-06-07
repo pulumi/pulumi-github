@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesUserSecrets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesUserSecrets(opts?: pulumi.InvokeOptions): Promise<GetCodespacesUserSecretsResult> {
 
@@ -45,14 +43,12 @@ export interface GetCodespacesUserSecretsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesUserSecrets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesUserSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserSecretsResult> {
     return pulumi.output(getCodespacesUserSecrets(opts))

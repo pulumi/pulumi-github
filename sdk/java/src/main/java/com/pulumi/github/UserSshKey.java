@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserSshKey(&#34;example&#34;, UserSshKeyArgs.builder()        
- *             .title(&#34;example title&#34;)
- *             .key(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *         var example = new UserSshKey("example", UserSshKeyArgs.builder()
+ *             .title("example title")
+ *             .key(StdFunctions.file(FileArgs.builder()
+ *                 .input("~/.ssh/id_rsa.pub")
+ *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

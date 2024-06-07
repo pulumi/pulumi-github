@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +42,7 @@ import (
 //			_, err = github.NewRepositoryDeploymentBranchPolicy(ctx, "foo", &github.RepositoryDeploymentBranchPolicyArgs{
 //				Repository:      pulumi.String("my_repo"),
 //				EnvironmentName: pulumi.String("my_env"),
+//				Name:            pulumi.String("foo"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				env,
 //			}))
@@ -54,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

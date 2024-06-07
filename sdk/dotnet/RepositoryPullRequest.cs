@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +24,15 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.RepositoryPullRequest("example", new()
     ///     {
-    ///         BaseRef = "main",
     ///         BaseRepository = "example-repository",
-    ///         Body = "This will change everything",
+    ///         BaseRef = "main",
     ///         HeadRef = "feature-branch",
     ///         Title = "My newest feature",
+    ///         Body = "This will change everything",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [GithubResourceType("github:index/repositoryPullRequest:RepositoryPullRequest")]
     public partial class RepositoryPullRequest : global::Pulumi.CustomResource

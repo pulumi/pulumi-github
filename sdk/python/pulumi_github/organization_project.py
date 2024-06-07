@@ -132,14 +132,14 @@ class OrganizationProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is a organization project.")
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is a organization project.")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,14 +157,14 @@ class OrganizationProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        project = github.OrganizationProject("project", body="This is a organization project.")
+        project = github.OrganizationProject("project",
+            name="A Organization Project",
+            body="This is a organization project.")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OrganizationProjectArgs args: The arguments to use to populate this resource's properties.

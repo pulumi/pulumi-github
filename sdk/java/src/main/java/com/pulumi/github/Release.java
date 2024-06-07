@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
- *             .description(&#34;GitHub repo managed by Terraform&#34;)
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
+ *             .name("repo")
+ *             .description("GitHub repo managed by Terraform")
  *             .private_(false)
  *             .build());
  * 
- *         var example = new Release(&#34;example&#34;, ReleaseArgs.builder()        
+ *         var example = new Release("example", ReleaseArgs.builder()
  *             .repository(repo.name())
- *             .tagName(&#34;v1.0.0&#34;)
+ *             .tagName("v1.0.0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### On Non-Default Branch
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,19 +92,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("repo")
  *             .autoInit(true)
  *             .build());
  * 
- *         var exampleBranch = new Branch(&#34;exampleBranch&#34;, BranchArgs.builder()        
- *             .repository(exampleRepository.name())
- *             .branch(&#34;branch_name&#34;)
- *             .sourceBranch(exampleRepository.defaultBranch())
+ *         var exampleBranch = new Branch("exampleBranch", BranchArgs.builder()
+ *             .repository(example.name())
+ *             .branch("branch_name")
+ *             .sourceBranch(example.defaultBranch())
  *             .build());
  * 
- *         var exampleRelease = new Release(&#34;exampleRelease&#34;, ReleaseArgs.builder()        
- *             .repository(exampleRepository.name())
- *             .tagName(&#34;v1.0.0&#34;)
+ *         var exampleRelease = new Release("exampleRelease", ReleaseArgs.builder()
+ *             .repository(example.name())
+ *             .tagName("v1.0.0")
  *             .targetCommitish(exampleBranch.branch())
  *             .draft(false)
  *             .prerelease(false)
@@ -108,7 +113,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

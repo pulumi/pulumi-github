@@ -14,6 +14,61 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Github.OrganizationRuleset("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Target = "branch",
+    ///         Enforcement = "active",
+    ///         Conditions = new Github.Inputs.OrganizationRulesetConditionsArgs
+    ///         {
+    ///             RefName = new Github.Inputs.OrganizationRulesetConditionsRefNameArgs
+    ///             {
+    ///                 Includes = new[]
+    ///                 {
+    ///                     "~ALL",
+    ///                 },
+    ///                 Excludes = new() { },
+    ///             },
+    ///         },
+    ///         BypassActors = new[]
+    ///         {
+    ///             new Github.Inputs.OrganizationRulesetBypassActorArgs
+    ///             {
+    ///                 ActorId = 13473,
+    ///                 ActorType = "Integration",
+    ///                 BypassMode = "always",
+    ///             },
+    ///         },
+    ///         Rules = new Github.Inputs.OrganizationRulesetRulesArgs
+    ///         {
+    ///             Creation = true,
+    ///             Update = true,
+    ///             Deletion = true,
+    ///             RequiredLinearHistory = true,
+    ///             RequiredSignatures = true,
+    ///             BranchNamePattern = new Github.Inputs.OrganizationRulesetRulesBranchNamePatternArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 Negate = false,
+    ///                 Operator = "starts_with",
+    ///                 Pattern = "ex",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.

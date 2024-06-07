@@ -62,14 +62,12 @@ def get_actions_organization_oidc_subject_claim_customization_template(opts: Opt
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_oidc_subject_claim_customization_template()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -87,13 +85,11 @@ def get_actions_organization_oidc_subject_claim_customization_template_output(op
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_organization_oidc_subject_claim_customization_template()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.LookupRepositoryMilestone(ctx, &github.LookupRepositoryMilestoneArgs{
-//				Number:     1,
 //				Owner:      "example-owner",
 //				Repository: "example-repository",
+//				Number:     1,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRepositoryMilestone(ctx *pulumi.Context, args *LookupRepositoryMilestoneArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryMilestoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryMilestoneResult

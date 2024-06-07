@@ -11,26 +11,24 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const thisRepository = github.getRepository({
+ * const this = github.getRepository({
  *     name: "example",
  * });
- * const thisBranch = Promise.all([thisRepository, thisRepository]).then(([thisRepository, thisRepository1]) => github.getBranch({
- *     branch: thisRepository.defaultBranch,
- *     repository: thisRepository1.name,
+ * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
+ *     branch: _this.defaultBranch,
+ *     repository: _this1.name,
  * }));
- * const thisTree = Promise.all([thisRepository, thisBranch]).then(([thisRepository, thisBranch]) => github.getTree({
+ * const thisGetTree = Promise.all([_this, thisGetBranch]).then(([_this, thisGetBranch]) => github.getTree({
  *     recursive: false,
- *     repository: thisRepository.name,
- *     treeSha: thisBranch.sha,
+ *     repository: _this.name,
+ *     treeSha: thisGetBranch.sha,
  * }));
- * export const entries = thisTree.then(thisTree => thisTree.entries);
+ * export const entries = thisGetTree.then(thisGetTree => thisGetTree.entries);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise<GetTreeResult> {
 
@@ -81,26 +79,24 @@ export interface GetTreeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const thisRepository = github.getRepository({
+ * const this = github.getRepository({
  *     name: "example",
  * });
- * const thisBranch = Promise.all([thisRepository, thisRepository]).then(([thisRepository, thisRepository1]) => github.getBranch({
- *     branch: thisRepository.defaultBranch,
- *     repository: thisRepository1.name,
+ * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
+ *     branch: _this.defaultBranch,
+ *     repository: _this1.name,
  * }));
- * const thisTree = Promise.all([thisRepository, thisBranch]).then(([thisRepository, thisBranch]) => github.getTree({
+ * const thisGetTree = Promise.all([_this, thisGetBranch]).then(([_this, thisGetBranch]) => github.getTree({
  *     recursive: false,
- *     repository: thisRepository.name,
- *     treeSha: thisBranch.sha,
+ *     repository: _this.name,
+ *     treeSha: thisGetBranch.sha,
  * }));
- * export const entries = thisTree.then(thisTree => thisTree.entries);
+ * export const entries = thisGetTree.then(thisGetTree => thisGetTree.entries);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTreeResult> {
     return pulumi.output(args).apply((a: any) => getTree(a, opts))

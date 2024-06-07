@@ -10,18 +10,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleRepository = new github.Repository("exampleRepository", {});
- * const exampleActionsRunnerGroup = new github.ActionsRunnerGroup("exampleActionsRunnerGroup", {
+ * const example = new github.Repository("example", {name: "my-repository"});
+ * const exampleActionsRunnerGroup = new github.ActionsRunnerGroup("example", {
+ *     name: example.name,
  *     visibility: "selected",
- *     selectedRepositoryIds: [exampleRepository.repoId],
+ *     selectedRepositoryIds: [example.repoId],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

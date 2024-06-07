@@ -84,14 +84,12 @@ def get_actions_registration_token(repository: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_registration_token(repository="example_repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to get a GitHub Actions registration token for.
@@ -116,14 +114,12 @@ def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     example = github.get_actions_registration_token(repository="example_repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository: Name of the repository to get a GitHub Actions registration token for.

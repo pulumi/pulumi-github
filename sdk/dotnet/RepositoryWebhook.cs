@@ -15,7 +15,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +25,7 @@ namespace Pulumi.Github
     /// {
     ///     var repo = new Github.Repository("repo", new()
     ///     {
+    ///         Name = "foo",
     ///         Description = "Terraform acceptance tests",
     ///         HomepageUrl = "http://example.com/",
     ///         Visibility = "public",
@@ -49,7 +49,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -94,7 +93,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the webhook.
+        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -217,7 +216,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// The URL of the webhook.
+        /// URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

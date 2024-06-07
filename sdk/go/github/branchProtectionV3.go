@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
 //			_, err := github.NewBranchProtectionV3(ctx, "example", &github.BranchProtectionV3Args{
-//				Repository: pulumi.Any(github_repository.Example.Name),
+//				Repository: pulumi.Any(exampleGithubRepository.Name),
 //				Branch:     pulumi.String("main"),
 //				Restrictions: &github.BranchProtectionV3RestrictionsArgs{
 //					Users: pulumi.StringArray{
@@ -51,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Retrieve information about a GitHub user.
 //			_, err := github.GetUser(ctx, &github.GetUserArgs{
 //				Username: "example",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Retrieve information about the currently authenticated user.
 //			current, err := github.GetUser(ctx, &github.GetUserArgs{
 //				Username: "",
 //			}, nil)
@@ -46,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption) (*GetUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserResult

@@ -34,13 +34,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate;
  * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
  * import java.util.List;
@@ -56,20 +58,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;);
+ *         var example = new Repository("example", RepositoryArgs.builder()
+ *             .name("example-repository")
+ *             .build());
  * 
- *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate(&#34;exampleTemplate&#34;, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()        
+ *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
  *             .repository(example.name())
  *             .useDefault(false)
  *             .includeClaimKeys(            
- *                 &#34;actor&#34;,
- *                 &#34;context&#34;,
- *                 &#34;repository_owner&#34;)
+ *                 "actor",
+ *                 "context",
+ *                 "repository_owner")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

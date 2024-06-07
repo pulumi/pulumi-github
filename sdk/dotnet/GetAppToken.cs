@@ -16,13 +16,12 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
-        /// using System.IO;
         /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
+        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -30,12 +29,14 @@ namespace Pulumi.Github
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
+        ///         PemFile = Std.File.Invoke(new()
+        ///         {
+        ///             Input = "foo/bar.pem",
+        ///         }).Result,
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppTokenResult> InvokeAsync(GetAppTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppTokenResult>("github:index/getAppToken:getAppToken", args ?? new GetAppTokenArgs(), options.WithDefaults());
@@ -45,13 +46,12 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
-        /// using System.IO;
         /// using System.Linq;
         /// using Pulumi;
         /// using Github = Pulumi.Github;
+        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -59,12 +59,14 @@ namespace Pulumi.Github
         ///     {
         ///         AppId = "123456",
         ///         InstallationId = "78910",
-        ///         PemFile = File.ReadAllText("foo/bar.pem"),
+        ///         PemFile = Std.File.Invoke(new()
+        ///         {
+        ///             Input = "foo/bar.pem",
+        ///         }).Result,
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppTokenResult> Invoke(GetAppTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppTokenResult>("github:index/getAppToken:getAppToken", args ?? new GetAppTokenInvokeArgs(), options.WithDefaults());

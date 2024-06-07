@@ -249,19 +249,18 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         org = github.EnterpriseOrganization("org",
-            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            enterprise_id=enterprise["id"],
+            name="some-awesome-org",
             display_name="Some Awesome Org",
             description="Organization created with terraform",
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -291,19 +290,18 @@ class EnterpriseOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         org = github.EnterpriseOrganization("org",
-            enterprise_id=data["github_enterprise"]["enterprise"]["id"],
+            enterprise_id=enterprise["id"],
+            name="some-awesome-org",
             display_name="Some Awesome Org",
             description="Organization created with terraform",
             billing_email="jon@winteriscoming.com",
             admin_logins=["jon-snow"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

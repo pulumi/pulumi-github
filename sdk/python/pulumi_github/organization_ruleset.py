@@ -283,6 +283,42 @@ class OrganizationRuleset(pulumi.CustomResource):
 
         This resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.OrganizationRuleset("example",
+            name="example",
+            target="branch",
+            enforcement="active",
+            conditions=github.OrganizationRulesetConditionsArgs(
+                ref_name=github.OrganizationRulesetConditionsRefNameArgs(
+                    includes=["~ALL"],
+                    excludes=[],
+                ),
+            ),
+            bypass_actors=[github.OrganizationRulesetBypassActorArgs(
+                actor_id=13473,
+                actor_type="Integration",
+                bypass_mode="always",
+            )],
+            rules=github.OrganizationRulesetRulesArgs(
+                creation=True,
+                update=True,
+                deletion=True,
+                required_linear_history=True,
+                required_signatures=True,
+                branch_name_pattern=github.OrganizationRulesetRulesBranchNamePatternArgs(
+                    name="example",
+                    negate=False,
+                    operator="starts_with",
+                    pattern="ex",
+                ),
+            ))
+        ```
+
         ## Import
 
         GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
@@ -310,6 +346,42 @@ class OrganizationRuleset(pulumi.CustomResource):
         Creates a GitHub organization ruleset.
 
         This resource allows you to create and manage rulesets on the organization level. When applied, a new ruleset will be created. When destroyed, that ruleset will be removed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example = github.OrganizationRuleset("example",
+            name="example",
+            target="branch",
+            enforcement="active",
+            conditions=github.OrganizationRulesetConditionsArgs(
+                ref_name=github.OrganizationRulesetConditionsRefNameArgs(
+                    includes=["~ALL"],
+                    excludes=[],
+                ),
+            ),
+            bypass_actors=[github.OrganizationRulesetBypassActorArgs(
+                actor_id=13473,
+                actor_type="Integration",
+                bypass_mode="always",
+            )],
+            rules=github.OrganizationRulesetRulesArgs(
+                creation=True,
+                update=True,
+                deletion=True,
+                required_linear_history=True,
+                required_signatures=True,
+                branch_name_pattern=github.OrganizationRulesetRulesBranchNamePatternArgs(
+                    name="example",
+                    negate=False,
+                    operator="starts_with",
+                    pattern="ex",
+                ),
+            ))
+        ```
 
         ## Import
 

@@ -10,18 +10,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example = new github.Repository("example", {visibility: "private"});
+ * const example = new github.Repository("example", {
+ *     name: "my-repository",
+ *     visibility: "private",
+ * });
  * const test = new github.ActionsRepositoryAccessLevel("test", {
  *     accessLevel: "user",
  *     repository: example.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

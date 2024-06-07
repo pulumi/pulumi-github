@@ -12,7 +12,6 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,19 +20,19 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var someTeamTeam = new Github.Team("someTeamTeam", new()
+    ///     var someTeam = new Github.Team("some_team", new()
     ///     {
+    ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var someTeamOrganizationSecurityManager = new Github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", new()
+    ///     var someTeamOrganizationSecurityManager = new Github.OrganizationSecurityManager("some_team", new()
     ///     {
-    ///         TeamSlug = someTeamTeam.Slug,
+    ///         TeamSlug = someTeam.Slug,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

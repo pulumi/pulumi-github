@@ -199,23 +199,6 @@ class CodespacesUserSecret(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_user_secret = github.CodespacesUserSecret("exampleSecretCodespacesUserSecret",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_user_secret_codespaces_user_secret = github.CodespacesUserSecret("exampleSecretIndex/codespacesUserSecretCodespacesUserSecret",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         This resource can be imported using an ID made up of the secret name:
@@ -243,23 +226,6 @@ class CodespacesUserSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        repo = github.get_repository(full_name="my-org/repo")
-        example_secret_codespaces_user_secret = github.CodespacesUserSecret("exampleSecretCodespacesUserSecret",
-            secret_name="example_secret_name",
-            plaintext_value=var["some_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        example_secret_index_codespaces_user_secret_codespaces_user_secret = github.CodespacesUserSecret("exampleSecretIndex/codespacesUserSecretCodespacesUserSecret",
-            secret_name="example_secret_name",
-            encrypted_value=var["some_encrypted_secret_string"],
-            selected_repository_ids=[repo.repo_id])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

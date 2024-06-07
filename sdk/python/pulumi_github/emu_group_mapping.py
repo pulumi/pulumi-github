@@ -114,17 +114,14 @@ class EmuGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
+        example_emu_group_mapping = github.EmuGroupMapping("example_emu_group_mapping",
+            team_slug="emu-test-team",
+            group_id=28836)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -150,17 +147,14 @@ class EmuGroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example_emu_group_mapping = github.EmuGroupMapping("exampleEmuGroupMapping",
-            group_id=28836,
-            team_slug="emu-test-team")
-        # The GitHub team name to modify
+        example_emu_group_mapping = github.EmuGroupMapping("example_emu_group_mapping",
+            team_slug="emu-test-team",
+            group_id=28836)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

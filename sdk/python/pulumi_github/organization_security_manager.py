@@ -68,15 +68,15 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        some_team_team = github.Team("someTeamTeam", description="Some cool team")
-        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_team_organization_security_manager = github.OrganizationSecurityManager("some_team", team_slug=some_team.slug)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -99,15 +99,15 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        some_team_team = github.Team("someTeamTeam", description="Some cool team")
-        some_team_organization_security_manager = github.OrganizationSecurityManager("someTeamOrganizationSecurityManager", team_slug=some_team_team.slug)
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        some_team_organization_security_manager = github.OrganizationSecurityManager("some_team", team_slug=some_team.slug)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

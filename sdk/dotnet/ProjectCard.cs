@@ -14,7 +14,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +24,14 @@ namespace Pulumi.Github
     /// {
     ///     var project = new Github.OrganizationProject("project", new()
     ///     {
+    ///         Name = "An Organization Project",
     ///         Body = "This is an organization project.",
     ///     });
     /// 
     ///     var column = new Github.ProjectColumn("column", new()
     ///     {
     ///         ProjectId = project.Id,
+    ///         Name = "Backlog",
     ///     });
     /// 
     ///     var card = new Github.ProjectCard("card", new()
@@ -41,11 +42,9 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Adding An Issue To A Project
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,31 +53,34 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRepository = new Github.Repository("testRepository", new()
+    ///     var test = new Github.Repository("test", new()
     ///     {
+    ///         Name = "myrepo",
     ///         HasProjects = true,
     ///         HasIssues = true,
     ///     });
     /// 
-    ///     var testIssue = new Github.Issue("testIssue", new()
+    ///     var testIssue = new Github.Issue("test", new()
     ///     {
-    ///         Repository = testRepository.Id,
+    ///         Repository = test.Id,
     ///         Title = "Test issue title",
     ///         Body = "Test issue body",
     ///     });
     /// 
-    ///     var testRepositoryProject = new Github.RepositoryProject("testRepositoryProject", new()
+    ///     var testRepositoryProject = new Github.RepositoryProject("test", new()
     ///     {
-    ///         Repository = testRepository.Name,
+    ///         Name = "test",
+    ///         Repository = test.Name,
     ///         Body = "this is a test project",
     ///     });
     /// 
-    ///     var testProjectColumn = new Github.ProjectColumn("testProjectColumn", new()
+    ///     var testProjectColumn = new Github.ProjectColumn("test", new()
     ///     {
     ///         ProjectId = testRepositoryProject.Id,
+    ///         Name = "Backlog",
     ///     });
     /// 
-    ///     var testProjectCard = new Github.ProjectCard("testProjectCard", new()
+    ///     var testProjectCard = new Github.ProjectCard("test", new()
     ///     {
     ///         ColumnId = testProjectColumn.ColumnId,
     ///         ContentId = testIssue.IssueId,
@@ -87,7 +89,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

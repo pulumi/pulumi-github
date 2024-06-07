@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -19,10 +18,13 @@ import * as utilities from "./utilities";
  * const current = github.getUser({
  *     username: "",
  * });
- * const exampleRepository = new github.Repository("exampleRepository", {description: "My awesome codebase"});
- * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("exampleRepositoryEnvironment", {
+ * const example = new github.Repository("example", {
+ *     name: "A Repository Project",
+ *     description: "My awesome codebase",
+ * });
+ * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("example", {
  *     environment: "example",
- *     repository: exampleRepository.name,
+ *     repository: example.name,
  *     preventSelfReview: true,
  *     reviewers: [{
  *         users: [current.then(current => current.id)],
@@ -33,7 +35,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

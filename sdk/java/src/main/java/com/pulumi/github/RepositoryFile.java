@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooRepository = new Repository(&#34;fooRepository&#34;, RepositoryArgs.builder()        
+ *         var foo = new Repository("foo", RepositoryArgs.builder()
+ *             .name("tf-acc-test-%s")
  *             .autoInit(true)
  *             .build());
  * 
- *         var fooRepositoryFile = new RepositoryFile(&#34;fooRepositoryFile&#34;, RepositoryFileArgs.builder()        
- *             .repository(fooRepository.name())
- *             .branch(&#34;main&#34;)
- *             .file(&#34;.gitignore&#34;)
- *             .content(&#34;**{@literal /}*.tfstate&#34;)
- *             .commitMessage(&#34;Managed by Terraform&#34;)
- *             .commitAuthor(&#34;Terraform User&#34;)
- *             .commitEmail(&#34;terraform@example.com&#34;)
+ *         var fooRepositoryFile = new RepositoryFile("fooRepositoryFile", RepositoryFileArgs.builder()
+ *             .repository(foo.name())
+ *             .branch("main")
+ *             .file(".gitignore")
+ *             .content("**{@literal /}*.tfstate")
+ *             .commitMessage("Managed by Terraform")
+ *             .commitAuthor("Terraform User")
+ *             .commitEmail("terraform{@literal @}example.com")
  *             .overwriteOnCreate(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -155,6 +155,9 @@ const repro586 = `[
                 "requiredLinearHistory": {
                     "kind": "UPDATE"
                 },
+                "requiredPullRequestReviews": {
+                    "kind": "UPDATE"
+                },
                 "requiredPullRequestReviews[0].dismissStaleReviews": {
                     "kind": "UPDATE"
                 },
@@ -165,6 +168,9 @@ const repro586 = `[
                     "kind": "UPDATE"
                 },
                 "restrictPushes[0].blocksCreations": {},
+                "restrictPushes[0].pushAllowances": {
+                    "kind": "UPDATE"
+                },
                 "restrictPushes[0].pushAllowances[0]": {}
             },
             "hasDetailedDiff": true

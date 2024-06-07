@@ -18,15 +18,15 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// (Boolean) If true, the rule will fail if the pattern matches.
+        /// If true, the rule will fail if the pattern matches.
         /// </summary>
         public readonly bool? Negate;
         /// <summary>
-        /// (String) The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        /// The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// (String) The pattern to match with.
+        /// The pattern to match with.
         /// </summary>
         public readonly string Pattern;
 

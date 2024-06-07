@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, "exampleTemplate", &github.ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs{
+//			_, err := github.NewActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, "example_template", &github.ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs{
 //				IncludeClaimKeys: pulumi.StringArray{
 //					pulumi.String("actor"),
 //					pulumi.String("context"),
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

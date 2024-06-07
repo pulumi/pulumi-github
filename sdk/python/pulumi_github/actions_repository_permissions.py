@@ -172,12 +172,11 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
+        example = github.Repository("example", name="my-repository")
         test = github.ActionsRepositoryPermissions("test",
             allowed_actions="selected",
             allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
@@ -190,7 +189,6 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             ),
             repository=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,12 +217,11 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
-        example = github.Repository("example")
+        example = github.Repository("example", name="my-repository")
         test = github.ActionsRepositoryPermissions("test",
             allowed_actions="selected",
             allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
@@ -237,7 +234,6 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             ),
             repository=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

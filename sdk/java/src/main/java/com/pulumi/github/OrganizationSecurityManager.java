@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,17 +41,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var someTeamTeam = new Team(&#34;someTeamTeam&#34;, TeamArgs.builder()        
- *             .description(&#34;Some cool team&#34;)
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
+ *             .name("SomeTeam")
+ *             .description("Some cool team")
  *             .build());
  * 
- *         var someTeamOrganizationSecurityManager = new OrganizationSecurityManager(&#34;someTeamOrganizationSecurityManager&#34;, OrganizationSecurityManagerArgs.builder()        
- *             .teamSlug(someTeamTeam.slug())
+ *         var someTeamOrganizationSecurityManager = new OrganizationSecurityManager("someTeamOrganizationSecurityManager", OrganizationSecurityManagerArgs.builder()
+ *             .teamSlug(someTeam.slug())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -142,18 +142,16 @@ def get_repository_pull_requests(base_ref: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_repository_pull_requests(base_ref="main",
-        base_repository="example-repository",
+    example = github.get_repository_pull_requests(base_repository="example-repository",
+        base_ref="main",
         sort_by="updated",
         sort_direction="desc",
         state="open")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str base_ref: If set, filters Pull Requests by base branch name.
@@ -201,18 +199,16 @@ def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
-    example = github.get_repository_pull_requests(base_ref="main",
-        base_repository="example-repository",
+    example = github.get_repository_pull_requests(base_repository="example-repository",
+        base_ref="main",
         sort_by="updated",
         sort_direction="desc",
         state="open")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str base_ref: If set, filters Pull Requests by base branch name.

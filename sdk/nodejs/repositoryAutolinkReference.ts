@@ -9,12 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const repo = new github.Repository("repo", {
+ *     name: "my-repo",
  *     description: "GitHub repo managed by Terraform",
  *     "private": false,
  * });
@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  *     targetUrlTemplate: "https://example.com/TICKET?query=<num>",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

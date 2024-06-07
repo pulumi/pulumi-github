@@ -16,7 +16,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,13 +26,12 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetActionsEnvironmentSecrets.Invoke(new()
         ///     {
-        ///         Environment = "exampleEnvironment",
         ///         Name = "exampleRepo",
+        ///         Environment = "exampleEnvironment",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetActionsEnvironmentSecretsResult> InvokeAsync(GetActionsEnvironmentSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionsEnvironmentSecretsResult>("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args ?? new GetActionsEnvironmentSecretsArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Github
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,13 +51,12 @@ namespace Pulumi.Github
         /// {
         ///     var example = Github.GetActionsEnvironmentSecrets.Invoke(new()
         ///     {
-        ///         Environment = "exampleEnvironment",
         ///         Name = "exampleRepo",
+        ///         Environment = "exampleEnvironment",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetActionsEnvironmentSecretsResult> Invoke(GetActionsEnvironmentSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentSecretsResult>("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args ?? new GetActionsEnvironmentSecretsInvokeArgs(), options.WithDefaults());

@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +37,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSecret, err := github.NewDependabotOrganizationSecret(ctx, "exampleSecret", &github.DependabotOrganizationSecretArgs{
+//			exampleSecret, err := github.NewDependabotOrganizationSecret(ctx, "example_secret", &github.DependabotOrganizationSecretArgs{
 //				SecretName:     pulumi.String("example_secret_name"),
 //				Visibility:     pulumi.String("private"),
-//				PlaintextValue: pulumi.Any(_var.Some_secret_string),
+//				PlaintextValue: pulumi.Any(someSecretString),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewDependabotOrganizationSecretRepositories(ctx, "orgSecretRepos", &github.DependabotOrganizationSecretRepositoriesArgs{
+//			_, err = github.NewDependabotOrganizationSecretRepositories(ctx, "org_secret_repos", &github.DependabotOrganizationSecretRepositoriesArgs{
 //				SecretName: exampleSecret.SecretName,
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(repo.RepoId),
@@ -60,7 +59,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -15,26 +15,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * @return (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * @return Status checks that are required. Several can be defined.
      * 
      */
     private List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks;
     /**
-     * @return (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * @return Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     private @Nullable Boolean strictRequiredStatusChecksPolicy;
 
     private OrganizationRulesetRulesRequiredStatusChecks() {}
     /**
-     * @return (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * @return Status checks that are required. Several can be defined.
      * 
      */
     public List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks() {
         return this.requiredChecks;
     }
     /**
-     * @return (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * @return Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     public Optional<Boolean> strictRequiredStatusChecksPolicy() {

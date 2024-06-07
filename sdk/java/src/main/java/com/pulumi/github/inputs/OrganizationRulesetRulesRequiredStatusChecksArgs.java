@@ -19,14 +19,14 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
     public static final OrganizationRulesetRulesRequiredStatusChecksArgs Empty = new OrganizationRulesetRulesRequiredStatusChecksArgs();
 
     /**
-     * (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * Status checks that are required. Several can be defined.
      * 
      */
     @Import(name="requiredChecks", required=true)
     private Output<List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs>> requiredChecks;
 
     /**
-     * @return (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+     * @return Status checks that are required. Several can be defined.
      * 
      */
     public Output<List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs>> requiredChecks() {
@@ -34,14 +34,14 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
     }
 
     /**
-     * (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     @Import(name="strictRequiredStatusChecksPolicy")
     private @Nullable Output<Boolean> strictRequiredStatusChecksPolicy;
 
     /**
-     * @return (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+     * @return Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> strictRequiredStatusChecksPolicy() {
@@ -74,7 +74,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param requiredChecks (Block Set, Min: 1) Status checks that are required. Several can be defined. (see below for nested schema)
+         * @param requiredChecks Status checks that are required. Several can be defined.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param strictRequiredStatusChecksPolicy (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+         * @param strictRequiredStatusChecksPolicy Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
         }
 
         /**
-         * @param strictRequiredStatusChecksPolicy (Boolean) Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+         * @param strictRequiredStatusChecksPolicy Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
          * 
          * @return builder
          * 

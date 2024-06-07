@@ -11,17 +11,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = new github.UserGpgKey("example", {armoredPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----
  * ...
- * -----END PGP PUBLIC KEY BLOCK-----
- * `});
+ * -----END PGP PUBLIC KEY BLOCK-----`});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

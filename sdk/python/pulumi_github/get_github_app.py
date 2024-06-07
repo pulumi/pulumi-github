@@ -96,14 +96,12 @@ def get_github_app(slug: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     foobar = github.get_github_app(slug="foobar")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str slug: The URL-friendly name of your GitHub App.
@@ -129,14 +127,12 @@ def get_github_app_output(slug: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_github as github
 
     foobar = github.get_github_app(slug="foobar")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str slug: The URL-friendly name of your GitHub App.

@@ -124,18 +124,16 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_app_repo = github.AppInstallationRepository("some_app_repo",
             installation_id="1234567",
             repository=some_repo.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,18 +170,16 @@ class AppInstallationRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_github as github
 
         # Create a repository.
-        some_repo = github.Repository("someRepo")
-        some_app_repo = github.AppInstallationRepository("someAppRepo",
+        some_repo = github.Repository("some_repo", name="some-repo")
+        some_app_repo = github.AppInstallationRepository("some_app_repo",
             installation_id="1234567",
             repository=some_repo.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

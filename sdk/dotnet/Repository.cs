@@ -19,7 +19,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,23 +29,22 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome codebase",
+    ///         Visibility = "public",
     ///         Template = new Github.Inputs.RepositoryTemplateArgs
     ///         {
-    ///             IncludeAllBranches = true,
     ///             Owner = "github",
     ///             Repository = "terraform-template-module",
+    ///             IncludeAllBranches = true,
     ///         },
-    ///         Visibility = "public",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With GitHub Pages Enabled
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +55,9 @@ namespace Pulumi.Github
     /// {
     ///     var example = new Github.Repository("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "My awesome web page",
+    ///         Private = false,
     ///         Pages = new Github.Inputs.RepositoryPagesArgs
     ///         {
     ///             Source = new Github.Inputs.RepositoryPagesSourceArgs
@@ -66,12 +66,10 @@ namespace Pulumi.Github
     ///                 Path = "/docs",
     ///             },
     ///         },
-    ///         Private = false,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

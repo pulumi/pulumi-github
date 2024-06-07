@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a milestone for a repository
- *         var example = new RepositoryMilestone(&#34;example&#34;, RepositoryMilestoneArgs.builder()        
- *             .owner(&#34;example-owner&#34;)
- *             .repository(&#34;example-repository&#34;)
- *             .title(&#34;v1.1.0&#34;)
+ *         var example = new RepositoryMilestone("example", RepositoryMilestoneArgs.builder()
+ *             .owner("example-owner")
+ *             .repository("example-repository")
+ *             .title("v1.1.0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

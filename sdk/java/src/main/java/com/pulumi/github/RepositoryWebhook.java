@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,26 +49,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var repo = new Repository(&#34;repo&#34;, RepositoryArgs.builder()        
- *             .description(&#34;Terraform acceptance tests&#34;)
- *             .homepageUrl(&#34;http://example.com/&#34;)
- *             .visibility(&#34;public&#34;)
+ *         var repo = new Repository("repo", RepositoryArgs.builder()
+ *             .name("foo")
+ *             .description("Terraform acceptance tests")
+ *             .homepageUrl("http://example.com/")
+ *             .visibility("public")
  *             .build());
  * 
- *         var foo = new RepositoryWebhook(&#34;foo&#34;, RepositoryWebhookArgs.builder()        
+ *         var foo = new RepositoryWebhook("foo", RepositoryWebhookArgs.builder()
  *             .repository(repo.name())
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(&#34;https://google.de/&#34;)
- *                 .contentType(&#34;form&#34;)
+ *                 .url("https://google.de/")
+ *                 .contentType("form")
  *                 .insecureSsl(false)
  *                 .build())
  *             .active(false)
- *             .events(&#34;issues&#34;)
+ *             .events("issues")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -148,14 +151,14 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
         return this.repository;
     }
     /**
-     * The URL of the webhook.
+     * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return The URL of the webhook.
+     * @return URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      * 
      */
     public Output<String> url() {

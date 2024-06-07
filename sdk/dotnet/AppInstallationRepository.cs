@@ -24,7 +24,6 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,9 +33,12 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a repository.
-    ///     var someRepo = new Github.Repository("someRepo");
+    ///     var someRepo = new Github.Repository("some_repo", new()
+    ///     {
+    ///         Name = "some-repo",
+    ///     });
     /// 
-    ///     var someAppRepo = new Github.AppInstallationRepository("someAppRepo", new()
+    ///     var someAppRepo = new Github.AppInstallationRepository("some_app_repo", new()
     ///     {
     ///         InstallationId = "1234567",
     ///         Repository = someRepo.Name,
@@ -44,7 +46,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

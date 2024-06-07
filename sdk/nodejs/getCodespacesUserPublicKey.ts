@@ -10,14 +10,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesUserPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesUserPublicKey(opts?: pulumi.InvokeOptions): Promise<GetCodespacesUserPublicKeyResult> {
 
@@ -49,14 +47,12 @@ export interface GetCodespacesUserPublicKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const example = github.getCodespacesUserPublicKey({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCodespacesUserPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserPublicKeyResult> {
     return pulumi.output(getCodespacesUserPublicKey(opts))
