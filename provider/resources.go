@@ -145,8 +145,11 @@ func Provider() tfbridge.ProviderInfo {
 			"github_project_column":                {Tok: makeResource(mainMod, "ProjectColumn")},
 			"github_release":                       {Tok: makeResource(mainMod, "Release")},
 
-			"github_repository":                             {Tok: makeResource(mainMod, "Repository")},
-			"github_repository_collaborator":                {Tok: makeResource(mainMod, "RepositoryCollaborator")},
+			"github_repository": {Tok: makeResource(mainMod, "Repository")},
+			"github_repository_collaborator": {
+				Tok:                 makeResource(mainMod, "RepositoryCollaborator"),
+				DeleteBeforeReplace: true,
+			},
 			"github_repository_dependabot_security_updates": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"github_repository_deploy_key": {
 				Tok:                 makeResource(mainMod, "RepositoryDeployKey"),
