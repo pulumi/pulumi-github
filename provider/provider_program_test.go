@@ -73,7 +73,7 @@ func testProviderUpgradeWithOpts(
 	if baselineVersion == "" {
 		baselineVersion = defaultBaselineVersion
 	}
-	t.Setenv("GITHUB_TOKEN", os.Getenv("GITHUB_TESTING_TOKEN")
+	t.Setenv("GITHUB_TOKEN", os.Getenv("GITHUB_TESTING_TOKEN"))
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
