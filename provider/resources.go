@@ -71,7 +71,7 @@ func makeResource(mod string, res string) tokens.Type {
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
 	p := shimv2.NewProvider(github.Provider(),
-		sdkv2.WithPlanResourceChange(func(tfResourceType string) bool { return true }),
+		sdkv2.WithPlanResourceChange(func(_ string) bool { return true }),
 	)
 
 	// Create a Pulumi provider mapping
