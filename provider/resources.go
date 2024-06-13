@@ -26,6 +26,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	sdkv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
@@ -69,7 +70,7 @@ func makeResource(mod string, res string) tokens.Type {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(github.Provider())
+	p := shimv2.NewProvider(github.Provider(), sdkv2.WithPlanResourceChange(func(tfResourceType string) bool { return true }))
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
