@@ -122,49 +122,13 @@ const repro586 = `[
             }
         },
         "response": {
-            "replaces": [
+            "stables": [
                 "repositoryId"
             ],
             "changes": "DIFF_SOME",
             "diffs": "*",
             "detailedDiff": {
-                "allowsDeletions": {
-                    "kind": "UPDATE"
-                },
-                "allowsForcePushes": {
-                    "kind": "UPDATE"
-                },
-                "enforceAdmins": {
-                    "kind": "UPDATE"
-                },
-                "lockBranch": {
-                    "kind": "UPDATE"
-                },
-                "pattern": {
-                    "kind": "UPDATE"
-                },
-                "repositoryId": {
-                    "kind": "UPDATE_REPLACE"
-                },
-                "requireConversationResolution": {
-                    "kind": "UPDATE"
-                },
-                "requireSignedCommits": {
-                    "kind": "UPDATE"
-                },
-                "requiredLinearHistory": {
-                    "kind": "UPDATE"
-                },
-                "requiredPullRequestReviews": {
-                    "kind": "UPDATE"
-                },
-                "requiredPullRequestReviews[0].dismissStaleReviews": {
-                    "kind": "UPDATE"
-                },
-                "requiredPullRequestReviews[0].requireLastPushApproval": {
-                    "kind": "UPDATE"
-                },
-                "requiredPullRequestReviews[0].requiredApprovingReviewCount": {
+                "restrictPushes": {
                     "kind": "UPDATE"
                 },
                 "restrictPushes[0].blocksCreations": {},
