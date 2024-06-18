@@ -10,9 +10,11 @@ import * as utilities from "./utilities";
  * This resource allows you to create and manage repositories within your
  * GitHub organization or personal account.
  *
- * > Note: When used with GitHub App authentication, even GET requests must have
- * the `contents:write` permission or else the `allowMergeCommit`, `allowRebaseMerge`,
- * and `allowSquashMerge` attributes will be ignored, causing confusing diffs.
+ * > Note: When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following attributes will be ignored, leading to unexpected behavior and confusing diffs:
+ *
+ * - `allowMergeCommit` (including the related `mergeCommitTitle` and `mergeCommitMessage`)
+ * - `allowSquashMerge` (including the related `squashMergeCommitTitle` and `squashMergeCommitMessage`)
+ * - `allowRebaseMerge`
  *
  * ## Example Usage
  *

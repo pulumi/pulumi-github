@@ -66,6 +66,88 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
+ * import com.pulumi.github.BranchProtectionV3;
+ * import com.pulumi.github.BranchProtectionV3Args;
+ * import com.pulumi.github.inputs.BranchProtectionV3RequiredStatusChecksArgs;
+ * import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsArgs;
+ * import com.pulumi.github.inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs;
+ * import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
+ * import com.pulumi.github.TeamRepository;
+ * import com.pulumi.github.TeamRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
+ *             .name("Example Name")
+ *             .build());
+ * 
+ *         // Protect the main branch of the foo repository. Additionally, require that
+ *         // the "ci/check" check ran by the Github Actions app is passing and only allow
+ *         // the engineers team merge to the branch.
+ *         var example = new BranchProtectionV3("example", BranchProtectionV3Args.builder()
+ *             .repository(exampleRepository.name())
+ *             .branch("main")
+ *             .enforceAdmins(true)
+ *             .requiredStatusChecks(BranchProtectionV3RequiredStatusChecksArgs.builder()
+ *                 .strict(false)
+ *                 .checks("ci/check:824642007264")
+ *                 .build())
+ *             .requiredPullRequestReviews(BranchProtectionV3RequiredPullRequestReviewsArgs.builder()
+ *                 .dismissStaleReviews(true)
+ *                 .dismissalUsers("foo-user")
+ *                 .dismissalTeams(exampleTeam.slug())
+ *                 .dismissalApp("foo-app")
+ *                 .bypassPullRequestAllowances(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs.builder()
+ *                     .users("foo-user")
+ *                     .teams(exampleTeam.slug())
+ *                     .apps("foo-app")
+ *                     .build())
+ *                 .build())
+ *             .restrictions(BranchProtectionV3RestrictionsArgs.builder()
+ *                 .users("foo-user")
+ *                 .teams(exampleTeam.slug())
+ *                 .apps("foo-app")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleTeamRepository = new TeamRepository("exampleTeamRepository", TeamRepositoryArgs.builder()
+ *             .teamId(exampleTeam.id())
+ *             .repository(exampleRepository.name())
+ *             .permission("pull")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
