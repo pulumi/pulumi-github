@@ -166,7 +166,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
             repository="my_repo",
             environment_name="my_env",
             name="foo",
-            opts=pulumi.ResourceOptions(depends_on=[env]))
+            opts = pulumi.ResourceOptions(depends_on=[env]))
         ```
 
         ## Import
@@ -207,7 +207,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
             repository="my_repo",
             environment_name="my_env",
             name="foo",
-            opts=pulumi.ResourceOptions(depends_on=[env]))
+            opts = pulumi.ResourceOptions(depends_on=[env]))
         ```
 
         ## Import

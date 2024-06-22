@@ -265,15 +265,13 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter(name="defaultBranch")
+    @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
         """
         (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
-
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -476,14 +474,12 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use visibility instead""")
     def private(self) -> Optional[pulumi.Input[bool]]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
-        warnings.warn("""use visibility instead""", DeprecationWarning)
-        pulumi.log.warn("""private is deprecated: use visibility instead""")
-
         return pulumi.get(self, "private")
 
     @private.setter
@@ -878,15 +874,13 @@ class _RepositoryState:
 
     @property
     @pulumi.getter(name="defaultBranch")
+    @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
         """
         (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
-
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -1170,14 +1164,12 @@ class _RepositoryState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use visibility instead""")
     def private(self) -> Optional[pulumi.Input[bool]]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
-        warnings.warn("""use visibility instead""", DeprecationWarning)
-        pulumi.log.warn("""private is deprecated: use visibility instead""")
-
         return pulumi.get(self, "private")
 
     @private.setter
@@ -1839,15 +1831,13 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultBranch")
+    @_utilities.deprecated("""Use the BranchDefault resource instead""")
     def default_branch(self) -> pulumi.Output[str]:
         """
         (Deprecated: Use `BranchDefault` resource instead) The name of the default branch of the repository. **NOTE:** This can only be set after a repository has already been created,
         and after a correct reference has been created for the target branch inside the repository. This means a user will have to omit this parameter from the
         initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         """
-        warnings.warn("""Use the BranchDefault resource instead""", DeprecationWarning)
-        pulumi.log.warn("""default_branch is deprecated: Use the BranchDefault resource instead""")
-
         return pulumi.get(self, "default_branch")
 
     @property
@@ -2035,14 +2025,12 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use visibility instead""")
     def private(self) -> pulumi.Output[bool]:
         """
         Set to `true` to create a private repository.
         Repositories are created as public (e.g. open source) by default.
         """
-        warnings.warn("""use visibility instead""", DeprecationWarning)
-        pulumi.log.warn("""private is deprecated: use visibility instead""")
-
         return pulumi.get(self, "private")
 
     @property
