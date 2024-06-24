@@ -89,13 +89,11 @@ class GetReleaseResult:
 
     @property
     @pulumi.getter(name="assertsUrl")
+    @_utilities.deprecated("""use assets_url instead""")
     def asserts_url(self) -> str:
         """
         **Deprecated**: Use `assets_url` resource instead
         """
-        warnings.warn("""use assets_url instead""", DeprecationWarning)
-        pulumi.log.warn("""asserts_url is deprecated: use assets_url instead""")
-
         return pulumi.get(self, "asserts_url")
 
     @property

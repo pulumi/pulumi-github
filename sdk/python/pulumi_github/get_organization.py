@@ -181,13 +181,11 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
     def members(self) -> Sequence[str]:
         """
         **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         """
-        warnings.warn("""Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""", DeprecationWarning)
-        pulumi.log.warn("""members is deprecated: Use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login`. Expect this field to be removed in next major version.""")
-
         return pulumi.get(self, "members")
 
     @property
