@@ -321,7 +321,7 @@ const repro586PRC = `[
 `
 
 func TestRepros(t *testing.T) {
-	// TODO: Remove non-prc test after enabling PRC by default.
+	// TODO[pulumi/pulumi-github#707]: Remove non-prc test after enabling PRC by default.
 	t.Run("586", func(t *testing.T) {
 		defer func() {
 			if r := recover(); r != nil {
