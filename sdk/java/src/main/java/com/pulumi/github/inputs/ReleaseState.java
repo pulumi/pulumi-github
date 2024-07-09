@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
 
     public static final ReleaseState Empty = new ReleaseState();
+
+    /**
+     * URL that can be provided to API calls displaying the attached assets to this release.
+     * 
+     */
+    @Import(name="assetsUrl")
+    private @Nullable Output<String> assetsUrl;
+
+    /**
+     * @return URL that can be provided to API calls displaying the attached assets to this release.
+     * 
+     */
+    public Optional<Output<String>> assetsUrl() {
+        return Optional.ofNullable(this.assetsUrl);
+    }
 
     /**
      * Text describing the contents of the tag.
@@ -29,6 +45,21 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
+    }
+
+    /**
+     * This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     * 
+     */
+    @Import(name="createdAt")
+    private @Nullable Output<String> createdAt;
+
+    /**
+     * @return This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     * 
+     */
+    public Optional<Output<String>> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
 
     /**
@@ -84,6 +115,21 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * URL of the release in GitHub.
+     * 
+     */
+    @Import(name="htmlUrl")
+    private @Nullable Output<String> htmlUrl;
+
+    /**
+     * @return URL of the release in GitHub.
+     * 
+     */
+    public Optional<Output<String>> htmlUrl() {
+        return Optional.ofNullable(this.htmlUrl);
+    }
+
+    /**
      * The name of the release.
      * 
      */
@@ -99,6 +145,21 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * GraphQL global node id for use with v4 API
+     * 
+     */
+    @Import(name="nodeId")
+    private @Nullable Output<String> nodeId;
+
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
+    public Optional<Output<String>> nodeId() {
+        return Optional.ofNullable(this.nodeId);
+    }
+
+    /**
      * Set to `false` to identify the release as a full release.
      * 
      */
@@ -111,6 +172,36 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> prerelease() {
         return Optional.ofNullable(this.prerelease);
+    }
+
+    /**
+     * This is the date when the release was published. This will be empty if the release is a draft.
+     * 
+     */
+    @Import(name="publishedAt")
+    private @Nullable Output<String> publishedAt;
+
+    /**
+     * @return This is the date when the release was published. This will be empty if the release is a draft.
+     * 
+     */
+    public Optional<Output<String>> publishedAt() {
+        return Optional.ofNullable(this.publishedAt);
+    }
+
+    /**
+     * The ID of the release.
+     * 
+     */
+    @Import(name="releaseId")
+    private @Nullable Output<Integer> releaseId;
+
+    /**
+     * @return The ID of the release.
+     * 
+     */
+    public Optional<Output<Integer>> releaseId() {
+        return Optional.ofNullable(this.releaseId);
     }
 
     /**
@@ -144,6 +235,21 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * URL that can be provided to API calls to fetch the release TAR archive.
+     * 
+     */
+    @Import(name="tarballUrl")
+    private @Nullable Output<String> tarballUrl;
+
+    /**
+     * @return URL that can be provided to API calls to fetch the release TAR archive.
+     * 
+     */
+    public Optional<Output<String>> tarballUrl() {
+        return Optional.ofNullable(this.tarballUrl);
+    }
+
+    /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      * 
      */
@@ -158,19 +264,74 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.targetCommitish);
     }
 
+    /**
+     * URL that can be provided to API calls to upload assets.
+     * 
+     */
+    @Import(name="uploadUrl")
+    private @Nullable Output<String> uploadUrl;
+
+    /**
+     * @return URL that can be provided to API calls to upload assets.
+     * 
+     */
+    public Optional<Output<String>> uploadUrl() {
+        return Optional.ofNullable(this.uploadUrl);
+    }
+
+    /**
+     * URL that can be provided to API calls that reference this release.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return URL that can be provided to API calls that reference this release.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
+    /**
+     * URL that can be provided to API calls to fetch the release ZIP archive.
+     * 
+     */
+    @Import(name="zipballUrl")
+    private @Nullable Output<String> zipballUrl;
+
+    /**
+     * @return URL that can be provided to API calls to fetch the release ZIP archive.
+     * 
+     */
+    public Optional<Output<String>> zipballUrl() {
+        return Optional.ofNullable(this.zipballUrl);
+    }
+
     private ReleaseState() {}
 
     private ReleaseState(ReleaseState $) {
+        this.assetsUrl = $.assetsUrl;
         this.body = $.body;
+        this.createdAt = $.createdAt;
         this.discussionCategoryName = $.discussionCategoryName;
         this.draft = $.draft;
         this.etag = $.etag;
         this.generateReleaseNotes = $.generateReleaseNotes;
+        this.htmlUrl = $.htmlUrl;
         this.name = $.name;
+        this.nodeId = $.nodeId;
         this.prerelease = $.prerelease;
+        this.publishedAt = $.publishedAt;
+        this.releaseId = $.releaseId;
         this.repository = $.repository;
         this.tagName = $.tagName;
+        this.tarballUrl = $.tarballUrl;
         this.targetCommitish = $.targetCommitish;
+        this.uploadUrl = $.uploadUrl;
+        this.url = $.url;
+        this.zipballUrl = $.zipballUrl;
     }
 
     public static Builder builder() {
@@ -192,6 +353,27 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param assetsUrl URL that can be provided to API calls displaying the attached assets to this release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assetsUrl(@Nullable Output<String> assetsUrl) {
+            $.assetsUrl = assetsUrl;
+            return this;
+        }
+
+        /**
+         * @param assetsUrl URL that can be provided to API calls displaying the attached assets to this release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assetsUrl(String assetsUrl) {
+            return assetsUrl(Output.of(assetsUrl));
+        }
+
+        /**
          * @param body Text describing the contents of the tag.
          * 
          * @return builder
@@ -210,6 +392,27 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder body(String body) {
             return body(Output.of(body));
+        }
+
+        /**
+         * @param createdAt This is the date of the commit used for the release, and not the date when the release was drafted or published.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdAt(@Nullable Output<String> createdAt) {
+            $.createdAt = createdAt;
+            return this;
+        }
+
+        /**
+         * @param createdAt This is the date of the commit used for the release, and not the date when the release was drafted or published.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdAt(String createdAt) {
+            return createdAt(Output.of(createdAt));
         }
 
         /**
@@ -285,6 +488,27 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param htmlUrl URL of the release in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder htmlUrl(@Nullable Output<String> htmlUrl) {
+            $.htmlUrl = htmlUrl;
+            return this;
+        }
+
+        /**
+         * @param htmlUrl URL of the release in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder htmlUrl(String htmlUrl) {
+            return htmlUrl(Output.of(htmlUrl));
+        }
+
+        /**
          * @param name The name of the release.
          * 
          * @return builder
@@ -306,6 +530,27 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param nodeId GraphQL global node id for use with v4 API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeId(@Nullable Output<String> nodeId) {
+            $.nodeId = nodeId;
+            return this;
+        }
+
+        /**
+         * @param nodeId GraphQL global node id for use with v4 API
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeId(String nodeId) {
+            return nodeId(Output.of(nodeId));
+        }
+
+        /**
          * @param prerelease Set to `false` to identify the release as a full release.
          * 
          * @return builder
@@ -324,6 +569,48 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder prerelease(Boolean prerelease) {
             return prerelease(Output.of(prerelease));
+        }
+
+        /**
+         * @param publishedAt This is the date when the release was published. This will be empty if the release is a draft.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishedAt(@Nullable Output<String> publishedAt) {
+            $.publishedAt = publishedAt;
+            return this;
+        }
+
+        /**
+         * @param publishedAt This is the date when the release was published. This will be empty if the release is a draft.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishedAt(String publishedAt) {
+            return publishedAt(Output.of(publishedAt));
+        }
+
+        /**
+         * @param releaseId The ID of the release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releaseId(@Nullable Output<Integer> releaseId) {
+            $.releaseId = releaseId;
+            return this;
+        }
+
+        /**
+         * @param releaseId The ID of the release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releaseId(Integer releaseId) {
+            return releaseId(Output.of(releaseId));
         }
 
         /**
@@ -369,6 +656,27 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param tarballUrl URL that can be provided to API calls to fetch the release TAR archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tarballUrl(@Nullable Output<String> tarballUrl) {
+            $.tarballUrl = tarballUrl;
+            return this;
+        }
+
+        /**
+         * @param tarballUrl URL that can be provided to API calls to fetch the release TAR archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tarballUrl(String tarballUrl) {
+            return tarballUrl(Output.of(tarballUrl));
+        }
+
+        /**
          * @param targetCommitish The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
          * 
          * @return builder
@@ -387,6 +695,69 @@ public final class ReleaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetCommitish(String targetCommitish) {
             return targetCommitish(Output.of(targetCommitish));
+        }
+
+        /**
+         * @param uploadUrl URL that can be provided to API calls to upload assets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uploadUrl(@Nullable Output<String> uploadUrl) {
+            $.uploadUrl = uploadUrl;
+            return this;
+        }
+
+        /**
+         * @param uploadUrl URL that can be provided to API calls to upload assets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uploadUrl(String uploadUrl) {
+            return uploadUrl(Output.of(uploadUrl));
+        }
+
+        /**
+         * @param url URL that can be provided to API calls that reference this release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url URL that can be provided to API calls that reference this release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
+        }
+
+        /**
+         * @param zipballUrl URL that can be provided to API calls to fetch the release ZIP archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zipballUrl(@Nullable Output<String> zipballUrl) {
+            $.zipballUrl = zipballUrl;
+            return this;
+        }
+
+        /**
+         * @param zipballUrl URL that can be provided to API calls to fetch the release ZIP archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zipballUrl(String zipballUrl) {
+            return zipballUrl(Output.of(zipballUrl));
         }
 
         public ReleaseState build() {

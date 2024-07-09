@@ -105,8 +105,12 @@ import (
 type Release struct {
 	pulumi.CustomResourceState
 
+	// URL that can be provided to API calls displaying the attached assets to this release.
+	AssetsUrl pulumi.StringOutput `pulumi:"assetsUrl"`
 	// Text describing the contents of the tag.
 	Body pulumi.StringPtrOutput `pulumi:"body"`
+	// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
 	DiscussionCategoryName pulumi.StringPtrOutput `pulumi:"discussionCategoryName"`
 	// Set to `false` to create a published release.
@@ -114,16 +118,32 @@ type Release struct {
 	Etag  pulumi.StringOutput  `pulumi:"etag"`
 	// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
 	GenerateReleaseNotes pulumi.BoolPtrOutput `pulumi:"generateReleaseNotes"`
+	// URL of the release in GitHub.
+	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the release.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// GraphQL global node id for use with v4 API
+	NodeId pulumi.StringOutput `pulumi:"nodeId"`
 	// Set to `false` to identify the release as a full release.
 	Prerelease pulumi.BoolPtrOutput `pulumi:"prerelease"`
+	// This is the date when the release was published. This will be empty if the release is a draft.
+	PublishedAt pulumi.StringOutput `pulumi:"publishedAt"`
+	// The ID of the release.
+	ReleaseId pulumi.IntOutput `pulumi:"releaseId"`
 	// The name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// The name of the tag.
 	TagName pulumi.StringOutput `pulumi:"tagName"`
+	// URL that can be provided to API calls to fetch the release TAR archive.
+	TarballUrl pulumi.StringOutput `pulumi:"tarballUrl"`
 	// The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
 	TargetCommitish pulumi.StringPtrOutput `pulumi:"targetCommitish"`
+	// URL that can be provided to API calls to upload assets.
+	UploadUrl pulumi.StringOutput `pulumi:"uploadUrl"`
+	// URL that can be provided to API calls that reference this release.
+	Url pulumi.StringOutput `pulumi:"url"`
+	// URL that can be provided to API calls to fetch the release ZIP archive.
+	ZipballUrl pulumi.StringOutput `pulumi:"zipballUrl"`
 }
 
 // NewRelease registers a new resource with the given unique name, arguments, and options.
@@ -162,8 +182,12 @@ func GetRelease(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Release resources.
 type releaseState struct {
+	// URL that can be provided to API calls displaying the attached assets to this release.
+	AssetsUrl *string `pulumi:"assetsUrl"`
 	// Text describing the contents of the tag.
 	Body *string `pulumi:"body"`
+	// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+	CreatedAt *string `pulumi:"createdAt"`
 	// If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
 	DiscussionCategoryName *string `pulumi:"discussionCategoryName"`
 	// Set to `false` to create a published release.
@@ -171,21 +195,41 @@ type releaseState struct {
 	Etag  *string `pulumi:"etag"`
 	// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
 	GenerateReleaseNotes *bool `pulumi:"generateReleaseNotes"`
+	// URL of the release in GitHub.
+	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The name of the release.
 	Name *string `pulumi:"name"`
+	// GraphQL global node id for use with v4 API
+	NodeId *string `pulumi:"nodeId"`
 	// Set to `false` to identify the release as a full release.
 	Prerelease *bool `pulumi:"prerelease"`
+	// This is the date when the release was published. This will be empty if the release is a draft.
+	PublishedAt *string `pulumi:"publishedAt"`
+	// The ID of the release.
+	ReleaseId *int `pulumi:"releaseId"`
 	// The name of the repository.
 	Repository *string `pulumi:"repository"`
 	// The name of the tag.
 	TagName *string `pulumi:"tagName"`
+	// URL that can be provided to API calls to fetch the release TAR archive.
+	TarballUrl *string `pulumi:"tarballUrl"`
 	// The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
 	TargetCommitish *string `pulumi:"targetCommitish"`
+	// URL that can be provided to API calls to upload assets.
+	UploadUrl *string `pulumi:"uploadUrl"`
+	// URL that can be provided to API calls that reference this release.
+	Url *string `pulumi:"url"`
+	// URL that can be provided to API calls to fetch the release ZIP archive.
+	ZipballUrl *string `pulumi:"zipballUrl"`
 }
 
 type ReleaseState struct {
+	// URL that can be provided to API calls displaying the attached assets to this release.
+	AssetsUrl pulumi.StringPtrInput
 	// Text describing the contents of the tag.
 	Body pulumi.StringPtrInput
+	// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+	CreatedAt pulumi.StringPtrInput
 	// If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
 	DiscussionCategoryName pulumi.StringPtrInput
 	// Set to `false` to create a published release.
@@ -193,16 +237,32 @@ type ReleaseState struct {
 	Etag  pulumi.StringPtrInput
 	// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
 	GenerateReleaseNotes pulumi.BoolPtrInput
+	// URL of the release in GitHub.
+	HtmlUrl pulumi.StringPtrInput
 	// The name of the release.
 	Name pulumi.StringPtrInput
+	// GraphQL global node id for use with v4 API
+	NodeId pulumi.StringPtrInput
 	// Set to `false` to identify the release as a full release.
 	Prerelease pulumi.BoolPtrInput
+	// This is the date when the release was published. This will be empty if the release is a draft.
+	PublishedAt pulumi.StringPtrInput
+	// The ID of the release.
+	ReleaseId pulumi.IntPtrInput
 	// The name of the repository.
 	Repository pulumi.StringPtrInput
 	// The name of the tag.
 	TagName pulumi.StringPtrInput
+	// URL that can be provided to API calls to fetch the release TAR archive.
+	TarballUrl pulumi.StringPtrInput
 	// The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
 	TargetCommitish pulumi.StringPtrInput
+	// URL that can be provided to API calls to upload assets.
+	UploadUrl pulumi.StringPtrInput
+	// URL that can be provided to API calls that reference this release.
+	Url pulumi.StringPtrInput
+	// URL that can be provided to API calls to fetch the release ZIP archive.
+	ZipballUrl pulumi.StringPtrInput
 }
 
 func (ReleaseState) ElementType() reflect.Type {
@@ -339,9 +399,19 @@ func (o ReleaseOutput) ToReleaseOutputWithContext(ctx context.Context) ReleaseOu
 	return o
 }
 
+// URL that can be provided to API calls displaying the attached assets to this release.
+func (o ReleaseOutput) AssetsUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.AssetsUrl }).(pulumi.StringOutput)
+}
+
 // Text describing the contents of the tag.
 func (o ReleaseOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Release) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+func (o ReleaseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
@@ -363,14 +433,34 @@ func (o ReleaseOutput) GenerateReleaseNotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Release) pulumi.BoolPtrOutput { return v.GenerateReleaseNotes }).(pulumi.BoolPtrOutput)
 }
 
+// URL of the release in GitHub.
+func (o ReleaseOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
 // The name of the release.
 func (o ReleaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// GraphQL global node id for use with v4 API
+func (o ReleaseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
+}
+
 // Set to `false` to identify the release as a full release.
 func (o ReleaseOutput) Prerelease() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Release) pulumi.BoolPtrOutput { return v.Prerelease }).(pulumi.BoolPtrOutput)
+}
+
+// This is the date when the release was published. This will be empty if the release is a draft.
+func (o ReleaseOutput) PublishedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.PublishedAt }).(pulumi.StringOutput)
+}
+
+// The ID of the release.
+func (o ReleaseOutput) ReleaseId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Release) pulumi.IntOutput { return v.ReleaseId }).(pulumi.IntOutput)
 }
 
 // The name of the repository.
@@ -383,9 +473,29 @@ func (o ReleaseOutput) TagName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.TagName }).(pulumi.StringOutput)
 }
 
+// URL that can be provided to API calls to fetch the release TAR archive.
+func (o ReleaseOutput) TarballUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.TarballUrl }).(pulumi.StringOutput)
+}
+
 // The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
 func (o ReleaseOutput) TargetCommitish() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Release) pulumi.StringPtrOutput { return v.TargetCommitish }).(pulumi.StringPtrOutput)
+}
+
+// URL that can be provided to API calls to upload assets.
+func (o ReleaseOutput) UploadUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.UploadUrl }).(pulumi.StringOutput)
+}
+
+// URL that can be provided to API calls that reference this release.
+func (o ReleaseOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// URL that can be provided to API calls to fetch the release ZIP archive.
+func (o ReleaseOutput) ZipballUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Release) pulumi.StringOutput { return v.ZipballUrl }).(pulumi.StringOutput)
 }
 
 type ReleaseArrayOutput struct{ *pulumi.OutputState }

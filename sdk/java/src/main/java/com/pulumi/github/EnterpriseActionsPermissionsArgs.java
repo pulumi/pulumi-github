@@ -79,18 +79,18 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      * 
      */
-    @Import(name="enterpriseId", required=true)
-    private Output<String> enterpriseId;
+    @Import(name="enterpriseSlug", required=true)
+    private Output<String> enterpriseSlug;
 
     /**
-     * @return The ID of the enterprise.
+     * @return The slug of the enterprise.
      * 
      */
-    public Output<String> enterpriseId() {
-        return this.enterpriseId;
+    public Output<String> enterpriseSlug() {
+        return this.enterpriseSlug;
     }
 
     private EnterpriseActionsPermissionsArgs() {}
@@ -100,7 +100,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         this.allowedActionsConfig = $.allowedActionsConfig;
         this.enabledOrganizations = $.enabledOrganizations;
         this.enabledOrganizationsConfig = $.enabledOrganizationsConfig;
-        this.enterpriseId = $.enterpriseId;
+        this.enterpriseSlug = $.enterpriseSlug;
     }
 
     public static Builder builder() {
@@ -206,32 +206,32 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enterpriseId The ID of the enterprise.
+         * @param enterpriseSlug The slug of the enterprise.
          * 
          * @return builder
          * 
          */
-        public Builder enterpriseId(Output<String> enterpriseId) {
-            $.enterpriseId = enterpriseId;
+        public Builder enterpriseSlug(Output<String> enterpriseSlug) {
+            $.enterpriseSlug = enterpriseSlug;
             return this;
         }
 
         /**
-         * @param enterpriseId The ID of the enterprise.
+         * @param enterpriseSlug The slug of the enterprise.
          * 
          * @return builder
          * 
          */
-        public Builder enterpriseId(String enterpriseId) {
-            return enterpriseId(Output.of(enterpriseId));
+        public Builder enterpriseSlug(String enterpriseSlug) {
+            return enterpriseSlug(Output.of(enterpriseSlug));
         }
 
         public EnterpriseActionsPermissionsArgs build() {
             if ($.enabledOrganizations == null) {
                 throw new MissingRequiredPropertyException("EnterpriseActionsPermissionsArgs", "enabledOrganizations");
             }
-            if ($.enterpriseId == null) {
-                throw new MissingRequiredPropertyException("EnterpriseActionsPermissionsArgs", "enterpriseId");
+            if ($.enterpriseSlug == null) {
+                throw new MissingRequiredPropertyException("EnterpriseActionsPermissionsArgs", "enterpriseSlug");
             }
             return $;
         }
