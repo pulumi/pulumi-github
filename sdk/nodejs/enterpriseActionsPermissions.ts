@@ -16,14 +16,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example-enterprise = github.getEnterprise({
- *     slug: "my-enterprise",
- * });
  * const example-org = github.getOrganization({
  *     name: "my-org",
  * });
  * const test = new github.EnterpriseActionsPermissions("test", {
- *     enterpriseId: example_enterprise.then(example_enterprise => example_enterprise.slug),
+ *     enterpriseSlug: "my-enterprise",
  *     allowedActions: "selected",
  *     enabledOrganizations: "selected",
  *     allowedActionsConfig: {
@@ -93,9 +90,9 @@ export class EnterpriseActionsPermissions extends pulumi.CustomResource {
      */
     public readonly enabledOrganizationsConfig!: pulumi.Output<outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig | undefined>;
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      */
-    public readonly enterpriseId!: pulumi.Output<string>;
+    public readonly enterpriseSlug!: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseActionsPermissions resource with the given unique name, arguments, and options.
@@ -114,20 +111,20 @@ export class EnterpriseActionsPermissions extends pulumi.CustomResource {
             resourceInputs["allowedActionsConfig"] = state ? state.allowedActionsConfig : undefined;
             resourceInputs["enabledOrganizations"] = state ? state.enabledOrganizations : undefined;
             resourceInputs["enabledOrganizationsConfig"] = state ? state.enabledOrganizationsConfig : undefined;
-            resourceInputs["enterpriseId"] = state ? state.enterpriseId : undefined;
+            resourceInputs["enterpriseSlug"] = state ? state.enterpriseSlug : undefined;
         } else {
             const args = argsOrState as EnterpriseActionsPermissionsArgs | undefined;
             if ((!args || args.enabledOrganizations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabledOrganizations'");
             }
-            if ((!args || args.enterpriseId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'enterpriseId'");
+            if ((!args || args.enterpriseSlug === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'enterpriseSlug'");
             }
             resourceInputs["allowedActions"] = args ? args.allowedActions : undefined;
             resourceInputs["allowedActionsConfig"] = args ? args.allowedActionsConfig : undefined;
             resourceInputs["enabledOrganizations"] = args ? args.enabledOrganizations : undefined;
             resourceInputs["enabledOrganizationsConfig"] = args ? args.enabledOrganizationsConfig : undefined;
-            resourceInputs["enterpriseId"] = args ? args.enterpriseId : undefined;
+            resourceInputs["enterpriseSlug"] = args ? args.enterpriseSlug : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnterpriseActionsPermissions.__pulumiType, name, resourceInputs, opts);
@@ -155,9 +152,9 @@ export interface EnterpriseActionsPermissionsState {
      */
     enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig>;
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      */
-    enterpriseId?: pulumi.Input<string>;
+    enterpriseSlug?: pulumi.Input<string>;
 }
 
 /**
@@ -181,7 +178,7 @@ export interface EnterpriseActionsPermissionsArgs {
      */
     enabledOrganizationsConfig?: pulumi.Input<inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig>;
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      */
-    enterpriseId: pulumi.Input<string>;
+    enterpriseSlug: pulumi.Input<string>;
 }

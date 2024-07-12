@@ -86,9 +86,17 @@ export class Release extends pulumi.CustomResource {
     }
 
     /**
+     * URL that can be provided to API calls displaying the attached assets to this release.
+     */
+    public /*out*/ readonly assetsUrl!: pulumi.Output<string>;
+    /**
      * Text describing the contents of the tag.
      */
     public readonly body!: pulumi.Output<string | undefined>;
+    /**
+     * This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      */
@@ -103,13 +111,29 @@ export class Release extends pulumi.CustomResource {
      */
     public readonly generateReleaseNotes!: pulumi.Output<boolean | undefined>;
     /**
+     * URL of the release in GitHub.
+     */
+    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    /**
      * The name of the release.
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * GraphQL global node id for use with v4 API
+     */
+    public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    /**
      * Set to `false` to identify the release as a full release.
      */
     public readonly prerelease!: pulumi.Output<boolean | undefined>;
+    /**
+     * This is the date when the release was published. This will be empty if the release is a draft.
+     */
+    public /*out*/ readonly publishedAt!: pulumi.Output<string>;
+    /**
+     * The ID of the release.
+     */
+    public /*out*/ readonly releaseId!: pulumi.Output<number>;
     /**
      * The name of the repository.
      */
@@ -119,9 +143,25 @@ export class Release extends pulumi.CustomResource {
      */
     public readonly tagName!: pulumi.Output<string>;
     /**
+     * URL that can be provided to API calls to fetch the release TAR archive.
+     */
+    public /*out*/ readonly tarballUrl!: pulumi.Output<string>;
+    /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      */
     public readonly targetCommitish!: pulumi.Output<string | undefined>;
+    /**
+     * URL that can be provided to API calls to upload assets.
+     */
+    public /*out*/ readonly uploadUrl!: pulumi.Output<string>;
+    /**
+     * URL that can be provided to API calls that reference this release.
+     */
+    public /*out*/ readonly url!: pulumi.Output<string>;
+    /**
+     * URL that can be provided to API calls to fetch the release ZIP archive.
+     */
+    public /*out*/ readonly zipballUrl!: pulumi.Output<string>;
 
     /**
      * Create a Release resource with the given unique name, arguments, and options.
@@ -136,16 +176,26 @@ export class Release extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseState | undefined;
+            resourceInputs["assetsUrl"] = state ? state.assetsUrl : undefined;
             resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["discussionCategoryName"] = state ? state.discussionCategoryName : undefined;
             resourceInputs["draft"] = state ? state.draft : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["generateReleaseNotes"] = state ? state.generateReleaseNotes : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
             resourceInputs["prerelease"] = state ? state.prerelease : undefined;
+            resourceInputs["publishedAt"] = state ? state.publishedAt : undefined;
+            resourceInputs["releaseId"] = state ? state.releaseId : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["tagName"] = state ? state.tagName : undefined;
+            resourceInputs["tarballUrl"] = state ? state.tarballUrl : undefined;
             resourceInputs["targetCommitish"] = state ? state.targetCommitish : undefined;
+            resourceInputs["uploadUrl"] = state ? state.uploadUrl : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["zipballUrl"] = state ? state.zipballUrl : undefined;
         } else {
             const args = argsOrState as ReleaseArgs | undefined;
             if ((!args || args.repository === undefined) && !opts.urn) {
@@ -163,7 +213,17 @@ export class Release extends pulumi.CustomResource {
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tagName"] = args ? args.tagName : undefined;
             resourceInputs["targetCommitish"] = args ? args.targetCommitish : undefined;
+            resourceInputs["assetsUrl"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["nodeId"] = undefined /*out*/;
+            resourceInputs["publishedAt"] = undefined /*out*/;
+            resourceInputs["releaseId"] = undefined /*out*/;
+            resourceInputs["tarballUrl"] = undefined /*out*/;
+            resourceInputs["uploadUrl"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
+            resourceInputs["zipballUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Release.__pulumiType, name, resourceInputs, opts);
@@ -175,9 +235,17 @@ export class Release extends pulumi.CustomResource {
  */
 export interface ReleaseState {
     /**
+     * URL that can be provided to API calls displaying the attached assets to this release.
+     */
+    assetsUrl?: pulumi.Input<string>;
+    /**
      * Text describing the contents of the tag.
      */
     body?: pulumi.Input<string>;
+    /**
+     * This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     */
+    createdAt?: pulumi.Input<string>;
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      */
@@ -192,13 +260,29 @@ export interface ReleaseState {
      */
     generateReleaseNotes?: pulumi.Input<boolean>;
     /**
+     * URL of the release in GitHub.
+     */
+    htmlUrl?: pulumi.Input<string>;
+    /**
      * The name of the release.
      */
     name?: pulumi.Input<string>;
     /**
+     * GraphQL global node id for use with v4 API
+     */
+    nodeId?: pulumi.Input<string>;
+    /**
      * Set to `false` to identify the release as a full release.
      */
     prerelease?: pulumi.Input<boolean>;
+    /**
+     * This is the date when the release was published. This will be empty if the release is a draft.
+     */
+    publishedAt?: pulumi.Input<string>;
+    /**
+     * The ID of the release.
+     */
+    releaseId?: pulumi.Input<number>;
     /**
      * The name of the repository.
      */
@@ -208,9 +292,25 @@ export interface ReleaseState {
      */
     tagName?: pulumi.Input<string>;
     /**
+     * URL that can be provided to API calls to fetch the release TAR archive.
+     */
+    tarballUrl?: pulumi.Input<string>;
+    /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      */
     targetCommitish?: pulumi.Input<string>;
+    /**
+     * URL that can be provided to API calls to upload assets.
+     */
+    uploadUrl?: pulumi.Input<string>;
+    /**
+     * URL that can be provided to API calls that reference this release.
+     */
+    url?: pulumi.Input<string>;
+    /**
+     * URL that can be provided to API calls to fetch the release ZIP archive.
+     */
+    zipballUrl?: pulumi.Input<string>;
 }
 
 /**

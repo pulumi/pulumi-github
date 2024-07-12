@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetEnterpriseArgs;
  * import com.pulumi.github.inputs.GetOrganizationArgs;
  * import com.pulumi.github.EnterpriseActionsPermissions;
  * import com.pulumi.github.EnterpriseActionsPermissionsArgs;
@@ -50,16 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example-enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
- *             .slug("my-enterprise")
- *             .build());
- * 
  *         final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
  *             .name("my-org")
  *             .build());
  * 
  *         var test = new EnterpriseActionsPermissions("test", EnterpriseActionsPermissionsArgs.builder()
- *             .enterpriseId(example_enterprise.slug())
+ *             .enterpriseSlug("my-enterprise")
  *             .allowedActions("selected")
  *             .enabledOrganizations("selected")
  *             .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()
@@ -148,18 +143,18 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.enabledOrganizationsConfig);
     }
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      * 
      */
-    @Export(name="enterpriseId", refs={String.class}, tree="[0]")
-    private Output<String> enterpriseId;
+    @Export(name="enterpriseSlug", refs={String.class}, tree="[0]")
+    private Output<String> enterpriseSlug;
 
     /**
-     * @return The ID of the enterprise.
+     * @return The slug of the enterprise.
      * 
      */
-    public Output<String> enterpriseId() {
-        return this.enterpriseId;
+    public Output<String> enterpriseSlug() {
+        return this.enterpriseSlug;
     }
 
     /**

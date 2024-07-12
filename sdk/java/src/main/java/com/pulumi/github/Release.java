@@ -11,6 +11,7 @@ import com.pulumi.github.ReleaseArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ReleaseState;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -129,6 +130,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/release:Release")
 public class Release extends com.pulumi.resources.CustomResource {
     /**
+     * URL that can be provided to API calls displaying the attached assets to this release.
+     * 
+     */
+    @Export(name="assetsUrl", refs={String.class}, tree="[0]")
+    private Output<String> assetsUrl;
+
+    /**
+     * @return URL that can be provided to API calls displaying the attached assets to this release.
+     * 
+     */
+    public Output<String> assetsUrl() {
+        return this.assetsUrl;
+    }
+    /**
      * Text describing the contents of the tag.
      * 
      */
@@ -141,6 +156,20 @@ public class Release extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
+    }
+    /**
+     * This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     * 
+     */
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
+    private Output<String> createdAt;
+
+    /**
+     * @return This is the date of the commit used for the release, and not the date when the release was drafted or published.
+     * 
+     */
+    public Output<String> createdAt() {
+        return this.createdAt;
     }
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
@@ -191,6 +220,20 @@ public class Release extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.generateReleaseNotes);
     }
     /**
+     * URL of the release in GitHub.
+     * 
+     */
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
+    private Output<String> htmlUrl;
+
+    /**
+     * @return URL of the release in GitHub.
+     * 
+     */
+    public Output<String> htmlUrl() {
+        return this.htmlUrl;
+    }
+    /**
      * The name of the release.
      * 
      */
@@ -205,6 +248,20 @@ public class Release extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * GraphQL global node id for use with v4 API
+     * 
+     */
+    @Export(name="nodeId", refs={String.class}, tree="[0]")
+    private Output<String> nodeId;
+
+    /**
+     * @return GraphQL global node id for use with v4 API
+     * 
+     */
+    public Output<String> nodeId() {
+        return this.nodeId;
+    }
+    /**
      * Set to `false` to identify the release as a full release.
      * 
      */
@@ -217,6 +274,34 @@ public class Release extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> prerelease() {
         return Codegen.optional(this.prerelease);
+    }
+    /**
+     * This is the date when the release was published. This will be empty if the release is a draft.
+     * 
+     */
+    @Export(name="publishedAt", refs={String.class}, tree="[0]")
+    private Output<String> publishedAt;
+
+    /**
+     * @return This is the date when the release was published. This will be empty if the release is a draft.
+     * 
+     */
+    public Output<String> publishedAt() {
+        return this.publishedAt;
+    }
+    /**
+     * The ID of the release.
+     * 
+     */
+    @Export(name="releaseId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> releaseId;
+
+    /**
+     * @return The ID of the release.
+     * 
+     */
+    public Output<Integer> releaseId() {
+        return this.releaseId;
     }
     /**
      * The name of the repository.
@@ -247,6 +332,20 @@ public class Release extends com.pulumi.resources.CustomResource {
         return this.tagName;
     }
     /**
+     * URL that can be provided to API calls to fetch the release TAR archive.
+     * 
+     */
+    @Export(name="tarballUrl", refs={String.class}, tree="[0]")
+    private Output<String> tarballUrl;
+
+    /**
+     * @return URL that can be provided to API calls to fetch the release TAR archive.
+     * 
+     */
+    public Output<String> tarballUrl() {
+        return this.tarballUrl;
+    }
+    /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      * 
      */
@@ -259,6 +358,48 @@ public class Release extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> targetCommitish() {
         return Codegen.optional(this.targetCommitish);
+    }
+    /**
+     * URL that can be provided to API calls to upload assets.
+     * 
+     */
+    @Export(name="uploadUrl", refs={String.class}, tree="[0]")
+    private Output<String> uploadUrl;
+
+    /**
+     * @return URL that can be provided to API calls to upload assets.
+     * 
+     */
+    public Output<String> uploadUrl() {
+        return this.uploadUrl;
+    }
+    /**
+     * URL that can be provided to API calls that reference this release.
+     * 
+     */
+    @Export(name="url", refs={String.class}, tree="[0]")
+    private Output<String> url;
+
+    /**
+     * @return URL that can be provided to API calls that reference this release.
+     * 
+     */
+    public Output<String> url() {
+        return this.url;
+    }
+    /**
+     * URL that can be provided to API calls to fetch the release ZIP archive.
+     * 
+     */
+    @Export(name="zipballUrl", refs={String.class}, tree="[0]")
+    private Output<String> zipballUrl;
+
+    /**
+     * @return URL that can be provided to API calls to fetch the release ZIP archive.
+     * 
+     */
+    public Output<String> zipballUrl() {
+        return this.zipballUrl;
     }
 
     /**

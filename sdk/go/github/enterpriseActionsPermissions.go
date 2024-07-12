@@ -29,12 +29,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example_enterprise, err := github.GetEnterprise(ctx, &github.GetEnterpriseArgs{
-//				Slug: "my-enterprise",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			example_org, err := github.GetOrganization(ctx, &github.GetOrganizationArgs{
 //				Name: "my-org",
 //			}, nil)
@@ -42,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewEnterpriseActionsPermissions(ctx, "test", &github.EnterpriseActionsPermissionsArgs{
-//				EnterpriseId:         pulumi.String(example_enterprise.Slug),
+//				EnterpriseSlug:       pulumi.String("my-enterprise"),
 //				AllowedActions:       pulumi.String("selected"),
 //				EnabledOrganizations: pulumi.String("selected"),
 //				AllowedActionsConfig: &github.EnterpriseActionsPermissionsAllowedActionsConfigArgs{
@@ -86,8 +80,8 @@ type EnterpriseActionsPermissions struct {
 	EnabledOrganizations pulumi.StringOutput `pulumi:"enabledOrganizations"`
 	// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
 	EnabledOrganizationsConfig EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput `pulumi:"enabledOrganizationsConfig"`
-	// The ID of the enterprise.
-	EnterpriseId pulumi.StringOutput `pulumi:"enterpriseId"`
+	// The slug of the enterprise.
+	EnterpriseSlug pulumi.StringOutput `pulumi:"enterpriseSlug"`
 }
 
 // NewEnterpriseActionsPermissions registers a new resource with the given unique name, arguments, and options.
@@ -100,8 +94,8 @@ func NewEnterpriseActionsPermissions(ctx *pulumi.Context,
 	if args.EnabledOrganizations == nil {
 		return nil, errors.New("invalid value for required argument 'EnabledOrganizations'")
 	}
-	if args.EnterpriseId == nil {
-		return nil, errors.New("invalid value for required argument 'EnterpriseId'")
+	if args.EnterpriseSlug == nil {
+		return nil, errors.New("invalid value for required argument 'EnterpriseSlug'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnterpriseActionsPermissions
@@ -134,8 +128,8 @@ type enterpriseActionsPermissionsState struct {
 	EnabledOrganizations *string `pulumi:"enabledOrganizations"`
 	// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
 	EnabledOrganizationsConfig *EnterpriseActionsPermissionsEnabledOrganizationsConfig `pulumi:"enabledOrganizationsConfig"`
-	// The ID of the enterprise.
-	EnterpriseId *string `pulumi:"enterpriseId"`
+	// The slug of the enterprise.
+	EnterpriseSlug *string `pulumi:"enterpriseSlug"`
 }
 
 type EnterpriseActionsPermissionsState struct {
@@ -147,8 +141,8 @@ type EnterpriseActionsPermissionsState struct {
 	EnabledOrganizations pulumi.StringPtrInput
 	// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
 	EnabledOrganizationsConfig EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput
-	// The ID of the enterprise.
-	EnterpriseId pulumi.StringPtrInput
+	// The slug of the enterprise.
+	EnterpriseSlug pulumi.StringPtrInput
 }
 
 func (EnterpriseActionsPermissionsState) ElementType() reflect.Type {
@@ -164,8 +158,8 @@ type enterpriseActionsPermissionsArgs struct {
 	EnabledOrganizations string `pulumi:"enabledOrganizations"`
 	// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
 	EnabledOrganizationsConfig *EnterpriseActionsPermissionsEnabledOrganizationsConfig `pulumi:"enabledOrganizationsConfig"`
-	// The ID of the enterprise.
-	EnterpriseId string `pulumi:"enterpriseId"`
+	// The slug of the enterprise.
+	EnterpriseSlug string `pulumi:"enterpriseSlug"`
 }
 
 // The set of arguments for constructing a EnterpriseActionsPermissions resource.
@@ -178,8 +172,8 @@ type EnterpriseActionsPermissionsArgs struct {
 	EnabledOrganizations pulumi.StringInput
 	// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
 	EnabledOrganizationsConfig EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrInput
-	// The ID of the enterprise.
-	EnterpriseId pulumi.StringInput
+	// The slug of the enterprise.
+	EnterpriseSlug pulumi.StringInput
 }
 
 func (EnterpriseActionsPermissionsArgs) ElementType() reflect.Type {
@@ -293,9 +287,9 @@ func (o EnterpriseActionsPermissionsOutput) EnabledOrganizationsConfig() Enterpr
 	}).(EnterpriseActionsPermissionsEnabledOrganizationsConfigPtrOutput)
 }
 
-// The ID of the enterprise.
-func (o EnterpriseActionsPermissionsOutput) EnterpriseId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnterpriseActionsPermissions) pulumi.StringOutput { return v.EnterpriseId }).(pulumi.StringOutput)
+// The slug of the enterprise.
+func (o EnterpriseActionsPermissionsOutput) EnterpriseSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterpriseActionsPermissions) pulumi.StringOutput { return v.EnterpriseSlug }).(pulumi.StringOutput)
 }
 
 type EnterpriseActionsPermissionsArrayOutput struct{ *pulumi.OutputState }

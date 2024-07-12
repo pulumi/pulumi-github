@@ -23,11 +23,6 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example_enterprise = Github.GetEnterprise.Invoke(new()
-    ///     {
-    ///         Slug = "my-enterprise",
-    ///     });
-    /// 
     ///     var example_org = Github.GetOrganization.Invoke(new()
     ///     {
     ///         Name = "my-org",
@@ -35,7 +30,7 @@ namespace Pulumi.Github
     /// 
     ///     var test = new Github.EnterpriseActionsPermissions("test", new()
     ///     {
-    ///         EnterpriseId = example_enterprise.Apply(example_enterprise =&gt; example_enterprise.Apply(getEnterpriseResult =&gt; getEnterpriseResult.Slug)),
+    ///         EnterpriseSlug = "my-enterprise",
     ///         AllowedActions = "selected",
     ///         EnabledOrganizations = "selected",
     ///         AllowedActionsConfig = new Github.Inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs
@@ -96,10 +91,10 @@ namespace Pulumi.Github
         public Output<Outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig?> EnabledOrganizationsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the enterprise.
+        /// The slug of the enterprise.
         /// </summary>
-        [Output("enterpriseId")]
-        public Output<string> EnterpriseId { get; private set; } = null!;
+        [Output("enterpriseSlug")]
+        public Output<string> EnterpriseSlug { get; private set; } = null!;
 
 
         /// <summary>
@@ -172,10 +167,10 @@ namespace Pulumi.Github
         public Input<Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs>? EnabledOrganizationsConfig { get; set; }
 
         /// <summary>
-        /// The ID of the enterprise.
+        /// The slug of the enterprise.
         /// </summary>
-        [Input("enterpriseId", required: true)]
-        public Input<string> EnterpriseId { get; set; } = null!;
+        [Input("enterpriseSlug", required: true)]
+        public Input<string> EnterpriseSlug { get; set; } = null!;
 
         public EnterpriseActionsPermissionsArgs()
         {
@@ -210,10 +205,10 @@ namespace Pulumi.Github
         public Input<Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigGetArgs>? EnabledOrganizationsConfig { get; set; }
 
         /// <summary>
-        /// The ID of the enterprise.
+        /// The slug of the enterprise.
         /// </summary>
-        [Input("enterpriseId")]
-        public Input<string>? EnterpriseId { get; set; }
+        [Input("enterpriseSlug")]
+        public Input<string>? EnterpriseSlug { get; set; }
 
         public EnterpriseActionsPermissionsState()
         {

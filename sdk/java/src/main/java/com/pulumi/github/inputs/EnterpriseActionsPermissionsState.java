@@ -78,18 +78,18 @@ public final class EnterpriseActionsPermissionsState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the enterprise.
+     * The slug of the enterprise.
      * 
      */
-    @Import(name="enterpriseId")
-    private @Nullable Output<String> enterpriseId;
+    @Import(name="enterpriseSlug")
+    private @Nullable Output<String> enterpriseSlug;
 
     /**
-     * @return The ID of the enterprise.
+     * @return The slug of the enterprise.
      * 
      */
-    public Optional<Output<String>> enterpriseId() {
-        return Optional.ofNullable(this.enterpriseId);
+    public Optional<Output<String>> enterpriseSlug() {
+        return Optional.ofNullable(this.enterpriseSlug);
     }
 
     private EnterpriseActionsPermissionsState() {}
@@ -99,7 +99,7 @@ public final class EnterpriseActionsPermissionsState extends com.pulumi.resource
         this.allowedActionsConfig = $.allowedActionsConfig;
         this.enabledOrganizations = $.enabledOrganizations;
         this.enabledOrganizationsConfig = $.enabledOrganizationsConfig;
-        this.enterpriseId = $.enterpriseId;
+        this.enterpriseSlug = $.enterpriseSlug;
     }
 
     public static Builder builder() {
@@ -205,24 +205,24 @@ public final class EnterpriseActionsPermissionsState extends com.pulumi.resource
         }
 
         /**
-         * @param enterpriseId The ID of the enterprise.
+         * @param enterpriseSlug The slug of the enterprise.
          * 
          * @return builder
          * 
          */
-        public Builder enterpriseId(@Nullable Output<String> enterpriseId) {
-            $.enterpriseId = enterpriseId;
+        public Builder enterpriseSlug(@Nullable Output<String> enterpriseSlug) {
+            $.enterpriseSlug = enterpriseSlug;
             return this;
         }
 
         /**
-         * @param enterpriseId The ID of the enterprise.
+         * @param enterpriseSlug The slug of the enterprise.
          * 
          * @return builder
          * 
          */
-        public Builder enterpriseId(String enterpriseId) {
-            return enterpriseId(Output.of(enterpriseId));
+        public Builder enterpriseSlug(String enterpriseSlug) {
+            return enterpriseSlug(Output.of(enterpriseSlug));
         }
 
         public EnterpriseActionsPermissionsState build() {

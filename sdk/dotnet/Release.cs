@@ -86,10 +86,22 @@ namespace Pulumi.Github
     public partial class Release : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// URL that can be provided to API calls displaying the attached assets to this release.
+        /// </summary>
+        [Output("assetsUrl")]
+        public Output<string> AssetsUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Text describing the contents of the tag.
         /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
@@ -113,16 +125,40 @@ namespace Pulumi.Github
         public Output<bool?> GenerateReleaseNotes { get; private set; } = null!;
 
         /// <summary>
+        /// URL of the release in GitHub.
+        /// </summary>
+        [Output("htmlUrl")]
+        public Output<string> HtmlUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the release.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// GraphQL global node id for use with v4 API
+        /// </summary>
+        [Output("nodeId")]
+        public Output<string> NodeId { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `false` to identify the release as a full release.
         /// </summary>
         [Output("prerelease")]
         public Output<bool?> Prerelease { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the date when the release was published. This will be empty if the release is a draft.
+        /// </summary>
+        [Output("publishedAt")]
+        public Output<string> PublishedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the release.
+        /// </summary>
+        [Output("releaseId")]
+        public Output<int> ReleaseId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the repository.
@@ -137,10 +173,34 @@ namespace Pulumi.Github
         public Output<string> TagName { get; private set; } = null!;
 
         /// <summary>
+        /// URL that can be provided to API calls to fetch the release TAR archive.
+        /// </summary>
+        [Output("tarballUrl")]
+        public Output<string> TarballUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         /// </summary>
         [Output("targetCommitish")]
         public Output<string?> TargetCommitish { get; private set; } = null!;
+
+        /// <summary>
+        /// URL that can be provided to API calls to upload assets.
+        /// </summary>
+        [Output("uploadUrl")]
+        public Output<string> UploadUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// URL that can be provided to API calls that reference this release.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// URL that can be provided to API calls to fetch the release ZIP archive.
+        /// </summary>
+        [Output("zipballUrl")]
+        public Output<string> ZipballUrl { get; private set; } = null!;
 
 
         /// <summary>
@@ -251,10 +311,22 @@ namespace Pulumi.Github
     public sealed class ReleaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// URL that can be provided to API calls displaying the attached assets to this release.
+        /// </summary>
+        [Input("assetsUrl")]
+        public Input<string>? AssetsUrl { get; set; }
+
+        /// <summary>
         /// Text describing the contents of the tag.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
+
+        /// <summary>
+        /// This is the date of the commit used for the release, and not the date when the release was drafted or published.
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
         /// If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
@@ -278,16 +350,40 @@ namespace Pulumi.Github
         public Input<bool>? GenerateReleaseNotes { get; set; }
 
         /// <summary>
+        /// URL of the release in GitHub.
+        /// </summary>
+        [Input("htmlUrl")]
+        public Input<string>? HtmlUrl { get; set; }
+
+        /// <summary>
         /// The name of the release.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// GraphQL global node id for use with v4 API
+        /// </summary>
+        [Input("nodeId")]
+        public Input<string>? NodeId { get; set; }
+
+        /// <summary>
         /// Set to `false` to identify the release as a full release.
         /// </summary>
         [Input("prerelease")]
         public Input<bool>? Prerelease { get; set; }
+
+        /// <summary>
+        /// This is the date when the release was published. This will be empty if the release is a draft.
+        /// </summary>
+        [Input("publishedAt")]
+        public Input<string>? PublishedAt { get; set; }
+
+        /// <summary>
+        /// The ID of the release.
+        /// </summary>
+        [Input("releaseId")]
+        public Input<int>? ReleaseId { get; set; }
 
         /// <summary>
         /// The name of the repository.
@@ -302,10 +398,34 @@ namespace Pulumi.Github
         public Input<string>? TagName { get; set; }
 
         /// <summary>
+        /// URL that can be provided to API calls to fetch the release TAR archive.
+        /// </summary>
+        [Input("tarballUrl")]
+        public Input<string>? TarballUrl { get; set; }
+
+        /// <summary>
         /// The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
         /// </summary>
         [Input("targetCommitish")]
         public Input<string>? TargetCommitish { get; set; }
+
+        /// <summary>
+        /// URL that can be provided to API calls to upload assets.
+        /// </summary>
+        [Input("uploadUrl")]
+        public Input<string>? UploadUrl { get; set; }
+
+        /// <summary>
+        /// URL that can be provided to API calls that reference this release.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// URL that can be provided to API calls to fetch the release ZIP archive.
+        /// </summary>
+        [Input("zipballUrl")]
+        public Input<string>? ZipballUrl { get; set; }
 
         public ReleaseState()
         {

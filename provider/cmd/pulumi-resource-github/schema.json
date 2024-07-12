@@ -5463,7 +5463,7 @@
             }
         },
         "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions": {
-            "description": "This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.\nYou must have admin access to an enterprise to use this resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example-enterprise = github.getEnterprise({\n    slug: \"my-enterprise\",\n});\nconst example-org = github.getOrganization({\n    name: \"my-org\",\n});\nconst test = new github.EnterpriseActionsPermissions(\"test\", {\n    enterpriseId: example_enterprise.then(example_enterprise =\u003e example_enterprise.slug),\n    allowedActions: \"selected\",\n    enabledOrganizations: \"selected\",\n    allowedActionsConfig: {\n        githubOwnedAllowed: true,\n        patternsAlloweds: [\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verifiedAllowed: true,\n    },\n    enabledOrganizationsConfig: {\n        organizationIds: [example_org.then(example_org =\u003e example_org.id)],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_enterprise = github.get_enterprise(slug=\"my-enterprise\")\nexample_org = github.get_organization(name=\"my-org\")\ntest = github.EnterpriseActionsPermissions(\"test\",\n    enterprise_id=example_enterprise.slug,\n    allowed_actions=\"selected\",\n    enabled_organizations=\"selected\",\n    allowed_actions_config=github.EnterpriseActionsPermissionsAllowedActionsConfigArgs(\n        github_owned_allowed=True,\n        patterns_alloweds=[\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verified_allowed=True,\n    ),\n    enabled_organizations_config=github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs(\n        organization_ids=[example_org.id],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example_enterprise = Github.GetEnterprise.Invoke(new()\n    {\n        Slug = \"my-enterprise\",\n    });\n\n    var example_org = Github.GetOrganization.Invoke(new()\n    {\n        Name = \"my-org\",\n    });\n\n    var test = new Github.EnterpriseActionsPermissions(\"test\", new()\n    {\n        EnterpriseId = example_enterprise.Apply(example_enterprise =\u003e example_enterprise.Apply(getEnterpriseResult =\u003e getEnterpriseResult.Slug)),\n        AllowedActions = \"selected\",\n        EnabledOrganizations = \"selected\",\n        AllowedActionsConfig = new Github.Inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs\n        {\n            GithubOwnedAllowed = true,\n            PatternsAlloweds = new[]\n            {\n                \"actions/cache@*\",\n                \"actions/checkout@*\",\n            },\n            VerifiedAllowed = true,\n        },\n        EnabledOrganizationsConfig = new Github.Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs\n        {\n            OrganizationIds = new[]\n            {\n                example_org.Apply(example_org =\u003e example_org.Apply(getOrganizationResult =\u003e getOrganizationResult.Id)),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample_enterprise, err := github.GetEnterprise(ctx, \u0026github.GetEnterpriseArgs{\n\t\t\tSlug: \"my-enterprise\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample_org, err := github.GetOrganization(ctx, \u0026github.GetOrganizationArgs{\n\t\t\tName: \"my-org\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewEnterpriseActionsPermissions(ctx, \"test\", \u0026github.EnterpriseActionsPermissionsArgs{\n\t\t\tEnterpriseId:         pulumi.String(example_enterprise.Slug),\n\t\t\tAllowedActions:       pulumi.String(\"selected\"),\n\t\t\tEnabledOrganizations: pulumi.String(\"selected\"),\n\t\t\tAllowedActionsConfig: \u0026github.EnterpriseActionsPermissionsAllowedActionsConfigArgs{\n\t\t\t\tGithubOwnedAllowed: pulumi.Bool(true),\n\t\t\t\tPatternsAlloweds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"actions/cache@*\"),\n\t\t\t\t\tpulumi.String(\"actions/checkout@*\"),\n\t\t\t\t},\n\t\t\t\tVerifiedAllowed: pulumi.Bool(true),\n\t\t\t},\n\t\t\tEnabledOrganizationsConfig: \u0026github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{\n\t\t\t\tOrganizationIds: pulumi.IntArray{\n\t\t\t\t\tpulumi.String(example_org.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetEnterpriseArgs;\nimport com.pulumi.github.inputs.GetOrganizationArgs;\nimport com.pulumi.github.EnterpriseActionsPermissions;\nimport com.pulumi.github.EnterpriseActionsPermissionsArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example-enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()\n            .slug(\"my-enterprise\")\n            .build());\n\n        final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()\n            .name(\"my-org\")\n            .build());\n\n        var test = new EnterpriseActionsPermissions(\"test\", EnterpriseActionsPermissionsArgs.builder()\n            .enterpriseId(example_enterprise.slug())\n            .allowedActions(\"selected\")\n            .enabledOrganizations(\"selected\")\n            .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()\n                .githubOwnedAllowed(true)\n                .patternsAlloweds(                \n                    \"actions/cache@*\",\n                    \"actions/checkout@*\")\n                .verifiedAllowed(true)\n                .build())\n            .enabledOrganizationsConfig(EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs.builder()\n                .organizationIds(example_org.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: github:EnterpriseActionsPermissions\n    properties:\n      enterpriseId: ${[\"example-enterprise\"].slug}\n      allowedActions: selected\n      enabledOrganizations: selected\n      allowedActionsConfig:\n        githubOwnedAllowed: true\n        patternsAlloweds:\n          - actions/cache@*\n          - actions/checkout@*\n        verifiedAllowed: true\n      enabledOrganizationsConfig:\n        organizationIds:\n          - ${[\"example-org\"].id}\nvariables:\n  example-enterprise:\n    fn::invoke:\n      Function: github:getEnterprise\n      Arguments:\n        slug: my-enterprise\n  example-org:\n    fn::invoke:\n      Function: github:getOrganization\n      Arguments:\n        name: my-org\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThis resource can be imported using the name of the GitHub enterprise:\n\n```sh\n$ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name\n```\n",
+            "description": "This resource allows you to create and manage GitHub Actions permissions within your GitHub enterprise.\nYou must have admin access to an enterprise to use this resource.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example-org = github.getOrganization({\n    name: \"my-org\",\n});\nconst test = new github.EnterpriseActionsPermissions(\"test\", {\n    enterpriseSlug: \"my-enterprise\",\n    allowedActions: \"selected\",\n    enabledOrganizations: \"selected\",\n    allowedActionsConfig: {\n        githubOwnedAllowed: true,\n        patternsAlloweds: [\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verifiedAllowed: true,\n    },\n    enabledOrganizationsConfig: {\n        organizationIds: [example_org.then(example_org =\u003e example_org.id)],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample_org = github.get_organization(name=\"my-org\")\ntest = github.EnterpriseActionsPermissions(\"test\",\n    enterprise_slug=\"my-enterprise\",\n    allowed_actions=\"selected\",\n    enabled_organizations=\"selected\",\n    allowed_actions_config=github.EnterpriseActionsPermissionsAllowedActionsConfigArgs(\n        github_owned_allowed=True,\n        patterns_alloweds=[\n            \"actions/cache@*\",\n            \"actions/checkout@*\",\n        ],\n        verified_allowed=True,\n    ),\n    enabled_organizations_config=github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs(\n        organization_ids=[example_org.id],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example_org = Github.GetOrganization.Invoke(new()\n    {\n        Name = \"my-org\",\n    });\n\n    var test = new Github.EnterpriseActionsPermissions(\"test\", new()\n    {\n        EnterpriseSlug = \"my-enterprise\",\n        AllowedActions = \"selected\",\n        EnabledOrganizations = \"selected\",\n        AllowedActionsConfig = new Github.Inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs\n        {\n            GithubOwnedAllowed = true,\n            PatternsAlloweds = new[]\n            {\n                \"actions/cache@*\",\n                \"actions/checkout@*\",\n            },\n            VerifiedAllowed = true,\n        },\n        EnabledOrganizationsConfig = new Github.Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs\n        {\n            OrganizationIds = new[]\n            {\n                example_org.Apply(example_org =\u003e example_org.Apply(getOrganizationResult =\u003e getOrganizationResult.Id)),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample_org, err := github.GetOrganization(ctx, \u0026github.GetOrganizationArgs{\n\t\t\tName: \"my-org\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewEnterpriseActionsPermissions(ctx, \"test\", \u0026github.EnterpriseActionsPermissionsArgs{\n\t\t\tEnterpriseSlug:       pulumi.String(\"my-enterprise\"),\n\t\t\tAllowedActions:       pulumi.String(\"selected\"),\n\t\t\tEnabledOrganizations: pulumi.String(\"selected\"),\n\t\t\tAllowedActionsConfig: \u0026github.EnterpriseActionsPermissionsAllowedActionsConfigArgs{\n\t\t\t\tGithubOwnedAllowed: pulumi.Bool(true),\n\t\t\t\tPatternsAlloweds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"actions/cache@*\"),\n\t\t\t\t\tpulumi.String(\"actions/checkout@*\"),\n\t\t\t\t},\n\t\t\t\tVerifiedAllowed: pulumi.Bool(true),\n\t\t\t},\n\t\t\tEnabledOrganizationsConfig: \u0026github.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs{\n\t\t\t\tOrganizationIds: pulumi.IntArray{\n\t\t\t\t\tpulumi.String(example_org.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetOrganizationArgs;\nimport com.pulumi.github.EnterpriseActionsPermissions;\nimport com.pulumi.github.EnterpriseActionsPermissionsArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs;\nimport com.pulumi.github.inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()\n            .name(\"my-org\")\n            .build());\n\n        var test = new EnterpriseActionsPermissions(\"test\", EnterpriseActionsPermissionsArgs.builder()\n            .enterpriseSlug(\"my-enterprise\")\n            .allowedActions(\"selected\")\n            .enabledOrganizations(\"selected\")\n            .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()\n                .githubOwnedAllowed(true)\n                .patternsAlloweds(                \n                    \"actions/cache@*\",\n                    \"actions/checkout@*\")\n                .verifiedAllowed(true)\n                .build())\n            .enabledOrganizationsConfig(EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs.builder()\n                .organizationIds(example_org.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: github:EnterpriseActionsPermissions\n    properties:\n      enterpriseSlug: my-enterprise\n      allowedActions: selected\n      enabledOrganizations: selected\n      allowedActionsConfig:\n        githubOwnedAllowed: true\n        patternsAlloweds:\n          - actions/cache@*\n          - actions/checkout@*\n        verifiedAllowed: true\n      enabledOrganizationsConfig:\n        organizationIds:\n          - ${[\"example-org\"].id}\nvariables:\n  example-org:\n    fn::invoke:\n      Function: github:getOrganization\n      Arguments:\n        name: my-org\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThis resource can be imported using the name of the GitHub enterprise:\n\n```sh\n$ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name\n```\n",
             "properties": {
                 "allowedActions": {
                     "type": "string",
@@ -5481,14 +5481,14 @@
                     "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
                     "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
                 },
-                "enterpriseId": {
+                "enterpriseSlug": {
                     "type": "string",
-                    "description": "The ID of the enterprise.\n"
+                    "description": "The slug of the enterprise.\n"
                 }
             },
             "required": [
                 "enabledOrganizations",
-                "enterpriseId"
+                "enterpriseSlug"
             ],
             "inputProperties": {
                 "allowedActions": {
@@ -5507,15 +5507,15 @@
                     "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
                     "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
                 },
-                "enterpriseId": {
+                "enterpriseSlug": {
                     "type": "string",
-                    "description": "The ID of the enterprise.\n",
+                    "description": "The slug of the enterprise.\n",
                     "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
                 "enabledOrganizations",
-                "enterpriseId"
+                "enterpriseSlug"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering EnterpriseActionsPermissions resources.\n",
@@ -5536,9 +5536,9 @@
                         "$ref": "#/types/github:index/EnterpriseActionsPermissionsEnabledOrganizationsConfig:EnterpriseActionsPermissionsEnabledOrganizationsConfig",
                         "description": "Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.\n"
                     },
-                    "enterpriseId": {
+                    "enterpriseSlug": {
                         "type": "string",
-                        "description": "The ID of the enterprise.\n",
+                        "description": "The slug of the enterprise.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -7067,9 +7067,17 @@
         "github:index/release:Release": {
             "description": "This resource allows you to create and manage a release in a specific\nGitHub repository.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    name: \"repo\",\n    description: \"GitHub repo managed by Terraform\",\n    \"private\": false,\n});\nconst example = new github.Release(\"example\", {\n    repository: repo.name,\n    tagName: \"v1.0.0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    name=\"repo\",\n    description=\"GitHub repo managed by Terraform\",\n    private=False)\nexample = github.Release(\"example\",\n    repository=repo.name,\n    tag_name=\"v1.0.0\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = new Github.Repository(\"repo\", new()\n    {\n        Name = \"repo\",\n        Description = \"GitHub repo managed by Terraform\",\n        Private = false,\n    });\n\n    var example = new Github.Release(\"example\", new()\n    {\n        Repository = repo.Name,\n        TagName = \"v1.0.0\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\trepo, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tName:        pulumi.String(\"repo\"),\n\t\t\tDescription: pulumi.String(\"GitHub repo managed by Terraform\"),\n\t\t\tPrivate:     pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRelease(ctx, \"example\", \u0026github.ReleaseArgs{\n\t\t\tRepository: repo.Name,\n\t\t\tTagName:    pulumi.String(\"v1.0.0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.Release;\nimport com.pulumi.github.ReleaseArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var repo = new Repository(\"repo\", RepositoryArgs.builder()\n            .name(\"repo\")\n            .description(\"GitHub repo managed by Terraform\")\n            .private_(false)\n            .build());\n\n        var example = new Release(\"example\", ReleaseArgs.builder()\n            .repository(repo.name())\n            .tagName(\"v1.0.0\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repo:\n    type: github:Repository\n    properties:\n      name: repo\n      description: GitHub repo managed by Terraform\n      private: false\n  example:\n    type: github:Release\n    properties:\n      repository: ${repo.name}\n      tagName: v1.0.0\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n### On Non-Default Branch\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    name: \"repo\",\n    autoInit: true,\n});\nconst exampleBranch = new github.Branch(\"example\", {\n    repository: example.name,\n    branch: \"branch_name\",\n    sourceBranch: example.defaultBranch,\n});\nconst exampleRelease = new github.Release(\"example\", {\n    repository: example.name,\n    tagName: \"v1.0.0\",\n    targetCommitish: exampleBranch.branch,\n    draft: false,\n    prerelease: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    name=\"repo\",\n    auto_init=True)\nexample_branch = github.Branch(\"example\",\n    repository=example.name,\n    branch=\"branch_name\",\n    source_branch=example.default_branch)\nexample_release = github.Release(\"example\",\n    repository=example.name,\n    tag_name=\"v1.0.0\",\n    target_commitish=example_branch.branch,\n    draft=False,\n    prerelease=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.Repository(\"example\", new()\n    {\n        Name = \"repo\",\n        AutoInit = true,\n    });\n\n    var exampleBranch = new Github.Branch(\"example\", new()\n    {\n        Repository = example.Name,\n        BranchName = \"branch_name\",\n        SourceBranch = example.DefaultBranch,\n    });\n\n    var exampleRelease = new Github.Release(\"example\", new()\n    {\n        Repository = example.Name,\n        TagName = \"v1.0.0\",\n        TargetCommitish = exampleBranch.BranchName,\n        Draft = false,\n        Prerelease = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tName:     pulumi.String(\"repo\"),\n\t\t\tAutoInit: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleBranch, err := github.NewBranch(ctx, \"example\", \u0026github.BranchArgs{\n\t\t\tRepository:   example.Name,\n\t\t\tBranch:       pulumi.String(\"branch_name\"),\n\t\t\tSourceBranch: example.DefaultBranch,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRelease(ctx, \"example\", \u0026github.ReleaseArgs{\n\t\t\tRepository:      example.Name,\n\t\t\tTagName:         pulumi.String(\"v1.0.0\"),\n\t\t\tTargetCommitish: exampleBranch.Branch,\n\t\t\tDraft:           pulumi.Bool(false),\n\t\t\tPrerelease:      pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.Branch;\nimport com.pulumi.github.BranchArgs;\nimport com.pulumi.github.Release;\nimport com.pulumi.github.ReleaseArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Repository(\"example\", RepositoryArgs.builder()\n            .name(\"repo\")\n            .autoInit(true)\n            .build());\n\n        var exampleBranch = new Branch(\"exampleBranch\", BranchArgs.builder()\n            .repository(example.name())\n            .branch(\"branch_name\")\n            .sourceBranch(example.defaultBranch())\n            .build());\n\n        var exampleRelease = new Release(\"exampleRelease\", ReleaseArgs.builder()\n            .repository(example.name())\n            .tagName(\"v1.0.0\")\n            .targetCommitish(exampleBranch.branch())\n            .draft(false)\n            .prerelease(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:Repository\n    properties:\n      name: repo\n      autoInit: true\n  exampleBranch:\n    type: github:Branch\n    name: example\n    properties:\n      repository: ${example.name}\n      branch: branch_name\n      sourceBranch: ${example.defaultBranch}\n  exampleRelease:\n    type: github:Release\n    name: example\n    properties:\n      repository: ${example.name}\n      tagName: v1.0.0\n      targetCommitish: ${exampleBranch.branch}\n      draft: false\n      prerelease: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThis resource can be imported using the `name` of the repository, combined with the `id` of the release, and a `:` character for separating components, e.g.\n\n```sh\n$ pulumi import github:index/release:Release example repo:12345678\n```\n\n",
             "properties": {
+                "assetsUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to API calls displaying the attached assets to this release.\n"
+                },
                 "body": {
                     "type": "string",
                     "description": "Text describing the contents of the tag.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "This is the date of the commit used for the release, and not the date when the release was drafted or published.\n"
                 },
                 "discussionCategoryName": {
                     "type": "string",
@@ -7086,13 +7094,29 @@
                     "type": "boolean",
                     "description": "Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.\n"
                 },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "URL of the release in GitHub.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the release.\n"
                 },
+                "nodeId": {
+                    "type": "string",
+                    "description": "GraphQL global node id for use with v4 API\n"
+                },
                 "prerelease": {
                     "type": "boolean",
                     "description": "Set to `false` to identify the release as a full release.\n"
+                },
+                "publishedAt": {
+                    "type": "string",
+                    "description": "This is the date when the release was published. This will be empty if the release is a draft.\n"
+                },
+                "releaseId": {
+                    "type": "integer",
+                    "description": "The ID of the release.\n"
                 },
                 "repository": {
                     "type": "string",
@@ -7102,16 +7126,42 @@
                     "type": "string",
                     "description": "The name of the tag.\n"
                 },
+                "tarballUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to API calls to fetch the release TAR archive.\n"
+                },
                 "targetCommitish": {
                     "type": "string",
                     "description": "The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.\n"
+                },
+                "uploadUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to API calls to upload assets.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL that can be provided to API calls that reference this release.\n"
+                },
+                "zipballUrl": {
+                    "type": "string",
+                    "description": "URL that can be provided to API calls to fetch the release ZIP archive.\n"
                 }
             },
             "required": [
+                "assetsUrl",
+                "createdAt",
                 "etag",
+                "htmlUrl",
                 "name",
+                "nodeId",
+                "publishedAt",
+                "releaseId",
                 "repository",
-                "tagName"
+                "tagName",
+                "tarballUrl",
+                "uploadUrl",
+                "url",
+                "zipballUrl"
             ],
             "inputProperties": {
                 "body": {
@@ -7163,9 +7213,17 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Release resources.\n",
                 "properties": {
+                    "assetsUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to API calls displaying the attached assets to this release.\n"
+                    },
                     "body": {
                         "type": "string",
                         "description": "Text describing the contents of the tag.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "This is the date of the commit used for the release, and not the date when the release was drafted or published.\n"
                     },
                     "discussionCategoryName": {
                         "type": "string",
@@ -7184,13 +7242,29 @@
                         "type": "boolean",
                         "description": "Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.\n"
                     },
+                    "htmlUrl": {
+                        "type": "string",
+                        "description": "URL of the release in GitHub.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the release.\n"
                     },
+                    "nodeId": {
+                        "type": "string",
+                        "description": "GraphQL global node id for use with v4 API\n"
+                    },
                     "prerelease": {
                         "type": "boolean",
                         "description": "Set to `false` to identify the release as a full release.\n"
+                    },
+                    "publishedAt": {
+                        "type": "string",
+                        "description": "This is the date when the release was published. This will be empty if the release is a draft.\n"
+                    },
+                    "releaseId": {
+                        "type": "integer",
+                        "description": "The ID of the release.\n"
                     },
                     "repository": {
                         "type": "string",
@@ -7202,10 +7276,26 @@
                         "description": "The name of the tag.\n",
                         "willReplaceOnChanges": true
                     },
+                    "tarballUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to API calls to fetch the release TAR archive.\n"
+                    },
                     "targetCommitish": {
                         "type": "string",
                         "description": "The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "uploadUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to API calls to upload assets.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL that can be provided to API calls that reference this release.\n"
+                    },
+                    "zipballUrl": {
+                        "type": "string",
+                        "description": "URL that can be provided to API calls to fetch the release ZIP archive.\n"
                     }
                 },
                 "type": "object"
