@@ -25,25 +25,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := github.GetAppToken(ctx, invokeFile, err := std.File(ctx, &std.FileArgs{
-// Input: "foo/bar.pem",
-// }, nil)
-// if err != nil {
-// return err
-// }
-// &github.GetAppTokenArgs{
-// AppId: "123456",
-// InstallationId: "78910",
-// PemFile: invokeFile.Result,
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.GetAppToken(ctx, &github.GetAppTokenArgs{
+//				AppId:          "123456",
+//				InstallationId: "78910",
+//				PemFile: std.File(ctx, &std.FileArgs{
+//					Input: "foo/bar.pem",
+//				}, nil).Result,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAppToken(ctx *pulumi.Context, args *GetAppTokenArgs, opts ...pulumi.InvokeOption) (*GetAppTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
