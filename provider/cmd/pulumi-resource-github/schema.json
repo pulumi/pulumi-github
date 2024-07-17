@@ -3378,7 +3378,8 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of repository ids that can access the organization secret.\n"
+                    "description": "An array of repository ids that can access the organization secret.\n",
+                    "willReplaceOnChanges": true
                 },
                 "visibility": {
                     "type": "string",
@@ -3419,7 +3420,8 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of repository ids that can access the organization secret.\n"
+                        "description": "An array of repository ids that can access the organization secret.\n",
+                        "willReplaceOnChanges": true
                     },
                     "updatedAt": {
                         "type": "string",
@@ -4812,7 +4814,8 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of repository ids that can access the organization secret.\n"
+                    "description": "An array of repository ids that can access the organization secret.\n",
+                    "willReplaceOnChanges": true
                 },
                 "visibility": {
                     "type": "string",
@@ -4853,7 +4856,8 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of repository ids that can access the organization secret.\n"
+                        "description": "An array of repository ids that can access the organization secret.\n",
+                        "willReplaceOnChanges": true
                     },
                     "updatedAt": {
                         "type": "string",
@@ -5197,7 +5201,8 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of repository ids that can access the organization secret.\n"
+                    "description": "An array of repository ids that can access the organization secret.\n",
+                    "willReplaceOnChanges": true
                 },
                 "visibility": {
                     "type": "string",
@@ -5238,7 +5243,8 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of repository ids that can access the organization secret.\n"
+                        "description": "An array of repository ids that can access the organization secret.\n",
+                        "willReplaceOnChanges": true
                     },
                     "updatedAt": {
                         "type": "string",
