@@ -102,6 +102,13 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"github_actions_environment_secret": {DeleteBeforeReplace: true},
+			"github_actions_organization_secret": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"selected_repository_ids": {
+						ForceNew: tfbridge.True(),
+					},
+				},
+			},
 
 			"github_actions_repository_permissions": {Tok: makeResource(mainMod, "ActionsRepositoryPermissions")},
 			"github_actions_runner_group":           {Tok: makeResource(mainMod, "ActionsRunnerGroup")},
@@ -123,9 +130,21 @@ func Provider() tfbridge.ProviderInfo {
 				TransformFromState: nil,
 			},
 			"github_branch_protection_v3": {Tok: makeResource(mainMod, "BranchProtectionV3")},
+			"github_codespaces_organization_secret": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"selected_repository_ids": {
+						ForceNew: tfbridge.True(),
+					},
+				},
+			},
 			"github_dependabot_organization_secret": {
 				Tok:  makeResource(mainMod, "DependabotOrganizationSecret"),
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"selected_repository_ids": {
+						ForceNew: tfbridge.True(),
+					},
+				},
 			},
 			"github_dependabot_organization_secret_repositories": {
 				Tok:  makeResource(mainMod, "DependabotOrganizationSecretRepositories"),
