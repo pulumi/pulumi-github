@@ -79,12 +79,12 @@ import (
 //				return err
 //			}
 //			testRepositoryMilestone, err := github.NewRepositoryMilestone(ctx, "test", &github.RepositoryMilestoneArgs{
-//				Owner: std.SplitOutput(ctx, std.SplitOutputArgs{
+//				Owner: pulumi.String(std.SplitOutput(ctx, std.SplitOutputArgs{
 //					Separator: pulumi.String("/"),
 //					Text:      test.FullName,
 //				}, nil).ApplyT(func(invoke std.SplitResult) (*string, error) {
 //					return invoke.Result[0], nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Repository:  test.Name,
 //				Title:       pulumi.String("v1.0.0"),
 //				Description: pulumi.String("General Availability"),
