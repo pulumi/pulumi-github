@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = github.NewUserSshKey(ctx, "example", &github.UserSshKeyArgs{
 //				Title: pulumi.String("example title"),
-//				Key:   invokeFile.Result,
+//				Key:   pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
