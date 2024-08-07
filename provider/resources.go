@@ -262,6 +262,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi": "3.*",
 			},
 		},
+		EnableZeroDefaultSchemaVersion: true,
 	}
 
 	prov.MustComputeTokens(tfbridgetokens.SingleModule("github_", mainMod,
