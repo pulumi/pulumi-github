@@ -108,7 +108,7 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryDependabotSecurityUpdates(String name) {
+    public RepositoryDependabotSecurityUpdates(java.lang.String name) {
         this(name, RepositoryDependabotSecurityUpdatesArgs.Empty);
     }
     /**
@@ -116,7 +116,7 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryDependabotSecurityUpdates(String name, RepositoryDependabotSecurityUpdatesArgs args) {
+    public RepositoryDependabotSecurityUpdates(java.lang.String name, RepositoryDependabotSecurityUpdatesArgs args) {
         this(name, args, null);
     }
     /**
@@ -125,15 +125,22 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryDependabotSecurityUpdates(String name, RepositoryDependabotSecurityUpdatesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates", name, args == null ? RepositoryDependabotSecurityUpdatesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryDependabotSecurityUpdates(java.lang.String name, RepositoryDependabotSecurityUpdatesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryDependabotSecurityUpdates(String name, Output<String> id, @Nullable RepositoryDependabotSecurityUpdatesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates", name, state, makeResourceOptions(options, id));
+    private RepositoryDependabotSecurityUpdates(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDependabotSecurityUpdatesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryDependabotSecurityUpdatesArgs makeArgs(RepositoryDependabotSecurityUpdatesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryDependabotSecurityUpdatesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -149,7 +156,7 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryDependabotSecurityUpdates get(String name, Output<String> id, @Nullable RepositoryDependabotSecurityUpdatesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryDependabotSecurityUpdates get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDependabotSecurityUpdatesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryDependabotSecurityUpdates(name, id, state, options);
     }
 }

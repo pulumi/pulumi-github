@@ -115,7 +115,7 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DependabotOrganizationSecretRepositories(String name) {
+    public DependabotOrganizationSecretRepositories(java.lang.String name) {
         this(name, DependabotOrganizationSecretRepositoriesArgs.Empty);
     }
     /**
@@ -123,7 +123,7 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DependabotOrganizationSecretRepositories(String name, DependabotOrganizationSecretRepositoriesArgs args) {
+    public DependabotOrganizationSecretRepositories(java.lang.String name, DependabotOrganizationSecretRepositoriesArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,15 +132,22 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DependabotOrganizationSecretRepositories(String name, DependabotOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories", name, args == null ? DependabotOrganizationSecretRepositoriesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DependabotOrganizationSecretRepositories(java.lang.String name, DependabotOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DependabotOrganizationSecretRepositories(String name, Output<String> id, @Nullable DependabotOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories", name, state, makeResourceOptions(options, id));
+    private DependabotOrganizationSecretRepositories(java.lang.String name, Output<java.lang.String> id, @Nullable DependabotOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DependabotOrganizationSecretRepositoriesArgs makeArgs(DependabotOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DependabotOrganizationSecretRepositoriesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -156,7 +163,7 @@ public class DependabotOrganizationSecretRepositories extends com.pulumi.resourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DependabotOrganizationSecretRepositories get(String name, Output<String> id, @Nullable DependabotOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DependabotOrganizationSecretRepositories get(java.lang.String name, Output<java.lang.String> id, @Nullable DependabotOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DependabotOrganizationSecretRepositories(name, id, state, options);
     }
 }

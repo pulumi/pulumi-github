@@ -97,7 +97,7 @@ class IssueLabels(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IssueLabelsLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,14 +122,14 @@ class IssueLabels(pulumi.CustomResource):
         test_repo = github.IssueLabels("test_repo",
             repository="test-repo",
             labels=[
-                github.IssueLabelsLabelArgs(
-                    name="Urgent",
-                    color="FF0000",
-                ),
-                github.IssueLabelsLabelArgs(
-                    name="Critical",
-                    color="FF0000",
-                ),
+                {
+                    "name": "Urgent",
+                    "color": "FF0000",
+                },
+                {
+                    "name": "Critical",
+                    "color": "FF0000",
+                },
             ])
         ```
 
@@ -143,7 +143,7 @@ class IssueLabels(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IssueLabelsLabelArgs']]]] labels: List of labels
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]] labels: List of labels
         :param pulumi.Input[str] repository: The GitHub repository
         """
         ...
@@ -174,14 +174,14 @@ class IssueLabels(pulumi.CustomResource):
         test_repo = github.IssueLabels("test_repo",
             repository="test-repo",
             labels=[
-                github.IssueLabelsLabelArgs(
-                    name="Urgent",
-                    color="FF0000",
-                ),
-                github.IssueLabelsLabelArgs(
-                    name="Critical",
-                    color="FF0000",
-                ),
+                {
+                    "name": "Urgent",
+                    "color": "FF0000",
+                },
+                {
+                    "name": "Critical",
+                    "color": "FF0000",
+                },
             ])
         ```
 
@@ -208,7 +208,7 @@ class IssueLabels(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IssueLabelsLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,7 +233,7 @@ class IssueLabels(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IssueLabelsLabelArgs']]]]] = None,
+            labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]]] = None,
             repository: Optional[pulumi.Input[str]] = None) -> 'IssueLabels':
         """
         Get an existing IssueLabels resource's state with the given name, id, and optional extra
@@ -242,7 +242,7 @@ class IssueLabels(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IssueLabelsLabelArgs']]]] labels: List of labels
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]] labels: List of labels
         :param pulumi.Input[str] repository: The GitHub repository
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

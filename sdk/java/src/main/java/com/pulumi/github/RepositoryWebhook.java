@@ -169,7 +169,7 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryWebhook(String name) {
+    public RepositoryWebhook(java.lang.String name) {
         this(name, RepositoryWebhookArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryWebhook(String name, RepositoryWebhookArgs args) {
+    public RepositoryWebhook(java.lang.String name, RepositoryWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,15 +186,22 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryWebhook(String name, RepositoryWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryWebhook:RepositoryWebhook", name, args == null ? RepositoryWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryWebhook(java.lang.String name, RepositoryWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryWebhook:RepositoryWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryWebhook(String name, Output<String> id, @Nullable RepositoryWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryWebhook:RepositoryWebhook", name, state, makeResourceOptions(options, id));
+    private RepositoryWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryWebhook:RepositoryWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryWebhookArgs makeArgs(RepositoryWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryWebhookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -210,7 +217,7 @@ public class RepositoryWebhook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryWebhook get(String name, Output<String> id, @Nullable RepositoryWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryWebhook(name, id, state, options);
     }
 }

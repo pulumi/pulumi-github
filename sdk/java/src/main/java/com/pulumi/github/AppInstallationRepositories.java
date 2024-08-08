@@ -76,7 +76,7 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppInstallationRepositories(String name) {
+    public AppInstallationRepositories(java.lang.String name) {
         this(name, AppInstallationRepositoriesArgs.Empty);
     }
     /**
@@ -84,7 +84,7 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppInstallationRepositories(String name, AppInstallationRepositoriesArgs args) {
+    public AppInstallationRepositories(java.lang.String name, AppInstallationRepositoriesArgs args) {
         this(name, args, null);
     }
     /**
@@ -93,15 +93,22 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppInstallationRepositories(String name, AppInstallationRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/appInstallationRepositories:AppInstallationRepositories", name, args == null ? AppInstallationRepositoriesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppInstallationRepositories(java.lang.String name, AppInstallationRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/appInstallationRepositories:AppInstallationRepositories", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppInstallationRepositories(String name, Output<String> id, @Nullable AppInstallationRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/appInstallationRepositories:AppInstallationRepositories", name, state, makeResourceOptions(options, id));
+    private AppInstallationRepositories(java.lang.String name, Output<java.lang.String> id, @Nullable AppInstallationRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/appInstallationRepositories:AppInstallationRepositories", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppInstallationRepositoriesArgs makeArgs(AppInstallationRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppInstallationRepositoriesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -117,7 +124,7 @@ public class AppInstallationRepositories extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppInstallationRepositories get(String name, Output<String> id, @Nullable AppInstallationRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppInstallationRepositories get(java.lang.String name, Output<java.lang.String> id, @Nullable AppInstallationRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppInstallationRepositories(name, id, state, options);
     }
 }
