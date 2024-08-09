@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var enterprise = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
  *             .slug("my-enterprise")
  *             .build());
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *         var enterpriseOrganization = new EnterpriseOrganization("enterpriseOrganization", EnterpriseOrganizationArgs.builder()
  *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.id()))
  *             .name("my-organization")
- *             .billingEmail("octocat{@literal @}octo.cat")
+ *             .billingEmail("octocat}{@literal @}{@code octo.cat")
  *             .adminLogins("octocat")
  *             .build());
  * 
@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  *             .visibility("selected")
  *             .selectedOrganizationIds(enterpriseOrganization.databaseId())
  *             .restrictedToWorkflows(true)
- *             .selectedWorkflows("my-organization/my-repo/.github/workflows/cool-workflow.yaml{@literal @}refs/tags/v1")
+ *             .selectedWorkflows("my-organization/my-repo/.github/workflows/cool-workflow.yaml}{@literal @}{@code refs/tags/v1")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -247,7 +247,7 @@ public class EnterpriseActionsRunnerGroup extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnterpriseActionsRunnerGroup(String name) {
+    public EnterpriseActionsRunnerGroup(java.lang.String name) {
         this(name, EnterpriseActionsRunnerGroupArgs.Empty);
     }
     /**
@@ -255,7 +255,7 @@ public class EnterpriseActionsRunnerGroup extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnterpriseActionsRunnerGroup(String name, EnterpriseActionsRunnerGroupArgs args) {
+    public EnterpriseActionsRunnerGroup(java.lang.String name, EnterpriseActionsRunnerGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -264,15 +264,22 @@ public class EnterpriseActionsRunnerGroup extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnterpriseActionsRunnerGroup(String name, EnterpriseActionsRunnerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup", name, args == null ? EnterpriseActionsRunnerGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EnterpriseActionsRunnerGroup(java.lang.String name, EnterpriseActionsRunnerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnterpriseActionsRunnerGroup(String name, Output<String> id, @Nullable EnterpriseActionsRunnerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup", name, state, makeResourceOptions(options, id));
+    private EnterpriseActionsRunnerGroup(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseActionsRunnerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnterpriseActionsRunnerGroupArgs makeArgs(EnterpriseActionsRunnerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnterpriseActionsRunnerGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -288,7 +295,7 @@ public class EnterpriseActionsRunnerGroup extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnterpriseActionsRunnerGroup get(String name, Output<String> id, @Nullable EnterpriseActionsRunnerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnterpriseActionsRunnerGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseActionsRunnerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnterpriseActionsRunnerGroup(name, id, state, options);
     }
 }

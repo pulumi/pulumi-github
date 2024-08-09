@@ -137,7 +137,7 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionsOrganizationSecret(String name) {
+    public ActionsOrganizationSecret(java.lang.String name) {
         this(name, ActionsOrganizationSecretArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionsOrganizationSecret(String name, ActionsOrganizationSecretArgs args) {
+    public ActionsOrganizationSecret(java.lang.String name, ActionsOrganizationSecretArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,15 +154,22 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionsOrganizationSecret(String name, ActionsOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, args == null ? ActionsOrganizationSecretArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionsOrganizationSecret(java.lang.String name, ActionsOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionsOrganizationSecret(String name, Output<String> id, @Nullable ActionsOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, state, makeResourceOptions(options, id));
+    private ActionsOrganizationSecret(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsOrganizationSecret:ActionsOrganizationSecret", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionsOrganizationSecretArgs makeArgs(ActionsOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionsOrganizationSecretArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -182,7 +189,7 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionsOrganizationSecret get(String name, Output<String> id, @Nullable ActionsOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionsOrganizationSecret get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionsOrganizationSecret(name, id, state, options);
     }
 }

@@ -137,7 +137,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(String name) {
+    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(java.lang.String name) {
         this(name, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(String name, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args) {
+    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(java.lang.String name, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,15 +154,22 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(String name, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", name, args == null ? ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionsRepositoryOidcSubjectClaimCustomizationTemplate(java.lang.String name, ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionsRepositoryOidcSubjectClaimCustomizationTemplate(String name, Output<String> id, @Nullable ActionsRepositoryOidcSubjectClaimCustomizationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", name, state, makeResourceOptions(options, id));
+    private ActionsRepositoryOidcSubjectClaimCustomizationTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsRepositoryOidcSubjectClaimCustomizationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs makeArgs(ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -178,7 +185,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionsRepositoryOidcSubjectClaimCustomizationTemplate get(String name, Output<String> id, @Nullable ActionsRepositoryOidcSubjectClaimCustomizationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionsRepositoryOidcSubjectClaimCustomizationTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsRepositoryOidcSubjectClaimCustomizationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionsRepositoryOidcSubjectClaimCustomizationTemplate(name, id, state, options);
     }
 }

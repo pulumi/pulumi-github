@@ -152,7 +152,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamRepository(String name) {
+    public TeamRepository(java.lang.String name) {
         this(name, TeamRepositoryArgs.Empty);
     }
     /**
@@ -160,7 +160,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamRepository(String name, TeamRepositoryArgs args) {
+    public TeamRepository(java.lang.String name, TeamRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -169,15 +169,22 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamRepository(String name, TeamRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/teamRepository:TeamRepository", name, args == null ? TeamRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamRepository(java.lang.String name, TeamRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/teamRepository:TeamRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamRepository(String name, Output<String> id, @Nullable TeamRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/teamRepository:TeamRepository", name, state, makeResourceOptions(options, id));
+    private TeamRepository(java.lang.String name, Output<java.lang.String> id, @Nullable TeamRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/teamRepository:TeamRepository", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamRepositoryArgs makeArgs(TeamRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamRepositoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -193,7 +200,7 @@ public class TeamRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamRepository get(String name, Output<String> id, @Nullable TeamRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamRepository(name, id, state, options);
     }
 }

@@ -149,7 +149,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryAutolinkReference(String name) {
+    public RepositoryAutolinkReference(java.lang.String name) {
         this(name, RepositoryAutolinkReferenceArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryAutolinkReference(String name, RepositoryAutolinkReferenceArgs args) {
+    public RepositoryAutolinkReference(java.lang.String name, RepositoryAutolinkReferenceArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +166,22 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryAutolinkReference(String name, RepositoryAutolinkReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryAutolinkReference:RepositoryAutolinkReference", name, args == null ? RepositoryAutolinkReferenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryAutolinkReference(java.lang.String name, RepositoryAutolinkReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryAutolinkReference:RepositoryAutolinkReference", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryAutolinkReference(String name, Output<String> id, @Nullable RepositoryAutolinkReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryAutolinkReference:RepositoryAutolinkReference", name, state, makeResourceOptions(options, id));
+    private RepositoryAutolinkReference(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryAutolinkReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryAutolinkReference:RepositoryAutolinkReference", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryAutolinkReferenceArgs makeArgs(RepositoryAutolinkReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryAutolinkReferenceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +197,7 @@ public class RepositoryAutolinkReference extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryAutolinkReference get(String name, Output<String> id, @Nullable RepositoryAutolinkReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryAutolinkReference get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryAutolinkReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryAutolinkReference(name, id, state, options);
     }
 }

@@ -156,7 +156,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryDeployKey(String name) {
+    public RepositoryDeployKey(java.lang.String name) {
         this(name, RepositoryDeployKeyArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryDeployKey(String name, RepositoryDeployKeyArgs args) {
+    public RepositoryDeployKey(java.lang.String name, RepositoryDeployKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,15 +173,22 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryDeployKey(String name, RepositoryDeployKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDeployKey:RepositoryDeployKey", name, args == null ? RepositoryDeployKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryDeployKey(java.lang.String name, RepositoryDeployKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDeployKey:RepositoryDeployKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryDeployKey(String name, Output<String> id, @Nullable RepositoryDeployKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDeployKey:RepositoryDeployKey", name, state, makeResourceOptions(options, id));
+    private RepositoryDeployKey(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDeployKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDeployKey:RepositoryDeployKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryDeployKeyArgs makeArgs(RepositoryDeployKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryDeployKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +204,7 @@ public class RepositoryDeployKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryDeployKey get(String name, Output<String> id, @Nullable RepositoryDeployKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryDeployKey get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDeployKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryDeployKey(name, id, state, options);
     }
 }

@@ -145,7 +145,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IssueLabel(String name) {
+    public IssueLabel(java.lang.String name) {
         this(name, IssueLabelArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IssueLabel(String name, IssueLabelArgs args) {
+    public IssueLabel(java.lang.String name, IssueLabelArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IssueLabel(String name, IssueLabelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/issueLabel:IssueLabel", name, args == null ? IssueLabelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IssueLabel(java.lang.String name, IssueLabelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/issueLabel:IssueLabel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IssueLabel(String name, Output<String> id, @Nullable IssueLabelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/issueLabel:IssueLabel", name, state, makeResourceOptions(options, id));
+    private IssueLabel(java.lang.String name, Output<java.lang.String> id, @Nullable IssueLabelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/issueLabel:IssueLabel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IssueLabelArgs makeArgs(IssueLabelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IssueLabelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class IssueLabel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IssueLabel get(String name, Output<String> id, @Nullable IssueLabelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IssueLabel get(java.lang.String name, Output<java.lang.String> id, @Nullable IssueLabelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IssueLabel(name, id, state, options);
     }
 }

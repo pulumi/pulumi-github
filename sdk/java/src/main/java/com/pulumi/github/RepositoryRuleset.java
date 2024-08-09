@@ -251,7 +251,7 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryRuleset(String name) {
+    public RepositoryRuleset(java.lang.String name) {
         this(name, RepositoryRulesetArgs.Empty);
     }
     /**
@@ -259,7 +259,7 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryRuleset(String name, RepositoryRulesetArgs args) {
+    public RepositoryRuleset(java.lang.String name, RepositoryRulesetArgs args) {
         this(name, args, null);
     }
     /**
@@ -268,15 +268,22 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryRuleset(String name, RepositoryRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryRuleset:RepositoryRuleset", name, args == null ? RepositoryRulesetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryRuleset(java.lang.String name, RepositoryRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryRuleset:RepositoryRuleset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryRuleset(String name, Output<String> id, @Nullable RepositoryRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryRuleset:RepositoryRuleset", name, state, makeResourceOptions(options, id));
+    private RepositoryRuleset(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryRuleset:RepositoryRuleset", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryRulesetArgs makeArgs(RepositoryRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryRulesetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -292,7 +299,7 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryRuleset get(String name, Output<String> id, @Nullable RepositoryRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryRuleset get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryRuleset(name, id, state, options);
     }
 }

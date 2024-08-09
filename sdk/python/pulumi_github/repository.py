@@ -1338,12 +1338,12 @@ class Repository(pulumi.CustomResource):
                  merge_commit_message: Optional[pulumi.Input[str]] = None,
                  merge_commit_title: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
+                 pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
-                 security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
+                 security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
@@ -1369,11 +1369,11 @@ class Repository(pulumi.CustomResource):
             name="example",
             description="My awesome codebase",
             visibility="public",
-            template=github.RepositoryTemplateArgs(
-                owner="github",
-                repository="terraform-template-module",
-                include_all_branches=True,
-            ))
+            template={
+                "owner": "github",
+                "repository": "terraform-template-module",
+                "include_all_branches": True,
+            })
         ```
 
         ### With GitHub Pages Enabled
@@ -1386,12 +1386,12 @@ class Repository(pulumi.CustomResource):
             name="example",
             description="My awesome web page",
             private=False,
-            pages=github.RepositoryPagesArgs(
-                source=github.RepositoryPagesSourceArgs(
-                    branch="master",
-                    path="/docs",
-                ),
-            ))
+            pages={
+                "source": {
+                    "branch": "master",
+                    "path": "/docs",
+                },
+            })
         ```
 
         ## Import
@@ -1432,13 +1432,13 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
-        :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
-        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
@@ -1470,11 +1470,11 @@ class Repository(pulumi.CustomResource):
             name="example",
             description="My awesome codebase",
             visibility="public",
-            template=github.RepositoryTemplateArgs(
-                owner="github",
-                repository="terraform-template-module",
-                include_all_branches=True,
-            ))
+            template={
+                "owner": "github",
+                "repository": "terraform-template-module",
+                "include_all_branches": True,
+            })
         ```
 
         ### With GitHub Pages Enabled
@@ -1487,12 +1487,12 @@ class Repository(pulumi.CustomResource):
             name="example",
             description="My awesome web page",
             private=False,
-            pages=github.RepositoryPagesArgs(
-                source=github.RepositoryPagesSourceArgs(
-                    branch="master",
-                    path="/docs",
-                ),
-            ))
+            pages={
+                "source": {
+                    "branch": "master",
+                    "path": "/docs",
+                },
+            })
         ```
 
         ## Import
@@ -1542,12 +1542,12 @@ class Repository(pulumi.CustomResource):
                  merge_commit_message: Optional[pulumi.Input[str]] = None,
                  merge_commit_title: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
+                 pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
                  private: Optional[pulumi.Input[bool]] = None,
-                 security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
+                 security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
@@ -1645,16 +1645,16 @@ class Repository(pulumi.CustomResource):
             merge_commit_title: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
-            pages: Optional[pulumi.Input[pulumi.InputType['RepositoryPagesArgs']]] = None,
+            pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
             primary_language: Optional[pulumi.Input[str]] = None,
             private: Optional[pulumi.Input[bool]] = None,
             repo_id: Optional[pulumi.Input[int]] = None,
-            security_and_analysis: Optional[pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']]] = None,
+            security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
             squash_merge_commit_message: Optional[pulumi.Input[str]] = None,
             squash_merge_commit_title: Optional[pulumi.Input[str]] = None,
             ssh_clone_url: Optional[pulumi.Input[str]] = None,
             svn_url: Optional[pulumi.Input[str]] = None,
-            template: Optional[pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']]] = None,
+            template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
             vulnerability_alerts: Optional[pulumi.Input[bool]] = None,
@@ -1699,17 +1699,17 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[str] name: The name of the repository.
         :param pulumi.Input[str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input[pulumi.InputType['RepositoryPagesArgs']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
         :param pulumi.Input[str] primary_language: The primary language used in the repository.
         :param pulumi.Input[bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[int] repo_id: GitHub ID for the repository
-        :param pulumi.Input[pulumi.InputType['RepositorySecurityAndAnalysisArgs']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         :param pulumi.Input[str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
         :param pulumi.Input[str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
-        :param pulumi.Input[pulumi.InputType['RepositoryTemplateArgs']] template: Use a template repository to create this resource. See Template Repositories below for details.
+        :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The list of topics of the repository.
         :param pulumi.Input[str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.

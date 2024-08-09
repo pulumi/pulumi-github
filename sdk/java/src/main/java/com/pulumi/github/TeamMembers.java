@@ -135,7 +135,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamMembers(String name) {
+    public TeamMembers(java.lang.String name) {
         this(name, TeamMembersArgs.Empty);
     }
     /**
@@ -143,7 +143,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamMembers(String name, TeamMembersArgs args) {
+    public TeamMembers(java.lang.String name, TeamMembersArgs args) {
         this(name, args, null);
     }
     /**
@@ -152,15 +152,22 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamMembers(String name, TeamMembersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/teamMembers:TeamMembers", name, args == null ? TeamMembersArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamMembers(java.lang.String name, TeamMembersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/teamMembers:TeamMembers", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamMembers(String name, Output<String> id, @Nullable TeamMembersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/teamMembers:TeamMembers", name, state, makeResourceOptions(options, id));
+    private TeamMembers(java.lang.String name, Output<java.lang.String> id, @Nullable TeamMembersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/teamMembers:TeamMembers", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamMembersArgs makeArgs(TeamMembersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamMembersArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -176,7 +183,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamMembers get(String name, Output<String> id, @Nullable TeamMembersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamMembers get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamMembersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamMembers(name, id, state, options);
     }
 }
