@@ -158,7 +158,7 @@ class OrganizationWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -177,7 +177,7 @@ class OrganizationWebhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        :param pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         """
         ...
@@ -215,7 +215,7 @@ class OrganizationWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -244,7 +244,7 @@ class OrganizationWebhook(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'OrganizationWebhook':
@@ -256,7 +256,7 @@ class OrganizationWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate of the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['OrganizationWebhookConfigurationArgs']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        :param pulumi.Input[Union['OrganizationWebhookConfigurationArgs', 'OrganizationWebhookConfigurationArgsDict']] configuration: key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/)
         :param pulumi.Input[str] url: URL of the webhook
         """

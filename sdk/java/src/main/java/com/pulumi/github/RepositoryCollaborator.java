@@ -173,7 +173,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryCollaborator(String name) {
+    public RepositoryCollaborator(java.lang.String name) {
         this(name, RepositoryCollaboratorArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryCollaborator(String name, RepositoryCollaboratorArgs args) {
+    public RepositoryCollaborator(java.lang.String name, RepositoryCollaboratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryCollaborator(String name, RepositoryCollaboratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryCollaborator:RepositoryCollaborator", name, args == null ? RepositoryCollaboratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryCollaborator(java.lang.String name, RepositoryCollaboratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryCollaborator:RepositoryCollaborator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryCollaborator(String name, Output<String> id, @Nullable RepositoryCollaboratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryCollaborator:RepositoryCollaborator", name, state, makeResourceOptions(options, id));
+    private RepositoryCollaborator(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryCollaboratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryCollaborator:RepositoryCollaborator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryCollaboratorArgs makeArgs(RepositoryCollaboratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryCollaboratorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class RepositoryCollaborator extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryCollaborator get(String name, Output<String> id, @Nullable RepositoryCollaboratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryCollaborator get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryCollaboratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryCollaborator(name, id, state, options);
     }
 }

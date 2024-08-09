@@ -303,12 +303,12 @@ class RepositoryRuleset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRulesetBypassActorArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetConditionsArgs']]] = None,
+                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
                  enforcement: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetRulesArgs']]] = None,
+                 rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -330,27 +330,27 @@ class RepositoryRuleset(pulumi.CustomResource):
             repository=example.name,
             target="branch",
             enforcement="active",
-            conditions=github.RepositoryRulesetConditionsArgs(
-                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.RepositoryRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
-                    required_deployment_environments=["test"],
-                ),
-            ))
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+            },
+            bypass_actors=[{
+                "actor_id": 13473,
+                "actor_type": "Integration",
+                "bypass_mode": "always",
+            }],
+            rules={
+                "creation": True,
+                "update": True,
+                "deletion": True,
+                "required_linear_history": True,
+                "required_signatures": True,
+                "required_deployments": {
+                    "required_deployment_environments": ["test"],
+                },
+            })
         ```
 
         ## Import
@@ -363,12 +363,12 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRulesetBypassActorArgs']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[pulumi.InputType['RepositoryRulesetConditionsArgs']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
         :param pulumi.Input[str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[str] repository: (String) Name of the repository to apply rulset to.
-        :param pulumi.Input[pulumi.InputType['RepositoryRulesetRulesArgs']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[str] target: (String) Possible values are `branch` and `tag`.
         """
         ...
@@ -396,27 +396,27 @@ class RepositoryRuleset(pulumi.CustomResource):
             repository=example.name,
             target="branch",
             enforcement="active",
-            conditions=github.RepositoryRulesetConditionsArgs(
-                ref_name=github.RepositoryRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.RepositoryRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.RepositoryRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                required_deployments=github.RepositoryRulesetRulesRequiredDeploymentsArgs(
-                    required_deployment_environments=["test"],
-                ),
-            ))
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+            },
+            bypass_actors=[{
+                "actor_id": 13473,
+                "actor_type": "Integration",
+                "bypass_mode": "always",
+            }],
+            rules={
+                "creation": True,
+                "update": True,
+                "deletion": True,
+                "required_linear_history": True,
+                "required_signatures": True,
+                "required_deployments": {
+                    "required_deployment_environments": ["test"],
+                },
+            })
         ```
 
         ## Import
@@ -442,12 +442,12 @@ class RepositoryRuleset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRulesetBypassActorArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetConditionsArgs']]] = None,
+                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
                  enforcement: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetRulesArgs']]] = None,
+                 rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -484,14 +484,14 @@ class RepositoryRuleset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRulesetBypassActorArgs']]]]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetConditionsArgs']]] = None,
+            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]]] = None,
+            conditions: Optional[pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']]] = None,
             enforcement: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
             repository: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[pulumi.InputType['RepositoryRulesetRulesArgs']]] = None,
+            rules: Optional[pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']]] = None,
             ruleset_id: Optional[pulumi.Input[int]] = None,
             target: Optional[pulumi.Input[str]] = None) -> 'RepositoryRuleset':
         """
@@ -501,14 +501,14 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRulesetBypassActorArgs']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[pulumi.InputType['RepositoryRulesetConditionsArgs']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
         :param pulumi.Input[str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[str] etag: (String)
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[str] node_id: (String) GraphQL global node id for use with v4 API.
         :param pulumi.Input[str] repository: (String) Name of the repository to apply rulset to.
-        :param pulumi.Input[pulumi.InputType['RepositoryRulesetRulesArgs']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[int] ruleset_id: (Number) GitHub ID for the ruleset.
         :param pulumi.Input[str] target: (String) Possible values are `branch` and `tag`.
         """

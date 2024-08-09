@@ -108,7 +108,7 @@ public class CodespacesOrganizationSecretRepositories extends com.pulumi.resourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CodespacesOrganizationSecretRepositories(String name) {
+    public CodespacesOrganizationSecretRepositories(java.lang.String name) {
         this(name, CodespacesOrganizationSecretRepositoriesArgs.Empty);
     }
     /**
@@ -116,7 +116,7 @@ public class CodespacesOrganizationSecretRepositories extends com.pulumi.resourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CodespacesOrganizationSecretRepositories(String name, CodespacesOrganizationSecretRepositoriesArgs args) {
+    public CodespacesOrganizationSecretRepositories(java.lang.String name, CodespacesOrganizationSecretRepositoriesArgs args) {
         this(name, args, null);
     }
     /**
@@ -125,15 +125,22 @@ public class CodespacesOrganizationSecretRepositories extends com.pulumi.resourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CodespacesOrganizationSecretRepositories(String name, CodespacesOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories", name, args == null ? CodespacesOrganizationSecretRepositoriesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CodespacesOrganizationSecretRepositories(java.lang.String name, CodespacesOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CodespacesOrganizationSecretRepositories(String name, Output<String> id, @Nullable CodespacesOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories", name, state, makeResourceOptions(options, id));
+    private CodespacesOrganizationSecretRepositories(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CodespacesOrganizationSecretRepositoriesArgs makeArgs(CodespacesOrganizationSecretRepositoriesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodespacesOrganizationSecretRepositoriesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -149,7 +156,7 @@ public class CodespacesOrganizationSecretRepositories extends com.pulumi.resourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CodespacesOrganizationSecretRepositories get(String name, Output<String> id, @Nullable CodespacesOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CodespacesOrganizationSecretRepositories get(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesOrganizationSecretRepositoriesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CodespacesOrganizationSecretRepositories(name, id, state, options);
     }
 }

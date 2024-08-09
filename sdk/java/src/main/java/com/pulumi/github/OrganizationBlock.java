@@ -87,7 +87,7 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationBlock(String name) {
+    public OrganizationBlock(java.lang.String name) {
         this(name, OrganizationBlockArgs.Empty);
     }
     /**
@@ -95,7 +95,7 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationBlock(String name, OrganizationBlockArgs args) {
+    public OrganizationBlock(java.lang.String name, OrganizationBlockArgs args) {
         this(name, args, null);
     }
     /**
@@ -104,15 +104,22 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationBlock(String name, OrganizationBlockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationBlock:OrganizationBlock", name, args == null ? OrganizationBlockArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationBlock(java.lang.String name, OrganizationBlockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationBlock:OrganizationBlock", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationBlock(String name, Output<String> id, @Nullable OrganizationBlockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationBlock:OrganizationBlock", name, state, makeResourceOptions(options, id));
+    private OrganizationBlock(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationBlockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationBlock:OrganizationBlock", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationBlockArgs makeArgs(OrganizationBlockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationBlockArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -128,7 +135,7 @@ public class OrganizationBlock extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationBlock get(String name, Output<String> id, @Nullable OrganizationBlockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationBlock get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationBlockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationBlock(name, id, state, options);
     }
 }

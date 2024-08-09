@@ -458,9 +458,9 @@ class BranchProtection(pulumi.CustomResource):
                  require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_linear_history: Optional[pulumi.Input[bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRestrictPushArgs']]]]] = None,
+                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -480,27 +480,27 @@ class BranchProtection(pulumi.CustomResource):
             pattern="main",
             enforce_admins=True,
             allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
+            required_status_checks=[{
+                "strict": False,
+                "contexts": ["ci/travis"],
+            }],
+            required_pull_request_reviews=[{
+                "dismiss_stale_reviews": True,
+                "restrict_dismissals": True,
+                "dismissal_restrictions": [
                     example.node_id,
                     example_team.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
-            )],
-            restrict_pushes=[github.BranchProtectionRestrictPushArgs(
-                push_allowances=[
+            }],
+            restrict_pushes=[{
+                "push_allowances": [
                     example.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
-            )],
+            }],
             force_push_bypassers=[
                 example.node_id,
                 "/exampleuser",
@@ -532,9 +532,9 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRestrictPushArgs']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         ...
     @overload
@@ -560,27 +560,27 @@ class BranchProtection(pulumi.CustomResource):
             pattern="main",
             enforce_admins=True,
             allows_deletions=True,
-            required_status_checks=[github.BranchProtectionRequiredStatusCheckArgs(
-                strict=False,
-                contexts=["ci/travis"],
-            )],
-            required_pull_request_reviews=[github.BranchProtectionRequiredPullRequestReviewArgs(
-                dismiss_stale_reviews=True,
-                restrict_dismissals=True,
-                dismissal_restrictions=[
+            required_status_checks=[{
+                "strict": False,
+                "contexts": ["ci/travis"],
+            }],
+            required_pull_request_reviews=[{
+                "dismiss_stale_reviews": True,
+                "restrict_dismissals": True,
+                "dismissal_restrictions": [
                     example.node_id,
                     example_team.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
-            )],
-            restrict_pushes=[github.BranchProtectionRestrictPushArgs(
-                push_allowances=[
+            }],
+            restrict_pushes=[{
+                "push_allowances": [
                     example.node_id,
                     "/exampleuser",
                     "exampleorganization/exampleteam",
                 ],
-            )],
+            }],
             force_push_bypassers=[
                 example.node_id,
                 "/exampleuser",
@@ -625,9 +625,9 @@ class BranchProtection(pulumi.CustomResource):
                  require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
                  require_signed_commits: Optional[pulumi.Input[bool]] = None,
                  required_linear_history: Optional[pulumi.Input[bool]] = None,
-                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
-                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
-                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRestrictPushArgs']]]]] = None,
+                 required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+                 required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+                 restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -674,9 +674,9 @@ class BranchProtection(pulumi.CustomResource):
             require_conversation_resolution: Optional[pulumi.Input[bool]] = None,
             require_signed_commits: Optional[pulumi.Input[bool]] = None,
             required_linear_history: Optional[pulumi.Input[bool]] = None,
-            required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]]] = None,
-            required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]]] = None,
-            restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRestrictPushArgs']]]]] = None) -> 'BranchProtection':
+            required_pull_request_reviews: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]]] = None,
+            required_status_checks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]]] = None,
+            restrict_pushes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]]] = None) -> 'BranchProtection':
         """
         Get an existing BranchProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -694,9 +694,9 @@ class BranchProtection(pulumi.CustomResource):
         :param pulumi.Input[bool] require_conversation_resolution: Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
         :param pulumi.Input[bool] require_signed_commits: Boolean, setting this to `true` requires all commits to be signed with GPG.
         :param pulumi.Input[bool] required_linear_history: Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredPullRequestReviewArgs']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRequiredStatusCheckArgs']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchProtectionRestrictPushArgs']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredPullRequestReviewArgs', 'BranchProtectionRequiredPullRequestReviewArgsDict']]]] required_pull_request_reviews: Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRequiredStatusCheckArgs', 'BranchProtectionRequiredStatusCheckArgsDict']]]] required_status_checks: Enforce restrictions for required status checks. See Required Status Checks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchProtectionRestrictPushArgs', 'BranchProtectionRestrictPushArgsDict']]]] restrict_pushes: Restrict pushes to matching branches. See Restrict Pushes below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example-org = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
  *             .name("my-org")
  *             .build());
@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *             .allowedActionsConfig(EnterpriseActionsPermissionsAllowedActionsConfigArgs.builder()
  *                 .githubOwnedAllowed(true)
  *                 .patternsAlloweds(                
- *                     "actions/cache{@literal @}*",
- *                     "actions/checkout{@literal @}*")
+ *                     "actions/cache}{@literal @}{@code *",
+ *                     "actions/checkout}{@literal @}{@code *")
  *                 .verifiedAllowed(true)
  *                 .build())
  *             .enabledOrganizationsConfig(EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs.builder()
@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -161,7 +161,7 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnterpriseActionsPermissions(String name) {
+    public EnterpriseActionsPermissions(java.lang.String name) {
         this(name, EnterpriseActionsPermissionsArgs.Empty);
     }
     /**
@@ -169,7 +169,7 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnterpriseActionsPermissions(String name, EnterpriseActionsPermissionsArgs args) {
+    public EnterpriseActionsPermissions(java.lang.String name, EnterpriseActionsPermissionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -178,15 +178,22 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnterpriseActionsPermissions(String name, EnterpriseActionsPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions", name, args == null ? EnterpriseActionsPermissionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EnterpriseActionsPermissions(java.lang.String name, EnterpriseActionsPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnterpriseActionsPermissions(String name, Output<String> id, @Nullable EnterpriseActionsPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions", name, state, makeResourceOptions(options, id));
+    private EnterpriseActionsPermissions(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseActionsPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnterpriseActionsPermissionsArgs makeArgs(EnterpriseActionsPermissionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnterpriseActionsPermissionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -202,7 +209,7 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnterpriseActionsPermissions get(String name, Output<String> id, @Nullable EnterpriseActionsPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnterpriseActionsPermissions get(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseActionsPermissionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnterpriseActionsPermissions(name, id, state, options);
     }
 }

@@ -138,7 +138,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryDeploymentBranchPolicy(String name) {
+    public RepositoryDeploymentBranchPolicy(java.lang.String name) {
         this(name, RepositoryDeploymentBranchPolicyArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryDeploymentBranchPolicy(String name, RepositoryDeploymentBranchPolicyArgs args) {
+    public RepositoryDeploymentBranchPolicy(java.lang.String name, RepositoryDeploymentBranchPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,15 +155,22 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryDeploymentBranchPolicy(String name, RepositoryDeploymentBranchPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", name, args == null ? RepositoryDeploymentBranchPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryDeploymentBranchPolicy(java.lang.String name, RepositoryDeploymentBranchPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryDeploymentBranchPolicy(String name, Output<String> id, @Nullable RepositoryDeploymentBranchPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", name, state, makeResourceOptions(options, id));
+    private RepositoryDeploymentBranchPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDeploymentBranchPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryDeploymentBranchPolicyArgs makeArgs(RepositoryDeploymentBranchPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryDeploymentBranchPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +186,7 @@ public class RepositoryDeploymentBranchPolicy extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryDeploymentBranchPolicy get(String name, Output<String> id, @Nullable RepositoryDeploymentBranchPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryDeploymentBranchPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryDeploymentBranchPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryDeploymentBranchPolicy(name, id, state, options);
     }
 }

@@ -37,17 +37,17 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new OrganizationSettings("test", OrganizationSettingsArgs.builder()
- *             .billingEmail("test{@literal @}example.com")
+ *             .billingEmail("test}{@literal @}{@code example.com")
  *             .company("Test Company")
  *             .blog("https://example.com")
- *             .email("test{@literal @}example.com")
+ *             .email("test}{@literal @}{@code example.com")
  *             .twitterUsername("Test")
  *             .location("Test Location")
  *             .name("Test Name")
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  *             .secretScanningPushProtectionEnabledForNewRepositories(false)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -459,7 +459,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationSettings(String name) {
+    public OrganizationSettings(java.lang.String name) {
         this(name, OrganizationSettingsArgs.Empty);
     }
     /**
@@ -467,7 +467,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationSettings(String name, OrganizationSettingsArgs args) {
+    public OrganizationSettings(java.lang.String name, OrganizationSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -476,15 +476,22 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationSettings(String name, OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationSettings:OrganizationSettings", name, args == null ? OrganizationSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationSettings(java.lang.String name, OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationSettings:OrganizationSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationSettings(String name, Output<String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationSettings:OrganizationSettings", name, state, makeResourceOptions(options, id));
+    private OrganizationSettings(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationSettings:OrganizationSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationSettingsArgs makeArgs(OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -500,7 +507,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationSettings get(String name, Output<String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationSettings(name, id, state, options);
     }
 }

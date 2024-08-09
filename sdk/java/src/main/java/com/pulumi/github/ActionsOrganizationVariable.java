@@ -201,7 +201,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionsOrganizationVariable(String name) {
+    public ActionsOrganizationVariable(java.lang.String name) {
         this(name, ActionsOrganizationVariableArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionsOrganizationVariable(String name, ActionsOrganizationVariableArgs args) {
+    public ActionsOrganizationVariable(java.lang.String name, ActionsOrganizationVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,15 +218,22 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionsOrganizationVariable(String name, ActionsOrganizationVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", name, args == null ? ActionsOrganizationVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionsOrganizationVariable(java.lang.String name, ActionsOrganizationVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionsOrganizationVariable(String name, Output<String> id, @Nullable ActionsOrganizationVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", name, state, makeResourceOptions(options, id));
+    private ActionsOrganizationVariable(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsOrganizationVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsOrganizationVariable:ActionsOrganizationVariable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionsOrganizationVariableArgs makeArgs(ActionsOrganizationVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionsOrganizationVariableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +249,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionsOrganizationVariable get(String name, Output<String> id, @Nullable ActionsOrganizationVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionsOrganizationVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsOrganizationVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionsOrganizationVariable(name, id, state, options);
     }
 }

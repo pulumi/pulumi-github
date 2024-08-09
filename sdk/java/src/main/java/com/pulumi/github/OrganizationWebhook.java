@@ -105,7 +105,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationWebhook(String name) {
+    public OrganizationWebhook(java.lang.String name) {
         this(name, OrganizationWebhookArgs.Empty);
     }
     /**
@@ -113,7 +113,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationWebhook(String name, OrganizationWebhookArgs args) {
+    public OrganizationWebhook(java.lang.String name, OrganizationWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -122,15 +122,22 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationWebhook(String name, OrganizationWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationWebhook:OrganizationWebhook", name, args == null ? OrganizationWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationWebhook(java.lang.String name, OrganizationWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationWebhook:OrganizationWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationWebhook(String name, Output<String> id, @Nullable OrganizationWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/organizationWebhook:OrganizationWebhook", name, state, makeResourceOptions(options, id));
+    private OrganizationWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/organizationWebhook:OrganizationWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationWebhookArgs makeArgs(OrganizationWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationWebhookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -146,7 +153,7 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationWebhook get(String name, Output<String> id, @Nullable OrganizationWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationWebhook(name, id, state, options);
     }
 }

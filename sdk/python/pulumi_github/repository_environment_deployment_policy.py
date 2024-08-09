@@ -144,13 +144,13 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             repository=test.name,
             environment="environment/test",
             wait_timer=10000,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
+            reviewers=[{
+                "users": [current.id],
+            }],
+            deployment_branch_policy={
+                "protected_branches": False,
+                "custom_branch_policies": True,
+            })
         test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("test",
             repository=test.name,
             environment=test_repository_environment.environment,
@@ -192,13 +192,13 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             repository=test.name,
             environment="environment/test",
             wait_timer=10000,
-            reviewers=[github.RepositoryEnvironmentReviewerArgs(
-                users=[current.id],
-            )],
-            deployment_branch_policy=github.RepositoryEnvironmentDeploymentBranchPolicyArgs(
-                protected_branches=False,
-                custom_branch_policies=True,
-            ))
+            reviewers=[{
+                "users": [current.id],
+            }],
+            deployment_branch_policy={
+                "protected_branches": False,
+                "custom_branch_policies": True,
+            })
         test_repository_environment_deployment_policy = github.RepositoryEnvironmentDeploymentPolicy("test",
             repository=test.name,
             environment=test_repository_environment.environment,
