@@ -203,7 +203,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionsEnvironmentVariable(String name) {
+    public ActionsEnvironmentVariable(java.lang.String name) {
         this(name, ActionsEnvironmentVariableArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionsEnvironmentVariable(String name, ActionsEnvironmentVariableArgs args) {
+    public ActionsEnvironmentVariable(java.lang.String name, ActionsEnvironmentVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +220,22 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionsEnvironmentVariable(String name, ActionsEnvironmentVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable", name, args == null ? ActionsEnvironmentVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionsEnvironmentVariable(java.lang.String name, ActionsEnvironmentVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionsEnvironmentVariable(String name, Output<String> id, @Nullable ActionsEnvironmentVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable", name, state, makeResourceOptions(options, id));
+    private ActionsEnvironmentVariable(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsEnvironmentVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionsEnvironmentVariableArgs makeArgs(ActionsEnvironmentVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionsEnvironmentVariableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +251,7 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionsEnvironmentVariable get(String name, Output<String> id, @Nullable ActionsEnvironmentVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionsEnvironmentVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionsEnvironmentVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionsEnvironmentVariable(name, id, state, options);
     }
 }

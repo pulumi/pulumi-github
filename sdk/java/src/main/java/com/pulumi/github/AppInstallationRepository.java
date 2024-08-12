@@ -121,7 +121,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppInstallationRepository(String name) {
+    public AppInstallationRepository(java.lang.String name) {
         this(name, AppInstallationRepositoryArgs.Empty);
     }
     /**
@@ -129,7 +129,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppInstallationRepository(String name, AppInstallationRepositoryArgs args) {
+    public AppInstallationRepository(java.lang.String name, AppInstallationRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -138,15 +138,22 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppInstallationRepository(String name, AppInstallationRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/appInstallationRepository:AppInstallationRepository", name, args == null ? AppInstallationRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppInstallationRepository(java.lang.String name, AppInstallationRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/appInstallationRepository:AppInstallationRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppInstallationRepository(String name, Output<String> id, @Nullable AppInstallationRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/appInstallationRepository:AppInstallationRepository", name, state, makeResourceOptions(options, id));
+    private AppInstallationRepository(java.lang.String name, Output<java.lang.String> id, @Nullable AppInstallationRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/appInstallationRepository:AppInstallationRepository", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppInstallationRepositoryArgs makeArgs(AppInstallationRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppInstallationRepositoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -162,7 +169,7 @@ public class AppInstallationRepository extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppInstallationRepository get(String name, Output<String> id, @Nullable AppInstallationRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppInstallationRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable AppInstallationRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppInstallationRepository(name, id, state, options);
     }
 }

@@ -234,7 +234,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProjectCard(String name) {
+    public ProjectCard(java.lang.String name) {
         this(name, ProjectCardArgs.Empty);
     }
     /**
@@ -242,7 +242,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProjectCard(String name, ProjectCardArgs args) {
+    public ProjectCard(java.lang.String name, ProjectCardArgs args) {
         this(name, args, null);
     }
     /**
@@ -251,15 +251,22 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProjectCard(String name, ProjectCardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/projectCard:ProjectCard", name, args == null ? ProjectCardArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProjectCard(java.lang.String name, ProjectCardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/projectCard:ProjectCard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProjectCard(String name, Output<String> id, @Nullable ProjectCardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/projectCard:ProjectCard", name, state, makeResourceOptions(options, id));
+    private ProjectCard(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectCardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/projectCard:ProjectCard", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProjectCardArgs makeArgs(ProjectCardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProjectCardArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +282,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProjectCard get(String name, Output<String> id, @Nullable ProjectCardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProjectCard get(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectCardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProjectCard(name, id, state, options);
     }
 }

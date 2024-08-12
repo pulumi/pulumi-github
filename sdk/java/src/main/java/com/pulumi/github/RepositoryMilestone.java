@@ -172,7 +172,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryMilestone(String name) {
+    public RepositoryMilestone(java.lang.String name) {
         this(name, RepositoryMilestoneArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryMilestone(String name, RepositoryMilestoneArgs args) {
+    public RepositoryMilestone(java.lang.String name, RepositoryMilestoneArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryMilestone(String name, RepositoryMilestoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryMilestone:RepositoryMilestone", name, args == null ? RepositoryMilestoneArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryMilestone(java.lang.String name, RepositoryMilestoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryMilestone:RepositoryMilestone", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryMilestone(String name, Output<String> id, @Nullable RepositoryMilestoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/repositoryMilestone:RepositoryMilestone", name, state, makeResourceOptions(options, id));
+    private RepositoryMilestone(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryMilestoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/repositoryMilestone:RepositoryMilestone", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryMilestoneArgs makeArgs(RepositoryMilestoneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryMilestoneArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class RepositoryMilestone extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryMilestone get(String name, Output<String> id, @Nullable RepositoryMilestoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryMilestone get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryMilestoneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryMilestone(name, id, state, options);
     }
 }

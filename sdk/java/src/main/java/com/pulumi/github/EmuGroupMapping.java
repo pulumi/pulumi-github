@@ -103,7 +103,7 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmuGroupMapping(String name) {
+    public EmuGroupMapping(java.lang.String name) {
         this(name, EmuGroupMappingArgs.Empty);
     }
     /**
@@ -111,7 +111,7 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmuGroupMapping(String name, EmuGroupMappingArgs args) {
+    public EmuGroupMapping(java.lang.String name, EmuGroupMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -120,15 +120,22 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmuGroupMapping(String name, EmuGroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/emuGroupMapping:EmuGroupMapping", name, args == null ? EmuGroupMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EmuGroupMapping(java.lang.String name, EmuGroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/emuGroupMapping:EmuGroupMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmuGroupMapping(String name, Output<String> id, @Nullable EmuGroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/emuGroupMapping:EmuGroupMapping", name, state, makeResourceOptions(options, id));
+    private EmuGroupMapping(java.lang.String name, Output<java.lang.String> id, @Nullable EmuGroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/emuGroupMapping:EmuGroupMapping", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EmuGroupMappingArgs makeArgs(EmuGroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmuGroupMappingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -144,7 +151,7 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmuGroupMapping get(String name, Output<String> id, @Nullable EmuGroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmuGroupMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable EmuGroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmuGroupMapping(name, id, state, options);
     }
 }

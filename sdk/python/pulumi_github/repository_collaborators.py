@@ -148,8 +148,8 @@ class RepositoryCollaborators(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a GitHub repository collaborators resource.
@@ -190,14 +190,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
         some_repo = github.Repository("some_repo", name="some-repo")
         some_repo_collaborators = github.RepositoryCollaborators("some_repo_collaborators",
             repository=some_repo.name,
-            users=[github.RepositoryCollaboratorsUserArgs(
-                permission="admin",
-                username="SomeUser",
-            )],
-            teams=[github.RepositoryCollaboratorsTeamArgs(
-                permission="pull",
-                team_id=some_team.slug,
-            )])
+            users=[{
+                "permission": "admin",
+                "username": "SomeUser",
+            }],
+            teams=[{
+                "permission": "pull",
+                "team_id": some_team.slug,
+            }])
         ```
 
         ## Import
@@ -211,8 +211,8 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository: The GitHub repository
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of users
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: List of users
         """
         ...
     @overload
@@ -259,14 +259,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
         some_repo = github.Repository("some_repo", name="some-repo")
         some_repo_collaborators = github.RepositoryCollaborators("some_repo_collaborators",
             repository=some_repo.name,
-            users=[github.RepositoryCollaboratorsUserArgs(
-                permission="admin",
-                username="SomeUser",
-            )],
-            teams=[github.RepositoryCollaboratorsTeamArgs(
-                permission="pull",
-                team_id=some_team.slug,
-            )])
+            users=[{
+                "permission": "admin",
+                "username": "SomeUser",
+            }],
+            teams=[{
+                "permission": "pull",
+                "team_id": some_team.slug,
+            }])
         ```
 
         ## Import
@@ -293,8 +293,8 @@ class RepositoryCollaborators(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,8 +322,8 @@ class RepositoryCollaborators(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             invitation_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             repository: Optional[pulumi.Input[str]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]]] = None) -> 'RepositoryCollaborators':
+            teams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]]] = None,
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]]] = None) -> 'RepositoryCollaborators':
         """
         Get an existing RepositoryCollaborators resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -334,8 +334,8 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to 
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[str] repository: The GitHub repository
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsTeamArgs']]]] teams: List of teams
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryCollaboratorsUserArgs']]]] users: List of users
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: List of users
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
