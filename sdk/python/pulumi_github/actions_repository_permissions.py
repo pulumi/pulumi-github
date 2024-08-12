@@ -162,7 +162,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_actions: Optional[pulumi.Input[str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[pulumi.InputType['ActionsRepositoryPermissionsAllowedActionsConfigArgs']]] = None,
+                 allowed_actions_config: Optional[pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,14 +179,14 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         example = github.Repository("example", name="my-repository")
         test = github.ActionsRepositoryPermissions("test",
             allowed_actions="selected",
-            allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
+            allowed_actions_config={
+                "github_owned_allowed": True,
+                "patterns_alloweds": [
                     "actions/cache@*",
                     "actions/checkout@*",
                 ],
-                verified_allowed=True,
-            ),
+                "verified_allowed": True,
+            },
             repository=example.name)
         ```
 
@@ -201,7 +201,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        :param pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[str] repository: The GitHub repository
         """
@@ -224,14 +224,14 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         example = github.Repository("example", name="my-repository")
         test = github.ActionsRepositoryPermissions("test",
             allowed_actions="selected",
-            allowed_actions_config=github.ActionsRepositoryPermissionsAllowedActionsConfigArgs(
-                github_owned_allowed=True,
-                patterns_alloweds=[
+            allowed_actions_config={
+                "github_owned_allowed": True,
+                "patterns_alloweds": [
                     "actions/cache@*",
                     "actions/checkout@*",
                 ],
-                verified_allowed=True,
-            ),
+                "verified_allowed": True,
+            },
             repository=example.name)
         ```
 
@@ -259,7 +259,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_actions: Optional[pulumi.Input[str]] = None,
-                 allowed_actions_config: Optional[pulumi.Input[pulumi.InputType['ActionsRepositoryPermissionsAllowedActionsConfigArgs']]] = None,
+                 allowed_actions_config: Optional[pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -288,7 +288,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allowed_actions: Optional[pulumi.Input[str]] = None,
-            allowed_actions_config: Optional[pulumi.Input[pulumi.InputType['ActionsRepositoryPermissionsAllowedActionsConfigArgs']]] = None,
+            allowed_actions_config: Optional[pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             repository: Optional[pulumi.Input[str]] = None) -> 'ActionsRepositoryPermissions':
         """
@@ -299,7 +299,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-        :param pulumi.Input[pulumi.InputType['ActionsRepositoryPermissionsAllowedActionsConfigArgs']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        :param pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[str] repository: The GitHub repository
         """

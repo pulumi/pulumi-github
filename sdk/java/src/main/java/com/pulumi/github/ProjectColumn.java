@@ -116,7 +116,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProjectColumn(String name) {
+    public ProjectColumn(java.lang.String name) {
         this(name, ProjectColumnArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProjectColumn(String name, ProjectColumnArgs args) {
+    public ProjectColumn(java.lang.String name, ProjectColumnArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProjectColumn(String name, ProjectColumnArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/projectColumn:ProjectColumn", name, args == null ? ProjectColumnArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProjectColumn(java.lang.String name, ProjectColumnArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/projectColumn:ProjectColumn", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProjectColumn(String name, Output<String> id, @Nullable ProjectColumnState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/projectColumn:ProjectColumn", name, state, makeResourceOptions(options, id));
+    private ProjectColumn(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectColumnState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/projectColumn:ProjectColumn", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProjectColumnArgs makeArgs(ProjectColumnArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProjectColumnArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class ProjectColumn extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProjectColumn get(String name, Output<String> id, @Nullable ProjectColumnState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProjectColumn get(java.lang.String name, Output<java.lang.String> id, @Nullable ProjectColumnState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProjectColumn(name, id, state, options);
     }
 }

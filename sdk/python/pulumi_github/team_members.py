@@ -104,7 +104,7 @@ class TeamMembers(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -127,14 +127,14 @@ class TeamMembers(pulumi.CustomResource):
         some_team_members = github.TeamMembers("some_team_members",
             team_id=some_team.id,
             members=[
-                github.TeamMembersMemberArgs(
-                    username="SomeUser",
-                    role="maintainer",
-                ),
-                github.TeamMembersMemberArgs(
-                    username="AnotherUser",
-                    role="member",
-                ),
+                {
+                    "username": "SomeUser",
+                    "role": "maintainer",
+                },
+                {
+                    "username": "AnotherUser",
+                    "role": "member",
+                },
             ])
         ```
 
@@ -154,7 +154,7 @@ class TeamMembers(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of team members. See Members below for details.
         :param pulumi.Input[str] team_id: The team id or the team slug
                
                > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
@@ -185,14 +185,14 @@ class TeamMembers(pulumi.CustomResource):
         some_team_members = github.TeamMembers("some_team_members",
             team_id=some_team.id,
             members=[
-                github.TeamMembersMemberArgs(
-                    username="SomeUser",
-                    role="maintainer",
-                ),
-                github.TeamMembersMemberArgs(
-                    username="AnotherUser",
-                    role="member",
-                ),
+                {
+                    "username": "SomeUser",
+                    "role": "maintainer",
+                },
+                {
+                    "username": "AnotherUser",
+                    "role": "member",
+                },
             ])
         ```
 
@@ -225,7 +225,7 @@ class TeamMembers(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -252,7 +252,7 @@ class TeamMembers(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]]] = None,
             team_id: Optional[pulumi.Input[str]] = None) -> 'TeamMembers':
         """
         Get an existing TeamMembers resource's state with the given name, id, and optional extra
@@ -261,7 +261,7 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamMembersMemberArgs']]]] members: List of team members. See Members below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamMembersMemberArgs', 'TeamMembersMemberArgsDict']]]] members: List of team members. See Members below for details.
         :param pulumi.Input[str] team_id: The team id or the team slug
                
                > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.

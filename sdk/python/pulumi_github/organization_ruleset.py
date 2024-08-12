@@ -271,11 +271,11 @@ class OrganizationRuleset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRulesetBypassActorArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetConditionsArgs']]] = None,
+                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
                  enforcement: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetRulesArgs']]] = None,
+                 rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -293,30 +293,30 @@ class OrganizationRuleset(pulumi.CustomResource):
             name="example",
             target="branch",
             enforcement="active",
-            conditions=github.OrganizationRulesetConditionsArgs(
-                ref_name=github.OrganizationRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.OrganizationRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.OrganizationRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                branch_name_pattern=github.OrganizationRulesetRulesBranchNamePatternArgs(
-                    name="example",
-                    negate=False,
-                    operator="starts_with",
-                    pattern="ex",
-                ),
-            ))
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+            },
+            bypass_actors=[{
+                "actor_id": 13473,
+                "actor_type": "Integration",
+                "bypass_mode": "always",
+            }],
+            rules={
+                "creation": True,
+                "update": True,
+                "deletion": True,
+                "required_linear_history": True,
+                "required_signatures": True,
+                "branch_name_pattern": {
+                    "name": "example",
+                    "negate": False,
+                    "operator": "starts_with",
+                    "pattern": "ex",
+                },
+            })
         ```
 
         ## Import
@@ -329,11 +329,11 @@ class OrganizationRuleset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRulesetBypassActorArgs']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[pulumi.InputType['OrganizationRulesetConditionsArgs']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
         :param pulumi.Input[str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[str] name: (String) The name of the ruleset.
-        :param pulumi.Input[pulumi.InputType['OrganizationRulesetRulesArgs']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[str] target: (String) Possible values are `branch` and `tag`.
         """
         ...
@@ -357,30 +357,30 @@ class OrganizationRuleset(pulumi.CustomResource):
             name="example",
             target="branch",
             enforcement="active",
-            conditions=github.OrganizationRulesetConditionsArgs(
-                ref_name=github.OrganizationRulesetConditionsRefNameArgs(
-                    includes=["~ALL"],
-                    excludes=[],
-                ),
-            ),
-            bypass_actors=[github.OrganizationRulesetBypassActorArgs(
-                actor_id=13473,
-                actor_type="Integration",
-                bypass_mode="always",
-            )],
-            rules=github.OrganizationRulesetRulesArgs(
-                creation=True,
-                update=True,
-                deletion=True,
-                required_linear_history=True,
-                required_signatures=True,
-                branch_name_pattern=github.OrganizationRulesetRulesBranchNamePatternArgs(
-                    name="example",
-                    negate=False,
-                    operator="starts_with",
-                    pattern="ex",
-                ),
-            ))
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+            },
+            bypass_actors=[{
+                "actor_id": 13473,
+                "actor_type": "Integration",
+                "bypass_mode": "always",
+            }],
+            rules={
+                "creation": True,
+                "update": True,
+                "deletion": True,
+                "required_linear_history": True,
+                "required_signatures": True,
+                "branch_name_pattern": {
+                    "name": "example",
+                    "negate": False,
+                    "operator": "starts_with",
+                    "pattern": "ex",
+                },
+            })
         ```
 
         ## Import
@@ -406,11 +406,11 @@ class OrganizationRuleset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRulesetBypassActorArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetConditionsArgs']]] = None,
+                 bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+                 conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
                  enforcement: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetRulesArgs']]] = None,
+                 rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -446,13 +446,13 @@ class OrganizationRuleset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRulesetBypassActorArgs']]]]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetConditionsArgs']]] = None,
+            bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]]] = None,
+            conditions: Optional[pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']]] = None,
             enforcement: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_id: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[pulumi.InputType['OrganizationRulesetRulesArgs']]] = None,
+            rules: Optional[pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']]] = None,
             ruleset_id: Optional[pulumi.Input[int]] = None,
             target: Optional[pulumi.Input[str]] = None) -> 'OrganizationRuleset':
         """
@@ -462,13 +462,13 @@ class OrganizationRuleset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRulesetBypassActorArgs']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[pulumi.InputType['OrganizationRulesetConditionsArgs']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
         :param pulumi.Input[str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[str] etag: (String)
         :param pulumi.Input[str] name: (String) The name of the ruleset.
         :param pulumi.Input[str] node_id: (String) GraphQL global node id for use with v4 API.
-        :param pulumi.Input[pulumi.InputType['OrganizationRulesetRulesArgs']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[int] ruleset_id: (Number) GitHub ID for the ruleset.
         :param pulumi.Input[str] target: (String) Possible values are `branch` and `tag`.
         """

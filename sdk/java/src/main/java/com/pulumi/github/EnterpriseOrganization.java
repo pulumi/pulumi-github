@@ -38,23 +38,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var org = new EnterpriseOrganization("org", EnterpriseOrganizationArgs.builder()
  *             .enterpriseId(enterprise.id())
  *             .name("some-awesome-org")
  *             .displayName("Some Awesome Org")
  *             .description("Organization created with terraform")
- *             .billingEmail("jon{@literal @}winteriscoming.com")
+ *             .billingEmail("jon}{@literal @}{@code winteriscoming.com")
  *             .adminLogins("jon-snow")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -173,7 +173,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnterpriseOrganization(String name) {
+    public EnterpriseOrganization(java.lang.String name) {
         this(name, EnterpriseOrganizationArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnterpriseOrganization(String name, EnterpriseOrganizationArgs args) {
+    public EnterpriseOrganization(java.lang.String name, EnterpriseOrganizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnterpriseOrganization(String name, EnterpriseOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseOrganization:EnterpriseOrganization", name, args == null ? EnterpriseOrganizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EnterpriseOrganization(java.lang.String name, EnterpriseOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseOrganization:EnterpriseOrganization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnterpriseOrganization(String name, Output<String> id, @Nullable EnterpriseOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/enterpriseOrganization:EnterpriseOrganization", name, state, makeResourceOptions(options, id));
+    private EnterpriseOrganization(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/enterpriseOrganization:EnterpriseOrganization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnterpriseOrganizationArgs makeArgs(EnterpriseOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnterpriseOrganizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class EnterpriseOrganization extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnterpriseOrganization get(String name, Output<String> id, @Nullable EnterpriseOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnterpriseOrganization get(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnterpriseOrganization(name, id, state, options);
     }
 }

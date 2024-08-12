@@ -139,7 +139,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CodespacesOrganizationSecret(String name) {
+    public CodespacesOrganizationSecret(java.lang.String name) {
         this(name, CodespacesOrganizationSecretArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CodespacesOrganizationSecret(String name, CodespacesOrganizationSecretArgs args) {
+    public CodespacesOrganizationSecret(java.lang.String name, CodespacesOrganizationSecretArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,15 +156,22 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CodespacesOrganizationSecret(String name, CodespacesOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret", name, args == null ? CodespacesOrganizationSecretArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CodespacesOrganizationSecret(java.lang.String name, CodespacesOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CodespacesOrganizationSecret(String name, Output<String> id, @Nullable CodespacesOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret", name, state, makeResourceOptions(options, id));
+    private CodespacesOrganizationSecret(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CodespacesOrganizationSecretArgs makeArgs(CodespacesOrganizationSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodespacesOrganizationSecretArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -184,7 +191,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CodespacesOrganizationSecret get(String name, Output<String> id, @Nullable CodespacesOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CodespacesOrganizationSecret get(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesOrganizationSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CodespacesOrganizationSecret(name, id, state, options);
     }
 }

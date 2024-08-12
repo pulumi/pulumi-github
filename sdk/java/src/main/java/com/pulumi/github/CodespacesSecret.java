@@ -120,7 +120,7 @@ public class CodespacesSecret extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CodespacesSecret(String name) {
+    public CodespacesSecret(java.lang.String name) {
         this(name, CodespacesSecretArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class CodespacesSecret extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CodespacesSecret(String name, CodespacesSecretArgs args) {
+    public CodespacesSecret(java.lang.String name, CodespacesSecretArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,15 +137,22 @@ public class CodespacesSecret extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CodespacesSecret(String name, CodespacesSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesSecret:CodespacesSecret", name, args == null ? CodespacesSecretArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CodespacesSecret(java.lang.String name, CodespacesSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesSecret:CodespacesSecret", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CodespacesSecret(String name, Output<String> id, @Nullable CodespacesSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("github:index/codespacesSecret:CodespacesSecret", name, state, makeResourceOptions(options, id));
+    private CodespacesSecret(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("github:index/codespacesSecret:CodespacesSecret", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CodespacesSecretArgs makeArgs(CodespacesSecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CodespacesSecretArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -165,7 +172,7 @@ public class CodespacesSecret extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CodespacesSecret get(String name, Output<String> id, @Nullable CodespacesSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CodespacesSecret get(java.lang.String name, Output<java.lang.String> id, @Nullable CodespacesSecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CodespacesSecret(name, id, state, options);
     }
 }

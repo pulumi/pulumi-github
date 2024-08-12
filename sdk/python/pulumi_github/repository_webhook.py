@@ -189,7 +189,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -210,11 +210,11 @@ class RepositoryWebhook(pulumi.CustomResource):
             visibility="public")
         foo = github.RepositoryWebhook("foo",
             repository=repo.name,
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url="https://google.de/",
-                content_type="form",
-                insecure_ssl=False,
-            ),
+            configuration={
+                "url": "https://google.de/",
+                "content_type": "form",
+                "insecure_ssl": False,
+            },
             active=False,
             events=["issues"])
         ```
@@ -234,7 +234,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
         """
@@ -261,11 +261,11 @@ class RepositoryWebhook(pulumi.CustomResource):
             visibility="public")
         foo = github.RepositoryWebhook("foo",
             repository=repo.name,
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url="https://google.de/",
-                content_type="form",
-                insecure_ssl=False,
-            ),
+            configuration={
+                "url": "https://google.de/",
+                "content_type": "form",
+                "insecure_ssl": False,
+            },
             active=False,
             events=["issues"])
         ```
@@ -298,7 +298,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -331,7 +331,7 @@ class RepositoryWebhook(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repository: Optional[pulumi.Input[str]] = None,
@@ -344,7 +344,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicate if the webhook should receive events. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['RepositoryWebhookConfigurationArgs']] configuration: Configuration block for the webhook. Detailed below.
+        :param pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[str] repository: The repository of the webhook.
         :param pulumi.Input[str] url: URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
