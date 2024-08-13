@@ -15,6 +15,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a GitHub issue label resource.
+ * 
+ * This resource allows you to create and manage issue labels within your
+ * GitHub organization.
+ * 
+ * Issue labels are keyed off of their &#34;name&#34;, so pre-existing issue labels result
+ * in a 422 HTTP error if they exist outside of Pulumi. Normally this would not
+ * be an issue, except new repositories are created with a &#34;default&#34; set of labels,
+ * and those labels easily conflict with custom ones.
+ * 
+ * This resource will first check if the label exists, and then issue an update,
+ * otherwise it will create.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
