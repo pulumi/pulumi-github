@@ -15,6 +15,7 @@
 package github
 
 import (
+	"bytes"
 	"fmt"
 	"path/filepath"
 	"unicode"
@@ -86,6 +87,7 @@ func Provider() tfbridge.ProviderInfo {
 		Version:                 version.Version,
 		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
 		UpstreamRepoPath:        "./upstream",
+		DocRules:                &tfbridge.DocRuleInfo{EditRules: editRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"base_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -272,6 +274,25 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+// Docs Edits
+
+// Ensure the text of IssueLabel makes it into the API documentation.
+// It contains important information on a courtesy labels import-before-create.
+var ensureIssueLabelsContent = tfbridge.DocsEdit{
+	Path: "*issue_label.html.markdown",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		content = bytes.ReplaceAll(content,
+			[]byte("Terraform"), []byte("Pulumi"))
+		return content, nil
+	},
+}
+
+func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(defaults,
+		ensureIssueLabelsContent,
+	)
 }
 
 //go:embed cmd/pulumi-resource-github/bridge-metadata.json
