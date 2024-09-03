@@ -54,7 +54,7 @@ import (
 //
 // ```
 //
-// ### With Milestone And Project Assignment
+// ### with milestone and project assignment
 //
 // ```go
 // package main

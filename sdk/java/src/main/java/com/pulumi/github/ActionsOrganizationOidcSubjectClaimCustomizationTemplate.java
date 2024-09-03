@@ -15,6 +15,14 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;github&#34;
+ * page_title: &#34;GitHub: github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate&#34;
+ * description: |-
+ * Creates and manages an OpenID Connect subject claim customization template for an organization
+ * &lt;!-- yaml: line 5: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+ * 
  * This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
  * organization.
  * 

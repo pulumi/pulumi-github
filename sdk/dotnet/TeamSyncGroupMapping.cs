@@ -14,7 +14,7 @@ namespace Pulumi.Github
     /// You must have team synchronization enabled for organizations owned by enterprise accounts.
     /// 
     /// To learn more about team synchronization between IdPs and GitHub, please refer to:
-    /// https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+    /// &lt;https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github&gt;
     /// 
     /// ## Example Usage
     /// 
@@ -53,9 +53,6 @@ namespace Pulumi.Github
 
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `group` block consists of:
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.TeamSyncGroupMappingGroup>> Groups { get; private set; } = null!;
@@ -117,9 +114,6 @@ namespace Pulumi.Github
 
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupArgs> Groups
         {
@@ -149,9 +143,6 @@ namespace Pulumi.Github
 
         /// <summary>
         /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        /// ___
-        /// 
-        /// The `group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupGetArgs> Groups
         {

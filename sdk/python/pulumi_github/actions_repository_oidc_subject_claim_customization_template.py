@@ -135,6 +135,14 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
                  use_default: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        layout: "github"
+        page_title: "GitHub: ActionsRepositoryOidcSubjectClaimCustomizationTemplate"
+        description: |-
+        Creates and manages an OpenID Connect subject claim customization template for a repository
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # ActionsRepositoryOidcSubjectClaimCustomizationTemplate
+
         This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
         repository.
 
@@ -142,12 +150,32 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         The following table lists the behaviour of `use_default`:
-
-        | `use_default` | `include_claim_keys` | Template used                                             |
-        |---------------|----------------------|-----------------------------------------------------------|
-        | `true`        | Unset                | GitHub's default                                          |
-        | `false`       | Set                  | `include_claim_keys`                                      |
-        | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
+        <table>
+        <thead>
+        <tr>
+        <th>`use_default`</th>
+        <th>`include_claim_keys`</th>
+        <th>Template used</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`true`</td>
+        <td>Unset</td>
+        <td>GitHub's default</td>
+        </tr>
+        <tr>
+        <td>`false`</td>
+        <td>Set</td>
+        <td>`include_claim_keys`</td>
+        </tr>
+        <tr>
+        <td>`false`</td>
+        <td>Unset</td>
+        <td>Organization's default if set, otherwise GitHub's default</td>
+        </tr>
+        </tbody>
+        </table>
 
         ## Example Usage
 
@@ -188,6 +216,14 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
                  args: ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "github"
+        page_title: "GitHub: ActionsRepositoryOidcSubjectClaimCustomizationTemplate"
+        description: |-
+        Creates and manages an OpenID Connect subject claim customization template for a repository
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # ActionsRepositoryOidcSubjectClaimCustomizationTemplate
+
         This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
         repository.
 
@@ -195,12 +231,32 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
         The following table lists the behaviour of `use_default`:
-
-        | `use_default` | `include_claim_keys` | Template used                                             |
-        |---------------|----------------------|-----------------------------------------------------------|
-        | `true`        | Unset                | GitHub's default                                          |
-        | `false`       | Set                  | `include_claim_keys`                                      |
-        | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
+        <table>
+        <thead>
+        <tr>
+        <th>`use_default`</th>
+        <th>`include_claim_keys`</th>
+        <th>Template used</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`true`</td>
+        <td>Unset</td>
+        <td>GitHub's default</td>
+        </tr>
+        <tr>
+        <td>`false`</td>
+        <td>Set</td>
+        <td>`include_claim_keys`</td>
+        </tr>
+        <tr>
+        <td>`false`</td>
+        <td>Unset</td>
+        <td>Organization's default if set, otherwise GitHub's default</td>
+        </tr>
+        </tbody>
+        </table>
 
         ## Example Usage
 

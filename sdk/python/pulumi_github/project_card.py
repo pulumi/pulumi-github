@@ -224,7 +224,7 @@ class ProjectCard(pulumi.CustomResource):
             note="## Unaccepted 👇")
         ```
 
-        ### Adding An Issue To A Project
+        ### adding an Issue to a Project
 
         ```python
         import pulumi
@@ -295,7 +295,7 @@ class ProjectCard(pulumi.CustomResource):
             note="## Unaccepted 👇")
         ```
 
-        ### Adding An Issue To A Project
+        ### adding an Issue to a Project
 
         ```python
         import pulumi

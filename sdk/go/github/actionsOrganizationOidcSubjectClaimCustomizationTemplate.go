@@ -12,6 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "github"
+// page_title: "GitHub: ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+// description: |-
+// Creates and manages an OpenID Connect subject claim customization template for an organization
+// <!-- yaml: line 5: could not find expected ':' -->
+//
+// # ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+//
 // This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
 // organization.
 //

@@ -50,7 +50,7 @@ import (
 //
 // ```
 //
-// ### On Non-Default Branch
+// ### on Non-Default Branch
 //
 // ```go
 // package main

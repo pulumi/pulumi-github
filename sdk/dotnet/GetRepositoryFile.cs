@@ -15,7 +15,6 @@ namespace Pulumi.Github
         /// This data source allows you to read files within a
         /// GitHub repository.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -42,7 +41,6 @@ namespace Pulumi.Github
         /// <summary>
         /// This data source allows you to read files within a
         /// GitHub repository.
-        /// 
         /// 
         /// ## Example Usage
         /// 

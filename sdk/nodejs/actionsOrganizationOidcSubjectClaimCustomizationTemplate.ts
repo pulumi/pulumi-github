@@ -5,6 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "github"
+ * page_title: "GitHub: github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+ * description: |-
+ * Creates and manages an OpenID Connect subject claim customization template for an organization
+ * <!-- yaml: line 5: could not find expected ':' -->
+ *
+ * # github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+ *
  * This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
  * organization.
  *

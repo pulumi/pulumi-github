@@ -519,7 +519,7 @@ class Release(pulumi.CustomResource):
             tag_name="v1.0.0")
         ```
 
-        ### On Non-Default Branch
+        ### on Non-Default Branch
 
         ```python
         import pulumi
@@ -585,7 +585,7 @@ class Release(pulumi.CustomResource):
             tag_name="v1.0.0")
         ```
 
-        ### On Non-Default Branch
+        ### on Non-Default Branch
 
         ```python
         import pulumi

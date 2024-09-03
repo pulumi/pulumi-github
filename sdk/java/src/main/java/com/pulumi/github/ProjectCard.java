@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Adding An Issue To A Project
+ * ### adding an Issue to a Project
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

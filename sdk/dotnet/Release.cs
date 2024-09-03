@@ -39,7 +39,7 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
-    /// ### On Non-Default Branch
+    /// ### on Non-Default Branch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

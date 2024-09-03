@@ -17,6 +17,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;github&#34;
+ * page_title: &#34;GitHub: github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate&#34;
+ * description: |-
+ * Creates and manages an OpenID Connect subject claim customization template for a repository
+ * &lt;!-- yaml: line 5: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate
+ * 
  * This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
  * repository.
  * 
@@ -24,12 +32,32 @@ import javax.annotation.Nullable;
  * available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
  * 
  * The following table lists the behaviour of `use_default`:
- * 
- * | `use_default` | `include_claim_keys` | Template used                                             |
- * |---------------|----------------------|-----------------------------------------------------------|
- * | `true`        | Unset                | GitHub&#39;s default                                          |
- * | `false`       | Set                  | `include_claim_keys`                                      |
- * | `false`       | Unset                | Organization&#39;s default if set, otherwise GitHub&#39;s default |
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;`use_default`&lt;/th&gt;
+ * &lt;th&gt;`include_claim_keys`&lt;/th&gt;
+ * &lt;th&gt;Template used&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`true`&lt;/td&gt;
+ * &lt;td&gt;Unset&lt;/td&gt;
+ * &lt;td&gt;GitHub&#39;s default&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`false`&lt;/td&gt;
+ * &lt;td&gt;Set&lt;/td&gt;
+ * &lt;td&gt;`include_claim_keys`&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`false`&lt;/td&gt;
+ * &lt;td&gt;Unset&lt;/td&gt;
+ * &lt;td&gt;Organization&#39;s default if set, otherwise GitHub&#39;s default&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  * ## Example Usage
  * 

@@ -37,7 +37,7 @@ export interface GetOrganizationWebhooksResult {
     readonly id: string;
     /**
      * An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-     * ___
+     * ---
      */
     readonly webhooks: outputs.GetOrganizationWebhooksWebhook[];
 }

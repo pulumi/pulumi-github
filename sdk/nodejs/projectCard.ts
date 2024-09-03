@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Adding An Issue To A Project
+ * ### adding an Issue to a Project
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

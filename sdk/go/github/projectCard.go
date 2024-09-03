@@ -55,7 +55,7 @@ import (
 //
 // ```
 //
-// ### Adding An Issue To A Project
+// ### adding an Issue to a Project
 //
 // ```go
 // package main

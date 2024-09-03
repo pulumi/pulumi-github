@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// layout: "github"
+    /// page_title: "GitHub: github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+    /// description: |-
+    /// Creates and manages an OpenID Connect subject claim customization template for an organization
+    /// &lt;!-- yaml: line 5: could not find expected ':' --&gt;
+    /// 
+    /// # github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+    /// 
     /// This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
     /// organization.
     /// 

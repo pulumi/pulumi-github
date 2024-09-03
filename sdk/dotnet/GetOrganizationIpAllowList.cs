@@ -68,7 +68,7 @@ namespace Pulumi.Github
         public readonly string Id;
         /// <summary>
         /// An Array of allowed IP addresses.
-        /// ___
+        /// ---
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationIpAllowListIpAllowListResult> IpAllowLists;
 

@@ -94,7 +94,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
     }
 
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to 
+     * Map of usernames to invitation ID for any users added as part of creation of this resource to
      * be used in `github.UserInvitationAccepter`.
      */
     public /*out*/ readonly invitationIds!: pulumi.Output<{[key: string]: string}>;
@@ -148,7 +148,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
  */
 export interface RepositoryCollaboratorsState {
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to 
+     * Map of usernames to invitation ID for any users added as part of creation of this resource to
      * be used in `github.UserInvitationAccepter`.
      */
     invitationIds?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
