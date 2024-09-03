@@ -22,9 +22,6 @@ class TeamSyncGroupMappingArgs:
         The set of arguments for constructing a TeamSyncGroupMapping resource.
         :param pulumi.Input[str] team_slug: Slug of the team
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-               ___
-               
-               The `group` block consists of:
         """
         pulumi.set(__self__, "team_slug", team_slug)
         if groups is not None:
@@ -47,9 +44,6 @@ class TeamSyncGroupMappingArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        ___
-
-        The `group` block consists of:
         """
         return pulumi.get(self, "groups")
 
@@ -67,9 +61,6 @@ class _TeamSyncGroupMappingState:
         """
         Input properties used for looking up and filtering TeamSyncGroupMapping resources.
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-               ___
-               
-               The `group` block consists of:
         :param pulumi.Input[str] team_slug: Slug of the team
         """
         if etag is not None:
@@ -93,9 +84,6 @@ class _TeamSyncGroupMappingState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        ___
-
-        The `group` block consists of:
         """
         return pulumi.get(self, "groups")
 
@@ -129,7 +117,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         You must have team synchronization enabled for organizations owned by enterprise accounts.
 
         To learn more about team synchronization between IdPs and GitHub, please refer to:
-        https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+        <https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github>
 
         ## Example Usage
 
@@ -158,9 +146,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-               ___
-               
-               The `group` block consists of:
         :param pulumi.Input[str] team_slug: Slug of the team
         """
         ...
@@ -174,7 +159,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         You must have team synchronization enabled for organizations owned by enterprise accounts.
 
         To learn more about team synchronization between IdPs and GitHub, please refer to:
-        https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+        <https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github>
 
         ## Example Usage
 
@@ -252,9 +237,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-               ___
-               
-               The `group` block consists of:
         :param pulumi.Input[str] team_slug: Slug of the team
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -276,9 +258,6 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence['outputs.TeamSyncGroupMappingGroup']]]:
         """
         An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-        ___
-
-        The `group` block consists of:
         """
         return pulumi.get(self, "groups")
 

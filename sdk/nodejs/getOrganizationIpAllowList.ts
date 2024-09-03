@@ -37,7 +37,7 @@ export interface GetOrganizationIpAllowListResult {
     readonly id: string;
     /**
      * An Array of allowed IP addresses.
-     * ___
+     * ---
      */
     readonly ipAllowLists: outputs.GetOrganizationIpAllowListIpAllowList[];
 }

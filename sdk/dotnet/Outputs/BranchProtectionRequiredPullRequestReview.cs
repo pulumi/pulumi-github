@@ -35,7 +35,7 @@ namespace Pulumi.Github.Outputs
         public readonly bool? RequireLastPushApproval;
         /// <summary>
         /// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-        /// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+        /// (&lt;https://developer.github.com/v3/repos/branches/#parameters-1&gt;) for more information.
         /// </summary>
         public readonly int? RequiredApprovingReviewCount;
         /// <summary>

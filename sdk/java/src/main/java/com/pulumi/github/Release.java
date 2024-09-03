@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### On Non-Default Branch
+ * ### on Non-Default Branch
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

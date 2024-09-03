@@ -9149,7 +9149,7 @@ public final class GithubFunctions {
     }
     /**
      * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -9195,7 +9195,7 @@ public final class GithubFunctions {
     }
     /**
      * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -9241,7 +9241,7 @@ public final class GithubFunctions {
     }
     /**
      * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 
@@ -9287,7 +9287,7 @@ public final class GithubFunctions {
     }
     /**
      * &gt; **Note:** The data source will return a maximum of `1000` repositories
-     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * [as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
      * 
      * Use this data source to retrieve a list of GitHub repositories using a search query.
      * 

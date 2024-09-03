@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * You must have team synchronization enabled for organizations owned by enterprise accounts.
  * 
  * To learn more about team synchronization between IdPs and GitHub, please refer to:
- * https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+ * &lt;https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github&gt;
  * 
  * ## Example Usage
  * 
@@ -47,9 +47,6 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
     }
     /**
      * An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
      * 
      */
     @Export(name="groups", refs={List.class,TeamSyncGroupMappingGroup.class}, tree="[0,1]")
@@ -57,9 +54,6 @@ public class TeamSyncGroupMapping extends com.pulumi.resources.CustomResource {
 
     /**
      * @return An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
-     * ***
-     * 
-     * The `group` block consists of:
      * 
      */
     public Output<Optional<List<TeamSyncGroupMappingGroup>>> groups() {

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Milestone And Project Assignment
+ * ### with milestone and project assignment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

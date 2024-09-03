@@ -93,7 +93,7 @@ namespace Pulumi.Github
     public partial class RepositoryCollaborators : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        /// Map of usernames to invitation ID for any users added as part of creation of this resource to
         /// be used in `github.UserInvitationAccepter`.
         /// </summary>
         [Output("invitationIds")]
@@ -205,7 +205,7 @@ namespace Pulumi.Github
         private InputMap<string>? _invitationIds;
 
         /// <summary>
-        /// Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        /// Map of usernames to invitation ID for any users added as part of creation of this resource to
         /// be used in `github.UserInvitationAccepter`.
         /// </summary>
         public InputMap<string> InvitationIds

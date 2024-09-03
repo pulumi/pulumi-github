@@ -65,7 +65,7 @@ export interface BranchProtectionRequiredPullRequestReview {
     requireLastPushApproval?: pulumi.Input<boolean>;
     /**
      * Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-     * (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+     * (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
      */
     requiredApprovingReviewCount?: pulumi.Input<number>;
     /**

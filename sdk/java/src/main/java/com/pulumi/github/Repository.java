@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With GitHub Pages Enabled
+ * ### with GitHub Pages Enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

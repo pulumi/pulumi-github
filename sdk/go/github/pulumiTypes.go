@@ -512,7 +512,7 @@ type BranchProtectionRequiredPullRequestReview struct {
 	// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
 	RequireLastPushApproval *bool `pulumi:"requireLastPushApproval"`
 	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-	// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	// (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
 	// Restrict pull request review dismissals.
 	RestrictDismissals *bool `pulumi:"restrictDismissals"`
@@ -541,7 +541,7 @@ type BranchProtectionRequiredPullRequestReviewArgs struct {
 	// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
 	RequireLastPushApproval pulumi.BoolPtrInput `pulumi:"requireLastPushApproval"`
 	// Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-	// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+	// (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
 	// Restrict pull request review dismissals.
 	RestrictDismissals pulumi.BoolPtrInput `pulumi:"restrictDismissals"`
@@ -624,7 +624,7 @@ func (o BranchProtectionRequiredPullRequestReviewOutput) RequireLastPushApproval
 }
 
 // Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-// (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+// (<https://developer.github.com/v3/repos/branches/#parameters-1>) for more information.
 func (o BranchProtectionRequiredPullRequestReviewOutput) RequiredApprovingReviewCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchProtectionRequiredPullRequestReview) *int { return v.RequiredApprovingReviewCount }).(pulumi.IntPtrOutput)
 }

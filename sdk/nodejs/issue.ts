@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With Milestone And Project Assignment
+ * ### with milestone and project assignment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

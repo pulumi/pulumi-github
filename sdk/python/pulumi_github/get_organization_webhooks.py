@@ -43,7 +43,7 @@ class GetOrganizationWebhooksResult:
     def webhooks(self) -> Sequence['outputs.GetOrganizationWebhooksWebhookResult']:
         """
         An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-        ___
+        ---
         """
         return pulumi.get(self, "webhooks")
 

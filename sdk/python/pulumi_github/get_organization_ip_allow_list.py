@@ -43,7 +43,7 @@ class GetOrganizationIpAllowListResult:
     def ip_allow_lists(self) -> Sequence['outputs.GetOrganizationIpAllowListIpAllowListResult']:
         """
         An Array of allowed IP addresses.
-        ___
+        ---
         """
         return pulumi.get(self, "ip_allow_lists")
 

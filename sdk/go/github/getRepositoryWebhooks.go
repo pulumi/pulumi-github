@@ -61,7 +61,7 @@ type GetRepositoryWebhooksResult struct {
 	Id         string `pulumi:"id"`
 	Repository string `pulumi:"repository"`
 	// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-	// ***
+	// ---
 	Webhooks []GetRepositoryWebhooksWebhook `pulumi:"webhooks"`
 }
 
@@ -112,7 +112,7 @@ func (o GetRepositoryWebhooksResultOutput) Repository() pulumi.StringOutput {
 }
 
 // An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-// ***
+// ---
 func (o GetRepositoryWebhooksResultOutput) Webhooks() GetRepositoryWebhooksWebhookArrayOutput {
 	return o.ApplyT(func(v GetRepositoryWebhooksResult) []GetRepositoryWebhooksWebhook { return v.Webhooks }).(GetRepositoryWebhooksWebhookArrayOutput)
 }

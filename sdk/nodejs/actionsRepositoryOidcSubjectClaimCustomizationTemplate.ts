@@ -5,6 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "github"
+ * page_title: "GitHub: github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate"
+ * description: |-
+ * Creates and manages an OpenID Connect subject claim customization template for a repository
+ * <!-- yaml: line 5: could not find expected ':' -->
+ *
+ * # github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate
+ *
  * This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
  * repository.
  *
@@ -13,37 +21,11 @@ import * as utilities from "./utilities";
  *
  * The following table lists the behaviour of `useDefault`:
  *
- * | `useDefault` | `includeClaimKeys` | Template used                                             |
- * |---------------|----------------------|-----------------------------------------------------------|
- * | `true`        | Unset                | GitHub's default                                          |
- * | `false`       | Set                  | `includeClaimKeys`                                      |
- * | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {name: "example-repository"});
- * const exampleTemplate = new github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template", {
- *     repository: example.name,
- *     useDefault: false,
- *     includeClaimKeys: [
- *         "actor",
- *         "context",
- *         "repository_owner",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * This resource can be imported using the repository's name.
- *
- * ```sh
- * $ pulumi import github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate test example_repository
- * ```
+ * | `useDefault` | `includeClaimKeys` |                     Template                      |
+ * |---------------|----------------------|---------------------------------------------------|
+ * | `true`        | Unset                | GitHub's                                          |
+ * | `false`       | Set                  | `includeClaimKeys`                              |
+ * | `false`       | Unset                | Organization's default if set, otherwise GitHub's |
  */
 export class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends pulumi.CustomResource {
     /**
@@ -82,8 +64,7 @@ export class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends pulu
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-     * be set.
+     * Whether to use the default template or not. If 'true', 'include_claim_keys' must not be set.
      */
     public readonly useDefault!: pulumi.Output<boolean>;
 
@@ -133,8 +114,7 @@ export interface ActionsRepositoryOidcSubjectClaimCustomizationTemplateState {
      */
     repository?: pulumi.Input<string>;
     /**
-     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-     * be set.
+     * Whether to use the default template or not. If 'true', 'include_claim_keys' must not be set.
      */
     useDefault?: pulumi.Input<boolean>;
 }
@@ -152,8 +132,7 @@ export interface ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs {
      */
     repository: pulumi.Input<string>;
     /**
-     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
-     * be set.
+     * Whether to use the default template or not. If 'true', 'include_claim_keys' must not be set.
      */
     useDefault: pulumi.Input<boolean>;
 }

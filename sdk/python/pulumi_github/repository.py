@@ -1376,7 +1376,7 @@ class Repository(pulumi.CustomResource):
             })
         ```
 
-        ### With GitHub Pages Enabled
+        ### with GitHub Pages Enabled
 
         ```python
         import pulumi
@@ -1477,7 +1477,7 @@ class Repository(pulumi.CustomResource):
             })
         ```
 
-        ### With GitHub Pages Enabled
+        ### with GitHub Pages Enabled
 
         ```python
         import pulumi

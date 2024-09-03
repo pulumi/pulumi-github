@@ -53,7 +53,7 @@ import (
 //
 // ```
 //
-// ### With GitHub Pages Enabled
+// ### with GitHub Pages Enabled
 //
 // ```go
 // package main

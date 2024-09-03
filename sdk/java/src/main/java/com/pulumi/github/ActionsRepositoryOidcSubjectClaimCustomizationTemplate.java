@@ -17,6 +17,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;github&#34;
+ * page_title: &#34;GitHub: github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate&#34;
+ * description: |-
+ * Creates and manages an OpenID Connect subject claim customization template for a repository
+ * &lt;!-- yaml: line 5: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate
+ * 
  * This resource allows you to create and manage an OpenID Connect subject claim customization template for a GitHub
  * repository.
  * 
@@ -25,65 +33,11 @@ import javax.annotation.Nullable;
  * 
  * The following table lists the behaviour of `use_default`:
  * 
- * | `use_default` | `include_claim_keys` | Template used                                             |
- * |---------------|----------------------|-----------------------------------------------------------|
- * | `true`        | Unset                | GitHub&#39;s default                                          |
- * | `false`       | Set                  | `include_claim_keys`                                      |
- * | `false`       | Unset                | Organization&#39;s default if set, otherwise GitHub&#39;s default |
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate;
- * import com.pulumi.github.ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()
- *             .name("example-repository")
- *             .build());
- * 
- *         var exampleTemplate = new ActionsRepositoryOidcSubjectClaimCustomizationTemplate("exampleTemplate", ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
- *             .repository(example.name())
- *             .useDefault(false)
- *             .includeClaimKeys(            
- *                 "actor",
- *                 "context",
- *                 "repository_owner")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * This resource can be imported using the repository&#39;s name.
- * 
- * ```sh
- * $ pulumi import github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate test example_repository
- * ```
+ * | `use_default` | `include_claim_keys` |                     Template                      |
+ * |---------------|----------------------|---------------------------------------------------|
+ * | `true`        | Unset                | GitHub&#39;s                                          |
+ * | `false`       | Set                  | `include_claim_keys`                              |
+ * | `false`       | Unset                | Organization&#39;s default if set, otherwise GitHub&#39;s |
  * 
  */
 @ResourceType(type="github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate")
@@ -117,16 +71,14 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
         return this.repository;
     }
     /**
-     * Whether to use the default template or not. If `true`, `include_claim_keys` must not
-     * be set.
+     * Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
      * 
      */
     @Export(name="useDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useDefault;
 
     /**
-     * @return Whether to use the default template or not. If `true`, `include_claim_keys` must not
-     * be set.
+     * @return Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
      * 
      */
     public Output<Boolean> useDefault() {

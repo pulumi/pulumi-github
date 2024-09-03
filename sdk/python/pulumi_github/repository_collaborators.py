@@ -77,7 +77,7 @@ class _RepositoryCollaboratorsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCollaborators resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams
@@ -96,7 +96,7 @@ class _RepositoryCollaboratorsState:
     @pulumi.getter(name="invitationIds")
     def invitation_ids(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        Map of usernames to invitation ID for any users added as part of creation of this resource to
         be used in `UserInvitationAccepter`.
         """
         return pulumi.get(self, "invitation_ids")
@@ -331,7 +331,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams
@@ -351,7 +351,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
     @pulumi.getter(name="invitationIds")
     def invitation_ids(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        Map of usernames to invitation ID for any users added as part of creation of this resource to
         be used in `UserInvitationAccepter`.
         """
         return pulumi.get(self, "invitation_ids")

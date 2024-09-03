@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With GitHub Pages Enabled
+ * ### with GitHub Pages Enabled
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

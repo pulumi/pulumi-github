@@ -296,7 +296,7 @@ class Issue(pulumi.CustomResource):
             body="The body of my issue")
         ```
 
-        ### With Milestone And Project Assignment
+        ### with milestone and project assignment
 
         ```python
         import pulumi
@@ -374,7 +374,7 @@ class Issue(pulumi.CustomResource):
             body="The body of my issue")
         ```
 
-        ### With Milestone And Project Assignment
+        ### with milestone and project assignment
 
         ```python
         import pulumi

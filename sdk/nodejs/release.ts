@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### On Non-Default Branch
+ * ### on Non-Default Branch
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

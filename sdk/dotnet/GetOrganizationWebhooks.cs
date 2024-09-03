@@ -68,7 +68,7 @@ namespace Pulumi.Github
         public readonly string Id;
         /// <summary>
         /// An Array of GitHub Webhooks.  Each `webhook` block consists of the fields documented below.
-        /// ___
+        /// ---
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationWebhooksWebhookResult> Webhooks;
 

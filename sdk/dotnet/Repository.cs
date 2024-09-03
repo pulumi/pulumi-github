@@ -45,7 +45,7 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
-    /// ### With GitHub Pages Enabled
+    /// ### with GitHub Pages Enabled
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

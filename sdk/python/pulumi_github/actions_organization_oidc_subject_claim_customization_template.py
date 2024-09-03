@@ -66,6 +66,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
                  include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        layout: "github"
+        page_title: "GitHub: ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+        description: |-
+        Creates and manages an OpenID Connect subject claim customization template for an organization
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+
         This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
         organization.
 
@@ -104,6 +112,14 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
                  args: ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "github"
+        page_title: "GitHub: ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+        description: |-
+        Creates and manages an OpenID Connect subject claim customization template for an organization
+        <!-- yaml: line 5: could not find expected ':' -->
+
+        # ActionsOrganizationOidcSubjectClaimCustomizationTemplate
+
         This resource allows you to create and manage an OpenID Connect subject claim customization template within a GitHub
         organization.
 

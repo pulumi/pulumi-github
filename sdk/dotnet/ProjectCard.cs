@@ -43,7 +43,7 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
-    /// ### Adding An Issue To A Project
+    /// ### adding an Issue to a Project
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

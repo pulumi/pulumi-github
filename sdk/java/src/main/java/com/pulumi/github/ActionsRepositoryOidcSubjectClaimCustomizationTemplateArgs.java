@@ -49,16 +49,14 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
     }
 
     /**
-     * Whether to use the default template or not. If `true`, `include_claim_keys` must not
-     * be set.
+     * Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
      * 
      */
     @Import(name="useDefault", required=true)
     private Output<Boolean> useDefault;
 
     /**
-     * @return Whether to use the default template or not. If `true`, `include_claim_keys` must not
-     * be set.
+     * @return Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
      * 
      */
     public Output<Boolean> useDefault() {
@@ -144,8 +142,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
         }
 
         /**
-         * @param useDefault Whether to use the default template or not. If `true`, `include_claim_keys` must not
-         * be set.
+         * @param useDefault Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
          * 
          * @return builder
          * 
@@ -156,8 +153,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs ex
         }
 
         /**
-         * @param useDefault Whether to use the default template or not. If `true`, `include_claim_keys` must not
-         * be set.
+         * @param useDefault Whether to use the default template or not. If &#39;true&#39;, &#39;include_claim_keys&#39; must not be set.
          * 
          * @return builder
          * 

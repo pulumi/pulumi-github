@@ -53,7 +53,7 @@ type GetOrganizationIpAllowListResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An Array of allowed IP addresses.
-	// ***
+	// ---
 	IpAllowLists []GetOrganizationIpAllowListIpAllowList `pulumi:"ipAllowLists"`
 }
 
@@ -89,7 +89,7 @@ func (o GetOrganizationIpAllowListResultOutput) Id() pulumi.StringOutput {
 }
 
 // An Array of allowed IP addresses.
-// ***
+// ---
 func (o GetOrganizationIpAllowListResultOutput) IpAllowLists() GetOrganizationIpAllowListIpAllowListArrayOutput {
 	return o.ApplyT(func(v GetOrganizationIpAllowListResult) []GetOrganizationIpAllowListIpAllowList {
 		return v.IpAllowLists
