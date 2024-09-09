@@ -46,6 +46,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - uses: pulumi/provider-version-action@v1
       id: provider-version
       with:

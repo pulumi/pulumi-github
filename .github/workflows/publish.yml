@@ -49,6 +49,8 @@ jobs:
       run: echo "Can't skip Go SDK for stable releases. This is likely a bug in the calling workflow." && exit 1
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
@@ -111,6 +113,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
