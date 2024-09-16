@@ -78,6 +78,12 @@ namespace Pulumi.Github
         public string Owner { get; set; } = null!;
 
         /// <summary>
+        /// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+        /// </summary>
+        [Input("permission")]
+        public string? Permission { get; set; }
+
+        /// <summary>
         /// The name of the repository.
         /// </summary>
         [Input("repository", required: true)]
@@ -102,6 +108,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
+
+        /// <summary>
+        /// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+        /// </summary>
+        [Input("permission")]
+        public Input<string>? Permission { get; set; }
 
         /// <summary>
         /// The name of the repository.
@@ -129,6 +141,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         public readonly string Owner;
+        /// <summary>
+        /// The permission of the collaborator.
+        /// </summary>
+        public readonly string? Permission;
         public readonly string Repository;
 
         [OutputConstructor]
@@ -141,12 +157,15 @@ namespace Pulumi.Github
 
             string owner,
 
+            string? permission,
+
             string repository)
         {
             Affiliation = affiliation;
             Collaborators = collaborators;
             Id = id;
             Owner = owner;
+            Permission = permission;
             Repository = repository;
         }
     }

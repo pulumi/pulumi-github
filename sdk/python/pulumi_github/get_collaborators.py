@@ -22,7 +22,7 @@ class GetCollaboratorsResult:
     """
     A collection of values returned by getCollaborators.
     """
-    def __init__(__self__, affiliation=None, collaborators=None, id=None, owner=None, repository=None):
+    def __init__(__self__, affiliation=None, collaborators=None, id=None, owner=None, permission=None, repository=None):
         if affiliation and not isinstance(affiliation, str):
             raise TypeError("Expected argument 'affiliation' to be a str")
         pulumi.set(__self__, "affiliation", affiliation)
@@ -35,6 +35,9 @@ class GetCollaboratorsResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if permission and not isinstance(permission, str):
+            raise TypeError("Expected argument 'permission' to be a str")
+        pulumi.set(__self__, "permission", permission)
         if repository and not isinstance(repository, str):
             raise TypeError("Expected argument 'repository' to be a str")
         pulumi.set(__self__, "repository", repository)
@@ -67,6 +70,14 @@ class GetCollaboratorsResult:
 
     @property
     @pulumi.getter
+    def permission(self) -> Optional[str]:
+        """
+        The permission of the collaborator.
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter
     def repository(self) -> str:
         return pulumi.get(self, "repository")
 
@@ -81,11 +92,13 @@ class AwaitableGetCollaboratorsResult(GetCollaboratorsResult):
             collaborators=self.collaborators,
             id=self.id,
             owner=self.owner,
+            permission=self.permission,
             repository=self.repository)
 
 
 def get_collaborators(affiliation: Optional[str] = None,
                       owner: Optional[str] = None,
+                      permission: Optional[str] = None,
                       repository: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollaboratorsResult:
     """
@@ -104,11 +117,13 @@ def get_collaborators(affiliation: Optional[str] = None,
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
     :param str owner: The organization that owns the repository.
+    :param str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
     :param str repository: The name of the repository.
     """
     __args__ = dict()
     __args__['affiliation'] = affiliation
     __args__['owner'] = owner
+    __args__['permission'] = permission
     __args__['repository'] = repository
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getCollaborators:getCollaborators', __args__, opts=opts, typ=GetCollaboratorsResult).value
@@ -118,12 +133,14 @@ def get_collaborators(affiliation: Optional[str] = None,
         collaborators=pulumi.get(__ret__, 'collaborators'),
         id=pulumi.get(__ret__, 'id'),
         owner=pulumi.get(__ret__, 'owner'),
+        permission=pulumi.get(__ret__, 'permission'),
         repository=pulumi.get(__ret__, 'repository'))
 
 
 @_utilities.lift_output_func(get_collaborators)
 def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] = None,
                              owner: Optional[pulumi.Input[str]] = None,
+                             permission: Optional[pulumi.Input[Optional[str]]] = None,
                              repository: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaboratorsResult]:
     """
@@ -142,6 +159,7 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
 
     :param str affiliation: Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
     :param str owner: The organization that owns the repository.
+    :param str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
     :param str repository: The name of the repository.
     """
     ...

@@ -74,6 +74,7 @@ export interface GetRepositoryResult {
      * Whether the repository allows squash merges.
      */
     readonly allowSquashMerge: boolean;
+    readonly allowUpdateBranch: boolean;
     /**
      * Whether the repository is archived.
      */
@@ -82,6 +83,7 @@ export interface GetRepositoryResult {
      * The name of the default branch of the repository.
      */
     readonly defaultBranch: string;
+    readonly deleteBranchOnMerge: boolean;
     /**
      * A description of the license.
      */

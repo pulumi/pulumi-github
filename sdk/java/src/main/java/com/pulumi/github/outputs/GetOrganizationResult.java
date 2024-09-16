@@ -145,6 +145,7 @@ public final class GetOrganizationResult {
      * 
      */
     private Boolean secretScanningPushProtectionEnabledForNewRepositories;
+    private @Nullable Boolean summaryOnly;
     /**
      * @return Whether two-factor authentication is required for all members of the organization.
      * 
@@ -344,6 +345,9 @@ public final class GetOrganizationResult {
     public Boolean secretScanningPushProtectionEnabledForNewRepositories() {
         return this.secretScanningPushProtectionEnabledForNewRepositories;
     }
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
+    }
     /**
      * @return Whether two-factor authentication is required for all members of the organization.
      * 
@@ -401,6 +405,7 @@ public final class GetOrganizationResult {
         private List<String> repositories;
         private Boolean secretScanningEnabledForNewRepositories;
         private Boolean secretScanningPushProtectionEnabledForNewRepositories;
+        private @Nullable Boolean summaryOnly;
         private Boolean twoFactorRequirementEnabled;
         private List<Map<String,String>> users;
         private Boolean webCommitSignoffRequired;
@@ -433,6 +438,7 @@ public final class GetOrganizationResult {
     	      this.repositories = defaults.repositories;
     	      this.secretScanningEnabledForNewRepositories = defaults.secretScanningEnabledForNewRepositories;
     	      this.secretScanningPushProtectionEnabledForNewRepositories = defaults.secretScanningPushProtectionEnabledForNewRepositories;
+    	      this.summaryOnly = defaults.summaryOnly;
     	      this.twoFactorRequirementEnabled = defaults.twoFactorRequirementEnabled;
     	      this.users = defaults.users;
     	      this.webCommitSignoffRequired = defaults.webCommitSignoffRequired;
@@ -651,6 +657,12 @@ public final class GetOrganizationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+
+            this.summaryOnly = summaryOnly;
+            return this;
+        }
+        @CustomType.Setter
         public Builder twoFactorRequirementEnabled(Boolean twoFactorRequirementEnabled) {
             if (twoFactorRequirementEnabled == null) {
               throw new MissingRequiredPropertyException("GetOrganizationResult", "twoFactorRequirementEnabled");
@@ -702,6 +714,7 @@ public final class GetOrganizationResult {
             _resultValue.repositories = repositories;
             _resultValue.secretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
             _resultValue.secretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
+            _resultValue.summaryOnly = summaryOnly;
             _resultValue.twoFactorRequirementEnabled = twoFactorRequirementEnabled;
             _resultValue.users = users;
             _resultValue.webCommitSignoffRequired = webCommitSignoffRequired;

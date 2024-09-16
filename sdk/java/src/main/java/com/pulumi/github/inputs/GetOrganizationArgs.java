@@ -18,14 +18,14 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetOrganizationArgs Empty = new GetOrganizationArgs();
 
     /**
-     * Whether or not to include archived repos in the `repositories` list
+     * Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      * 
      */
     @Import(name="ignoreArchivedRepos")
     private @Nullable Output<Boolean> ignoreArchivedRepos;
 
     /**
-     * @return Whether or not to include archived repos in the `repositories` list
+     * @return Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> ignoreArchivedRepos() {
@@ -33,18 +33,33 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The organization&#39;s public profile name
+     * The name of the organization.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The organization&#39;s public profile name
+     * @return The name of the organization.
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     * 
+     */
+    @Import(name="summaryOnly")
+    private @Nullable Output<Boolean> summaryOnly;
+
+    /**
+     * @return Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
     }
 
     private GetOrganizationArgs() {}
@@ -52,6 +67,7 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
     private GetOrganizationArgs(GetOrganizationArgs $) {
         this.ignoreArchivedRepos = $.ignoreArchivedRepos;
         this.name = $.name;
+        this.summaryOnly = $.summaryOnly;
     }
 
     public static Builder builder() {
@@ -73,7 +89,7 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -84,7 +100,7 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -94,7 +110,7 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The organization&#39;s public profile name
+         * @param name The name of the organization.
          * 
          * @return builder
          * 
@@ -105,13 +121,34 @@ public final class GetOrganizationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The organization&#39;s public profile name
+         * @param name The name of the organization.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param summaryOnly Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder summaryOnly(@Nullable Output<Boolean> summaryOnly) {
+            $.summaryOnly = summaryOnly;
+            return this;
+        }
+
+        /**
+         * @param summaryOnly Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder summaryOnly(Boolean summaryOnly) {
+            return summaryOnly(Output.of(summaryOnly));
         }
 
         public GetOrganizationArgs build() {

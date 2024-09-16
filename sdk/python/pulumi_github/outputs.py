@@ -4021,7 +4021,7 @@ class GetCollaboratorsCollaboratorResult(dict):
         :param int id: The ID of the collaborator.
         :param str login: The collaborator's login.
         :param str organizations_url: The GitHub API URL for the collaborator's organizations.
-        :param str permission: The permission of the collaborator.
+        :param str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
         :param str received_events_url: The GitHub API URL for the collaborator's received events.
         :param str repos_url: The GitHub API URL for the collaborator's repositories.
         :param bool site_admin: Whether the user is a GitHub admin.
@@ -4115,7 +4115,7 @@ class GetCollaboratorsCollaboratorResult(dict):
     @pulumi.getter
     def permission(self) -> str:
         """
-        The permission of the collaborator.
+        Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
         """
         return pulumi.get(self, "permission")
 

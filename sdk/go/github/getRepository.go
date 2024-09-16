@@ -69,11 +69,13 @@ type LookupRepositoryResult struct {
 	// Whether the repository allows rebase merges.
 	AllowRebaseMerge bool `pulumi:"allowRebaseMerge"`
 	// Whether the repository allows squash merges.
-	AllowSquashMerge bool `pulumi:"allowSquashMerge"`
+	AllowSquashMerge  bool `pulumi:"allowSquashMerge"`
+	AllowUpdateBranch bool `pulumi:"allowUpdateBranch"`
 	// Whether the repository is archived.
 	Archived bool `pulumi:"archived"`
 	// The name of the default branch of the repository.
-	DefaultBranch string `pulumi:"defaultBranch"`
+	DefaultBranch       string `pulumi:"defaultBranch"`
+	DeleteBranchOnMerge bool   `pulumi:"deleteBranchOnMerge"`
 	// A description of the license.
 	Description *string `pulumi:"description"`
 	// Whether the repository is a fork.
@@ -199,6 +201,10 @@ func (o LookupRepositoryResultOutput) AllowSquashMerge() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.AllowSquashMerge }).(pulumi.BoolOutput)
 }
 
+func (o LookupRepositoryResultOutput) AllowUpdateBranch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.AllowUpdateBranch }).(pulumi.BoolOutput)
+}
+
 // Whether the repository is archived.
 func (o LookupRepositoryResultOutput) Archived() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.Archived }).(pulumi.BoolOutput)
@@ -207,6 +213,10 @@ func (o LookupRepositoryResultOutput) Archived() pulumi.BoolOutput {
 // The name of the default branch of the repository.
 func (o LookupRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) DeleteBranchOnMerge() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.DeleteBranchOnMerge }).(pulumi.BoolOutput)
 }
 
 // A description of the license.

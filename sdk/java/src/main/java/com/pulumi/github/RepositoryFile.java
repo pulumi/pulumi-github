@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Existing Branch
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -68,6 +69,55 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Auto Created Branch
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryFile;
+ * import com.pulumi.github.RepositoryFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var foo = new Repository("foo", RepositoryArgs.builder()
+ *             .name("tf-acc-test-%s")
+ *             .autoInit(true)
+ *             .build());
+ * 
+ *         var fooRepositoryFile = new RepositoryFile("fooRepositoryFile", RepositoryFileArgs.builder()
+ *             .repository(foo.name())
+ *             .branch("does/not/exist")
+ *             .file(".gitignore")
+ *             .content("**}&#47;{@code *.tfstate")
+ *             .commitMessage("Managed by Terraform")
+ *             .commitAuthor("Terraform User")
+ *             .commitEmail("terraform}{@literal @}{@code example.com")
+ *             .overwriteOnCreate(true)
+ *             .autocreateBranch(true)
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Repository files can be imported using a combination of the `repo` and `file`, e.g.
@@ -85,8 +135,50 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryFile:RepositoryFile")
 public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
+     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * 
+     */
+    @Export(name="autocreateBranch", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> autocreateBranch;
+
+    /**
+     * @return Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> autocreateBranch() {
+        return Codegen.optional(this.autocreateBranch);
+    }
+    /**
+     * The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * 
+     */
+    @Export(name="autocreateBranchSourceBranch", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> autocreateBranchSourceBranch;
+
+    /**
+     * @return The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * 
+     */
+    public Output<Optional<String>> autocreateBranchSourceBranch() {
+        return Codegen.optional(this.autocreateBranchSourceBranch);
+    }
+    /**
+     * The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * 
+     */
+    @Export(name="autocreateBranchSourceSha", refs={String.class}, tree="[0]")
+    private Output<String> autocreateBranchSourceSha;
+
+    /**
+     * @return The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * 
+     */
+    public Output<String> autocreateBranchSourceSha() {
+        return this.autocreateBranchSourceSha;
+    }
+    /**
      * Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     @Export(name="branch", refs={String.class}, tree="[0]")
@@ -94,7 +186,7 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     public Output<Optional<String>> branch() {

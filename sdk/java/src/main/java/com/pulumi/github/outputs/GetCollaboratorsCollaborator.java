@@ -53,7 +53,7 @@ public final class GetCollaboratorsCollaborator {
      */
     private String organizationsUrl;
     /**
-     * @return The permission of the collaborator.
+     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
      * 
      */
     private String permission;
@@ -151,7 +151,7 @@ public final class GetCollaboratorsCollaborator {
         return this.organizationsUrl;
     }
     /**
-     * @return The permission of the collaborator.
+     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
      * 
      */
     public String permission() {

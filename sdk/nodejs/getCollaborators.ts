@@ -27,6 +27,7 @@ export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("github:index/getCollaborators:getCollaborators", {
         "affiliation": args.affiliation,
         "owner": args.owner,
+        "permission": args.permission,
         "repository": args.repository,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetCollaboratorsArgs {
      * The organization that owns the repository.
      */
     owner: string;
+    /**
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     */
+    permission?: string;
     /**
      * The name of the repository.
      */
@@ -63,6 +68,10 @@ export interface GetCollaboratorsResult {
      */
     readonly id: string;
     readonly owner: string;
+    /**
+     * The permission of the collaborator.
+     */
+    readonly permission?: string;
     readonly repository: string;
 }
 /**
@@ -96,6 +105,10 @@ export interface GetCollaboratorsOutputArgs {
      * The organization that owns the repository.
      */
     owner: pulumi.Input<string>;
+    /**
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     */
+    permission?: pulumi.Input<string>;
     /**
      * The name of the repository.
      */

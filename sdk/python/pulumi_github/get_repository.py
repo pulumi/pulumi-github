@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, archived=None, default_branch=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, templates=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, allow_update_branch=None, archived=None, default_branch=None, delete_branch_on_merge=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, templates=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -35,12 +35,18 @@ class GetRepositoryResult:
         if allow_squash_merge and not isinstance(allow_squash_merge, bool):
             raise TypeError("Expected argument 'allow_squash_merge' to be a bool")
         pulumi.set(__self__, "allow_squash_merge", allow_squash_merge)
+        if allow_update_branch and not isinstance(allow_update_branch, bool):
+            raise TypeError("Expected argument 'allow_update_branch' to be a bool")
+        pulumi.set(__self__, "allow_update_branch", allow_update_branch)
         if archived and not isinstance(archived, bool):
             raise TypeError("Expected argument 'archived' to be a bool")
         pulumi.set(__self__, "archived", archived)
         if default_branch and not isinstance(default_branch, str):
             raise TypeError("Expected argument 'default_branch' to be a str")
         pulumi.set(__self__, "default_branch", default_branch)
+        if delete_branch_on_merge and not isinstance(delete_branch_on_merge, bool):
+            raise TypeError("Expected argument 'delete_branch_on_merge' to be a bool")
+        pulumi.set(__self__, "delete_branch_on_merge", delete_branch_on_merge)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -165,6 +171,11 @@ class GetRepositoryResult:
         return pulumi.get(self, "allow_squash_merge")
 
     @property
+    @pulumi.getter(name="allowUpdateBranch")
+    def allow_update_branch(self) -> bool:
+        return pulumi.get(self, "allow_update_branch")
+
+    @property
     @pulumi.getter
     def archived(self) -> bool:
         """
@@ -179,6 +190,11 @@ class GetRepositoryResult:
         The name of the default branch of the repository.
         """
         return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter(name="deleteBranchOnMerge")
+    def delete_branch_on_merge(self) -> bool:
+        return pulumi.get(self, "delete_branch_on_merge")
 
     @property
     @pulumi.getter
@@ -428,8 +444,10 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             allow_merge_commit=self.allow_merge_commit,
             allow_rebase_merge=self.allow_rebase_merge,
             allow_squash_merge=self.allow_squash_merge,
+            allow_update_branch=self.allow_update_branch,
             archived=self.archived,
             default_branch=self.default_branch,
+            delete_branch_on_merge=self.delete_branch_on_merge,
             description=self.description,
             fork=self.fork,
             full_name=self.full_name,
@@ -498,8 +516,10 @@ def get_repository(description: Optional[str] = None,
         allow_merge_commit=pulumi.get(__ret__, 'allow_merge_commit'),
         allow_rebase_merge=pulumi.get(__ret__, 'allow_rebase_merge'),
         allow_squash_merge=pulumi.get(__ret__, 'allow_squash_merge'),
+        allow_update_branch=pulumi.get(__ret__, 'allow_update_branch'),
         archived=pulumi.get(__ret__, 'archived'),
         default_branch=pulumi.get(__ret__, 'default_branch'),
+        delete_branch_on_merge=pulumi.get(__ret__, 'delete_branch_on_merge'),
         description=pulumi.get(__ret__, 'description'),
         fork=pulumi.get(__ret__, 'fork'),
         full_name=pulumi.get(__ret__, 'full_name'),

@@ -50,10 +50,12 @@ func GetOrganization(ctx *pulumi.Context, args *GetOrganizationArgs, opts ...pul
 
 // A collection of arguments for invoking getOrganization.
 type GetOrganizationArgs struct {
-	// Whether or not to include archived repos in the `repositories` list
+	// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
 	IgnoreArchivedRepos *bool `pulumi:"ignoreArchivedRepos"`
-	// The organization's public profile name
+	// The name of the organization.
 	Name string `pulumi:"name"`
+	// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+	SummaryOnly *bool `pulumi:"summaryOnly"`
 }
 
 // A collection of values returned by getOrganization.
@@ -110,7 +112,8 @@ type GetOrganizationResult struct {
 	// Whether secret scanning is automatically enabled for new repositories.
 	SecretScanningEnabledForNewRepositories bool `pulumi:"secretScanningEnabledForNewRepositories"`
 	// Whether secret scanning push protection is automatically enabled for new repositories.
-	SecretScanningPushProtectionEnabledForNewRepositories bool `pulumi:"secretScanningPushProtectionEnabledForNewRepositories"`
+	SecretScanningPushProtectionEnabledForNewRepositories bool  `pulumi:"secretScanningPushProtectionEnabledForNewRepositories"`
+	SummaryOnly                                           *bool `pulumi:"summaryOnly"`
 	// Whether two-factor authentication is required for all members of the organization.
 	TwoFactorRequirementEnabled bool `pulumi:"twoFactorRequirementEnabled"`
 	// (`list`) A list with the members of the organization with following fields:
@@ -134,10 +137,12 @@ func GetOrganizationOutput(ctx *pulumi.Context, args GetOrganizationOutputArgs, 
 
 // A collection of arguments for invoking getOrganization.
 type GetOrganizationOutputArgs struct {
-	// Whether or not to include archived repos in the `repositories` list
+	// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
 	IgnoreArchivedRepos pulumi.BoolPtrInput `pulumi:"ignoreArchivedRepos"`
-	// The organization's public profile name
+	// The name of the organization.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+	SummaryOnly pulumi.BoolPtrInput `pulumi:"summaryOnly"`
 }
 
 func (GetOrganizationOutputArgs) ElementType() reflect.Type {
@@ -288,6 +293,10 @@ func (o GetOrganizationResultOutput) SecretScanningEnabledForNewRepositories() p
 // Whether secret scanning push protection is automatically enabled for new repositories.
 func (o GetOrganizationResultOutput) SecretScanningPushProtectionEnabledForNewRepositories() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrganizationResult) bool { return v.SecretScanningPushProtectionEnabledForNewRepositories }).(pulumi.BoolOutput)
+}
+
+func (o GetOrganizationResultOutput) SummaryOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOrganizationResult) *bool { return v.SummaryOnly }).(pulumi.BoolPtrOutput)
 }
 
 // Whether two-factor authentication is required for all members of the organization.

@@ -46,6 +46,21 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * 
+     */
+    @Import(name="permission")
+    private @Nullable String permission;
+
+    /**
+     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * 
+     */
+    public Optional<String> permission() {
+        return Optional.ofNullable(this.permission);
+    }
+
+    /**
      * The name of the repository.
      * 
      */
@@ -65,6 +80,7 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
     private GetCollaboratorsPlainArgs(GetCollaboratorsPlainArgs $) {
         this.affiliation = $.affiliation;
         this.owner = $.owner;
+        this.permission = $.permission;
         this.repository = $.repository;
     }
 
@@ -105,6 +121,17 @@ public final class GetCollaboratorsPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder owner(String owner) {
             $.owner = owner;
+            return this;
+        }
+
+        /**
+         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permission(@Nullable String permission) {
+            $.permission = permission;
             return this;
         }
 
