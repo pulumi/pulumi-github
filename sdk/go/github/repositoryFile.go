@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// ### Existing Branch
 // ```go
 // package main
 //
@@ -55,6 +56,46 @@ import (
 //
 // ```
 //
+// ### Auto Created Branch
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := github.NewRepository(ctx, "foo", &github.RepositoryArgs{
+//				Name:     pulumi.String("tf-acc-test-%s"),
+//				AutoInit: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryFile(ctx, "foo", &github.RepositoryFileArgs{
+//				Repository:        foo.Name,
+//				Branch:            pulumi.String("does/not/exist"),
+//				File:              pulumi.String(".gitignore"),
+//				Content:           pulumi.String("**/*.tfstate"),
+//				CommitMessage:     pulumi.String("Managed by Terraform"),
+//				CommitAuthor:      pulumi.String("Terraform User"),
+//				CommitEmail:       pulumi.String("terraform@example.com"),
+//				OverwriteOnCreate: pulumi.Bool(true),
+//				AutocreateBranch:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Repository files can be imported using a combination of the `repo` and `file`, e.g.
@@ -70,8 +111,14 @@ import (
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 
+	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	AutocreateBranch pulumi.BoolPtrOutput `pulumi:"autocreateBranch"`
+	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	AutocreateBranchSourceBranch pulumi.StringPtrOutput `pulumi:"autocreateBranchSourceBranch"`
+	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	AutocreateBranchSourceSha pulumi.StringOutput `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrOutput `pulumi:"commitAuthor"`
@@ -134,8 +181,14 @@ func GetRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryFile resources.
 type repositoryFileState struct {
+	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	AutocreateBranch *bool `pulumi:"autocreateBranch"`
+	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	AutocreateBranchSourceBranch *string `pulumi:"autocreateBranchSourceBranch"`
+	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor *string `pulumi:"commitAuthor"`
@@ -160,8 +213,14 @@ type repositoryFileState struct {
 }
 
 type RepositoryFileState struct {
+	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	AutocreateBranch pulumi.BoolPtrInput
+	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	AutocreateBranchSourceBranch pulumi.StringPtrInput
+	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	AutocreateBranchSourceSha pulumi.StringPtrInput
 	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrInput
@@ -190,8 +249,14 @@ func (RepositoryFileState) ElementType() reflect.Type {
 }
 
 type repositoryFileArgs struct {
+	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	AutocreateBranch *bool `pulumi:"autocreateBranch"`
+	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	AutocreateBranchSourceBranch *string `pulumi:"autocreateBranchSourceBranch"`
+	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch *string `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor *string `pulumi:"commitAuthor"`
@@ -211,8 +276,14 @@ type repositoryFileArgs struct {
 
 // The set of arguments for constructing a RepositoryFile resource.
 type RepositoryFileArgs struct {
+	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	AutocreateBranch pulumi.BoolPtrInput
+	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	AutocreateBranchSourceBranch pulumi.StringPtrInput
+	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	AutocreateBranchSourceSha pulumi.StringPtrInput
 	// Git branch (defaults to the repository's default branch).
-	// The branch must already exist, it will not be created if it does not already exist.
+	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 	Branch pulumi.StringPtrInput
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrInput
@@ -317,8 +388,23 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+func (o RepositoryFileOutput) AutocreateBranch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.AutocreateBranch }).(pulumi.BoolPtrOutput)
+}
+
+// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+func (o RepositoryFileOutput) AutocreateBranchSourceBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.AutocreateBranchSourceBranch }).(pulumi.StringPtrOutput)
+}
+
+// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+func (o RepositoryFileOutput) AutocreateBranchSourceSha() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.AutocreateBranchSourceSha }).(pulumi.StringOutput)
+}
+
 // Git branch (defaults to the repository's default branch).
-// The branch must already exist, it will not be created if it does not already exist.
+// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
 func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
 }

@@ -64,16 +64,22 @@ namespace Pulumi.Github
     public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether or not to include archived repos in the `repositories` list
+        /// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
         /// </summary>
         [Input("ignoreArchivedRepos")]
         public bool? IgnoreArchivedRepos { get; set; }
 
         /// <summary>
-        /// The organization's public profile name
+        /// The name of the organization.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+        /// </summary>
+        [Input("summaryOnly")]
+        public bool? SummaryOnly { get; set; }
 
         public GetOrganizationArgs()
         {
@@ -84,16 +90,22 @@ namespace Pulumi.Github
     public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether or not to include archived repos in the `repositories` list
+        /// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
         /// </summary>
         [Input("ignoreArchivedRepos")]
         public Input<bool>? IgnoreArchivedRepos { get; set; }
 
         /// <summary>
-        /// The organization's public profile name
+        /// The name of the organization.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+        /// </summary>
+        [Input("summaryOnly")]
+        public Input<bool>? SummaryOnly { get; set; }
 
         public GetOrganizationInvokeArgs()
         {
@@ -206,6 +218,7 @@ namespace Pulumi.Github
         /// Whether secret scanning push protection is automatically enabled for new repositories.
         /// </summary>
         public readonly bool SecretScanningPushProtectionEnabledForNewRepositories;
+        public readonly bool? SummaryOnly;
         /// <summary>
         /// Whether two-factor authentication is required for all members of the organization.
         /// </summary>
@@ -273,6 +286,8 @@ namespace Pulumi.Github
 
             bool secretScanningPushProtectionEnabledForNewRepositories,
 
+            bool? summaryOnly,
+
             bool twoFactorRequirementEnabled,
 
             ImmutableArray<ImmutableDictionary<string, string>> users,
@@ -305,6 +320,7 @@ namespace Pulumi.Github
             Repositories = repositories;
             SecretScanningEnabledForNewRepositories = secretScanningEnabledForNewRepositories;
             SecretScanningPushProtectionEnabledForNewRepositories = secretScanningPushProtectionEnabledForNewRepositories;
+            SummaryOnly = summaryOnly;
             TwoFactorRequirementEnabled = twoFactorRequirementEnabled;
             Users = users;
             WebCommitSignoffRequired = webCommitSignoffRequired;

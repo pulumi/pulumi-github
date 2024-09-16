@@ -55,6 +55,8 @@ type GetCollaboratorsArgs struct {
 	Affiliation *string `pulumi:"affiliation"`
 	// The organization that owns the repository.
 	Owner string `pulumi:"owner"`
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+	Permission *string `pulumi:"permission"`
 	// The name of the repository.
 	Repository string `pulumi:"repository"`
 }
@@ -65,9 +67,11 @@ type GetCollaboratorsResult struct {
 	// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
 	Collaborators []GetCollaboratorsCollaborator `pulumi:"collaborators"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Owner      string `pulumi:"owner"`
-	Repository string `pulumi:"repository"`
+	Id    string `pulumi:"id"`
+	Owner string `pulumi:"owner"`
+	// The permission of the collaborator.
+	Permission *string `pulumi:"permission"`
+	Repository string  `pulumi:"repository"`
 }
 
 func GetCollaboratorsOutput(ctx *pulumi.Context, args GetCollaboratorsOutputArgs, opts ...pulumi.InvokeOption) GetCollaboratorsResultOutput {
@@ -89,6 +93,8 @@ type GetCollaboratorsOutputArgs struct {
 	Affiliation pulumi.StringPtrInput `pulumi:"affiliation"`
 	// The organization that owns the repository.
 	Owner pulumi.StringInput `pulumi:"owner"`
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
 	// The name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
@@ -128,6 +134,11 @@ func (o GetCollaboratorsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetCollaboratorsResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The permission of the collaborator.
+func (o GetCollaboratorsResultOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCollaboratorsResult) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCollaboratorsResultOutput) Repository() pulumi.StringOutput {

@@ -15,6 +15,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// ### Existing Branch
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,37 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// ### Auto Created Branch
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Github.Repository("foo", new()
+    ///     {
+    ///         Name = "tf-acc-test-%s",
+    ///         AutoInit = true,
+    ///     });
+    /// 
+    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
+    ///     {
+    ///         Repository = foo.Name,
+    ///         Branch = "does/not/exist",
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         CommitMessage = "Managed by Terraform",
+    ///         CommitAuthor = "Terraform User",
+    ///         CommitEmail = "terraform@example.com",
+    ///         OverwriteOnCreate = true,
+    ///         AutocreateBranch = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Repository files can be imported using a combination of the `repo` and `file`, e.g.
@@ -61,8 +93,26 @@ namespace Pulumi.Github
     public partial class RepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// </summary>
+        [Output("autocreateBranch")]
+        public Output<bool?> AutocreateBranch { get; private set; } = null!;
+
+        /// <summary>
+        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// </summary>
+        [Output("autocreateBranchSourceBranch")]
+        public Output<string?> AutocreateBranchSourceBranch { get; private set; } = null!;
+
+        /// <summary>
+        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// </summary>
+        [Output("autocreateBranchSourceSha")]
+        public Output<string> AutocreateBranchSourceSha { get; private set; } = null!;
+
+        /// <summary>
         /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will not be created if it does not already exist.
+        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Output("branch")]
         public Output<string?> Branch { get; private set; } = null!;
@@ -174,8 +224,26 @@ namespace Pulumi.Github
     public sealed class RepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// </summary>
+        [Input("autocreateBranch")]
+        public Input<bool>? AutocreateBranch { get; set; }
+
+        /// <summary>
+        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// </summary>
+        [Input("autocreateBranchSourceBranch")]
+        public Input<string>? AutocreateBranchSourceBranch { get; set; }
+
+        /// <summary>
+        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// </summary>
+        [Input("autocreateBranchSourceSha")]
+        public Input<string>? AutocreateBranchSourceSha { get; set; }
+
+        /// <summary>
         /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will not be created if it does not already exist.
+        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -231,8 +299,26 @@ namespace Pulumi.Github
     public sealed class RepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// </summary>
+        [Input("autocreateBranch")]
+        public Input<bool>? AutocreateBranch { get; set; }
+
+        /// <summary>
+        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// </summary>
+        [Input("autocreateBranchSourceBranch")]
+        public Input<string>? AutocreateBranchSourceBranch { get; set; }
+
+        /// <summary>
+        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// </summary>
+        [Input("autocreateBranchSourceSha")]
+        public Input<string>? AutocreateBranchSourceSha { get; set; }
+
+        /// <summary>
         /// Git branch (defaults to the repository's default branch).
-        /// The branch must already exist, it will not be created if it does not already exist.
+        /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }

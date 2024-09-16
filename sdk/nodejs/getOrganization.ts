@@ -24,6 +24,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invoke("github:index/getOrganization:getOrganization", {
         "ignoreArchivedRepos": args.ignoreArchivedRepos,
         "name": args.name,
+        "summaryOnly": args.summaryOnly,
     }, opts);
 }
 
@@ -32,13 +33,17 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
  */
 export interface GetOrganizationArgs {
     /**
-     * Whether or not to include archived repos in the `repositories` list
+     * Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      */
     ignoreArchivedRepos?: boolean;
     /**
-     * The organization's public profile name
+     * The name of the organization.
      */
     name: string;
+    /**
+     * Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     */
+    summaryOnly?: boolean;
 }
 
 /**
@@ -148,6 +153,7 @@ export interface GetOrganizationResult {
      * Whether secret scanning push protection is automatically enabled for new repositories.
      */
     readonly secretScanningPushProtectionEnabledForNewRepositories: boolean;
+    readonly summaryOnly?: boolean;
     /**
      * Whether two-factor authentication is required for all members of the organization.
      */
@@ -184,11 +190,15 @@ export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pu
  */
 export interface GetOrganizationOutputArgs {
     /**
-     * Whether or not to include archived repos in the `repositories` list
+     * Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      */
     ignoreArchivedRepos?: pulumi.Input<boolean>;
     /**
-     * The organization's public profile name
+     * The name of the organization.
      */
     name: pulumi.Input<string>;
+    /**
+     * Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     */
+    summaryOnly?: pulumi.Input<boolean>;
 }

@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Existing Branch
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -27,6 +28,28 @@ import * as utilities from "./utilities";
  *     commitAuthor: "Terraform User",
  *     commitEmail: "terraform@example.com",
  *     overwriteOnCreate: true,
+ * });
+ * ```
+ *
+ * ### Auto Created Branch
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const foo = new github.Repository("foo", {
+ *     name: "tf-acc-test-%s",
+ *     autoInit: true,
+ * });
+ * const fooRepositoryFile = new github.RepositoryFile("foo", {
+ *     repository: foo.name,
+ *     branch: "does/not/exist",
+ *     file: ".gitignore",
+ *     content: "**&#47;*.tfstate",
+ *     commitMessage: "Managed by Terraform",
+ *     commitAuthor: "Terraform User",
+ *     commitEmail: "terraform@example.com",
+ *     overwriteOnCreate: true,
+ *     autocreateBranch: true,
  * });
  * ```
  *
@@ -72,8 +95,20 @@ export class RepositoryFile extends pulumi.CustomResource {
     }
 
     /**
+     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     */
+    public readonly autocreateBranch!: pulumi.Output<boolean | undefined>;
+    /**
+     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     */
+    public readonly autocreateBranchSourceBranch!: pulumi.Output<string | undefined>;
+    /**
+     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     */
+    public readonly autocreateBranchSourceSha!: pulumi.Output<string>;
+    /**
      * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     public readonly branch!: pulumi.Output<string | undefined>;
     /**
@@ -130,6 +165,9 @@ export class RepositoryFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryFileState | undefined;
+            resourceInputs["autocreateBranch"] = state ? state.autocreateBranch : undefined;
+            resourceInputs["autocreateBranchSourceBranch"] = state ? state.autocreateBranchSourceBranch : undefined;
+            resourceInputs["autocreateBranchSourceSha"] = state ? state.autocreateBranchSourceSha : undefined;
             resourceInputs["branch"] = state ? state.branch : undefined;
             resourceInputs["commitAuthor"] = state ? state.commitAuthor : undefined;
             resourceInputs["commitEmail"] = state ? state.commitEmail : undefined;
@@ -152,6 +190,9 @@ export class RepositoryFile extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
+            resourceInputs["autocreateBranch"] = args ? args.autocreateBranch : undefined;
+            resourceInputs["autocreateBranchSourceBranch"] = args ? args.autocreateBranchSourceBranch : undefined;
+            resourceInputs["autocreateBranchSourceSha"] = args ? args.autocreateBranchSourceSha : undefined;
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["commitAuthor"] = args ? args.commitAuthor : undefined;
             resourceInputs["commitEmail"] = args ? args.commitEmail : undefined;
@@ -174,8 +215,20 @@ export class RepositoryFile extends pulumi.CustomResource {
  */
 export interface RepositoryFileState {
     /**
+     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     */
+    autocreateBranch?: pulumi.Input<boolean>;
+    /**
+     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     */
+    autocreateBranchSourceBranch?: pulumi.Input<string>;
+    /**
+     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     */
+    autocreateBranchSourceSha?: pulumi.Input<string>;
+    /**
      * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     branch?: pulumi.Input<string>;
     /**
@@ -225,8 +278,20 @@ export interface RepositoryFileState {
  */
 export interface RepositoryFileArgs {
     /**
+     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     */
+    autocreateBranch?: pulumi.Input<boolean>;
+    /**
+     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     */
+    autocreateBranchSourceBranch?: pulumi.Input<string>;
+    /**
+     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     */
+    autocreateBranchSourceSha?: pulumi.Input<string>;
+    /**
      * Git branch (defaults to the repository's default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
     branch?: pulumi.Input<string>;
     /**

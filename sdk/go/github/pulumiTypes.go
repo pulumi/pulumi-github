@@ -11192,7 +11192,7 @@ type GetCollaboratorsCollaborator struct {
 	Login string `pulumi:"login"`
 	// The GitHub API URL for the collaborator's organizations.
 	OrganizationsUrl string `pulumi:"organizationsUrl"`
-	// The permission of the collaborator.
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
 	Permission string `pulumi:"permission"`
 	// The GitHub API URL for the collaborator's received events.
 	ReceivedEventsUrl string `pulumi:"receivedEventsUrl"`
@@ -11238,7 +11238,7 @@ type GetCollaboratorsCollaboratorArgs struct {
 	Login pulumi.StringInput `pulumi:"login"`
 	// The GitHub API URL for the collaborator's organizations.
 	OrganizationsUrl pulumi.StringInput `pulumi:"organizationsUrl"`
-	// The permission of the collaborator.
+	// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
 	Permission pulumi.StringInput `pulumi:"permission"`
 	// The GitHub API URL for the collaborator's received events.
 	ReceivedEventsUrl pulumi.StringInput `pulumi:"receivedEventsUrl"`
@@ -11347,7 +11347,7 @@ func (o GetCollaboratorsCollaboratorOutput) OrganizationsUrl() pulumi.StringOutp
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.OrganizationsUrl }).(pulumi.StringOutput)
 }
 
-// The permission of the collaborator.
+// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
 func (o GetCollaboratorsCollaboratorOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCollaboratorsCollaborator) string { return v.Permission }).(pulumi.StringOutput)
 }

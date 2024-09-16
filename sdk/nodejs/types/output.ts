@@ -426,7 +426,7 @@ export interface GetCollaboratorsCollaborator {
      */
     organizationsUrl: string;
     /**
-     * The permission of the collaborator.
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
      */
     permission: string;
     /**

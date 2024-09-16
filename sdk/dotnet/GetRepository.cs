@@ -145,6 +145,7 @@ namespace Pulumi.Github
         /// Whether the repository allows squash merges.
         /// </summary>
         public readonly bool AllowSquashMerge;
+        public readonly bool AllowUpdateBranch;
         /// <summary>
         /// Whether the repository is archived.
         /// </summary>
@@ -153,6 +154,7 @@ namespace Pulumi.Github
         /// The name of the default branch of the repository.
         /// </summary>
         public readonly string DefaultBranch;
+        public readonly bool DeleteBranchOnMerge;
         /// <summary>
         /// A description of the license.
         /// </summary>
@@ -281,9 +283,13 @@ namespace Pulumi.Github
 
             bool allowSquashMerge,
 
+            bool allowUpdateBranch,
+
             bool archived,
 
             string defaultBranch,
+
+            bool deleteBranchOnMerge,
 
             string? description,
 
@@ -349,8 +355,10 @@ namespace Pulumi.Github
             AllowMergeCommit = allowMergeCommit;
             AllowRebaseMerge = allowRebaseMerge;
             AllowSquashMerge = allowSquashMerge;
+            AllowUpdateBranch = allowUpdateBranch;
             Archived = archived;
             DefaultBranch = defaultBranch;
+            DeleteBranchOnMerge = deleteBranchOnMerge;
             Description = description;
             Fork = fork;
             FullName = fullName;
