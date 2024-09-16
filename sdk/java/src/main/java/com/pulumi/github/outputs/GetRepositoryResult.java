@@ -38,6 +38,7 @@ public final class GetRepositoryResult {
      * 
      */
     private Boolean allowSquashMerge;
+    private Boolean allowUpdateBranch;
     /**
      * @return Whether the repository is archived.
      * 
@@ -48,6 +49,7 @@ public final class GetRepositoryResult {
      * 
      */
     private String defaultBranch;
+    private Boolean deleteBranchOnMerge;
     /**
      * @return A description of the license.
      * 
@@ -224,6 +226,9 @@ public final class GetRepositoryResult {
     public Boolean allowSquashMerge() {
         return this.allowSquashMerge;
     }
+    public Boolean allowUpdateBranch() {
+        return this.allowUpdateBranch;
+    }
     /**
      * @return Whether the repository is archived.
      * 
@@ -237,6 +242,9 @@ public final class GetRepositoryResult {
      */
     public String defaultBranch() {
         return this.defaultBranch;
+    }
+    public Boolean deleteBranchOnMerge() {
+        return this.deleteBranchOnMerge;
     }
     /**
      * @return A description of the license.
@@ -458,8 +466,10 @@ public final class GetRepositoryResult {
         private Boolean allowMergeCommit;
         private Boolean allowRebaseMerge;
         private Boolean allowSquashMerge;
+        private Boolean allowUpdateBranch;
         private Boolean archived;
         private String defaultBranch;
+        private Boolean deleteBranchOnMerge;
         private @Nullable String description;
         private Boolean fork;
         private String fullName;
@@ -497,8 +507,10 @@ public final class GetRepositoryResult {
     	      this.allowMergeCommit = defaults.allowMergeCommit;
     	      this.allowRebaseMerge = defaults.allowRebaseMerge;
     	      this.allowSquashMerge = defaults.allowSquashMerge;
+    	      this.allowUpdateBranch = defaults.allowUpdateBranch;
     	      this.archived = defaults.archived;
     	      this.defaultBranch = defaults.defaultBranch;
+    	      this.deleteBranchOnMerge = defaults.deleteBranchOnMerge;
     	      this.description = defaults.description;
     	      this.fork = defaults.fork;
     	      this.fullName = defaults.fullName;
@@ -564,6 +576,14 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder allowUpdateBranch(Boolean allowUpdateBranch) {
+            if (allowUpdateBranch == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowUpdateBranch");
+            }
+            this.allowUpdateBranch = allowUpdateBranch;
+            return this;
+        }
+        @CustomType.Setter
         public Builder archived(Boolean archived) {
             if (archived == null) {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "archived");
@@ -577,6 +597,14 @@ public final class GetRepositoryResult {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "defaultBranch");
             }
             this.defaultBranch = defaultBranch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deleteBranchOnMerge(Boolean deleteBranchOnMerge) {
+            if (deleteBranchOnMerge == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "deleteBranchOnMerge");
+            }
+            this.deleteBranchOnMerge = deleteBranchOnMerge;
             return this;
         }
         @CustomType.Setter
@@ -833,8 +861,10 @@ public final class GetRepositoryResult {
             _resultValue.allowMergeCommit = allowMergeCommit;
             _resultValue.allowRebaseMerge = allowRebaseMerge;
             _resultValue.allowSquashMerge = allowSquashMerge;
+            _resultValue.allowUpdateBranch = allowUpdateBranch;
             _resultValue.archived = archived;
             _resultValue.defaultBranch = defaultBranch;
+            _resultValue.deleteBranchOnMerge = deleteBranchOnMerge;
             _resultValue.description = description;
             _resultValue.fork = fork;
             _resultValue.fullName = fullName;

@@ -17,8 +17,53 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     public static final RepositoryFileState Empty = new RepositoryFileState();
 
     /**
+     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * 
+     */
+    @Import(name="autocreateBranch")
+    private @Nullable Output<Boolean> autocreateBranch;
+
+    /**
+     * @return Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> autocreateBranch() {
+        return Optional.ofNullable(this.autocreateBranch);
+    }
+
+    /**
+     * The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * 
+     */
+    @Import(name="autocreateBranchSourceBranch")
+    private @Nullable Output<String> autocreateBranchSourceBranch;
+
+    /**
+     * @return The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * 
+     */
+    public Optional<Output<String>> autocreateBranchSourceBranch() {
+        return Optional.ofNullable(this.autocreateBranchSourceBranch);
+    }
+
+    /**
+     * The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * 
+     */
+    @Import(name="autocreateBranchSourceSha")
+    private @Nullable Output<String> autocreateBranchSourceSha;
+
+    /**
+     * @return The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * 
+     */
+    public Optional<Output<String>> autocreateBranchSourceSha() {
+        return Optional.ofNullable(this.autocreateBranchSourceSha);
+    }
+
+    /**
      * Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     @Import(name="branch")
@@ -26,7 +71,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return Git branch (defaults to the repository&#39;s default branch).
-     * The branch must already exist, it will not be created if it does not already exist.
+     * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
     public Optional<Output<String>> branch() {
@@ -186,6 +231,9 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     private RepositoryFileState() {}
 
     private RepositoryFileState(RepositoryFileState $) {
+        this.autocreateBranch = $.autocreateBranch;
+        this.autocreateBranchSourceBranch = $.autocreateBranchSourceBranch;
+        this.autocreateBranchSourceSha = $.autocreateBranchSourceSha;
         this.branch = $.branch;
         this.commitAuthor = $.commitAuthor;
         this.commitEmail = $.commitEmail;
@@ -218,8 +266,71 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param autocreateBranch Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranch(@Nullable Output<Boolean> autocreateBranch) {
+            $.autocreateBranch = autocreateBranch;
+            return this;
+        }
+
+        /**
+         * @param autocreateBranch Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranch(Boolean autocreateBranch) {
+            return autocreateBranch(Output.of(autocreateBranch));
+        }
+
+        /**
+         * @param autocreateBranchSourceBranch The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranchSourceBranch(@Nullable Output<String> autocreateBranchSourceBranch) {
+            $.autocreateBranchSourceBranch = autocreateBranchSourceBranch;
+            return this;
+        }
+
+        /**
+         * @param autocreateBranchSourceBranch The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranchSourceBranch(String autocreateBranchSourceBranch) {
+            return autocreateBranchSourceBranch(Output.of(autocreateBranchSourceBranch));
+        }
+
+        /**
+         * @param autocreateBranchSourceSha The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranchSourceSha(@Nullable Output<String> autocreateBranchSourceSha) {
+            $.autocreateBranchSourceSha = autocreateBranchSourceSha;
+            return this;
+        }
+
+        /**
+         * @param autocreateBranchSourceSha The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autocreateBranchSourceSha(String autocreateBranchSourceSha) {
+            return autocreateBranchSourceSha(Output.of(autocreateBranchSourceSha));
+        }
+
+        /**
          * @param branch Git branch (defaults to the repository&#39;s default branch).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
          * 
          * @return builder
          * 
@@ -231,7 +342,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param branch Git branch (defaults to the repository&#39;s default branch).
-         * The branch must already exist, it will not be created if it does not already exist.
+         * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
          * 
          * @return builder
          * 

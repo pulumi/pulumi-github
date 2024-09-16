@@ -17,14 +17,14 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetOrganizationPlainArgs Empty = new GetOrganizationPlainArgs();
 
     /**
-     * Whether or not to include archived repos in the `repositories` list
+     * Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      * 
      */
     @Import(name="ignoreArchivedRepos")
     private @Nullable Boolean ignoreArchivedRepos;
 
     /**
-     * @return Whether or not to include archived repos in the `repositories` list
+     * @return Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
      * 
      */
     public Optional<Boolean> ignoreArchivedRepos() {
@@ -32,18 +32,33 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The organization&#39;s public profile name
+     * The name of the organization.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The organization&#39;s public profile name
+     * @return The name of the organization.
      * 
      */
     public String name() {
         return this.name;
+    }
+
+    /**
+     * Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     * 
+     */
+    @Import(name="summaryOnly")
+    private @Nullable Boolean summaryOnly;
+
+    /**
+     * @return Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> summaryOnly() {
+        return Optional.ofNullable(this.summaryOnly);
     }
 
     private GetOrganizationPlainArgs() {}
@@ -51,6 +66,7 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
     private GetOrganizationPlainArgs(GetOrganizationPlainArgs $) {
         this.ignoreArchivedRepos = $.ignoreArchivedRepos;
         this.name = $.name;
+        this.summaryOnly = $.summaryOnly;
     }
 
     public static Builder builder() {
@@ -72,7 +88,7 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list
+         * @param ignoreArchivedRepos Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -83,13 +99,24 @@ public final class GetOrganizationPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The organization&#39;s public profile name
+         * @param name The name of the organization.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param summaryOnly Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder summaryOnly(@Nullable Boolean summaryOnly) {
+            $.summaryOnly = summaryOnly;
             return this;
         }
 

@@ -47,6 +47,21 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
+     * Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * 
+     */
+    @Import(name="permission")
+    private @Nullable Output<String> permission;
+
+    /**
+     * @return Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+     * 
+     */
+    public Optional<Output<String>> permission() {
+        return Optional.ofNullable(this.permission);
+    }
+
+    /**
      * The name of the repository.
      * 
      */
@@ -66,6 +81,7 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
     private GetCollaboratorsArgs(GetCollaboratorsArgs $) {
         this.affiliation = $.affiliation;
         this.owner = $.owner;
+        this.permission = $.permission;
         this.repository = $.repository;
     }
 
@@ -127,6 +143,27 @@ public final class GetCollaboratorsArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
+        }
+
+        /**
+         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permission(@Nullable Output<String> permission) {
+            $.permission = permission;
+            return this;
+        }
+
+        /**
+         * @param permission Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permission(String permission) {
+            return permission(Output.of(permission));
         }
 
         /**

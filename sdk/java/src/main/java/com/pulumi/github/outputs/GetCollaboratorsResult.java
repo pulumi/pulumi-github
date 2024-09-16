@@ -26,6 +26,11 @@ public final class GetCollaboratorsResult {
      */
     private String id;
     private String owner;
+    /**
+     * @return The permission of the collaborator.
+     * 
+     */
+    private @Nullable String permission;
     private String repository;
 
     private GetCollaboratorsResult() {}
@@ -49,6 +54,13 @@ public final class GetCollaboratorsResult {
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return The permission of the collaborator.
+     * 
+     */
+    public Optional<String> permission() {
+        return Optional.ofNullable(this.permission);
+    }
     public String repository() {
         return this.repository;
     }
@@ -66,6 +78,7 @@ public final class GetCollaboratorsResult {
         private List<GetCollaboratorsCollaborator> collaborators;
         private String id;
         private String owner;
+        private @Nullable String permission;
         private String repository;
         public Builder() {}
         public Builder(GetCollaboratorsResult defaults) {
@@ -74,6 +87,7 @@ public final class GetCollaboratorsResult {
     	      this.collaborators = defaults.collaborators;
     	      this.id = defaults.id;
     	      this.owner = defaults.owner;
+    	      this.permission = defaults.permission;
     	      this.repository = defaults.repository;
         }
 
@@ -111,6 +125,12 @@ public final class GetCollaboratorsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder permission(@Nullable String permission) {
+
+            this.permission = permission;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repository(String repository) {
             if (repository == null) {
               throw new MissingRequiredPropertyException("GetCollaboratorsResult", "repository");
@@ -124,6 +144,7 @@ public final class GetCollaboratorsResult {
             _resultValue.collaborators = collaborators;
             _resultValue.id = id;
             _resultValue.owner = owner;
+            _resultValue.permission = permission;
             _resultValue.repository = repository;
             return _resultValue;
         }
