@@ -55,13 +55,19 @@ type GetActionsOrganizationVariablesResult struct {
 }
 
 func GetActionsOrganizationVariablesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationVariablesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationVariablesResult, error) {
-		r, err := GetActionsOrganizationVariables(ctx, opts...)
-		var s GetActionsOrganizationVariablesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationVariablesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetActionsOrganizationVariablesResult
+		secret, err := ctx.InvokePackageRaw("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", nil, &rv, "", opts...)
+		if err != nil {
+			return GetActionsOrganizationVariablesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetActionsOrganizationVariablesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetActionsOrganizationVariablesResultOutput), nil
+		}
+		return output, nil
 	}).(GetActionsOrganizationVariablesResultOutput)
 }
 

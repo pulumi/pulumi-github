@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDependabotOrganizationSecrets(opts?: pulumi.InvokeOptions): Promise<GetDependabotOrganizationSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetDependabotOrganizationSecretsResult {
  * ```
  */
 export function getDependabotOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotOrganizationSecretsResult> {
-    return pulumi.output(getDependabotOrganizationSecrets(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", {
+    }, opts);
 }

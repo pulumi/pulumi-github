@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDependabotOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetDependabotOrganizationPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetDependabotOrganizationPublicKeyResult {
  * ```
  */
 export function getDependabotOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotOrganizationPublicKeyResult> {
-    return pulumi.output(getDependabotOrganizationPublicKey(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", {
+    }, opts);
 }

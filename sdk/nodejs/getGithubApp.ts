@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getGithubApp(args: GetGithubAppArgs, opts?: pulumi.InvokeOptions): Promise<GetGithubAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getGithubApp:getGithubApp", {
         "slug": args.slug,
@@ -73,7 +72,10 @@ export interface GetGithubAppResult {
  * ```
  */
 export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGithubAppResult> {
-    return pulumi.output(args).apply((a: any) => getGithubApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getGithubApp:getGithubApp", {
+        "slug": args.slug,
+    }, opts);
 }
 
 /**

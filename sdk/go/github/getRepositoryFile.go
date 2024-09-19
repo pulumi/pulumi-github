@@ -86,14 +86,20 @@ type LookupRepositoryFileResult struct {
 
 func LookupRepositoryFileOutput(ctx *pulumi.Context, args LookupRepositoryFileOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryFileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryFileResult, error) {
+		ApplyT(func(v interface{}) (LookupRepositoryFileResultOutput, error) {
 			args := v.(LookupRepositoryFileArgs)
-			r, err := LookupRepositoryFile(ctx, &args, opts...)
-			var s LookupRepositoryFileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRepositoryFileResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryFile:getRepositoryFile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRepositoryFileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRepositoryFileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRepositoryFileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRepositoryFileResultOutput)
 }
 

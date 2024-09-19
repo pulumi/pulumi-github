@@ -81,14 +81,20 @@ type GetRepositoriesResult struct {
 
 func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoriesResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoriesResultOutput, error) {
 			args := v.(GetRepositoriesArgs)
-			r, err := GetRepositories(ctx, &args, opts...)
-			var s GetRepositoriesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoriesResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositories:getRepositories", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoriesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoriesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoriesResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoriesResultOutput)
 }
 

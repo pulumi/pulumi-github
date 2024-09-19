@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBranchProtectionRules(args: GetBranchProtectionRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchProtectionRulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getBranchProtectionRules:getBranchProtectionRules", {
         "repository": args.repository,
@@ -67,7 +66,10 @@ export interface GetBranchProtectionRulesResult {
  * ```
  */
 export function getBranchProtectionRulesOutput(args: GetBranchProtectionRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchProtectionRulesResult> {
-    return pulumi.output(args).apply((a: any) => getBranchProtectionRules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getBranchProtectionRules:getBranchProtectionRules", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

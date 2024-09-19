@@ -71,14 +71,20 @@ type GetRepositoryBranchesResult struct {
 
 func GetRepositoryBranchesOutput(ctx *pulumi.Context, args GetRepositoryBranchesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryBranchesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoryBranchesResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoryBranchesResultOutput, error) {
 			args := v.(GetRepositoryBranchesArgs)
-			r, err := GetRepositoryBranches(ctx, &args, opts...)
-			var s GetRepositoryBranchesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoryBranchesResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryBranches:getRepositoryBranches", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoryBranchesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoryBranchesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoryBranchesResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoryBranchesResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEnterprise(args: GetEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getEnterprise:getEnterprise", {
         "slug": args.slug,
@@ -84,7 +83,10 @@ export interface GetEnterpriseResult {
  * ```
  */
 export function getEnterpriseOutput(args: GetEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseResult> {
-    return pulumi.output(args).apply((a: any) => getEnterprise(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getEnterprise:getEnterprise", {
+        "slug": args.slug,
+    }, opts);
 }
 
 /**

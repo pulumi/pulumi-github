@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsRegistrationToken(args: GetActionsRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsRegistrationTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsRegistrationToken:getActionsRegistrationToken", {
         "repository": args.repository,
@@ -69,7 +68,10 @@ export interface GetActionsRegistrationTokenResult {
  * ```
  */
 export function getActionsRegistrationTokenOutput(args: GetActionsRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRegistrationTokenResult> {
-    return pulumi.output(args).apply((a: any) => getActionsRegistrationToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsRegistrationToken:getActionsRegistrationToken", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

@@ -31,7 +31,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTree(args: GetTreeArgs, opts?: pulumi.InvokeOptions): Promise<GetTreeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getTree:getTree", {
         "recursive": args.recursive,
@@ -99,7 +98,12 @@ export interface GetTreeResult {
  * ```
  */
 export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTreeResult> {
-    return pulumi.output(args).apply((a: any) => getTree(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getTree:getTree", {
+        "recursive": args.recursive,
+        "repository": args.repository,
+        "treeSha": args.treeSha,
+    }, opts);
 }
 
 /**

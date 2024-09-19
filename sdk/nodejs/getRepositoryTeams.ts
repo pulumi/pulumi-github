@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getRepositoryTeams(args?: GetRepositoryTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryTeamsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryTeams:getRepositoryTeams", {
         "fullName": args.fullName,
@@ -77,7 +76,12 @@ export interface GetRepositoryTeamsResult {
  * ```
  */
 export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryTeamsResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryTeams(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryTeams:getRepositoryTeams", {
+        "fullName": args.fullName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

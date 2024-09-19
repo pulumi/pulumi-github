@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getOrganizationWebhooks(opts?: pulumi.InvokeOptions): Promise<GetOrganizationWebhooksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationWebhooks:getOrganizationWebhooks", {
     }, opts);
@@ -56,5 +55,7 @@ export interface GetOrganizationWebhooksResult {
  * ```
  */
 export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationWebhooksResult> {
-    return pulumi.output(getOrganizationWebhooks(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationWebhooks:getOrganizationWebhooks", {
+    }, opts);
 }

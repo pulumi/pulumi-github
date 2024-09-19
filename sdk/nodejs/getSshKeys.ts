@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSshKeys(opts?: pulumi.InvokeOptions): Promise<GetSshKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getSshKeys:getSshKeys", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetSshKeysResult {
  * ```
  */
 export function getSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
-    return pulumi.output(getSshKeys(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getSshKeys:getSshKeys", {
+    }, opts);
 }

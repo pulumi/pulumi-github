@@ -76,14 +76,20 @@ type GetAppTokenResult struct {
 
 func GetAppTokenOutput(ctx *pulumi.Context, args GetAppTokenOutputArgs, opts ...pulumi.InvokeOption) GetAppTokenResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppTokenResult, error) {
+		ApplyT(func(v interface{}) (GetAppTokenResultOutput, error) {
 			args := v.(GetAppTokenArgs)
-			r, err := GetAppToken(ctx, &args, opts...)
-			var s GetAppTokenResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppTokenResult
+			secret, err := ctx.InvokePackageRaw("github:index/getAppToken:getAppToken", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppTokenResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppTokenResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppTokenResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppTokenResultOutput)
 }
 

@@ -65,14 +65,20 @@ type GetRepositoryDeployKeysResult struct {
 
 func GetRepositoryDeployKeysOutput(ctx *pulumi.Context, args GetRepositoryDeployKeysOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryDeployKeysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoryDeployKeysResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoryDeployKeysResultOutput, error) {
 			args := v.(GetRepositoryDeployKeysArgs)
-			r, err := GetRepositoryDeployKeys(ctx, &args, opts...)
-			var s GetRepositoryDeployKeysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoryDeployKeysResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoryDeployKeysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoryDeployKeysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoryDeployKeysResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoryDeployKeysResultOutput)
 }
 

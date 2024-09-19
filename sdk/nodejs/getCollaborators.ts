@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCollaborators(args: GetCollaboratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaboratorsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getCollaborators:getCollaborators", {
         "affiliation": args.affiliation,
@@ -90,7 +89,13 @@ export interface GetCollaboratorsResult {
  * ```
  */
 export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaboratorsResult> {
-    return pulumi.output(args).apply((a: any) => getCollaborators(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getCollaborators:getCollaborators", {
+        "affiliation": args.affiliation,
+        "owner": args.owner,
+        "permission": args.permission,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

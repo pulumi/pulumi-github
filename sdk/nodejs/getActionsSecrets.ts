@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getActionsSecrets(args?: GetActionsSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsSecretsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsSecrets:getActionsSecrets", {
         "fullName": args.fullName,
@@ -77,7 +76,12 @@ export interface GetActionsSecretsResult {
  * ```
  */
 export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsSecretsResult> {
-    return pulumi.output(args).apply((a: any) => getActionsSecrets(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsSecrets:getActionsSecrets", {
+        "fullName": args.fullName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

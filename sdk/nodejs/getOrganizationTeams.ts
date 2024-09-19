@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  */
 export function getOrganizationTeams(args?: GetOrganizationTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationTeams:getOrganizationTeams", {
         "resultsPerPage": args.resultsPerPage,
@@ -111,7 +110,13 @@ export interface GetOrganizationTeamsResult {
  * ```
  */
 export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamsResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationTeams(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationTeams:getOrganizationTeams", {
+        "resultsPerPage": args.resultsPerPage,
+        "rootTeamsOnly": args.rootTeamsOnly,
+        "summaryOnly": args.summaryOnly,
+    }, opts);
 }
 
 /**

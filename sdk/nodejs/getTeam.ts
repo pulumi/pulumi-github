@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getTeam:getTeam", {
         "membershipType": args.membershipType,
@@ -113,7 +112,13 @@ export interface GetTeamResult {
  * ```
  */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
-    return pulumi.output(args).apply((a: any) => getTeam(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getTeam:getTeam", {
+        "membershipType": args.membershipType,
+        "resultsPerPage": args.resultsPerPage,
+        "slug": args.slug,
+        "summaryOnly": args.summaryOnly,
+    }, opts);
 }
 
 /**

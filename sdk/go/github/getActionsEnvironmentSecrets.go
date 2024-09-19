@@ -71,14 +71,20 @@ type GetActionsEnvironmentSecretsResult struct {
 
 func GetActionsEnvironmentSecretsOutput(ctx *pulumi.Context, args GetActionsEnvironmentSecretsOutputArgs, opts ...pulumi.InvokeOption) GetActionsEnvironmentSecretsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetActionsEnvironmentSecretsResult, error) {
+		ApplyT(func(v interface{}) (GetActionsEnvironmentSecretsResultOutput, error) {
 			args := v.(GetActionsEnvironmentSecretsArgs)
-			r, err := GetActionsEnvironmentSecrets(ctx, &args, opts...)
-			var s GetActionsEnvironmentSecretsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetActionsEnvironmentSecretsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", args, &rv, "", opts...)
+			if err != nil {
+				return GetActionsEnvironmentSecretsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetActionsEnvironmentSecretsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetActionsEnvironmentSecretsResultOutput), nil
+			}
+			return output, nil
 		}).(GetActionsEnvironmentSecretsResultOutput)
 }
 

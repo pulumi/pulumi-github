@@ -69,14 +69,20 @@ type GetRepositoryTeamsResult struct {
 
 func GetRepositoryTeamsOutput(ctx *pulumi.Context, args GetRepositoryTeamsOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryTeamsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoryTeamsResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoryTeamsResultOutput, error) {
 			args := v.(GetRepositoryTeamsArgs)
-			r, err := GetRepositoryTeams(ctx, &args, opts...)
-			var s GetRepositoryTeamsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoryTeamsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryTeams:getRepositoryTeams", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoryTeamsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoryTeamsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoryTeamsResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoryTeamsResultOutput)
 }
 

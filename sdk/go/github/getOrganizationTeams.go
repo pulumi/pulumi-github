@@ -100,14 +100,20 @@ type GetOrganizationTeamsResult struct {
 
 func GetOrganizationTeamsOutput(ctx *pulumi.Context, args GetOrganizationTeamsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationTeamsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOrganizationTeamsResult, error) {
+		ApplyT(func(v interface{}) (GetOrganizationTeamsResultOutput, error) {
 			args := v.(GetOrganizationTeamsArgs)
-			r, err := GetOrganizationTeams(ctx, &args, opts...)
-			var s GetOrganizationTeamsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOrganizationTeamsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getOrganizationTeams:getOrganizationTeams", args, &rv, "", opts...)
+			if err != nil {
+				return GetOrganizationTeamsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOrganizationTeamsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOrganizationTeamsResultOutput), nil
+			}
+			return output, nil
 		}).(GetOrganizationTeamsResultOutput)
 }
 

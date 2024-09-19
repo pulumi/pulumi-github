@@ -56,13 +56,19 @@ type GetOrganizationExternalIdentitiesResult struct {
 }
 
 func GetOrganizationExternalIdentitiesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationExternalIdentitiesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationExternalIdentitiesResult, error) {
-		r, err := GetOrganizationExternalIdentities(ctx, opts...)
-		var s GetOrganizationExternalIdentitiesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationExternalIdentitiesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetOrganizationExternalIdentitiesResult
+		secret, err := ctx.InvokePackageRaw("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", nil, &rv, "", opts...)
+		if err != nil {
+			return GetOrganizationExternalIdentitiesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetOrganizationExternalIdentitiesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetOrganizationExternalIdentitiesResultOutput), nil
+		}
+		return output, nil
 	}).(GetOrganizationExternalIdentitiesResultOutput)
 }
 
