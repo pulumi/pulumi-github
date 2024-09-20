@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAppToken(args: GetAppTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAppTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getAppToken:getAppToken", {
         "appId": args.appId,
@@ -87,7 +86,12 @@ export interface GetAppTokenResult {
  * ```
  */
 export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppTokenResult> {
-    return pulumi.output(args).apply((a: any) => getAppToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getAppToken:getAppToken", {
+        "appId": args.appId,
+        "installationId": args.installationId,
+        "pemFile": args.pemFile,
+    }, opts);
 }
 
 /**

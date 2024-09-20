@@ -73,14 +73,20 @@ type LookupBranchResult struct {
 
 func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts ...pulumi.InvokeOption) LookupBranchResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBranchResult, error) {
+		ApplyT(func(v interface{}) (LookupBranchResultOutput, error) {
 			args := v.(LookupBranchArgs)
-			r, err := LookupBranch(ctx, &args, opts...)
-			var s LookupBranchResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBranchResult
+			secret, err := ctx.InvokePackageRaw("github:index/getBranch:getBranch", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBranchResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBranchResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBranchResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBranchResultOutput)
 }
 

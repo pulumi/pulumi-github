@@ -68,14 +68,20 @@ type GetDependabotPublicKeyResult struct {
 
 func GetDependabotPublicKeyOutput(ctx *pulumi.Context, args GetDependabotPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetDependabotPublicKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDependabotPublicKeyResult, error) {
+		ApplyT(func(v interface{}) (GetDependabotPublicKeyResultOutput, error) {
 			args := v.(GetDependabotPublicKeyArgs)
-			r, err := GetDependabotPublicKey(ctx, &args, opts...)
-			var s GetDependabotPublicKeyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDependabotPublicKeyResult
+			secret, err := ctx.InvokePackageRaw("github:index/getDependabotPublicKey:getDependabotPublicKey", args, &rv, "", opts...)
+			if err != nil {
+				return GetDependabotPublicKeyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDependabotPublicKeyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDependabotPublicKeyResultOutput), nil
+			}
+			return output, nil
 		}).(GetDependabotPublicKeyResultOutput)
 }
 

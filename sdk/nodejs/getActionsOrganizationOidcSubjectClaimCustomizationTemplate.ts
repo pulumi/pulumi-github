@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResu
  * ```
  */
 export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
-    return pulumi.output(getActionsOrganizationOidcSubjectClaimCustomizationTemplate(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", {
+    }, opts);
 }

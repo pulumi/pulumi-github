@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryPullRequests(args: GetRepositoryPullRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryPullRequestsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", {
         "baseRef": args.baseRef,
@@ -120,7 +119,16 @@ export interface GetRepositoryPullRequestsResult {
  * ```
  */
 export function getRepositoryPullRequestsOutput(args: GetRepositoryPullRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestsResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryPullRequests(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryPullRequests:getRepositoryPullRequests", {
+        "baseRef": args.baseRef,
+        "baseRepository": args.baseRepository,
+        "headRef": args.headRef,
+        "owner": args.owner,
+        "sortBy": args.sortBy,
+        "sortDirection": args.sortDirection,
+        "state": args.state,
+    }, opts);
 }
 
 /**

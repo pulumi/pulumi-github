@@ -73,14 +73,20 @@ type GetUserExternalIdentityResult struct {
 
 func GetUserExternalIdentityOutput(ctx *pulumi.Context, args GetUserExternalIdentityOutputArgs, opts ...pulumi.InvokeOption) GetUserExternalIdentityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetUserExternalIdentityResult, error) {
+		ApplyT(func(v interface{}) (GetUserExternalIdentityResultOutput, error) {
 			args := v.(GetUserExternalIdentityArgs)
-			r, err := GetUserExternalIdentity(ctx, &args, opts...)
-			var s GetUserExternalIdentityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetUserExternalIdentityResult
+			secret, err := ctx.InvokePackageRaw("github:index/getUserExternalIdentity:getUserExternalIdentity", args, &rv, "", opts...)
+			if err != nil {
+				return GetUserExternalIdentityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetUserExternalIdentityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetUserExternalIdentityResultOutput), nil
+			}
+			return output, nil
 		}).(GetUserExternalIdentityResultOutput)
 }
 

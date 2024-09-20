@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getOrganizationIpAllowList(opts?: pulumi.InvokeOptions): Promise<GetOrganizationIpAllowListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", {
     }, opts);
@@ -56,5 +55,7 @@ export interface GetOrganizationIpAllowListResult {
  * ```
  */
 export function getOrganizationIpAllowListOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationIpAllowListResult> {
-    return pulumi.output(getOrganizationIpAllowList(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", {
+    }, opts);
 }

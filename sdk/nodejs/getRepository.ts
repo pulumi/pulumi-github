@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepository:getRepository", {
         "description": args.description,
@@ -217,7 +216,14 @@ export interface GetRepositoryResult {
  * ```
  */
 export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getRepository(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepository:getRepository", {
+        "description": args.description,
+        "fullName": args.fullName,
+        "homepageUrl": args.homepageUrl,
+        "name": args.name,
+    }, opts);
 }
 
 /**

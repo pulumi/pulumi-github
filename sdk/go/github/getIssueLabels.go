@@ -39,14 +39,20 @@ type LookupIssueLabelsResult struct {
 
 func LookupIssueLabelsOutput(ctx *pulumi.Context, args LookupIssueLabelsOutputArgs, opts ...pulumi.InvokeOption) LookupIssueLabelsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIssueLabelsResult, error) {
+		ApplyT(func(v interface{}) (LookupIssueLabelsResultOutput, error) {
 			args := v.(LookupIssueLabelsArgs)
-			r, err := LookupIssueLabels(ctx, &args, opts...)
-			var s LookupIssueLabelsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIssueLabelsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getIssueLabels:getIssueLabels", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIssueLabelsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIssueLabelsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIssueLabelsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIssueLabelsResultOutput)
 }
 

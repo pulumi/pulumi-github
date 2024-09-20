@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getMembership:getMembership", {
         "organization": args.organization,
@@ -88,7 +87,11 @@ export interface GetMembershipResult {
  * ```
  */
 export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
-    return pulumi.output(args).apply((a: any) => getMembership(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getMembership:getMembership", {
+        "organization": args.organization,
+        "username": args.username,
+    }, opts);
 }
 
 /**

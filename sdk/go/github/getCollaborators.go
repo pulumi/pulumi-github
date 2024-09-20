@@ -76,14 +76,20 @@ type GetCollaboratorsResult struct {
 
 func GetCollaboratorsOutput(ctx *pulumi.Context, args GetCollaboratorsOutputArgs, opts ...pulumi.InvokeOption) GetCollaboratorsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCollaboratorsResult, error) {
+		ApplyT(func(v interface{}) (GetCollaboratorsResultOutput, error) {
 			args := v.(GetCollaboratorsArgs)
-			r, err := GetCollaborators(ctx, &args, opts...)
-			var s GetCollaboratorsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCollaboratorsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getCollaborators:getCollaborators", args, &rv, "", opts...)
+			if err != nil {
+				return GetCollaboratorsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCollaboratorsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCollaboratorsResultOutput), nil
+			}
+			return output, nil
 		}).(GetCollaboratorsResultOutput)
 }
 

@@ -75,14 +75,20 @@ type GetCodespacesSecretsResult struct {
 
 func GetCodespacesSecretsOutput(ctx *pulumi.Context, args GetCodespacesSecretsOutputArgs, opts ...pulumi.InvokeOption) GetCodespacesSecretsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCodespacesSecretsResult, error) {
+		ApplyT(func(v interface{}) (GetCodespacesSecretsResultOutput, error) {
 			args := v.(GetCodespacesSecretsArgs)
-			r, err := GetCodespacesSecrets(ctx, &args, opts...)
-			var s GetCodespacesSecretsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCodespacesSecretsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getCodespacesSecrets:getCodespacesSecrets", args, &rv, "", opts...)
+			if err != nil {
+				return GetCodespacesSecretsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCodespacesSecretsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCodespacesSecretsResultOutput), nil
+			}
+			return output, nil
 		}).(GetCodespacesSecretsResultOutput)
 }
 

@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsPublicKey(args: GetActionsPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsPublicKey:getActionsPublicKey", {
         "repository": args.repository,
@@ -71,7 +70,10 @@ export interface GetActionsPublicKeyResult {
  * ```
  */
 export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsPublicKeyResult> {
-    return pulumi.output(args).apply((a: any) => getActionsPublicKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsPublicKey:getActionsPublicKey", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

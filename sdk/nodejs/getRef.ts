@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRef(args: GetRefArgs, opts?: pulumi.InvokeOptions): Promise<GetRefResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRef:getRef", {
         "owner": args.owner,
@@ -85,7 +84,12 @@ export interface GetRefResult {
  * ```
  */
 export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRefResult> {
-    return pulumi.output(args).apply((a: any) => getRef(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRef:getRef", {
+        "owner": args.owner,
+        "ref": args.ref,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

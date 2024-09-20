@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryEnvironments(args: GetRepositoryEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEnvironmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryEnvironments:getRepositoryEnvironments", {
         "repository": args.repository,
@@ -67,7 +66,10 @@ export interface GetRepositoryEnvironmentsResult {
  * ```
  */
 export function getRepositoryEnvironmentsOutput(args: GetRepositoryEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEnvironmentsResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryEnvironments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryEnvironments:getRepositoryEnvironments", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

@@ -55,13 +55,19 @@ type GetCodespacesOrganizationSecretsResult struct {
 }
 
 func GetCodespacesOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesOrganizationSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesOrganizationSecretsResult, error) {
-		r, err := GetCodespacesOrganizationSecrets(ctx, opts...)
-		var s GetCodespacesOrganizationSecretsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesOrganizationSecretsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCodespacesOrganizationSecretsResult
+		secret, err := ctx.InvokePackageRaw("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCodespacesOrganizationSecretsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCodespacesOrganizationSecretsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCodespacesOrganizationSecretsResultOutput), nil
+		}
+		return output, nil
 	}).(GetCodespacesOrganizationSecretsResultOutput)
 }
 

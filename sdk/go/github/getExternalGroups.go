@@ -57,13 +57,19 @@ type GetExternalGroupsResult struct {
 }
 
 func GetExternalGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetExternalGroupsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetExternalGroupsResult, error) {
-		r, err := GetExternalGroups(ctx, opts...)
-		var s GetExternalGroupsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetExternalGroupsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetExternalGroupsResult
+		secret, err := ctx.InvokePackageRaw("github:index/getExternalGroups:getExternalGroups", nil, &rv, "", opts...)
+		if err != nil {
+			return GetExternalGroupsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetExternalGroupsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetExternalGroupsResultOutput), nil
+		}
+		return output, nil
 	}).(GetExternalGroupsResultOutput)
 }
 

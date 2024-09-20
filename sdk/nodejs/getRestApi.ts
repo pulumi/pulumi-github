@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRestApi:getRestApi", {
         "endpoint": args.endpoint,
@@ -77,7 +76,10 @@ export interface GetRestApiResult {
  * ```
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
-    return pulumi.output(args).apply((a: any) => getRestApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRestApi:getRestApi", {
+        "endpoint": args.endpoint,
+    }, opts);
 }
 
 /**

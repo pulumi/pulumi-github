@@ -115,14 +115,20 @@ type LookupReleaseResult struct {
 
 func LookupReleaseOutput(ctx *pulumi.Context, args LookupReleaseOutputArgs, opts ...pulumi.InvokeOption) LookupReleaseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupReleaseResult, error) {
+		ApplyT(func(v interface{}) (LookupReleaseResultOutput, error) {
 			args := v.(LookupReleaseArgs)
-			r, err := LookupRelease(ctx, &args, opts...)
-			var s LookupReleaseResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupReleaseResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRelease:getRelease", args, &rv, "", opts...)
+			if err != nil {
+				return LookupReleaseResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupReleaseResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupReleaseResultOutput), nil
+			}
+			return output, nil
 		}).(LookupReleaseResultOutput)
 }
 

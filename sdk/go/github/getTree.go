@@ -87,14 +87,20 @@ type GetTreeResult struct {
 
 func GetTreeOutput(ctx *pulumi.Context, args GetTreeOutputArgs, opts ...pulumi.InvokeOption) GetTreeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTreeResult, error) {
+		ApplyT(func(v interface{}) (GetTreeResultOutput, error) {
 			args := v.(GetTreeArgs)
-			r, err := GetTree(ctx, &args, opts...)
-			var s GetTreeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTreeResult
+			secret, err := ctx.InvokePackageRaw("github:index/getTree:getTree", args, &rv, "", opts...)
+			if err != nil {
+				return GetTreeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTreeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTreeResultOutput), nil
+			}
+			return output, nil
 		}).(GetTreeResultOutput)
 }
 

@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryWebhooks(args: GetRepositoryWebhooksArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryWebhooksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryWebhooks:getRepositoryWebhooks", {
         "repository": args.repository,
@@ -69,7 +68,10 @@ export interface GetRepositoryWebhooksResult {
  * ```
  */
 export function getRepositoryWebhooksOutput(args: GetRepositoryWebhooksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryWebhooksResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryWebhooks(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryWebhooks:getRepositoryWebhooks", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

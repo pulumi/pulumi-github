@@ -67,14 +67,20 @@ type GetActionsRegistrationTokenResult struct {
 
 func GetActionsRegistrationTokenOutput(ctx *pulumi.Context, args GetActionsRegistrationTokenOutputArgs, opts ...pulumi.InvokeOption) GetActionsRegistrationTokenResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetActionsRegistrationTokenResult, error) {
+		ApplyT(func(v interface{}) (GetActionsRegistrationTokenResultOutput, error) {
 			args := v.(GetActionsRegistrationTokenArgs)
-			r, err := GetActionsRegistrationToken(ctx, &args, opts...)
-			var s GetActionsRegistrationTokenResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetActionsRegistrationTokenResult
+			secret, err := ctx.InvokePackageRaw("github:index/getActionsRegistrationToken:getActionsRegistrationToken", args, &rv, "", opts...)
+			if err != nil {
+				return GetActionsRegistrationTokenResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetActionsRegistrationTokenResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetActionsRegistrationTokenResultOutput), nil
+			}
+			return output, nil
 		}).(GetActionsRegistrationTokenResultOutput)
 }
 

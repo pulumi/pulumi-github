@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCodespacesOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetCodespacesOrganizationPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetCodespacesOrganizationPublicKeyResult {
  * ```
  */
 export function getCodespacesOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationPublicKeyResult> {
-    return pulumi.output(getCodespacesOrganizationPublicKey(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", {
+    }, opts);
 }

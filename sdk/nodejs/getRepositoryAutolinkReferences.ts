@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryAutolinkReferences(args: GetRepositoryAutolinkReferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAutolinkReferencesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", {
         "repository": args.repository,
@@ -67,7 +66,10 @@ export interface GetRepositoryAutolinkReferencesResult {
  * ```
  */
 export function getRepositoryAutolinkReferencesOutput(args: GetRepositoryAutolinkReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAutolinkReferencesResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryAutolinkReferences(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

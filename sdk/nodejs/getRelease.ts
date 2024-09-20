@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * To retrieve a specific release from a repository based on it's ID:
  */
 export function getRelease(args: GetReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRelease:getRelease", {
         "owner": args.owner,
@@ -167,7 +166,14 @@ export interface GetReleaseResult {
  * To retrieve a specific release from a repository based on it's ID:
  */
 export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseResult> {
-    return pulumi.output(args).apply((a: any) => getRelease(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRelease:getRelease", {
+        "owner": args.owner,
+        "releaseId": args.releaseId,
+        "releaseTag": args.releaseTag,
+        "repository": args.repository,
+        "retrieveBy": args.retrieveBy,
+    }, opts);
 }
 
 /**

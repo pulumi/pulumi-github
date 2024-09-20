@@ -69,14 +69,20 @@ type GetActionsSecretsResult struct {
 
 func GetActionsSecretsOutput(ctx *pulumi.Context, args GetActionsSecretsOutputArgs, opts ...pulumi.InvokeOption) GetActionsSecretsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetActionsSecretsResult, error) {
+		ApplyT(func(v interface{}) (GetActionsSecretsResultOutput, error) {
 			args := v.(GetActionsSecretsArgs)
-			r, err := GetActionsSecrets(ctx, &args, opts...)
-			var s GetActionsSecretsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetActionsSecretsResult
+			secret, err := ctx.InvokePackageRaw("github:index/getActionsSecrets:getActionsSecrets", args, &rv, "", opts...)
+			if err != nil {
+				return GetActionsSecretsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetActionsSecretsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetActionsSecretsResultOutput), nil
+			}
+			return output, nil
 		}).(GetActionsSecretsResultOutput)
 }
 

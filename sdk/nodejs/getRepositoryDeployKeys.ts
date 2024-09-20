@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryDeployKeys(args: GetRepositoryDeployKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeployKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", {
         "repository": args.repository,
@@ -67,7 +66,10 @@ export interface GetRepositoryDeployKeysResult {
  * ```
  */
 export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryDeployKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

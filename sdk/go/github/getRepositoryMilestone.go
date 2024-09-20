@@ -79,14 +79,20 @@ type LookupRepositoryMilestoneResult struct {
 
 func LookupRepositoryMilestoneOutput(ctx *pulumi.Context, args LookupRepositoryMilestoneOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryMilestoneResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryMilestoneResult, error) {
+		ApplyT(func(v interface{}) (LookupRepositoryMilestoneResultOutput, error) {
 			args := v.(LookupRepositoryMilestoneArgs)
-			r, err := LookupRepositoryMilestone(ctx, &args, opts...)
-			var s LookupRepositoryMilestoneResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRepositoryMilestoneResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryMilestone:getRepositoryMilestone", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRepositoryMilestoneResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRepositoryMilestoneResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRepositoryMilestoneResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRepositoryMilestoneResultOutput)
 }
 

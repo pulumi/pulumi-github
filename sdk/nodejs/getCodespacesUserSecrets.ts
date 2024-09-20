@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCodespacesUserSecrets(opts?: pulumi.InvokeOptions): Promise<GetCodespacesUserSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetCodespacesUserSecretsResult {
  * ```
  */
 export function getCodespacesUserSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserSecretsResult> {
-    return pulumi.output(getCodespacesUserSecrets(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", {
+    }, opts);
 }

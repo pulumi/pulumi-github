@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getOrganizationCustomRole(args: GetOrganizationCustomRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationCustomRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", {
         "name": args.name,
@@ -77,7 +76,10 @@ export interface GetOrganizationCustomRoleResult {
  * ```
  */
 export function getOrganizationCustomRoleOutput(args: GetOrganizationCustomRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationCustomRoleResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationCustomRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationCustomRole:getOrganizationCustomRole", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

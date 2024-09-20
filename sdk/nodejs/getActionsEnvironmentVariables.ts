@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsEnvironmentVariables(args: GetActionsEnvironmentVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetActionsEnvironmentVariablesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", {
         "environment": args.environment,
@@ -78,7 +77,12 @@ export interface GetActionsEnvironmentVariablesResult {
  * ```
  */
 export function getActionsEnvironmentVariablesOutput(args: GetActionsEnvironmentVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsEnvironmentVariablesResult> {
-    return pulumi.output(args).apply((a: any) => getActionsEnvironmentVariables(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", {
+        "environment": args.environment,
+        "fullName": args.fullName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

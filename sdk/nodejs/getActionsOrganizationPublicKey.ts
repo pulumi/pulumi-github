@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsOrganizationPublicKey(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetActionsOrganizationPublicKeyResult {
  * ```
  */
 export function getActionsOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationPublicKeyResult> {
-    return pulumi.output(getActionsOrganizationPublicKey(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", {
+    }, opts);
 }
