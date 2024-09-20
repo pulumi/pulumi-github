@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getOrganizationTeamSyncGroups(opts?: pulumi.InvokeOptions): Promise<GetOrganizationTeamSyncGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetOrganizationTeamSyncGroupsResult {
  * ```
  */
 export function getOrganizationTeamSyncGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamSyncGroupsResult> {
-    return pulumi.output(getOrganizationTeamSyncGroups(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", {
+    }, opts);
 }

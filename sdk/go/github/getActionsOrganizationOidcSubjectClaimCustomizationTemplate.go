@@ -55,13 +55,19 @@ type LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult struct
 }
 
 func LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult, error) {
-		r, err := LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, opts...)
-		var s LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResult
+		secret, err := ctx.InvokePackageRaw("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", nil, &rv, "", opts...)
+		if err != nil {
+			return LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput), nil
+		}
+		return output, nil
 	}).(LookupActionsOrganizationOidcSubjectClaimCustomizationTemplateResultOutput)
 }
 

@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getOrganizationExternalIdentities(opts?: pulumi.InvokeOptions): Promise<GetOrganizationExternalIdentitiesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetOrganizationExternalIdentitiesResult {
  * ```
  */
 export function getOrganizationExternalIdentitiesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationExternalIdentitiesResult> {
-    return pulumi.output(getOrganizationExternalIdentities(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", {
+    }, opts);
 }

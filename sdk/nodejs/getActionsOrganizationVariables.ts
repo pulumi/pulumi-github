@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsOrganizationVariables(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationVariablesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetActionsOrganizationVariablesResult {
  * ```
  */
 export function getActionsOrganizationVariablesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationVariablesResult> {
-    return pulumi.output(getActionsOrganizationVariables(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", {
+    }, opts);
 }

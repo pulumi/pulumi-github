@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getUserExternalIdentity(args: GetUserExternalIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserExternalIdentityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getUserExternalIdentity:getUserExternalIdentity", {
         "username": args.username,
@@ -80,7 +79,10 @@ export interface GetUserExternalIdentityResult {
  * ```
  */
 export function getUserExternalIdentityOutput(args: GetUserExternalIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserExternalIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getUserExternalIdentity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getUserExternalIdentity:getUserExternalIdentity", {
+        "username": args.username,
+    }, opts);
 }
 
 /**

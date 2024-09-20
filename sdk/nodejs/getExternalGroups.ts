@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getExternalGroups(opts?: pulumi.InvokeOptions): Promise<GetExternalGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getExternalGroups:getExternalGroups", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetExternalGroupsResult {
  * ```
  */
 export function getExternalGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalGroupsResult> {
-    return pulumi.output(getExternalGroups(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getExternalGroups:getExternalGroups", {
+    }, opts);
 }

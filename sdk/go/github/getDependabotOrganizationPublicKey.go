@@ -58,13 +58,19 @@ type GetDependabotOrganizationPublicKeyResult struct {
 }
 
 func GetDependabotOrganizationPublicKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDependabotOrganizationPublicKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationPublicKeyResult, error) {
-		r, err := GetDependabotOrganizationPublicKey(ctx, opts...)
-		var s GetDependabotOrganizationPublicKeyResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDependabotOrganizationPublicKeyResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetDependabotOrganizationPublicKeyResult
+		secret, err := ctx.InvokePackageRaw("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", nil, &rv, "", opts...)
+		if err != nil {
+			return GetDependabotOrganizationPublicKeyResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetDependabotOrganizationPublicKeyResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetDependabotOrganizationPublicKeyResultOutput), nil
+		}
+		return output, nil
 	}).(GetDependabotOrganizationPublicKeyResultOutput)
 }
 

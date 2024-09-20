@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getDependabotSecrets(args?: GetDependabotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotSecretsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotSecrets:getDependabotSecrets", {
         "fullName": args.fullName,
@@ -77,7 +76,12 @@ export interface GetDependabotSecretsResult {
  * ```
  */
 export function getDependabotSecretsOutput(args?: GetDependabotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotSecretsResult> {
-    return pulumi.output(args).apply((a: any) => getDependabotSecrets(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getDependabotSecrets:getDependabotSecrets", {
+        "fullName": args.fullName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

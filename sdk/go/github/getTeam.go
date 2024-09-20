@@ -88,14 +88,20 @@ type LookupTeamResult struct {
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTeamResult, error) {
+		ApplyT(func(v interface{}) (LookupTeamResultOutput, error) {
 			args := v.(LookupTeamArgs)
-			r, err := LookupTeam(ctx, &args, opts...)
-			var s LookupTeamResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTeamResult
+			secret, err := ctx.InvokePackageRaw("github:index/getTeam:getTeam", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTeamResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTeamResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTeamResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTeamResultOutput)
 }
 

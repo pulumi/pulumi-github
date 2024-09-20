@@ -71,14 +71,20 @@ type GetRestApiResult struct {
 
 func GetRestApiOutput(ctx *pulumi.Context, args GetRestApiOutputArgs, opts ...pulumi.InvokeOption) GetRestApiResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRestApiResult, error) {
+		ApplyT(func(v interface{}) (GetRestApiResultOutput, error) {
 			args := v.(GetRestApiArgs)
-			r, err := GetRestApi(ctx, &args, opts...)
-			var s GetRestApiResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRestApiResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRestApi:getRestApi", args, &rv, "", opts...)
+			if err != nil {
+				return GetRestApiResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRestApiResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRestApiResultOutput), nil
+			}
+			return output, nil
 		}).(GetRestApiResultOutput)
 }
 

@@ -57,13 +57,19 @@ type GetActionsOrganizationRegistrationTokenResult struct {
 }
 
 func GetActionsOrganizationRegistrationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationRegistrationTokenResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationRegistrationTokenResult, error) {
-		r, err := GetActionsOrganizationRegistrationToken(ctx, opts...)
-		var s GetActionsOrganizationRegistrationTokenResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationRegistrationTokenResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetActionsOrganizationRegistrationTokenResult
+		secret, err := ctx.InvokePackageRaw("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", nil, &rv, "", opts...)
+		if err != nil {
+			return GetActionsOrganizationRegistrationTokenResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetActionsOrganizationRegistrationTokenResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetActionsOrganizationRegistrationTokenResultOutput), nil
+		}
+		return output, nil
 	}).(GetActionsOrganizationRegistrationTokenResultOutput)
 }
 

@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getBranch:getBranch", {
         "branch": args.branch,
@@ -81,7 +80,11 @@ export interface GetBranchResult {
  * ```
  */
 export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
-    return pulumi.output(args).apply((a: any) => getBranch(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getBranch:getBranch", {
+        "branch": args.branch,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

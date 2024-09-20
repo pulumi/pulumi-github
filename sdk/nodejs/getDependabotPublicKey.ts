@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDependabotPublicKey(args: GetDependabotPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetDependabotPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", {
         "repository": args.repository,
@@ -71,7 +70,10 @@ export interface GetDependabotPublicKeyResult {
  * ```
  */
 export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotPublicKeyResult> {
-    return pulumi.output(args).apply((a: any) => getDependabotPublicKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getDependabotPublicKey:getDependabotPublicKey", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

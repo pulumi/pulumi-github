@@ -55,13 +55,19 @@ type GetCodespacesUserSecretsResult struct {
 }
 
 func GetCodespacesUserSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCodespacesUserSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesUserSecretsResult, error) {
-		r, err := GetCodespacesUserSecrets(ctx, opts...)
-		var s GetCodespacesUserSecretsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCodespacesUserSecretsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCodespacesUserSecretsResult
+		secret, err := ctx.InvokePackageRaw("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCodespacesUserSecretsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCodespacesUserSecretsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCodespacesUserSecretsResultOutput), nil
+		}
+		return output, nil
 	}).(GetCodespacesUserSecretsResultOutput)
 }
 

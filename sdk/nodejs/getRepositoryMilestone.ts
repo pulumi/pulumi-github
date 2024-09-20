@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryMilestone(args: GetRepositoryMilestoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryMilestoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryMilestone:getRepositoryMilestone", {
         "number": args.number,
@@ -93,7 +92,12 @@ export interface GetRepositoryMilestoneResult {
  * ```
  */
 export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryMilestoneResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryMilestone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryMilestone:getRepositoryMilestone", {
+        "number": args.number,
+        "owner": args.owner,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

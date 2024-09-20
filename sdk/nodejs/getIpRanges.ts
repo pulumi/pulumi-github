@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getIpRanges:getIpRanges", {
     }, opts);
@@ -153,5 +152,7 @@ export interface GetIpRangesResult {
  * ```
  */
 export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
-    return pulumi.output(getIpRanges(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getIpRanges:getIpRanges", {
+    }, opts);
 }

@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  */
 export function getCodespacesSecrets(args?: GetCodespacesSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetCodespacesSecretsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getCodespacesSecrets:getCodespacesSecrets", {
         "fullName": args.fullName,
@@ -83,7 +82,12 @@ export interface GetCodespacesSecretsResult {
  * ```
  */
 export function getCodespacesSecretsOutput(args?: GetCodespacesSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesSecretsResult> {
-    return pulumi.output(args).apply((a: any) => getCodespacesSecrets(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getCodespacesSecrets:getCodespacesSecrets", {
+        "fullName": args.fullName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

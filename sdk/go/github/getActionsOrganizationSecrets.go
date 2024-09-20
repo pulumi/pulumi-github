@@ -55,13 +55,19 @@ type GetActionsOrganizationSecretsResult struct {
 }
 
 func GetActionsOrganizationSecretsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetActionsOrganizationSecretsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationSecretsResult, error) {
-		r, err := GetActionsOrganizationSecrets(ctx, opts...)
-		var s GetActionsOrganizationSecretsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetActionsOrganizationSecretsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetActionsOrganizationSecretsResult
+		secret, err := ctx.InvokePackageRaw("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", nil, &rv, "", opts...)
+		if err != nil {
+			return GetActionsOrganizationSecretsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetActionsOrganizationSecretsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetActionsOrganizationSecretsResultOutput), nil
+		}
+		return output, nil
 	}).(GetActionsOrganizationSecretsResultOutput)
 }
 

@@ -69,14 +69,20 @@ type GetActionsVariablesResult struct {
 
 func GetActionsVariablesOutput(ctx *pulumi.Context, args GetActionsVariablesOutputArgs, opts ...pulumi.InvokeOption) GetActionsVariablesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetActionsVariablesResult, error) {
+		ApplyT(func(v interface{}) (GetActionsVariablesResultOutput, error) {
 			args := v.(GetActionsVariablesArgs)
-			r, err := GetActionsVariables(ctx, &args, opts...)
-			var s GetActionsVariablesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetActionsVariablesResult
+			secret, err := ctx.InvokePackageRaw("github:index/getActionsVariables:getActionsVariables", args, &rv, "", opts...)
+			if err != nil {
+				return GetActionsVariablesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetActionsVariablesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetActionsVariablesResultOutput), nil
+			}
+			return output, nil
 		}).(GetActionsVariablesResultOutput)
 }
 

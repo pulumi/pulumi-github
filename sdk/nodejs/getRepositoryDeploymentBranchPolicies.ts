@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRepositoryDeploymentBranchPolicies(args: GetRepositoryDeploymentBranchPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryDeploymentBranchPoliciesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", {
         "environmentName": args.environmentName,
@@ -75,7 +74,11 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
  * ```
  */
 export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryDeploymentBranchPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeploymentBranchPoliciesResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryDeploymentBranchPolicies(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", {
+        "environmentName": args.environmentName,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

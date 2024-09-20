@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve the labels for a given repository.
  */
 export function getIssueLabels(args: GetIssueLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetIssueLabelsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getIssueLabels:getIssueLabels", {
         "repository": args.repository,
@@ -45,7 +44,10 @@ export interface GetIssueLabelsResult {
  * Use this data source to retrieve the labels for a given repository.
  */
 export function getIssueLabelsOutput(args: GetIssueLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIssueLabelsResult> {
-    return pulumi.output(args).apply((a: any) => getIssueLabels(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getIssueLabels:getIssueLabels", {
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

@@ -58,13 +58,19 @@ type GetOrganizationWebhooksResult struct {
 }
 
 func GetOrganizationWebhooksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationWebhooksResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationWebhooksResult, error) {
-		r, err := GetOrganizationWebhooks(ctx, opts...)
-		var s GetOrganizationWebhooksResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationWebhooksResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetOrganizationWebhooksResult
+		secret, err := ctx.InvokePackageRaw("github:index/getOrganizationWebhooks:getOrganizationWebhooks", nil, &rv, "", opts...)
+		if err != nil {
+			return GetOrganizationWebhooksResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetOrganizationWebhooksResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetOrganizationWebhooksResultOutput), nil
+		}
+		return output, nil
 	}).(GetOrganizationWebhooksResultOutput)
 }
 

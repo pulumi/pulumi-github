@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getActionsOrganizationSecrets(opts?: pulumi.InvokeOptions): Promise<GetActionsOrganizationSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", {
     }, opts);
@@ -51,5 +50,7 @@ export interface GetActionsOrganizationSecretsResult {
  * ```
  */
 export function getActionsOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationSecretsResult> {
-    return pulumi.output(getActionsOrganizationSecrets(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", {
+    }, opts);
 }

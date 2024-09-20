@@ -65,14 +65,20 @@ type GetRepositoryAutolinkReferencesResult struct {
 
 func GetRepositoryAutolinkReferencesOutput(ctx *pulumi.Context, args GetRepositoryAutolinkReferencesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryAutolinkReferencesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoryAutolinkReferencesResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoryAutolinkReferencesResultOutput, error) {
 			args := v.(GetRepositoryAutolinkReferencesArgs)
-			r, err := GetRepositoryAutolinkReferences(ctx, &args, opts...)
-			var s GetRepositoryAutolinkReferencesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoryAutolinkReferencesResult
+			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoryAutolinkReferencesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoryAutolinkReferencesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoryAutolinkReferencesResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoryAutolinkReferencesResultOutput)
 }
 
