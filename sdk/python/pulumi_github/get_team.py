@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -222,9 +227,6 @@ def get_team(membership_type: Optional[str] = None,
         results_per_page=pulumi.get(__ret__, 'results_per_page'),
         slug=pulumi.get(__ret__, 'slug'),
         summary_only=pulumi.get(__ret__, 'summary_only'))
-
-
-@_utilities.lift_output_func(get_team)
 def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = None,
                     results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                     slug: Optional[pulumi.Input[str]] = None,
@@ -248,4 +250,24 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
     :param str slug: The team slug.
     :param bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """
-    ...
+    __args__ = dict()
+    __args__['membershipType'] = membership_type
+    __args__['resultsPerPage'] = results_per_page
+    __args__['slug'] = slug
+    __args__['summaryOnly'] = summary_only
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
+    return __ret__.apply(lambda __response__: GetTeamResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        members=pulumi.get(__response__, 'members'),
+        membership_type=pulumi.get(__response__, 'membership_type'),
+        name=pulumi.get(__response__, 'name'),
+        node_id=pulumi.get(__response__, 'node_id'),
+        permission=pulumi.get(__response__, 'permission'),
+        privacy=pulumi.get(__response__, 'privacy'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        repositories_detaileds=pulumi.get(__response__, 'repositories_detaileds'),
+        results_per_page=pulumi.get(__response__, 'results_per_page'),
+        slug=pulumi.get(__response__, 'slug'),
+        summary_only=pulumi.get(__response__, 'summary_only')))

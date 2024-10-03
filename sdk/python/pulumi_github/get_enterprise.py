@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -146,9 +151,6 @@ def get_enterprise(slug: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         slug=pulumi.get(__ret__, 'slug'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_enterprise)
 def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseResult]:
     """
@@ -166,4 +168,15 @@ def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
 
     :param str slug: The URL slug identifying the enterprise.
     """
-    ...
+    __args__ = dict()
+    __args__['slug'] = slug
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getEnterprise:getEnterprise', __args__, opts=opts, typ=GetEnterpriseResult)
+    return __ret__.apply(lambda __response__: GetEnterpriseResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        database_id=pulumi.get(__response__, 'database_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        slug=pulumi.get(__response__, 'slug'),
+        url=pulumi.get(__response__, 'url')))

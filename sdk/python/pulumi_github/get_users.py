@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -137,9 +142,6 @@ def get_users(usernames: Optional[Sequence[str]] = None,
         node_ids=pulumi.get(__ret__, 'node_ids'),
         unknown_logins=pulumi.get(__ret__, 'unknown_logins'),
         usernames=pulumi.get(__ret__, 'usernames'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
@@ -164,4 +166,14 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
 
     :param Sequence[str] usernames: List of usernames.
     """
-    ...
+    __args__ = dict()
+    __args__['usernames'] = usernames
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        emails=pulumi.get(__response__, 'emails'),
+        id=pulumi.get(__response__, 'id'),
+        logins=pulumi.get(__response__, 'logins'),
+        node_ids=pulumi.get(__response__, 'node_ids'),
+        unknown_logins=pulumi.get(__response__, 'unknown_logins'),
+        usernames=pulumi.get(__response__, 'usernames')))

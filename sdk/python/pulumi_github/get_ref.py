@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -132,9 +137,6 @@ def get_ref(owner: Optional[str] = None,
         ref=pulumi.get(__ret__, 'ref'),
         repository=pulumi.get(__ret__, 'repository'),
         sha=pulumi.get(__ret__, 'sha'))
-
-
-@_utilities.lift_output_func(get_ref)
 def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
                    ref: Optional[pulumi.Input[str]] = None,
                    repository: Optional[pulumi.Input[str]] = None,
@@ -158,4 +160,16 @@ def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
     :param str ref: The repository ref to look up. Must be formatted `heads/<ref>` for branches, and `tags/<ref>` for tags.
     :param str repository: The GitHub repository name.
     """
-    ...
+    __args__ = dict()
+    __args__['owner'] = owner
+    __args__['ref'] = ref
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRef:getRef', __args__, opts=opts, typ=GetRefResult)
+    return __ret__.apply(lambda __response__: GetRefResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        owner=pulumi.get(__response__, 'owner'),
+        ref=pulumi.get(__response__, 'ref'),
+        repository=pulumi.get(__response__, 'repository'),
+        sha=pulumi.get(__response__, 'sha')))

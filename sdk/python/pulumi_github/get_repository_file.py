@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -198,9 +203,6 @@ def get_repository_file(branch: Optional[str] = None,
         ref=pulumi.get(__ret__, 'ref'),
         repository=pulumi.get(__ret__, 'repository'),
         sha=pulumi.get(__ret__, 'sha'))
-
-
-@_utilities.lift_output_func(get_repository_file)
 def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = None,
                                file: Optional[pulumi.Input[str]] = None,
                                repository: Optional[pulumi.Input[str]] = None,
@@ -225,4 +227,21 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     :param str file: The path of the file to read.
     :param str repository: The repository to read the file from. If an unqualified repo name (without an owner) is passed, the owner will be inferred from the owner of the token used to execute the plan. If a name of the type "owner/repo" (with a slash in the middle) is passed, the owner will be as specified and not the owner of the token.
     """
-    ...
+    __args__ = dict()
+    __args__['branch'] = branch
+    __args__['file'] = file
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryFile:getRepositoryFile', __args__, opts=opts, typ=GetRepositoryFileResult)
+    return __ret__.apply(lambda __response__: GetRepositoryFileResult(
+        branch=pulumi.get(__response__, 'branch'),
+        commit_author=pulumi.get(__response__, 'commit_author'),
+        commit_email=pulumi.get(__response__, 'commit_email'),
+        commit_message=pulumi.get(__response__, 'commit_message'),
+        commit_sha=pulumi.get(__response__, 'commit_sha'),
+        content=pulumi.get(__response__, 'content'),
+        file=pulumi.get(__response__, 'file'),
+        id=pulumi.get(__response__, 'id'),
+        ref=pulumi.get(__response__, 'ref'),
+        repository=pulumi.get(__response__, 'repository'),
+        sha=pulumi.get(__response__, 'sha')))

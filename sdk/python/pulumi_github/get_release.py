@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -339,9 +344,6 @@ def get_release(owner: Optional[str] = None,
         upload_url=pulumi.get(__ret__, 'upload_url'),
         url=pulumi.get(__ret__, 'url'),
         zipball_url=pulumi.get(__ret__, 'zipball_url'))
-
-
-@_utilities.lift_output_func(get_release)
 def get_release_output(owner: Optional[pulumi.Input[str]] = None,
                        release_id: Optional[pulumi.Input[Optional[int]]] = None,
                        release_tag: Optional[pulumi.Input[Optional[str]]] = None,
@@ -373,4 +375,33 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
     :param str repository: Name of the repository to retrieve the release from.
     :param str retrieve_by: Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
     """
-    ...
+    __args__ = dict()
+    __args__['owner'] = owner
+    __args__['releaseId'] = release_id
+    __args__['releaseTag'] = release_tag
+    __args__['repository'] = repository
+    __args__['retrieveBy'] = retrieve_by
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRelease:getRelease', __args__, opts=opts, typ=GetReleaseResult)
+    return __ret__.apply(lambda __response__: GetReleaseResult(
+        asserts_url=pulumi.get(__response__, 'asserts_url'),
+        assets=pulumi.get(__response__, 'assets'),
+        assets_url=pulumi.get(__response__, 'assets_url'),
+        body=pulumi.get(__response__, 'body'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        draft=pulumi.get(__response__, 'draft'),
+        html_url=pulumi.get(__response__, 'html_url'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        prerelease=pulumi.get(__response__, 'prerelease'),
+        published_at=pulumi.get(__response__, 'published_at'),
+        release_id=pulumi.get(__response__, 'release_id'),
+        release_tag=pulumi.get(__response__, 'release_tag'),
+        repository=pulumi.get(__response__, 'repository'),
+        retrieve_by=pulumi.get(__response__, 'retrieve_by'),
+        tarball_url=pulumi.get(__response__, 'tarball_url'),
+        target_commitish=pulumi.get(__response__, 'target_commitish'),
+        upload_url=pulumi.get(__response__, 'upload_url'),
+        url=pulumi.get(__response__, 'url'),
+        zipball_url=pulumi.get(__response__, 'zipball_url')))

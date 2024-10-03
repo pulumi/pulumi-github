@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -77,9 +82,6 @@ def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = Non
     return AwaitableGetOrganizationTeamSyncGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_organization_team_sync_groups)
 def get_organization_team_sync_groups_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamSyncGroupsResult]:
     """
     Use this data source to retrieve the identity provider (IdP) groups for an organization.
@@ -93,4 +95,9 @@ def get_organization_team_sync_groups_output(opts: Optional[pulumi.InvokeOptions
     test = github.get_organization_team_sync_groups()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups', __args__, opts=opts, typ=GetOrganizationTeamSyncGroupsResult)
+    return __ret__.apply(lambda __response__: GetOrganizationTeamSyncGroupsResult(
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id')))

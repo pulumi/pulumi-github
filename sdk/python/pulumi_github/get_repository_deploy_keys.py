@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -92,9 +97,6 @@ def get_repository_deploy_keys(repository: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         keys=pulumi.get(__ret__, 'keys'),
         repository=pulumi.get(__ret__, 'repository'))
-
-
-@_utilities.lift_output_func(get_repository_deploy_keys)
 def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeployKeysResult]:
     """
@@ -112,4 +114,11 @@ def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = 
 
     :param str repository: Name of the repository to retrieve the branches from.
     """
-    ...
+    __args__ = dict()
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryDeployKeys:getRepositoryDeployKeys', __args__, opts=opts, typ=GetRepositoryDeployKeysResult)
+    return __ret__.apply(lambda __response__: GetRepositoryDeployKeysResult(
+        id=pulumi.get(__response__, 'id'),
+        keys=pulumi.get(__response__, 'keys'),
+        repository=pulumi.get(__response__, 'repository')))

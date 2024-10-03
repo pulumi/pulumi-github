@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -183,9 +188,6 @@ def get_repository_pull_requests(base_ref: Optional[str] = None,
         sort_by=pulumi.get(__ret__, 'sort_by'),
         sort_direction=pulumi.get(__ret__, 'sort_direction'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_repository_pull_requests)
 def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                         base_repository: Optional[pulumi.Input[str]] = None,
                                         head_ref: Optional[pulumi.Input[Optional[str]]] = None,
@@ -219,4 +221,23 @@ def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional
     :param str sort_direction: If set, controls the direction of the sort. Can be either "asc" or "desc". Default: "asc".
     :param str state: If set, filters Pull Requests by state. Can be "open", "closed", or "all". Default: "open".
     """
-    ...
+    __args__ = dict()
+    __args__['baseRef'] = base_ref
+    __args__['baseRepository'] = base_repository
+    __args__['headRef'] = head_ref
+    __args__['owner'] = owner
+    __args__['sortBy'] = sort_by
+    __args__['sortDirection'] = sort_direction
+    __args__['state'] = state
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryPullRequests:getRepositoryPullRequests', __args__, opts=opts, typ=GetRepositoryPullRequestsResult)
+    return __ret__.apply(lambda __response__: GetRepositoryPullRequestsResult(
+        base_ref=pulumi.get(__response__, 'base_ref'),
+        base_repository=pulumi.get(__response__, 'base_repository'),
+        head_ref=pulumi.get(__response__, 'head_ref'),
+        id=pulumi.get(__response__, 'id'),
+        owner=pulumi.get(__response__, 'owner'),
+        results=pulumi.get(__response__, 'results'),
+        sort_by=pulumi.get(__response__, 'sort_by'),
+        sort_direction=pulumi.get(__response__, 'sort_direction'),
+        state=pulumi.get(__response__, 'state')))
