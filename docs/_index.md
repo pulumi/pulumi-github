@@ -13,6 +13,7 @@ The github provider is available as a package in all Pulumi languages:
 * .NET: [`Pulumi.Github`](https://www.nuget.org/packages/Pulumi.Github)
 * Java: [`com.pulumi/github`](https://central.sonatype.com/artifact/com.pulumi/github)
 ## Overview
+
 The GitHub provider is used to interact with GitHub resources.
 
 The provider allows you to manage your GitHub organization's members and teams easily.
@@ -20,6 +21,8 @@ It needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources.
 ## Example Usage
+
+
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
@@ -152,7 +155,7 @@ public class App {
 {{% /choosable %}}
 {{< /chooser >}}
 
-- You **must** add a `requiredProviders` block to every module that will create resources with this provider. If you do not explicitly require `integrations/github` in a submodule, your pulumi run may break in hard-to-troubleshoot ways.
+
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
@@ -526,7 +529,7 @@ config:
 {{< /chooser >}}
 ## Configuration Reference
 
-The following configuration inputs are supported in the `provider` block:
+The following configuration inputs are supported in the provider configuration:
 
 * `token` - (Optional) A GitHub OAuth / Personal Access Token. When not provided or made available via the `GITHUB_TOKEN` environment variable, the provider can only access resources available anonymously.
 
