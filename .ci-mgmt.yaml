@@ -16,3 +16,4 @@ plugins:
   - name: tls
     version: "5.0.1"
 pulumiConvert: 1
+registryDocs: true
