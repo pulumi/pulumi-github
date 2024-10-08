@@ -19,7 +19,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"regexp"
 	"unicode"
 
 	// embed package blank import
@@ -283,21 +282,6 @@ var ensureIssueLabelsContent = tfbridge.DocsEdit{
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		content = bytes.ReplaceAll(content,
 			[]byte("Terraform"), []byte("Pulumi"))
-		return content, nil
-	},
-}
-
-var regexpsToSkip = []*regexp.Regexp{
-
-	// Matches TF specific notes of the format `~> note text etc...`
-	regexp.MustCompile(`~>(?s:.)*?\n\n`),
-}
-var skipText = tfbridge.DocsEdit{
-	Path: "index.html.markdown",
-	Edit: func(_ string, content []byte) ([]byte, error) {
-		for _, expression := range regexpsToSkip {
-			content = expression.ReplaceAll(content, []byte("\nBANANAS\n"))
-		}
 		return content, nil
 	},
 }
