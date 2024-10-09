@@ -17,6 +17,7 @@ package github
 import (
 	"bytes"
 	"fmt"
+	"os"
 	"path/filepath"
 	"unicode"
 
@@ -286,9 +287,51 @@ var ensureIssueLabelsContent = tfbridge.DocsEdit{
 }
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(defaults,
+	// This rule strips a section that would otherwise be changed by default edits. It should run before.
+	edits := []tfbridge.DocsEdit{
+		{
+			Path: "index.html.markdown",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+
+				input, err := os.ReadFile("provider/installation-replaces/required-providers-input.md")
+				if err != nil {
+					return nil, err
+				}
+				content = bytes.ReplaceAll(
+					content,
+					input,
+					nil)
+				return content, nil
+
+			},
+		},
+	}
+	// Append default edits
+	edits = append(edits, defaults...)
+	// Append additional rules
+	return append(edits,
 		ensureIssueLabelsContent,
-	)
+		tfbridge.DocsEdit{
+			Path: "index.html.markdown",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				files := []string{
+					"note1-input.md",
+					"note2-input.md",
+				}
+				for _, file := range files {
+					input, err := os.ReadFile("provider/installation-replaces/" + file)
+					if err != nil {
+						return nil, err
+					}
+					content = bytes.ReplaceAll(
+						content,
+						input,
+						nil)
+
+				}
+				return content, nil
+			},
+		})
 }
 
 //go:embed cmd/pulumi-resource-github/bridge-metadata.json
