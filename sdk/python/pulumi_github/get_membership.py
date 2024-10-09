@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -136,9 +141,6 @@ def get_membership(organization: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         state=pulumi.get(__ret__, 'state'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_membership)
 def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = None,
                           username: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
@@ -161,4 +163,15 @@ def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = 
     :param str organization: The organization to check for the above username.
     :param str username: The username to lookup in the organization.
     """
-    ...
+    __args__ = dict()
+    __args__['organization'] = organization
+    __args__['username'] = username
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getMembership:getMembership', __args__, opts=opts, typ=GetMembershipResult)
+    return __ret__.apply(lambda __response__: GetMembershipResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        organization=pulumi.get(__response__, 'organization'),
+        role=pulumi.get(__response__, 'role'),
+        state=pulumi.get(__response__, 'state'),
+        username=pulumi.get(__response__, 'username')))

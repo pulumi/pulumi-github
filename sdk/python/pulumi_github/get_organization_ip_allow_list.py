@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -80,9 +85,6 @@ def get_organization_ip_allow_list(opts: Optional[pulumi.InvokeOptions] = None) 
     return AwaitableGetOrganizationIpAllowListResult(
         id=pulumi.get(__ret__, 'id'),
         ip_allow_lists=pulumi.get(__ret__, 'ip_allow_lists'))
-
-
-@_utilities.lift_output_func(get_organization_ip_allow_list)
 def get_organization_ip_allow_list_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationIpAllowListResult]:
     """
     Use this data source to retrieve information about the IP allow list of an organization.
@@ -98,4 +100,9 @@ def get_organization_ip_allow_list_output(opts: Optional[pulumi.InvokeOptions] =
     all = github.get_organization_ip_allow_list()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationIpAllowList:getOrganizationIpAllowList', __args__, opts=opts, typ=GetOrganizationIpAllowListResult)
+    return __ret__.apply(lambda __response__: GetOrganizationIpAllowListResult(
+        id=pulumi.get(__response__, 'id'),
+        ip_allow_lists=pulumi.get(__response__, 'ip_allow_lists')))

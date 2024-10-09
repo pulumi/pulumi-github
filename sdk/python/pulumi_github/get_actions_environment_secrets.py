@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -120,9 +125,6 @@ def get_actions_environment_secrets(environment: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         secrets=pulumi.get(__ret__, 'secrets'))
-
-
-@_utilities.lift_output_func(get_actions_environment_secrets)
 def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[str]] = None,
                                            full_name: Optional[pulumi.Input[Optional[str]]] = None,
                                            name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -143,4 +145,15 @@ def get_actions_environment_secrets_output(environment: Optional[pulumi.Input[st
 
     :param str name: Name of the secret
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['fullName'] = full_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets', __args__, opts=opts, typ=GetActionsEnvironmentSecretsResult)
+    return __ret__.apply(lambda __response__: GetActionsEnvironmentSecretsResult(
+        environment=pulumi.get(__response__, 'environment'),
+        full_name=pulumi.get(__response__, 'full_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        secrets=pulumi.get(__response__, 'secrets')))

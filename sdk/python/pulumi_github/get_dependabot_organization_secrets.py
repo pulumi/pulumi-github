@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -77,9 +82,6 @@ def get_dependabot_organization_secrets(opts: Optional[pulumi.InvokeOptions] = N
     return AwaitableGetDependabotOrganizationSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         secrets=pulumi.get(__ret__, 'secrets'))
-
-
-@_utilities.lift_output_func(get_dependabot_organization_secrets)
 def get_dependabot_organization_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotOrganizationSecretsResult]:
     """
     Use this data source to retrieve the list of dependabot secrets of the organization.
@@ -93,4 +95,9 @@ def get_dependabot_organization_secrets_output(opts: Optional[pulumi.InvokeOptio
     example = github.get_dependabot_organization_secrets()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets', __args__, opts=opts, typ=GetDependabotOrganizationSecretsResult)
+    return __ret__.apply(lambda __response__: GetDependabotOrganizationSecretsResult(
+        id=pulumi.get(__response__, 'id'),
+        secrets=pulumi.get(__response__, 'secrets')))
