@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -414,9 +419,6 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         web_ipv4s=pulumi.get(__ret__, 'web_ipv4s'),
         web_ipv6s=pulumi.get(__ret__, 'web_ipv6s'),
         webs=pulumi.get(__ret__, 'webs'))
-
-
-@_utilities.lift_output_func(get_ip_ranges)
 def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to retrieve information about GitHub's IP addresses.
@@ -430,4 +432,35 @@ def get_ip_ranges_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     test = github.get_ip_ranges()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult)
+    return __ret__.apply(lambda __response__: GetIpRangesResult(
+        actions=pulumi.get(__response__, 'actions'),
+        actions_ipv4s=pulumi.get(__response__, 'actions_ipv4s'),
+        actions_ipv6s=pulumi.get(__response__, 'actions_ipv6s'),
+        api_ipv4s=pulumi.get(__response__, 'api_ipv4s'),
+        api_ipv6s=pulumi.get(__response__, 'api_ipv6s'),
+        apis=pulumi.get(__response__, 'apis'),
+        dependabot_ipv4s=pulumi.get(__response__, 'dependabot_ipv4s'),
+        dependabot_ipv6s=pulumi.get(__response__, 'dependabot_ipv6s'),
+        dependabots=pulumi.get(__response__, 'dependabots'),
+        git_ipv4s=pulumi.get(__response__, 'git_ipv4s'),
+        git_ipv6s=pulumi.get(__response__, 'git_ipv6s'),
+        gits=pulumi.get(__response__, 'gits'),
+        hooks=pulumi.get(__response__, 'hooks'),
+        hooks_ipv4s=pulumi.get(__response__, 'hooks_ipv4s'),
+        hooks_ipv6s=pulumi.get(__response__, 'hooks_ipv6s'),
+        id=pulumi.get(__response__, 'id'),
+        importer_ipv4s=pulumi.get(__response__, 'importer_ipv4s'),
+        importer_ipv6s=pulumi.get(__response__, 'importer_ipv6s'),
+        importers=pulumi.get(__response__, 'importers'),
+        packages=pulumi.get(__response__, 'packages'),
+        packages_ipv4s=pulumi.get(__response__, 'packages_ipv4s'),
+        packages_ipv6s=pulumi.get(__response__, 'packages_ipv6s'),
+        pages=pulumi.get(__response__, 'pages'),
+        pages_ipv4s=pulumi.get(__response__, 'pages_ipv4s'),
+        pages_ipv6s=pulumi.get(__response__, 'pages_ipv6s'),
+        web_ipv4s=pulumi.get(__response__, 'web_ipv4s'),
+        web_ipv6s=pulumi.get(__response__, 'web_ipv6s'),
+        webs=pulumi.get(__response__, 'webs')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -138,9 +143,6 @@ def get_organization_teams(results_per_page: Optional[int] = None,
         root_teams_only=pulumi.get(__ret__, 'root_teams_only'),
         summary_only=pulumi.get(__ret__, 'summary_only'),
         teams=pulumi.get(__ret__, 'teams'))
-
-
-@_utilities.lift_output_func(get_organization_teams)
 def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                                   root_teams_only: Optional[pulumi.Input[Optional[bool]]] = None,
                                   summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -173,4 +175,15 @@ def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Option
     :param bool root_teams_only: (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
     :param bool summary_only: (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """
-    ...
+    __args__ = dict()
+    __args__['resultsPerPage'] = results_per_page
+    __args__['rootTeamsOnly'] = root_teams_only
+    __args__['summaryOnly'] = summary_only
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationTeams:getOrganizationTeams', __args__, opts=opts, typ=GetOrganizationTeamsResult)
+    return __ret__.apply(lambda __response__: GetOrganizationTeamsResult(
+        id=pulumi.get(__response__, 'id'),
+        results_per_page=pulumi.get(__response__, 'results_per_page'),
+        root_teams_only=pulumi.get(__response__, 'root_teams_only'),
+        summary_only=pulumi.get(__response__, 'summary_only'),
+        teams=pulumi.get(__response__, 'teams')))

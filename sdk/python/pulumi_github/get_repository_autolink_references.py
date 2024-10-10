@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -92,9 +97,6 @@ def get_repository_autolink_references(repository: Optional[str] = None,
         autolink_references=pulumi.get(__ret__, 'autolink_references'),
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
-
-
-@_utilities.lift_output_func(get_repository_autolink_references)
 def get_repository_autolink_references_output(repository: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAutolinkReferencesResult]:
     """
@@ -112,4 +114,11 @@ def get_repository_autolink_references_output(repository: Optional[pulumi.Input[
 
     :param str repository: Name of the repository to retrieve the autolink references from.
     """
-    ...
+    __args__ = dict()
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences', __args__, opts=opts, typ=GetRepositoryAutolinkReferencesResult)
+    return __ret__.apply(lambda __response__: GetRepositoryAutolinkReferencesResult(
+        autolink_references=pulumi.get(__response__, 'autolink_references'),
+        id=pulumi.get(__response__, 'id'),
+        repository=pulumi.get(__response__, 'repository')))

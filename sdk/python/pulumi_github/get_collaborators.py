@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -135,9 +140,6 @@ def get_collaborators(affiliation: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         permission=pulumi.get(__ret__, 'permission'),
         repository=pulumi.get(__ret__, 'repository'))
-
-
-@_utilities.lift_output_func(get_collaborators)
 def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] = None,
                              owner: Optional[pulumi.Input[str]] = None,
                              permission: Optional[pulumi.Input[Optional[str]]] = None,
@@ -162,4 +164,17 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
     :param str permission: Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
     :param str repository: The name of the repository.
     """
-    ...
+    __args__ = dict()
+    __args__['affiliation'] = affiliation
+    __args__['owner'] = owner
+    __args__['permission'] = permission
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getCollaborators:getCollaborators', __args__, opts=opts, typ=GetCollaboratorsResult)
+    return __ret__.apply(lambda __response__: GetCollaboratorsResult(
+        affiliation=pulumi.get(__response__, 'affiliation'),
+        collaborators=pulumi.get(__response__, 'collaborators'),
+        id=pulumi.get(__response__, 'id'),
+        owner=pulumi.get(__response__, 'owner'),
+        permission=pulumi.get(__response__, 'permission'),
+        repository=pulumi.get(__response__, 'repository')))

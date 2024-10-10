@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -154,9 +159,6 @@ def get_repositories(include_repo_id: Optional[bool] = None,
         repo_ids=pulumi.get(__ret__, 'repo_ids'),
         results_per_page=pulumi.get(__ret__, 'results_per_page'),
         sort=pulumi.get(__ret__, 'sort'))
-
-
-@_utilities.lift_output_func(get_repositories)
 def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool]]] = None,
                             query: Optional[pulumi.Input[str]] = None,
                             results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
@@ -184,4 +186,19 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
     :param int results_per_page: Set the number of repositories requested per API call. Can be useful to decrease if requests are timing out or to increase to reduce the number of API calls. Defaults to 100.
     :param str sort: Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
     """
-    ...
+    __args__ = dict()
+    __args__['includeRepoId'] = include_repo_id
+    __args__['query'] = query
+    __args__['resultsPerPage'] = results_per_page
+    __args__['sort'] = sort
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
+    return __ret__.apply(lambda __response__: GetRepositoriesResult(
+        full_names=pulumi.get(__response__, 'full_names'),
+        id=pulumi.get(__response__, 'id'),
+        include_repo_id=pulumi.get(__response__, 'include_repo_id'),
+        names=pulumi.get(__response__, 'names'),
+        query=pulumi.get(__response__, 'query'),
+        repo_ids=pulumi.get(__response__, 'repo_ids'),
+        results_per_page=pulumi.get(__response__, 'results_per_page'),
+        sort=pulumi.get(__response__, 'sort')))

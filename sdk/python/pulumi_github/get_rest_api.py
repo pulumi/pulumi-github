@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -130,9 +135,6 @@ def get_rest_api(endpoint: Optional[str] = None,
         headers=pulumi.get(__ret__, 'headers'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_rest_api)
 def get_rest_api_output(endpoint: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
@@ -150,4 +152,14 @@ def get_rest_api_output(endpoint: Optional[pulumi.Input[str]] = None,
 
     :param str endpoint: REST API endpoint to send the GET request to.
     """
-    ...
+    __args__ = dict()
+    __args__['endpoint'] = endpoint
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
+    return __ret__.apply(lambda __response__: GetRestApiResult(
+        body=pulumi.get(__response__, 'body'),
+        code=pulumi.get(__response__, 'code'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        headers=pulumi.get(__response__, 'headers'),
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status')))

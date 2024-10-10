@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -104,9 +109,6 @@ def get_actions_registration_token(repository: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'),
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_actions_registration_token)
 def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsRegistrationTokenResult]:
     """
@@ -124,4 +126,12 @@ def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]
 
     :param str repository: Name of the repository to get a GitHub Actions registration token for.
     """
-    ...
+    __args__ = dict()
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getActionsRegistrationToken:getActionsRegistrationToken', __args__, opts=opts, typ=GetActionsRegistrationTokenResult)
+    return __ret__.apply(lambda __response__: GetActionsRegistrationTokenResult(
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        id=pulumi.get(__response__, 'id'),
+        repository=pulumi.get(__response__, 'repository'),
+        token=pulumi.get(__response__, 'token')))

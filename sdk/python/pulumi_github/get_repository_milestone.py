@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -158,9 +163,6 @@ def get_repository_milestone(number: Optional[int] = None,
         repository=pulumi.get(__ret__, 'repository'),
         state=pulumi.get(__ret__, 'state'),
         title=pulumi.get(__ret__, 'title'))
-
-
-@_utilities.lift_output_func(get_repository_milestone)
 def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
                                     owner: Optional[pulumi.Input[str]] = None,
                                     repository: Optional[pulumi.Input[str]] = None,
@@ -184,4 +186,18 @@ def get_repository_milestone_output(number: Optional[pulumi.Input[int]] = None,
     :param str owner: Owner of the repository.
     :param str repository: Name of the repository to retrieve the milestone from.
     """
-    ...
+    __args__ = dict()
+    __args__['number'] = number
+    __args__['owner'] = owner
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryMilestone:getRepositoryMilestone', __args__, opts=opts, typ=GetRepositoryMilestoneResult)
+    return __ret__.apply(lambda __response__: GetRepositoryMilestoneResult(
+        description=pulumi.get(__response__, 'description'),
+        due_date=pulumi.get(__response__, 'due_date'),
+        id=pulumi.get(__response__, 'id'),
+        number=pulumi.get(__response__, 'number'),
+        owner=pulumi.get(__response__, 'owner'),
+        repository=pulumi.get(__response__, 'repository'),
+        state=pulumi.get(__response__, 'state'),
+        title=pulumi.get(__response__, 'title')))

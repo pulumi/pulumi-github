@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -76,9 +81,6 @@ def get_actions_organization_oidc_subject_claim_customization_template(opts: Opt
     return AwaitableGetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult(
         id=pulumi.get(__ret__, 'id'),
         include_claim_keys=pulumi.get(__ret__, 'include_claim_keys'))
-
-
-@_utilities.lift_output_func(get_actions_organization_oidc_subject_claim_customization_template)
 def get_actions_organization_oidc_subject_claim_customization_template_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult]:
     """
     Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
@@ -92,4 +94,9 @@ def get_actions_organization_oidc_subject_claim_customization_template_output(op
     example = github.get_actions_organization_oidc_subject_claim_customization_template()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate', __args__, opts=opts, typ=GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult)
+    return __ret__.apply(lambda __response__: GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult(
+        id=pulumi.get(__response__, 'id'),
+        include_claim_keys=pulumi.get(__response__, 'include_claim_keys')))

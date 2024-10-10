@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, nil, nil)
+//			_, err := github.LookupActionsOrganizationOidcSubjectClaimCustomizationTemplate(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

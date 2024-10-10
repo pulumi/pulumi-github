@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -123,9 +128,6 @@ def get_user_external_identity(username: Optional[str] = None,
         saml_identity=pulumi.get(__ret__, 'saml_identity'),
         scim_identity=pulumi.get(__ret__, 'scim_identity'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_user_external_identity)
 def get_user_external_identity_output(username: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserExternalIdentityResult]:
     """
@@ -144,4 +146,13 @@ def get_user_external_identity_output(username: Optional[pulumi.Input[str]] = No
 
     :param str username: The username of the member to fetch external identity for.
     """
-    ...
+    __args__ = dict()
+    __args__['username'] = username
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getUserExternalIdentity:getUserExternalIdentity', __args__, opts=opts, typ=GetUserExternalIdentityResult)
+    return __ret__.apply(lambda __response__: GetUserExternalIdentityResult(
+        id=pulumi.get(__response__, 'id'),
+        login=pulumi.get(__response__, 'login'),
+        saml_identity=pulumi.get(__response__, 'saml_identity'),
+        scim_identity=pulumi.get(__response__, 'scim_identity'),
+        username=pulumi.get(__response__, 'username')))

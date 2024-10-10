@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -124,9 +129,6 @@ def get_tree(recursive: Optional[bool] = None,
         recursive=pulumi.get(__ret__, 'recursive'),
         repository=pulumi.get(__ret__, 'repository'),
         tree_sha=pulumi.get(__ret__, 'tree_sha'))
-
-
-@_utilities.lift_output_func(get_tree)
 def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                     repository: Optional[pulumi.Input[str]] = None,
                     tree_sha: Optional[pulumi.Input[str]] = None,
@@ -154,4 +156,15 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
     :param str repository: The name of the repository.
     :param str tree_sha: The SHA1 value for the tree.
     """
-    ...
+    __args__ = dict()
+    __args__['recursive'] = recursive
+    __args__['repository'] = repository
+    __args__['treeSha'] = tree_sha
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getTree:getTree', __args__, opts=opts, typ=GetTreeResult)
+    return __ret__.apply(lambda __response__: GetTreeResult(
+        entries=pulumi.get(__response__, 'entries'),
+        id=pulumi.get(__response__, 'id'),
+        recursive=pulumi.get(__response__, 'recursive'),
+        repository=pulumi.get(__response__, 'repository'),
+        tree_sha=pulumi.get(__response__, 'tree_sha')))
