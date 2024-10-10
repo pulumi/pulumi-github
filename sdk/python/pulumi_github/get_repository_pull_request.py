@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -297,9 +302,6 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         title=pulumi.get(__ret__, 'title'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_repository_pull_request)
 def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[str]] = None,
                                        number: Optional[pulumi.Input[int]] = None,
                                        owner: Optional[pulumi.Input[Optional[str]]] = None,
@@ -322,4 +324,29 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
     :param int number: The number of the Pull Request within the repository.
     :param str owner: Owner of the repository. If not provided, the provider's default owner is used.
     """
-    ...
+    __args__ = dict()
+    __args__['baseRepository'] = base_repository
+    __args__['number'] = number
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryPullRequest:getRepositoryPullRequest', __args__, opts=opts, typ=GetRepositoryPullRequestResult)
+    return __ret__.apply(lambda __response__: GetRepositoryPullRequestResult(
+        base_ref=pulumi.get(__response__, 'base_ref'),
+        base_repository=pulumi.get(__response__, 'base_repository'),
+        base_sha=pulumi.get(__response__, 'base_sha'),
+        body=pulumi.get(__response__, 'body'),
+        draft=pulumi.get(__response__, 'draft'),
+        head_owner=pulumi.get(__response__, 'head_owner'),
+        head_ref=pulumi.get(__response__, 'head_ref'),
+        head_repository=pulumi.get(__response__, 'head_repository'),
+        head_sha=pulumi.get(__response__, 'head_sha'),
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        maintainer_can_modify=pulumi.get(__response__, 'maintainer_can_modify'),
+        number=pulumi.get(__response__, 'number'),
+        opened_at=pulumi.get(__response__, 'opened_at'),
+        opened_by=pulumi.get(__response__, 'opened_by'),
+        owner=pulumi.get(__response__, 'owner'),
+        state=pulumi.get(__response__, 'state'),
+        title=pulumi.get(__response__, 'title'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

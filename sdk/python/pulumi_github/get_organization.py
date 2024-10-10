@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -446,9 +451,6 @@ def get_organization(ignore_archived_repos: Optional[bool] = None,
         two_factor_requirement_enabled=pulumi.get(__ret__, 'two_factor_requirement_enabled'),
         users=pulumi.get(__ret__, 'users'),
         web_commit_signoff_required=pulumi.get(__ret__, 'web_commit_signoff_required'))
-
-
-@_utilities.lift_output_func(get_organization)
 def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optional[bool]]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -470,4 +472,40 @@ def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optiona
     :param str name: The name of the organization.
     :param bool summary_only: Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
     """
-    ...
+    __args__ = dict()
+    __args__['ignoreArchivedRepos'] = ignore_archived_repos
+    __args__['name'] = name
+    __args__['summaryOnly'] = summary_only
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
+    return __ret__.apply(lambda __response__: GetOrganizationResult(
+        advanced_security_enabled_for_new_repositories=pulumi.get(__response__, 'advanced_security_enabled_for_new_repositories'),
+        default_repository_permission=pulumi.get(__response__, 'default_repository_permission'),
+        dependabot_alerts_enabled_for_new_repositories=pulumi.get(__response__, 'dependabot_alerts_enabled_for_new_repositories'),
+        dependabot_security_updates_enabled_for_new_repositories=pulumi.get(__response__, 'dependabot_security_updates_enabled_for_new_repositories'),
+        dependency_graph_enabled_for_new_repositories=pulumi.get(__response__, 'dependency_graph_enabled_for_new_repositories'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        ignore_archived_repos=pulumi.get(__response__, 'ignore_archived_repos'),
+        login=pulumi.get(__response__, 'login'),
+        members=pulumi.get(__response__, 'members'),
+        members_allowed_repository_creation_type=pulumi.get(__response__, 'members_allowed_repository_creation_type'),
+        members_can_create_internal_repositories=pulumi.get(__response__, 'members_can_create_internal_repositories'),
+        members_can_create_pages=pulumi.get(__response__, 'members_can_create_pages'),
+        members_can_create_private_pages=pulumi.get(__response__, 'members_can_create_private_pages'),
+        members_can_create_private_repositories=pulumi.get(__response__, 'members_can_create_private_repositories'),
+        members_can_create_public_pages=pulumi.get(__response__, 'members_can_create_public_pages'),
+        members_can_create_public_repositories=pulumi.get(__response__, 'members_can_create_public_repositories'),
+        members_can_create_repositories=pulumi.get(__response__, 'members_can_create_repositories'),
+        members_can_fork_private_repositories=pulumi.get(__response__, 'members_can_fork_private_repositories'),
+        name=pulumi.get(__response__, 'name'),
+        node_id=pulumi.get(__response__, 'node_id'),
+        orgname=pulumi.get(__response__, 'orgname'),
+        plan=pulumi.get(__response__, 'plan'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        secret_scanning_enabled_for_new_repositories=pulumi.get(__response__, 'secret_scanning_enabled_for_new_repositories'),
+        secret_scanning_push_protection_enabled_for_new_repositories=pulumi.get(__response__, 'secret_scanning_push_protection_enabled_for_new_repositories'),
+        summary_only=pulumi.get(__response__, 'summary_only'),
+        two_factor_requirement_enabled=pulumi.get(__response__, 'two_factor_requirement_enabled'),
+        users=pulumi.get(__response__, 'users'),
+        web_commit_signoff_required=pulumi.get(__response__, 'web_commit_signoff_required')))

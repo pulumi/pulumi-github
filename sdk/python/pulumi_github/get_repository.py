@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -550,9 +555,6 @@ def get_repository(description: Optional[str] = None,
         templates=pulumi.get(__ret__, 'templates'),
         topics=pulumi.get(__ret__, 'topics'),
         visibility=pulumi.get(__ret__, 'visibility'))
-
-
-@_utilities.lift_output_func(get_repository)
 def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                           full_name: Optional[pulumi.Input[Optional[str]]] = None,
                           homepage_url: Optional[pulumi.Input[Optional[str]]] = None,
@@ -576,4 +578,49 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
     :param str homepage_url: URL of a page describing the project.
     :param str name: The name of the repository.
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['fullName'] = full_name
+    __args__['homepageUrl'] = homepage_url
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
+    return __ret__.apply(lambda __response__: GetRepositoryResult(
+        allow_auto_merge=pulumi.get(__response__, 'allow_auto_merge'),
+        allow_merge_commit=pulumi.get(__response__, 'allow_merge_commit'),
+        allow_rebase_merge=pulumi.get(__response__, 'allow_rebase_merge'),
+        allow_squash_merge=pulumi.get(__response__, 'allow_squash_merge'),
+        allow_update_branch=pulumi.get(__response__, 'allow_update_branch'),
+        archived=pulumi.get(__response__, 'archived'),
+        default_branch=pulumi.get(__response__, 'default_branch'),
+        delete_branch_on_merge=pulumi.get(__response__, 'delete_branch_on_merge'),
+        description=pulumi.get(__response__, 'description'),
+        fork=pulumi.get(__response__, 'fork'),
+        full_name=pulumi.get(__response__, 'full_name'),
+        git_clone_url=pulumi.get(__response__, 'git_clone_url'),
+        has_discussions=pulumi.get(__response__, 'has_discussions'),
+        has_downloads=pulumi.get(__response__, 'has_downloads'),
+        has_issues=pulumi.get(__response__, 'has_issues'),
+        has_projects=pulumi.get(__response__, 'has_projects'),
+        has_wiki=pulumi.get(__response__, 'has_wiki'),
+        homepage_url=pulumi.get(__response__, 'homepage_url'),
+        html_url=pulumi.get(__response__, 'html_url'),
+        http_clone_url=pulumi.get(__response__, 'http_clone_url'),
+        id=pulumi.get(__response__, 'id'),
+        is_template=pulumi.get(__response__, 'is_template'),
+        merge_commit_message=pulumi.get(__response__, 'merge_commit_message'),
+        merge_commit_title=pulumi.get(__response__, 'merge_commit_title'),
+        name=pulumi.get(__response__, 'name'),
+        node_id=pulumi.get(__response__, 'node_id'),
+        pages=pulumi.get(__response__, 'pages'),
+        primary_language=pulumi.get(__response__, 'primary_language'),
+        private=pulumi.get(__response__, 'private'),
+        repo_id=pulumi.get(__response__, 'repo_id'),
+        repository_licenses=pulumi.get(__response__, 'repository_licenses'),
+        squash_merge_commit_message=pulumi.get(__response__, 'squash_merge_commit_message'),
+        squash_merge_commit_title=pulumi.get(__response__, 'squash_merge_commit_title'),
+        ssh_clone_url=pulumi.get(__response__, 'ssh_clone_url'),
+        svn_url=pulumi.get(__response__, 'svn_url'),
+        templates=pulumi.get(__response__, 'templates'),
+        topics=pulumi.get(__response__, 'topics'),
+        visibility=pulumi.get(__response__, 'visibility')))

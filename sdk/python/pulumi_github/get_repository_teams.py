@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -108,9 +113,6 @@ def get_repository_teams(full_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         teams=pulumi.get(__ret__, 'teams'))
-
-
-@_utilities.lift_output_func(get_repository_teams)
 def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryTeamsResult]:
@@ -130,4 +132,13 @@ def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[str]]]
     :param str full_name: Full name of the repository (in `org/name` format).
     :param str name: The name of the repository.
     """
-    ...
+    __args__ = dict()
+    __args__['fullName'] = full_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryTeams:getRepositoryTeams', __args__, opts=opts, typ=GetRepositoryTeamsResult)
+    return __ret__.apply(lambda __response__: GetRepositoryTeamsResult(
+        full_name=pulumi.get(__response__, 'full_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        teams=pulumi.get(__response__, 'teams')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -78,9 +83,6 @@ def get_organization_external_identities(opts: Optional[pulumi.InvokeOptions] = 
     return AwaitableGetOrganizationExternalIdentitiesResult(
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'))
-
-
-@_utilities.lift_output_func(get_organization_external_identities)
 def get_organization_external_identities_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationExternalIdentitiesResult]:
     """
     Use this data source to retrieve each organization member's SAML or SCIM user
@@ -95,4 +97,9 @@ def get_organization_external_identities_output(opts: Optional[pulumi.InvokeOpti
     all = github.get_organization_external_identities()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities', __args__, opts=opts, typ=GetOrganizationExternalIdentitiesResult)
+    return __ret__.apply(lambda __response__: GetOrganizationExternalIdentitiesResult(
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities')))

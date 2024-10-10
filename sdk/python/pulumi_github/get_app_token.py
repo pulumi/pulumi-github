@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -120,9 +125,6 @@ def get_app_token(app_id: Optional[str] = None,
         installation_id=pulumi.get(__ret__, 'installation_id'),
         pem_file=pulumi.get(__ret__, 'pem_file'),
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_app_token)
 def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
                          installation_id: Optional[pulumi.Input[str]] = None,
                          pem_file: Optional[pulumi.Input[str]] = None,
@@ -147,4 +149,15 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
     :param str installation_id: This is the ID of the GitHub App installation.
     :param str pem_file: This is the contents of the GitHub App private key PEM file.
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    __args__['installationId'] = installation_id
+    __args__['pemFile'] = pem_file
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getAppToken:getAppToken', __args__, opts=opts, typ=GetAppTokenResult)
+    return __ret__.apply(lambda __response__: GetAppTokenResult(
+        app_id=pulumi.get(__response__, 'app_id'),
+        id=pulumi.get(__response__, 'id'),
+        installation_id=pulumi.get(__response__, 'installation_id'),
+        pem_file=pulumi.get(__response__, 'pem_file'),
+        token=pulumi.get(__response__, 'token')))

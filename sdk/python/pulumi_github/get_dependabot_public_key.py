@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -105,9 +110,6 @@ def get_dependabot_public_key(repository: Optional[str] = None,
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'),
         repository=pulumi.get(__ret__, 'repository'))
-
-
-@_utilities.lift_output_func(get_dependabot_public_key)
 def get_dependabot_public_key_output(repository: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotPublicKeyResult]:
     """
@@ -126,4 +128,12 @@ def get_dependabot_public_key_output(repository: Optional[pulumi.Input[str]] = N
 
     :param str repository: Name of the repository to get public key from.
     """
-    ...
+    __args__ = dict()
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getDependabotPublicKey:getDependabotPublicKey', __args__, opts=opts, typ=GetDependabotPublicKeyResult)
+    return __ret__.apply(lambda __response__: GetDependabotPublicKeyResult(
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        repository=pulumi.get(__response__, 'repository')))

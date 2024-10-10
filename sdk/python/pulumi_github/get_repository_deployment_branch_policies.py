@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -106,9 +111,6 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
         environment_name=pulumi.get(__ret__, 'environment_name'),
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
-
-
-@_utilities.lift_output_func(get_repository_deployment_branch_policies)
 def get_repository_deployment_branch_policies_output(environment_name: Optional[pulumi.Input[str]] = None,
                                                      repository: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
@@ -129,4 +131,13 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
     :param str environment_name: Name of the environment to retrieve the deployment branch policies  from.
     :param str repository: Name of the repository to retrieve the deployment branch policies from.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies', __args__, opts=opts, typ=GetRepositoryDeploymentBranchPoliciesResult)
+    return __ret__.apply(lambda __response__: GetRepositoryDeploymentBranchPoliciesResult(
+        deployment_branch_policies=pulumi.get(__response__, 'deployment_branch_policies'),
+        environment_name=pulumi.get(__response__, 'environment_name'),
+        id=pulumi.get(__response__, 'id'),
+        repository=pulumi.get(__response__, 'repository')))

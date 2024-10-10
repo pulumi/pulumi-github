@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -90,9 +95,6 @@ def get_actions_organization_public_key(opts: Optional[pulumi.InvokeOptions] = N
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'))
-
-
-@_utilities.lift_output_func(get_actions_organization_public_key)
 def get_actions_organization_public_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
@@ -107,4 +109,10 @@ def get_actions_organization_public_key_output(opts: Optional[pulumi.InvokeOptio
     example = github.get_actions_organization_public_key()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey', __args__, opts=opts, typ=GetActionsOrganizationPublicKeyResult)
+    return __ret__.apply(lambda __response__: GetActionsOrganizationPublicKeyResult(
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        key_id=pulumi.get(__response__, 'key_id')))
