@@ -453,6 +453,8 @@ config:
 {{% /choosable %}}
 {{< /chooser >}}
 
+> **Note:** When using environment variables, an empty `appAuth` block is required to allow provider configurations from environment variables to be specified. See: <https://github.com/pulumi/pulumi-plugin-sdk/issues/142>
+
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
 ```yaml
@@ -529,7 +531,7 @@ config:
 {{< /chooser >}}
 ## Configuration Reference
 
-The following configuration inputs are supported in the provider configuration:
+The following configuration inputs are supported in the `provider` block:
 
 * `token` - (Optional) A GitHub OAuth / Personal Access Token. When not provided or made available via the `GITHUB_TOKEN` environment variable, the provider can only access resources available anonymously.
 

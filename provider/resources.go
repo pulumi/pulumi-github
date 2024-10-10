@@ -292,7 +292,6 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		{
 			Path: "index.html.markdown",
 			Edit: func(_ string, content []byte) ([]byte, error) {
-
 				input, err := os.ReadFile("provider/installation-replaces/required-providers-input.md")
 				if err != nil {
 					return nil, err
@@ -302,7 +301,6 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 					input,
 					nil)
 				return content, nil
-
 			},
 		},
 	}
