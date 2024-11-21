@@ -462,6 +462,16 @@
                                 "pull_request": {
                                     "maxItemsOne": true
                                 },
+                                "required_code_scanning": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_code_scanning_tool": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "required_status_checks": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -685,6 +695,16 @@
                                 "pull_request": {
                                     "maxItemsOne": true
                                 },
+                                "required_code_scanning": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "required_code_scanning_tool": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "required_deployments": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -712,10 +732,6 @@
                         }
                     }
                 }
-            },
-            "github_repository_tag_protection": {
-                "current": "github:index/repositoryTagProtection:RepositoryTagProtection",
-                "majorVersion": 6
             },
             "github_repository_topics": {
                 "current": "github:index/repositoryTopics:RepositoryTopics",
