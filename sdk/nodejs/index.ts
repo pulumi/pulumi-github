@@ -605,11 +605,6 @@ export type RepositoryRuleset = import("./repositoryRuleset").RepositoryRuleset;
 export const RepositoryRuleset: typeof import("./repositoryRuleset").RepositoryRuleset = null as any;
 utilities.lazyLoad(exports, ["RepositoryRuleset"], () => require("./repositoryRuleset"));
 
-export { RepositoryTagProtectionArgs, RepositoryTagProtectionState } from "./repositoryTagProtection";
-export type RepositoryTagProtection = import("./repositoryTagProtection").RepositoryTagProtection;
-export const RepositoryTagProtection: typeof import("./repositoryTagProtection").RepositoryTagProtection = null as any;
-utilities.lazyLoad(exports, ["RepositoryTagProtection"], () => require("./repositoryTagProtection"));
-
 export { RepositoryTopicsArgs, RepositoryTopicsState } from "./repositoryTopics";
 export type RepositoryTopics = import("./repositoryTopics").RepositoryTopics;
 export const RepositoryTopics: typeof import("./repositoryTopics").RepositoryTopics = null as any;
@@ -795,8 +790,6 @@ const _module = {
                 return new RepositoryPullRequest(name, <any>undefined, { urn })
             case "github:index/repositoryRuleset:RepositoryRuleset":
                 return new RepositoryRuleset(name, <any>undefined, { urn })
-            case "github:index/repositoryTagProtection:RepositoryTagProtection":
-                return new RepositoryTagProtection(name, <any>undefined, { urn })
             case "github:index/repositoryTopics:RepositoryTopics":
                 return new RepositoryTopics(name, <any>undefined, { urn })
             case "github:index/repositoryWebhook:RepositoryWebhook":
@@ -882,7 +875,6 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _mo
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryRuleset", _module)
-pulumi.runtime.registerResourceModule("github", "index/repositoryTagProtection", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryTopics", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)

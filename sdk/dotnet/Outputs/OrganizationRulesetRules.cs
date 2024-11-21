@@ -46,6 +46,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.OrganizationRulesetRulesPullRequest? PullRequest;
         /// <summary>
+        /// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesRequiredCodeScanning? RequiredCodeScanning;
+        /// <summary>
         /// (Boolean) Prevent merge commits from being pushed to matching branches.
         /// </summary>
         public readonly bool? RequiredLinearHistory;
@@ -88,6 +92,8 @@ namespace Pulumi.Github.Outputs
 
             Outputs.OrganizationRulesetRulesPullRequest? pullRequest,
 
+            Outputs.OrganizationRulesetRulesRequiredCodeScanning? requiredCodeScanning,
+
             bool? requiredLinearHistory,
 
             bool? requiredSignatures,
@@ -108,6 +114,7 @@ namespace Pulumi.Github.Outputs
             Deletion = deletion;
             NonFastForward = nonFastForward;
             PullRequest = pullRequest;
+            RequiredCodeScanning = requiredCodeScanning;
             RequiredLinearHistory = requiredLinearHistory;
             RequiredSignatures = requiredSignatures;
             RequiredStatusChecks = requiredStatusChecks;

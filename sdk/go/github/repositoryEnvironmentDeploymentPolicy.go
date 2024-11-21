@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// Create a branch-based deployment policy:
+//
 // ```go
 // package main
 //
@@ -73,6 +75,65 @@ import (
 //
 // ```
 //
+// Create a tag-based deployment policy:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := github.GetUser(ctx, &github.GetUserArgs{
+//				Username: "",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			test, err := github.NewRepository(ctx, "test", &github.RepositoryArgs{
+//				Name: pulumi.String("tf-acc-test-%s"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "test", &github.RepositoryEnvironmentArgs{
+//				Repository:  test.Name,
+//				Environment: pulumi.String("environment/test"),
+//				WaitTimer:   pulumi.Int(10000),
+//				Reviewers: github.RepositoryEnvironmentReviewerArray{
+//					&github.RepositoryEnvironmentReviewerArgs{
+//						Users: pulumi.IntArray{
+//							pulumi.String(current.Id),
+//						},
+//					},
+//				},
+//				DeploymentBranchPolicy: &github.RepositoryEnvironmentDeploymentBranchPolicyArgs{
+//					ProtectedBranches:    pulumi.Bool(false),
+//					CustomBranchPolicies: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewRepositoryEnvironmentDeploymentPolicy(ctx, "test", &github.RepositoryEnvironmentDeploymentPolicyArgs{
+//				Repository:  test.Name,
+//				Environment: testRepositoryEnvironment.Environment,
+//				TagPattern:  pulumi.String("v*"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
@@ -83,12 +144,14 @@ import (
 type RepositoryEnvironmentDeploymentPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name pattern that branches must match in order to deploy to the environment.
-	BranchPattern pulumi.StringOutput `pulumi:"branchPattern"`
+	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
+	BranchPattern pulumi.StringPtrOutput `pulumi:"branchPattern"`
 	// The name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
 	// The repository of the environment.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+	TagPattern pulumi.StringPtrOutput `pulumi:"tagPattern"`
 }
 
 // NewRepositoryEnvironmentDeploymentPolicy registers a new resource with the given unique name, arguments, and options.
@@ -98,9 +161,6 @@ func NewRepositoryEnvironmentDeploymentPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BranchPattern == nil {
-		return nil, errors.New("invalid value for required argument 'BranchPattern'")
-	}
 	if args.Environment == nil {
 		return nil, errors.New("invalid value for required argument 'Environment'")
 	}
@@ -130,21 +190,25 @@ func GetRepositoryEnvironmentDeploymentPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryEnvironmentDeploymentPolicy resources.
 type repositoryEnvironmentDeploymentPolicyState struct {
-	// The name pattern that branches must match in order to deploy to the environment.
+	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
 	BranchPattern *string `pulumi:"branchPattern"`
 	// The name of the environment.
 	Environment *string `pulumi:"environment"`
 	// The repository of the environment.
 	Repository *string `pulumi:"repository"`
+	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+	TagPattern *string `pulumi:"tagPattern"`
 }
 
 type RepositoryEnvironmentDeploymentPolicyState struct {
-	// The name pattern that branches must match in order to deploy to the environment.
+	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
 	BranchPattern pulumi.StringPtrInput
 	// The name of the environment.
 	Environment pulumi.StringPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringPtrInput
+	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+	TagPattern pulumi.StringPtrInput
 }
 
 func (RepositoryEnvironmentDeploymentPolicyState) ElementType() reflect.Type {
@@ -152,22 +216,26 @@ func (RepositoryEnvironmentDeploymentPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryEnvironmentDeploymentPolicyArgs struct {
-	// The name pattern that branches must match in order to deploy to the environment.
-	BranchPattern string `pulumi:"branchPattern"`
+	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
+	BranchPattern *string `pulumi:"branchPattern"`
 	// The name of the environment.
 	Environment string `pulumi:"environment"`
 	// The repository of the environment.
 	Repository string `pulumi:"repository"`
+	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+	TagPattern *string `pulumi:"tagPattern"`
 }
 
 // The set of arguments for constructing a RepositoryEnvironmentDeploymentPolicy resource.
 type RepositoryEnvironmentDeploymentPolicyArgs struct {
-	// The name pattern that branches must match in order to deploy to the environment.
-	BranchPattern pulumi.StringInput
+	// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
+	BranchPattern pulumi.StringPtrInput
 	// The name of the environment.
 	Environment pulumi.StringInput
 	// The repository of the environment.
 	Repository pulumi.StringInput
+	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+	TagPattern pulumi.StringPtrInput
 }
 
 func (RepositoryEnvironmentDeploymentPolicyArgs) ElementType() reflect.Type {
@@ -257,9 +325,9 @@ func (o RepositoryEnvironmentDeploymentPolicyOutput) ToRepositoryEnvironmentDepl
 	return o
 }
 
-// The name pattern that branches must match in order to deploy to the environment.
-func (o RepositoryEnvironmentDeploymentPolicyOutput) BranchPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringOutput { return v.BranchPattern }).(pulumi.StringOutput)
+// The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
+func (o RepositoryEnvironmentDeploymentPolicyOutput) BranchPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringPtrOutput { return v.BranchPattern }).(pulumi.StringPtrOutput)
 }
 
 // The name of the environment.
@@ -270,6 +338,11 @@ func (o RepositoryEnvironmentDeploymentPolicyOutput) Environment() pulumi.String
 // The repository of the environment.
 func (o RepositoryEnvironmentDeploymentPolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+func (o RepositoryEnvironmentDeploymentPolicyOutput) TagPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringPtrOutput { return v.TagPattern }).(pulumi.StringPtrOutput)
 }
 
 type RepositoryEnvironmentDeploymentPolicyArrayOutput struct{ *pulumi.OutputState }

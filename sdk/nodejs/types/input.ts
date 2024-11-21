@@ -338,6 +338,10 @@ export interface OrganizationRulesetRules {
      */
     pullRequest?: pulumi.Input<inputs.OrganizationRulesetRulesPullRequest>;
     /**
+     * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     */
+    requiredCodeScanning?: pulumi.Input<inputs.OrganizationRulesetRulesRequiredCodeScanning>;
+    /**
      * (Boolean) Prevent merge commits from being pushed to matching branches.
      */
     requiredLinearHistory?: pulumi.Input<boolean>;
@@ -460,6 +464,28 @@ export interface OrganizationRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
+}
+
+export interface OrganizationRulesetRulesRequiredCodeScanning {
+    /**
+     * Tools that must provide code scanning results for this rule to pass.
+     */
+    requiredCodeScanningTools: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool>[]>;
+}
+
+export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+    /**
+     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+     */
+    alertsThreshold: pulumi.Input<string>;
+    /**
+     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+     */
+    securityAlertsThreshold: pulumi.Input<string>;
+    /**
+     * The name of a code scanning tool.
+     */
+    tool: pulumi.Input<string>;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
@@ -717,6 +743,10 @@ export interface RepositoryRulesetRules {
      */
     pullRequest?: pulumi.Input<inputs.RepositoryRulesetRulesPullRequest>;
     /**
+     * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     */
+    requiredCodeScanning?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredCodeScanning>;
+    /**
      * (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
      */
     requiredDeployments?: pulumi.Input<inputs.RepositoryRulesetRulesRequiredDeployments>;
@@ -843,6 +873,28 @@ export interface RepositoryRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
+}
+
+export interface RepositoryRulesetRulesRequiredCodeScanning {
+    /**
+     * Tools that must provide code scanning results for this rule to pass.
+     */
+    requiredCodeScanningTools: pulumi.Input<pulumi.Input<inputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool>[]>;
+}
+
+export interface RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+    /**
+     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+     */
+    alertsThreshold: pulumi.Input<string>;
+    /**
+     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+     */
+    securityAlertsThreshold: pulumi.Input<string>;
+    /**
+     * The name of a code scanning tool
+     */
+    tool: pulumi.Input<string>;
 }
 
 export interface RepositoryRulesetRulesRequiredDeployments {

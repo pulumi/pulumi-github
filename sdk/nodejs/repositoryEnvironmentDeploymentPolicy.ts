@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * Create a branch-based deployment policy:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
@@ -33,6 +35,35 @@ import * as utilities from "./utilities";
  *     repository: test.name,
  *     environment: testRepositoryEnvironment.environment,
  *     branchPattern: "releases/*",
+ * });
+ * ```
+ *
+ * Create a tag-based deployment policy:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const current = github.getUser({
+ *     username: "",
+ * });
+ * const test = new github.Repository("test", {name: "tf-acc-test-%s"});
+ * const testRepositoryEnvironment = new github.RepositoryEnvironment("test", {
+ *     repository: test.name,
+ *     environment: "environment/test",
+ *     waitTimer: 10000,
+ *     reviewers: [{
+ *         users: [current.then(current => current.id)],
+ *     }],
+ *     deploymentBranchPolicy: {
+ *         protectedBranches: false,
+ *         customBranchPolicies: true,
+ *     },
+ * });
+ * const testRepositoryEnvironmentDeploymentPolicy = new github.RepositoryEnvironmentDeploymentPolicy("test", {
+ *     repository: test.name,
+ *     environment: testRepositoryEnvironment.environment,
+ *     tagPattern: "v*",
  * });
  * ```
  *
@@ -73,9 +104,9 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
     }
 
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
-    public readonly branchPattern!: pulumi.Output<string>;
+    public readonly branchPattern!: pulumi.Output<string | undefined>;
     /**
      * The name of the environment.
      */
@@ -84,6 +115,10 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
      * The repository of the environment.
      */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+     */
+    public readonly tagPattern!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RepositoryEnvironmentDeploymentPolicy resource with the given unique name, arguments, and options.
@@ -101,11 +136,9 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
             resourceInputs["branchPattern"] = state ? state.branchPattern : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["tagPattern"] = state ? state.tagPattern : undefined;
         } else {
             const args = argsOrState as RepositoryEnvironmentDeploymentPolicyArgs | undefined;
-            if ((!args || args.branchPattern === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'branchPattern'");
-            }
             if ((!args || args.environment === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
@@ -115,6 +148,7 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
             resourceInputs["branchPattern"] = args ? args.branchPattern : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["tagPattern"] = args ? args.tagPattern : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironmentDeploymentPolicy.__pulumiType, name, resourceInputs, opts);
@@ -126,7 +160,7 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
  */
 export interface RepositoryEnvironmentDeploymentPolicyState {
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
     branchPattern?: pulumi.Input<string>;
     /**
@@ -137,6 +171,10 @@ export interface RepositoryEnvironmentDeploymentPolicyState {
      * The repository of the environment.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+     */
+    tagPattern?: pulumi.Input<string>;
 }
 
 /**
@@ -144,9 +182,9 @@ export interface RepositoryEnvironmentDeploymentPolicyState {
  */
 export interface RepositoryEnvironmentDeploymentPolicyArgs {
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
-    branchPattern: pulumi.Input<string>;
+    branchPattern?: pulumi.Input<string>;
     /**
      * The name of the environment.
      */
@@ -155,4 +193,8 @@ export interface RepositoryEnvironmentDeploymentPolicyArgs {
      * The repository of the environment.
      */
     repository: pulumi.Input<string>;
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
+     */
+    tagPattern?: pulumi.Input<string>;
 }

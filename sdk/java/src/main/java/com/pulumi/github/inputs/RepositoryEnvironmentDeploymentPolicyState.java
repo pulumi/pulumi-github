@@ -16,14 +16,14 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
     public static final RepositoryEnvironmentDeploymentPolicyState Empty = new RepositoryEnvironmentDeploymentPolicyState();
 
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
     @Import(name="branchPattern")
     private @Nullable Output<String> branchPattern;
 
     /**
-     * @return The name pattern that branches must match in order to deploy to the environment.
+     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
     public Optional<Output<String>> branchPattern() {
@@ -60,12 +60,28 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         return Optional.ofNullable(this.repository);
     }
 
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    @Import(name="tagPattern")
+    private @Nullable Output<String> tagPattern;
+
+    /**
+     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    public Optional<Output<String>> tagPattern() {
+        return Optional.ofNullable(this.tagPattern);
+    }
+
     private RepositoryEnvironmentDeploymentPolicyState() {}
 
     private RepositoryEnvironmentDeploymentPolicyState(RepositoryEnvironmentDeploymentPolicyState $) {
         this.branchPattern = $.branchPattern;
         this.environment = $.environment;
         this.repository = $.repository;
+        this.tagPattern = $.tagPattern;
     }
 
     public static Builder builder() {
@@ -87,7 +103,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
          * 
          * @return builder
          * 
@@ -98,7 +114,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
          * 
          * @return builder
          * 
@@ -147,6 +163,27 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPattern(@Nullable Output<String> tagPattern) {
+            $.tagPattern = tagPattern;
+            return this;
+        }
+
+        /**
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPattern(String tagPattern) {
+            return tagPattern(Output.of(tagPattern));
         }
 
         public RepositoryEnvironmentDeploymentPolicyState build() {

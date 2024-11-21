@@ -161,7 +161,7 @@ class TeamMembership(pulumi.CustomResource):
 
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
-        > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
+        > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set an organization owner as a "member" of a team may result in a `pulumi preview` diff that changes their status back to "maintainer".
 
         ## Example Usage
 
@@ -217,7 +217,7 @@ class TeamMembership(pulumi.CustomResource):
 
         > **Note** This resource is not compatible with `TeamMembers`. Use either `TeamMembers` or `TeamMembership`.
 
-        > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set organization an owner to "member" of a may result in a `pulumi preview` diff that changes their status back to "maintainer".
+        > **Note** Organization owners may not be set as "members" of a team; they may only be set as "maintainers". Attempting to set an organization owner as a "member" of a team may result in a `pulumi preview` diff that changes their status back to "maintainer".
 
         ## Example Usage
 

@@ -9,6 +9,7 @@ import com.pulumi.github.outputs.RepositoryRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitterEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesPullRequest;
+import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredCodeScanning;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredDeployments;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredStatusChecks;
 import com.pulumi.github.outputs.RepositoryRulesetRulesTagNamePattern;
@@ -59,6 +60,11 @@ public final class RepositoryRulesetRules {
      * 
      */
     private @Nullable RepositoryRulesetRulesPullRequest pullRequest;
+    /**
+     * @return (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesRequiredCodeScanning requiredCodeScanning;
     /**
      * @return (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
      * 
@@ -153,6 +159,13 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.pullRequest);
     }
     /**
+     * @return (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    public Optional<RepositoryRulesetRulesRequiredCodeScanning> requiredCodeScanning() {
+        return Optional.ofNullable(this.requiredCodeScanning);
+    }
+    /**
      * @return (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
      * 
      */
@@ -219,6 +232,7 @@ public final class RepositoryRulesetRules {
         private @Nullable Boolean deletion;
         private @Nullable Boolean nonFastForward;
         private @Nullable RepositoryRulesetRulesPullRequest pullRequest;
+        private @Nullable RepositoryRulesetRulesRequiredCodeScanning requiredCodeScanning;
         private @Nullable RepositoryRulesetRulesRequiredDeployments requiredDeployments;
         private @Nullable Boolean requiredLinearHistory;
         private @Nullable Boolean requiredSignatures;
@@ -237,6 +251,7 @@ public final class RepositoryRulesetRules {
     	      this.deletion = defaults.deletion;
     	      this.nonFastForward = defaults.nonFastForward;
     	      this.pullRequest = defaults.pullRequest;
+    	      this.requiredCodeScanning = defaults.requiredCodeScanning;
     	      this.requiredDeployments = defaults.requiredDeployments;
     	      this.requiredLinearHistory = defaults.requiredLinearHistory;
     	      this.requiredSignatures = defaults.requiredSignatures;
@@ -295,6 +310,12 @@ public final class RepositoryRulesetRules {
             return this;
         }
         @CustomType.Setter
+        public Builder requiredCodeScanning(@Nullable RepositoryRulesetRulesRequiredCodeScanning requiredCodeScanning) {
+
+            this.requiredCodeScanning = requiredCodeScanning;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredDeployments(@Nullable RepositoryRulesetRulesRequiredDeployments requiredDeployments) {
 
             this.requiredDeployments = requiredDeployments;
@@ -346,6 +367,7 @@ public final class RepositoryRulesetRules {
             _resultValue.deletion = deletion;
             _resultValue.nonFastForward = nonFastForward;
             _resultValue.pullRequest = pullRequest;
+            _resultValue.requiredCodeScanning = requiredCodeScanning;
             _resultValue.requiredDeployments = requiredDeployments;
             _resultValue.requiredLinearHistory = requiredLinearHistory;
             _resultValue.requiredSignatures = requiredSignatures;

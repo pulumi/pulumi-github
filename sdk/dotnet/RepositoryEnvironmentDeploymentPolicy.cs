@@ -14,6 +14,8 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// Create a branch-based deployment policy:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,6 +66,58 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// Create a tag-based deployment policy:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Github.GetUser.Invoke(new()
+    ///     {
+    ///         Username = "",
+    ///     });
+    /// 
+    ///     var test = new Github.Repository("test", new()
+    ///     {
+    ///         Name = "tf-acc-test-%s",
+    ///     });
+    /// 
+    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("test", new()
+    ///     {
+    ///         Repository = test.Name,
+    ///         Environment = "environment/test",
+    ///         WaitTimer = 10000,
+    ///         Reviewers = new[]
+    ///         {
+    ///             new Github.Inputs.RepositoryEnvironmentReviewerArgs
+    ///             {
+    ///                 Users = new[]
+    ///                 {
+    ///                     current.Apply(getUserResult =&gt; getUserResult.Id),
+    ///                 },
+    ///             },
+    ///         },
+    ///         DeploymentBranchPolicy = new Github.Inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs
+    ///         {
+    ///             ProtectedBranches = false,
+    ///             CustomBranchPolicies = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("test", new()
+    ///     {
+    ///         Repository = test.Name,
+    ///         Environment = testRepositoryEnvironment.Environment,
+    ///         TagPattern = "v*",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
@@ -76,10 +130,10 @@ namespace Pulumi.Github
     public partial class RepositoryEnvironmentDeploymentPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         /// </summary>
         [Output("branchPattern")]
-        public Output<string> BranchPattern { get; private set; } = null!;
+        public Output<string?> BranchPattern { get; private set; } = null!;
 
         /// <summary>
         /// The name of the environment.
@@ -92,6 +146,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
+
+        /// <summary>
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// </summary>
+        [Output("tagPattern")]
+        public Output<string?> TagPattern { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,10 +200,10 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentDeploymentPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         /// </summary>
-        [Input("branchPattern", required: true)]
-        public Input<string> BranchPattern { get; set; } = null!;
+        [Input("branchPattern")]
+        public Input<string>? BranchPattern { get; set; }
 
         /// <summary>
         /// The name of the environment.
@@ -157,6 +217,12 @@ namespace Pulumi.Github
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
+        /// <summary>
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// </summary>
+        [Input("tagPattern")]
+        public Input<string>? TagPattern { get; set; }
+
         public RepositoryEnvironmentDeploymentPolicyArgs()
         {
         }
@@ -166,7 +232,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentDeploymentPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         /// </summary>
         [Input("branchPattern")]
         public Input<string>? BranchPattern { get; set; }
@@ -182,6 +248,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// </summary>
+        [Input("tagPattern")]
+        public Input<string>? TagPattern { get; set; }
 
         public RepositoryEnvironmentDeploymentPolicyState()
         {

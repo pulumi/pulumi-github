@@ -125,7 +125,6 @@ from .repository_milestone import *
 from .repository_project import *
 from .repository_pull_request import *
 from .repository_ruleset import *
-from .repository_tag_protection import *
 from .repository_topics import *
 from .repository_webhook import *
 from .team import *
@@ -612,14 +611,6 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryRuleset:RepositoryRuleset": "RepositoryRuleset"
-  }
- },
- {
-  "pkg": "github",
-  "mod": "index/repositoryTagProtection",
-  "fqn": "pulumi_github",
-  "classes": {
-   "github:index/repositoryTagProtection:RepositoryTagProtection": "RepositoryTagProtection"
   }
  },
  {

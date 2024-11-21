@@ -137,8 +137,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryPullRequest{}
 	case "github:index/repositoryRuleset:RepositoryRuleset":
 		r = &RepositoryRuleset{}
-	case "github:index/repositoryTagProtection:RepositoryTagProtection":
-		r = &RepositoryTagProtection{}
 	case "github:index/repositoryTopics:RepositoryTopics":
 		r = &RepositoryTopics{}
 	case "github:index/repositoryWebhook:RepositoryWebhook":
@@ -480,11 +478,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryRuleset",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"github",
-		"index/repositoryTagProtection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

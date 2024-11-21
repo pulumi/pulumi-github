@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RepositoryEnvironmentDeploymentPolicyArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,18 @@ public final class RepositoryEnvironmentDeploymentPolicyArgs extends com.pulumi.
     public static final RepositoryEnvironmentDeploymentPolicyArgs Empty = new RepositoryEnvironmentDeploymentPolicyArgs();
 
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
-    @Import(name="branchPattern", required=true)
-    private Output<String> branchPattern;
+    @Import(name="branchPattern")
+    private @Nullable Output<String> branchPattern;
 
     /**
-     * @return The name pattern that branches must match in order to deploy to the environment.
+     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
-    public Output<String> branchPattern() {
-        return this.branchPattern;
+    public Optional<Output<String>> branchPattern() {
+        return Optional.ofNullable(this.branchPattern);
     }
 
     /**
@@ -59,12 +61,28 @@ public final class RepositoryEnvironmentDeploymentPolicyArgs extends com.pulumi.
         return this.repository;
     }
 
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    @Import(name="tagPattern")
+    private @Nullable Output<String> tagPattern;
+
+    /**
+     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    public Optional<Output<String>> tagPattern() {
+        return Optional.ofNullable(this.tagPattern);
+    }
+
     private RepositoryEnvironmentDeploymentPolicyArgs() {}
 
     private RepositoryEnvironmentDeploymentPolicyArgs(RepositoryEnvironmentDeploymentPolicyArgs $) {
         this.branchPattern = $.branchPattern;
         this.environment = $.environment;
         this.repository = $.repository;
+        this.tagPattern = $.tagPattern;
     }
 
     public static Builder builder() {
@@ -86,18 +104,18 @@ public final class RepositoryEnvironmentDeploymentPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder branchPattern(Output<String> branchPattern) {
+        public Builder branchPattern(@Nullable Output<String> branchPattern) {
             $.branchPattern = branchPattern;
             return this;
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
          * 
          * @return builder
          * 
@@ -148,10 +166,28 @@ public final class RepositoryEnvironmentDeploymentPolicyArgs extends com.pulumi.
             return repository(Output.of(repository));
         }
 
+        /**
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPattern(@Nullable Output<String> tagPattern) {
+            $.tagPattern = tagPattern;
+            return this;
+        }
+
+        /**
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPattern(String tagPattern) {
+            return tagPattern(Output.of(tagPattern));
+        }
+
         public RepositoryEnvironmentDeploymentPolicyArgs build() {
-            if ($.branchPattern == null) {
-                throw new MissingRequiredPropertyException("RepositoryEnvironmentDeploymentPolicyArgs", "branchPattern");
-            }
             if ($.environment == null) {
                 throw new MissingRequiredPropertyException("RepositoryEnvironmentDeploymentPolicyArgs", "environment");
             }

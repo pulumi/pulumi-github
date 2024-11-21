@@ -136,7 +136,6 @@
         "repositoryProject.ts",
         "repositoryPullRequest.ts",
         "repositoryRuleset.ts",
-        "repositoryTagProtection.ts",
         "repositoryTopics.ts",
         "repositoryWebhook.ts",
         "team.ts",

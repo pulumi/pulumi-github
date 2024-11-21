@@ -10,6 +10,7 @@ import com.pulumi.github.inputs.OrganizationRulesetRulesCommitAuthorEmailPattern
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitterEmailPatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesPullRequestArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredCodeScanningArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredStatusChecksArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesTagNamePatternArgs;
@@ -144,6 +145,21 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    @Import(name="requiredCodeScanning")
+    private @Nullable Output<OrganizationRulesetRulesRequiredCodeScanningArgs> requiredCodeScanning;
+
+    /**
+     * @return (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesRequiredCodeScanningArgs>> requiredCodeScanning() {
+        return Optional.ofNullable(this.requiredCodeScanning);
+    }
+
+    /**
      * (Boolean) Prevent merge commits from being pushed to matching branches.
      * 
      */
@@ -244,6 +260,7 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
         this.deletion = $.deletion;
         this.nonFastForward = $.nonFastForward;
         this.pullRequest = $.pullRequest;
+        this.requiredCodeScanning = $.requiredCodeScanning;
         this.requiredLinearHistory = $.requiredLinearHistory;
         this.requiredSignatures = $.requiredSignatures;
         this.requiredStatusChecks = $.requiredStatusChecks;
@@ -436,6 +453,27 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
          */
         public Builder pullRequest(OrganizationRulesetRulesPullRequestArgs pullRequest) {
             return pullRequest(Output.of(pullRequest));
+        }
+
+        /**
+         * @param requiredCodeScanning (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredCodeScanning(@Nullable Output<OrganizationRulesetRulesRequiredCodeScanningArgs> requiredCodeScanning) {
+            $.requiredCodeScanning = requiredCodeScanning;
+            return this;
+        }
+
+        /**
+         * @param requiredCodeScanning (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredCodeScanning(OrganizationRulesetRulesRequiredCodeScanningArgs requiredCodeScanning) {
+            return requiredCodeScanning(Output.of(requiredCodeScanning));
         }
 
         /**
