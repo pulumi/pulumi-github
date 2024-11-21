@@ -9,6 +9,7 @@ import com.pulumi.github.outputs.OrganizationRulesetRulesCommitAuthorEmailPatter
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitterEmailPattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesPullRequest;
+import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredCodeScanning;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredStatusChecks;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredWorkflows;
 import com.pulumi.github.outputs.OrganizationRulesetRulesTagNamePattern;
@@ -59,6 +60,11 @@ public final class OrganizationRulesetRules {
      * 
      */
     private @Nullable OrganizationRulesetRulesPullRequest pullRequest;
+    /**
+     * @return (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesRequiredCodeScanning requiredCodeScanning;
     /**
      * @return (Boolean) Prevent merge commits from being pushed to matching branches.
      * 
@@ -148,6 +154,13 @@ public final class OrganizationRulesetRules {
         return Optional.ofNullable(this.pullRequest);
     }
     /**
+     * @return (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     * 
+     */
+    public Optional<OrganizationRulesetRulesRequiredCodeScanning> requiredCodeScanning() {
+        return Optional.ofNullable(this.requiredCodeScanning);
+    }
+    /**
      * @return (Boolean) Prevent merge commits from being pushed to matching branches.
      * 
      */
@@ -207,6 +220,7 @@ public final class OrganizationRulesetRules {
         private @Nullable Boolean deletion;
         private @Nullable Boolean nonFastForward;
         private @Nullable OrganizationRulesetRulesPullRequest pullRequest;
+        private @Nullable OrganizationRulesetRulesRequiredCodeScanning requiredCodeScanning;
         private @Nullable Boolean requiredLinearHistory;
         private @Nullable Boolean requiredSignatures;
         private @Nullable OrganizationRulesetRulesRequiredStatusChecks requiredStatusChecks;
@@ -224,6 +238,7 @@ public final class OrganizationRulesetRules {
     	      this.deletion = defaults.deletion;
     	      this.nonFastForward = defaults.nonFastForward;
     	      this.pullRequest = defaults.pullRequest;
+    	      this.requiredCodeScanning = defaults.requiredCodeScanning;
     	      this.requiredLinearHistory = defaults.requiredLinearHistory;
     	      this.requiredSignatures = defaults.requiredSignatures;
     	      this.requiredStatusChecks = defaults.requiredStatusChecks;
@@ -281,6 +296,12 @@ public final class OrganizationRulesetRules {
             return this;
         }
         @CustomType.Setter
+        public Builder requiredCodeScanning(@Nullable OrganizationRulesetRulesRequiredCodeScanning requiredCodeScanning) {
+
+            this.requiredCodeScanning = requiredCodeScanning;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredLinearHistory(@Nullable Boolean requiredLinearHistory) {
 
             this.requiredLinearHistory = requiredLinearHistory;
@@ -326,6 +347,7 @@ public final class OrganizationRulesetRules {
             _resultValue.deletion = deletion;
             _resultValue.nonFastForward = nonFastForward;
             _resultValue.pullRequest = pullRequest;
+            _resultValue.requiredCodeScanning = requiredCodeScanning;
             _resultValue.requiredLinearHistory = requiredLinearHistory;
             _resultValue.requiredSignatures = requiredSignatures;
             _resultValue.requiredStatusChecks = requiredStatusChecks;

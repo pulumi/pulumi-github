@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** This resource is not compatible with `github.TeamMembers`. Use either `github.TeamMembers` or `github.TeamMembership`.
  * 
- * &gt; **Note** Organization owners may not be set as &#34;members&#34; of a team; they may only be set as &#34;maintainers&#34;. Attempting to set organization an owner to &#34;member&#34; of a may result in a `pulumi preview` diff that changes their status back to &#34;maintainer&#34;.
+ * &gt; **Note** Organization owners may not be set as &#34;members&#34; of a team; they may only be set as &#34;maintainers&#34;. Attempting to set an organization owner as a &#34;member&#34; of a team may result in a `pulumi preview` diff that changes their status back to &#34;maintainer&#34;.
  * 
  * ## Example Usage
  * 

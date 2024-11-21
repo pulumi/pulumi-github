@@ -46,6 +46,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesPullRequest? PullRequest;
         /// <summary>
+        /// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesRequiredCodeScanning? RequiredCodeScanning;
+        /// <summary>
         /// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesRequiredDeployments? RequiredDeployments;
@@ -92,6 +96,8 @@ namespace Pulumi.Github.Outputs
 
             Outputs.RepositoryRulesetRulesPullRequest? pullRequest,
 
+            Outputs.RepositoryRulesetRulesRequiredCodeScanning? requiredCodeScanning,
+
             Outputs.RepositoryRulesetRulesRequiredDeployments? requiredDeployments,
 
             bool? requiredLinearHistory,
@@ -114,6 +120,7 @@ namespace Pulumi.Github.Outputs
             Deletion = deletion;
             NonFastForward = nonFastForward;
             PullRequest = pullRequest;
+            RequiredCodeScanning = requiredCodeScanning;
             RequiredDeployments = requiredDeployments;
             RequiredLinearHistory = requiredLinearHistory;
             RequiredSignatures = requiredSignatures;

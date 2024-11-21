@@ -1123,6 +1123,10 @@ export interface OrganizationRulesetRules {
      */
     pullRequest?: outputs.OrganizationRulesetRulesPullRequest;
     /**
+     * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     */
+    requiredCodeScanning?: outputs.OrganizationRulesetRulesRequiredCodeScanning;
+    /**
      * (Boolean) Prevent merge commits from being pushed to matching branches.
      */
     requiredLinearHistory?: boolean;
@@ -1245,6 +1249,28 @@ export interface OrganizationRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: boolean;
+}
+
+export interface OrganizationRulesetRulesRequiredCodeScanning {
+    /**
+     * Tools that must provide code scanning results for this rule to pass.
+     */
+    requiredCodeScanningTools: outputs.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool[];
+}
+
+export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+    /**
+     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+     */
+    alertsThreshold: string;
+    /**
+     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+     */
+    securityAlertsThreshold: string;
+    /**
+     * The name of a code scanning tool.
+     */
+    tool: string;
 }
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
@@ -1487,6 +1513,10 @@ export interface RepositoryRulesetRules {
      */
     pullRequest?: outputs.RepositoryRulesetRulesPullRequest;
     /**
+     * (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+     */
+    requiredCodeScanning?: outputs.RepositoryRulesetRulesRequiredCodeScanning;
+    /**
      * (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
      */
     requiredDeployments?: outputs.RepositoryRulesetRulesRequiredDeployments;
@@ -1613,6 +1643,28 @@ export interface RepositoryRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: boolean;
+}
+
+export interface RepositoryRulesetRulesRequiredCodeScanning {
+    /**
+     * Tools that must provide code scanning results for this rule to pass.
+     */
+    requiredCodeScanningTools: outputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool[];
+}
+
+export interface RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+    /**
+     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+     */
+    alertsThreshold: string;
+    /**
+     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+     */
+    securityAlertsThreshold: string;
+    /**
+     * The name of a code scanning tool
+     */
+    tool: string;
 }
 
 export interface RepositoryRulesetRulesRequiredDeployments {

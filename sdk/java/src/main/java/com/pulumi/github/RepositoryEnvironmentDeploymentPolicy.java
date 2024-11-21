@@ -11,12 +11,15 @@ import com.pulumi.github.RepositoryEnvironmentDeploymentPolicyArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentPolicyState;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * This resource allows you to create and manage environment deployment branch policies for a GitHub repository.
  * 
  * ## Example Usage
+ * 
+ * Create a branch-based deployment policy:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -82,6 +85,72 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * Create a tag-based deployment policy:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetUserArgs;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import com.pulumi.github.RepositoryEnvironment;
+ * import com.pulumi.github.RepositoryEnvironmentArgs;
+ * import com.pulumi.github.inputs.RepositoryEnvironmentReviewerArgs;
+ * import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentBranchPolicyArgs;
+ * import com.pulumi.github.RepositoryEnvironmentDeploymentPolicy;
+ * import com.pulumi.github.RepositoryEnvironmentDeploymentPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
+ *             .username("")
+ *             .build());
+ * 
+ *         var test = new Repository("test", RepositoryArgs.builder()
+ *             .name("tf-acc-test-%s")
+ *             .build());
+ * 
+ *         var testRepositoryEnvironment = new RepositoryEnvironment("testRepositoryEnvironment", RepositoryEnvironmentArgs.builder()
+ *             .repository(test.name())
+ *             .environment("environment/test")
+ *             .waitTimer(10000)
+ *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
+ *                 .users(current.applyValue(getUserResult -> getUserResult.id()))
+ *                 .build())
+ *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
+ *                 .protectedBranches(false)
+ *                 .customBranchPolicies(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var testRepositoryEnvironmentDeploymentPolicy = new RepositoryEnvironmentDeploymentPolicy("testRepositoryEnvironmentDeploymentPolicy", RepositoryEnvironmentDeploymentPolicyArgs.builder()
+ *             .repository(test.name())
+ *             .environment(testRepositoryEnvironment.environment())
+ *             .tagPattern("v*")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
@@ -94,18 +163,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy")
 public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name pattern that branches must match in order to deploy to the environment.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
     @Export(name="branchPattern", refs={String.class}, tree="[0]")
-    private Output<String> branchPattern;
+    private Output</* @Nullable */ String> branchPattern;
 
     /**
-     * @return The name pattern that branches must match in order to deploy to the environment.
+     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
      * 
      */
-    public Output<String> branchPattern() {
-        return this.branchPattern;
+    public Output<Optional<String>> branchPattern() {
+        return Codegen.optional(this.branchPattern);
     }
     /**
      * The name of the environment.
@@ -134,6 +203,20 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    @Export(name="tagPattern", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tagPattern;
+
+    /**
+     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * 
+     */
+    public Output<Optional<String>> tagPattern() {
+        return Codegen.optional(this.tagPattern);
     }
 
     /**

@@ -39,6 +39,8 @@ __all__ = [
     'OrganizationRulesetRulesCommitMessagePattern',
     'OrganizationRulesetRulesCommitterEmailPattern',
     'OrganizationRulesetRulesPullRequest',
+    'OrganizationRulesetRulesRequiredCodeScanning',
+    'OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
     'OrganizationRulesetRulesRequiredStatusChecks',
     'OrganizationRulesetRulesRequiredStatusChecksRequiredCheck',
     'OrganizationRulesetRulesRequiredWorkflows',
@@ -60,6 +62,8 @@ __all__ = [
     'RepositoryRulesetRulesCommitMessagePattern',
     'RepositoryRulesetRulesCommitterEmailPattern',
     'RepositoryRulesetRulesPullRequest',
+    'RepositoryRulesetRulesRequiredCodeScanning',
+    'RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
     'RepositoryRulesetRulesRequiredDeployments',
     'RepositoryRulesetRulesRequiredStatusChecks',
     'RepositoryRulesetRulesRequiredStatusChecksRequiredCheck',
@@ -1180,6 +1184,8 @@ class OrganizationRulesetRules(dict):
             suggest = "non_fast_forward"
         elif key == "pullRequest":
             suggest = "pull_request"
+        elif key == "requiredCodeScanning":
+            suggest = "required_code_scanning"
         elif key == "requiredLinearHistory":
             suggest = "required_linear_history"
         elif key == "requiredSignatures":
@@ -1211,6 +1217,7 @@ class OrganizationRulesetRules(dict):
                  deletion: Optional[bool] = None,
                  non_fast_forward: Optional[bool] = None,
                  pull_request: Optional['outputs.OrganizationRulesetRulesPullRequest'] = None,
+                 required_code_scanning: Optional['outputs.OrganizationRulesetRulesRequiredCodeScanning'] = None,
                  required_linear_history: Optional[bool] = None,
                  required_signatures: Optional[bool] = None,
                  required_status_checks: Optional['outputs.OrganizationRulesetRulesRequiredStatusChecks'] = None,
@@ -1226,6 +1233,7 @@ class OrganizationRulesetRules(dict):
         :param bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
         :param bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'OrganizationRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        :param 'OrganizationRulesetRulesRequiredCodeScanningArgs' required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
         :param bool required_linear_history: (Boolean) Prevent merge commits from being pushed to matching branches.
         :param bool required_signatures: (Boolean) Commits pushed to matching branches must have verified signatures.
         :param 'OrganizationRulesetRulesRequiredStatusChecksArgs' required_status_checks: (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
@@ -1249,6 +1257,8 @@ class OrganizationRulesetRules(dict):
             pulumi.set(__self__, "non_fast_forward", non_fast_forward)
         if pull_request is not None:
             pulumi.set(__self__, "pull_request", pull_request)
+        if required_code_scanning is not None:
+            pulumi.set(__self__, "required_code_scanning", required_code_scanning)
         if required_linear_history is not None:
             pulumi.set(__self__, "required_linear_history", required_linear_history)
         if required_signatures is not None:
@@ -1325,6 +1335,14 @@ class OrganizationRulesetRules(dict):
         (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         """
         return pulumi.get(self, "pull_request")
+
+    @property
+    @pulumi.getter(name="requiredCodeScanning")
+    def required_code_scanning(self) -> Optional['outputs.OrganizationRulesetRulesRequiredCodeScanning']:
+        """
+        (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_code_scanning")
 
     @property
     @pulumi.getter(name="requiredLinearHistory")
@@ -1677,6 +1695,100 @@ class OrganizationRulesetRulesPullRequest(dict):
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesRequiredCodeScanning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredCodeScanningTools":
+            suggest = "required_code_scanning_tools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesRequiredCodeScanning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesRequiredCodeScanning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesRequiredCodeScanning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_code_scanning_tools: Sequence['outputs.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool']):
+        """
+        :param Sequence['OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs'] required_code_scanning_tools: Tools that must provide code scanning results for this rule to pass.
+        """
+        pulumi.set(__self__, "required_code_scanning_tools", required_code_scanning_tools)
+
+    @property
+    @pulumi.getter(name="requiredCodeScanningTools")
+    def required_code_scanning_tools(self) -> Sequence['outputs.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool']:
+        """
+        Tools that must provide code scanning results for this rule to pass.
+        """
+        return pulumi.get(self, "required_code_scanning_tools")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsThreshold":
+            suggest = "alerts_threshold"
+        elif key == "securityAlertsThreshold":
+            suggest = "security_alerts_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_threshold: str,
+                 security_alerts_threshold: str,
+                 tool: str):
+        """
+        :param str alerts_threshold: The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        :param str security_alerts_threshold: The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        :param str tool: The name of a code scanning tool.
+        """
+        pulumi.set(__self__, "alerts_threshold", alerts_threshold)
+        pulumi.set(__self__, "security_alerts_threshold", security_alerts_threshold)
+        pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter(name="alertsThreshold")
+    def alerts_threshold(self) -> str:
+        """
+        The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        """
+        return pulumi.get(self, "alerts_threshold")
+
+    @property
+    @pulumi.getter(name="securityAlertsThreshold")
+    def security_alerts_threshold(self) -> str:
+        """
+        The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        """
+        return pulumi.get(self, "security_alerts_threshold")
+
+    @property
+    @pulumi.getter
+    def tool(self) -> str:
+        """
+        The name of a code scanning tool.
+        """
+        return pulumi.get(self, "tool")
 
 
 @pulumi.output_type
@@ -2444,6 +2556,8 @@ class RepositoryRulesetRules(dict):
             suggest = "non_fast_forward"
         elif key == "pullRequest":
             suggest = "pull_request"
+        elif key == "requiredCodeScanning":
+            suggest = "required_code_scanning"
         elif key == "requiredDeployments":
             suggest = "required_deployments"
         elif key == "requiredLinearHistory":
@@ -2477,6 +2591,7 @@ class RepositoryRulesetRules(dict):
                  deletion: Optional[bool] = None,
                  non_fast_forward: Optional[bool] = None,
                  pull_request: Optional['outputs.RepositoryRulesetRulesPullRequest'] = None,
+                 required_code_scanning: Optional['outputs.RepositoryRulesetRulesRequiredCodeScanning'] = None,
                  required_deployments: Optional['outputs.RepositoryRulesetRulesRequiredDeployments'] = None,
                  required_linear_history: Optional[bool] = None,
                  required_signatures: Optional[bool] = None,
@@ -2493,6 +2608,7 @@ class RepositoryRulesetRules(dict):
         :param bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
         :param bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'RepositoryRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+        :param 'RepositoryRulesetRulesRequiredCodeScanningArgs' required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
         :param 'RepositoryRulesetRulesRequiredDeploymentsArgs' required_deployments: (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
         :param bool required_linear_history: (Boolean) Prevent merge commits from being pushed to matching branches.
         :param bool required_signatures: (Boolean) Commits pushed to matching branches must have verified signatures.
@@ -2517,6 +2633,8 @@ class RepositoryRulesetRules(dict):
             pulumi.set(__self__, "non_fast_forward", non_fast_forward)
         if pull_request is not None:
             pulumi.set(__self__, "pull_request", pull_request)
+        if required_code_scanning is not None:
+            pulumi.set(__self__, "required_code_scanning", required_code_scanning)
         if required_deployments is not None:
             pulumi.set(__self__, "required_deployments", required_deployments)
         if required_linear_history is not None:
@@ -2595,6 +2713,14 @@ class RepositoryRulesetRules(dict):
         (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         """
         return pulumi.get(self, "pull_request")
+
+    @property
+    @pulumi.getter(name="requiredCodeScanning")
+    def required_code_scanning(self) -> Optional['outputs.RepositoryRulesetRulesRequiredCodeScanning']:
+        """
+        (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+        """
+        return pulumi.get(self, "required_code_scanning")
 
     @property
     @pulumi.getter(name="requiredDeployments")
@@ -2955,6 +3081,100 @@ class RepositoryRulesetRulesPullRequest(dict):
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesRequiredCodeScanning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredCodeScanningTools":
+            suggest = "required_code_scanning_tools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesRequiredCodeScanning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesRequiredCodeScanning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesRequiredCodeScanning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_code_scanning_tools: Sequence['outputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool']):
+        """
+        :param Sequence['RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs'] required_code_scanning_tools: Tools that must provide code scanning results for this rule to pass.
+        """
+        pulumi.set(__self__, "required_code_scanning_tools", required_code_scanning_tools)
+
+    @property
+    @pulumi.getter(name="requiredCodeScanningTools")
+    def required_code_scanning_tools(self) -> Sequence['outputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool']:
+        """
+        Tools that must provide code scanning results for this rule to pass.
+        """
+        return pulumi.get(self, "required_code_scanning_tools")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsThreshold":
+            suggest = "alerts_threshold"
+        elif key == "securityAlertsThreshold":
+            suggest = "security_alerts_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_threshold: str,
+                 security_alerts_threshold: str,
+                 tool: str):
+        """
+        :param str alerts_threshold: The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        :param str security_alerts_threshold: The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        :param str tool: The name of a code scanning tool
+        """
+        pulumi.set(__self__, "alerts_threshold", alerts_threshold)
+        pulumi.set(__self__, "security_alerts_threshold", security_alerts_threshold)
+        pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter(name="alertsThreshold")
+    def alerts_threshold(self) -> str:
+        """
+        The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        """
+        return pulumi.get(self, "alerts_threshold")
+
+    @property
+    @pulumi.getter(name="securityAlertsThreshold")
+    def security_alerts_threshold(self) -> str:
+        """
+        The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        """
+        return pulumi.get(self, "security_alerts_threshold")
+
+    @property
+    @pulumi.getter
+    def tool(self) -> str:
+        """
+        The name of a code scanning tool
+        """
+        return pulumi.get(self, "tool")
 
 
 @pulumi.output_type

@@ -2865,6 +2865,8 @@ type OrganizationRulesetRules struct {
 	NonFastForward *bool `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
 	PullRequest *OrganizationRulesetRulesPullRequest `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+	RequiredCodeScanning *OrganizationRulesetRulesRequiredCodeScanning `pulumi:"requiredCodeScanning"`
 	// (Boolean) Prevent merge commits from being pushed to matching branches.
 	RequiredLinearHistory *bool `pulumi:"requiredLinearHistory"`
 	// (Boolean) Commits pushed to matching branches must have verified signatures.
@@ -2907,6 +2909,8 @@ type OrganizationRulesetRulesArgs struct {
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
 	PullRequest OrganizationRulesetRulesPullRequestPtrInput `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+	RequiredCodeScanning OrganizationRulesetRulesRequiredCodeScanningPtrInput `pulumi:"requiredCodeScanning"`
 	// (Boolean) Prevent merge commits from being pushed to matching branches.
 	RequiredLinearHistory pulumi.BoolPtrInput `pulumi:"requiredLinearHistory"`
 	// (Boolean) Commits pushed to matching branches must have verified signatures.
@@ -3046,6 +3050,13 @@ func (o OrganizationRulesetRulesOutput) PullRequest() OrganizationRulesetRulesPu
 	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesPullRequest { return v.PullRequest }).(OrganizationRulesetRulesPullRequestPtrOutput)
 }
 
+// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) RequiredCodeScanning() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesRequiredCodeScanning {
+		return v.RequiredCodeScanning
+	}).(OrganizationRulesetRulesRequiredCodeScanningPtrOutput)
+}
+
 // (Boolean) Prevent merge commits from being pushed to matching branches.
 func (o OrganizationRulesetRulesOutput) RequiredLinearHistory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.RequiredLinearHistory }).(pulumi.BoolPtrOutput)
@@ -3182,6 +3193,16 @@ func (o OrganizationRulesetRulesPtrOutput) PullRequest() OrganizationRulesetRule
 		}
 		return v.PullRequest
 	}).(OrganizationRulesetRulesPullRequestPtrOutput)
+}
+
+// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) RequiredCodeScanning() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesRequiredCodeScanning {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredCodeScanning
+	}).(OrganizationRulesetRulesRequiredCodeScanningPtrOutput)
 }
 
 // (Boolean) Prevent merge commits from being pushed to matching branches.
@@ -4231,6 +4252,264 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolu
 		}
 		return v.RequiredReviewThreadResolution
 	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanning struct {
+	// Tools that must provide code scanning results for this rule to pass.
+	RequiredCodeScanningTools []OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool `pulumi:"requiredCodeScanningTools"`
+}
+
+// OrganizationRulesetRulesRequiredCodeScanningInput is an input type that accepts OrganizationRulesetRulesRequiredCodeScanningArgs and OrganizationRulesetRulesRequiredCodeScanningOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredCodeScanningInput` via:
+//
+//	OrganizationRulesetRulesRequiredCodeScanningArgs{...}
+type OrganizationRulesetRulesRequiredCodeScanningInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredCodeScanningOutput() OrganizationRulesetRulesRequiredCodeScanningOutput
+	ToOrganizationRulesetRulesRequiredCodeScanningOutputWithContext(context.Context) OrganizationRulesetRulesRequiredCodeScanningOutput
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningArgs struct {
+	// Tools that must provide code scanning results for this rule to pass.
+	RequiredCodeScanningTools OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput `pulumi:"requiredCodeScanningTools"`
+}
+
+func (OrganizationRulesetRulesRequiredCodeScanningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningArgs) ToOrganizationRulesetRulesRequiredCodeScanningOutput() OrganizationRulesetRulesRequiredCodeScanningOutput {
+	return i.ToOrganizationRulesetRulesRequiredCodeScanningOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningArgs) ToOrganizationRulesetRulesRequiredCodeScanningOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredCodeScanningOutput)
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningArgs) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutput() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningArgs) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredCodeScanningOutput).ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesRequiredCodeScanningPtrInput is an input type that accepts OrganizationRulesetRulesRequiredCodeScanningArgs, OrganizationRulesetRulesRequiredCodeScanningPtr and OrganizationRulesetRulesRequiredCodeScanningPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredCodeScanningPtrInput` via:
+//
+//	        OrganizationRulesetRulesRequiredCodeScanningArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesRequiredCodeScanningPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredCodeScanningPtrOutput() OrganizationRulesetRulesRequiredCodeScanningPtrOutput
+	ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Context) OrganizationRulesetRulesRequiredCodeScanningPtrOutput
+}
+
+type organizationRulesetRulesRequiredCodeScanningPtrType OrganizationRulesetRulesRequiredCodeScanningArgs
+
+func OrganizationRulesetRulesRequiredCodeScanningPtr(v *OrganizationRulesetRulesRequiredCodeScanningArgs) OrganizationRulesetRulesRequiredCodeScanningPtrInput {
+	return (*organizationRulesetRulesRequiredCodeScanningPtrType)(v)
+}
+
+func (*organizationRulesetRulesRequiredCodeScanningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesRequiredCodeScanningPtrType) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutput() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return i.ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesRequiredCodeScanningPtrType) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredCodeScanningPtrOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredCodeScanningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningOutput) ToOrganizationRulesetRulesRequiredCodeScanningOutput() OrganizationRulesetRulesRequiredCodeScanningOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningOutput) ToOrganizationRulesetRulesRequiredCodeScanningOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningOutput) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutput() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningOutput) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesRequiredCodeScanning) *OrganizationRulesetRulesRequiredCodeScanning {
+		return &v
+	}).(OrganizationRulesetRulesRequiredCodeScanningPtrOutput)
+}
+
+// Tools that must provide code scanning results for this rule to pass.
+func (o OrganizationRulesetRulesRequiredCodeScanningOutput) RequiredCodeScanningTools() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredCodeScanning) []OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		return v.RequiredCodeScanningTools
+	}).(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredCodeScanningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningPtrOutput) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutput() OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningPtrOutput) ToOrganizationRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningPtrOutput) Elem() OrganizationRulesetRulesRequiredCodeScanningOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredCodeScanning) OrganizationRulesetRulesRequiredCodeScanning {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesRequiredCodeScanning
+		return ret
+	}).(OrganizationRulesetRulesRequiredCodeScanningOutput)
+}
+
+// Tools that must provide code scanning results for this rule to pass.
+func (o OrganizationRulesetRulesRequiredCodeScanningPtrOutput) RequiredCodeScanningTools() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredCodeScanning) []OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredCodeScanningTools
+	}).(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool struct {
+	// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+	AlertsThreshold string `pulumi:"alertsThreshold"`
+	// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+	SecurityAlertsThreshold string `pulumi:"securityAlertsThreshold"`
+	// The name of a code scanning tool.
+	Tool string `pulumi:"tool"`
+}
+
+// OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput is an input type that accepts OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs and OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput` via:
+//
+//	OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{...}
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput
+	ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs struct {
+	// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+	AlertsThreshold pulumi.StringInput `pulumi:"alertsThreshold"`
+	// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+	SecurityAlertsThreshold pulumi.StringInput `pulumi:"securityAlertsThreshold"`
+	// The name of a code scanning tool.
+	Tool pulumi.StringInput `pulumi:"tool"`
+}
+
+func (OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return i.ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput)
+}
+
+// OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput is an input type that accepts OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray and OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput` via:
+//
+//	OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{ OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{...} }
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput
+	ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray []OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput
+
+func (OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return i.ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return o
+}
+
+// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) AlertsThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string {
+		return v.AlertsThreshold
+	}).(pulumi.StringOutput)
+}
+
+// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) SecurityAlertsThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string {
+		return v.SecurityAlertsThreshold
+	}).(pulumi.StringOutput)
+}
+
+// The name of a code scanning tool.
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) Tool() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string { return v.Tool }).(pulumi.StringOutput)
+}
+
+type OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ToOrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		return vs[0].([]OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)[vs[1].(int)]
+	}).(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput)
 }
 
 type OrganizationRulesetRulesRequiredStatusChecks struct {
@@ -6640,6 +6919,8 @@ type RepositoryRulesetRules struct {
 	NonFastForward *bool `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
 	PullRequest *RepositoryRulesetRulesPullRequest `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+	RequiredCodeScanning *RepositoryRulesetRulesRequiredCodeScanning `pulumi:"requiredCodeScanning"`
 	// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
 	RequiredDeployments *RepositoryRulesetRulesRequiredDeployments `pulumi:"requiredDeployments"`
 	// (Boolean) Prevent merge commits from being pushed to matching branches.
@@ -6684,6 +6965,8 @@ type RepositoryRulesetRulesArgs struct {
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
 	PullRequest RepositoryRulesetRulesPullRequestPtrInput `pulumi:"pullRequest"`
+	// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+	RequiredCodeScanning RepositoryRulesetRulesRequiredCodeScanningPtrInput `pulumi:"requiredCodeScanning"`
 	// (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
 	RequiredDeployments RepositoryRulesetRulesRequiredDeploymentsPtrInput `pulumi:"requiredDeployments"`
 	// (Boolean) Prevent merge commits from being pushed to matching branches.
@@ -6821,6 +7104,13 @@ func (o RepositoryRulesetRulesOutput) NonFastForward() pulumi.BoolPtrOutput {
 // (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
 func (o RepositoryRulesetRulesOutput) PullRequest() RepositoryRulesetRulesPullRequestPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesPullRequest { return v.PullRequest }).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) RequiredCodeScanning() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesRequiredCodeScanning {
+		return v.RequiredCodeScanning
+	}).(RepositoryRulesetRulesRequiredCodeScanningPtrOutput)
 }
 
 // (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
@@ -6964,6 +7254,16 @@ func (o RepositoryRulesetRulesPtrOutput) PullRequest() RepositoryRulesetRulesPul
 		}
 		return v.PullRequest
 	}).(RepositoryRulesetRulesPullRequestPtrOutput)
+}
+
+// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) RequiredCodeScanning() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesRequiredCodeScanning {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredCodeScanning
+	}).(RepositoryRulesetRulesRequiredCodeScanningPtrOutput)
 }
 
 // (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
@@ -8023,6 +8323,264 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResoluti
 		}
 		return v.RequiredReviewThreadResolution
 	}).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanning struct {
+	// Tools that must provide code scanning results for this rule to pass.
+	RequiredCodeScanningTools []RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool `pulumi:"requiredCodeScanningTools"`
+}
+
+// RepositoryRulesetRulesRequiredCodeScanningInput is an input type that accepts RepositoryRulesetRulesRequiredCodeScanningArgs and RepositoryRulesetRulesRequiredCodeScanningOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredCodeScanningInput` via:
+//
+//	RepositoryRulesetRulesRequiredCodeScanningArgs{...}
+type RepositoryRulesetRulesRequiredCodeScanningInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredCodeScanningOutput() RepositoryRulesetRulesRequiredCodeScanningOutput
+	ToRepositoryRulesetRulesRequiredCodeScanningOutputWithContext(context.Context) RepositoryRulesetRulesRequiredCodeScanningOutput
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningArgs struct {
+	// Tools that must provide code scanning results for this rule to pass.
+	RequiredCodeScanningTools RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput `pulumi:"requiredCodeScanningTools"`
+}
+
+func (RepositoryRulesetRulesRequiredCodeScanningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningArgs) ToRepositoryRulesetRulesRequiredCodeScanningOutput() RepositoryRulesetRulesRequiredCodeScanningOutput {
+	return i.ToRepositoryRulesetRulesRequiredCodeScanningOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningArgs) ToRepositoryRulesetRulesRequiredCodeScanningOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredCodeScanningOutput)
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningArgs) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutput() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningArgs) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredCodeScanningOutput).ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesRequiredCodeScanningPtrInput is an input type that accepts RepositoryRulesetRulesRequiredCodeScanningArgs, RepositoryRulesetRulesRequiredCodeScanningPtr and RepositoryRulesetRulesRequiredCodeScanningPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredCodeScanningPtrInput` via:
+//
+//	        RepositoryRulesetRulesRequiredCodeScanningArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesRequiredCodeScanningPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredCodeScanningPtrOutput() RepositoryRulesetRulesRequiredCodeScanningPtrOutput
+	ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Context) RepositoryRulesetRulesRequiredCodeScanningPtrOutput
+}
+
+type repositoryRulesetRulesRequiredCodeScanningPtrType RepositoryRulesetRulesRequiredCodeScanningArgs
+
+func RepositoryRulesetRulesRequiredCodeScanningPtr(v *RepositoryRulesetRulesRequiredCodeScanningArgs) RepositoryRulesetRulesRequiredCodeScanningPtrInput {
+	return (*repositoryRulesetRulesRequiredCodeScanningPtrType)(v)
+}
+
+func (*repositoryRulesetRulesRequiredCodeScanningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesRequiredCodeScanningPtrType) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutput() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return i.ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesRequiredCodeScanningPtrType) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredCodeScanningPtrOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredCodeScanningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningOutput) ToRepositoryRulesetRulesRequiredCodeScanningOutput() RepositoryRulesetRulesRequiredCodeScanningOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningOutput) ToRepositoryRulesetRulesRequiredCodeScanningOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningOutput) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutput() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningOutput) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesRequiredCodeScanning) *RepositoryRulesetRulesRequiredCodeScanning {
+		return &v
+	}).(RepositoryRulesetRulesRequiredCodeScanningPtrOutput)
+}
+
+// Tools that must provide code scanning results for this rule to pass.
+func (o RepositoryRulesetRulesRequiredCodeScanningOutput) RequiredCodeScanningTools() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredCodeScanning) []RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		return v.RequiredCodeScanningTools
+	}).(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredCodeScanningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesRequiredCodeScanning)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningPtrOutput) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutput() RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningPtrOutput) ToRepositoryRulesetRulesRequiredCodeScanningPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningPtrOutput) Elem() RepositoryRulesetRulesRequiredCodeScanningOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredCodeScanning) RepositoryRulesetRulesRequiredCodeScanning {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesRequiredCodeScanning
+		return ret
+	}).(RepositoryRulesetRulesRequiredCodeScanningOutput)
+}
+
+// Tools that must provide code scanning results for this rule to pass.
+func (o RepositoryRulesetRulesRequiredCodeScanningPtrOutput) RequiredCodeScanningTools() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredCodeScanning) []RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredCodeScanningTools
+	}).(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool struct {
+	// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+	AlertsThreshold string `pulumi:"alertsThreshold"`
+	// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+	SecurityAlertsThreshold string `pulumi:"securityAlertsThreshold"`
+	// The name of a code scanning tool
+	Tool string `pulumi:"tool"`
+}
+
+// RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput is an input type that accepts RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs and RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput` via:
+//
+//	RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{...}
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput
+	ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs struct {
+	// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+	AlertsThreshold pulumi.StringInput `pulumi:"alertsThreshold"`
+	// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+	SecurityAlertsThreshold pulumi.StringInput `pulumi:"securityAlertsThreshold"`
+	// The name of a code scanning tool
+	Tool pulumi.StringInput `pulumi:"tool"`
+}
+
+func (RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return i.ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput)
+}
+
+// RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput is an input type that accepts RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray and RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput` via:
+//
+//	RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{ RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{...} }
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput
+	ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray []RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput
+
+func (RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return i.ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return o
+}
+
+// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) AlertsThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string {
+		return v.AlertsThreshold
+	}).(pulumi.StringOutput)
+}
+
+// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) SecurityAlertsThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string {
+		return v.SecurityAlertsThreshold
+	}).(pulumi.StringOutput)
+}
+
+// The name of a code scanning tool
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput) Tool() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool) string { return v.Tool }).(pulumi.StringOutput)
+}
+
+type RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput() RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) ToRepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
+		return vs[0].([]RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool)[vs[1].(int)]
+	}).(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput)
 }
 
 type RepositoryRulesetRulesRequiredDeployments struct {
@@ -14776,6 +15334,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestPtrInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredStatusChecksRequiredCheckInput)(nil)).Elem(), OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs{})
@@ -14820,6 +15382,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestPtrInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningPtrInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredDeploymentsInput)(nil)).Elem(), RepositoryRulesetRulesRequiredDeploymentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredDeploymentsPtrInput)(nil)).Elem(), RepositoryRulesetRulesRequiredDeploymentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredStatusChecksInput)(nil)).Elem(), RepositoryRulesetRulesRequiredStatusChecksArgs{})
@@ -14964,6 +15530,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredStatusChecksRequiredCheckOutput{})
@@ -15008,6 +15578,10 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredDeploymentsOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredDeploymentsPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredStatusChecksOutput{})

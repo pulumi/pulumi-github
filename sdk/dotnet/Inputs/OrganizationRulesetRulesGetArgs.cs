@@ -61,6 +61,12 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.OrganizationRulesetRulesPullRequestGetArgs>? PullRequest { get; set; }
 
         /// <summary>
+        /// (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+        /// </summary>
+        [Input("requiredCodeScanning")]
+        public Input<Inputs.OrganizationRulesetRulesRequiredCodeScanningGetArgs>? RequiredCodeScanning { get; set; }
+
+        /// <summary>
         /// (Boolean) Prevent merge commits from being pushed to matching branches.
         /// </summary>
         [Input("requiredLinearHistory")]
