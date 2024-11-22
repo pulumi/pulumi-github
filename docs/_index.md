@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The github provider is available as a package in all Pulumi languages:
+The Github provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/github`](https://www.npmjs.com/package/@pulumi/github)
 * Python: [`pulumi-github`](https://pypi.org/project/pulumi-github/)
