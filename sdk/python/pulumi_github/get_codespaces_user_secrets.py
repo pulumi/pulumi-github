@@ -82,7 +82,7 @@ def get_codespaces_user_secrets(opts: Optional[pulumi.InvokeOptions] = None) -> 
     return AwaitableGetCodespacesUserSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_codespaces_user_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesUserSecretsResult]:
+def get_codespaces_user_secrets_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodespacesUserSecretsResult]:
     """
     Use this data source to retrieve the list of codespaces secrets of the user.
 
@@ -96,7 +96,7 @@ def get_codespaces_user_secrets_output(opts: Optional[pulumi.InvokeOptions] = No
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getCodespacesUserSecrets:getCodespacesUserSecrets', __args__, opts=opts, typ=GetCodespacesUserSecretsResult)
     return __ret__.apply(lambda __response__: GetCodespacesUserSecretsResult(
         id=pulumi.get(__response__, 'id'),

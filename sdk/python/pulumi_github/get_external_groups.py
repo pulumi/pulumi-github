@@ -84,7 +84,7 @@ def get_external_groups(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     return AwaitableGetExternalGroupsResult(
         external_groups=pulumi.get(__ret__, 'external_groups'),
         id=pulumi.get(__ret__, 'id'))
-def get_external_groups_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalGroupsResult]:
+def get_external_groups_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalGroupsResult]:
     """
     Use this data source to retrieve external groups belonging to an organization.
 
@@ -100,7 +100,7 @@ def get_external_groups_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getExternalGroups:getExternalGroups', __args__, opts=opts, typ=GetExternalGroupsResult)
     return __ret__.apply(lambda __response__: GetExternalGroupsResult(
         external_groups=pulumi.get(__response__, 'external_groups'),

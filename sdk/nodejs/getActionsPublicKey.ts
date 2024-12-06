@@ -69,7 +69,7 @@ export interface GetActionsPublicKeyResult {
  * });
  * ```
  */
-export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsPublicKeyResult> {
+export function getActionsPublicKeyOutput(args: GetActionsPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsPublicKey:getActionsPublicKey", {
         "repository": args.repository,

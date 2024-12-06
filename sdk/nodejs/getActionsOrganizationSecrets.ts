@@ -49,7 +49,7 @@ export interface GetActionsOrganizationSecretsResult {
  * const example = github.getActionsOrganizationSecrets({});
  * ```
  */
-export function getActionsOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationSecretsResult> {
+export function getActionsOrganizationSecretsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsOrganizationSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", {
     }, opts);

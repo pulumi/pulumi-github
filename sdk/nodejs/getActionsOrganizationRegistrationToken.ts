@@ -51,7 +51,7 @@ export interface GetActionsOrganizationRegistrationTokenResult {
  * const example = github.getActionsOrganizationRegistrationToken({});
  * ```
  */
-export function getActionsOrganizationRegistrationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationRegistrationTokenResult> {
+export function getActionsOrganizationRegistrationTokenOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsOrganizationRegistrationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", {
     }, opts);

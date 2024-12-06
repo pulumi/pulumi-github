@@ -98,7 +98,7 @@ def get_repository_environments(repository: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_repository_environments_output(repository: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryEnvironmentsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEnvironmentsResult]:
     """
     Use this data source to retrieve information about environments for a repository.
 
@@ -116,7 +116,7 @@ def get_repository_environments_output(repository: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryEnvironments:getRepositoryEnvironments', __args__, opts=opts, typ=GetRepositoryEnvironmentsResult)
     return __ret__.apply(lambda __response__: GetRepositoryEnvironmentsResult(
         environments=pulumi.get(__response__, 'environments'),

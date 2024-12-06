@@ -94,7 +94,7 @@ def get_actions_organization_registration_token(opts: Optional[pulumi.InvokeOpti
         expires_at=pulumi.get(__ret__, 'expires_at'),
         id=pulumi.get(__ret__, 'id'),
         token=pulumi.get(__ret__, 'token'))
-def get_actions_organization_registration_token_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsOrganizationRegistrationTokenResult]:
+def get_actions_organization_registration_token_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsOrganizationRegistrationTokenResult]:
     """
     Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
 
@@ -108,7 +108,7 @@ def get_actions_organization_registration_token_output(opts: Optional[pulumi.Inv
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken', __args__, opts=opts, typ=GetActionsOrganizationRegistrationTokenResult)
     return __ret__.apply(lambda __response__: GetActionsOrganizationRegistrationTokenResult(
         expires_at=pulumi.get(__response__, 'expires_at'),

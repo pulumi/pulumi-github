@@ -47,7 +47,7 @@ export interface GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResu
  * const example = github.getActionsOrganizationOidcSubjectClaimCustomizationTemplate({});
  * ```
  */
-export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
+export function getActionsOrganizationOidcSubjectClaimCustomizationTemplateOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", {
     }, opts);

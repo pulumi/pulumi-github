@@ -75,7 +75,7 @@ export interface GetRepositoryTeamsResult {
  * });
  * ```
  */
-export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryTeamsResult> {
+export function getRepositoryTeamsOutput(args?: GetRepositoryTeamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryTeamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryTeams:getRepositoryTeams", {

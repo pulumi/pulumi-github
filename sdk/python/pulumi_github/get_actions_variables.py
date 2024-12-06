@@ -115,7 +115,7 @@ def get_actions_variables(full_name: Optional[str] = None,
         variables=pulumi.get(__ret__, 'variables'))
 def get_actions_variables_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsVariablesResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsVariablesResult]:
     """
     Use this data source to retrieve the list of variables for a GitHub repository.
 
@@ -135,7 +135,7 @@ def get_actions_variables_output(full_name: Optional[pulumi.Input[Optional[str]]
     __args__ = dict()
     __args__['fullName'] = full_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getActionsVariables:getActionsVariables', __args__, opts=opts, typ=GetActionsVariablesResult)
     return __ret__.apply(lambda __response__: GetActionsVariablesResult(
         full_name=pulumi.get(__response__, 'full_name'),

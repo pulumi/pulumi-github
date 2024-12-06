@@ -65,7 +65,7 @@ export interface GetRepositoryEnvironmentsResult {
  * });
  * ```
  */
-export function getRepositoryEnvironmentsOutput(args: GetRepositoryEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEnvironmentsResult> {
+export function getRepositoryEnvironmentsOutput(args: GetRepositoryEnvironmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryEnvironments:getRepositoryEnvironments", {
         "repository": args.repository,
