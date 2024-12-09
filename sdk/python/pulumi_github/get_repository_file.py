@@ -206,7 +206,7 @@ def get_repository_file(branch: Optional[str] = None,
 def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = None,
                                file: Optional[pulumi.Input[str]] = None,
                                repository: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryFileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryFileResult]:
     """
     This data source allows you to read files within a
     GitHub repository.
@@ -231,7 +231,7 @@ def get_repository_file_output(branch: Optional[pulumi.Input[Optional[str]]] = N
     __args__['branch'] = branch
     __args__['file'] = file
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryFile:getRepositoryFile', __args__, opts=opts, typ=GetRepositoryFileResult)
     return __ret__.apply(lambda __response__: GetRepositoryFileResult(
         branch=pulumi.get(__response__, 'branch'),

@@ -76,7 +76,7 @@ export interface GetActionsEnvironmentSecretsResult {
  * });
  * ```
  */
-export function getActionsEnvironmentSecretsOutput(args: GetActionsEnvironmentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsEnvironmentSecretsResult> {
+export function getActionsEnvironmentSecretsOutput(args: GetActionsEnvironmentSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsEnvironmentSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", {
         "environment": args.environment,

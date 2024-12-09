@@ -51,7 +51,7 @@ export interface GetOrganizationExternalIdentitiesResult {
  * const all = github.getOrganizationExternalIdentities({});
  * ```
  */
-export function getOrganizationExternalIdentitiesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationExternalIdentitiesResult> {
+export function getOrganizationExternalIdentitiesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationExternalIdentitiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", {
     }, opts);

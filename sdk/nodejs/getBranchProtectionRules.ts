@@ -65,7 +65,7 @@ export interface GetBranchProtectionRulesResult {
  * });
  * ```
  */
-export function getBranchProtectionRulesOutput(args: GetBranchProtectionRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchProtectionRulesResult> {
+export function getBranchProtectionRulesOutput(args: GetBranchProtectionRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBranchProtectionRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getBranchProtectionRules:getBranchProtectionRules", {
         "repository": args.repository,

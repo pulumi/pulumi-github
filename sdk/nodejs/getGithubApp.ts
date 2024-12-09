@@ -71,7 +71,7 @@ export interface GetGithubAppResult {
  * });
  * ```
  */
-export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGithubAppResult> {
+export function getGithubAppOutput(args: GetGithubAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGithubAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getGithubApp:getGithubApp", {
         "slug": args.slug,

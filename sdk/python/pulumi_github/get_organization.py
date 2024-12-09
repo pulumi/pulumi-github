@@ -454,7 +454,7 @@ def get_organization(ignore_archived_repos: Optional[bool] = None,
 def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optional[bool]]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Use this data source to retrieve basic information about a GitHub Organization.
 
@@ -476,7 +476,7 @@ def get_organization_output(ignore_archived_repos: Optional[pulumi.Input[Optiona
     __args__['ignoreArchivedRepos'] = ignore_archived_repos
     __args__['name'] = name
     __args__['summaryOnly'] = summary_only
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
         advanced_security_enabled_for_new_repositories=pulumi.get(__response__, 'advanced_security_enabled_for_new_repositories'),

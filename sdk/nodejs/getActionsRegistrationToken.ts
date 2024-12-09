@@ -67,7 +67,7 @@ export interface GetActionsRegistrationTokenResult {
  * });
  * ```
  */
-export function getActionsRegistrationTokenOutput(args: GetActionsRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRegistrationTokenResult> {
+export function getActionsRegistrationTokenOutput(args: GetActionsRegistrationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsRegistrationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsRegistrationToken:getActionsRegistrationToken", {
         "repository": args.repository,

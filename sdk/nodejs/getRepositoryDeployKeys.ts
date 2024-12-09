@@ -65,7 +65,7 @@ export interface GetRepositoryDeployKeysResult {
  * });
  * ```
  */
-export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
+export function getRepositoryDeployKeysOutput(args: GetRepositoryDeployKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryDeployKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", {
         "repository": args.repository,

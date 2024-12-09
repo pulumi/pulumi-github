@@ -77,7 +77,7 @@ export interface GetRepositoryBranchesResult {
  * });
  * ```
  */
-export function getRepositoryBranchesOutput(args: GetRepositoryBranchesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryBranchesResult> {
+export function getRepositoryBranchesOutput(args: GetRepositoryBranchesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryBranchesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryBranches:getRepositoryBranches", {
         "onlyNonProtectedBranches": args.onlyNonProtectedBranches,

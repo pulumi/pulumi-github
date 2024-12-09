@@ -47,7 +47,7 @@ export interface GetSshKeysResult {
  * const test = github.getSshKeys({});
  * ```
  */
-export function getSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSshKeysResult> {
+export function getSshKeysOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSshKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getSshKeys:getSshKeys", {
     }, opts);

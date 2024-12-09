@@ -98,7 +98,7 @@ def get_repository_autolink_references(repository: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_repository_autolink_references_output(repository: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAutolinkReferencesResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryAutolinkReferencesResult]:
     """
     Use this data source to retrieve autolink references for a repository.
 
@@ -116,7 +116,7 @@ def get_repository_autolink_references_output(repository: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences', __args__, opts=opts, typ=GetRepositoryAutolinkReferencesResult)
     return __ret__.apply(lambda __response__: GetRepositoryAutolinkReferencesResult(
         autolink_references=pulumi.get(__response__, 'autolink_references'),

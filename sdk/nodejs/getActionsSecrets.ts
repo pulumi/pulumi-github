@@ -75,7 +75,7 @@ export interface GetActionsSecretsResult {
  * });
  * ```
  */
-export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsSecretsResult> {
+export function getActionsSecretsOutput(args?: GetActionsSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsSecretsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsSecrets:getActionsSecrets", {

@@ -110,7 +110,7 @@ def get_actions_registration_token(repository: Optional[str] = None,
         repository=pulumi.get(__ret__, 'repository'),
         token=pulumi.get(__ret__, 'token'))
 def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsRegistrationTokenResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsRegistrationTokenResult]:
     """
     Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
 
@@ -128,7 +128,7 @@ def get_actions_registration_token_output(repository: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getActionsRegistrationToken:getActionsRegistrationToken', __args__, opts=opts, typ=GetActionsRegistrationTokenResult)
     return __ret__.apply(lambda __response__: GetActionsRegistrationTokenResult(
         expires_at=pulumi.get(__response__, 'expires_at'),

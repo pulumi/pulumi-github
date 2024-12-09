@@ -129,7 +129,7 @@ def get_user_external_identity(username: Optional[str] = None,
         scim_identity=pulumi.get(__ret__, 'scim_identity'),
         username=pulumi.get(__ret__, 'username'))
 def get_user_external_identity_output(username: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserExternalIdentityResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserExternalIdentityResult]:
     """
     Use this data source to retrieve a specific organization member's SAML or SCIM user
     attributes.
@@ -148,7 +148,7 @@ def get_user_external_identity_output(username: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getUserExternalIdentity:getUserExternalIdentity', __args__, opts=opts, typ=GetUserExternalIdentityResult)
     return __ret__.apply(lambda __response__: GetUserExternalIdentityResult(
         id=pulumi.get(__response__, 'id'),

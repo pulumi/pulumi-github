@@ -75,7 +75,7 @@ export interface GetOrganizationCustomRoleResult {
  * });
  * ```
  */
-export function getOrganizationCustomRoleOutput(args: GetOrganizationCustomRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationCustomRoleResult> {
+export function getOrganizationCustomRoleOutput(args: GetOrganizationCustomRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationCustomRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationCustomRole:getOrganizationCustomRole", {
         "name": args.name,

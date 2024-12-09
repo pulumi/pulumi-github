@@ -78,7 +78,7 @@ export interface GetUserExternalIdentityResult {
  * });
  * ```
  */
-export function getUserExternalIdentityOutput(args: GetUserExternalIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserExternalIdentityResult> {
+export function getUserExternalIdentityOutput(args: GetUserExternalIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserExternalIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getUserExternalIdentity:getUserExternalIdentity", {
         "username": args.username,

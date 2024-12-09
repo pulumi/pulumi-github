@@ -88,7 +88,7 @@ export interface GetCollaboratorsResult {
  * });
  * ```
  */
-export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaboratorsResult> {
+export function getCollaboratorsOutput(args: GetCollaboratorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCollaboratorsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCollaborators:getCollaborators", {
         "affiliation": args.affiliation,
