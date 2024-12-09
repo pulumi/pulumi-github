@@ -67,7 +67,7 @@ export interface GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult
  * });
  * ```
  */
-export function getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
+export function getActionsRepositoryOidcSubjectClaimCustomizationTemplateOutput(args: GetActionsRepositoryOidcSubjectClaimCustomizationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", {
         "name": args.name,

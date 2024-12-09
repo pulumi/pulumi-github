@@ -69,7 +69,7 @@ export interface GetCodespacesPublicKeyResult {
  * });
  * ```
  */
-export function getCodespacesPublicKeyOutput(args: GetCodespacesPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesPublicKeyResult> {
+export function getCodespacesPublicKeyOutput(args: GetCodespacesPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodespacesPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCodespacesPublicKey:getCodespacesPublicKey", {
         "repository": args.repository,

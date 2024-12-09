@@ -140,7 +140,7 @@ def get_ref(owner: Optional[str] = None,
 def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
                    ref: Optional[pulumi.Input[str]] = None,
                    repository: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRefResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRefResult]:
     """
     Use this data source to retrieve information about a repository ref.
 
@@ -164,7 +164,7 @@ def get_ref_output(owner: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['owner'] = owner
     __args__['ref'] = ref
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRef:getRef', __args__, opts=opts, typ=GetRefResult)
     return __ret__.apply(lambda __response__: GetRefResult(
         etag=pulumi.get(__response__, 'etag'),

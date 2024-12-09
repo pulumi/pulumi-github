@@ -109,7 +109,7 @@ export interface GetOrganizationTeamsResult {
  * });
  * ```
  */
-export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamsResult> {
+export function getOrganizationTeamsOutput(args?: GetOrganizationTeamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationTeamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationTeams:getOrganizationTeams", {

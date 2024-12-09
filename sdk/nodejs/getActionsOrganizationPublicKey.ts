@@ -53,7 +53,7 @@ export interface GetActionsOrganizationPublicKeyResult {
  * const example = github.getActionsOrganizationPublicKey({});
  * ```
  */
-export function getActionsOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsOrganizationPublicKeyResult> {
+export function getActionsOrganizationPublicKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsOrganizationPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", {
     }, opts);

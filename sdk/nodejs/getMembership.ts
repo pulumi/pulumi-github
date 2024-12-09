@@ -86,7 +86,7 @@ export interface GetMembershipResult {
  * });
  * ```
  */
-export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
+export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMembershipResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getMembership:getMembership", {
         "organization": args.organization,

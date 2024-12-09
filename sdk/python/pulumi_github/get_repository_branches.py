@@ -126,7 +126,7 @@ def get_repository_branches(only_non_protected_branches: Optional[bool] = None,
 def get_repository_branches_output(only_non_protected_branches: Optional[pulumi.Input[Optional[bool]]] = None,
                                    only_protected_branches: Optional[pulumi.Input[Optional[bool]]] = None,
                                    repository: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryBranchesResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryBranchesResult]:
     """
     Use this data source to retrieve information about branches in a repository.
 
@@ -148,7 +148,7 @@ def get_repository_branches_output(only_non_protected_branches: Optional[pulumi.
     __args__['onlyNonProtectedBranches'] = only_non_protected_branches
     __args__['onlyProtectedBranches'] = only_protected_branches
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryBranches:getRepositoryBranches', __args__, opts=opts, typ=GetRepositoryBranchesResult)
     return __ret__.apply(lambda __response__: GetRepositoryBranchesResult(
         branches=pulumi.get(__response__, 'branches'),

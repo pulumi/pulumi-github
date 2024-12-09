@@ -144,7 +144,7 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
                              owner: Optional[pulumi.Input[str]] = None,
                              permission: Optional[pulumi.Input[Optional[str]]] = None,
                              repository: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaboratorsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollaboratorsResult]:
     """
     Use this data source to retrieve the collaborators for a given repository.
 
@@ -169,7 +169,7 @@ def get_collaborators_output(affiliation: Optional[pulumi.Input[Optional[str]]] 
     __args__['owner'] = owner
     __args__['permission'] = permission
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getCollaborators:getCollaborators', __args__, opts=opts, typ=GetCollaboratorsResult)
     return __ret__.apply(lambda __response__: GetCollaboratorsResult(
         affiliation=pulumi.get(__response__, 'affiliation'),

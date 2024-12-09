@@ -163,7 +163,7 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
                             query: Optional[pulumi.Input[str]] = None,
                             results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                             sort: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     > **Note:** The data source will return a maximum of `1000` repositories
     	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
@@ -191,7 +191,7 @@ def get_repositories_output(include_repo_id: Optional[pulumi.Input[Optional[bool
     __args__['query'] = query
     __args__['resultsPerPage'] = results_per_page
     __args__['sort'] = sort
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
     return __ret__.apply(lambda __response__: GetRepositoriesResult(
         full_names=pulumi.get(__response__, 'full_names'),

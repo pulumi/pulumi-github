@@ -231,7 +231,7 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
                     results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                     slug: Optional[pulumi.Input[str]] = None,
                     summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to retrieve information about a GitHub team.
 
@@ -255,7 +255,7 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['resultsPerPage'] = results_per_page
     __args__['slug'] = slug
     __args__['summaryOnly'] = summary_only
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
     return __ret__.apply(lambda __response__: GetTeamResult(
         description=pulumi.get(__response__, 'description'),

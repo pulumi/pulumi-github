@@ -82,7 +82,7 @@ def get_organization_team_sync_groups(opts: Optional[pulumi.InvokeOptions] = Non
     return AwaitableGetOrganizationTeamSyncGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'))
-def get_organization_team_sync_groups_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamSyncGroupsResult]:
+def get_organization_team_sync_groups_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationTeamSyncGroupsResult]:
     """
     Use this data source to retrieve the identity provider (IdP) groups for an organization.
 
@@ -96,7 +96,7 @@ def get_organization_team_sync_groups_output(opts: Optional[pulumi.InvokeOptions
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups', __args__, opts=opts, typ=GetOrganizationTeamSyncGroupsResult)
     return __ret__.apply(lambda __response__: GetOrganizationTeamSyncGroupsResult(
         groups=pulumi.get(__response__, 'groups'),

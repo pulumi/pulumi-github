@@ -146,7 +146,7 @@ def get_organization_teams(results_per_page: Optional[int] = None,
 def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                                   root_teams_only: Optional[pulumi.Input[Optional[bool]]] = None,
                                   summary_only: Optional[pulumi.Input[Optional[bool]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationTeamsResult]:
     """
     Use this data source to retrieve information about all GitHub teams in an organization.
 
@@ -179,7 +179,7 @@ def get_organization_teams_output(results_per_page: Optional[pulumi.Input[Option
     __args__['resultsPerPage'] = results_per_page
     __args__['rootTeamsOnly'] = root_teams_only
     __args__['summaryOnly'] = summary_only
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationTeams:getOrganizationTeams', __args__, opts=opts, typ=GetOrganizationTeamsResult)
     return __ret__.apply(lambda __response__: GetOrganizationTeamsResult(
         id=pulumi.get(__response__, 'id'),

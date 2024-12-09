@@ -49,7 +49,7 @@ export interface GetCodespacesOrganizationSecretsResult {
  * const example = github.getCodespacesOrganizationSecrets({});
  * ```
  */
-export function getCodespacesOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationSecretsResult> {
+export function getCodespacesOrganizationSecretsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodespacesOrganizationSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", {
     }, opts);

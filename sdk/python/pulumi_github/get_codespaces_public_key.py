@@ -111,7 +111,7 @@ def get_codespaces_public_key(repository: Optional[str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_codespaces_public_key_output(repository: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodespacesPublicKeyResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodespacesPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to a repository to retrieve it's Codespaces public key.
@@ -130,7 +130,7 @@ def get_codespaces_public_key_output(repository: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getCodespacesPublicKey:getCodespacesPublicKey', __args__, opts=opts, typ=GetCodespacesPublicKeyResult)
     return __ret__.apply(lambda __response__: GetCodespacesPublicKeyResult(
         id=pulumi.get(__response__, 'id'),
