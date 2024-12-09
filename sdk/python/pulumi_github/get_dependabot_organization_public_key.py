@@ -95,7 +95,7 @@ def get_dependabot_organization_public_key(opts: Optional[pulumi.InvokeOptions] 
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         key_id=pulumi.get(__ret__, 'key_id'))
-def get_dependabot_organization_public_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotOrganizationPublicKeyResult]:
+def get_dependabot_organization_public_key_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDependabotOrganizationPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to an organization to retrieve it's Dependabot public key.
@@ -110,7 +110,7 @@ def get_dependabot_organization_public_key_output(opts: Optional[pulumi.InvokeOp
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey', __args__, opts=opts, typ=GetDependabotOrganizationPublicKeyResult)
     return __ret__.apply(lambda __response__: GetDependabotOrganizationPublicKeyResult(
         id=pulumi.get(__response__, 'id'),

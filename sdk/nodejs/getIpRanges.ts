@@ -151,7 +151,7 @@ export interface GetIpRangesResult {
  * const test = github.getIpRanges({});
  * ```
  */
-export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
+export function getIpRangesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpRangesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getIpRanges:getIpRanges", {
     }, opts);

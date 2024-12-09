@@ -143,7 +143,7 @@ def get_membership(organization: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = None,
                           username: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMembershipResult]:
     """
     Use this data source to find out if a user is a member of your organization, as well
     as what role they have within it.
@@ -166,7 +166,7 @@ def get_membership_output(organization: Optional[pulumi.Input[Optional[str]]] = 
     __args__ = dict()
     __args__['organization'] = organization
     __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getMembership:getMembership', __args__, opts=opts, typ=GetMembershipResult)
     return __ret__.apply(lambda __response__: GetMembershipResult(
         etag=pulumi.get(__response__, 'etag'),

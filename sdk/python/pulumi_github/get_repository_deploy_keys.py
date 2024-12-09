@@ -98,7 +98,7 @@ def get_repository_deploy_keys(repository: Optional[str] = None,
         keys=pulumi.get(__ret__, 'keys'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeployKeysResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryDeployKeysResult]:
     """
     Use this data source to retrieve all deploy keys of a repository.
 
@@ -116,7 +116,7 @@ def get_repository_deploy_keys_output(repository: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryDeployKeys:getRepositoryDeployKeys', __args__, opts=opts, typ=GetRepositoryDeployKeysResult)
     return __ret__.apply(lambda __response__: GetRepositoryDeployKeysResult(
         id=pulumi.get(__response__, 'id'),

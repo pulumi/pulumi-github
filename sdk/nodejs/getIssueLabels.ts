@@ -43,7 +43,7 @@ export interface GetIssueLabelsResult {
 /**
  * Use this data source to retrieve the labels for a given repository.
  */
-export function getIssueLabelsOutput(args: GetIssueLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIssueLabelsResult> {
+export function getIssueLabelsOutput(args: GetIssueLabelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIssueLabelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getIssueLabels:getIssueLabels", {
         "repository": args.repository,

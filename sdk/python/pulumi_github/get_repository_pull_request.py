@@ -305,7 +305,7 @@ def get_repository_pull_request(base_repository: Optional[str] = None,
 def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[str]] = None,
                                        number: Optional[pulumi.Input[int]] = None,
                                        owner: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryPullRequestResult]:
     """
     Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
 
@@ -328,7 +328,7 @@ def get_repository_pull_request_output(base_repository: Optional[pulumi.Input[st
     __args__['baseRepository'] = base_repository
     __args__['number'] = number
     __args__['owner'] = owner
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryPullRequest:getRepositoryPullRequest', __args__, opts=opts, typ=GetRepositoryPullRequestResult)
     return __ret__.apply(lambda __response__: GetRepositoryPullRequestResult(
         base_ref=pulumi.get(__response__, 'base_ref'),

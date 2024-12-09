@@ -49,7 +49,7 @@ export interface GetDependabotOrganizationSecretsResult {
  * const example = github.getDependabotOrganizationSecrets({});
  * ```
  */
-export function getDependabotOrganizationSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotOrganizationSecretsResult> {
+export function getDependabotOrganizationSecretsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDependabotOrganizationSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", {
     }, opts);

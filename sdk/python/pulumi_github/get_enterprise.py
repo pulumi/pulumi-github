@@ -152,7 +152,7 @@ def get_enterprise(slug: Optional[str] = None,
         slug=pulumi.get(__ret__, 'slug'),
         url=pulumi.get(__ret__, 'url'))
 def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseResult]:
     """
     Use this data source to retrieve basic information about a GitHub enterprise.
 
@@ -170,7 +170,7 @@ def get_enterprise_output(slug: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['slug'] = slug
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getEnterprise:getEnterprise', __args__, opts=opts, typ=GetEnterpriseResult)
     return __ret__.apply(lambda __response__: GetEnterpriseResult(
         created_at=pulumi.get(__response__, 'created_at'),

@@ -89,7 +89,7 @@ export interface GetUsersResult {
  * export const invalidUsers = example.then(example => example.unknownLogins);
  * ```
  */
-export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getUsers:getUsers", {
         "usernames": args.usernames,

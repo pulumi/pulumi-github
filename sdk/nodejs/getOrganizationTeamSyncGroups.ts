@@ -49,7 +49,7 @@ export interface GetOrganizationTeamSyncGroupsResult {
  * const test = github.getOrganizationTeamSyncGroups({});
  * ```
  */
-export function getOrganizationTeamSyncGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationTeamSyncGroupsResult> {
+export function getOrganizationTeamSyncGroupsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationTeamSyncGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", {
     }, opts);

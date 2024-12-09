@@ -559,7 +559,7 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
                           full_name: Optional[pulumi.Input[Optional[str]]] = None,
                           homepage_url: Optional[pulumi.Input[Optional[str]]] = None,
                           name: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     Use this data source to retrieve information about a GitHub repository.
 
@@ -583,7 +583,7 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[str]]] = N
     __args__['fullName'] = full_name
     __args__['homepageUrl'] = homepage_url
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
     return __ret__.apply(lambda __response__: GetRepositoryResult(
         allow_auto_merge=pulumi.get(__response__, 'allow_auto_merge'),

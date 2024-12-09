@@ -53,7 +53,7 @@ export interface GetCodespacesOrganizationPublicKeyResult {
  * const example = github.getCodespacesOrganizationPublicKey({});
  * ```
  */
-export function getCodespacesOrganizationPublicKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesOrganizationPublicKeyResult> {
+export function getCodespacesOrganizationPublicKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodespacesOrganizationPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", {
     }, opts);

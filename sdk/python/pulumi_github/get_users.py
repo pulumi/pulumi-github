@@ -143,7 +143,7 @@ def get_users(usernames: Optional[Sequence[str]] = None,
         unknown_logins=pulumi.get(__ret__, 'unknown_logins'),
         usernames=pulumi.get(__ret__, 'usernames'))
 def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve information about multiple GitHub users at once.
 
@@ -168,7 +168,7 @@ def get_users_output(usernames: Optional[pulumi.Input[Sequence[str]]] = None,
     """
     __args__ = dict()
     __args__['usernames'] = usernames
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         emails=pulumi.get(__response__, 'emails'),

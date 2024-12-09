@@ -115,7 +115,7 @@ def get_actions_secrets(full_name: Optional[str] = None,
         secrets=pulumi.get(__ret__, 'secrets'))
 def get_actions_secrets_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsSecretsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsSecretsResult]:
     """
     Use this data source to retrieve the list of secrets for a GitHub repository.
 
@@ -135,7 +135,7 @@ def get_actions_secrets_output(full_name: Optional[pulumi.Input[Optional[str]]] 
     __args__ = dict()
     __args__['fullName'] = full_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getActionsSecrets:getActionsSecrets', __args__, opts=opts, typ=GetActionsSecretsResult)
     return __ret__.apply(lambda __response__: GetActionsSecretsResult(
         full_name=pulumi.get(__response__, 'full_name'),

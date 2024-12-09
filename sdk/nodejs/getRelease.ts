@@ -165,7 +165,7 @@ export interface GetReleaseResult {
  *
  * To retrieve a specific release from a repository based on it's ID:
  */
-export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseResult> {
+export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRelease:getRelease", {
         "owner": args.owner,
