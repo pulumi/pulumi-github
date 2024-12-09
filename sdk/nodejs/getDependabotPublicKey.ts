@@ -69,7 +69,7 @@ export interface GetDependabotPublicKeyResult {
  * });
  * ```
  */
-export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotPublicKeyResult> {
+export function getDependabotPublicKeyOutput(args: GetDependabotPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDependabotPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getDependabotPublicKey:getDependabotPublicKey", {
         "repository": args.repository,

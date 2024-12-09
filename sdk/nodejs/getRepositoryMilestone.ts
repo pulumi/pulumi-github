@@ -91,7 +91,7 @@ export interface GetRepositoryMilestoneResult {
  * });
  * ```
  */
-export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryMilestoneResult> {
+export function getRepositoryMilestoneOutput(args: GetRepositoryMilestoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryMilestoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryMilestone:getRepositoryMilestone", {
         "number": args.number,

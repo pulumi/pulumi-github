@@ -98,7 +98,7 @@ def get_branch_protection_rules(repository: Optional[str] = None,
         repository=pulumi.get(__ret__, 'repository'),
         rules=pulumi.get(__ret__, 'rules'))
 def get_branch_protection_rules_output(repository: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchProtectionRulesResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBranchProtectionRulesResult]:
     """
     Use this data source to retrieve a list of repository branch protection rules.
 
@@ -116,7 +116,7 @@ def get_branch_protection_rules_output(repository: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getBranchProtectionRules:getBranchProtectionRules', __args__, opts=opts, typ=GetBranchProtectionRulesResult)
     return __ret__.apply(lambda __response__: GetBranchProtectionRulesResult(
         id=pulumi.get(__response__, 'id'),

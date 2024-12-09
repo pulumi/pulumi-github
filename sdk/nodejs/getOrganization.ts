@@ -180,7 +180,7 @@ export interface GetOrganizationResult {
  * });
  * ```
  */
-export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
+export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganization:getOrganization", {
         "ignoreArchivedRepos": args.ignoreArchivedRepos,

@@ -130,7 +130,7 @@ export interface GetRepositoryPullRequestResult {
  * });
  * ```
  */
-export function getRepositoryPullRequestOutput(args: GetRepositoryPullRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryPullRequestResult> {
+export function getRepositoryPullRequestOutput(args: GetRepositoryPullRequestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryPullRequestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryPullRequest:getRepositoryPullRequest", {
         "baseRepository": args.baseRepository,

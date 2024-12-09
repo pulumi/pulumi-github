@@ -75,7 +75,7 @@ export interface GetActionsVariablesResult {
  * });
  * ```
  */
-export function getActionsVariablesOutput(args?: GetActionsVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionsVariablesResult> {
+export function getActionsVariablesOutput(args?: GetActionsVariablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionsVariablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getActionsVariables:getActionsVariables", {

@@ -98,7 +98,7 @@ def get_repository_webhooks(repository: Optional[str] = None,
         repository=pulumi.get(__ret__, 'repository'),
         webhooks=pulumi.get(__ret__, 'webhooks'))
 def get_repository_webhooks_output(repository: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryWebhooksResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryWebhooksResult]:
     """
     Use this data source to retrieve webhooks for a given repository.
 
@@ -115,7 +115,7 @@ def get_repository_webhooks_output(repository: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryWebhooks:getRepositoryWebhooks', __args__, opts=opts, typ=GetRepositoryWebhooksResult)
     return __ret__.apply(lambda __response__: GetRepositoryWebhooksResult(
         id=pulumi.get(__response__, 'id'),

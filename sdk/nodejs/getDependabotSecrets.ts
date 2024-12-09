@@ -75,7 +75,7 @@ export interface GetDependabotSecretsResult {
  * });
  * ```
  */
-export function getDependabotSecretsOutput(args?: GetDependabotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDependabotSecretsResult> {
+export function getDependabotSecretsOutput(args?: GetDependabotSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDependabotSecretsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getDependabotSecrets:getDependabotSecrets", {

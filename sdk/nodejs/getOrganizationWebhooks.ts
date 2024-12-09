@@ -54,7 +54,7 @@ export interface GetOrganizationWebhooksResult {
  * const all = github.getOrganizationWebhooks({});
  * ```
  */
-export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationWebhooksResult> {
+export function getOrganizationWebhooksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationWebhooksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationWebhooks:getOrganizationWebhooks", {
     }, opts);

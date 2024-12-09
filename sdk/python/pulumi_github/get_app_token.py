@@ -128,7 +128,7 @@ def get_app_token(app_id: Optional[str] = None,
 def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
                          installation_id: Optional[pulumi.Input[str]] = None,
                          pem_file: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppTokenResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppTokenResult]:
     """
     Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
 
@@ -153,7 +153,7 @@ def get_app_token_output(app_id: Optional[pulumi.Input[str]] = None,
     __args__['appId'] = app_id
     __args__['installationId'] = installation_id
     __args__['pemFile'] = pem_file
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getAppToken:getAppToken', __args__, opts=opts, typ=GetAppTokenResult)
     return __ret__.apply(lambda __response__: GetAppTokenResult(
         app_id=pulumi.get(__response__, 'app_id'),

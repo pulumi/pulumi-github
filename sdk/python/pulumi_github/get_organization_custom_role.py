@@ -125,7 +125,7 @@ def get_organization_custom_role(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'))
 def get_organization_custom_role_output(name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationCustomRoleResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCustomRoleResult]:
     """
     Use this data source to retrieve information about a custom role in a GitHub Organization.
 
@@ -145,7 +145,7 @@ def get_organization_custom_role_output(name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationCustomRole:getOrganizationCustomRole', __args__, opts=opts, typ=GetOrganizationCustomRoleResult)
     return __ret__.apply(lambda __response__: GetOrganizationCustomRoleResult(
         base_role=pulumi.get(__response__, 'base_role'),

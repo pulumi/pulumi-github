@@ -79,7 +79,7 @@ export interface GetBranchResult {
  * });
  * ```
  */
-export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
+export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBranchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getBranch:getBranch", {
         "branch": args.branch,

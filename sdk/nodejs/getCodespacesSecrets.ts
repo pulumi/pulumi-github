@@ -81,7 +81,7 @@ export interface GetCodespacesSecretsResult {
  * });
  * ```
  */
-export function getCodespacesSecretsOutput(args?: GetCodespacesSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesSecretsResult> {
+export function getCodespacesSecretsOutput(args?: GetCodespacesSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodespacesSecretsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCodespacesSecrets:getCodespacesSecrets", {

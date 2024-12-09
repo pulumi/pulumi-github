@@ -89,7 +89,7 @@ def get_issue_labels(repository: Optional[str] = None,
         labels=pulumi.get(__ret__, 'labels'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_issue_labels_output(repository: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIssueLabelsResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIssueLabelsResult]:
     """
     Use this data source to retrieve the labels for a given repository.
 
@@ -98,7 +98,7 @@ def get_issue_labels_output(repository: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getIssueLabels:getIssueLabels', __args__, opts=opts, typ=GetIssueLabelsResult)
     return __ret__.apply(lambda __response__: GetIssueLabelsResult(
         id=pulumi.get(__response__, 'id'),

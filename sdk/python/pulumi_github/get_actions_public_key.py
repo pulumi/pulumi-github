@@ -111,7 +111,7 @@ def get_actions_public_key(repository: Optional[str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         repository=pulumi.get(__ret__, 'repository'))
 def get_actions_public_key_output(repository: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionsPublicKeyResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionsPublicKeyResult]:
     """
     Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
     Note that the provider `token` must have admin rights to a repository to retrieve it's action public key.
@@ -130,7 +130,7 @@ def get_actions_public_key_output(repository: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getActionsPublicKey:getActionsPublicKey', __args__, opts=opts, typ=GetActionsPublicKeyResult)
     return __ret__.apply(lambda __response__: GetActionsPublicKeyResult(
         id=pulumi.get(__response__, 'id'),

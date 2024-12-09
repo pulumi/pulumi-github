@@ -65,7 +65,7 @@ export interface GetRepositoryAutolinkReferencesResult {
  * });
  * ```
  */
-export function getRepositoryAutolinkReferencesOutput(args: GetRepositoryAutolinkReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAutolinkReferencesResult> {
+export function getRepositoryAutolinkReferencesOutput(args: GetRepositoryAutolinkReferencesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryAutolinkReferencesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", {
         "repository": args.repository,

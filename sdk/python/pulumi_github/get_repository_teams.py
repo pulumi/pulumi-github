@@ -115,7 +115,7 @@ def get_repository_teams(full_name: Optional[str] = None,
         teams=pulumi.get(__ret__, 'teams'))
 def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryTeamsResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryTeamsResult]:
     """
     Use this data source to retrieve the list of teams which have access to a GitHub repository.
 
@@ -135,7 +135,7 @@ def get_repository_teams_output(full_name: Optional[pulumi.Input[Optional[str]]]
     __args__ = dict()
     __args__['fullName'] = full_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryTeams:getRepositoryTeams', __args__, opts=opts, typ=GetRepositoryTeamsResult)
     return __ret__.apply(lambda __response__: GetRepositoryTeamsResult(
         full_name=pulumi.get(__response__, 'full_name'),

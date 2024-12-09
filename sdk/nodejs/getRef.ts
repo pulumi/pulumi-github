@@ -83,7 +83,7 @@ export interface GetRefResult {
  * });
  * ```
  */
-export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRefResult> {
+export function getRefOutput(args: GetRefOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRefResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRef:getRef", {
         "owner": args.owner,

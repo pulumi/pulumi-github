@@ -97,7 +97,7 @@ export interface GetTreeResult {
  * export const entries = thisGetTree.then(thisGetTree => thisGetTree.entries);
  * ```
  */
-export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTreeResult> {
+export function getTreeOutput(args: GetTreeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTreeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getTree:getTree", {
         "recursive": args.recursive,

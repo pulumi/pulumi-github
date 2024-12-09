@@ -49,7 +49,7 @@ export interface GetCodespacesUserSecretsResult {
  * const example = github.getCodespacesUserSecrets({});
  * ```
  */
-export function getCodespacesUserSecretsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCodespacesUserSecretsResult> {
+export function getCodespacesUserSecretsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodespacesUserSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", {
     }, opts);

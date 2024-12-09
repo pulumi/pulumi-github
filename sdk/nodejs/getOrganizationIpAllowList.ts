@@ -54,7 +54,7 @@ export interface GetOrganizationIpAllowListResult {
  * const all = github.getOrganizationIpAllowList({});
  * ```
  */
-export function getOrganizationIpAllowListOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationIpAllowListResult> {
+export function getOrganizationIpAllowListOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationIpAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", {
     }, opts);
