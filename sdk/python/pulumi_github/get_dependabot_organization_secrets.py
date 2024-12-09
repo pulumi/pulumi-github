@@ -82,7 +82,7 @@ def get_dependabot_organization_secrets(opts: Optional[pulumi.InvokeOptions] = N
     return AwaitableGetDependabotOrganizationSecretsResult(
         id=pulumi.get(__ret__, 'id'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_dependabot_organization_secrets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDependabotOrganizationSecretsResult]:
+def get_dependabot_organization_secrets_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDependabotOrganizationSecretsResult]:
     """
     Use this data source to retrieve the list of dependabot secrets of the organization.
 
@@ -96,7 +96,7 @@ def get_dependabot_organization_secrets_output(opts: Optional[pulumi.InvokeOptio
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets', __args__, opts=opts, typ=GetDependabotOrganizationSecretsResult)
     return __ret__.apply(lambda __response__: GetDependabotOrganizationSecretsResult(
         id=pulumi.get(__response__, 'id'),

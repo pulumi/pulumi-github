@@ -53,7 +53,7 @@ export interface GetExternalGroupsResult {
  * export const groups = localGroups;
  * ```
  */
-export function getExternalGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalGroupsResult> {
+export function getExternalGroupsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getExternalGroups:getExternalGroups", {
     }, opts);

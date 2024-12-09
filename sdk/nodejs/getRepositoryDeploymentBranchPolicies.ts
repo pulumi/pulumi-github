@@ -73,7 +73,7 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
  * });
  * ```
  */
-export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryDeploymentBranchPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryDeploymentBranchPoliciesResult> {
+export function getRepositoryDeploymentBranchPoliciesOutput(args: GetRepositoryDeploymentBranchPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryDeploymentBranchPoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", {
         "environmentName": args.environmentName,

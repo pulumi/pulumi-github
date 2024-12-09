@@ -349,7 +349,7 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
                        release_tag: Optional[pulumi.Input[Optional[str]]] = None,
                        repository: Optional[pulumi.Input[str]] = None,
                        retrieve_by: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseResult]:
     """
     Use this data source to retrieve information about a GitHub release in a specific repository.
 
@@ -381,7 +381,7 @@ def get_release_output(owner: Optional[pulumi.Input[str]] = None,
     __args__['releaseTag'] = release_tag
     __args__['repository'] = repository
     __args__['retrieveBy'] = retrieve_by
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRelease:getRelease', __args__, opts=opts, typ=GetReleaseResult)
     return __ret__.apply(lambda __response__: GetReleaseResult(
         asserts_url=pulumi.get(__response__, 'asserts_url'),

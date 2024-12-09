@@ -85,7 +85,7 @@ export interface GetAppTokenResult {
  * }));
  * ```
  */
-export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppTokenResult> {
+export function getAppTokenOutput(args: GetAppTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getAppToken:getAppToken", {
         "appId": args.appId,

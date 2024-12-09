@@ -123,7 +123,7 @@ def get_github_app(slug: Optional[str] = None,
         node_id=pulumi.get(__ret__, 'node_id'),
         slug=pulumi.get(__ret__, 'slug'))
 def get_github_app_output(slug: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGithubAppResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGithubAppResult]:
     """
     Use this data source to retrieve information about an app.
 
@@ -141,7 +141,7 @@ def get_github_app_output(slug: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['slug'] = slug
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getGithubApp:getGithubApp', __args__, opts=opts, typ=GetGithubAppResult)
     return __ret__.apply(lambda __response__: GetGithubAppResult(
         description=pulumi.get(__response__, 'description'),

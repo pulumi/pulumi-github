@@ -82,7 +82,7 @@ export interface GetEnterpriseResult {
  * });
  * ```
  */
-export function getEnterpriseOutput(args: GetEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseResult> {
+export function getEnterpriseOutput(args: GetEnterpriseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getEnterprise:getEnterprise", {
         "slug": args.slug,

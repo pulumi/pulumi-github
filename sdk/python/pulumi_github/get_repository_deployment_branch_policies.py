@@ -113,7 +113,7 @@ def get_repository_deployment_branch_policies(environment_name: Optional[str] = 
         repository=pulumi.get(__ret__, 'repository'))
 def get_repository_deployment_branch_policies_output(environment_name: Optional[pulumi.Input[str]] = None,
                                                      repository: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
     """
     Use this data source to retrieve deployment branch policies for a repository / environment.
 
@@ -134,7 +134,7 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies', __args__, opts=opts, typ=GetRepositoryDeploymentBranchPoliciesResult)
     return __ret__.apply(lambda __response__: GetRepositoryDeploymentBranchPoliciesResult(
         deployment_branch_policies=pulumi.get(__response__, 'deployment_branch_policies'),

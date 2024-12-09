@@ -67,7 +67,7 @@ export interface GetRepositoryWebhooksResult {
  * });
  * ```
  */
-export function getRepositoryWebhooksOutput(args: GetRepositoryWebhooksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryWebhooksResult> {
+export function getRepositoryWebhooksOutput(args: GetRepositoryWebhooksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryWebhooksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRepositoryWebhooks:getRepositoryWebhooks", {
         "repository": args.repository,

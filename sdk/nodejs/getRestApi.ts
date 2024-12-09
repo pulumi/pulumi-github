@@ -75,7 +75,7 @@ export interface GetRestApiResult {
  * });
  * ```
  */
-export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
+export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("github:index/getRestApi:getRestApi", {
         "endpoint": args.endpoint,

@@ -132,7 +132,7 @@ def get_tree(recursive: Optional[bool] = None,
 def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                     repository: Optional[pulumi.Input[str]] = None,
                     tree_sha: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTreeResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTreeResult]:
     """
     Use this data source to retrieve information about a single tree.
 
@@ -160,7 +160,7 @@ def get_tree_output(recursive: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__['recursive'] = recursive
     __args__['repository'] = repository
     __args__['treeSha'] = tree_sha
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getTree:getTree', __args__, opts=opts, typ=GetTreeResult)
     return __ret__.apply(lambda __response__: GetTreeResult(
         entries=pulumi.get(__response__, 'entries'),

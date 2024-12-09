@@ -195,7 +195,7 @@ def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional
                                         sort_by: Optional[pulumi.Input[Optional[str]]] = None,
                                         sort_direction: Optional[pulumi.Input[Optional[str]]] = None,
                                         state: Optional[pulumi.Input[Optional[str]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryPullRequestsResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryPullRequestsResult]:
     """
     Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
 
@@ -229,7 +229,7 @@ def get_repository_pull_requests_output(base_ref: Optional[pulumi.Input[Optional
     __args__['sortBy'] = sort_by
     __args__['sortDirection'] = sort_direction
     __args__['state'] = state
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepositoryPullRequests:getRepositoryPullRequests', __args__, opts=opts, typ=GetRepositoryPullRequestsResult)
     return __ret__.apply(lambda __response__: GetRepositoryPullRequestsResult(
         base_ref=pulumi.get(__response__, 'base_ref'),
