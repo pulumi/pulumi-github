@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
 import com.pulumi.github.inputs.GetActionsEnvironmentSecretsPlainArgs;
@@ -328,6 +329,49 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", TypeShape.of(GetActionsEnvironmentSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of secrets of the repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentSecrets(GetActionsEnvironmentSecretsArgs.builder()
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsEnvironmentSecretsResult> getActionsEnvironmentSecretsPlain(GetActionsEnvironmentSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets", TypeShape.of(GetActionsEnvironmentSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -458,6 +502,49 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", TypeShape.of(GetActionsEnvironmentVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs.builder()
+     *             .name("exampleRepo")
+     *             .environment("exampleEnvironment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionsEnvironmentVariablesResult> getActionsEnvironmentVariables(GetActionsEnvironmentVariablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", TypeShape.of(GetActionsEnvironmentVariablesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -696,6 +783,45 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for an organization
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult> getActionsOrganizationOidcSubjectClaimCustomizationTemplate(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getActionsOrganizationOidcSubjectClaimCustomizationTemplate:getActionsOrganizationOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -974,6 +1100,46 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKey(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsOrganizationPublicKeyResult> getActionsOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationPublicKey:getActionsOrganizationPublicKey", TypeShape.of(GetActionsOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -1170,6 +1336,45 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationToken(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", TypeShape.of(GetActionsOrganizationRegistrationTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a GitHub Actions organization registration token. This token can then be used to register a self-hosted runner.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionsOrganizationRegistrationTokenResult> getActionsOrganizationRegistrationToken(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getActionsOrganizationRegistrationToken:getActionsOrganizationRegistrationToken", TypeShape.of(GetActionsOrganizationRegistrationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1442,6 +1647,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsOrganizationSecretsResult> getActionsOrganizationSecrets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", TypeShape.of(GetActionsOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of secrets of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsOrganizationSecretsResult> getActionsOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", TypeShape.of(GetActionsOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -1676,6 +1920,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsOrganizationVariablesResult> getActionsOrganizationVariables(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", TypeShape.of(GetActionsOrganizationVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsOrganizationVariablesResult> getActionsOrganizationVariablesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", TypeShape.of(GetActionsOrganizationVariablesResult.class), args, Utilities.withVersion(options));
     }
@@ -1806,6 +2089,49 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetActionsPublicKeyResult> getActionsPublicKey(GetActionsPublicKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsPublicKey:getActionsPublicKey", TypeShape.of(GetActionsPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s action public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsPublicKey(GetActionsPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionsPublicKeyResult> getActionsPublicKey(GetActionsPublicKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getActionsPublicKey:getActionsPublicKey", TypeShape.of(GetActionsPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2016,6 +2342,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsRegistrationTokenResult> getActionsRegistrationToken(GetActionsRegistrationTokenArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsRegistrationToken:getActionsRegistrationToken", TypeShape.of(GetActionsRegistrationTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a GitHub Actions repository registration token. This token can then be used to register a self-hosted runner.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRegistrationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRegistrationToken(GetActionsRegistrationTokenArgs.builder()
+     *             .repository("example_repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsRegistrationTokenResult> getActionsRegistrationTokenPlain(GetActionsRegistrationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsRegistrationToken:getActionsRegistrationToken", TypeShape.of(GetActionsRegistrationTokenResult.class), args, Utilities.withVersion(options));
     }
@@ -2143,6 +2511,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the OpenID Connect subject claim customization template for a repository
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs.builder()
+     *             .name("example_repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult> getActionsRepositoryOidcSubjectClaimCustomizationTemplate(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getActionsRepositoryOidcSubjectClaimCustomizationTemplate:getActionsRepositoryOidcSubjectClaimCustomizationTemplate", TypeShape.of(GetActionsRepositoryOidcSubjectClaimCustomizationTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2436,6 +2846,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsSecretsResult> getActionsSecrets(GetActionsSecretsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsSecrets:getActionsSecrets", TypeShape.of(GetActionsSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsSecrets(GetActionsSecretsArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsSecretsResult> getActionsSecretsPlain(GetActionsSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsSecrets:getActionsSecrets", TypeShape.of(GetActionsSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -2688,6 +3140,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActionsVariablesResult> getActionsVariables(GetActionsVariablesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsVariables:getActionsVariables", TypeShape.of(GetActionsVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of variables for a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsVariables(GetActionsVariablesArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActionsVariablesResult> getActionsVariablesPlain(GetActionsVariablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getActionsVariables:getActionsVariables", TypeShape.of(GetActionsVariablesResult.class), args, Utilities.withVersion(options));
     }
@@ -2827,6 +3321,52 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getAppToken:getAppToken", TypeShape.of(GetAppTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate a [GitHub App JWT](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetAppTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getAppToken(GetAppTokenArgs.builder()
+     *             .appId("123456")
+     *             .installationId("78910")
+     *             .pemFile(StdFunctions.file(FileArgs.builder()
+     *                 .input("foo/bar.pem")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppTokenResult> getAppToken(GetAppTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getAppToken:getAppToken", TypeShape.of(GetAppTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3044,6 +3584,49 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBranchResult> getBranch(GetBranchArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getBranch:getBranch", TypeShape.of(GetBranchResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a repository branch.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var development = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .repository("example")
+     *             .branch("development")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBranchResult> getBranchPlain(GetBranchPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getBranch:getBranch", TypeShape.of(GetBranchResult.class), args, Utilities.withVersion(options));
     }
@@ -3171,6 +3754,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of repository branch protection rules.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetBranchProtectionRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getBranchProtectionRules(GetBranchProtectionRulesArgs.builder()
+     *             .repository("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBranchProtectionRulesResult> getBranchProtectionRules(GetBranchProtectionRulesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getBranchProtectionRules:getBranchProtectionRules", TypeShape.of(GetBranchProtectionRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3452,6 +4077,46 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKey(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCodespacesOrganizationPublicKeyResult> getCodespacesOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesOrganizationPublicKey:getCodespacesOrganizationPublicKey", TypeShape.of(GetCodespacesOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -3686,6 +4351,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecrets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", TypeShape.of(GetCodespacesOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCodespacesOrganizationSecretsResult> getCodespacesOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesOrganizationSecrets:getCodespacesOrganizationSecrets", TypeShape.of(GetCodespacesOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -3816,6 +4520,49 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesPublicKey(GetCodespacesPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCodespacesPublicKeyResult> getCodespacesPublicKey(GetCodespacesPublicKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getCodespacesPublicKey:getCodespacesPublicKey", TypeShape.of(GetCodespacesPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4134,6 +4881,52 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCodespacesSecretsResult> getCodespacesSecrets(GetCodespacesSecretsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesSecrets:getCodespacesSecrets", TypeShape.of(GetCodespacesSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCodespacesSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .name("example_repository")
+     *             .build());
+     * 
+     *         final var example2 = GithubFunctions.getCodespacesSecrets(GetCodespacesSecretsArgs.builder()
+     *             .fullName("org/example_repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCodespacesSecretsResult> getCodespacesSecretsPlain(GetCodespacesSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesSecrets:getCodespacesSecrets", TypeShape.of(GetCodespacesSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -4335,6 +5128,46 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an user to retrieve it&#39;s Codespaces public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCodespacesUserPublicKeyResult> getCodespacesUserPublicKey(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", TypeShape.of(GetCodespacesUserPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4608,6 +5441,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCodespacesUserSecretsResult> getCodespacesUserSecrets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", TypeShape.of(GetCodespacesUserSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of codespaces secrets of the user.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCodespacesUserSecretsResult> getCodespacesUserSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", TypeShape.of(GetCodespacesUserSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -4738,6 +5610,49 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetCollaboratorsResult> getCollaborators(GetCollaboratorsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the collaborators for a given repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetCollaboratorsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getCollaborators(GetCollaboratorsArgs.builder()
+     *             .owner("example_owner")
+     *             .repository("example_repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCollaboratorsResult> getCollaborators(GetCollaboratorsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getCollaborators:getCollaborators", TypeShape.of(GetCollaboratorsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5020,6 +5935,46 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKey(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to an organization to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDependabotOrganizationPublicKeyResult> getDependabotOrganizationPublicKeyPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", TypeShape.of(GetDependabotOrganizationPublicKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -5254,6 +6209,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecrets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of dependabot secrets of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDependabotOrganizationSecretsResult> getDependabotOrganizationSecretsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotOrganizationSecrets:getDependabotOrganizationSecrets", TypeShape.of(GetDependabotOrganizationSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -5384,6 +6378,49 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve it&#39;s Dependabot public key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotPublicKey(GetDependabotPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDependabotPublicKeyResult> getDependabotPublicKey(GetDependabotPublicKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getDependabotPublicKey:getDependabotPublicKey", TypeShape.of(GetDependabotPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5678,6 +6715,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDependabotSecretsResult> getDependabotSecrets(GetDependabotSecretsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of dependabot secrets for a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetDependabotSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getDependabotSecrets(GetDependabotSecretsArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDependabotSecretsResult> getDependabotSecretsPlain(GetDependabotSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getDependabotSecrets:getDependabotSecrets", TypeShape.of(GetDependabotSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -5805,6 +6884,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getEnterprise:getEnterprise", TypeShape.of(GetEnterpriseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub enterprise.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetEnterpriseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getEnterprise(GetEnterpriseArgs.builder()
+     *             .slug("example-co")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEnterpriseResult> getEnterprise(GetEnterpriseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getEnterprise:getEnterprise", TypeShape.of(GetEnterpriseResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6098,6 +7219,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetExternalGroupsResult> getExternalGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve external groups belonging to an organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     * 
+     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     * 
+     *         ctx.export("groups", localGroups);
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetExternalGroupsResult> getExternalGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getExternalGroups:getExternalGroups", TypeShape.of(GetExternalGroupsResult.class), args, Utilities.withVersion(options));
     }
@@ -6225,6 +7388,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an app.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetGithubAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foobar = GithubFunctions.getGithubApp(GetGithubAppArgs.builder()
+     *             .slug("foobar")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGithubAppResult> getGithubApp(GetGithubAppArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getGithubApp:getGithubApp", TypeShape.of(GetGithubAppResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6500,6 +7705,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s IP addresses.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getIpRanges();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
@@ -6522,6 +7766,13 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetIssueLabelsResult> getIssueLabels(GetIssueLabelsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getIssueLabels:getIssueLabels", TypeShape.of(GetIssueLabelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the labels for a given repository.
+     * 
+     */
+    public static Output<GetIssueLabelsResult> getIssueLabels(GetIssueLabelsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getIssueLabels:getIssueLabels", TypeShape.of(GetIssueLabelsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6664,6 +7915,51 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetMembershipResult> getMembership(GetMembershipArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getMembership:getMembership", TypeShape.of(GetMembershipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to find out if a user is a member of your organization, as well
+     * as what role they have within it.
+     * If the user&#39;s membership in the organization is pending their acceptance of an invite,
+     * the role they would have once they accept will be returned.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetMembershipArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var membershipForSomeUser = GithubFunctions.getMembership(GetMembershipArgs.builder()
+     *             .username("SomeUser")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMembershipResult> getMembership(GetMembershipArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getMembership:getMembership", TypeShape.of(GetMembershipResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6876,6 +8172,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve basic information about a GitHub Organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .name("github")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
@@ -7009,6 +8347,50 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a custom role in a GitHub Organization.
+     * 
+     * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationCustomRole(GetOrganizationCustomRoleArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationCustomRoleResult> getOrganizationCustomRole(GetOrganizationCustomRoleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7253,6 +8635,46 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve each organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationExternalIdentitiesResult> getOrganizationExternalIdentities(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", TypeShape.of(GetOrganizationExternalIdentitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7538,6 +8960,47 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationIpAllowListResult> getOrganizationIpAllowList(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about the IP allow list of an organization.
+     * The allow list for IP addresses will block access to private resources via the web, API,
+     * and Git from any IP addresses that are not on the allow list.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
     }
@@ -7734,6 +9197,45 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", TypeShape.of(GetOrganizationTeamSyncGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the identity provider (IdP) groups for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationTeamSyncGroupsResult> getOrganizationTeamSyncGroups(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getOrganizationTeamSyncGroups:getOrganizationTeamSyncGroups", TypeShape.of(GetOrganizationTeamSyncGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8234,6 +9736,83 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationTeamsResult> getOrganizationTeams(GetOrganizationTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationTeams:getOrganizationTeams", TypeShape.of(GetOrganizationTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about all GitHub teams in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* teams of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationTeams();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * To retrieve only the team&#39;s at the root of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var rootTeams = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .rootTeamsOnly(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationTeamsResult> getOrganizationTeamsPlain(GetOrganizationTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationTeams:getOrganizationTeams", TypeShape.of(GetOrganizationTeamsResult.class), args, Utilities.withVersion(options));
     }
@@ -8480,6 +10059,47 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationWebhooksResult> getOrganizationWebhooks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationWebhooks:getOrganizationWebhooks", TypeShape.of(GetOrganizationWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all webhooks of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* webhooks of the organization:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationWebhooksResult> getOrganizationWebhooksPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationWebhooks:getOrganizationWebhooks", TypeShape.of(GetOrganizationWebhooksResult.class), args, Utilities.withVersion(options));
     }
@@ -8613,6 +10233,50 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRefResult> getRef(GetRefArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRef:getRef", TypeShape.of(GetRefResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a repository ref.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRefArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var development = GithubFunctions.getRef(GetRefArgs.builder()
+     *             .owner("example")
+     *             .repository("example")
+     *             .ref("heads/development")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRefResult> getRef(GetRefArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRef:getRef", TypeShape.of(GetRefResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -9144,6 +10808,128 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release in a specific repository.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve the latest release that is present in a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("id")
+     *             .id(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
     }
@@ -9283,6 +11069,52 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** The data source will return a maximum of `1000` repositories
+     * 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+     * 
+     * Use this data source to retrieve a list of GitHub repositories using a search query.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .query("org:hashicorp language:Go")
+     *             .includeRepoId(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -9580,6 +11412,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .fullName("hashicorp/terraform")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
     }
@@ -9707,6 +11581,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", TypeShape.of(GetRepositoryAutolinkReferencesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve autolink references for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryAutolinkReferencesResult> getRepositoryAutolinkReferences(GetRepositoryAutolinkReferencesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositoryAutolinkReferences:getRepositoryAutolinkReferences", TypeShape.of(GetRepositoryAutolinkReferencesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -9916,6 +11832,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryBranchesResult> getRepositoryBranches(GetRepositoryBranchesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about branches in a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryBranches(GetRepositoryBranchesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
     }
@@ -10043,6 +12001,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all deploy keys of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryDeployKeys(GetRepositoryDeployKeysArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryDeployKeysResult> getRepositoryDeployKeys(GetRepositoryDeployKeysArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -10256,6 +12256,49 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", TypeShape.of(GetRepositoryDeploymentBranchPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository / environment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryDeploymentBranchPolicies(GetRepositoryDeploymentBranchPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environmentName("env_name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPoliciesPlain(GetRepositoryDeploymentBranchPoliciesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", TypeShape.of(GetRepositoryDeploymentBranchPoliciesResult.class), args, Utilities.withVersion(options));
     }
@@ -10383,6 +12426,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryEnvironments:getRepositoryEnvironments", TypeShape.of(GetRepositoryEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about environments for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironments(GetRepositoryEnvironmentsArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentsResult> getRepositoryEnvironments(GetRepositoryEnvironmentsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositoryEnvironments:getRepositoryEnvironments", TypeShape.of(GetRepositoryEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -10604,6 +12689,51 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryFileResult> getRepositoryFile(GetRepositoryFileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryFile:getRepositoryFile", TypeShape.of(GetRepositoryFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source allows you to read files within a
+     * GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryFileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = GithubFunctions.getRepositoryFile(GetRepositoryFileArgs.builder()
+     *             .repository(fooGithubRepository.name())
+     *             .branch("main")
+     *             .file(".gitignore")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryFileResult> getRepositoryFilePlain(GetRepositoryFilePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryFile:getRepositoryFile", TypeShape.of(GetRepositoryFileResult.class), args, Utilities.withVersion(options));
     }
@@ -10737,6 +12867,50 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoryMilestoneResult> getRepositoryMilestone(GetRepositoryMilestoneArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryMilestone:getRepositoryMilestone", TypeShape.of(GetRepositoryMilestoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific GitHub milestone in a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryMilestone(GetRepositoryMilestoneArgs.builder()
+     *             .owner("example-owner")
+     *             .repository("example-repository")
+     *             .number(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryMilestoneResult> getRepositoryMilestone(GetRepositoryMilestoneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositoryMilestone:getRepositoryMilestone", TypeShape.of(GetRepositoryMilestoneResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -10952,6 +13126,49 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryPullRequestResult> getRepositoryPullRequest(GetRepositoryPullRequestArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryPullRequest:getRepositoryPullRequest", TypeShape.of(GetRepositoryPullRequestResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPullRequest(GetRepositoryPullRequestArgs.builder()
+     *             .baseRepository("example_repository")
+     *             .number(1)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryPullRequestResult> getRepositoryPullRequestPlain(GetRepositoryPullRequestPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryPullRequest:getRepositoryPullRequest", TypeShape.of(GetRepositoryPullRequestResult.class), args, Utilities.withVersion(options));
     }
@@ -11091,6 +13308,52 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequests(GetRepositoryPullRequestsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", TypeShape.of(GetRepositoryPullRequestsInvokeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPullRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPullRequests(GetRepositoryPullRequestsArgs.builder()
+     *             .baseRepository("example-repository")
+     *             .baseRef("main")
+     *             .sortBy("updated")
+     *             .sortDirection("desc")
+     *             .state("open")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryPullRequestsInvokeResult> getRepositoryPullRequests(GetRepositoryPullRequestsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRepositoryPullRequests:getRepositoryPullRequests", TypeShape.of(GetRepositoryPullRequestsInvokeResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -11388,6 +13651,48 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryTeamsResult> getRepositoryTeams(GetRepositoryTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryTeams:getRepositoryTeams", TypeShape.of(GetRepositoryTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of teams which have access to a GitHub repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryTeams(GetRepositoryTeamsArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryTeamsResult> getRepositoryTeamsPlain(GetRepositoryTeamsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryTeams:getRepositoryTeams", TypeShape.of(GetRepositoryTeamsResult.class), args, Utilities.withVersion(options));
     }
@@ -11564,6 +13869,50 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRepositoryWebhooksResult> getRepositoryWebhooks(GetRepositoryWebhooksArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve webhooks for a given repository.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve webhooks of a repository:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryWebhooksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var repo = GithubFunctions.getRepositoryWebhooks(GetRepositoryWebhooksArgs.builder()
+     *             .repository("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRepositoryWebhooksResult> getRepositoryWebhooksPlain(GetRepositoryWebhooksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryWebhooks:getRepositoryWebhooks", TypeShape.of(GetRepositoryWebhooksResult.class), args, Utilities.withVersion(options));
     }
@@ -11691,6 +14040,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub resource through REST API.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRestApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .endpoint("repos/example_repo/git/refs/heads/main")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -11966,6 +14357,45 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSshKeysResult> getSshKeys(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about GitHub&#39;s SSH keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getSshKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSshKeysResult> getSshKeysPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getSshKeys:getSshKeys", TypeShape.of(GetSshKeysResult.class), args, Utilities.withVersion(options));
     }
@@ -12093,6 +14523,48 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub team.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetTeamArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getTeam(GetTeamArgs.builder()
+     *             .slug("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -12358,6 +14830,62 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTreeResult> getTree(GetTreeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getTree:getTree", TypeShape.of(GetTreeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a single tree.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryArgs;
+     * import com.pulumi.github.inputs.GetBranchArgs;
+     * import com.pulumi.github.inputs.GetTreeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var this = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *         final var thisGetBranch = GithubFunctions.getBranch(GetBranchArgs.builder()
+     *             .branch(this_.defaultBranch())
+     *             .repository(this_.name())
+     *             .build());
+     * 
+     *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
+     *             .recursive(false)
+     *             .repository(this_.name())
+     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .build());
+     * 
+     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTreeResult> getTreePlain(GetTreePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getTree:getTree", TypeShape.of(GetTreeResult.class), args, Utilities.withVersion(options));
     }
@@ -12506,6 +15034,55 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub user.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Retrieve information about a GitHub user.
+     *         final var example = GithubFunctions.getUser(GetUserArgs.builder()
+     *             .username("example")
+     *             .build());
+     * 
+     *         // Retrieve information about the currently authenticated user.
+     *         final var current = GithubFunctions.getUser(GetUserArgs.builder()
+     *             .username("")
+     *             .build());
+     * 
+     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -12726,6 +15303,49 @@ public final class GithubFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserExternalIdentityResult> getUserExternalIdentity(GetUserExternalIdentityArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a specific organization member&#39;s SAML or SCIM user
+     * attributes.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUserExternalIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUser = GithubFunctions.getUserExternalIdentity(GetUserExternalIdentityArgs.builder()
+     *             .username("example-user")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserExternalIdentityResult> getUserExternalIdentityPlain(GetUserExternalIdentityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getUserExternalIdentity:getUserExternalIdentity", TypeShape.of(GetUserExternalIdentityResult.class), args, Utilities.withVersion(options));
     }
@@ -12871,6 +15491,54 @@ public final class GithubFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about multiple GitHub users at once.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Retrieve information about multiple GitHub users.
+     *         final var example = GithubFunctions.getUsers(GetUsersArgs.builder()
+     *             .usernames(            
+     *                 "example1",
+     *                 "example2",
+     *                 "example3")
+     *             .build());
+     * 
+     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
+     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**

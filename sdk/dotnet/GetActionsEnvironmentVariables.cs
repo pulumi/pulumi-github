@@ -60,6 +60,31 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetActionsEnvironmentVariablesResult> Invoke(GetActionsEnvironmentVariablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentVariablesResult>("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args ?? new GetActionsEnvironmentVariablesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of variables of the repository environment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsEnvironmentVariables.Invoke(new()
+        ///     {
+        ///         Name = "exampleRepo",
+        ///         Environment = "exampleEnvironment",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetActionsEnvironmentVariablesResult> Invoke(GetActionsEnvironmentVariablesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsEnvironmentVariablesResult>("github:index/getActionsEnvironmentVariables:getActionsEnvironmentVariables", args ?? new GetActionsEnvironmentVariablesInvokeArgs(), options.WithDefaults());
     }
 
 

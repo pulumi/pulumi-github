@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetGithubAppResult> Invoke(GetGithubAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an app.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     {
+        ///         Slug = "foobar",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGithubAppResult> Invoke(GetGithubAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGithubAppResult>("github:index/getGithubApp:getGithubApp", args ?? new GetGithubAppInvokeArgs(), options.WithDefaults());
     }
 
 

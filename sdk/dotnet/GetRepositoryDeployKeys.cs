@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRepositoryDeployKeysResult> Invoke(GetRepositoryDeployKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeployKeysResult>("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", args ?? new GetRepositoryDeployKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve all deploy keys of a repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryDeployKeys.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoryDeployKeysResult> Invoke(GetRepositoryDeployKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeployKeysResult>("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", args ?? new GetRepositoryDeployKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -75,21 +75,11 @@ type LookupMembershipResult struct {
 }
 
 func LookupMembershipOutput(ctx *pulumi.Context, args LookupMembershipOutputArgs, opts ...pulumi.InvokeOption) LookupMembershipResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMembershipResultOutput, error) {
 			args := v.(LookupMembershipArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMembershipResult
-			secret, err := ctx.InvokePackageRaw("github:index/getMembership:getMembership", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMembershipResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMembershipResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMembershipResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getMembership:getMembership", args, LookupMembershipResultOutput{}, options).(LookupMembershipResultOutput), nil
 		}).(LookupMembershipResultOutput)
 }
 

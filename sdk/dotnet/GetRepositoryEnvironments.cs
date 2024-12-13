@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRepositoryEnvironmentsResult> Invoke(GetRepositoryEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEnvironmentsResult>("github:index/getRepositoryEnvironments:getRepositoryEnvironments", args ?? new GetRepositoryEnvironmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about environments for a repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryEnvironments.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoryEnvironmentsResult> Invoke(GetRepositoryEnvironmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEnvironmentsResult>("github:index/getRepositoryEnvironments:getRepositoryEnvironments", args ?? new GetRepositoryEnvironmentsInvokeArgs(), options.WithDefaults());
     }
 
 

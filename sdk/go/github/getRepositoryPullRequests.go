@@ -89,21 +89,11 @@ type LookupRepositoryPullRequestsResult struct {
 }
 
 func LookupRepositoryPullRequestsOutput(ctx *pulumi.Context, args LookupRepositoryPullRequestsOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryPullRequestsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRepositoryPullRequestsResultOutput, error) {
 			args := v.(LookupRepositoryPullRequestsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRepositoryPullRequestsResult
-			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRepositoryPullRequestsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRepositoryPullRequestsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRepositoryPullRequestsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args, LookupRepositoryPullRequestsResultOutput{}, options).(LookupRepositoryPullRequestsResultOutput), nil
 		}).(LookupRepositoryPullRequestsResultOutput)
 }
 

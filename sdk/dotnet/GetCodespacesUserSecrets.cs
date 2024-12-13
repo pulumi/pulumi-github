@@ -52,6 +52,27 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetCodespacesUserSecretsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesUserSecretsResult>("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of codespaces secrets of the user.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesUserSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCodespacesUserSecretsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesUserSecretsResult>("github:index/getCodespacesUserSecrets:getCodespacesUserSecrets", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

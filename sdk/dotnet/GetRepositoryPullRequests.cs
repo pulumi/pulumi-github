@@ -66,6 +66,34 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRepositoryPullRequestsResult> Invoke(GetRepositoryPullRequestsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about multiple GitHub Pull Requests in a repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryPullRequests.Invoke(new()
+        ///     {
+        ///         BaseRepository = "example-repository",
+        ///         BaseRef = "main",
+        ///         SortBy = "updated",
+        ///         SortDirection = "desc",
+        ///         State = "open",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoryPullRequestsResult> Invoke(GetRepositoryPullRequestsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryPullRequestsResult>("github:index/getRepositoryPullRequests:getRepositoryPullRequests", args ?? new GetRepositoryPullRequestsInvokeArgs(), options.WithDefaults());
     }
 
 

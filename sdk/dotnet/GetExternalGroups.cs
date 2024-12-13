@@ -64,6 +64,33 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetExternalGroupsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalGroupsResult>("github:index/getExternalGroups:getExternalGroups", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve external groups belonging to an organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
+        /// 
+        ///     var localGroups = exampleExternalGroups;
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groups"] = localGroups,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExternalGroupsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExternalGroupsResult>("github:index/getExternalGroups:getExternalGroups", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

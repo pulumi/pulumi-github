@@ -68,21 +68,11 @@ type GetRepositoryDeploymentBranchPoliciesResult struct {
 }
 
 func GetRepositoryDeploymentBranchPoliciesOutput(ctx *pulumi.Context, args GetRepositoryDeploymentBranchPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryDeploymentBranchPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRepositoryDeploymentBranchPoliciesResultOutput, error) {
 			args := v.(GetRepositoryDeploymentBranchPoliciesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRepositoryDeploymentBranchPoliciesResult
-			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args, &rv, "", opts...)
-			if err != nil {
-				return GetRepositoryDeploymentBranchPoliciesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRepositoryDeploymentBranchPoliciesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRepositoryDeploymentBranchPoliciesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args, GetRepositoryDeploymentBranchPoliciesResultOutput{}, options).(GetRepositoryDeploymentBranchPoliciesResultOutput), nil
 		}).(GetRepositoryDeploymentBranchPoliciesResultOutput)
 }
 
