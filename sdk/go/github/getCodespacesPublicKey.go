@@ -67,21 +67,11 @@ type GetCodespacesPublicKeyResult struct {
 }
 
 func GetCodespacesPublicKeyOutput(ctx *pulumi.Context, args GetCodespacesPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetCodespacesPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCodespacesPublicKeyResultOutput, error) {
 			args := v.(GetCodespacesPublicKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCodespacesPublicKeyResult
-			secret, err := ctx.InvokePackageRaw("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args, &rv, "", opts...)
-			if err != nil {
-				return GetCodespacesPublicKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCodespacesPublicKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCodespacesPublicKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getCodespacesPublicKey:getCodespacesPublicKey", args, GetCodespacesPublicKeyResultOutput{}, options).(GetCodespacesPublicKeyResultOutput), nil
 		}).(GetCodespacesPublicKeyResultOutput)
 }
 

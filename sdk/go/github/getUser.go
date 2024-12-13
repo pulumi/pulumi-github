@@ -111,21 +111,11 @@ type GetUserResult struct {
 }
 
 func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.InvokeOption) GetUserResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserResultOutput, error) {
 			args := v.(GetUserArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetUserResult
-			secret, err := ctx.InvokePackageRaw("github:index/getUser:getUser", args, &rv, "", opts...)
-			if err != nil {
-				return GetUserResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetUserResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetUserResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getUser:getUser", args, GetUserResultOutput{}, options).(GetUserResultOutput), nil
 		}).(GetUserResultOutput)
 }
 

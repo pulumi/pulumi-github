@@ -64,21 +64,11 @@ type GetBranchProtectionRulesResult struct {
 }
 
 func GetBranchProtectionRulesOutput(ctx *pulumi.Context, args GetBranchProtectionRulesOutputArgs, opts ...pulumi.InvokeOption) GetBranchProtectionRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBranchProtectionRulesResultOutput, error) {
 			args := v.(GetBranchProtectionRulesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetBranchProtectionRulesResult
-			secret, err := ctx.InvokePackageRaw("github:index/getBranchProtectionRules:getBranchProtectionRules", args, &rv, "", opts...)
-			if err != nil {
-				return GetBranchProtectionRulesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetBranchProtectionRulesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetBranchProtectionRulesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getBranchProtectionRules:getBranchProtectionRules", args, GetBranchProtectionRulesResultOutput{}, options).(GetBranchProtectionRulesResultOutput), nil
 		}).(GetBranchProtectionRulesResultOutput)
 }
 

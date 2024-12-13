@@ -52,6 +52,27 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetActionsOrganizationSecretsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationSecretsResult>("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of secrets of the organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsOrganizationSecrets.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetActionsOrganizationSecretsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationSecretsResult>("github:index/getActionsOrganizationSecrets:getActionsOrganizationSecrets", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

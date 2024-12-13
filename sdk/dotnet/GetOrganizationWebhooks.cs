@@ -56,6 +56,29 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetOrganizationWebhooksResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationWebhooksResult>("github:index/getOrganizationWebhooks:getOrganizationWebhooks", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve all webhooks of the organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// To retrieve *all* webhooks of the organization:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Github.GetOrganizationWebhooks.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationWebhooksResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationWebhooksResult>("github:index/getOrganizationWebhooks:getOrganizationWebhooks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

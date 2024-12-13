@@ -92,6 +92,47 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetTreeResult> Invoke(GetTreeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a single tree.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Github.GetRepository.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
+        ///     {
+        ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///     });
+        /// 
+        ///     var thisGetTree = Github.GetTree.Invoke(new()
+        ///     {
+        ///         Recursive = false,
+        ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+        ///         TreeSha = thisGetBranch.Apply(getBranchResult =&gt; getBranchResult.Sha),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["entries"] = thisGetTree.Apply(getTreeResult =&gt; getTreeResult.Entries),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTreeResult> Invoke(GetTreeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTreeResult>("github:index/getTree:getTree", args ?? new GetTreeInvokeArgs(), options.WithDefaults());
     }
 
 

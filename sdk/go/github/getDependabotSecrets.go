@@ -68,21 +68,11 @@ type GetDependabotSecretsResult struct {
 }
 
 func GetDependabotSecretsOutput(ctx *pulumi.Context, args GetDependabotSecretsOutputArgs, opts ...pulumi.InvokeOption) GetDependabotSecretsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDependabotSecretsResultOutput, error) {
 			args := v.(GetDependabotSecretsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDependabotSecretsResult
-			secret, err := ctx.InvokePackageRaw("github:index/getDependabotSecrets:getDependabotSecrets", args, &rv, "", opts...)
-			if err != nil {
-				return GetDependabotSecretsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDependabotSecretsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDependabotSecretsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getDependabotSecrets:getDependabotSecrets", args, GetDependabotSecretsResultOutput{}, options).(GetDependabotSecretsResultOutput), nil
 		}).(GetDependabotSecretsResultOutput)
 }
 

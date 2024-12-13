@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetBranchProtectionRulesResult> Invoke(GetBranchProtectionRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBranchProtectionRulesResult>("github:index/getBranchProtectionRules:getBranchProtectionRules", args ?? new GetBranchProtectionRulesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve a list of repository branch protection rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetBranchProtectionRules.Invoke(new()
+        ///     {
+        ///         Repository = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBranchProtectionRulesResult> Invoke(GetBranchProtectionRulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBranchProtectionRulesResult>("github:index/getBranchProtectionRules:getBranchProtectionRules", args ?? new GetBranchProtectionRulesInvokeArgs(), options.WithDefaults());
     }
 
 

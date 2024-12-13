@@ -66,6 +66,34 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **Note:** The data source will return a maximum of `1000` repositories
+        /// 	[as documented in official API docs](https://developer.github.com/v3/search/#about-the-search-api).
+        /// 
+        /// Use this data source to retrieve a list of GitHub repositories using a search query.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositories.Invoke(new()
+        ///     {
+        ///         Query = "org:hashicorp language:Go",
+        ///         IncludeRepoId = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("github:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
 
 

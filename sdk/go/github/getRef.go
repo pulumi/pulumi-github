@@ -74,21 +74,11 @@ type GetRefResult struct {
 }
 
 func GetRefOutput(ctx *pulumi.Context, args GetRefOutputArgs, opts ...pulumi.InvokeOption) GetRefResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRefResultOutput, error) {
 			args := v.(GetRefArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRefResult
-			secret, err := ctx.InvokePackageRaw("github:index/getRef:getRef", args, &rv, "", opts...)
-			if err != nil {
-				return GetRefResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRefResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRefResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getRef:getRef", args, GetRefResultOutput{}, options).(GetRefResultOutput), nil
 		}).(GetRefResultOutput)
 }
 

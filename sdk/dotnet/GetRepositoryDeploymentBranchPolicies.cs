@@ -60,6 +60,31 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRepositoryDeploymentBranchPoliciesResult> Invoke(GetRepositoryDeploymentBranchPoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve deployment branch policies for a repository / environment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRepositoryDeploymentBranchPolicies.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         EnvironmentName = "env_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoryDeploymentBranchPoliciesResult> Invoke(GetRepositoryDeploymentBranchPoliciesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 
