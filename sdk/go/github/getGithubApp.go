@@ -68,21 +68,11 @@ type GetGithubAppResult struct {
 }
 
 func GetGithubAppOutput(ctx *pulumi.Context, args GetGithubAppOutputArgs, opts ...pulumi.InvokeOption) GetGithubAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGithubAppResultOutput, error) {
 			args := v.(GetGithubAppArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetGithubAppResult
-			secret, err := ctx.InvokePackageRaw("github:index/getGithubApp:getGithubApp", args, &rv, "", opts...)
-			if err != nil {
-				return GetGithubAppResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetGithubAppResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetGithubAppResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getGithubApp:getGithubApp", args, GetGithubAppResultOutput{}, options).(GetGithubAppResultOutput), nil
 		}).(GetGithubAppResultOutput)
 }
 

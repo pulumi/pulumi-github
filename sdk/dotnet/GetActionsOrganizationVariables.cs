@@ -52,6 +52,27 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetActionsOrganizationVariablesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationVariablesResult>("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of variables of the organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsOrganizationVariables.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetActionsOrganizationVariablesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsOrganizationVariablesResult>("github:index/getActionsOrganizationVariables:getActionsOrganizationVariables", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

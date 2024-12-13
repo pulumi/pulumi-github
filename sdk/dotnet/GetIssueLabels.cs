@@ -22,6 +22,12 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetIssueLabelsResult> Invoke(GetIssueLabelsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIssueLabelsResult>("github:index/getIssueLabels:getIssueLabels", args ?? new GetIssueLabelsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the labels for a given repository.
+        /// </summary>
+        public static Output<GetIssueLabelsResult> Invoke(GetIssueLabelsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIssueLabelsResult>("github:index/getIssueLabels:getIssueLabels", args ?? new GetIssueLabelsInvokeArgs(), options.WithDefaults());
     }
 
 

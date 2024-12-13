@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetEnterpriseResult> Invoke(GetEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseResult>("github:index/getEnterprise:getEnterprise", args ?? new GetEnterpriseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve basic information about a GitHub enterprise.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetEnterprise.Invoke(new()
+        ///     {
+        ///         Slug = "example-co",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEnterpriseResult> Invoke(GetEnterpriseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseResult>("github:index/getEnterprise:getEnterprise", args ?? new GetEnterpriseInvokeArgs(), options.WithDefaults());
     }
 
 

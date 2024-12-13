@@ -54,6 +54,28 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetDependabotOrganizationPublicKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDependabotOrganizationPublicKeyResult>("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub Dependabot Organization public key. This data source is required to be used with other GitHub secrets interactions.
+        /// Note that the provider `token` must have admin rights to an organization to retrieve it's Dependabot public key.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetDependabotOrganizationPublicKey.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDependabotOrganizationPublicKeyResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDependabotOrganizationPublicKeyResult>("github:index/getDependabotOrganizationPublicKey:getDependabotOrganizationPublicKey", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

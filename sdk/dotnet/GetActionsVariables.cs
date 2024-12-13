@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetActionsVariablesResult> Invoke(GetActionsVariablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionsVariablesResult>("github:index/getActionsVariables:getActionsVariables", args ?? new GetActionsVariablesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the list of variables for a GitHub repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetActionsVariables.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetActionsVariablesResult> Invoke(GetActionsVariablesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionsVariablesResult>("github:index/getActionsVariables:getActionsVariables", args ?? new GetActionsVariablesInvokeArgs(), options.WithDefaults());
     }
 
 

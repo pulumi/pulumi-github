@@ -66,21 +66,11 @@ type GetRepositoryWebhooksResult struct {
 }
 
 func GetRepositoryWebhooksOutput(ctx *pulumi.Context, args GetRepositoryWebhooksOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryWebhooksResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRepositoryWebhooksResultOutput, error) {
 			args := v.(GetRepositoryWebhooksArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRepositoryWebhooksResult
-			secret, err := ctx.InvokePackageRaw("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args, &rv, "", opts...)
-			if err != nil {
-				return GetRepositoryWebhooksResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRepositoryWebhooksResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRepositoryWebhooksResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getRepositoryWebhooks:getRepositoryWebhooks", args, GetRepositoryWebhooksResultOutput{}, options).(GetRepositoryWebhooksResultOutput), nil
 		}).(GetRepositoryWebhooksResultOutput)
 }
 

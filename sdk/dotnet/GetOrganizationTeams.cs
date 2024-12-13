@@ -92,6 +92,47 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about all GitHub teams in an organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// To retrieve *all* teams of the organization:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Github.GetOrganizationTeams.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// To retrieve only the team's at the root of the organization:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
+        ///     {
+        ///         RootTeamsOnly = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationTeamsResult> Invoke(GetOrganizationTeamsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationTeamsResult>("github:index/getOrganizationTeams:getOrganizationTeams", args ?? new GetOrganizationTeamsInvokeArgs(), options.WithDefaults());
     }
 
 

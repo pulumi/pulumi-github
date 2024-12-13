@@ -62,6 +62,32 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRefResult> Invoke(GetRefInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a repository ref.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var development = Github.GetRef.Invoke(new()
+        ///     {
+        ///         Owner = "example",
+        ///         Repository = "example",
+        ///         Ref = "heads/development",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRefResult> Invoke(GetRefInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRefResult>("github:index/getRef:getRef", args ?? new GetRefInvokeArgs(), options.WithDefaults());
     }
 
 

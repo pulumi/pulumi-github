@@ -73,21 +73,11 @@ type GetEnterpriseResult struct {
 }
 
 func GetEnterpriseOutput(ctx *pulumi.Context, args GetEnterpriseOutputArgs, opts ...pulumi.InvokeOption) GetEnterpriseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnterpriseResultOutput, error) {
 			args := v.(GetEnterpriseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetEnterpriseResult
-			secret, err := ctx.InvokePackageRaw("github:index/getEnterprise:getEnterprise", args, &rv, "", opts...)
-			if err != nil {
-				return GetEnterpriseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetEnterpriseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetEnterpriseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getEnterprise:getEnterprise", args, GetEnterpriseResultOutput{}, options).(GetEnterpriseResultOutput), nil
 		}).(GetEnterpriseResultOutput)
 }
 

@@ -54,6 +54,28 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetCodespacesUserPublicKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesUserPublicKeyResult>("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub Codespaces User public key. This data source is required to be used with other GitHub secrets interactions.
+        /// Note that the provider `token` must have admin rights to an user to retrieve it's Codespaces public key.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetCodespacesUserPublicKey.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCodespacesUserPublicKeyResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodespacesUserPublicKeyResult>("github:index/getCodespacesUserPublicKey:getCodespacesUserPublicKey", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

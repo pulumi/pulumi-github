@@ -58,6 +58,30 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("github:index/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a GitHub resource through REST API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRestApi.Invoke(new()
+        ///     {
+        ///         Endpoint = "repos/example_repo/git/refs/heads/main",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("github:index/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
     }
 
 

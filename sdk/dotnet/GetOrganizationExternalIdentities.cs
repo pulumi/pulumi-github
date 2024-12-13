@@ -54,6 +54,28 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetOrganizationExternalIdentitiesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationExternalIdentitiesResult>("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve each organization member's SAML or SCIM user
+        /// attributes.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Github.GetOrganizationExternalIdentities.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationExternalIdentitiesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationExternalIdentitiesResult>("github:index/getOrganizationExternalIdentities:getOrganizationExternalIdentities", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

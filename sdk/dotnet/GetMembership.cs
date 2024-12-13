@@ -64,6 +64,33 @@ namespace Pulumi.Github
         /// </summary>
         public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to find out if a user is a member of your organization, as well
+        /// as what role they have within it.
+        /// If the user's membership in the organization is pending their acceptance of an invite,
+        /// the role they would have once they accept will be returned.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     {
+        ///         Username = "SomeUser",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("github:index/getMembership:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
     }
 
 

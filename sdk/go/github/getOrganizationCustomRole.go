@@ -70,21 +70,11 @@ type LookupOrganizationCustomRoleResult struct {
 }
 
 func LookupOrganizationCustomRoleOutput(ctx *pulumi.Context, args LookupOrganizationCustomRoleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationCustomRoleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOrganizationCustomRoleResultOutput, error) {
 			args := v.(LookupOrganizationCustomRoleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupOrganizationCustomRoleResult
-			secret, err := ctx.InvokePackageRaw("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args, &rv, "", opts...)
-			if err != nil {
-				return LookupOrganizationCustomRoleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupOrganizationCustomRoleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupOrganizationCustomRoleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args, LookupOrganizationCustomRoleResultOutput{}, options).(LookupOrganizationCustomRoleResultOutput), nil
 		}).(LookupOrganizationCustomRoleResultOutput)
 }
 
