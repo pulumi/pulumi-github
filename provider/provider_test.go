@@ -129,13 +129,7 @@ const repro586 = `[
             "diffs": "*",
             "detailedDiff": {
                 "restrictPushes": {
-                    "kind": "UPDATE"
-                },
-                "restrictPushes[0].blocksCreations": {},
-                "restrictPushes[0].pushAllowances": {
-                    "kind": "UPDATE"
-                },
-                "restrictPushes[0].pushAllowances[0]": {}
+                }
             },
             "hasDetailedDiff": true
         },
