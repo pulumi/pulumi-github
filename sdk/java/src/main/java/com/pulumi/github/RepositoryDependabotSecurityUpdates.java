@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RepositoryDependabotSecurityUpdates("example", RepositoryDependabotSecurityUpdatesArgs.builder()
- *             .repository(test.id())
+ *             .repository(test.name())
  *             .enabled(true)
  *             .build());
  * 
@@ -90,14 +90,14 @@ public class RepositoryDependabotSecurityUpdates extends com.pulumi.resources.Cu
         return this.enabled;
     }
     /**
-     * The repository to manage.
+     * The name of the GitHub repository.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return The repository to manage.
+     * @return The name of the GitHub repository.
      * 
      */
     public Output<String> repository() {

@@ -117,6 +117,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryCollaborator{}
 	case "github:index/repositoryCollaborators:RepositoryCollaborators":
 		r = &RepositoryCollaborators{}
+	case "github:index/repositoryCustomProperty:RepositoryCustomProperty":
+		r = &RepositoryCustomProperty{}
 	case "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates":
 		r = &RepositoryDependabotSecurityUpdates{}
 	case "github:index/repositoryDeployKey:RepositoryDeployKey":
@@ -428,6 +430,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryCollaborators",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryCustomProperty",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

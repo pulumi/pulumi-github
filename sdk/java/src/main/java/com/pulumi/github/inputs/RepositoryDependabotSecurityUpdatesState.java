@@ -32,14 +32,14 @@ public final class RepositoryDependabotSecurityUpdatesState extends com.pulumi.r
     }
 
     /**
-     * The repository to manage.
+     * The name of the GitHub repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository to manage.
+     * @return The name of the GitHub repository.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -93,7 +93,7 @@ public final class RepositoryDependabotSecurityUpdatesState extends com.pulumi.r
         }
 
         /**
-         * @param repository The repository to manage.
+         * @param repository The name of the GitHub repository.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RepositoryDependabotSecurityUpdatesState extends com.pulumi.r
         }
 
         /**
-         * @param repository The repository to manage.
+         * @param repository The name of the GitHub repository.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class RepositoryCollaboratorsTeam {
      */
     private @Nullable String permission;
     /**
-     * @return The GitHub team id or the GitHub team slug
+     * @return The GitHub team id or the GitHub team slug.
      * 
      */
     private String teamId;
@@ -36,7 +36,7 @@ public final class RepositoryCollaboratorsTeam {
         return Optional.ofNullable(this.permission);
     }
     /**
-     * @return The GitHub team id or the GitHub team slug
+     * @return The GitHub team id or the GitHub team slug.
      * 
      */
     public String teamId() {

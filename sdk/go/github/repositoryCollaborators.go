@@ -99,14 +99,16 @@ import (
 type RepositoryCollaborators struct {
 	pulumi.CustomResourceState
 
+	// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+	IgnoreTeams RepositoryCollaboratorsIgnoreTeamArrayOutput `pulumi:"ignoreTeams"`
 	// Map of usernames to invitation ID for any users added as part of creation of this resource to
 	// be used in `UserInvitationAccepter`.
 	InvitationIds pulumi.StringMapOutput `pulumi:"invitationIds"`
-	// The GitHub repository
+	// The GitHub repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// List of teams
+	// List of teams to grant access to the repository.
 	Teams RepositoryCollaboratorsTeamArrayOutput `pulumi:"teams"`
-	// List of users
+	// List of users to grant access to the repository.
 	Users RepositoryCollaboratorsUserArrayOutput `pulumi:"users"`
 }
 
@@ -143,26 +145,30 @@ func GetRepositoryCollaborators(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryCollaborators resources.
 type repositoryCollaboratorsState struct {
+	// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+	IgnoreTeams []RepositoryCollaboratorsIgnoreTeam `pulumi:"ignoreTeams"`
 	// Map of usernames to invitation ID for any users added as part of creation of this resource to
 	// be used in `UserInvitationAccepter`.
 	InvitationIds map[string]string `pulumi:"invitationIds"`
-	// The GitHub repository
+	// The GitHub repository.
 	Repository *string `pulumi:"repository"`
-	// List of teams
+	// List of teams to grant access to the repository.
 	Teams []RepositoryCollaboratorsTeam `pulumi:"teams"`
-	// List of users
+	// List of users to grant access to the repository.
 	Users []RepositoryCollaboratorsUser `pulumi:"users"`
 }
 
 type RepositoryCollaboratorsState struct {
+	// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+	IgnoreTeams RepositoryCollaboratorsIgnoreTeamArrayInput
 	// Map of usernames to invitation ID for any users added as part of creation of this resource to
 	// be used in `UserInvitationAccepter`.
 	InvitationIds pulumi.StringMapInput
-	// The GitHub repository
+	// The GitHub repository.
 	Repository pulumi.StringPtrInput
-	// List of teams
+	// List of teams to grant access to the repository.
 	Teams RepositoryCollaboratorsTeamArrayInput
-	// List of users
+	// List of users to grant access to the repository.
 	Users RepositoryCollaboratorsUserArrayInput
 }
 
@@ -171,21 +177,25 @@ func (RepositoryCollaboratorsState) ElementType() reflect.Type {
 }
 
 type repositoryCollaboratorsArgs struct {
-	// The GitHub repository
+	// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+	IgnoreTeams []RepositoryCollaboratorsIgnoreTeam `pulumi:"ignoreTeams"`
+	// The GitHub repository.
 	Repository string `pulumi:"repository"`
-	// List of teams
+	// List of teams to grant access to the repository.
 	Teams []RepositoryCollaboratorsTeam `pulumi:"teams"`
-	// List of users
+	// List of users to grant access to the repository.
 	Users []RepositoryCollaboratorsUser `pulumi:"users"`
 }
 
 // The set of arguments for constructing a RepositoryCollaborators resource.
 type RepositoryCollaboratorsArgs struct {
-	// The GitHub repository
+	// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+	IgnoreTeams RepositoryCollaboratorsIgnoreTeamArrayInput
+	// The GitHub repository.
 	Repository pulumi.StringInput
-	// List of teams
+	// List of teams to grant access to the repository.
 	Teams RepositoryCollaboratorsTeamArrayInput
-	// List of users
+	// List of users to grant access to the repository.
 	Users RepositoryCollaboratorsUserArrayInput
 }
 
@@ -276,23 +286,28 @@ func (o RepositoryCollaboratorsOutput) ToRepositoryCollaboratorsOutputWithContex
 	return o
 }
 
+// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+func (o RepositoryCollaboratorsOutput) IgnoreTeams() RepositoryCollaboratorsIgnoreTeamArrayOutput {
+	return o.ApplyT(func(v *RepositoryCollaborators) RepositoryCollaboratorsIgnoreTeamArrayOutput { return v.IgnoreTeams }).(RepositoryCollaboratorsIgnoreTeamArrayOutput)
+}
+
 // Map of usernames to invitation ID for any users added as part of creation of this resource to
 // be used in `UserInvitationAccepter`.
 func (o RepositoryCollaboratorsOutput) InvitationIds() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) pulumi.StringMapOutput { return v.InvitationIds }).(pulumi.StringMapOutput)
 }
 
-// The GitHub repository
+// The GitHub repository.
 func (o RepositoryCollaboratorsOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// List of teams
+// List of teams to grant access to the repository.
 func (o RepositoryCollaboratorsOutput) Teams() RepositoryCollaboratorsTeamArrayOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) RepositoryCollaboratorsTeamArrayOutput { return v.Teams }).(RepositoryCollaboratorsTeamArrayOutput)
 }
 
-// List of users
+// List of users to grant access to the repository.
 func (o RepositoryCollaboratorsOutput) Users() RepositoryCollaboratorsUserArrayOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) RepositoryCollaboratorsUserArrayOutput { return v.Users }).(RepositoryCollaboratorsUserArrayOutput)
 }

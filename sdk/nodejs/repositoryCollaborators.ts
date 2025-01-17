@@ -94,20 +94,24 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
     }
 
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to 
+     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     */
+    public readonly ignoreTeams!: pulumi.Output<outputs.RepositoryCollaboratorsIgnoreTeam[] | undefined>;
+    /**
+     * Map of usernames to invitation ID for any users added as part of creation of this resource to
      * be used in `github.UserInvitationAccepter`.
      */
     public /*out*/ readonly invitationIds!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The GitHub repository
+     * The GitHub repository.
      */
     public readonly repository!: pulumi.Output<string>;
     /**
-     * List of teams
+     * List of teams to grant access to the repository.
      */
     public readonly teams!: pulumi.Output<outputs.RepositoryCollaboratorsTeam[] | undefined>;
     /**
-     * List of users
+     * List of users to grant access to the repository.
      */
     public readonly users!: pulumi.Output<outputs.RepositoryCollaboratorsUser[] | undefined>;
 
@@ -124,6 +128,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryCollaboratorsState | undefined;
+            resourceInputs["ignoreTeams"] = state ? state.ignoreTeams : undefined;
             resourceInputs["invitationIds"] = state ? state.invitationIds : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["teams"] = state ? state.teams : undefined;
@@ -133,6 +138,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
+            resourceInputs["ignoreTeams"] = args ? args.ignoreTeams : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["teams"] = args ? args.teams : undefined;
             resourceInputs["users"] = args ? args.users : undefined;
@@ -148,20 +154,24 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
  */
 export interface RepositoryCollaboratorsState {
     /**
-     * Map of usernames to invitation ID for any users added as part of creation of this resource to 
+     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     */
+    ignoreTeams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsIgnoreTeam>[]>;
+    /**
+     * Map of usernames to invitation ID for any users added as part of creation of this resource to
      * be used in `github.UserInvitationAccepter`.
      */
     invitationIds?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The GitHub repository
+     * The GitHub repository.
      */
     repository?: pulumi.Input<string>;
     /**
-     * List of teams
+     * List of teams to grant access to the repository.
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[]>;
     /**
-     * List of users
+     * List of users to grant access to the repository.
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[]>;
 }
@@ -171,15 +181,19 @@ export interface RepositoryCollaboratorsState {
  */
 export interface RepositoryCollaboratorsArgs {
     /**
-     * The GitHub repository
+     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     */
+    ignoreTeams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsIgnoreTeam>[]>;
+    /**
+     * The GitHub repository.
      */
     repository: pulumi.Input<string>;
     /**
-     * List of teams
+     * List of teams to grant access to the repository.
      */
     teams?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsTeam>[]>;
     /**
-     * List of users
+     * List of users to grant access to the repository.
      */
     users?: pulumi.Input<pulumi.Input<inputs.RepositoryCollaboratorsUser>[]>;
 }

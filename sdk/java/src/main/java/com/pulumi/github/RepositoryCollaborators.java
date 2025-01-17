@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.RepositoryCollaboratorsArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryCollaboratorsState;
+import com.pulumi.github.outputs.RepositoryCollaboratorsIgnoreTeam;
 import com.pulumi.github.outputs.RepositoryCollaboratorsTeam;
 import com.pulumi.github.outputs.RepositoryCollaboratorsUser;
 import java.lang.String;
@@ -115,6 +116,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryCollaborators:RepositoryCollaborators")
 public class RepositoryCollaborators extends com.pulumi.resources.CustomResource {
     /**
+     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * 
+     */
+    @Export(name="ignoreTeams", refs={List.class,RepositoryCollaboratorsIgnoreTeam.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RepositoryCollaboratorsIgnoreTeam>> ignoreTeams;
+
+    /**
+     * @return List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * 
+     */
+    public Output<Optional<List<RepositoryCollaboratorsIgnoreTeam>>> ignoreTeams() {
+        return Codegen.optional(this.ignoreTeams);
+    }
+    /**
      * Map of usernames to invitation ID for any users added as part of creation of this resource to
      * be used in `github.UserInvitationAccepter`.
      * 
@@ -131,42 +146,42 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
         return this.invitationIds;
     }
     /**
-     * The GitHub repository
+     * The GitHub repository.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository
+     * @return The GitHub repository.
      * 
      */
     public Output<String> repository() {
         return this.repository;
     }
     /**
-     * List of teams
+     * List of teams to grant access to the repository.
      * 
      */
     @Export(name="teams", refs={List.class,RepositoryCollaboratorsTeam.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCollaboratorsTeam>> teams;
 
     /**
-     * @return List of teams
+     * @return List of teams to grant access to the repository.
      * 
      */
     public Output<Optional<List<RepositoryCollaboratorsTeam>>> teams() {
         return Codegen.optional(this.teams);
     }
     /**
-     * List of users
+     * List of users to grant access to the repository.
      * 
      */
     @Export(name="users", refs={List.class,RepositoryCollaboratorsUser.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCollaboratorsUser>> users;
 
     /**
-     * @return List of users
+     * @return List of users to grant access to the repository.
      * 
      */
     public Output<Optional<List<RepositoryCollaboratorsUser>>> users() {

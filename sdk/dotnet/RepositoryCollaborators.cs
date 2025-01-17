@@ -93,26 +93,32 @@ namespace Pulumi.Github
     public partial class RepositoryCollaborators : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        /// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        /// </summary>
+        [Output("ignoreTeams")]
+        public Output<ImmutableArray<Outputs.RepositoryCollaboratorsIgnoreTeam>> IgnoreTeams { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of usernames to invitation ID for any users added as part of creation of this resource to
         /// be used in `github.UserInvitationAccepter`.
         /// </summary>
         [Output("invitationIds")]
         public Output<ImmutableDictionary<string, string>> InvitationIds { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub repository
+        /// The GitHub repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// List of teams
+        /// List of teams to grant access to the repository.
         /// </summary>
         [Output("teams")]
         public Output<ImmutableArray<Outputs.RepositoryCollaboratorsTeam>> Teams { get; private set; } = null!;
 
         /// <summary>
-        /// List of users
+        /// List of users to grant access to the repository.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.RepositoryCollaboratorsUser>> Users { get; private set; } = null!;
@@ -163,8 +169,20 @@ namespace Pulumi.Github
 
     public sealed class RepositoryCollaboratorsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ignoreTeams")]
+        private InputList<Inputs.RepositoryCollaboratorsIgnoreTeamArgs>? _ignoreTeams;
+
         /// <summary>
-        /// The GitHub repository
+        /// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        /// </summary>
+        public InputList<Inputs.RepositoryCollaboratorsIgnoreTeamArgs> IgnoreTeams
+        {
+            get => _ignoreTeams ?? (_ignoreTeams = new InputList<Inputs.RepositoryCollaboratorsIgnoreTeamArgs>());
+            set => _ignoreTeams = value;
+        }
+
+        /// <summary>
+        /// The GitHub repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -173,7 +191,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsTeamArgs>? _teams;
 
         /// <summary>
-        /// List of teams
+        /// List of teams to grant access to the repository.
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsTeamArgs> Teams
         {
@@ -185,7 +203,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsUserArgs>? _users;
 
         /// <summary>
-        /// List of users
+        /// List of users to grant access to the repository.
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsUserArgs> Users
         {
@@ -201,11 +219,23 @@ namespace Pulumi.Github
 
     public sealed class RepositoryCollaboratorsState : global::Pulumi.ResourceArgs
     {
+        [Input("ignoreTeams")]
+        private InputList<Inputs.RepositoryCollaboratorsIgnoreTeamGetArgs>? _ignoreTeams;
+
+        /// <summary>
+        /// List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+        /// </summary>
+        public InputList<Inputs.RepositoryCollaboratorsIgnoreTeamGetArgs> IgnoreTeams
+        {
+            get => _ignoreTeams ?? (_ignoreTeams = new InputList<Inputs.RepositoryCollaboratorsIgnoreTeamGetArgs>());
+            set => _ignoreTeams = value;
+        }
+
         [Input("invitationIds")]
         private InputMap<string>? _invitationIds;
 
         /// <summary>
-        /// Map of usernames to invitation ID for any users added as part of creation of this resource to 
+        /// Map of usernames to invitation ID for any users added as part of creation of this resource to
         /// be used in `github.UserInvitationAccepter`.
         /// </summary>
         public InputMap<string> InvitationIds
@@ -215,7 +245,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// The GitHub repository
+        /// The GitHub repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
@@ -224,7 +254,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsTeamGetArgs>? _teams;
 
         /// <summary>
-        /// List of teams
+        /// List of teams to grant access to the repository.
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsTeamGetArgs> Teams
         {
@@ -236,7 +266,7 @@ namespace Pulumi.Github
         private InputList<Inputs.RepositoryCollaboratorsUserGetArgs>? _users;
 
         /// <summary>
-        /// List of users
+        /// List of users to grant access to the repository.
         /// </summary>
         public InputList<Inputs.RepositoryCollaboratorsUserGetArgs> Users
         {

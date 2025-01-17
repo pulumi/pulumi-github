@@ -380,6 +380,11 @@ export const getRepositoryBranches: typeof import("./getRepositoryBranches").get
 export const getRepositoryBranchesOutput: typeof import("./getRepositoryBranches").getRepositoryBranchesOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryBranches","getRepositoryBranchesOutput"], () => require("./getRepositoryBranches"));
 
+export { GetRepositoryCustomPropertiesArgs, GetRepositoryCustomPropertiesResult, GetRepositoryCustomPropertiesOutputArgs } from "./getRepositoryCustomProperties";
+export const getRepositoryCustomProperties: typeof import("./getRepositoryCustomProperties").getRepositoryCustomProperties = null as any;
+export const getRepositoryCustomPropertiesOutput: typeof import("./getRepositoryCustomProperties").getRepositoryCustomPropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryCustomProperties","getRepositoryCustomPropertiesOutput"], () => require("./getRepositoryCustomProperties"));
+
 export { GetRepositoryDeployKeysArgs, GetRepositoryDeployKeysResult, GetRepositoryDeployKeysOutputArgs } from "./getRepositoryDeployKeys";
 export const getRepositoryDeployKeys: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeys = null as any;
 export const getRepositoryDeployKeysOutput: typeof import("./getRepositoryDeployKeys").getRepositoryDeployKeysOutput = null as any;
@@ -554,6 +559,11 @@ export { RepositoryCollaboratorsArgs, RepositoryCollaboratorsState } from "./rep
 export type RepositoryCollaborators = import("./repositoryCollaborators").RepositoryCollaborators;
 export const RepositoryCollaborators: typeof import("./repositoryCollaborators").RepositoryCollaborators = null as any;
 utilities.lazyLoad(exports, ["RepositoryCollaborators"], () => require("./repositoryCollaborators"));
+
+export { RepositoryCustomPropertyArgs, RepositoryCustomPropertyState } from "./repositoryCustomProperty";
+export type RepositoryCustomProperty = import("./repositoryCustomProperty").RepositoryCustomProperty;
+export const RepositoryCustomProperty: typeof import("./repositoryCustomProperty").RepositoryCustomProperty = null as any;
+utilities.lazyLoad(exports, ["RepositoryCustomProperty"], () => require("./repositoryCustomProperty"));
 
 export { RepositoryDependabotSecurityUpdatesArgs, RepositoryDependabotSecurityUpdatesState } from "./repositoryDependabotSecurityUpdates";
 export type RepositoryDependabotSecurityUpdates = import("./repositoryDependabotSecurityUpdates").RepositoryDependabotSecurityUpdates;
@@ -770,6 +780,8 @@ const _module = {
                 return new RepositoryCollaborator(name, <any>undefined, { urn })
             case "github:index/repositoryCollaborators:RepositoryCollaborators":
                 return new RepositoryCollaborators(name, <any>undefined, { urn })
+            case "github:index/repositoryCustomProperty:RepositoryCustomProperty":
+                return new RepositoryCustomProperty(name, <any>undefined, { urn })
             case "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates":
                 return new RepositoryDependabotSecurityUpdates(name, <any>undefined, { urn })
             case "github:index/repositoryDeployKey:RepositoryDeployKey":
@@ -865,6 +877,7 @@ pulumi.runtime.registerResourceModule("github", "index/repository", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryAutolinkReference", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborator", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryCollaborators", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryCustomProperty", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDependabotSecurityUpdates", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeployKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryDeploymentBranchPolicy", _module)
