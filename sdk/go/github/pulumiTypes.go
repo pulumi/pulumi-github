@@ -5593,12 +5593,109 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositoryCollaboratorsIgnoreTeam struct {
+	// ID or slug of the team to ignore.
+	TeamId string `pulumi:"teamId"`
+}
+
+// RepositoryCollaboratorsIgnoreTeamInput is an input type that accepts RepositoryCollaboratorsIgnoreTeamArgs and RepositoryCollaboratorsIgnoreTeamOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsIgnoreTeamInput` via:
+//
+//	RepositoryCollaboratorsIgnoreTeamArgs{...}
+type RepositoryCollaboratorsIgnoreTeamInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsIgnoreTeamOutput() RepositoryCollaboratorsIgnoreTeamOutput
+	ToRepositoryCollaboratorsIgnoreTeamOutputWithContext(context.Context) RepositoryCollaboratorsIgnoreTeamOutput
+}
+
+type RepositoryCollaboratorsIgnoreTeamArgs struct {
+	// ID or slug of the team to ignore.
+	TeamId pulumi.StringInput `pulumi:"teamId"`
+}
+
+func (RepositoryCollaboratorsIgnoreTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsIgnoreTeam)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsIgnoreTeamArgs) ToRepositoryCollaboratorsIgnoreTeamOutput() RepositoryCollaboratorsIgnoreTeamOutput {
+	return i.ToRepositoryCollaboratorsIgnoreTeamOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsIgnoreTeamArgs) ToRepositoryCollaboratorsIgnoreTeamOutputWithContext(ctx context.Context) RepositoryCollaboratorsIgnoreTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsIgnoreTeamOutput)
+}
+
+// RepositoryCollaboratorsIgnoreTeamArrayInput is an input type that accepts RepositoryCollaboratorsIgnoreTeamArray and RepositoryCollaboratorsIgnoreTeamArrayOutput values.
+// You can construct a concrete instance of `RepositoryCollaboratorsIgnoreTeamArrayInput` via:
+//
+//	RepositoryCollaboratorsIgnoreTeamArray{ RepositoryCollaboratorsIgnoreTeamArgs{...} }
+type RepositoryCollaboratorsIgnoreTeamArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCollaboratorsIgnoreTeamArrayOutput() RepositoryCollaboratorsIgnoreTeamArrayOutput
+	ToRepositoryCollaboratorsIgnoreTeamArrayOutputWithContext(context.Context) RepositoryCollaboratorsIgnoreTeamArrayOutput
+}
+
+type RepositoryCollaboratorsIgnoreTeamArray []RepositoryCollaboratorsIgnoreTeamInput
+
+func (RepositoryCollaboratorsIgnoreTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsIgnoreTeam)(nil)).Elem()
+}
+
+func (i RepositoryCollaboratorsIgnoreTeamArray) ToRepositoryCollaboratorsIgnoreTeamArrayOutput() RepositoryCollaboratorsIgnoreTeamArrayOutput {
+	return i.ToRepositoryCollaboratorsIgnoreTeamArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCollaboratorsIgnoreTeamArray) ToRepositoryCollaboratorsIgnoreTeamArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsIgnoreTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCollaboratorsIgnoreTeamArrayOutput)
+}
+
+type RepositoryCollaboratorsIgnoreTeamOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsIgnoreTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCollaboratorsIgnoreTeam)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsIgnoreTeamOutput) ToRepositoryCollaboratorsIgnoreTeamOutput() RepositoryCollaboratorsIgnoreTeamOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsIgnoreTeamOutput) ToRepositoryCollaboratorsIgnoreTeamOutputWithContext(ctx context.Context) RepositoryCollaboratorsIgnoreTeamOutput {
+	return o
+}
+
+// ID or slug of the team to ignore.
+func (o RepositoryCollaboratorsIgnoreTeamOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCollaboratorsIgnoreTeam) string { return v.TeamId }).(pulumi.StringOutput)
+}
+
+type RepositoryCollaboratorsIgnoreTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCollaboratorsIgnoreTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCollaboratorsIgnoreTeam)(nil)).Elem()
+}
+
+func (o RepositoryCollaboratorsIgnoreTeamArrayOutput) ToRepositoryCollaboratorsIgnoreTeamArrayOutput() RepositoryCollaboratorsIgnoreTeamArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsIgnoreTeamArrayOutput) ToRepositoryCollaboratorsIgnoreTeamArrayOutputWithContext(ctx context.Context) RepositoryCollaboratorsIgnoreTeamArrayOutput {
+	return o
+}
+
+func (o RepositoryCollaboratorsIgnoreTeamArrayOutput) Index(i pulumi.IntInput) RepositoryCollaboratorsIgnoreTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCollaboratorsIgnoreTeam {
+		return vs[0].([]RepositoryCollaboratorsIgnoreTeam)[vs[1].(int)]
+	}).(RepositoryCollaboratorsIgnoreTeamOutput)
+}
+
 type RepositoryCollaboratorsTeam struct {
 	// The permission of the outside collaborators for the repository.
 	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission *string `pulumi:"permission"`
-	// The GitHub team id or the GitHub team slug
+	// The GitHub team id or the GitHub team slug.
 	TeamId string `pulumi:"teamId"`
 }
 
@@ -5618,7 +5715,7 @@ type RepositoryCollaboratorsTeamArgs struct {
 	// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
 	// Must be `push` for personal repositories. Defaults to `push`.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	// The GitHub team id or the GitHub team slug
+	// The GitHub team id or the GitHub team slug.
 	TeamId pulumi.StringInput `pulumi:"teamId"`
 }
 
@@ -5680,7 +5777,7 @@ func (o RepositoryCollaboratorsTeamOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsTeam) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
-// The GitHub team id or the GitHub team slug
+// The GitHub team id or the GitHub team slug.
 func (o RepositoryCollaboratorsTeamOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsTeam) string { return v.TeamId }).(pulumi.StringOutput)
 }
@@ -6483,7 +6580,7 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type RepositoryRulesetBypassActor struct {
-	// (Number) The ID of the actor that can bypass a ruleset.
+	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
 	ActorId int `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
@@ -6507,7 +6604,7 @@ type RepositoryRulesetBypassActorInput interface {
 }
 
 type RepositoryRulesetBypassActorArgs struct {
-	// (Number) The ID of the actor that can bypass a ruleset.
+	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
 	ActorId pulumi.IntInput `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
@@ -6570,7 +6667,7 @@ func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutput
 	return o
 }
 
-// (Number) The ID of the actor that can bypass a ruleset.
+// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
 func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
 }
@@ -8721,6 +8818,8 @@ func (o RepositoryRulesetRulesRequiredDeploymentsPtrOutput) RequiredDeploymentEn
 }
 
 type RepositoryRulesetRulesRequiredStatusChecks struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate *bool `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
 	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -8739,6 +8838,8 @@ type RepositoryRulesetRulesRequiredStatusChecksInput interface {
 }
 
 type RepositoryRulesetRulesRequiredStatusChecksArgs struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate pulumi.BoolPtrInput `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
 	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -8822,6 +8923,11 @@ func (o RepositoryRulesetRulesRequiredStatusChecksOutput) ToRepositoryRulesetRul
 	}).(RepositoryRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o RepositoryRulesetRulesRequiredStatusChecksOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) *bool { return v.DoNotEnforceOnCreate }).(pulumi.BoolPtrOutput)
+}
+
 // Status checks that are required. Several can be defined.
 func (o RepositoryRulesetRulesRequiredStatusChecksOutput) RequiredChecks() RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesRequiredStatusChecks) []RepositoryRulesetRulesRequiredStatusChecksRequiredCheck {
@@ -8856,6 +8962,16 @@ func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) Elem() RepositoryRu
 		var ret RepositoryRulesetRulesRequiredStatusChecks
 		return ret
 	}).(RepositoryRulesetRulesRequiredStatusChecksOutput)
+}
+
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o RepositoryRulesetRulesRequiredStatusChecksPtrOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DoNotEnforceOnCreate
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Status checks that are required. Several can be defined.
@@ -13522,6 +13638,112 @@ func (o GetRepositoryBranchesBranchArrayOutput) Index(i pulumi.IntInput) GetRepo
 	}).(GetRepositoryBranchesBranchOutput)
 }
 
+type GetRepositoryCustomPropertiesProperty struct {
+	// Name of the property
+	PropertyName string `pulumi:"propertyName"`
+	// Value of the property
+	PropertyValues []string `pulumi:"propertyValues"`
+}
+
+// GetRepositoryCustomPropertiesPropertyInput is an input type that accepts GetRepositoryCustomPropertiesPropertyArgs and GetRepositoryCustomPropertiesPropertyOutput values.
+// You can construct a concrete instance of `GetRepositoryCustomPropertiesPropertyInput` via:
+//
+//	GetRepositoryCustomPropertiesPropertyArgs{...}
+type GetRepositoryCustomPropertiesPropertyInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCustomPropertiesPropertyOutput() GetRepositoryCustomPropertiesPropertyOutput
+	ToGetRepositoryCustomPropertiesPropertyOutputWithContext(context.Context) GetRepositoryCustomPropertiesPropertyOutput
+}
+
+type GetRepositoryCustomPropertiesPropertyArgs struct {
+	// Name of the property
+	PropertyName pulumi.StringInput `pulumi:"propertyName"`
+	// Value of the property
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+}
+
+func (GetRepositoryCustomPropertiesPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCustomPropertiesProperty)(nil)).Elem()
+}
+
+func (i GetRepositoryCustomPropertiesPropertyArgs) ToGetRepositoryCustomPropertiesPropertyOutput() GetRepositoryCustomPropertiesPropertyOutput {
+	return i.ToGetRepositoryCustomPropertiesPropertyOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCustomPropertiesPropertyArgs) ToGetRepositoryCustomPropertiesPropertyOutputWithContext(ctx context.Context) GetRepositoryCustomPropertiesPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCustomPropertiesPropertyOutput)
+}
+
+// GetRepositoryCustomPropertiesPropertyArrayInput is an input type that accepts GetRepositoryCustomPropertiesPropertyArray and GetRepositoryCustomPropertiesPropertyArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryCustomPropertiesPropertyArrayInput` via:
+//
+//	GetRepositoryCustomPropertiesPropertyArray{ GetRepositoryCustomPropertiesPropertyArgs{...} }
+type GetRepositoryCustomPropertiesPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCustomPropertiesPropertyArrayOutput() GetRepositoryCustomPropertiesPropertyArrayOutput
+	ToGetRepositoryCustomPropertiesPropertyArrayOutputWithContext(context.Context) GetRepositoryCustomPropertiesPropertyArrayOutput
+}
+
+type GetRepositoryCustomPropertiesPropertyArray []GetRepositoryCustomPropertiesPropertyInput
+
+func (GetRepositoryCustomPropertiesPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCustomPropertiesProperty)(nil)).Elem()
+}
+
+func (i GetRepositoryCustomPropertiesPropertyArray) ToGetRepositoryCustomPropertiesPropertyArrayOutput() GetRepositoryCustomPropertiesPropertyArrayOutput {
+	return i.ToGetRepositoryCustomPropertiesPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCustomPropertiesPropertyArray) ToGetRepositoryCustomPropertiesPropertyArrayOutputWithContext(ctx context.Context) GetRepositoryCustomPropertiesPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCustomPropertiesPropertyArrayOutput)
+}
+
+type GetRepositoryCustomPropertiesPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCustomPropertiesPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCustomPropertiesProperty)(nil)).Elem()
+}
+
+func (o GetRepositoryCustomPropertiesPropertyOutput) ToGetRepositoryCustomPropertiesPropertyOutput() GetRepositoryCustomPropertiesPropertyOutput {
+	return o
+}
+
+func (o GetRepositoryCustomPropertiesPropertyOutput) ToGetRepositoryCustomPropertiesPropertyOutputWithContext(ctx context.Context) GetRepositoryCustomPropertiesPropertyOutput {
+	return o
+}
+
+// Name of the property
+func (o GetRepositoryCustomPropertiesPropertyOutput) PropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryCustomPropertiesProperty) string { return v.PropertyName }).(pulumi.StringOutput)
+}
+
+// Value of the property
+func (o GetRepositoryCustomPropertiesPropertyOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRepositoryCustomPropertiesProperty) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+type GetRepositoryCustomPropertiesPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCustomPropertiesPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCustomPropertiesProperty)(nil)).Elem()
+}
+
+func (o GetRepositoryCustomPropertiesPropertyArrayOutput) ToGetRepositoryCustomPropertiesPropertyArrayOutput() GetRepositoryCustomPropertiesPropertyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCustomPropertiesPropertyArrayOutput) ToGetRepositoryCustomPropertiesPropertyArrayOutputWithContext(ctx context.Context) GetRepositoryCustomPropertiesPropertyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCustomPropertiesPropertyArrayOutput) Index(i pulumi.IntInput) GetRepositoryCustomPropertiesPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryCustomPropertiesProperty {
+		return vs[0].([]GetRepositoryCustomPropertiesProperty)[vs[1].(int)]
+	}).(GetRepositoryCustomPropertiesPropertyOutput)
+}
+
 type GetRepositoryDeployKeysKey struct {
 	// Key id
 	Id int `pulumi:"id"`
@@ -15352,6 +15574,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationWebhookConfigurationPtrInput)(nil)).Elem(), OrganizationWebhookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthInput)(nil)).Elem(), ProviderAppAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAppAuthPtrInput)(nil)).Elem(), ProviderAppAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsIgnoreTeamInput)(nil)).Elem(), RepositoryCollaboratorsIgnoreTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsIgnoreTeamArrayInput)(nil)).Elem(), RepositoryCollaboratorsIgnoreTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsTeamInput)(nil)).Elem(), RepositoryCollaboratorsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsTeamArrayInput)(nil)).Elem(), RepositoryCollaboratorsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCollaboratorsUserInput)(nil)).Elem(), RepositoryCollaboratorsUserArgs{})
@@ -15458,6 +15682,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryAutolinkReferencesAutolinkReferenceArrayInput)(nil)).Elem(), GetRepositoryAutolinkReferencesAutolinkReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchInput)(nil)).Elem(), GetRepositoryBranchesBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryBranchesBranchArrayInput)(nil)).Elem(), GetRepositoryBranchesBranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCustomPropertiesPropertyInput)(nil)).Elem(), GetRepositoryCustomPropertiesPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCustomPropertiesPropertyArrayInput)(nil)).Elem(), GetRepositoryCustomPropertiesPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyArrayInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput)(nil)).Elem(), GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs{})
@@ -15548,6 +15774,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationWebhookConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthOutput{})
 	pulumi.RegisterOutputType(ProviderAppAuthPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsIgnoreTeamOutput{})
+	pulumi.RegisterOutputType(RepositoryCollaboratorsIgnoreTeamArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryCollaboratorsTeamOutput{})
 	pulumi.RegisterOutputType(RepositoryCollaboratorsTeamArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryCollaboratorsUserOutput{})
@@ -15654,6 +15882,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryAutolinkReferencesAutolinkReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryBranchesBranchOutput{})
 	pulumi.RegisterOutputType(GetRepositoryBranchesBranchArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCustomPropertiesPropertyOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCustomPropertiesPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput{})

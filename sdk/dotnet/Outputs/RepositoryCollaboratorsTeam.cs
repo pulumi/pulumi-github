@@ -20,7 +20,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string? Permission;
         /// <summary>
-        /// The GitHub team id or the GitHub team slug
+        /// The GitHub team id or the GitHub team slug.
         /// </summary>
         public readonly string TeamId;
 

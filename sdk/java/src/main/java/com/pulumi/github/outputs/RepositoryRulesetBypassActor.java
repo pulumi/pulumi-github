@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryRulesetBypassActor {
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset.
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
     private Integer actorId;
@@ -33,7 +33,7 @@ public final class RepositoryRulesetBypassActor {
 
     private RepositoryRulesetBypassActor() {}
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset.
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
     public Integer actorId() {

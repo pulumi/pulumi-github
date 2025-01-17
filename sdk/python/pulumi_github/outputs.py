@@ -47,6 +47,7 @@ __all__ = [
     'OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow',
     'OrganizationRulesetRulesTagNamePattern',
     'OrganizationWebhookConfiguration',
+    'RepositoryCollaboratorsIgnoreTeam',
     'RepositoryCollaboratorsTeam',
     'RepositoryCollaboratorsUser',
     'RepositoryEnvironmentDeploymentBranchPolicy',
@@ -100,6 +101,7 @@ __all__ = [
     'GetReleaseAssetResult',
     'GetRepositoryAutolinkReferencesAutolinkReferenceResult',
     'GetRepositoryBranchesBranchResult',
+    'GetRepositoryCustomPropertiesPropertyResult',
     'GetRepositoryDeployKeysKeyResult',
     'GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult',
     'GetRepositoryEnvironmentsEnvironmentResult',
@@ -2107,6 +2109,41 @@ class OrganizationWebhookConfiguration(dict):
 
 
 @pulumi.output_type
+class RepositoryCollaboratorsIgnoreTeam(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "teamId":
+            suggest = "team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCollaboratorsIgnoreTeam. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCollaboratorsIgnoreTeam.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCollaboratorsIgnoreTeam.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 team_id: str):
+        """
+        :param str team_id: ID or slug of the team to ignore.
+        """
+        pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> str:
+        """
+        ID or slug of the team to ignore.
+        """
+        return pulumi.get(self, "team_id")
+
+
+@pulumi.output_type
 class RepositoryCollaboratorsTeam(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2129,7 +2166,7 @@ class RepositoryCollaboratorsTeam(dict):
                  team_id: str,
                  permission: Optional[str] = None):
         """
-        :param str team_id: The GitHub team id or the GitHub team slug
+        :param str team_id: The GitHub team id or the GitHub team slug.
         :param str permission: The permission of the outside collaborators for the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
                Must be `push` for personal repositories. Defaults to `push`.
@@ -2142,7 +2179,7 @@ class RepositoryCollaboratorsTeam(dict):
     @pulumi.getter(name="teamId")
     def team_id(self) -> str:
         """
-        The GitHub team id or the GitHub team slug
+        The GitHub team id or the GitHub team slug.
         """
         return pulumi.get(self, "team_id")
 
@@ -2434,7 +2471,7 @@ class RepositoryRulesetBypassActor(dict):
                  actor_type: str,
                  bypass_mode: str):
         """
-        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset.
+        :param int actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         :param str actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
@@ -2450,7 +2487,7 @@ class RepositoryRulesetBypassActor(dict):
     @pulumi.getter(name="actorId")
     def actor_id(self) -> int:
         """
-        (Number) The ID of the actor that can bypass a ruleset.
+        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
         return pulumi.get(self, "actor_id")
 
@@ -3219,6 +3256,8 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
         suggest = None
         if key == "requiredChecks":
             suggest = "required_checks"
+        elif key == "doNotEnforceOnCreate":
+            suggest = "do_not_enforce_on_create"
         elif key == "strictRequiredStatusChecksPolicy":
             suggest = "strict_required_status_checks_policy"
 
@@ -3235,12 +3274,16 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
 
     def __init__(__self__, *,
                  required_checks: Sequence['outputs.RepositoryRulesetRulesRequiredStatusChecksRequiredCheck'],
+                 do_not_enforce_on_create: Optional[bool] = None,
                  strict_required_status_checks_policy: Optional[bool] = None):
         """
         :param Sequence['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: Status checks that are required. Several can be defined.
+        :param bool do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
         :param bool strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
+        if do_not_enforce_on_create is not None:
+            pulumi.set(__self__, "do_not_enforce_on_create", do_not_enforce_on_create)
         if strict_required_status_checks_policy is not None:
             pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
 
@@ -3251,6 +3294,14 @@ class RepositoryRulesetRulesRequiredStatusChecks(dict):
         Status checks that are required. Several can be defined.
         """
         return pulumi.get(self, "required_checks")
+
+    @property
+    @pulumi.getter(name="doNotEnforceOnCreate")
+    def do_not_enforce_on_create(self) -> Optional[bool]:
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
+        return pulumi.get(self, "do_not_enforce_on_create")
 
     @property
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
@@ -5092,6 +5143,35 @@ class GetRepositoryBranchesBranchResult(dict):
         Whether the branch is protected.
         """
         return pulumi.get(self, "protected")
+
+
+@pulumi.output_type
+class GetRepositoryCustomPropertiesPropertyResult(dict):
+    def __init__(__self__, *,
+                 property_name: str,
+                 property_values: Sequence[str]):
+        """
+        :param str property_name: Name of the property
+        :param Sequence[str] property_values: Value of the property
+        """
+        pulumi.set(__self__, "property_name", property_name)
+        pulumi.set(__self__, "property_values", property_values)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> str:
+        """
+        Name of the property
+        """
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Sequence[str]:
+        """
+        Value of the property
+        """
+        return pulumi.get(self, "property_values")
 
 
 @pulumi.output_type

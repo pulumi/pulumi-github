@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryRulesetRulesRequiredStatusChecks {
     /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    private @Nullable Boolean doNotEnforceOnCreate;
+    /**
      * @return Status checks that are required. Several can be defined.
      * 
      */
@@ -26,6 +31,13 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
     private @Nullable Boolean strictRequiredStatusChecksPolicy;
 
     private RepositoryRulesetRulesRequiredStatusChecks() {}
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    public Optional<Boolean> doNotEnforceOnCreate() {
+        return Optional.ofNullable(this.doNotEnforceOnCreate);
+    }
     /**
      * @return Status checks that are required. Several can be defined.
      * 
@@ -50,15 +62,23 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean doNotEnforceOnCreate;
         private List<RepositoryRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks;
         private @Nullable Boolean strictRequiredStatusChecksPolicy;
         public Builder() {}
         public Builder(RepositoryRulesetRulesRequiredStatusChecks defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.doNotEnforceOnCreate = defaults.doNotEnforceOnCreate;
     	      this.requiredChecks = defaults.requiredChecks;
     	      this.strictRequiredStatusChecksPolicy = defaults.strictRequiredStatusChecksPolicy;
         }
 
+        @CustomType.Setter
+        public Builder doNotEnforceOnCreate(@Nullable Boolean doNotEnforceOnCreate) {
+
+            this.doNotEnforceOnCreate = doNotEnforceOnCreate;
+            return this;
+        }
         @CustomType.Setter
         public Builder requiredChecks(List<RepositoryRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks) {
             if (requiredChecks == null) {
@@ -78,6 +98,7 @@ public final class RepositoryRulesetRulesRequiredStatusChecks {
         }
         public RepositoryRulesetRulesRequiredStatusChecks build() {
             final var _resultValue = new RepositoryRulesetRulesRequiredStatusChecks();
+            _resultValue.doNotEnforceOnCreate = doNotEnforceOnCreate;
             _resultValue.requiredChecks = requiredChecks;
             _resultValue.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
             return _resultValue;

@@ -34,7 +34,7 @@ namespace Pulumi.Github
     /// 
     ///     var example = new Github.RepositoryDependabotSecurityUpdates("example", new()
     ///     {
-    ///         Repository = test.Id,
+    ///         Repository = test.Name,
     ///         Enabled = true,
     ///     });
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Github
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The repository to manage.
+        /// The name of the GitHub repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Github
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The repository to manage.
+        /// The name of the GitHub repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Github
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The repository to manage.
+        /// The name of the GitHub repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

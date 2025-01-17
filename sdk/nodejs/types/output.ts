@@ -717,6 +717,17 @@ export interface GetRepositoryBranchesBranch {
     protected: boolean;
 }
 
+export interface GetRepositoryCustomPropertiesProperty {
+    /**
+     * Name of the property
+     */
+    propertyName: string;
+    /**
+     * Value of the property
+     */
+    propertyValues: string[];
+}
+
 export interface GetRepositoryDeployKeysKey {
     /**
      * Key id
@@ -1355,6 +1366,13 @@ export interface OrganizationWebhookConfiguration {
     url: string;
 }
 
+export interface RepositoryCollaboratorsIgnoreTeam {
+    /**
+     * ID or slug of the team to ignore.
+     */
+    teamId: string;
+}
+
 export interface RepositoryCollaboratorsTeam {
     /**
      * The permission of the outside collaborators for the repository.
@@ -1363,7 +1381,7 @@ export interface RepositoryCollaboratorsTeam {
      */
     permission?: string;
     /**
-     * The GitHub team id or the GitHub team slug
+     * The GitHub team id or the GitHub team slug.
      */
     teamId: string;
 }
@@ -1444,7 +1462,7 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset.
+     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      */
     actorId: number;
     /**
@@ -1675,6 +1693,10 @@ export interface RepositoryRulesetRulesRequiredDeployments {
 }
 
 export interface RepositoryRulesetRulesRequiredStatusChecks {
+    /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     */
+    doNotEnforceOnCreate?: boolean;
     /**
      * Status checks that are required. Several can be defined.
      */

@@ -79,6 +79,8 @@ __all__ = [
     'OrganizationWebhookConfigurationArgsDict',
     'ProviderAppAuthArgs',
     'ProviderAppAuthArgsDict',
+    'RepositoryCollaboratorsIgnoreTeamArgs',
+    'RepositoryCollaboratorsIgnoreTeamArgsDict',
     'RepositoryCollaboratorsTeamArgs',
     'RepositoryCollaboratorsTeamArgsDict',
     'RepositoryCollaboratorsUserArgs',
@@ -2854,10 +2856,41 @@ class ProviderAppAuthArgs:
 
 
 if not MYPY:
+    class RepositoryCollaboratorsIgnoreTeamArgsDict(TypedDict):
+        team_id: pulumi.Input[str]
+        """
+        ID or slug of the team to ignore.
+        """
+elif False:
+    RepositoryCollaboratorsIgnoreTeamArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryCollaboratorsIgnoreTeamArgs:
+    def __init__(__self__, *,
+                 team_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] team_id: ID or slug of the team to ignore.
+        """
+        pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> pulumi.Input[str]:
+        """
+        ID or slug of the team to ignore.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "team_id", value)
+
+
+if not MYPY:
     class RepositoryCollaboratorsTeamArgsDict(TypedDict):
         team_id: pulumi.Input[str]
         """
-        The GitHub team id or the GitHub team slug
+        The GitHub team id or the GitHub team slug.
         """
         permission: NotRequired[pulumi.Input[str]]
         """
@@ -2874,7 +2907,7 @@ class RepositoryCollaboratorsTeamArgs:
                  team_id: pulumi.Input[str],
                  permission: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[str] team_id: The GitHub team id or the GitHub team slug.
         :param pulumi.Input[str] permission: The permission of the outside collaborators for the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
                Must be `push` for personal repositories. Defaults to `push`.
@@ -2887,7 +2920,7 @@ class RepositoryCollaboratorsTeamArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The GitHub team id or the GitHub team slug
+        The GitHub team id or the GitHub team slug.
         """
         return pulumi.get(self, "team_id")
 
@@ -3269,7 +3302,7 @@ if not MYPY:
     class RepositoryRulesetBypassActorArgsDict(TypedDict):
         actor_id: pulumi.Input[int]
         """
-        (Number) The ID of the actor that can bypass a ruleset.
+        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
         actor_type: pulumi.Input[str]
         """
@@ -3293,7 +3326,7 @@ class RepositoryRulesetBypassActorArgs:
                  actor_type: pulumi.Input[str],
                  bypass_mode: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
+        :param pulumi.Input[int] actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         :param pulumi.Input[str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         :param pulumi.Input[str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
@@ -3309,7 +3342,7 @@ class RepositoryRulesetBypassActorArgs:
     @pulumi.getter(name="actorId")
     def actor_id(self) -> pulumi.Input[int]:
         """
-        (Number) The ID of the actor that can bypass a ruleset.
+        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
         return pulumi.get(self, "actor_id")
 
@@ -4368,6 +4401,10 @@ if not MYPY:
         """
         Status checks that are required. Several can be defined.
         """
+        do_not_enforce_on_create: NotRequired[pulumi.Input[bool]]
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
         strict_required_status_checks_policy: NotRequired[pulumi.Input[bool]]
         """
         Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -4379,12 +4416,16 @@ elif False:
 class RepositoryRulesetRulesRequiredStatusChecksArgs:
     def __init__(__self__, *,
                  required_checks: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]],
+                 do_not_enforce_on_create: Optional[pulumi.Input[bool]] = None,
                  strict_required_status_checks_policy: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: Status checks that are required. Several can be defined.
+        :param pulumi.Input[bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
         :param pulumi.Input[bool] strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
+        if do_not_enforce_on_create is not None:
+            pulumi.set(__self__, "do_not_enforce_on_create", do_not_enforce_on_create)
         if strict_required_status_checks_policy is not None:
             pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
 
@@ -4399,6 +4440,18 @@ class RepositoryRulesetRulesRequiredStatusChecksArgs:
     @required_checks.setter
     def required_checks(self, value: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs']]]):
         pulumi.set(self, "required_checks", value)
+
+    @property
+    @pulumi.getter(name="doNotEnforceOnCreate")
+    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
+        return pulumi.get(self, "do_not_enforce_on_create")
+
+    @do_not_enforce_on_create.setter
+    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "do_not_enforce_on_create", value)
 
     @property
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")

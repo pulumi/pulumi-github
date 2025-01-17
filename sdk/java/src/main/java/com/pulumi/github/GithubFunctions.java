@@ -64,6 +64,8 @@ import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesArgs;
 import com.pulumi.github.inputs.GetRepositoryAutolinkReferencesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryBranchesArgs;
 import com.pulumi.github.inputs.GetRepositoryBranchesPlainArgs;
+import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+import com.pulumi.github.inputs.GetRepositoryCustomPropertiesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
 import com.pulumi.github.inputs.GetRepositoryDeployKeysPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
@@ -139,6 +141,7 @@ import com.pulumi.github.outputs.GetReleaseResult;
 import com.pulumi.github.outputs.GetRepositoriesResult;
 import com.pulumi.github.outputs.GetRepositoryAutolinkReferencesResult;
 import com.pulumi.github.outputs.GetRepositoryBranchesResult;
+import com.pulumi.github.outputs.GetRepositoryCustomPropertiesResult;
 import com.pulumi.github.outputs.GetRepositoryDeployKeysResult;
 import com.pulumi.github.outputs.GetRepositoryDeploymentBranchPoliciesResult;
 import com.pulumi.github.outputs.GetRepositoryEnvironmentsResult;
@@ -11876,6 +11879,216 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryBranchesResult> getRepositoryBranchesPlain(GetRepositoryBranchesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryBranches:getRepositoryBranches", TypeShape.of(GetRepositoryBranchesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all custom properties of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryCustomPropertiesResult> getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs args) {
+        return getRepositoryCustomProperties(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all custom properties of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoryCustomPropertiesResult> getRepositoryCustomPropertiesPlain(GetRepositoryCustomPropertiesPlainArgs args) {
+        return getRepositoryCustomPropertiesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all custom properties of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryCustomPropertiesResult> getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryCustomProperties:getRepositoryCustomProperties", TypeShape.of(GetRepositoryCustomPropertiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all custom properties of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryCustomPropertiesResult> getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryCustomProperties:getRepositoryCustomProperties", TypeShape.of(GetRepositoryCustomPropertiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all custom properties of a repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()
+     *             .repository("example-repository")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoryCustomPropertiesResult> getRepositoryCustomPropertiesPlain(GetRepositoryCustomPropertiesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryCustomProperties:getRepositoryCustomProperties", TypeShape.of(GetRepositoryCustomPropertiesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve all deploy keys of a repository.

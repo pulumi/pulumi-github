@@ -36,14 +36,14 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
     }
 
     /**
-     * The GitHub team id or the GitHub team slug
+     * The GitHub team id or the GitHub team slug.
      * 
      */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
     /**
-     * @return The GitHub team id or the GitHub team slug
+     * @return The GitHub team id or the GitHub team slug.
      * 
      */
     public Output<String> teamId() {
@@ -101,7 +101,7 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug
+         * @param teamId The GitHub team id or the GitHub team slug.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class RepositoryCollaboratorsTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param teamId The GitHub team id or the GitHub team slug
+         * @param teamId The GitHub team id or the GitHub team slug.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     vulnerabilityAlerts: true,
  * });
  * const example = new github.RepositoryDependabotSecurityUpdates("example", {
- *     repository: test.id,
+ *     repository: test.name,
  *     enabled: true,
  * });
  * ```
@@ -68,7 +68,7 @@ export class RepositoryDependabotSecurityUpdates extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * The repository to manage.
+     * The name of the GitHub repository.
      */
     public readonly repository!: pulumi.Output<string>;
 
@@ -112,7 +112,7 @@ export interface RepositoryDependabotSecurityUpdatesState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The repository to manage.
+     * The name of the GitHub repository.
      */
     repository?: pulumi.Input<string>;
 }
@@ -126,7 +126,7 @@ export interface RepositoryDependabotSecurityUpdatesArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * The repository to manage.
+     * The name of the GitHub repository.
      */
     repository: pulumi.Input<string>;
 }

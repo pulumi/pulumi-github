@@ -6,6 +6,7 @@ package com.pulumi.github;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.github.inputs.RepositoryCollaboratorsIgnoreTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;
 import java.lang.String;
@@ -20,14 +21,29 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     public static final RepositoryCollaboratorsArgs Empty = new RepositoryCollaboratorsArgs();
 
     /**
-     * The GitHub repository
+     * List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * 
+     */
+    @Import(name="ignoreTeams")
+    private @Nullable Output<List<RepositoryCollaboratorsIgnoreTeamArgs>> ignoreTeams;
+
+    /**
+     * @return List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+     * 
+     */
+    public Optional<Output<List<RepositoryCollaboratorsIgnoreTeamArgs>>> ignoreTeams() {
+        return Optional.ofNullable(this.ignoreTeams);
+    }
+
+    /**
+     * The GitHub repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The GitHub repository
+     * @return The GitHub repository.
      * 
      */
     public Output<String> repository() {
@@ -35,14 +51,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of teams
+     * List of teams to grant access to the repository.
      * 
      */
     @Import(name="teams")
     private @Nullable Output<List<RepositoryCollaboratorsTeamArgs>> teams;
 
     /**
-     * @return List of teams
+     * @return List of teams to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsTeamArgs>>> teams() {
@@ -50,14 +66,14 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of users
+     * List of users to grant access to the repository.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<RepositoryCollaboratorsUserArgs>> users;
 
     /**
-     * @return List of users
+     * @return List of users to grant access to the repository.
      * 
      */
     public Optional<Output<List<RepositoryCollaboratorsUserArgs>>> users() {
@@ -67,6 +83,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
     private RepositoryCollaboratorsArgs() {}
 
     private RepositoryCollaboratorsArgs(RepositoryCollaboratorsArgs $) {
+        this.ignoreTeams = $.ignoreTeams;
         this.repository = $.repository;
         this.teams = $.teams;
         this.users = $.users;
@@ -91,7 +108,38 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The GitHub repository
+         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTeams(@Nullable Output<List<RepositoryCollaboratorsIgnoreTeamArgs>> ignoreTeams) {
+            $.ignoreTeams = ignoreTeams;
+            return this;
+        }
+
+        /**
+         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTeams(List<RepositoryCollaboratorsIgnoreTeamArgs> ignoreTeams) {
+            return ignoreTeams(Output.of(ignoreTeams));
+        }
+
+        /**
+         * @param ignoreTeams List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTeams(RepositoryCollaboratorsIgnoreTeamArgs... ignoreTeams) {
+            return ignoreTeams(List.of(ignoreTeams));
+        }
+
+        /**
+         * @param repository The GitHub repository.
          * 
          * @return builder
          * 
@@ -102,7 +150,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repository The GitHub repository
+         * @param repository The GitHub repository.
          * 
          * @return builder
          * 
@@ -112,7 +160,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams
+         * @param teams List of teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -123,7 +171,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams
+         * @param teams List of teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -133,7 +181,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param teams List of teams
+         * @param teams List of teams to grant access to the repository.
          * 
          * @return builder
          * 
@@ -143,7 +191,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users
+         * @param users List of users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -154,7 +202,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users
+         * @param users List of users to grant access to the repository.
          * 
          * @return builder
          * 
@@ -164,7 +212,7 @@ public final class RepositoryCollaboratorsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param users List of users
+         * @param users List of users to grant access to the repository.
          * 
          * @return builder
          * 

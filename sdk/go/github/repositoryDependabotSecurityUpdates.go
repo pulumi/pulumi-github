@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryDependabotSecurityUpdates(ctx, "example", &github.RepositoryDependabotSecurityUpdatesArgs{
-//				Repository: pulumi.Any(test.Id),
+//				Repository: pulumi.Any(test.Name),
 //				Enabled:    pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ type RepositoryDependabotSecurityUpdates struct {
 
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The repository to manage.
+	// The name of the GitHub repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -106,14 +106,14 @@ func GetRepositoryDependabotSecurityUpdates(ctx *pulumi.Context,
 type repositoryDependabotSecurityUpdatesState struct {
 	// The state of the automated security fixes.
 	Enabled *bool `pulumi:"enabled"`
-	// The repository to manage.
+	// The name of the GitHub repository.
 	Repository *string `pulumi:"repository"`
 }
 
 type RepositoryDependabotSecurityUpdatesState struct {
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolPtrInput
-	// The repository to manage.
+	// The name of the GitHub repository.
 	Repository pulumi.StringPtrInput
 }
 
@@ -124,7 +124,7 @@ func (RepositoryDependabotSecurityUpdatesState) ElementType() reflect.Type {
 type repositoryDependabotSecurityUpdatesArgs struct {
 	// The state of the automated security fixes.
 	Enabled bool `pulumi:"enabled"`
-	// The repository to manage.
+	// The name of the GitHub repository.
 	Repository string `pulumi:"repository"`
 }
 
@@ -132,7 +132,7 @@ type repositoryDependabotSecurityUpdatesArgs struct {
 type RepositoryDependabotSecurityUpdatesArgs struct {
 	// The state of the automated security fixes.
 	Enabled pulumi.BoolInput
-	// The repository to manage.
+	// The name of the GitHub repository.
 	Repository pulumi.StringInput
 }
 
@@ -228,7 +228,7 @@ func (o RepositoryDependabotSecurityUpdatesOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RepositoryDependabotSecurityUpdates) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The repository to manage.
+// The name of the GitHub repository.
 func (o RepositoryDependabotSecurityUpdatesOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryDependabotSecurityUpdates) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

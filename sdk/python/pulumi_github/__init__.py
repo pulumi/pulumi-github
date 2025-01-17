@@ -80,6 +80,7 @@ from .get_repositories import *
 from .get_repository import *
 from .get_repository_autolink_references import *
 from .get_repository_branches import *
+from .get_repository_custom_properties import *
 from .get_repository_deploy_keys import *
 from .get_repository_deployment_branch_policies import *
 from .get_repository_environments import *
@@ -115,6 +116,7 @@ from .repository import *
 from .repository_autolink_reference import *
 from .repository_collaborator import *
 from .repository_collaborators import *
+from .repository_custom_property import *
 from .repository_dependabot_security_updates import *
 from .repository_deploy_key import *
 from .repository_deployment_branch_policy import *
@@ -531,6 +533,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryCollaborators:RepositoryCollaborators": "RepositoryCollaborators"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryCustomProperty",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryCustomProperty:RepositoryCustomProperty": "RepositoryCustomProperty"
   }
  },
  {

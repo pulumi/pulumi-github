@@ -24,7 +24,7 @@ class RepositoryDependabotSecurityUpdatesArgs:
         """
         The set of arguments for constructing a RepositoryDependabotSecurityUpdates resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The repository to manage.
+        :param pulumi.Input[str] repository: The name of the GitHub repository.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "repository", repository)
@@ -45,7 +45,7 @@ class RepositoryDependabotSecurityUpdatesArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
         """
-        The repository to manage.
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
 
@@ -62,7 +62,7 @@ class _RepositoryDependabotSecurityUpdatesState:
         """
         Input properties used for looking up and filtering RepositoryDependabotSecurityUpdates resources.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The repository to manage.
+        :param pulumi.Input[str] repository: The name of the GitHub repository.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -85,7 +85,7 @@ class _RepositoryDependabotSecurityUpdatesState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository to manage.
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
 
@@ -119,7 +119,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
             private=False,
             vulnerability_alerts=True)
         example = github.RepositoryDependabotSecurityUpdates("example",
-            repository=test["id"],
+            repository=test["name"],
             enabled=True)
         ```
 
@@ -134,7 +134,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The repository to manage.
+        :param pulumi.Input[str] repository: The name of the GitHub repository.
         """
         ...
     @overload
@@ -159,7 +159,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
             private=False,
             vulnerability_alerts=True)
         example = github.RepositoryDependabotSecurityUpdates("example",
-            repository=test["id"],
+            repository=test["name"],
             enabled=True)
         ```
 
@@ -223,7 +223,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: The state of the automated security fixes.
-        :param pulumi.Input[str] repository: The repository to manage.
+        :param pulumi.Input[str] repository: The name of the GitHub repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,7 +245,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
         """
-        The repository to manage.
+        The name of the GitHub repository.
         """
         return pulumi.get(self, "repository")
 

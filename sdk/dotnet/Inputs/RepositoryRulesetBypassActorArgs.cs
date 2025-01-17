@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetBypassActorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset.
+        /// (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         /// </summary>
         [Input("actorId", required: true)]
         public Input<int> ActorId { get; set; } = null!;
