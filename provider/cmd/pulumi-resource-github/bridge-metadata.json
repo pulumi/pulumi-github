@@ -582,10 +582,22 @@
                 "current": "github:index/repositoryCollaborators:RepositoryCollaborators",
                 "majorVersion": 6,
                 "fields": {
+                    "ignore_team": {
+                        "maxItemsOne": false
+                    },
                     "team": {
                         "maxItemsOne": false
                     },
                     "user": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_repository_custom_property": {
+                "current": "github:index/repositoryCustomProperty:RepositoryCustomProperty",
+                "majorVersion": 6,
+                "fields": {
+                    "property_value": {
                         "maxItemsOne": false
                     }
                 }
@@ -1270,6 +1282,22 @@
                 "fields": {
                     "branches": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "github_repository_custom_properties": {
+                "current": "github:index/getRepositoryCustomProperties:getRepositoryCustomProperties",
+                "majorVersion": 6,
+                "fields": {
+                    "property": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "property_value": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },

@@ -949,6 +949,18 @@
                 }
             }
         },
+        "github:index/RepositoryCollaboratorsIgnoreTeam:RepositoryCollaboratorsIgnoreTeam": {
+            "properties": {
+                "teamId": {
+                    "type": "string",
+                    "description": "ID or slug of the team to ignore.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "teamId"
+            ]
+        },
         "github:index/RepositoryCollaboratorsTeam:RepositoryCollaboratorsTeam": {
             "properties": {
                 "permission": {
@@ -957,7 +969,7 @@
                 },
                 "teamId": {
                     "type": "string",
-                    "description": "The GitHub team id or the GitHub team slug\n"
+                    "description": "The GitHub team id or the GitHub team slug.\n"
                 }
             },
             "type": "object",
@@ -1079,7 +1091,7 @@
             "properties": {
                 "actorId": {
                     "type": "integer",
-                    "description": "(Number) The ID of the actor that can bypass a ruleset.\n"
+                    "description": "(Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)\n"
                 },
                 "actorType": {
                     "type": "string",
@@ -1380,6 +1392,10 @@
         },
         "github:index/RepositoryRulesetRulesRequiredStatusChecks:RepositoryRulesetRulesRequiredStatusChecks": {
             "properties": {
+                "doNotEnforceOnCreate": {
+                    "type": "boolean",
+                    "description": "Allow repositories and branches to be created if a check would otherwise prohibit it.\n"
+                },
                 "requiredChecks": {
                     "type": "array",
                     "items": {
@@ -2407,6 +2423,31 @@
             "required": [
                 "name",
                 "protected"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "github:index/getRepositoryCustomPropertiesProperty:getRepositoryCustomPropertiesProperty": {
+            "properties": {
+                "propertyName": {
+                    "type": "string",
+                    "description": "Name of the property\n"
+                },
+                "propertyValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Value of the property\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "propertyName",
+                "propertyValues"
             ],
             "language": {
                 "nodejs": {
@@ -8088,32 +8129,39 @@
             }
         },
         "github:index/repositoryCollaborators:RepositoryCollaborators": {
-            "description": "Provides a GitHub repository collaborators resource.\n\n\u003e Note: github.RepositoryCollaborators cannot be used in conjunction with github.RepositoryCollaborator and\ngithub.TeamRepository or they will fight over what your policy should be.\n\nThis resource allows you to manage all collaborators for repositories in your\norganization or personal account. For organization repositories, collaborators can\nhave explicit (and differing levels of) read, write, or administrator access to \nspecific repositories, without giving the user full organization membership. \nFor personal repositories, collaborators can only be granted write\n(implicitly includes read) permission. \n\nWhen applied, an invitation will be sent to the user to become a collaborators\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborators will be removed from the repository.\n\nThis resource is authoritative. For adding a collaborator to a repo in a non-authoritative manner, use\ngithub.RepositoryCollaborator instead.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n \n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add collaborators to a repository\nconst someTeam = new github.Team(\"some_team\", {\n    name: \"SomeTeam\",\n    description: \"Some cool team\",\n});\nconst someRepo = new github.Repository(\"some_repo\", {name: \"some-repo\"});\nconst someRepoCollaborators = new github.RepositoryCollaborators(\"some_repo_collaborators\", {\n    repository: someRepo.name,\n    users: [{\n        permission: \"admin\",\n        username: \"SomeUser\",\n    }],\n    teams: [{\n        permission: \"pull\",\n        teamId: someTeam.slug,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add collaborators to a repository\nsome_team = github.Team(\"some_team\",\n    name=\"SomeTeam\",\n    description=\"Some cool team\")\nsome_repo = github.Repository(\"some_repo\", name=\"some-repo\")\nsome_repo_collaborators = github.RepositoryCollaborators(\"some_repo_collaborators\",\n    repository=some_repo.name,\n    users=[{\n        \"permission\": \"admin\",\n        \"username\": \"SomeUser\",\n    }],\n    teams=[{\n        \"permission\": \"pull\",\n        \"team_id\": some_team.slug,\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Add collaborators to a repository\n    var someTeam = new Github.Team(\"some_team\", new()\n    {\n        Name = \"SomeTeam\",\n        Description = \"Some cool team\",\n    });\n\n    var someRepo = new Github.Repository(\"some_repo\", new()\n    {\n        Name = \"some-repo\",\n    });\n\n    var someRepoCollaborators = new Github.RepositoryCollaborators(\"some_repo_collaborators\", new()\n    {\n        Repository = someRepo.Name,\n        Users = new[]\n        {\n            new Github.Inputs.RepositoryCollaboratorsUserArgs\n            {\n                Permission = \"admin\",\n                Username = \"SomeUser\",\n            },\n        },\n        Teams = new[]\n        {\n            new Github.Inputs.RepositoryCollaboratorsTeamArgs\n            {\n                Permission = \"pull\",\n                TeamId = someTeam.Slug,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Add collaborators to a repository\n\t\tsomeTeam, err := github.NewTeam(ctx, \"some_team\", \u0026github.TeamArgs{\n\t\t\tName:        pulumi.String(\"SomeTeam\"),\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsomeRepo, err := github.NewRepository(ctx, \"some_repo\", \u0026github.RepositoryArgs{\n\t\t\tName: pulumi.String(\"some-repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryCollaborators(ctx, \"some_repo_collaborators\", \u0026github.RepositoryCollaboratorsArgs{\n\t\t\tRepository: someRepo.Name,\n\t\t\tUsers: github.RepositoryCollaboratorsUserArray{\n\t\t\t\t\u0026github.RepositoryCollaboratorsUserArgs{\n\t\t\t\t\tPermission: pulumi.String(\"admin\"),\n\t\t\t\t\tUsername:   pulumi.String(\"SomeUser\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTeams: github.RepositoryCollaboratorsTeamArray{\n\t\t\t\t\u0026github.RepositoryCollaboratorsTeamArgs{\n\t\t\t\t\tPermission: pulumi.String(\"pull\"),\n\t\t\t\t\tTeamId:     someTeam.Slug,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Team;\nimport com.pulumi.github.TeamArgs;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryCollaborators;\nimport com.pulumi.github.RepositoryCollaboratorsArgs;\nimport com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;\nimport com.pulumi.github.inputs.RepositoryCollaboratorsTeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Add collaborators to a repository\n        var someTeam = new Team(\"someTeam\", TeamArgs.builder()\n            .name(\"SomeTeam\")\n            .description(\"Some cool team\")\n            .build());\n\n        var someRepo = new Repository(\"someRepo\", RepositoryArgs.builder()\n            .name(\"some-repo\")\n            .build());\n\n        var someRepoCollaborators = new RepositoryCollaborators(\"someRepoCollaborators\", RepositoryCollaboratorsArgs.builder()\n            .repository(someRepo.name())\n            .users(RepositoryCollaboratorsUserArgs.builder()\n                .permission(\"admin\")\n                .username(\"SomeUser\")\n                .build())\n            .teams(RepositoryCollaboratorsTeamArgs.builder()\n                .permission(\"pull\")\n                .teamId(someTeam.slug())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Add collaborators to a repository\n  someTeam:\n    type: github:Team\n    name: some_team\n    properties:\n      name: SomeTeam\n      description: Some cool team\n  someRepo:\n    type: github:Repository\n    name: some_repo\n    properties:\n      name: some-repo\n  someRepoCollaborators:\n    type: github:RepositoryCollaborators\n    name: some_repo_collaborators\n    properties:\n      repository: ${someRepo.name}\n      users:\n        - permission: admin\n          username: SomeUser\n      teams:\n        - permission: pull\n          teamId: ${someTeam.slug}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGitHub Repository Collaborators can be imported using the name `name`, e.g.\n\n```sh\n$ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform\n```\n",
+            "description": "Provides a GitHub repository collaborators resource.\n\n\u003e Note: github.RepositoryCollaborators cannot be used in conjunction with github.RepositoryCollaborator and\ngithub.TeamRepository or they will fight over what your policy should be.\n\nThis resource allows you to manage all collaborators for repositories in your\norganization or personal account. For organization repositories, collaborators can\nhave explicit (and differing levels of) read, write, or administrator access to\nspecific repositories, without giving the user full organization membership.\nFor personal repositories, collaborators can only be granted write\n(implicitly includes read) permission.\n\nWhen applied, an invitation will be sent to the user to become a collaborators\non a repository. When destroyed, either the invitation will be cancelled or the\ncollaborators will be removed from the repository.\n\nThis resource is authoritative. For adding a collaborator to a repo in a non-authoritative manner, use\ngithub.RepositoryCollaborator instead.\n\nFurther documentation on GitHub collaborators:\n\n- [Adding outside collaborators to your personal repositories](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories)\n- [Adding outside collaborators to repositories in your organization](https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/)\n- [Converting an organization member to an outside collaborators](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\n// Add collaborators to a repository\nconst someTeam = new github.Team(\"some_team\", {\n    name: \"SomeTeam\",\n    description: \"Some cool team\",\n});\nconst someRepo = new github.Repository(\"some_repo\", {name: \"some-repo\"});\nconst someRepoCollaborators = new github.RepositoryCollaborators(\"some_repo_collaborators\", {\n    repository: someRepo.name,\n    users: [{\n        permission: \"admin\",\n        username: \"SomeUser\",\n    }],\n    teams: [{\n        permission: \"pull\",\n        teamId: someTeam.slug,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\n# Add collaborators to a repository\nsome_team = github.Team(\"some_team\",\n    name=\"SomeTeam\",\n    description=\"Some cool team\")\nsome_repo = github.Repository(\"some_repo\", name=\"some-repo\")\nsome_repo_collaborators = github.RepositoryCollaborators(\"some_repo_collaborators\",\n    repository=some_repo.name,\n    users=[{\n        \"permission\": \"admin\",\n        \"username\": \"SomeUser\",\n    }],\n    teams=[{\n        \"permission\": \"pull\",\n        \"team_id\": some_team.slug,\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Add collaborators to a repository\n    var someTeam = new Github.Team(\"some_team\", new()\n    {\n        Name = \"SomeTeam\",\n        Description = \"Some cool team\",\n    });\n\n    var someRepo = new Github.Repository(\"some_repo\", new()\n    {\n        Name = \"some-repo\",\n    });\n\n    var someRepoCollaborators = new Github.RepositoryCollaborators(\"some_repo_collaborators\", new()\n    {\n        Repository = someRepo.Name,\n        Users = new[]\n        {\n            new Github.Inputs.RepositoryCollaboratorsUserArgs\n            {\n                Permission = \"admin\",\n                Username = \"SomeUser\",\n            },\n        },\n        Teams = new[]\n        {\n            new Github.Inputs.RepositoryCollaboratorsTeamArgs\n            {\n                Permission = \"pull\",\n                TeamId = someTeam.Slug,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Add collaborators to a repository\n\t\tsomeTeam, err := github.NewTeam(ctx, \"some_team\", \u0026github.TeamArgs{\n\t\t\tName:        pulumi.String(\"SomeTeam\"),\n\t\t\tDescription: pulumi.String(\"Some cool team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsomeRepo, err := github.NewRepository(ctx, \"some_repo\", \u0026github.RepositoryArgs{\n\t\t\tName: pulumi.String(\"some-repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryCollaborators(ctx, \"some_repo_collaborators\", \u0026github.RepositoryCollaboratorsArgs{\n\t\t\tRepository: someRepo.Name,\n\t\t\tUsers: github.RepositoryCollaboratorsUserArray{\n\t\t\t\t\u0026github.RepositoryCollaboratorsUserArgs{\n\t\t\t\t\tPermission: pulumi.String(\"admin\"),\n\t\t\t\t\tUsername:   pulumi.String(\"SomeUser\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTeams: github.RepositoryCollaboratorsTeamArray{\n\t\t\t\t\u0026github.RepositoryCollaboratorsTeamArgs{\n\t\t\t\t\tPermission: pulumi.String(\"pull\"),\n\t\t\t\t\tTeamId:     someTeam.Slug,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Team;\nimport com.pulumi.github.TeamArgs;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryCollaborators;\nimport com.pulumi.github.RepositoryCollaboratorsArgs;\nimport com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;\nimport com.pulumi.github.inputs.RepositoryCollaboratorsTeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Add collaborators to a repository\n        var someTeam = new Team(\"someTeam\", TeamArgs.builder()\n            .name(\"SomeTeam\")\n            .description(\"Some cool team\")\n            .build());\n\n        var someRepo = new Repository(\"someRepo\", RepositoryArgs.builder()\n            .name(\"some-repo\")\n            .build());\n\n        var someRepoCollaborators = new RepositoryCollaborators(\"someRepoCollaborators\", RepositoryCollaboratorsArgs.builder()\n            .repository(someRepo.name())\n            .users(RepositoryCollaboratorsUserArgs.builder()\n                .permission(\"admin\")\n                .username(\"SomeUser\")\n                .build())\n            .teams(RepositoryCollaboratorsTeamArgs.builder()\n                .permission(\"pull\")\n                .teamId(someTeam.slug())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Add collaborators to a repository\n  someTeam:\n    type: github:Team\n    name: some_team\n    properties:\n      name: SomeTeam\n      description: Some cool team\n  someRepo:\n    type: github:Repository\n    name: some_repo\n    properties:\n      name: some-repo\n  someRepoCollaborators:\n    type: github:RepositoryCollaborators\n    name: some_repo_collaborators\n    properties:\n      repository: ${someRepo.name}\n      users:\n        - permission: admin\n          username: SomeUser\n      teams:\n        - permission: pull\n          teamId: ${someTeam.slug}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGitHub Repository Collaborators can be imported using the name `name`, e.g.\n\n```sh\n$ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform\n```\n",
             "properties": {
+                "ignoreTeams": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryCollaboratorsIgnoreTeam:RepositoryCollaboratorsIgnoreTeam"
+                    },
+                    "description": "List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.\n"
+                },
                 "invitationIds": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Map of usernames to invitation ID for any users added as part of creation of this resource to \nbe used in `github.UserInvitationAccepter`.\n"
+                    "description": "Map of usernames to invitation ID for any users added as part of creation of this resource to\nbe used in `github.UserInvitationAccepter`.\n"
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The GitHub repository\n"
+                    "description": "The GitHub repository.\n"
                 },
                 "teams": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/github:index/RepositoryCollaboratorsTeam:RepositoryCollaboratorsTeam"
                     },
-                    "description": "List of teams\n"
+                    "description": "List of teams to grant access to the repository.\n"
                 },
                 "users": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/github:index/RepositoryCollaboratorsUser:RepositoryCollaboratorsUser"
                     },
-                    "description": "List of users\n"
+                    "description": "List of users to grant access to the repository.\n"
                 }
             },
             "required": [
@@ -8121,9 +8169,16 @@
                 "repository"
             ],
             "inputProperties": {
+                "ignoreTeams": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/github:index/RepositoryCollaboratorsIgnoreTeam:RepositoryCollaboratorsIgnoreTeam"
+                    },
+                    "description": "List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.\n"
+                },
                 "repository": {
                     "type": "string",
-                    "description": "The GitHub repository\n",
+                    "description": "The GitHub repository.\n",
                     "willReplaceOnChanges": true
                 },
                 "teams": {
@@ -8131,14 +8186,14 @@
                     "items": {
                         "$ref": "#/types/github:index/RepositoryCollaboratorsTeam:RepositoryCollaboratorsTeam"
                     },
-                    "description": "List of teams\n"
+                    "description": "List of teams to grant access to the repository.\n"
                 },
                 "users": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/github:index/RepositoryCollaboratorsUser:RepositoryCollaboratorsUser"
                     },
-                    "description": "List of users\n"
+                    "description": "List of users to grant access to the repository.\n"
                 }
             },
             "requiredInputs": [
@@ -8147,16 +8202,23 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RepositoryCollaborators resources.\n",
                 "properties": {
+                    "ignoreTeams": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/github:index/RepositoryCollaboratorsIgnoreTeam:RepositoryCollaboratorsIgnoreTeam"
+                        },
+                        "description": "List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.\n"
+                    },
                     "invitationIds": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Map of usernames to invitation ID for any users added as part of creation of this resource to \nbe used in `github.UserInvitationAccepter`.\n"
+                        "description": "Map of usernames to invitation ID for any users added as part of creation of this resource to\nbe used in `github.UserInvitationAccepter`.\n"
                     },
                     "repository": {
                         "type": "string",
-                        "description": "The GitHub repository\n",
+                        "description": "The GitHub repository.\n",
                         "willReplaceOnChanges": true
                     },
                     "teams": {
@@ -8164,21 +8226,111 @@
                         "items": {
                             "$ref": "#/types/github:index/RepositoryCollaboratorsTeam:RepositoryCollaboratorsTeam"
                         },
-                        "description": "List of teams\n"
+                        "description": "List of teams to grant access to the repository.\n"
                     },
                     "users": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/github:index/RepositoryCollaboratorsUser:RepositoryCollaboratorsUser"
                         },
-                        "description": "List of users\n"
+                        "description": "List of users to grant access to the repository.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "github:index/repositoryCustomProperty:RepositoryCustomProperty": {
+            "description": "This resource allows you to create and manage a specific custom property for a GitHub repository.\n\n## Example Usage\n\n\u003e Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = new github.Repository(\"example\", {\n    name: \"example\",\n    description: \"My awesome codebase\",\n});\nconst string = new github.RepositoryCustomProperty(\"string\", {\n    repository: example.name,\n    propertyName: \"my-cool-property\",\n    propertyType: \"string\",\n    propertyValues: [\"test\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.Repository(\"example\",\n    name=\"example\",\n    description=\"My awesome codebase\")\nstring = github.RepositoryCustomProperty(\"string\",\n    repository=example.name,\n    property_name=\"my-cool-property\",\n    property_type=\"string\",\n    property_values=[\"test\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Github.Repository(\"example\", new()\n    {\n        Name = \"example\",\n        Description = \"My awesome codebase\",\n    });\n\n    var @string = new Github.RepositoryCustomProperty(\"string\", new()\n    {\n        Repository = example.Name,\n        PropertyName = \"my-cool-property\",\n        PropertyType = \"string\",\n        PropertyValues = new[]\n        {\n            \"test\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := github.NewRepository(ctx, \"example\", \u0026github.RepositoryArgs{\n\t\t\tName:        pulumi.String(\"example\"),\n\t\t\tDescription: pulumi.String(\"My awesome codebase\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryCustomProperty(ctx, \"string\", \u0026github.RepositoryCustomPropertyArgs{\n\t\t\tRepository:   example.Name,\n\t\t\tPropertyName: pulumi.String(\"my-cool-property\"),\n\t\t\tPropertyType: pulumi.String(\"string\"),\n\t\t\tPropertyValues: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"test\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryCustomProperty;\nimport com.pulumi.github.RepositoryCustomPropertyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Repository(\"example\", RepositoryArgs.builder()\n            .name(\"example\")\n            .description(\"My awesome codebase\")\n            .build());\n\n        var string = new RepositoryCustomProperty(\"string\", RepositoryCustomPropertyArgs.builder()\n            .repository(example.name())\n            .propertyName(\"my-cool-property\")\n            .propertyType(\"string\")\n            .propertyValues(\"test\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: github:Repository\n    properties:\n      name: example\n      description: My awesome codebase\n  string:\n    type: github:RepositoryCustomProperty\n    properties:\n      repository: ${example.name}\n      propertyName: my-cool-property\n      propertyType: string\n      propertyValues:\n        - test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGitHub Repository Custom Property can be imported using an ID made up of a comibnation of the names of the organization, repository, custom property separated by a `:` character, e.g.\n\n```sh\n$ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example \u003corganization-name\u003e:\u003crepo-name\u003e:\u003ccustom-property-name\u003e\n```\n",
+            "properties": {
+                "propertyName": {
+                    "type": "string",
+                    "description": "Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level\n"
+                },
+                "propertyType": {
+                    "type": "string",
+                    "description": "Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`\n"
+                },
+                "propertyValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the environment.\n"
+                }
+            },
+            "required": [
+                "propertyName",
+                "propertyType",
+                "propertyValues",
+                "repository"
+            ],
+            "inputProperties": {
+                "propertyName": {
+                    "type": "string",
+                    "description": "Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level\n",
+                    "willReplaceOnChanges": true
+                },
+                "propertyType": {
+                    "type": "string",
+                    "description": "Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`\n",
+                    "willReplaceOnChanges": true
+                },
+                "propertyValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1\n",
+                    "willReplaceOnChanges": true
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The repository of the environment.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "propertyName",
+                "propertyType",
+                "propertyValues",
+                "repository"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryCustomProperty resources.\n",
+                "properties": {
+                    "propertyName": {
+                        "type": "string",
+                        "description": "Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "propertyType": {
+                        "type": "string",
+                        "description": "Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "propertyValues": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "repository": {
+                        "type": "string",
+                        "description": "The repository of the environment.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
             }
         },
         "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates": {
-            "description": "This resource allows you to manage dependabot automated security fixes for a single repository. See the \n[documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)\nfor details of usage and how this will impact your repository\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    name: \"my-repo\",\n    description: \"GitHub repo managed by Terraform\",\n    \"private\": false,\n    vulnerabilityAlerts: true,\n});\nconst example = new github.RepositoryDependabotSecurityUpdates(\"example\", {\n    repository: test.id,\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    name=\"my-repo\",\n    description=\"GitHub repo managed by Terraform\",\n    private=False,\n    vulnerability_alerts=True)\nexample = github.RepositoryDependabotSecurityUpdates(\"example\",\n    repository=test[\"id\"],\n    enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = new Github.Repository(\"repo\", new()\n    {\n        Name = \"my-repo\",\n        Description = \"GitHub repo managed by Terraform\",\n        Private = false,\n        VulnerabilityAlerts = true,\n    });\n\n    var example = new Github.RepositoryDependabotSecurityUpdates(\"example\", new()\n    {\n        Repository = test.Id,\n        Enabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tName:                pulumi.String(\"my-repo\"),\n\t\t\tDescription:         pulumi.String(\"GitHub repo managed by Terraform\"),\n\t\t\tPrivate:             pulumi.Bool(false),\n\t\t\tVulnerabilityAlerts: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDependabotSecurityUpdates(ctx, \"example\", \u0026github.RepositoryDependabotSecurityUpdatesArgs{\n\t\t\tRepository: pulumi.Any(test.Id),\n\t\t\tEnabled:    pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryDependabotSecurityUpdates;\nimport com.pulumi.github.RepositoryDependabotSecurityUpdatesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var repo = new Repository(\"repo\", RepositoryArgs.builder()\n            .name(\"my-repo\")\n            .description(\"GitHub repo managed by Terraform\")\n            .private_(false)\n            .vulnerabilityAlerts(true)\n            .build());\n\n        var example = new RepositoryDependabotSecurityUpdates(\"example\", RepositoryDependabotSecurityUpdatesArgs.builder()\n            .repository(test.id())\n            .enabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repo:\n    type: github:Repository\n    properties:\n      name: my-repo\n      description: GitHub repo managed by Terraform\n      private: false\n      vulnerabilityAlerts: true\n  example:\n    type: github:RepositoryDependabotSecurityUpdates\n    properties:\n      repository: ${test.id}\n      enabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n### Import by name\n\n```sh\n$ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo\n```\n\n",
+            "description": "This resource allows you to manage dependabot automated security fixes for a single repository. See the \n[documentation](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)\nfor details of usage and how this will impact your repository\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst repo = new github.Repository(\"repo\", {\n    name: \"my-repo\",\n    description: \"GitHub repo managed by Terraform\",\n    \"private\": false,\n    vulnerabilityAlerts: true,\n});\nconst example = new github.RepositoryDependabotSecurityUpdates(\"example\", {\n    repository: test.name,\n    enabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nrepo = github.Repository(\"repo\",\n    name=\"my-repo\",\n    description=\"GitHub repo managed by Terraform\",\n    private=False,\n    vulnerability_alerts=True)\nexample = github.RepositoryDependabotSecurityUpdates(\"example\",\n    repository=test[\"name\"],\n    enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var repo = new Github.Repository(\"repo\", new()\n    {\n        Name = \"my-repo\",\n        Description = \"GitHub repo managed by Terraform\",\n        Private = false,\n        VulnerabilityAlerts = true,\n    });\n\n    var example = new Github.RepositoryDependabotSecurityUpdates(\"example\", new()\n    {\n        Repository = test.Name,\n        Enabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.NewRepository(ctx, \"repo\", \u0026github.RepositoryArgs{\n\t\t\tName:                pulumi.String(\"my-repo\"),\n\t\t\tDescription:         pulumi.String(\"GitHub repo managed by Terraform\"),\n\t\t\tPrivate:             pulumi.Bool(false),\n\t\t\tVulnerabilityAlerts: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = github.NewRepositoryDependabotSecurityUpdates(ctx, \"example\", \u0026github.RepositoryDependabotSecurityUpdatesArgs{\n\t\t\tRepository: pulumi.Any(test.Name),\n\t\t\tEnabled:    pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.Repository;\nimport com.pulumi.github.RepositoryArgs;\nimport com.pulumi.github.RepositoryDependabotSecurityUpdates;\nimport com.pulumi.github.RepositoryDependabotSecurityUpdatesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var repo = new Repository(\"repo\", RepositoryArgs.builder()\n            .name(\"my-repo\")\n            .description(\"GitHub repo managed by Terraform\")\n            .private_(false)\n            .vulnerabilityAlerts(true)\n            .build());\n\n        var example = new RepositoryDependabotSecurityUpdates(\"example\", RepositoryDependabotSecurityUpdatesArgs.builder()\n            .repository(test.name())\n            .enabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  repo:\n    type: github:Repository\n    properties:\n      name: my-repo\n      description: GitHub repo managed by Terraform\n      private: false\n      vulnerabilityAlerts: true\n  example:\n    type: github:RepositoryDependabotSecurityUpdates\n    properties:\n      repository: ${test.name}\n      enabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n### Import by name\n\n```sh\n$ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo\n```\n\n",
             "properties": {
                 "enabled": {
                     "type": "boolean",
@@ -8186,7 +8338,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The repository to manage.\n"
+                    "description": "The name of the GitHub repository.\n"
                 }
             },
             "required": [
@@ -8200,7 +8352,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The repository to manage.\n",
+                    "description": "The name of the GitHub repository.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -8217,7 +8369,7 @@
                     },
                     "repository": {
                         "type": "string",
-                        "description": "The repository to manage.\n",
+                        "description": "The name of the GitHub repository.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -12526,6 +12678,47 @@
                 },
                 "required": [
                     "branches",
+                    "repository",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "github:index/getRepositoryCustomProperties:getRepositoryCustomProperties": {
+            "description": "Use this data source to retrieve all custom properties of a repository.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as github from \"@pulumi/github\";\n\nconst example = github.getRepositoryCustomProperties({\n    repository: \"example-repository\",\n});\n```\n```python\nimport pulumi\nimport pulumi_github as github\n\nexample = github.get_repository_custom_properties(repository=\"example-repository\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Github = Pulumi.Github;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Github.GetRepositoryCustomProperties.Invoke(new()\n    {\n        Repository = \"example-repository\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-github/sdk/v6/go/github\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := github.GetRepositoryCustomProperties(ctx, \u0026github.GetRepositoryCustomPropertiesArgs{\n\t\t\tRepository: \"example-repository\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.github.GithubFunctions;\nimport com.pulumi.github.inputs.GetRepositoryCustomPropertiesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = GithubFunctions.getRepositoryCustomProperties(GetRepositoryCustomPropertiesArgs.builder()\n            .repository(\"example-repository\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: github:getRepositoryCustomProperties\n      arguments:\n        repository: example-repository\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRepositoryCustomProperties.\n",
+                "properties": {
+                    "repository": {
+                        "type": "string",
+                        "description": "Name of the repository to retrieve the custom properties from.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "repository"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRepositoryCustomProperties.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "properties": {
+                        "description": "The list of this repository's custom properties. Each element of `property` has the following attributes:\n",
+                        "items": {
+                            "$ref": "#/types/github:index/getRepositoryCustomPropertiesProperty:getRepositoryCustomPropertiesProperty"
+                        },
+                        "type": "array"
+                    },
+                    "repository": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "properties",
                     "repository",
                     "id"
                 ],
