@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as github from "@pulumi/github";
  * import * as std from "@pulumi/std";
  *
- * const this = std.file({
+ * const _this = std.file({
  *     input: "foo/bar.pem",
  * }).then(invoke => github.getAppToken({
  *     appId: "123456",
@@ -76,7 +76,7 @@ export interface GetAppTokenResult {
  * import * as github from "@pulumi/github";
  * import * as std from "@pulumi/std";
  *
- * const this = std.file({
+ * const _this = std.file({
  *     input: "foo/bar.pem",
  * }).then(invoke => github.getAppToken({
  *     appId: "123456",

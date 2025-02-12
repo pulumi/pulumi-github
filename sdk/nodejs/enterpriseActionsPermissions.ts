@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const example-org = github.getOrganization({
+ * const example_org = github.getOrganization({
  *     name: "my-org",
  * });
  * const test = new github.EnterpriseActionsPermissions("test", {
