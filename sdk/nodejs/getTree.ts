@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const this = github.getRepository({
+ * const _this = github.getRepository({
  *     name: "example",
  * });
  * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
@@ -82,7 +82,7 @@ export interface GetTreeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const this = github.getRepository({
+ * const _this = github.getRepository({
  *     name: "example",
  * });
  * const thisGetBranch = Promise.all([_this, _this]).then(([_this, _this1]) => github.getBranch({
