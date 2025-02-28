@@ -62,6 +62,7 @@ __all__ = [
     'RepositoryRulesetRulesCommitAuthorEmailPattern',
     'RepositoryRulesetRulesCommitMessagePattern',
     'RepositoryRulesetRulesCommitterEmailPattern',
+    'RepositoryRulesetRulesMergeQueue',
     'RepositoryRulesetRulesPullRequest',
     'RepositoryRulesetRulesRequiredCodeScanning',
     'RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
@@ -2476,6 +2477,7 @@ class RepositoryRulesetBypassActor(dict):
         :param str bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+               
                * `OrganizationAdmin` > `1`
                * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
@@ -2506,6 +2508,7 @@ class RepositoryRulesetBypassActor(dict):
         (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+
         * `OrganizationAdmin` > `1`
         * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
@@ -2589,6 +2592,8 @@ class RepositoryRulesetRules(dict):
             suggest = "commit_message_pattern"
         elif key == "committerEmailPattern":
             suggest = "committer_email_pattern"
+        elif key == "mergeQueue":
+            suggest = "merge_queue"
         elif key == "nonFastForward":
             suggest = "non_fast_forward"
         elif key == "pullRequest":
@@ -2626,6 +2631,7 @@ class RepositoryRulesetRules(dict):
                  committer_email_pattern: Optional['outputs.RepositoryRulesetRulesCommitterEmailPattern'] = None,
                  creation: Optional[bool] = None,
                  deletion: Optional[bool] = None,
+                 merge_queue: Optional['outputs.RepositoryRulesetRulesMergeQueue'] = None,
                  non_fast_forward: Optional[bool] = None,
                  pull_request: Optional['outputs.RepositoryRulesetRulesPullRequest'] = None,
                  required_code_scanning: Optional['outputs.RepositoryRulesetRulesRequiredCodeScanning'] = None,
@@ -2643,6 +2649,7 @@ class RepositoryRulesetRules(dict):
         :param 'RepositoryRulesetRulesCommitterEmailPatternArgs' committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param bool creation: (Boolean) Only allow users with bypass permission to create matching refs.
         :param bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
+        :param 'RepositoryRulesetRulesMergeQueueArgs' merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue.
         :param bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'RepositoryRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         :param 'RepositoryRulesetRulesRequiredCodeScanningArgs' required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
@@ -2666,6 +2673,8 @@ class RepositoryRulesetRules(dict):
             pulumi.set(__self__, "creation", creation)
         if deletion is not None:
             pulumi.set(__self__, "deletion", deletion)
+        if merge_queue is not None:
+            pulumi.set(__self__, "merge_queue", merge_queue)
         if non_fast_forward is not None:
             pulumi.set(__self__, "non_fast_forward", non_fast_forward)
         if pull_request is not None:
@@ -2734,6 +2743,14 @@ class RepositoryRulesetRules(dict):
         (Boolean) Only allow users with bypass permissions to delete matching refs.
         """
         return pulumi.get(self, "deletion")
+
+    @property
+    @pulumi.getter(name="mergeQueue")
+    def merge_queue(self) -> Optional['outputs.RepositoryRulesetRulesMergeQueue']:
+        """
+        (Block List, Max: 1) Merges must be performed via a merge queue.
+        """
+        return pulumi.get(self, "merge_queue")
 
     @property
     @pulumi.getter(name="nonFastForward")
@@ -3026,6 +3043,126 @@ class RepositoryRulesetRulesCommitterEmailPattern(dict):
         If true, the rule will fail if the pattern matches.
         """
         return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesMergeQueue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkResponseTimeoutMinutes":
+            suggest = "check_response_timeout_minutes"
+        elif key == "groupingStrategy":
+            suggest = "grouping_strategy"
+        elif key == "maxEntriesToBuild":
+            suggest = "max_entries_to_build"
+        elif key == "maxEntriesToMerge":
+            suggest = "max_entries_to_merge"
+        elif key == "mergeMethod":
+            suggest = "merge_method"
+        elif key == "minEntriesToMerge":
+            suggest = "min_entries_to_merge"
+        elif key == "minEntriesToMergeWaitMinutes":
+            suggest = "min_entries_to_merge_wait_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesMergeQueue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesMergeQueue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesMergeQueue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check_response_timeout_minutes: Optional[int] = None,
+                 grouping_strategy: Optional[str] = None,
+                 max_entries_to_build: Optional[int] = None,
+                 max_entries_to_merge: Optional[int] = None,
+                 merge_method: Optional[str] = None,
+                 min_entries_to_merge: Optional[int] = None,
+                 min_entries_to_merge_wait_minutes: Optional[int] = None):
+        """
+        :param int check_response_timeout_minutes: Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+        :param str grouping_strategy: When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+        :param int max_entries_to_build: Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+        :param int max_entries_to_merge: The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+        :param str merge_method: Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+        :param int min_entries_to_merge: The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+        :param int min_entries_to_merge_wait_minutes: The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+        """
+        if check_response_timeout_minutes is not None:
+            pulumi.set(__self__, "check_response_timeout_minutes", check_response_timeout_minutes)
+        if grouping_strategy is not None:
+            pulumi.set(__self__, "grouping_strategy", grouping_strategy)
+        if max_entries_to_build is not None:
+            pulumi.set(__self__, "max_entries_to_build", max_entries_to_build)
+        if max_entries_to_merge is not None:
+            pulumi.set(__self__, "max_entries_to_merge", max_entries_to_merge)
+        if merge_method is not None:
+            pulumi.set(__self__, "merge_method", merge_method)
+        if min_entries_to_merge is not None:
+            pulumi.set(__self__, "min_entries_to_merge", min_entries_to_merge)
+        if min_entries_to_merge_wait_minutes is not None:
+            pulumi.set(__self__, "min_entries_to_merge_wait_minutes", min_entries_to_merge_wait_minutes)
+
+    @property
+    @pulumi.getter(name="checkResponseTimeoutMinutes")
+    def check_response_timeout_minutes(self) -> Optional[int]:
+        """
+        Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+        """
+        return pulumi.get(self, "check_response_timeout_minutes")
+
+    @property
+    @pulumi.getter(name="groupingStrategy")
+    def grouping_strategy(self) -> Optional[str]:
+        """
+        When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+        """
+        return pulumi.get(self, "grouping_strategy")
+
+    @property
+    @pulumi.getter(name="maxEntriesToBuild")
+    def max_entries_to_build(self) -> Optional[int]:
+        """
+        Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+        """
+        return pulumi.get(self, "max_entries_to_build")
+
+    @property
+    @pulumi.getter(name="maxEntriesToMerge")
+    def max_entries_to_merge(self) -> Optional[int]:
+        """
+        The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+        """
+        return pulumi.get(self, "max_entries_to_merge")
+
+    @property
+    @pulumi.getter(name="mergeMethod")
+    def merge_method(self) -> Optional[str]:
+        """
+        Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+        """
+        return pulumi.get(self, "merge_method")
+
+    @property
+    @pulumi.getter(name="minEntriesToMerge")
+    def min_entries_to_merge(self) -> Optional[int]:
+        """
+        The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+        """
+        return pulumi.get(self, "min_entries_to_merge")
+
+    @property
+    @pulumi.getter(name="minEntriesToMergeWaitMinutes")
+    def min_entries_to_merge_wait_minutes(self) -> Optional[int]:
+        """
+        The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+        """
+        return pulumi.get(self, "min_entries_to_merge_wait_minutes")
 
 
 @pulumi.output_type

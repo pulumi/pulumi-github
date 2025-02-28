@@ -6587,6 +6587,7 @@ type RepositoryRulesetBypassActor struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	//
 	// * `OrganizationAdmin` > `1`
 	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode string `pulumi:"bypassMode"`
@@ -6611,6 +6612,7 @@ type RepositoryRulesetBypassActorArgs struct {
 	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+	//
 	// * `OrganizationAdmin` > `1`
 	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
@@ -6680,6 +6682,7 @@ func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 // (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
 //
 // > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+//
 // * `OrganizationAdmin` > `1`
 // * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
@@ -7012,6 +7015,8 @@ type RepositoryRulesetRules struct {
 	Creation *bool `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion *bool `pulumi:"deletion"`
+	// (Block List, Max: 1) Merges must be performed via a merge queue.
+	MergeQueue *RepositoryRulesetRulesMergeQueue `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward *bool `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -7058,6 +7063,8 @@ type RepositoryRulesetRulesArgs struct {
 	Creation pulumi.BoolPtrInput `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion pulumi.BoolPtrInput `pulumi:"deletion"`
+	// (Block List, Max: 1) Merges must be performed via a merge queue.
+	MergeQueue RepositoryRulesetRulesMergeQueuePtrInput `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -7191,6 +7198,11 @@ func (o RepositoryRulesetRulesOutput) Creation() pulumi.BoolPtrOutput {
 // (Boolean) Only allow users with bypass permissions to delete matching refs.
 func (o RepositoryRulesetRulesOutput) Deletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.Deletion }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Merges must be performed via a merge queue.
+func (o RepositoryRulesetRulesOutput) MergeQueue() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMergeQueue { return v.MergeQueue }).(RepositoryRulesetRulesMergeQueuePtrOutput)
 }
 
 // (Boolean) Prevent users with push access from force pushing to branches.
@@ -7331,6 +7343,16 @@ func (o RepositoryRulesetRulesPtrOutput) Deletion() pulumi.BoolPtrOutput {
 		}
 		return v.Deletion
 	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Merges must be performed via a merge queue.
+func (o RepositoryRulesetRulesPtrOutput) MergeQueue() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesMergeQueue {
+		if v == nil {
+			return nil
+		}
+		return v.MergeQueue
+	}).(RepositoryRulesetRulesMergeQueuePtrOutput)
 }
 
 // (Boolean) Prevent users with push access from force pushing to branches.
@@ -8207,6 +8229,257 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.S
 		}
 		return &v.Pattern
 	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesMergeQueue struct {
+	// Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+	CheckResponseTimeoutMinutes *int `pulumi:"checkResponseTimeoutMinutes"`
+	// When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+	GroupingStrategy *string `pulumi:"groupingStrategy"`
+	// Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+	MaxEntriesToBuild *int `pulumi:"maxEntriesToBuild"`
+	// The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+	MaxEntriesToMerge *int `pulumi:"maxEntriesToMerge"`
+	// Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+	MergeMethod *string `pulumi:"mergeMethod"`
+	// The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+	MinEntriesToMerge *int `pulumi:"minEntriesToMerge"`
+	// The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+	MinEntriesToMergeWaitMinutes *int `pulumi:"minEntriesToMergeWaitMinutes"`
+}
+
+// RepositoryRulesetRulesMergeQueueInput is an input type that accepts RepositoryRulesetRulesMergeQueueArgs and RepositoryRulesetRulesMergeQueueOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMergeQueueInput` via:
+//
+//	RepositoryRulesetRulesMergeQueueArgs{...}
+type RepositoryRulesetRulesMergeQueueInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMergeQueueOutput() RepositoryRulesetRulesMergeQueueOutput
+	ToRepositoryRulesetRulesMergeQueueOutputWithContext(context.Context) RepositoryRulesetRulesMergeQueueOutput
+}
+
+type RepositoryRulesetRulesMergeQueueArgs struct {
+	// Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+	CheckResponseTimeoutMinutes pulumi.IntPtrInput `pulumi:"checkResponseTimeoutMinutes"`
+	// When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+	GroupingStrategy pulumi.StringPtrInput `pulumi:"groupingStrategy"`
+	// Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+	MaxEntriesToBuild pulumi.IntPtrInput `pulumi:"maxEntriesToBuild"`
+	// The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+	MaxEntriesToMerge pulumi.IntPtrInput `pulumi:"maxEntriesToMerge"`
+	// Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+	MergeMethod pulumi.StringPtrInput `pulumi:"mergeMethod"`
+	// The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+	MinEntriesToMerge pulumi.IntPtrInput `pulumi:"minEntriesToMerge"`
+	// The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+	MinEntriesToMergeWaitMinutes pulumi.IntPtrInput `pulumi:"minEntriesToMergeWaitMinutes"`
+}
+
+func (RepositoryRulesetRulesMergeQueueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMergeQueue)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesMergeQueueArgs) ToRepositoryRulesetRulesMergeQueueOutput() RepositoryRulesetRulesMergeQueueOutput {
+	return i.ToRepositoryRulesetRulesMergeQueueOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMergeQueueArgs) ToRepositoryRulesetRulesMergeQueueOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMergeQueueOutput)
+}
+
+func (i RepositoryRulesetRulesMergeQueueArgs) ToRepositoryRulesetRulesMergeQueuePtrOutput() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return i.ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMergeQueueArgs) ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMergeQueueOutput).ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesMergeQueuePtrInput is an input type that accepts RepositoryRulesetRulesMergeQueueArgs, RepositoryRulesetRulesMergeQueuePtr and RepositoryRulesetRulesMergeQueuePtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMergeQueuePtrInput` via:
+//
+//	        RepositoryRulesetRulesMergeQueueArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesMergeQueuePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMergeQueuePtrOutput() RepositoryRulesetRulesMergeQueuePtrOutput
+	ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(context.Context) RepositoryRulesetRulesMergeQueuePtrOutput
+}
+
+type repositoryRulesetRulesMergeQueuePtrType RepositoryRulesetRulesMergeQueueArgs
+
+func RepositoryRulesetRulesMergeQueuePtr(v *RepositoryRulesetRulesMergeQueueArgs) RepositoryRulesetRulesMergeQueuePtrInput {
+	return (*repositoryRulesetRulesMergeQueuePtrType)(v)
+}
+
+func (*repositoryRulesetRulesMergeQueuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMergeQueue)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesMergeQueuePtrType) ToRepositoryRulesetRulesMergeQueuePtrOutput() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return i.ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesMergeQueuePtrType) ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMergeQueuePtrOutput)
+}
+
+type RepositoryRulesetRulesMergeQueueOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMergeQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMergeQueue)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMergeQueueOutput) ToRepositoryRulesetRulesMergeQueueOutput() RepositoryRulesetRulesMergeQueueOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMergeQueueOutput) ToRepositoryRulesetRulesMergeQueueOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueueOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMergeQueueOutput) ToRepositoryRulesetRulesMergeQueuePtrOutput() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o.ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesMergeQueueOutput) ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesMergeQueue) *RepositoryRulesetRulesMergeQueue {
+		return &v
+	}).(RepositoryRulesetRulesMergeQueuePtrOutput)
+}
+
+// Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+func (o RepositoryRulesetRulesMergeQueueOutput) CheckResponseTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *int { return v.CheckResponseTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+func (o RepositoryRulesetRulesMergeQueueOutput) GroupingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *string { return v.GroupingStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueueOutput) MaxEntriesToBuild() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *int { return v.MaxEntriesToBuild }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueueOutput) MaxEntriesToMerge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *int { return v.MaxEntriesToMerge }).(pulumi.IntPtrOutput)
+}
+
+// Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+func (o RepositoryRulesetRulesMergeQueueOutput) MergeMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *string { return v.MergeMethod }).(pulumi.StringPtrOutput)
+}
+
+// The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+func (o RepositoryRulesetRulesMergeQueueOutput) MinEntriesToMerge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *int { return v.MinEntriesToMerge }).(pulumi.IntPtrOutput)
+}
+
+// The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueueOutput) MinEntriesToMergeWaitMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMergeQueue) *int { return v.MinEntriesToMergeWaitMinutes }).(pulumi.IntPtrOutput)
+}
+
+type RepositoryRulesetRulesMergeQueuePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMergeQueuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMergeQueue)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) ToRepositoryRulesetRulesMergeQueuePtrOutput() RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) ToRepositoryRulesetRulesMergeQueuePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMergeQueuePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) Elem() RepositoryRulesetRulesMergeQueueOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) RepositoryRulesetRulesMergeQueue {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesMergeQueue
+		return ret
+	}).(RepositoryRulesetRulesMergeQueueOutput)
+}
+
+// Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) CheckResponseTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CheckResponseTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) GroupingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupingStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) MaxEntriesToBuild() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEntriesToBuild
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) MaxEntriesToMerge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEntriesToMerge
+	}).(pulumi.IntPtrOutput)
+}
+
+// Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) MergeMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MergeMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) MinEntriesToMerge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinEntriesToMerge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+func (o RepositoryRulesetRulesMergeQueuePtrOutput) MinEntriesToMergeWaitMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMergeQueue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinEntriesToMergeWaitMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type RepositoryRulesetRulesPullRequest struct {
@@ -15604,6 +15877,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitMessagePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueueInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueuePtrInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestPtrInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningArgs{})
@@ -15804,6 +16079,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitMessagePatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueueOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueuePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningOutput{})

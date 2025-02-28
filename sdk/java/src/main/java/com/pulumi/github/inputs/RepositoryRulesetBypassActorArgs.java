@@ -49,6 +49,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
      * (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     * 
      * * `OrganizationAdmin` &gt; `1`
      * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
@@ -60,6 +61,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
      * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     * 
      * * `OrganizationAdmin` &gt; `1`
      * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      * 
@@ -140,6 +142,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
          * @param bypassMode (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+         * 
          * * `OrganizationAdmin` &gt; `1`
          * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
          * 
@@ -155,6 +158,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
          * @param bypassMode (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+         * 
          * * `OrganizationAdmin` &gt; `1`
          * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
          * 
