@@ -692,6 +692,7 @@ export interface RepositoryRulesetBypassActor {
      * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+     *
      * * `OrganizationAdmin` > `1`
      * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
@@ -741,6 +742,10 @@ export interface RepositoryRulesetRules {
      * (Boolean) Only allow users with bypass permissions to delete matching refs.
      */
     deletion?: pulumi.Input<boolean>;
+    /**
+     * (Block List, Max: 1) Merges must be performed via a merge queue.
+     */
+    mergeQueue?: pulumi.Input<inputs.RepositoryRulesetRulesMergeQueue>;
     /**
      * (Boolean) Prevent users with push access from force pushing to branches.
      */
@@ -857,6 +862,37 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
      * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
+}
+
+export interface RepositoryRulesetRulesMergeQueue {
+    /**
+     * Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+     */
+    checkResponseTimeoutMinutes?: pulumi.Input<number>;
+    /**
+     * When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+     */
+    groupingStrategy?: pulumi.Input<string>;
+    /**
+     * Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+     */
+    maxEntriesToBuild?: pulumi.Input<number>;
+    /**
+     * The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+     */
+    maxEntriesToMerge?: pulumi.Input<number>;
+    /**
+     * Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+     */
+    mergeMethod?: pulumi.Input<string>;
+    /**
+     * The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+     */
+    minEntriesToMerge?: pulumi.Input<number>;
+    /**
+     * The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+     */
+    minEntriesToMergeWaitMinutes?: pulumi.Input<number>;
 }
 
 export interface RepositoryRulesetRulesPullRequest {

@@ -38,6 +38,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? Deletion;
         /// <summary>
+        /// (Block List, Max: 1) Merges must be performed via a merge queue.
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesMergeQueue? MergeQueue;
+        /// <summary>
         /// (Boolean) Prevent users with push access from force pushing to branches.
         /// </summary>
         public readonly bool? NonFastForward;
@@ -92,6 +96,8 @@ namespace Pulumi.Github.Outputs
 
             bool? deletion,
 
+            Outputs.RepositoryRulesetRulesMergeQueue? mergeQueue,
+
             bool? nonFastForward,
 
             Outputs.RepositoryRulesetRulesPullRequest? pullRequest,
@@ -118,6 +124,7 @@ namespace Pulumi.Github.Outputs
             CommitterEmailPattern = committerEmailPattern;
             Creation = creation;
             Deletion = deletion;
+            MergeQueue = mergeQueue;
             NonFastForward = nonFastForward;
             PullRequest = pullRequest;
             RequiredCodeScanning = requiredCodeScanning;

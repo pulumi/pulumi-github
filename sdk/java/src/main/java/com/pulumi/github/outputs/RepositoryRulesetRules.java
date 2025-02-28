@@ -8,6 +8,7 @@ import com.pulumi.github.outputs.RepositoryRulesetRulesBranchNamePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitterEmailPattern;
+import com.pulumi.github.outputs.RepositoryRulesetRulesMergeQueue;
 import com.pulumi.github.outputs.RepositoryRulesetRulesPullRequest;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredCodeScanning;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredDeployments;
@@ -50,6 +51,11 @@ public final class RepositoryRulesetRules {
      * 
      */
     private @Nullable Boolean deletion;
+    /**
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesMergeQueue mergeQueue;
     /**
      * @return (Boolean) Prevent users with push access from force pushing to branches.
      * 
@@ -145,6 +151,13 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.deletion);
     }
     /**
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * 
+     */
+    public Optional<RepositoryRulesetRulesMergeQueue> mergeQueue() {
+        return Optional.ofNullable(this.mergeQueue);
+    }
+    /**
      * @return (Boolean) Prevent users with push access from force pushing to branches.
      * 
      */
@@ -230,6 +243,7 @@ public final class RepositoryRulesetRules {
         private @Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern;
         private @Nullable Boolean creation;
         private @Nullable Boolean deletion;
+        private @Nullable RepositoryRulesetRulesMergeQueue mergeQueue;
         private @Nullable Boolean nonFastForward;
         private @Nullable RepositoryRulesetRulesPullRequest pullRequest;
         private @Nullable RepositoryRulesetRulesRequiredCodeScanning requiredCodeScanning;
@@ -249,6 +263,7 @@ public final class RepositoryRulesetRules {
     	      this.committerEmailPattern = defaults.committerEmailPattern;
     	      this.creation = defaults.creation;
     	      this.deletion = defaults.deletion;
+    	      this.mergeQueue = defaults.mergeQueue;
     	      this.nonFastForward = defaults.nonFastForward;
     	      this.pullRequest = defaults.pullRequest;
     	      this.requiredCodeScanning = defaults.requiredCodeScanning;
@@ -295,6 +310,12 @@ public final class RepositoryRulesetRules {
         public Builder deletion(@Nullable Boolean deletion) {
 
             this.deletion = deletion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mergeQueue(@Nullable RepositoryRulesetRulesMergeQueue mergeQueue) {
+
+            this.mergeQueue = mergeQueue;
             return this;
         }
         @CustomType.Setter
@@ -365,6 +386,7 @@ public final class RepositoryRulesetRules {
             _resultValue.committerEmailPattern = committerEmailPattern;
             _resultValue.creation = creation;
             _resultValue.deletion = deletion;
+            _resultValue.mergeQueue = mergeQueue;
             _resultValue.nonFastForward = nonFastForward;
             _resultValue.pullRequest = pullRequest;
             _resultValue.requiredCodeScanning = requiredCodeScanning;

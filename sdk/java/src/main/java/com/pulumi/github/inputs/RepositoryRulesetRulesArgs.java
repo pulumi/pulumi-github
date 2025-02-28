@@ -9,6 +9,7 @@ import com.pulumi.github.inputs.RepositoryRulesetRulesBranchNamePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitAuthorEmailPatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitterEmailPatternArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesMergeQueueArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesPullRequestArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredCodeScanningArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;
@@ -112,6 +113,21 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> deletion() {
         return Optional.ofNullable(this.deletion);
+    }
+
+    /**
+     * (Block List, Max: 1) Merges must be performed via a merge queue.
+     * 
+     */
+    @Import(name="mergeQueue")
+    private @Nullable Output<RepositoryRulesetRulesMergeQueueArgs> mergeQueue;
+
+    /**
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesMergeQueueArgs>> mergeQueue() {
+        return Optional.ofNullable(this.mergeQueue);
     }
 
     /**
@@ -273,6 +289,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         this.committerEmailPattern = $.committerEmailPattern;
         this.creation = $.creation;
         this.deletion = $.deletion;
+        this.mergeQueue = $.mergeQueue;
         this.nonFastForward = $.nonFastForward;
         this.pullRequest = $.pullRequest;
         this.requiredCodeScanning = $.requiredCodeScanning;
@@ -427,6 +444,27 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
          */
         public Builder deletion(Boolean deletion) {
             return deletion(Output.of(deletion));
+        }
+
+        /**
+         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeQueue(@Nullable Output<RepositoryRulesetRulesMergeQueueArgs> mergeQueue) {
+            $.mergeQueue = mergeQueue;
+            return this;
+        }
+
+        /**
+         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergeQueue(RepositoryRulesetRulesMergeQueueArgs mergeQueue) {
+            return mergeQueue(Output.of(mergeQueue));
         }
 
         /**

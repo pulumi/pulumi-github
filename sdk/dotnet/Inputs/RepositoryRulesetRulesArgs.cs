@@ -49,6 +49,12 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? Deletion { get; set; }
 
         /// <summary>
+        /// (Block List, Max: 1) Merges must be performed via a merge queue.
+        /// </summary>
+        [Input("mergeQueue")]
+        public Input<Inputs.RepositoryRulesetRulesMergeQueueArgs>? MergeQueue { get; set; }
+
+        /// <summary>
         /// (Boolean) Prevent users with push access from force pushing to branches.
         /// </summary>
         [Input("nonFastForward")]
