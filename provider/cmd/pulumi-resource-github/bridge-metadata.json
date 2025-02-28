@@ -704,6 +704,9 @@
                                 "committer_email_pattern": {
                                     "maxItemsOne": true
                                 },
+                                "merge_queue": {
+                                    "maxItemsOne": true
+                                },
                                 "pull_request": {
                                     "maxItemsOne": true
                                 },
