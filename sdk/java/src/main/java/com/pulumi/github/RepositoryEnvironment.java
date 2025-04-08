@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .repository(example.name())
  *             .preventSelfReview(true)
  *             .reviewers(RepositoryEnvironmentReviewerArgs.builder()
- *                 .users(current.applyValue(getUserResult -> getUserResult.id()))
+ *                 .users(current.id())
  *                 .build())
  *             .deploymentBranchPolicy(RepositoryEnvironmentDeploymentBranchPolicyArgs.builder()
  *                 .protectedBranches(true)

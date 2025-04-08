@@ -620,7 +620,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -659,7 +659,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -698,7 +698,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -737,7 +737,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -776,7 +776,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -815,7 +815,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -854,7 +854,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate();
+     *         final var example = GithubFunctions.getActionsOrganizationOidcSubjectClaimCustomizationTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -894,7 +894,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -934,7 +934,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -974,7 +974,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1014,7 +1014,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1054,7 +1054,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1094,7 +1094,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1134,7 +1134,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationPublicKey();
+     *         final var example = GithubFunctions.getActionsOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1173,7 +1173,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1212,7 +1212,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1251,7 +1251,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1290,7 +1290,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1329,7 +1329,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1368,7 +1368,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1407,7 +1407,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken();
+     *         final var example = GithubFunctions.getActionsOrganizationRegistrationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1446,7 +1446,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1485,7 +1485,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1524,7 +1524,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1563,7 +1563,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1602,7 +1602,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1641,7 +1641,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1680,7 +1680,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationSecrets();
+     *         final var example = GithubFunctions.getActionsOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1719,7 +1719,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1758,7 +1758,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1797,7 +1797,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1836,7 +1836,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1875,7 +1875,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1914,7 +1914,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1953,7 +1953,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getActionsOrganizationVariables();
+     *         final var example = GithubFunctions.getActionsOrganizationVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3201,6 +3201,8 @@ public final class GithubFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.List;
@@ -3247,6 +3249,8 @@ public final class GithubFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.List;
@@ -3293,6 +3297,8 @@ public final class GithubFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.List;
@@ -3339,6 +3345,8 @@ public final class GithubFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.List;
@@ -3385,6 +3393,8 @@ public final class GithubFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.FileArgs;
      * import com.pulumi.github.GithubFunctions;
      * import com.pulumi.github.inputs.GetAppTokenArgs;
      * import java.util.List;
@@ -3871,7 +3881,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3911,7 +3921,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3951,7 +3961,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3991,7 +4001,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4031,7 +4041,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4071,7 +4081,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4111,7 +4121,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey();
+     *         final var example = GithubFunctions.getCodespacesOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4150,7 +4160,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4189,7 +4199,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4228,7 +4238,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4267,7 +4277,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4306,7 +4316,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4345,7 +4355,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4384,7 +4394,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets();
+     *         final var example = GithubFunctions.getCodespacesOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -4961,7 +4971,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5001,7 +5011,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5041,7 +5051,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5081,7 +5091,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5121,7 +5131,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5161,7 +5171,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5201,7 +5211,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserPublicKey();
+     *         final var example = GithubFunctions.getCodespacesUserPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5240,7 +5250,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5279,7 +5289,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5318,7 +5328,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5357,7 +5367,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5396,7 +5406,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5435,7 +5445,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5474,7 +5484,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getCodespacesUserSecrets();
+     *         final var example = GithubFunctions.getCodespacesUserSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5729,7 +5739,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5769,7 +5779,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5809,7 +5819,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5849,7 +5859,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5889,7 +5899,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5929,7 +5939,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -5969,7 +5979,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey();
+     *         final var example = GithubFunctions.getDependabotOrganizationPublicKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6008,7 +6018,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6047,7 +6057,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6086,7 +6096,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6125,7 +6135,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6164,7 +6174,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6203,7 +6213,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6242,7 +6252,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getDependabotOrganizationSecrets();
+     *         final var example = GithubFunctions.getDependabotOrganizationSecrets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7000,9 +7010,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7042,9 +7052,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7084,9 +7094,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7126,9 +7136,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7168,9 +7178,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7210,9 +7220,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7252,9 +7262,9 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups();
+     *         final var exampleExternalGroups = GithubFunctions.getExternalGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var localGroups = exampleExternalGroups.applyValue(getExternalGroupsResult -> getExternalGroupsResult);
+     *         final var localGroups = exampleExternalGroups;
      * 
      *         ctx.export("groups", localGroups);
      *     }
@@ -7504,7 +7514,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7543,7 +7553,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7582,7 +7592,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7621,7 +7631,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7660,7 +7670,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7699,7 +7709,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7738,7 +7748,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getIpRanges();
+     *         final var test = GithubFunctions.getIpRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8468,7 +8478,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8508,7 +8518,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8548,7 +8558,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8588,7 +8598,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8628,7 +8638,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8668,7 +8678,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8708,7 +8718,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationExternalIdentities();
+     *         final var all = GithubFunctions.getOrganizationExternalIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8749,7 +8759,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8790,7 +8800,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8831,7 +8841,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8872,7 +8882,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8913,7 +8923,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8954,7 +8964,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -8995,7 +9005,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationIpAllowList();
+     *         final var all = GithubFunctions.getOrganizationIpAllowList(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9034,7 +9044,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9073,7 +9083,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9112,7 +9122,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9151,7 +9161,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9190,7 +9200,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9229,7 +9239,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9268,7 +9278,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups();
+     *         final var test = GithubFunctions.getOrganizationTeamSyncGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9310,7 +9320,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9387,7 +9398,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9464,7 +9476,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9541,7 +9554,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9618,7 +9632,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9695,7 +9710,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9772,7 +9788,8 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationTeams();
+     *         final var all = GithubFunctions.getOrganizationTeams(GetOrganizationTeamsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9848,7 +9865,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9889,7 +9906,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9930,7 +9947,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -9971,7 +9988,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -10012,7 +10029,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -10053,7 +10070,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -10094,7 +10111,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = GithubFunctions.getOrganizationWebhooks();
+     *         final var all = GithubFunctions.getOrganizationWebhooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -10371,39 +10388,6 @@ public final class GithubFunctions {
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.github.GithubFunctions;
-     * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .repository("example-repository")
-     *             .owner("example-owner")
-     *             .retrieveBy("id")
-     *             .id(12345)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
@@ -10493,39 +10477,6 @@ public final class GithubFunctions {
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.github.GithubFunctions;
-     * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .repository("example-repository")
-     *             .owner("example-owner")
-     *             .retrieveBy("id")
-     *             .id(12345)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
@@ -10615,39 +10566,6 @@ public final class GithubFunctions {
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.github.GithubFunctions;
-     * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .repository("example-repository")
-     *             .owner("example-owner")
-     *             .retrieveBy("id")
-     *             .id(12345)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
@@ -10737,39 +10655,6 @@ public final class GithubFunctions {
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.github.GithubFunctions;
-     * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .repository("example-repository")
-     *             .owner("example-owner")
-     *             .retrieveBy("id")
-     *             .id(12345)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
@@ -10859,39 +10744,6 @@ public final class GithubFunctions {
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.github.GithubFunctions;
-     * import com.pulumi.github.inputs.GetReleaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
-     *             .repository("example-repository")
-     *             .owner("example-owner")
-     *             .retrieveBy("id")
-     *             .id(12345)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * Finally, to retrieve a release based on it&#39;s tag:
@@ -14366,7 +14218,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14405,7 +14257,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14444,7 +14296,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14483,7 +14335,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14522,7 +14374,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14561,7 +14413,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14600,7 +14452,7 @@ public final class GithubFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = GithubFunctions.getSshKeys();
+     *         final var test = GithubFunctions.getSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -14864,10 +14716,10 @@ public final class GithubFunctions {
      *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
      *             .repository(this_.name())
-     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .treeSha(thisGetBranch.sha())
      *             .build());
      * 
-     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.entries());
      *     }
      * }
      * }
@@ -14920,10 +14772,10 @@ public final class GithubFunctions {
      *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
      *             .repository(this_.name())
-     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .treeSha(thisGetBranch.sha())
      *             .build());
      * 
-     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.entries());
      *     }
      * }
      * }
@@ -14976,10 +14828,10 @@ public final class GithubFunctions {
      *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
      *             .repository(this_.name())
-     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .treeSha(thisGetBranch.sha())
      *             .build());
      * 
-     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.entries());
      *     }
      * }
      * }
@@ -15032,10 +14884,10 @@ public final class GithubFunctions {
      *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
      *             .repository(this_.name())
-     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .treeSha(thisGetBranch.sha())
      *             .build());
      * 
-     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.entries());
      *     }
      * }
      * }
@@ -15088,10 +14940,10 @@ public final class GithubFunctions {
      *         final var thisGetTree = GithubFunctions.getTree(GetTreeArgs.builder()
      *             .recursive(false)
      *             .repository(this_.name())
-     *             .treeSha(thisGetBranch.applyValue(getBranchResult -> getBranchResult.sha()))
+     *             .treeSha(thisGetBranch.sha())
      *             .build());
      * 
-     *         ctx.export("entries", thisGetTree.applyValue(getTreeResult -> getTreeResult.entries()));
+     *         ctx.export("entries", thisGetTree.entries());
      *     }
      * }
      * }
@@ -15140,7 +14992,7 @@ public final class GithubFunctions {
      *             .username("")
      *             .build());
      * 
-     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.login());
      *     }
      * }
      * }
@@ -15189,7 +15041,7 @@ public final class GithubFunctions {
      *             .username("")
      *             .build());
      * 
-     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.login());
      *     }
      * }
      * }
@@ -15238,7 +15090,7 @@ public final class GithubFunctions {
      *             .username("")
      *             .build());
      * 
-     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.login());
      *     }
      * }
      * }
@@ -15287,7 +15139,7 @@ public final class GithubFunctions {
      *             .username("")
      *             .build());
      * 
-     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.login());
      *     }
      * }
      * }
@@ -15336,7 +15188,7 @@ public final class GithubFunctions {
      *             .username("")
      *             .build());
      * 
-     *         ctx.export("currentGithubLogin", current.applyValue(getUserResult -> getUserResult.login()));
+     *         ctx.export("currentGithubLogin", current.login());
      *     }
      * }
      * }
@@ -15598,8 +15450,8 @@ public final class GithubFunctions {
      *                 "example3")
      *             .build());
      * 
-     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
-     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.logins());
+     *         ctx.export("invalidUsers", example.unknownLogins());
      *     }
      * }
      * }
@@ -15646,8 +15498,8 @@ public final class GithubFunctions {
      *                 "example3")
      *             .build());
      * 
-     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
-     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.logins());
+     *         ctx.export("invalidUsers", example.unknownLogins());
      *     }
      * }
      * }
@@ -15694,8 +15546,8 @@ public final class GithubFunctions {
      *                 "example3")
      *             .build());
      * 
-     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
-     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.logins());
+     *         ctx.export("invalidUsers", example.unknownLogins());
      *     }
      * }
      * }
@@ -15742,8 +15594,8 @@ public final class GithubFunctions {
      *                 "example3")
      *             .build());
      * 
-     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
-     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.logins());
+     *         ctx.export("invalidUsers", example.unknownLogins());
      *     }
      * }
      * }
@@ -15790,8 +15642,8 @@ public final class GithubFunctions {
      *                 "example3")
      *             .build());
      * 
-     *         ctx.export("validUsers", example.applyValue(getUsersResult -> getUsersResult.logins()));
-     *         ctx.export("invalidUsers", example.applyValue(getUsersResult -> getUsersResult.unknownLogins()));
+     *         ctx.export("validUsers", example.logins());
+     *         ctx.export("invalidUsers", example.unknownLogins());
      *     }
      * }
      * }
