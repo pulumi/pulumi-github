@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var enterpriseOrganization = new EnterpriseOrganization("enterpriseOrganization", EnterpriseOrganizationArgs.builder()
- *             .enterpriseId(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.id()))
+ *             .enterpriseId(enterprise.id())
  *             .name("my-organization")
  *             .billingEmail("octocat}{@literal @}{@code octo.cat")
  *             .adminLogins("octocat")
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new EnterpriseActionsRunnerGroup("example", EnterpriseActionsRunnerGroupArgs.builder()
  *             .name("my-awesome-runner-group")
- *             .enterpriseSlug(enterprise.applyValue(getEnterpriseResult -> getEnterpriseResult.slug()))
+ *             .enterpriseSlug(enterprise.slug())
  *             .allowsPublicRepositories(true)
  *             .visibility("selected")
  *             .selectedOrganizationIds(enterpriseOrganization.databaseId())

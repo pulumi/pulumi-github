@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var orgSecretRepos = new ActionsOrganizationSecretRepositories("orgSecretRepos", ActionsOrganizationSecretRepositoriesArgs.builder()
  *             .secretName("existing_secret_name")
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
+ *             .selectedRepositoryIds(repo.repoId())
  *             .build());
  * 
  *     }
