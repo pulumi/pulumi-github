@@ -84,19 +84,19 @@ import javax.annotation.Nullable;
  *                 .dismissStaleReviews(true)
  *                 .restrictDismissals(true)
  *                 .dismissalRestrictions(                
- *                     example.applyValue(getUserResult -> getUserResult.nodeId()),
+ *                     example.nodeId(),
  *                     exampleTeam.nodeId(),
  *                     "/exampleuser",
  *                     "exampleorganization/exampleteam")
  *                 .build())
  *             .restrictPushes(BranchProtectionRestrictPushArgs.builder()
  *                 .pushAllowances(                
- *                     example.applyValue(getUserResult -> getUserResult.nodeId()),
+ *                     example.nodeId(),
  *                     "/exampleuser",
  *                     "exampleorganization/exampleteam")
  *                 .build())
  *             .forcePushBypassers(            
- *                 example.applyValue(getUserResult -> getUserResult.nodeId()),
+ *                 example.nodeId(),
  *                 "/exampleuser",
  *                 "exampleorganization/exampleteam")
  *             .build());

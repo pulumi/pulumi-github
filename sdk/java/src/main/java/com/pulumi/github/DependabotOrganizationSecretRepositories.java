@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var orgSecretRepos = new DependabotOrganizationSecretRepositories("orgSecretRepos", DependabotOrganizationSecretRepositoriesArgs.builder()
  *             .secretName(exampleSecret.secretName())
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
+ *             .selectedRepositoryIds(repo.repoId())
  *             .build());
  * 
  *     }

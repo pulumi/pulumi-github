@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *             .variableName("example_variable_name")
  *             .visibility("selected")
  *             .value("example_variable_value")
- *             .selectedRepositoryIds(repo.applyValue(getRepositoryResult -> getRepositoryResult.repoId()))
+ *             .selectedRepositoryIds(repo.repoId())
  *             .build());
  * 
  *     }
