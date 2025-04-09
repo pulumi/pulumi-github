@@ -86,12 +86,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var repoEnvironment = new RepositoryEnvironment("repoEnvironment", RepositoryEnvironmentArgs.builder()
- *             .repository(repo.applyValue(getRepositoryResult -> getRepositoryResult.name()))
+ *             .repository(repo.name())
  *             .environment("example_environment")
  *             .build());
  * 
  *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()
- *             .repository(repo.applyValue(getRepositoryResult -> getRepositoryResult.name()))
+ *             .repository(repo.name())
  *             .environment(repoEnvironment.environment())
  *             .variableName("example_variable_name")
  *             .value("example_variable_value")
