@@ -144,6 +144,9 @@ class _TeamRepositoryState:
 
 
 class TeamRepository(pulumi.CustomResource):
+
+    pulumi_type = "github:index/teamRepository:TeamRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

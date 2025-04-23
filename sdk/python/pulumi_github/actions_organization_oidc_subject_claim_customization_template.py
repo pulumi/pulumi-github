@@ -65,6 +65,9 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
 
 
 class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

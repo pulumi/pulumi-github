@@ -98,6 +98,9 @@ class _UserInvitationAccepterState:
 
 
 class UserInvitationAccepter(pulumi.CustomResource):
+
+    pulumi_type = "github:index/userInvitationAccepter:UserInvitationAccepter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

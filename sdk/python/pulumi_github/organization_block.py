@@ -77,6 +77,9 @@ class _OrganizationBlockState:
 
 
 class OrganizationBlock(pulumi.CustomResource):
+
+    pulumi_type = "github:index/organizationBlock:OrganizationBlock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

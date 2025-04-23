@@ -96,6 +96,9 @@ class _DependabotOrganizationSecretRepositoriesState:
 
 
 class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
+
+    pulumi_type = "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

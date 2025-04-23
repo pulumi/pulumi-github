@@ -239,6 +239,9 @@ class _EnterpriseOrganizationState:
 
 
 class EnterpriseOrganization(pulumi.CustomResource):
+
+    pulumi_type = "github:index/enterpriseOrganization:EnterpriseOrganization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
