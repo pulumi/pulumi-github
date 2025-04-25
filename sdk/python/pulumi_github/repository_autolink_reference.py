@@ -175,6 +175,9 @@ class _RepositoryAutolinkReferenceState:
 
 
 class RepositoryAutolinkReference(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryAutolinkReference:RepositoryAutolinkReference"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,6 +159,9 @@ class _ActionsVariableState:
 
 
 class ActionsVariable(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsVariable:ActionsVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

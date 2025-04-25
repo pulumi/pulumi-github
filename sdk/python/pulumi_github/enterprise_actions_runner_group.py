@@ -320,6 +320,9 @@ class _EnterpriseActionsRunnerGroupState:
 
 
 class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
+
+    pulumi_type = "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

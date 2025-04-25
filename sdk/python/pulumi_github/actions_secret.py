@@ -192,6 +192,9 @@ class _ActionsSecretState:
 
 
 class ActionsSecret(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsSecret:ActionsSecret"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

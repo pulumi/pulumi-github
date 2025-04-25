@@ -239,6 +239,9 @@ class _RepositoryMilestoneState:
 
 
 class RepositoryMilestone(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryMilestone:RepositoryMilestone"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

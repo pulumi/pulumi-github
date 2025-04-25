@@ -194,6 +194,9 @@ class _EnterpriseActionsPermissionsState:
 
 
 class EnterpriseActionsPermissions(pulumi.CustomResource):
+
+    pulumi_type = "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
