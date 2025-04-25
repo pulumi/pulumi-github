@@ -258,6 +258,9 @@ class _RepositoryEnvironmentState:
 
 
 class RepositoryEnvironment(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryEnvironment:RepositoryEnvironment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

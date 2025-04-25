@@ -159,6 +159,9 @@ class _OrganizationWebhookState:
 
 
 class OrganizationWebhook(pulumi.CustomResource):
+
+    pulumi_type = "github:index/organizationWebhook:OrganizationWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

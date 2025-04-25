@@ -96,6 +96,9 @@ class _ActionsRepositoryAccessLevelState:
 
 
 class ActionsRepositoryAccessLevel(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

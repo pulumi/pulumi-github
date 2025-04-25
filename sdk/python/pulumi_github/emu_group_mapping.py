@@ -108,6 +108,9 @@ class _EmuGroupMappingState:
 
 
 class EmuGroupMapping(pulumi.CustomResource):
+
+    pulumi_type = "github:index/emuGroupMapping:EmuGroupMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

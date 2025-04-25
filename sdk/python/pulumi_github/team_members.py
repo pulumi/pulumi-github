@@ -106,6 +106,9 @@ class _TeamMembersState:
 
 
 class TeamMembers(pulumi.CustomResource):
+
+    pulumi_type = "github:index/teamMembers:TeamMembers"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

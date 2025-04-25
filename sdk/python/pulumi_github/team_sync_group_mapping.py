@@ -123,6 +123,9 @@ class _TeamSyncGroupMappingState:
 
 
 class TeamSyncGroupMapping(pulumi.CustomResource):
+
+    pulumi_type = "github:index/teamSyncGroupMapping:TeamSyncGroupMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -145,11 +148,11 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{
-                "group_id": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-                "group_name": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-                "group_description": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-            } for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
+            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]].apply(lambda entries: [{
+                "groupId": entry["value"].group_id,
+                "groupName": entry["value"].group_name,
+                "groupDescription": entry["value"].group_description,
+            } for entry in entries]),
             team_slug="example")
         ```
 
@@ -190,11 +193,11 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{
-                "group_id": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-                "group_name": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-                "group_description": %!v(PANIC=Format method: runtime error: index out of range [-1]),
-            } for entry in [{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]]],
+            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]].apply(lambda entries: [{
+                "groupId": entry["value"].group_id,
+                "groupName": entry["value"].group_name,
+                "groupDescription": entry["value"].group_description,
+            } for entry in entries]),
             team_slug="example")
         ```
 
