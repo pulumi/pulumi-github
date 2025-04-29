@@ -96,6 +96,9 @@ class _ActionsOrganizationSecretRepositoriesState:
 
 
 class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,6 +96,9 @@ class _RepositoryDependabotSecurityUpdatesState:
 
 
 class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

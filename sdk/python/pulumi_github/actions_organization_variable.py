@@ -195,6 +195,9 @@ class _ActionsOrganizationVariableState:
 
 
 class ActionsOrganizationVariable(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsOrganizationVariable:ActionsOrganizationVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

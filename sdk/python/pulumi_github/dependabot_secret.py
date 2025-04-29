@@ -192,6 +192,9 @@ class _DependabotSecretState:
 
 
 class DependabotSecret(pulumi.CustomResource):
+
+    pulumi_type = "github:index/dependabotSecret:DependabotSecret"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

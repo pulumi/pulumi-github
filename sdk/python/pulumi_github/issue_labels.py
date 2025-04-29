@@ -99,6 +99,9 @@ class _IssueLabelsState:
 
 
 class IssueLabels(pulumi.CustomResource):
+
+    pulumi_type = "github:index/issueLabels:IssueLabels"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

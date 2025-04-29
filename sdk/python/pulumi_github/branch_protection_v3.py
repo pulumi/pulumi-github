@@ -302,6 +302,9 @@ class _BranchProtectionV3State:
 
 
 class BranchProtectionV3(pulumi.CustomResource):
+
+    pulumi_type = "github:index/branchProtectionV3:BranchProtectionV3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

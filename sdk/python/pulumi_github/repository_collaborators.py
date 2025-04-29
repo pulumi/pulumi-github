@@ -181,6 +181,9 @@ class _RepositoryCollaboratorsState:
 
 
 class RepositoryCollaborators(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryCollaborators:RepositoryCollaborators"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

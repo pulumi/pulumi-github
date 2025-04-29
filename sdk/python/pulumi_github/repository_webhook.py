@@ -190,6 +190,9 @@ class _RepositoryWebhookState:
 
 
 class RepositoryWebhook(pulumi.CustomResource):
+
+    pulumi_type = "github:index/repositoryWebhook:RepositoryWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

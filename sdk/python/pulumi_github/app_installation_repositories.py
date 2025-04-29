@@ -104,6 +104,9 @@ class _AppInstallationRepositoriesState:
 
 
 class AppInstallationRepositories(pulumi.CustomResource):
+
+    pulumi_type = "github:index/appInstallationRepositories:AppInstallationRepositories"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

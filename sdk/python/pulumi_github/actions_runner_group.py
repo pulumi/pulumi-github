@@ -305,6 +305,9 @@ class _ActionsRunnerGroupState:
 
 
 class ActionsRunnerGroup(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsRunnerGroup:ActionsRunnerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
