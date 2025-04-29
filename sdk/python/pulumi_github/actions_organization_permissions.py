@@ -163,6 +163,9 @@ class _ActionsOrganizationPermissionsState:
 
 
 class ActionsOrganizationPermissions(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

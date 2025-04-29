@@ -160,6 +160,9 @@ class _OrganizationCustomRoleState:
 
 
 class OrganizationCustomRole(pulumi.CustomResource):
+
+    pulumi_type = "github:index/organizationCustomRole:OrganizationCustomRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

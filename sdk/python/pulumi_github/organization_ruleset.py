@@ -273,6 +273,9 @@ class _OrganizationRulesetState:
 
 
 class OrganizationRuleset(pulumi.CustomResource):
+
+    pulumi_type = "github:index/organizationRuleset:OrganizationRuleset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

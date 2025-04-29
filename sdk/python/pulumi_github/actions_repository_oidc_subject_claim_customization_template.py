@@ -132,6 +132,9 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
 
 
 class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResource):
+
+    pulumi_type = "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

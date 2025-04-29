@@ -126,6 +126,9 @@ class _OrganizationProjectState:
 
 
 class OrganizationProject(pulumi.CustomResource):
+
+    pulumi_type = "github:index/organizationProject:OrganizationProject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
