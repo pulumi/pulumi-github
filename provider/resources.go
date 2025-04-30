@@ -261,6 +261,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		EnableZeroDefaultSchemaVersion: true,
 		EnableAccurateBridgePreview:    true,
+		EnableRawStateDelta:            true,
 	}
 
 	prov.MustComputeTokens(tfbridgetokens.SingleModule("github_", mainMod,
