@@ -227,10 +227,8 @@ class _CodespacesOrganizationSecretState:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret")
 class CodespacesOrganizationSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

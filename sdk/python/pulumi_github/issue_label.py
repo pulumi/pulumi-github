@@ -187,10 +187,8 @@ class _IssueLabelState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("github:index/issueLabel:IssueLabel")
 class IssueLabel(pulumi.CustomResource):
-
-    pulumi_type = "github:index/issueLabel:IssueLabel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

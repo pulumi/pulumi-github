@@ -864,10 +864,8 @@ class _OrganizationSettingsState:
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
+@pulumi.type_token("github:index/organizationSettings:OrganizationSettings")
 class OrganizationSettings(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationSettings:OrganizationSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

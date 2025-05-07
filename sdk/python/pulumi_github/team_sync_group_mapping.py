@@ -122,10 +122,8 @@ class _TeamSyncGroupMappingState:
         pulumi.set(self, "team_slug", value)
 
 
+@pulumi.type_token("github:index/teamSyncGroupMapping:TeamSyncGroupMapping")
 class TeamSyncGroupMapping(pulumi.CustomResource):
-
-    pulumi_type = "github:index/teamSyncGroupMapping:TeamSyncGroupMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

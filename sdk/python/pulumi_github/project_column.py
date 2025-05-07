@@ -124,10 +124,8 @@ class _ProjectColumnState:
         pulumi.set(self, "project_id", value)
 
 
+@pulumi.type_token("github:index/projectColumn:ProjectColumn")
 class ProjectColumn(pulumi.CustomResource):
-
-    pulumi_type = "github:index/projectColumn:ProjectColumn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

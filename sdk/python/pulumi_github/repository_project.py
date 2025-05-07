@@ -156,10 +156,8 @@ class _RepositoryProjectState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("github:index/repositoryProject:RepositoryProject")
 class RepositoryProject(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryProject:RepositoryProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

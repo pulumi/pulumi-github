@@ -64,10 +64,8 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
         pulumi.set(self, "include_claim_keys", value)
 
 
+@pulumi.type_token("github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate")
 class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

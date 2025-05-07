@@ -319,10 +319,8 @@ class _EnterpriseActionsRunnerGroupState:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup")
 class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
-
-    pulumi_type = "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

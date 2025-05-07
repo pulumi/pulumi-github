@@ -238,10 +238,8 @@ class _RepositoryMilestoneState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("github:index/repositoryMilestone:RepositoryMilestone")
 class RepositoryMilestone(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryMilestone:RepositoryMilestone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

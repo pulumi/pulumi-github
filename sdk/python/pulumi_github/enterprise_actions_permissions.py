@@ -193,10 +193,8 @@ class _EnterpriseActionsPermissionsState:
         pulumi.set(self, "enterprise_slug", value)
 
 
+@pulumi.type_token("github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions")
 class EnterpriseActionsPermissions(pulumi.CustomResource):
-
-    pulumi_type = "github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

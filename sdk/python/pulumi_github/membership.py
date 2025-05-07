@@ -160,10 +160,8 @@ class _MembershipState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("github:index/membership:Membership")
 class Membership(pulumi.CustomResource):
-
-    pulumi_type = "github:index/membership:Membership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

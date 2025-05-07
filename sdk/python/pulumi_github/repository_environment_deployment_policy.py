@@ -159,10 +159,8 @@ class _RepositoryEnvironmentDeploymentPolicyState:
         pulumi.set(self, "tag_pattern", value)
 
 
+@pulumi.type_token("github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy")
 class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

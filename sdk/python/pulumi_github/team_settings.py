@@ -130,10 +130,8 @@ class _TeamSettingsState:
         pulumi.set(self, "team_uid", value)
 
 
+@pulumi.type_token("github:index/teamSettings:TeamSettings")
 class TeamSettings(pulumi.CustomResource):
-
-    pulumi_type = "github:index/teamSettings:TeamSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

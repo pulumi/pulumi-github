@@ -491,10 +491,8 @@ class _ReleaseState:
         pulumi.set(self, "zipball_url", value)
 
 
+@pulumi.type_token("github:index/release:Release")
 class Release(pulumi.CustomResource):
-
-    pulumi_type = "github:index/release:Release"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

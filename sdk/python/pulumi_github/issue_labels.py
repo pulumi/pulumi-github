@@ -98,10 +98,8 @@ class _IssueLabelsState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("github:index/issueLabels:IssueLabels")
 class IssueLabels(pulumi.CustomResource):
-
-    pulumi_type = "github:index/issueLabels:IssueLabels"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

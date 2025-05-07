@@ -449,10 +449,8 @@ class _BranchProtectionState:
         pulumi.set(self, "restrict_pushes", value)
 
 
+@pulumi.type_token("github:index/branchProtection:BranchProtection")
 class BranchProtection(pulumi.CustomResource):
-
-    pulumi_type = "github:index/branchProtection:BranchProtection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

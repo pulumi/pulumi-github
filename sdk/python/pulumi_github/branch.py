@@ -207,10 +207,8 @@ class _BranchState:
         pulumi.set(self, "source_sha", value)
 
 
+@pulumi.type_token("github:index/branch:Branch")
 class Branch(pulumi.CustomResource):
-
-    pulumi_type = "github:index/branch:Branch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -174,10 +174,8 @@ class _RepositoryAutolinkReferenceState:
         pulumi.set(self, "target_url_template", value)
 
 
+@pulumi.type_token("github:index/repositoryAutolinkReference:RepositoryAutolinkReference")
 class RepositoryAutolinkReference(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryAutolinkReference:RepositoryAutolinkReference"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

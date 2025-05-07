@@ -64,10 +64,8 @@ class _OrganizationSecurityManagerState:
         pulumi.set(self, "team_slug", value)
 
 
+@pulumi.type_token("github:index/organizationSecurityManager:OrganizationSecurityManager")
 class OrganizationSecurityManager(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationSecurityManager:OrganizationSecurityManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
