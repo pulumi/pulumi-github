@@ -95,10 +95,8 @@ class _CodespacesOrganizationSecretRepositoriesState:
         pulumi.set(self, "selected_repository_ids", value)
 
 
+@pulumi.type_token("github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories")
 class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
-
-    pulumi_type = "github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _OrganizationCustomRoleState:
         pulumi.set(self, "permissions", value)
 
 
+@pulumi.type_token("github:index/organizationCustomRole:OrganizationCustomRole")
 class OrganizationCustomRole(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationCustomRole:OrganizationCustomRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

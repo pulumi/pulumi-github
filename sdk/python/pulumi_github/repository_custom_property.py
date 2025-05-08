@@ -157,10 +157,8 @@ class _RepositoryCustomPropertyState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("github:index/repositoryCustomProperty:RepositoryCustomProperty")
 class RepositoryCustomProperty(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryCustomProperty:RepositoryCustomProperty"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

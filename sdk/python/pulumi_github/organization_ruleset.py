@@ -272,10 +272,8 @@ class _OrganizationRulesetState:
         pulumi.set(self, "target", value)
 
 
+@pulumi.type_token("github:index/organizationRuleset:OrganizationRuleset")
 class OrganizationRuleset(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationRuleset:OrganizationRuleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

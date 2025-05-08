@@ -131,10 +131,8 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
         pulumi.set(self, "use_default", value)
 
 
+@pulumi.type_token("github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate")
 class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

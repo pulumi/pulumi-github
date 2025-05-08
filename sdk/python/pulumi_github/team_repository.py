@@ -143,10 +143,8 @@ class _TeamRepositoryState:
         pulumi.set(self, "team_id", value)
 
 
+@pulumi.type_token("github:index/teamRepository:TeamRepository")
 class TeamRepository(pulumi.CustomResource):
-
-    pulumi_type = "github:index/teamRepository:TeamRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

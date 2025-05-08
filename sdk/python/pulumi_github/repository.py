@@ -1315,10 +1315,8 @@ class _RepositoryState:
         pulumi.set(self, "web_commit_signoff_required", value)
 
 
+@pulumi.type_token("github:index/repository:Repository")
 class Repository(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repository:Repository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

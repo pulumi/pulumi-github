@@ -267,10 +267,8 @@ class _IssueState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("github:index/issue:Issue")
 class Issue(pulumi.CustomResource):
-
-    pulumi_type = "github:index/issue:Issue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -125,10 +125,8 @@ class _OrganizationProjectState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("github:index/organizationProject:OrganizationProject")
 class OrganizationProject(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationProject:OrganizationProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

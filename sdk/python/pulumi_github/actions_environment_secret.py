@@ -222,10 +222,8 @@ class _ActionsEnvironmentSecretState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")
 class ActionsEnvironmentSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

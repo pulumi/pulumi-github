@@ -238,10 +238,8 @@ class _EnterpriseOrganizationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("github:index/enterpriseOrganization:EnterpriseOrganization")
 class EnterpriseOrganization(pulumi.CustomResource):
-
-    pulumi_type = "github:index/enterpriseOrganization:EnterpriseOrganization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

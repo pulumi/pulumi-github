@@ -200,10 +200,8 @@ class _ProjectCardState:
         pulumi.set(self, "note", value)
 
 
+@pulumi.type_token("github:index/projectCard:ProjectCard")
 class ProjectCard(pulumi.CustomResource):
-
-    pulumi_type = "github:index/projectCard:ProjectCard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

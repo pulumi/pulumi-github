@@ -189,10 +189,8 @@ class _ActionsEnvironmentVariableState:
         pulumi.set(self, "variable_name", value)
 
 
+@pulumi.type_token("github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable")
 class ActionsEnvironmentVariable(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

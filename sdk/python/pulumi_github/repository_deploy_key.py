@@ -178,10 +178,8 @@ class _RepositoryDeployKeyState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("github:index/repositoryDeployKey:RepositoryDeployKey")
 class RepositoryDeployKey(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryDeployKey:RepositoryDeployKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

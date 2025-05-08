@@ -192,10 +192,8 @@ class _CodespacesUserSecretState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("github:index/codespacesUserSecret:CodespacesUserSecret")
 class CodespacesUserSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/codespacesUserSecret:CodespacesUserSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

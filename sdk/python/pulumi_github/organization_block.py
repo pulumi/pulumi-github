@@ -76,10 +76,8 @@ class _OrganizationBlockState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("github:index/organizationBlock:OrganizationBlock")
 class OrganizationBlock(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationBlock:OrganizationBlock"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

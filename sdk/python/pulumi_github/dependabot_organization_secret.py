@@ -227,10 +227,8 @@ class _DependabotOrganizationSecretState:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("github:index/dependabotOrganizationSecret:DependabotOrganizationSecret")
 class DependabotOrganizationSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/dependabotOrganizationSecret:DependabotOrganizationSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
