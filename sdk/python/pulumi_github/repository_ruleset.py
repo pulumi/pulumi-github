@@ -304,10 +304,8 @@ class _RepositoryRulesetState:
         pulumi.set(self, "target", value)
 
 
+@pulumi.type_token("github:index/repositoryRuleset:RepositoryRuleset")
 class RepositoryRuleset(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryRuleset:RepositoryRuleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

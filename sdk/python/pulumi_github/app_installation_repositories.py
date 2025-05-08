@@ -103,10 +103,8 @@ class _AppInstallationRepositoriesState:
         pulumi.set(self, "selected_repositories", value)
 
 
+@pulumi.type_token("github:index/appInstallationRepositories:AppInstallationRepositories")
 class AppInstallationRepositories(pulumi.CustomResource):
-
-    pulumi_type = "github:index/appInstallationRepositories:AppInstallationRepositories"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

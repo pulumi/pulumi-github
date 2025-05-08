@@ -107,10 +107,8 @@ class _EmuGroupMappingState:
         pulumi.set(self, "team_slug", value)
 
 
+@pulumi.type_token("github:index/emuGroupMapping:EmuGroupMapping")
 class EmuGroupMapping(pulumi.CustomResource):
-
-    pulumi_type = "github:index/emuGroupMapping:EmuGroupMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

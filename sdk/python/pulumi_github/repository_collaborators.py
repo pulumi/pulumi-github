@@ -180,10 +180,8 @@ class _RepositoryCollaboratorsState:
         pulumi.set(self, "users", value)
 
 
+@pulumi.type_token("github:index/repositoryCollaborators:RepositoryCollaborators")
 class RepositoryCollaborators(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryCollaborators:RepositoryCollaborators"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

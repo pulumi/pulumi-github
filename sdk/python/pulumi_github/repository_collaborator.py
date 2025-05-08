@@ -191,10 +191,8 @@ class _RepositoryCollaboratorState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("github:index/repositoryCollaborator:RepositoryCollaborator")
 class RepositoryCollaborator(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryCollaborator:RepositoryCollaborator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

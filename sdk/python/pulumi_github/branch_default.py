@@ -139,10 +139,8 @@ class _BranchDefaultState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("github:index/branchDefault:BranchDefault")
 class BranchDefault(pulumi.CustomResource):
-
-    pulumi_type = "github:index/branchDefault:BranchDefault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

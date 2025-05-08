@@ -530,10 +530,8 @@ export type ProjectColumn = import("./projectColumn").ProjectColumn;
 export const ProjectColumn: typeof import("./projectColumn").ProjectColumn = null as any;
 utilities.lazyLoad(exports, ["ProjectColumn"], () => require("./projectColumn"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { ReleaseArgs, ReleaseState } from "./release";
 export type Release = import("./release").Release;

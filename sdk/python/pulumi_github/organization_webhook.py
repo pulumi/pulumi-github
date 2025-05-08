@@ -158,10 +158,8 @@ class _OrganizationWebhookState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("github:index/organizationWebhook:OrganizationWebhook")
 class OrganizationWebhook(pulumi.CustomResource):
-
-    pulumi_type = "github:index/organizationWebhook:OrganizationWebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

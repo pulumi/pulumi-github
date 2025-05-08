@@ -97,10 +97,8 @@ class _UserInvitationAccepterState:
         pulumi.set(self, "invitation_id", value)
 
 
+@pulumi.type_token("github:index/userInvitationAccepter:UserInvitationAccepter")
 class UserInvitationAccepter(pulumi.CustomResource):
-
-    pulumi_type = "github:index/userInvitationAccepter:UserInvitationAccepter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -162,10 +162,8 @@ class _ActionsRepositoryPermissionsState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions")
 class ActionsRepositoryPermissions(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

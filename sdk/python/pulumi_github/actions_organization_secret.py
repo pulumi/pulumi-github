@@ -227,10 +227,8 @@ class _ActionsOrganizationSecretState:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")
 class ActionsOrganizationSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsOrganizationSecret:ActionsOrganizationSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

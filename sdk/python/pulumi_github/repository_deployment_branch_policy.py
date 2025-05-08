@@ -143,10 +143,8 @@ class _RepositoryDeploymentBranchPolicyState:
         pulumi.set(self, "repository", value)
 
 
+@pulumi.type_token("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy")
 class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
-
-    pulumi_type = "github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

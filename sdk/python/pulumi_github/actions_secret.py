@@ -191,10 +191,8 @@ class _ActionsSecretState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("github:index/actionsSecret:ActionsSecret")
 class ActionsSecret(pulumi.CustomResource):
-
-    pulumi_type = "github:index/actionsSecret:ActionsSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
