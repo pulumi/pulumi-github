@@ -3144,6 +3144,9 @@
                 "type": "integer",
                 "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:github/terraformConfig"
         }
     },
     "resources": {
@@ -13849,6 +13852,35 @@
                     "unknownLogins",
                     "usernames",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:github/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:github"
+                    }
+                },
+                "type": "pulumi:providers:github/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }
