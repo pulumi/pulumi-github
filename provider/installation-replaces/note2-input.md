@@ -1,1 +1,0 @@
-~> **Note:** When using environment variables, an empty `app_auth` block is required to allow provider configurations from environment variables to be specified. See: https://github.com/hashicorp/terraform-plugin-sdk/issues/142
