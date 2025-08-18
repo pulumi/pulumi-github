@@ -13862,7 +13862,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:github"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:github/terraformConfig",

@@ -9,7 +9,7 @@ replace github.com/integrations/terraform-provider-github/v6 => ../upstream
 require (
 	github.com/integrations/terraform-provider-github/v6 v6.0.0 // => ../upstream
 	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.1-0.20250814162642-1f64e24d26d8
 	github.com/pulumi/pulumi/sdk/v3 v3.185.0
 )
 
