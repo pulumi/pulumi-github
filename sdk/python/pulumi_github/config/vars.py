@@ -24,8 +24,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def app_auth(self) -> Optional[str]:
         """
-        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-        and `app_auth` are not set.
+        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         return __config__.get('appAuth')
 
@@ -67,9 +66,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def parallel_requests(self) -> Optional[bool]:
         """
-        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-        Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-        enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         """
         return __config__.get_bool('parallelRequests')
 
@@ -83,16 +80,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def retry_delay_ms(self) -> Optional[int]:
         """
-        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-        1s if not set, the max_retries must be set to greater than zero.
+        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         """
         return __config__.get_int('retryDelayMs')
 
     @_builtins.property
     def retryable_errors(self) -> Optional[str]:
         """
-        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-        to [500, 502, 503, 504]
+        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         """
         return __config__.get('retryableErrors')
 

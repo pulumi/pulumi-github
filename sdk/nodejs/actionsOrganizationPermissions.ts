@@ -73,19 +73,19 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    public readonly allowedActions!: pulumi.Output<string | undefined>;
+    declare public readonly allowedActions: pulumi.Output<string | undefined>;
     /**
      * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    public readonly allowedActionsConfig!: pulumi.Output<outputs.ActionsOrganizationPermissionsAllowedActionsConfig | undefined>;
+    declare public readonly allowedActionsConfig: pulumi.Output<outputs.ActionsOrganizationPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
-    public readonly enabledRepositories!: pulumi.Output<string>;
+    declare public readonly enabledRepositories: pulumi.Output<string>;
     /**
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
-    public readonly enabledRepositoriesConfig!: pulumi.Output<outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
+    declare public readonly enabledRepositoriesConfig: pulumi.Output<outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
 
     /**
      * Create a ActionsOrganizationPermissions resource with the given unique name, arguments, and options.
@@ -100,19 +100,19 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationPermissionsState | undefined;
-            resourceInputs["allowedActions"] = state ? state.allowedActions : undefined;
-            resourceInputs["allowedActionsConfig"] = state ? state.allowedActionsConfig : undefined;
-            resourceInputs["enabledRepositories"] = state ? state.enabledRepositories : undefined;
-            resourceInputs["enabledRepositoriesConfig"] = state ? state.enabledRepositoriesConfig : undefined;
+            resourceInputs["allowedActions"] = state?.allowedActions;
+            resourceInputs["allowedActionsConfig"] = state?.allowedActionsConfig;
+            resourceInputs["enabledRepositories"] = state?.enabledRepositories;
+            resourceInputs["enabledRepositoriesConfig"] = state?.enabledRepositoriesConfig;
         } else {
             const args = argsOrState as ActionsOrganizationPermissionsArgs | undefined;
-            if ((!args || args.enabledRepositories === undefined) && !opts.urn) {
+            if (args?.enabledRepositories === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabledRepositories'");
             }
-            resourceInputs["allowedActions"] = args ? args.allowedActions : undefined;
-            resourceInputs["allowedActionsConfig"] = args ? args.allowedActionsConfig : undefined;
-            resourceInputs["enabledRepositories"] = args ? args.enabledRepositories : undefined;
-            resourceInputs["enabledRepositoriesConfig"] = args ? args.enabledRepositoriesConfig : undefined;
+            resourceInputs["allowedActions"] = args?.allowedActions;
+            resourceInputs["allowedActionsConfig"] = args?.allowedActionsConfig;
+            resourceInputs["enabledRepositories"] = args?.enabledRepositories;
+            resourceInputs["enabledRepositoriesConfig"] = args?.enabledRepositoriesConfig;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsOrganizationPermissions.__pulumiType, name, resourceInputs, opts);

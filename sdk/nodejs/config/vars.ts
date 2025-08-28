@@ -10,8 +10,7 @@ declare var exports: any;
 const __config = new pulumi.Config("github");
 
 /**
- * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
- * and `appAuth` are not set.
+ * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
  */
 export declare const appAuth: outputs.config.AppAuth | undefined;
 Object.defineProperty(exports, "appAuth", {
@@ -77,9 +76,7 @@ Object.defineProperty(exports, "owner", {
 });
 
 /**
- * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
- * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
- * enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+ * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
  */
 export declare const parallelRequests: boolean | undefined;
 Object.defineProperty(exports, "parallelRequests", {
@@ -101,8 +98,7 @@ Object.defineProperty(exports, "readDelayMs", {
 });
 
 /**
- * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
- * 1s if not set, the maxRetries must be set to greater than zero.
+ * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
  */
 export declare const retryDelayMs: number | undefined;
 Object.defineProperty(exports, "retryDelayMs", {
@@ -113,8 +109,7 @@ Object.defineProperty(exports, "retryDelayMs", {
 });
 
 /**
- * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
- * to [500, 502, 503, 504]
+ * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
  */
 export declare const retryableErrors: number[] | undefined;
 Object.defineProperty(exports, "retryableErrors", {

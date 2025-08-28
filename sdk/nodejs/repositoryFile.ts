@@ -97,60 +97,60 @@ export class RepositoryFile extends pulumi.CustomResource {
     /**
      * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
      */
-    public readonly autocreateBranch!: pulumi.Output<boolean | undefined>;
+    declare public readonly autocreateBranch: pulumi.Output<boolean | undefined>;
     /**
      * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
      */
-    public readonly autocreateBranchSourceBranch!: pulumi.Output<string | undefined>;
+    declare public readonly autocreateBranchSourceBranch: pulumi.Output<string | undefined>;
     /**
      * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
      */
-    public readonly autocreateBranchSourceSha!: pulumi.Output<string>;
+    declare public readonly autocreateBranchSourceSha: pulumi.Output<string>;
     /**
      * Git branch (defaults to the repository's default branch).
      * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string | undefined>;
     /**
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      */
-    public readonly commitAuthor!: pulumi.Output<string | undefined>;
+    declare public readonly commitAuthor: pulumi.Output<string | undefined>;
     /**
      * Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
      */
-    public readonly commitEmail!: pulumi.Output<string | undefined>;
+    declare public readonly commitEmail: pulumi.Output<string | undefined>;
     /**
      * The commit message when creating, updating or deleting the managed file.
      */
-    public readonly commitMessage!: pulumi.Output<string>;
+    declare public readonly commitMessage: pulumi.Output<string>;
     /**
      * The SHA of the commit that modified the file.
      */
-    public /*out*/ readonly commitSha!: pulumi.Output<string>;
+    declare public /*out*/ readonly commitSha: pulumi.Output<string>;
     /**
      * The file content.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The path of the file to manage.
      */
-    public readonly file!: pulumi.Output<string>;
+    declare public readonly file: pulumi.Output<string>;
     /**
      * Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
      */
-    public readonly overwriteOnCreate!: pulumi.Output<boolean | undefined>;
+    declare public readonly overwriteOnCreate: pulumi.Output<boolean | undefined>;
     /**
      * The name of the commit/branch/tag.
      */
-    public /*out*/ readonly ref!: pulumi.Output<string>;
+    declare public /*out*/ readonly ref: pulumi.Output<string>;
     /**
      * The repository to create the file in.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The SHA blob of the file.
      */
-    public /*out*/ readonly sha!: pulumi.Output<string>;
+    declare public /*out*/ readonly sha: pulumi.Output<string>;
 
     /**
      * Create a RepositoryFile resource with the given unique name, arguments, and options.
@@ -165,42 +165,42 @@ export class RepositoryFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryFileState | undefined;
-            resourceInputs["autocreateBranch"] = state ? state.autocreateBranch : undefined;
-            resourceInputs["autocreateBranchSourceBranch"] = state ? state.autocreateBranchSourceBranch : undefined;
-            resourceInputs["autocreateBranchSourceSha"] = state ? state.autocreateBranchSourceSha : undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["commitAuthor"] = state ? state.commitAuthor : undefined;
-            resourceInputs["commitEmail"] = state ? state.commitEmail : undefined;
-            resourceInputs["commitMessage"] = state ? state.commitMessage : undefined;
-            resourceInputs["commitSha"] = state ? state.commitSha : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["file"] = state ? state.file : undefined;
-            resourceInputs["overwriteOnCreate"] = state ? state.overwriteOnCreate : undefined;
-            resourceInputs["ref"] = state ? state.ref : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["sha"] = state ? state.sha : undefined;
+            resourceInputs["autocreateBranch"] = state?.autocreateBranch;
+            resourceInputs["autocreateBranchSourceBranch"] = state?.autocreateBranchSourceBranch;
+            resourceInputs["autocreateBranchSourceSha"] = state?.autocreateBranchSourceSha;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["commitAuthor"] = state?.commitAuthor;
+            resourceInputs["commitEmail"] = state?.commitEmail;
+            resourceInputs["commitMessage"] = state?.commitMessage;
+            resourceInputs["commitSha"] = state?.commitSha;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["file"] = state?.file;
+            resourceInputs["overwriteOnCreate"] = state?.overwriteOnCreate;
+            resourceInputs["ref"] = state?.ref;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["sha"] = state?.sha;
         } else {
             const args = argsOrState as RepositoryFileArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.file === undefined) && !opts.urn) {
+            if (args?.file === undefined && !opts.urn) {
                 throw new Error("Missing required property 'file'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["autocreateBranch"] = args ? args.autocreateBranch : undefined;
-            resourceInputs["autocreateBranchSourceBranch"] = args ? args.autocreateBranchSourceBranch : undefined;
-            resourceInputs["autocreateBranchSourceSha"] = args ? args.autocreateBranchSourceSha : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["commitAuthor"] = args ? args.commitAuthor : undefined;
-            resourceInputs["commitEmail"] = args ? args.commitEmail : undefined;
-            resourceInputs["commitMessage"] = args ? args.commitMessage : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["file"] = args ? args.file : undefined;
-            resourceInputs["overwriteOnCreate"] = args ? args.overwriteOnCreate : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["autocreateBranch"] = args?.autocreateBranch;
+            resourceInputs["autocreateBranchSourceBranch"] = args?.autocreateBranchSourceBranch;
+            resourceInputs["autocreateBranchSourceSha"] = args?.autocreateBranchSourceSha;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["commitAuthor"] = args?.commitAuthor;
+            resourceInputs["commitEmail"] = args?.commitEmail;
+            resourceInputs["commitMessage"] = args?.commitMessage;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["file"] = args?.file;
+            resourceInputs["overwriteOnCreate"] = args?.overwriteOnCreate;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["commitSha"] = undefined /*out*/;
             resourceInputs["ref"] = undefined /*out*/;
             resourceInputs["sha"] = undefined /*out*/;

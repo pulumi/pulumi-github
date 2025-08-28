@@ -52,11 +52,11 @@ export class OrganizationBlock extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationBlock.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the user to block.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a OrganizationBlock resource with the given unique name, arguments, and options.
@@ -71,14 +71,14 @@ export class OrganizationBlock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationBlockState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as OrganizationBlockArgs | undefined;
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["username"] = args?.username;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -34,21 +34,16 @@ class ProviderArgs:
                  write_delay_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input['ProviderAppAuthArgs'] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-               and `app_auth` are not set.
+        :param pulumi.Input['ProviderAppAuthArgs'] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[_builtins.str] base_url: The GitHub Base API URL
         :param pulumi.Input[_builtins.bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
         :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-               Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-               enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
-        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-               1s if not set, the max_retries must be set to greater than zero.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-               to [500, 502, 503, 504]
+        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         :param pulumi.Input[_builtins.str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[_builtins.int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """
@@ -88,8 +83,7 @@ class ProviderArgs:
     @pulumi.getter(name="appAuth")
     def app_auth(self) -> Optional[pulumi.Input['ProviderAppAuthArgs']]:
         """
-        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-        and `app_auth` are not set.
+        The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         """
         return pulumi.get(self, "app_auth")
 
@@ -162,9 +156,7 @@ class ProviderArgs:
     @pulumi.getter(name="parallelRequests")
     def parallel_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-        Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-        enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         """
         return pulumi.get(self, "parallel_requests")
 
@@ -188,8 +180,7 @@ class ProviderArgs:
     @pulumi.getter(name="retryDelayMs")
     def retry_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-        1s if not set, the max_retries must be set to greater than zero.
+        Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         """
         return pulumi.get(self, "retry_delay_ms")
 
@@ -201,8 +192,7 @@ class ProviderArgs:
     @pulumi.getter(name="retryableErrors")
     def retryable_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-        to [500, 502, 503, 504]
+        Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         """
         return pulumi.get(self, "retryable_errors")
 
@@ -262,21 +252,16 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-               and `app_auth` are not set.
+        :param pulumi.Input[Union['ProviderAppAuthArgs', 'ProviderAppAuthArgsDict']] app_auth: The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[_builtins.str] base_url: The GitHub Base API URL
         :param pulumi.Input[_builtins.bool] insecure: Enable `insecure` mode for testing purposes
         :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
         :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-               Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-               enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
-        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-               1s if not set, the max_retries must be set to greater than zero.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-               to [500, 502, 503, 504]
+        :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         :param pulumi.Input[_builtins.str] token: The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         :param pulumi.Input[_builtins.int] write_delay_ms: Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.
         """

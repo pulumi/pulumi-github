@@ -86,13 +86,13 @@ export class TeamMembers extends pulumi.CustomResource {
     /**
      * List of team members. See Members below for details.
      */
-    public readonly members!: pulumi.Output<outputs.TeamMembersMember[]>;
+    declare public readonly members: pulumi.Output<outputs.TeamMembersMember[]>;
     /**
      * The team id or the team slug
      *
      * > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will cause the team members associations to the team to be destroyed and recreated if the team name is updated.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a TeamMembers resource with the given unique name, arguments, and options.
@@ -107,18 +107,18 @@ export class TeamMembers extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembersState | undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as TeamMembersArgs | undefined;
-            if ((!args || args.members === undefined) && !opts.urn) {
+            if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["teamId"] = args?.teamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TeamMembers.__pulumiType, name, resourceInputs, opts);

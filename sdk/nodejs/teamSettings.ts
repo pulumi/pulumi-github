@@ -80,19 +80,19 @@ export class TeamSettings extends pulumi.CustomResource {
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */
-    public readonly reviewRequestDelegation!: pulumi.Output<outputs.TeamSettingsReviewRequestDelegation | undefined>;
+    declare public readonly reviewRequestDelegation: pulumi.Output<outputs.TeamSettingsReviewRequestDelegation | undefined>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * The slug of the Team within the Organization.
      */
-    public /*out*/ readonly teamSlug!: pulumi.Output<string>;
+    declare public /*out*/ readonly teamSlug: pulumi.Output<string>;
     /**
      * The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
      */
-    public /*out*/ readonly teamUid!: pulumi.Output<string>;
+    declare public /*out*/ readonly teamUid: pulumi.Output<string>;
 
     /**
      * Create a TeamSettings resource with the given unique name, arguments, and options.
@@ -107,17 +107,17 @@ export class TeamSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamSettingsState | undefined;
-            resourceInputs["reviewRequestDelegation"] = state ? state.reviewRequestDelegation : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["teamSlug"] = state ? state.teamSlug : undefined;
-            resourceInputs["teamUid"] = state ? state.teamUid : undefined;
+            resourceInputs["reviewRequestDelegation"] = state?.reviewRequestDelegation;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["teamSlug"] = state?.teamSlug;
+            resourceInputs["teamUid"] = state?.teamUid;
         } else {
             const args = argsOrState as TeamSettingsArgs | undefined;
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["reviewRequestDelegation"] = args ? args.reviewRequestDelegation : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["reviewRequestDelegation"] = args?.reviewRequestDelegation;
+            resourceInputs["teamId"] = args?.teamId;
             resourceInputs["teamSlug"] = undefined /*out*/;
             resourceInputs["teamUid"] = undefined /*out*/;
         }

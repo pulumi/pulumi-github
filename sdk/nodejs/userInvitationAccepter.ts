@@ -65,11 +65,11 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
     /**
      * Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
      */
-    public readonly allowEmptyId!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowEmptyId: pulumi.Output<boolean | undefined>;
     /**
      * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      */
-    public readonly invitationId!: pulumi.Output<string | undefined>;
+    declare public readonly invitationId: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserInvitationAccepter resource with the given unique name, arguments, and options.
@@ -84,12 +84,12 @@ export class UserInvitationAccepter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserInvitationAccepterState | undefined;
-            resourceInputs["allowEmptyId"] = state ? state.allowEmptyId : undefined;
-            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["allowEmptyId"] = state?.allowEmptyId;
+            resourceInputs["invitationId"] = state?.invitationId;
         } else {
             const args = argsOrState as UserInvitationAccepterArgs | undefined;
-            resourceInputs["allowEmptyId"] = args ? args.allowEmptyId : undefined;
-            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
+            resourceInputs["allowEmptyId"] = args?.allowEmptyId;
+            resourceInputs["invitationId"] = args?.invitationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserInvitationAccepter.__pulumiType, name, resourceInputs, opts);

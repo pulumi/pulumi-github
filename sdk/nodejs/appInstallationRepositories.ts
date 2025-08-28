@@ -57,13 +57,13 @@ export class AppInstallationRepositories extends pulumi.CustomResource {
     /**
      * The GitHub app installation id.
      */
-    public readonly installationId!: pulumi.Output<string>;
+    declare public readonly installationId: pulumi.Output<string>;
     /**
      * A list of repository names to install the app on.
      *
      * > **Note**: Due to how GitHub implements app installations, apps cannot be installed with no repositories selected. Therefore deleting this resource will leave one repository with the app installed. Manually uninstall the app or set the installation to all repositories via the GUI as after deleting this resource.
      */
-    public readonly selectedRepositories!: pulumi.Output<string[]>;
+    declare public readonly selectedRepositories: pulumi.Output<string[]>;
 
     /**
      * Create a AppInstallationRepositories resource with the given unique name, arguments, and options.
@@ -78,18 +78,18 @@ export class AppInstallationRepositories extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppInstallationRepositoriesState | undefined;
-            resourceInputs["installationId"] = state ? state.installationId : undefined;
-            resourceInputs["selectedRepositories"] = state ? state.selectedRepositories : undefined;
+            resourceInputs["installationId"] = state?.installationId;
+            resourceInputs["selectedRepositories"] = state?.selectedRepositories;
         } else {
             const args = argsOrState as AppInstallationRepositoriesArgs | undefined;
-            if ((!args || args.installationId === undefined) && !opts.urn) {
+            if (args?.installationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'installationId'");
             }
-            if ((!args || args.selectedRepositories === undefined) && !opts.urn) {
+            if (args?.selectedRepositories === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectedRepositories'");
             }
-            resourceInputs["installationId"] = args ? args.installationId : undefined;
-            resourceInputs["selectedRepositories"] = args ? args.selectedRepositories : undefined;
+            resourceInputs["installationId"] = args?.installationId;
+            resourceInputs["selectedRepositories"] = args?.selectedRepositories;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppInstallationRepositories.__pulumiType, name, resourceInputs, opts);

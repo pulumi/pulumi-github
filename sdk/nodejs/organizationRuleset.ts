@@ -87,39 +87,39 @@ export class OrganizationRuleset extends pulumi.CustomResource {
     /**
      * (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
      */
-    public readonly bypassActors!: pulumi.Output<outputs.OrganizationRulesetBypassActor[] | undefined>;
+    declare public readonly bypassActors: pulumi.Output<outputs.OrganizationRulesetBypassActor[] | undefined>;
     /**
      * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      */
-    public readonly conditions!: pulumi.Output<outputs.OrganizationRulesetConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.OrganizationRulesetConditions | undefined>;
     /**
      * (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
      */
-    public readonly enforcement!: pulumi.Output<string>;
+    declare public readonly enforcement: pulumi.Output<string>;
     /**
      * (String)
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * (String) The name of the ruleset.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (String) GraphQL global node id for use with v4 API.
      */
-    public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */
-    public readonly rules!: pulumi.Output<outputs.OrganizationRulesetRules>;
+    declare public readonly rules: pulumi.Output<outputs.OrganizationRulesetRules>;
     /**
      * (Number) GitHub ID for the ruleset.
      */
-    public /*out*/ readonly rulesetId!: pulumi.Output<number>;
+    declare public /*out*/ readonly rulesetId: pulumi.Output<number>;
     /**
      * (String) Possible values are `branch` and `tag`.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
 
     /**
      * Create a OrganizationRuleset resource with the given unique name, arguments, and options.
@@ -134,32 +134,32 @@ export class OrganizationRuleset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationRulesetState | undefined;
-            resourceInputs["bypassActors"] = state ? state.bypassActors : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["enforcement"] = state ? state.enforcement : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["rulesetId"] = state ? state.rulesetId : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["bypassActors"] = state?.bypassActors;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["enforcement"] = state?.enforcement;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeId"] = state?.nodeId;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["rulesetId"] = state?.rulesetId;
+            resourceInputs["target"] = state?.target;
         } else {
             const args = argsOrState as OrganizationRulesetArgs | undefined;
-            if ((!args || args.enforcement === undefined) && !opts.urn) {
+            if (args?.enforcement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enforcement'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["bypassActors"] = args ? args.bypassActors : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["enforcement"] = args ? args.enforcement : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["bypassActors"] = args?.bypassActors;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["enforcement"] = args?.enforcement;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["target"] = args?.target;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["nodeId"] = undefined /*out*/;
             resourceInputs["rulesetId"] = undefined /*out*/;

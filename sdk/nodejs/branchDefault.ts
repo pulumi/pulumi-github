@@ -91,16 +91,16 @@ export class BranchDefault extends pulumi.CustomResource {
     /**
      * The branch (e.g. `main`)
      */
-    public readonly branch!: pulumi.Output<string>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */
-    public readonly rename!: pulumi.Output<boolean | undefined>;
+    declare public readonly rename: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub repository
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a BranchDefault resource with the given unique name, arguments, and options.
@@ -115,21 +115,21 @@ export class BranchDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchDefaultState | undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["rename"] = state ? state.rename : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["rename"] = state?.rename;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as BranchDefaultArgs | undefined;
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["rename"] = args ? args.rename : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["rename"] = args?.rename;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

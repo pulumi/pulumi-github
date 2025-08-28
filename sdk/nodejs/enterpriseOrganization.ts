@@ -62,31 +62,31 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
     /**
      * List of organization owner usernames.
      */
-    public readonly adminLogins!: pulumi.Output<string[]>;
+    declare public readonly adminLogins: pulumi.Output<string[]>;
     /**
      * The billing email address.
      */
-    public readonly billingEmail!: pulumi.Output<string>;
+    declare public readonly billingEmail: pulumi.Output<string>;
     /**
      * The ID of the organization.
      */
-    public /*out*/ readonly databaseId!: pulumi.Output<number>;
+    declare public /*out*/ readonly databaseId: pulumi.Output<number>;
     /**
      * The description of the organization.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the organization.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The ID of the enterprise.
      */
-    public readonly enterpriseId!: pulumi.Output<string>;
+    declare public readonly enterpriseId: pulumi.Output<string>;
     /**
      * The name of the organization.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseOrganization resource with the given unique name, arguments, and options.
@@ -101,30 +101,30 @@ export class EnterpriseOrganization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseOrganizationState | undefined;
-            resourceInputs["adminLogins"] = state ? state.adminLogins : undefined;
-            resourceInputs["billingEmail"] = state ? state.billingEmail : undefined;
-            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enterpriseId"] = state ? state.enterpriseId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["adminLogins"] = state?.adminLogins;
+            resourceInputs["billingEmail"] = state?.billingEmail;
+            resourceInputs["databaseId"] = state?.databaseId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enterpriseId"] = state?.enterpriseId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EnterpriseOrganizationArgs | undefined;
-            if ((!args || args.adminLogins === undefined) && !opts.urn) {
+            if (args?.adminLogins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminLogins'");
             }
-            if ((!args || args.billingEmail === undefined) && !opts.urn) {
+            if (args?.billingEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingEmail'");
             }
-            if ((!args || args.enterpriseId === undefined) && !opts.urn) {
+            if (args?.enterpriseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enterpriseId'");
             }
-            resourceInputs["adminLogins"] = args ? args.adminLogins : undefined;
-            resourceInputs["billingEmail"] = args ? args.billingEmail : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enterpriseId"] = args ? args.enterpriseId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["adminLogins"] = args?.adminLogins;
+            resourceInputs["billingEmail"] = args?.billingEmail;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enterpriseId"] = args?.enterpriseId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["databaseId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

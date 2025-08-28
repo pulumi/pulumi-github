@@ -71,24 +71,24 @@ export class IssueLabel extends pulumi.CustomResource {
     /**
      * A 6 character hex code, **without the leading #**, identifying the color of the label.
      */
-    public readonly color!: pulumi.Output<string>;
+    declare public readonly color: pulumi.Output<string>;
     /**
      * A short description of the label.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the label.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The GitHub repository
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The URL to the issue label
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a IssueLabel resource with the given unique name, arguments, and options.
@@ -103,24 +103,24 @@ export class IssueLabel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IssueLabelState | undefined;
-            resourceInputs["color"] = state ? state.color : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["color"] = state?.color;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as IssueLabelArgs | undefined;
-            if ((!args || args.color === undefined) && !opts.urn) {
+            if (args?.color === undefined && !opts.urn) {
                 throw new Error("Missing required property 'color'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["color"] = args ? args.color : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["color"] = args?.color;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

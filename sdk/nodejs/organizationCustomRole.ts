@@ -83,19 +83,19 @@ export class OrganizationCustomRole extends pulumi.CustomResource {
     /**
      * The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
      */
-    public readonly baseRole!: pulumi.Output<string>;
+    declare public readonly baseRole: pulumi.Output<string>;
     /**
      * The description for the custom role.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the custom role.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
      */
-    public readonly permissions!: pulumi.Output<string[]>;
+    declare public readonly permissions: pulumi.Output<string[]>;
 
     /**
      * Create a OrganizationCustomRole resource with the given unique name, arguments, and options.
@@ -110,22 +110,22 @@ export class OrganizationCustomRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationCustomRoleState | undefined;
-            resourceInputs["baseRole"] = state ? state.baseRole : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["baseRole"] = state?.baseRole;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
         } else {
             const args = argsOrState as OrganizationCustomRoleArgs | undefined;
-            if ((!args || args.baseRole === undefined) && !opts.urn) {
+            if (args?.baseRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseRole'");
             }
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            resourceInputs["baseRole"] = args ? args.baseRole : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["baseRole"] = args?.baseRole;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationCustomRole.__pulumiType, name, resourceInputs, opts);

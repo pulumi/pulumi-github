@@ -16,8 +16,7 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("github");
 /**
- * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
- * and `app_auth` are not set.
+ * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
  * 
  */
     public Optional<AppAuth> appAuth() {
@@ -59,9 +58,7 @@ public final class Config {
         return Codegen.stringProp("owner").config(config).get();
     }
 /**
- * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
- * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
- * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+ * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
  * 
  */
     public Optional<Boolean> parallelRequests() {
@@ -75,16 +72,14 @@ public final class Config {
         return Codegen.integerProp("readDelayMs").config(config).get();
     }
 /**
- * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
- * 1s if not set, the max_retries must be set to greater than zero.
+ * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
  * 
  */
     public Optional<Integer> retryDelayMs() {
         return Codegen.integerProp("retryDelayMs").config(config).get();
     }
 /**
- * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
- * to [500, 502, 503, 504]
+ * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
  * 
  */
     public Optional<List<Integer>> retryableErrors() {

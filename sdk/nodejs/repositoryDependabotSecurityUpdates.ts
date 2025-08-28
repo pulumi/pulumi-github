@@ -66,11 +66,11 @@ export class RepositoryDependabotSecurityUpdates extends pulumi.CustomResource {
     /**
      * The state of the automated security fixes.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The name of the GitHub repository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a RepositoryDependabotSecurityUpdates resource with the given unique name, arguments, and options.
@@ -85,18 +85,18 @@ export class RepositoryDependabotSecurityUpdates extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryDependabotSecurityUpdatesState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as RepositoryDependabotSecurityUpdatesArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["repository"] = args?.repository;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryDependabotSecurityUpdates.__pulumiType, name, resourceInputs, opts);

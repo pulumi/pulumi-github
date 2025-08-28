@@ -71,25 +71,25 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryDeployKey.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A SSH key.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * A boolean qualifying the key to be either read only or read/write.
      */
-    public readonly readOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly readOnly: pulumi.Output<boolean | undefined>;
     /**
      * Name of the GitHub repository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * A title.
      *
      * Changing any of the fields forces re-creating the resource.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
 
     /**
      * Create a RepositoryDeployKey resource with the given unique name, arguments, and options.
@@ -104,26 +104,26 @@ export class RepositoryDeployKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryDeployKeyState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["readOnly"] = state?.readOnly;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["title"] = state?.title;
         } else {
             const args = argsOrState as RepositoryDeployKeyArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["readOnly"] = args?.readOnly;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["title"] = args?.title;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

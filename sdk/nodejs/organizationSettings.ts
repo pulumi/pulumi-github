@@ -83,107 +83,107 @@ export class OrganizationSettings extends pulumi.CustomResource {
     /**
      * Whether or not advanced security is enabled for new repositories. Defaults to `false`.
      */
-    public readonly advancedSecurityEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly advancedSecurityEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * The billing email address for the organization.
      */
-    public readonly billingEmail!: pulumi.Output<string>;
+    declare public readonly billingEmail: pulumi.Output<string>;
     /**
      * The blog URL for the organization.
      */
-    public readonly blog!: pulumi.Output<string | undefined>;
+    declare public readonly blog: pulumi.Output<string | undefined>;
     /**
      * The company name for the organization.
      */
-    public readonly company!: pulumi.Output<string | undefined>;
+    declare public readonly company: pulumi.Output<string | undefined>;
     /**
      * The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
      */
-    public readonly defaultRepositoryPermission!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRepositoryPermission: pulumi.Output<string | undefined>;
     /**
      * Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
      */
-    public readonly dependabotAlertsEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly dependabotAlertsEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
      */
-    public readonly dependabotSecurityUpdatesEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly dependabotSecurityUpdatesEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
      */
-    public readonly dependencyGraphEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly dependencyGraphEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * The description for the organization.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The email address for the organization.
      */
-    public readonly email!: pulumi.Output<string | undefined>;
+    declare public readonly email: pulumi.Output<string | undefined>;
     /**
      * Whether or not organization projects are enabled for the organization.
      */
-    public readonly hasOrganizationProjects!: pulumi.Output<boolean | undefined>;
+    declare public readonly hasOrganizationProjects: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not repository projects are enabled for the organization.
      */
-    public readonly hasRepositoryProjects!: pulumi.Output<boolean | undefined>;
+    declare public readonly hasRepositoryProjects: pulumi.Output<boolean | undefined>;
     /**
      * The location for the organization.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Whether or not organization members can create new internal repositories. For Enterprise Organizations only.
      */
-    public readonly membersCanCreateInternalRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreateInternalRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new pages. Defaults to `true`.
      */
-    public readonly membersCanCreatePages!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreatePages: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new private pages. Defaults to `true`.
      */
-    public readonly membersCanCreatePrivatePages!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreatePrivatePages: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new private repositories. Defaults to `true`.
      */
-    public readonly membersCanCreatePrivateRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreatePrivateRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new public pages. Defaults to `true`.
      */
-    public readonly membersCanCreatePublicPages!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreatePublicPages: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new public repositories. Defaults to `true`.
      */
-    public readonly membersCanCreatePublicRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreatePublicRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can create new repositories. Defaults to `true`.
      */
-    public readonly membersCanCreateRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanCreateRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not organization members can fork private repositories. Defaults to `false`.
      */
-    public readonly membersCanForkPrivateRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly membersCanForkPrivateRepositories: pulumi.Output<boolean | undefined>;
     /**
      * The name for the organization.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
      */
-    public readonly secretScanningEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly secretScanningEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
      */
-    public readonly secretScanningPushProtectionEnabledForNewRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly secretScanningPushProtectionEnabledForNewRepositories: pulumi.Output<boolean | undefined>;
     /**
      * The Twitter username for the organization.
      */
-    public readonly twitterUsername!: pulumi.Output<string | undefined>;
+    declare public readonly twitterUsername: pulumi.Output<string | undefined>;
     /**
      * Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
      */
-    public readonly webCommitSignoffRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly webCommitSignoffRequired: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OrganizationSettings resource with the given unique name, arguments, and options.
@@ -198,63 +198,63 @@ export class OrganizationSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationSettingsState | undefined;
-            resourceInputs["advancedSecurityEnabledForNewRepositories"] = state ? state.advancedSecurityEnabledForNewRepositories : undefined;
-            resourceInputs["billingEmail"] = state ? state.billingEmail : undefined;
-            resourceInputs["blog"] = state ? state.blog : undefined;
-            resourceInputs["company"] = state ? state.company : undefined;
-            resourceInputs["defaultRepositoryPermission"] = state ? state.defaultRepositoryPermission : undefined;
-            resourceInputs["dependabotAlertsEnabledForNewRepositories"] = state ? state.dependabotAlertsEnabledForNewRepositories : undefined;
-            resourceInputs["dependabotSecurityUpdatesEnabledForNewRepositories"] = state ? state.dependabotSecurityUpdatesEnabledForNewRepositories : undefined;
-            resourceInputs["dependencyGraphEnabledForNewRepositories"] = state ? state.dependencyGraphEnabledForNewRepositories : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["hasOrganizationProjects"] = state ? state.hasOrganizationProjects : undefined;
-            resourceInputs["hasRepositoryProjects"] = state ? state.hasRepositoryProjects : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["membersCanCreateInternalRepositories"] = state ? state.membersCanCreateInternalRepositories : undefined;
-            resourceInputs["membersCanCreatePages"] = state ? state.membersCanCreatePages : undefined;
-            resourceInputs["membersCanCreatePrivatePages"] = state ? state.membersCanCreatePrivatePages : undefined;
-            resourceInputs["membersCanCreatePrivateRepositories"] = state ? state.membersCanCreatePrivateRepositories : undefined;
-            resourceInputs["membersCanCreatePublicPages"] = state ? state.membersCanCreatePublicPages : undefined;
-            resourceInputs["membersCanCreatePublicRepositories"] = state ? state.membersCanCreatePublicRepositories : undefined;
-            resourceInputs["membersCanCreateRepositories"] = state ? state.membersCanCreateRepositories : undefined;
-            resourceInputs["membersCanForkPrivateRepositories"] = state ? state.membersCanForkPrivateRepositories : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["secretScanningEnabledForNewRepositories"] = state ? state.secretScanningEnabledForNewRepositories : undefined;
-            resourceInputs["secretScanningPushProtectionEnabledForNewRepositories"] = state ? state.secretScanningPushProtectionEnabledForNewRepositories : undefined;
-            resourceInputs["twitterUsername"] = state ? state.twitterUsername : undefined;
-            resourceInputs["webCommitSignoffRequired"] = state ? state.webCommitSignoffRequired : undefined;
+            resourceInputs["advancedSecurityEnabledForNewRepositories"] = state?.advancedSecurityEnabledForNewRepositories;
+            resourceInputs["billingEmail"] = state?.billingEmail;
+            resourceInputs["blog"] = state?.blog;
+            resourceInputs["company"] = state?.company;
+            resourceInputs["defaultRepositoryPermission"] = state?.defaultRepositoryPermission;
+            resourceInputs["dependabotAlertsEnabledForNewRepositories"] = state?.dependabotAlertsEnabledForNewRepositories;
+            resourceInputs["dependabotSecurityUpdatesEnabledForNewRepositories"] = state?.dependabotSecurityUpdatesEnabledForNewRepositories;
+            resourceInputs["dependencyGraphEnabledForNewRepositories"] = state?.dependencyGraphEnabledForNewRepositories;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["hasOrganizationProjects"] = state?.hasOrganizationProjects;
+            resourceInputs["hasRepositoryProjects"] = state?.hasRepositoryProjects;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["membersCanCreateInternalRepositories"] = state?.membersCanCreateInternalRepositories;
+            resourceInputs["membersCanCreatePages"] = state?.membersCanCreatePages;
+            resourceInputs["membersCanCreatePrivatePages"] = state?.membersCanCreatePrivatePages;
+            resourceInputs["membersCanCreatePrivateRepositories"] = state?.membersCanCreatePrivateRepositories;
+            resourceInputs["membersCanCreatePublicPages"] = state?.membersCanCreatePublicPages;
+            resourceInputs["membersCanCreatePublicRepositories"] = state?.membersCanCreatePublicRepositories;
+            resourceInputs["membersCanCreateRepositories"] = state?.membersCanCreateRepositories;
+            resourceInputs["membersCanForkPrivateRepositories"] = state?.membersCanForkPrivateRepositories;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["secretScanningEnabledForNewRepositories"] = state?.secretScanningEnabledForNewRepositories;
+            resourceInputs["secretScanningPushProtectionEnabledForNewRepositories"] = state?.secretScanningPushProtectionEnabledForNewRepositories;
+            resourceInputs["twitterUsername"] = state?.twitterUsername;
+            resourceInputs["webCommitSignoffRequired"] = state?.webCommitSignoffRequired;
         } else {
             const args = argsOrState as OrganizationSettingsArgs | undefined;
-            if ((!args || args.billingEmail === undefined) && !opts.urn) {
+            if (args?.billingEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingEmail'");
             }
-            resourceInputs["advancedSecurityEnabledForNewRepositories"] = args ? args.advancedSecurityEnabledForNewRepositories : undefined;
-            resourceInputs["billingEmail"] = args ? args.billingEmail : undefined;
-            resourceInputs["blog"] = args ? args.blog : undefined;
-            resourceInputs["company"] = args ? args.company : undefined;
-            resourceInputs["defaultRepositoryPermission"] = args ? args.defaultRepositoryPermission : undefined;
-            resourceInputs["dependabotAlertsEnabledForNewRepositories"] = args ? args.dependabotAlertsEnabledForNewRepositories : undefined;
-            resourceInputs["dependabotSecurityUpdatesEnabledForNewRepositories"] = args ? args.dependabotSecurityUpdatesEnabledForNewRepositories : undefined;
-            resourceInputs["dependencyGraphEnabledForNewRepositories"] = args ? args.dependencyGraphEnabledForNewRepositories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["hasOrganizationProjects"] = args ? args.hasOrganizationProjects : undefined;
-            resourceInputs["hasRepositoryProjects"] = args ? args.hasRepositoryProjects : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["membersCanCreateInternalRepositories"] = args ? args.membersCanCreateInternalRepositories : undefined;
-            resourceInputs["membersCanCreatePages"] = args ? args.membersCanCreatePages : undefined;
-            resourceInputs["membersCanCreatePrivatePages"] = args ? args.membersCanCreatePrivatePages : undefined;
-            resourceInputs["membersCanCreatePrivateRepositories"] = args ? args.membersCanCreatePrivateRepositories : undefined;
-            resourceInputs["membersCanCreatePublicPages"] = args ? args.membersCanCreatePublicPages : undefined;
-            resourceInputs["membersCanCreatePublicRepositories"] = args ? args.membersCanCreatePublicRepositories : undefined;
-            resourceInputs["membersCanCreateRepositories"] = args ? args.membersCanCreateRepositories : undefined;
-            resourceInputs["membersCanForkPrivateRepositories"] = args ? args.membersCanForkPrivateRepositories : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secretScanningEnabledForNewRepositories"] = args ? args.secretScanningEnabledForNewRepositories : undefined;
-            resourceInputs["secretScanningPushProtectionEnabledForNewRepositories"] = args ? args.secretScanningPushProtectionEnabledForNewRepositories : undefined;
-            resourceInputs["twitterUsername"] = args ? args.twitterUsername : undefined;
-            resourceInputs["webCommitSignoffRequired"] = args ? args.webCommitSignoffRequired : undefined;
+            resourceInputs["advancedSecurityEnabledForNewRepositories"] = args?.advancedSecurityEnabledForNewRepositories;
+            resourceInputs["billingEmail"] = args?.billingEmail;
+            resourceInputs["blog"] = args?.blog;
+            resourceInputs["company"] = args?.company;
+            resourceInputs["defaultRepositoryPermission"] = args?.defaultRepositoryPermission;
+            resourceInputs["dependabotAlertsEnabledForNewRepositories"] = args?.dependabotAlertsEnabledForNewRepositories;
+            resourceInputs["dependabotSecurityUpdatesEnabledForNewRepositories"] = args?.dependabotSecurityUpdatesEnabledForNewRepositories;
+            resourceInputs["dependencyGraphEnabledForNewRepositories"] = args?.dependencyGraphEnabledForNewRepositories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["hasOrganizationProjects"] = args?.hasOrganizationProjects;
+            resourceInputs["hasRepositoryProjects"] = args?.hasRepositoryProjects;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["membersCanCreateInternalRepositories"] = args?.membersCanCreateInternalRepositories;
+            resourceInputs["membersCanCreatePages"] = args?.membersCanCreatePages;
+            resourceInputs["membersCanCreatePrivatePages"] = args?.membersCanCreatePrivatePages;
+            resourceInputs["membersCanCreatePrivateRepositories"] = args?.membersCanCreatePrivateRepositories;
+            resourceInputs["membersCanCreatePublicPages"] = args?.membersCanCreatePublicPages;
+            resourceInputs["membersCanCreatePublicRepositories"] = args?.membersCanCreatePublicRepositories;
+            resourceInputs["membersCanCreateRepositories"] = args?.membersCanCreateRepositories;
+            resourceInputs["membersCanForkPrivateRepositories"] = args?.membersCanForkPrivateRepositories;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["secretScanningEnabledForNewRepositories"] = args?.secretScanningEnabledForNewRepositories;
+            resourceInputs["secretScanningPushProtectionEnabledForNewRepositories"] = args?.secretScanningPushProtectionEnabledForNewRepositories;
+            resourceInputs["twitterUsername"] = args?.twitterUsername;
+            resourceInputs["webCommitSignoffRequired"] = args?.webCommitSignoffRequired;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationSettings.__pulumiType, name, resourceInputs, opts);

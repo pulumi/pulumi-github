@@ -75,28 +75,28 @@ export class ActionsOrganizationVariable extends pulumi.CustomResource {
     /**
      * Date of actionsVariable creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * An array of repository ids that can access the organization variable.
      */
-    public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
      * Date of actionsVariable update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Value of the variable
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
     /**
      * Name of the variable
      */
-    public readonly variableName!: pulumi.Output<string>;
+    declare public readonly variableName: pulumi.Output<string>;
     /**
      * Configures the access that repositories have to the organization variable.
      * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
-    public readonly visibility!: pulumi.Output<string>;
+    declare public readonly visibility: pulumi.Output<string>;
 
     /**
      * Create a ActionsOrganizationVariable resource with the given unique name, arguments, and options.
@@ -111,27 +111,27 @@ export class ActionsOrganizationVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationVariableState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["variableName"] = state ? state.variableName : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["variableName"] = state?.variableName;
+            resourceInputs["visibility"] = state?.visibility;
         } else {
             const args = argsOrState as ActionsOrganizationVariableArgs | undefined;
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            if ((!args || args.variableName === undefined) && !opts.urn) {
+            if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            if ((!args || args.visibility === undefined) && !opts.urn) {
+            if (args?.visibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
-            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["variableName"] = args?.variableName;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
