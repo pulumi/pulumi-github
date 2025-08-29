@@ -55,15 +55,15 @@ export class EmuGroupMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmuGroupMapping.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Integer corresponding to the external group ID to be linked
      */
-    public readonly groupId!: pulumi.Output<number>;
+    declare public readonly groupId: pulumi.Output<number>;
     /**
      * Slug of the GitHub team
      */
-    public readonly teamSlug!: pulumi.Output<string>;
+    declare public readonly teamSlug: pulumi.Output<string>;
 
     /**
      * Create a EmuGroupMapping resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ export class EmuGroupMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmuGroupMappingState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["teamSlug"] = state ? state.teamSlug : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["teamSlug"] = state?.teamSlug;
         } else {
             const args = argsOrState as EmuGroupMappingArgs | undefined;
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.teamSlug === undefined) && !opts.urn) {
+            if (args?.teamSlug === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamSlug'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["teamSlug"] = args ? args.teamSlug : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["teamSlug"] = args?.teamSlug;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

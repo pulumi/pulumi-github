@@ -71,12 +71,12 @@ export class AppInstallationRepository extends pulumi.CustomResource {
     /**
      * The GitHub app installation id.
      */
-    public readonly installationId!: pulumi.Output<string>;
-    public /*out*/ readonly repoId!: pulumi.Output<number>;
+    declare public readonly installationId: pulumi.Output<string>;
+    declare public /*out*/ readonly repoId: pulumi.Output<number>;
     /**
      * The repository to install the app on.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a AppInstallationRepository resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class AppInstallationRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppInstallationRepositoryState | undefined;
-            resourceInputs["installationId"] = state ? state.installationId : undefined;
-            resourceInputs["repoId"] = state ? state.repoId : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["installationId"] = state?.installationId;
+            resourceInputs["repoId"] = state?.repoId;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as AppInstallationRepositoryArgs | undefined;
-            if ((!args || args.installationId === undefined) && !opts.urn) {
+            if (args?.installationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'installationId'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["installationId"] = args ? args.installationId : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["installationId"] = args?.installationId;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["repoId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

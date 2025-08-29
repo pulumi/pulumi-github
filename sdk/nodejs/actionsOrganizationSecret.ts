@@ -48,32 +48,32 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
     /**
      * Date of actionsSecret creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
-    public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    public readonly plaintextValue!: pulumi.Output<string | undefined>;
+    declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
      * Name of the secret
      */
-    public readonly secretName!: pulumi.Output<string>;
+    declare public readonly secretName: pulumi.Output<string>;
     /**
      * An array of repository ids that can access the organization secret.
      */
-    public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
      * Date of actionsSecret update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Configures the access that repositories have to the organization secret.
      * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      */
-    public readonly visibility!: pulumi.Output<string>;
+    declare public readonly visibility: pulumi.Output<string>;
 
     /**
      * Create a ActionsOrganizationSecret resource with the given unique name, arguments, and options.
@@ -88,26 +88,26 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationSecretState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["encryptedValue"] = state ? state.encryptedValue : undefined;
-            resourceInputs["plaintextValue"] = state ? state.plaintextValue : undefined;
-            resourceInputs["secretName"] = state ? state.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["encryptedValue"] = state?.encryptedValue;
+            resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["secretName"] = state?.secretName;
+            resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["visibility"] = state?.visibility;
         } else {
             const args = argsOrState as ActionsOrganizationSecretArgs | undefined;
-            if ((!args || args.secretName === undefined) && !opts.urn) {
+            if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            if ((!args || args.visibility === undefined) && !opts.urn) {
+            if (args?.visibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
-            resourceInputs["secretName"] = args ? args.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["secretName"] = args?.secretName;
+            resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

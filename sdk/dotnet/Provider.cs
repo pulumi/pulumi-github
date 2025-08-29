@@ -81,8 +81,7 @@ namespace Pulumi.Github
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-        /// and `app_auth` are not set.
+        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         /// </summary>
         [Input("appAuth", json: true)]
         public Input<Inputs.ProviderAppAuthArgs>? AppAuth { get; set; }
@@ -118,9 +117,7 @@ namespace Pulumi.Github
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-        /// Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-        /// enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         /// </summary>
         [Input("parallelRequests", json: true)]
         public Input<bool>? ParallelRequests { get; set; }
@@ -132,8 +129,7 @@ namespace Pulumi.Github
         public Input<int>? ReadDelayMs { get; set; }
 
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-        /// 1s if not set, the max_retries must be set to greater than zero.
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         /// </summary>
         [Input("retryDelayMs", json: true)]
         public Input<int>? RetryDelayMs { get; set; }
@@ -142,8 +138,7 @@ namespace Pulumi.Github
         private InputList<int>? _retryableErrors;
 
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-        /// to [500, 502, 503, 504]
+        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         /// </summary>
         public InputList<int> RetryableErrors
         {

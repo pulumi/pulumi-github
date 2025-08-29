@@ -66,18 +66,18 @@ export class Membership extends pulumi.CustomResource {
      * from the organization. Instead, the member's role will be
      * downgraded to 'member'.
      */
-    public readonly downgradeOnDestroy!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly downgradeOnDestroy: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The role of the user within the organization.
      * Must be one of `member` or `admin`. Defaults to `member`.
      * `admin` role represents the `owner` role available via GitHub UI.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * The user to add to the organization.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a Membership resource with the given unique name, arguments, and options.
@@ -92,18 +92,18 @@ export class Membership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MembershipState | undefined;
-            resourceInputs["downgradeOnDestroy"] = state ? state.downgradeOnDestroy : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["downgradeOnDestroy"] = state?.downgradeOnDestroy;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as MembershipArgs | undefined;
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["downgradeOnDestroy"] = args ? args.downgradeOnDestroy : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["downgradeOnDestroy"] = args?.downgradeOnDestroy;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["username"] = args?.username;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

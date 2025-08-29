@@ -61,47 +61,47 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
     /**
      * Whether public repositories can be added to the runner group. Defaults to false.
      */
-    public readonly allowsPublicRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowsPublicRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether this is the default runner group
      */
-    public /*out*/ readonly default!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly default: pulumi.Output<boolean>;
     /**
      * An etag representing the runner group object
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Whether the runner group is inherited from the enterprise level
      */
-    public /*out*/ readonly inherited!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly inherited: pulumi.Output<boolean>;
     /**
      * Name of the runner group
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      */
-    public readonly restrictedToWorkflows!: pulumi.Output<boolean | undefined>;
+    declare public readonly restrictedToWorkflows: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub API URL for the runner group's runners
      */
-    public /*out*/ readonly runnersUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly runnersUrl: pulumi.Output<string>;
     /**
      * GitHub API URL for the runner group's repositories
      */
-    public /*out*/ readonly selectedRepositoriesUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly selectedRepositoriesUrl: pulumi.Output<string>;
     /**
      * IDs of the repositories which should be added to the runner group
      */
-    public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      */
-    public readonly selectedWorkflows!: pulumi.Output<string[] | undefined>;
+    declare public readonly selectedWorkflows: pulumi.Output<string[] | undefined>;
     /**
      * Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
      */
-    public readonly visibility!: pulumi.Output<string>;
+    declare public readonly visibility: pulumi.Output<string>;
 
     /**
      * Create a ActionsRunnerGroup resource with the given unique name, arguments, and options.
@@ -116,28 +116,28 @@ export class ActionsRunnerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsRunnerGroupState | undefined;
-            resourceInputs["allowsPublicRepositories"] = state ? state.allowsPublicRepositories : undefined;
-            resourceInputs["default"] = state ? state.default : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["inherited"] = state ? state.inherited : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["restrictedToWorkflows"] = state ? state.restrictedToWorkflows : undefined;
-            resourceInputs["runnersUrl"] = state ? state.runnersUrl : undefined;
-            resourceInputs["selectedRepositoriesUrl"] = state ? state.selectedRepositoriesUrl : undefined;
-            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
-            resourceInputs["selectedWorkflows"] = state ? state.selectedWorkflows : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = state?.allowsPublicRepositories;
+            resourceInputs["default"] = state?.default;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["inherited"] = state?.inherited;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["restrictedToWorkflows"] = state?.restrictedToWorkflows;
+            resourceInputs["runnersUrl"] = state?.runnersUrl;
+            resourceInputs["selectedRepositoriesUrl"] = state?.selectedRepositoriesUrl;
+            resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
+            resourceInputs["selectedWorkflows"] = state?.selectedWorkflows;
+            resourceInputs["visibility"] = state?.visibility;
         } else {
             const args = argsOrState as ActionsRunnerGroupArgs | undefined;
-            if ((!args || args.visibility === undefined) && !opts.urn) {
+            if (args?.visibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
-            resourceInputs["allowsPublicRepositories"] = args ? args.allowsPublicRepositories : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restrictedToWorkflows"] = args ? args.restrictedToWorkflows : undefined;
-            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
-            resourceInputs["selectedWorkflows"] = args ? args.selectedWorkflows : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = args?.allowsPublicRepositories;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restrictedToWorkflows"] = args?.restrictedToWorkflows;
+            resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
+            resourceInputs["selectedWorkflows"] = args?.selectedWorkflows;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inherited"] = undefined /*out*/;

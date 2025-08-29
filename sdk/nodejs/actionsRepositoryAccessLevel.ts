@@ -63,11 +63,11 @@ export class ActionsRepositoryAccessLevel extends pulumi.CustomResource {
     /**
      * Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
      */
-    public readonly accessLevel!: pulumi.Output<string>;
+    declare public readonly accessLevel: pulumi.Output<string>;
     /**
      * The GitHub repository
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a ActionsRepositoryAccessLevel resource with the given unique name, arguments, and options.
@@ -82,18 +82,18 @@ export class ActionsRepositoryAccessLevel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsRepositoryAccessLevelState | undefined;
-            resourceInputs["accessLevel"] = state ? state.accessLevel : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["accessLevel"] = state?.accessLevel;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as ActionsRepositoryAccessLevelArgs | undefined;
-            if ((!args || args.accessLevel === undefined) && !opts.urn) {
+            if (args?.accessLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessLevel'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["accessLevel"] = args ? args.accessLevel : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["accessLevel"] = args?.accessLevel;
+            resourceInputs["repository"] = args?.repository;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRepositoryAccessLevel.__pulumiType, name, resourceInputs, opts);

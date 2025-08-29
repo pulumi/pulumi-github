@@ -79,27 +79,27 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
     /**
      * Date of actionsEnvironmentSecret creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Name of the environment.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * Name of the repository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Date of actionsEnvironmentSecret update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Value of the variable
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
     /**
      * Name of the variable.
      */
-    public readonly variableName!: pulumi.Output<string>;
+    declare public readonly variableName: pulumi.Output<string>;
 
     /**
      * Create a ActionsEnvironmentVariable resource with the given unique name, arguments, and options.
@@ -114,30 +114,30 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsEnvironmentVariableState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["variableName"] = state ? state.variableName : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["variableName"] = state?.variableName;
         } else {
             const args = argsOrState as ActionsEnvironmentVariableArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            if ((!args || args.variableName === undefined) && !opts.urn) {
+            if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["variableName"] = args?.variableName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

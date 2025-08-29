@@ -80,20 +80,20 @@ export class TeamRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === TeamRepository.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The permissions of team members regarding the repository.
      * Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
      */
-    public readonly permission!: pulumi.Output<string | undefined>;
+    declare public readonly permission: pulumi.Output<string | undefined>;
     /**
      * The repository to add to the team.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a TeamRepository resource with the given unique name, arguments, and options.
@@ -108,21 +108,21 @@ export class TeamRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamRepositoryState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["permission"] = state ? state.permission : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["permission"] = state?.permission;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as TeamRepositoryArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["teamId"] = args?.teamId;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -60,19 +60,19 @@ export class UserSshKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSshKey.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The public SSH key to add to your GitHub account.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * A descriptive name for the new key. e.g. `Personal MacBook Air`
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The URL of the SSH key
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a UserSshKey resource with the given unique name, arguments, and options.
@@ -87,20 +87,20 @@ export class UserSshKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserSshKeyState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as UserSshKeyArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["title"] = args?.title;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

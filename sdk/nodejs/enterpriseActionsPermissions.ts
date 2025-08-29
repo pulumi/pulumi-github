@@ -76,23 +76,23 @@ export class EnterpriseActionsPermissions extends pulumi.CustomResource {
     /**
      * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      */
-    public readonly allowedActions!: pulumi.Output<string | undefined>;
+    declare public readonly allowedActions: pulumi.Output<string | undefined>;
     /**
      * Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      */
-    public readonly allowedActionsConfig!: pulumi.Output<outputs.EnterpriseActionsPermissionsAllowedActionsConfig | undefined>;
+    declare public readonly allowedActionsConfig: pulumi.Output<outputs.EnterpriseActionsPermissionsAllowedActionsConfig | undefined>;
     /**
      * The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      */
-    public readonly enabledOrganizations!: pulumi.Output<string>;
+    declare public readonly enabledOrganizations: pulumi.Output<string>;
     /**
      * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      */
-    public readonly enabledOrganizationsConfig!: pulumi.Output<outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig | undefined>;
+    declare public readonly enabledOrganizationsConfig: pulumi.Output<outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig | undefined>;
     /**
      * The slug of the enterprise.
      */
-    public readonly enterpriseSlug!: pulumi.Output<string>;
+    declare public readonly enterpriseSlug: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseActionsPermissions resource with the given unique name, arguments, and options.
@@ -107,24 +107,24 @@ export class EnterpriseActionsPermissions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseActionsPermissionsState | undefined;
-            resourceInputs["allowedActions"] = state ? state.allowedActions : undefined;
-            resourceInputs["allowedActionsConfig"] = state ? state.allowedActionsConfig : undefined;
-            resourceInputs["enabledOrganizations"] = state ? state.enabledOrganizations : undefined;
-            resourceInputs["enabledOrganizationsConfig"] = state ? state.enabledOrganizationsConfig : undefined;
-            resourceInputs["enterpriseSlug"] = state ? state.enterpriseSlug : undefined;
+            resourceInputs["allowedActions"] = state?.allowedActions;
+            resourceInputs["allowedActionsConfig"] = state?.allowedActionsConfig;
+            resourceInputs["enabledOrganizations"] = state?.enabledOrganizations;
+            resourceInputs["enabledOrganizationsConfig"] = state?.enabledOrganizationsConfig;
+            resourceInputs["enterpriseSlug"] = state?.enterpriseSlug;
         } else {
             const args = argsOrState as EnterpriseActionsPermissionsArgs | undefined;
-            if ((!args || args.enabledOrganizations === undefined) && !opts.urn) {
+            if (args?.enabledOrganizations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabledOrganizations'");
             }
-            if ((!args || args.enterpriseSlug === undefined) && !opts.urn) {
+            if (args?.enterpriseSlug === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enterpriseSlug'");
             }
-            resourceInputs["allowedActions"] = args ? args.allowedActions : undefined;
-            resourceInputs["allowedActionsConfig"] = args ? args.allowedActionsConfig : undefined;
-            resourceInputs["enabledOrganizations"] = args ? args.enabledOrganizations : undefined;
-            resourceInputs["enabledOrganizationsConfig"] = args ? args.enabledOrganizationsConfig : undefined;
-            resourceInputs["enterpriseSlug"] = args ? args.enterpriseSlug : undefined;
+            resourceInputs["allowedActions"] = args?.allowedActions;
+            resourceInputs["allowedActionsConfig"] = args?.allowedActionsConfig;
+            resourceInputs["enabledOrganizations"] = args?.enabledOrganizations;
+            resourceInputs["enabledOrganizationsConfig"] = args?.enabledOrganizationsConfig;
+            resourceInputs["enterpriseSlug"] = args?.enterpriseSlug;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnterpriseActionsPermissions.__pulumiType, name, resourceInputs, opts);

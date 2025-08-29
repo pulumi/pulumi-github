@@ -67,19 +67,19 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
     /**
      * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
-    public readonly environmentName!: pulumi.Output<string>;
+    declare public readonly environmentName: pulumi.Output<string>;
     /**
      * An etag representing the Branch object.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name pattern that branches must match in order to deploy to the environment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The repository to create the policy in.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a RepositoryDeploymentBranchPolicy resource with the given unique name, arguments, and options.
@@ -94,21 +94,21 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryDeploymentBranchPolicyState | undefined;
-            resourceInputs["environmentName"] = state ? state.environmentName : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["environmentName"] = state?.environmentName;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as RepositoryDeploymentBranchPolicyArgs | undefined;
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

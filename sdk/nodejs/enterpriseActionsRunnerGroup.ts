@@ -73,47 +73,47 @@ export class EnterpriseActionsRunnerGroup extends pulumi.CustomResource {
     /**
      * Whether public repositories can be added to the runner group. Defaults to false.
      */
-    public readonly allowsPublicRepositories!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowsPublicRepositories: pulumi.Output<boolean | undefined>;
     /**
      * Whether this is the default runner group
      */
-    public /*out*/ readonly default!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly default: pulumi.Output<boolean>;
     /**
      * The slug of the enterprise.
      */
-    public readonly enterpriseSlug!: pulumi.Output<string>;
+    declare public readonly enterpriseSlug: pulumi.Output<string>;
     /**
      * An etag representing the runner group object
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Name of the runner group
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      */
-    public readonly restrictedToWorkflows!: pulumi.Output<boolean | undefined>;
+    declare public readonly restrictedToWorkflows: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub API URL for the runner group's runners
      */
-    public /*out*/ readonly runnersUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly runnersUrl: pulumi.Output<string>;
     /**
      * IDs of the organizations which should be added to the runner group
      */
-    public readonly selectedOrganizationIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly selectedOrganizationIds: pulumi.Output<number[] | undefined>;
     /**
      * The GitHub API URL for the runner group's selected organizations
      */
-    public /*out*/ readonly selectedOrganizationsUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly selectedOrganizationsUrl: pulumi.Output<string>;
     /**
      * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      */
-    public readonly selectedWorkflows!: pulumi.Output<string[] | undefined>;
+    declare public readonly selectedWorkflows: pulumi.Output<string[] | undefined>;
     /**
      * Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
      */
-    public readonly visibility!: pulumi.Output<string>;
+    declare public readonly visibility: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseActionsRunnerGroup resource with the given unique name, arguments, and options.
@@ -128,32 +128,32 @@ export class EnterpriseActionsRunnerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseActionsRunnerGroupState | undefined;
-            resourceInputs["allowsPublicRepositories"] = state ? state.allowsPublicRepositories : undefined;
-            resourceInputs["default"] = state ? state.default : undefined;
-            resourceInputs["enterpriseSlug"] = state ? state.enterpriseSlug : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["restrictedToWorkflows"] = state ? state.restrictedToWorkflows : undefined;
-            resourceInputs["runnersUrl"] = state ? state.runnersUrl : undefined;
-            resourceInputs["selectedOrganizationIds"] = state ? state.selectedOrganizationIds : undefined;
-            resourceInputs["selectedOrganizationsUrl"] = state ? state.selectedOrganizationsUrl : undefined;
-            resourceInputs["selectedWorkflows"] = state ? state.selectedWorkflows : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = state?.allowsPublicRepositories;
+            resourceInputs["default"] = state?.default;
+            resourceInputs["enterpriseSlug"] = state?.enterpriseSlug;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["restrictedToWorkflows"] = state?.restrictedToWorkflows;
+            resourceInputs["runnersUrl"] = state?.runnersUrl;
+            resourceInputs["selectedOrganizationIds"] = state?.selectedOrganizationIds;
+            resourceInputs["selectedOrganizationsUrl"] = state?.selectedOrganizationsUrl;
+            resourceInputs["selectedWorkflows"] = state?.selectedWorkflows;
+            resourceInputs["visibility"] = state?.visibility;
         } else {
             const args = argsOrState as EnterpriseActionsRunnerGroupArgs | undefined;
-            if ((!args || args.enterpriseSlug === undefined) && !opts.urn) {
+            if (args?.enterpriseSlug === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enterpriseSlug'");
             }
-            if ((!args || args.visibility === undefined) && !opts.urn) {
+            if (args?.visibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
-            resourceInputs["allowsPublicRepositories"] = args ? args.allowsPublicRepositories : undefined;
-            resourceInputs["enterpriseSlug"] = args ? args.enterpriseSlug : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restrictedToWorkflows"] = args ? args.restrictedToWorkflows : undefined;
-            resourceInputs["selectedOrganizationIds"] = args ? args.selectedOrganizationIds : undefined;
-            resourceInputs["selectedWorkflows"] = args ? args.selectedWorkflows : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["allowsPublicRepositories"] = args?.allowsPublicRepositories;
+            resourceInputs["enterpriseSlug"] = args?.enterpriseSlug;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restrictedToWorkflows"] = args?.restrictedToWorkflows;
+            resourceInputs["selectedOrganizationIds"] = args?.selectedOrganizationIds;
+            resourceInputs["selectedWorkflows"] = args?.selectedWorkflows;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["runnersUrl"] = undefined /*out*/;

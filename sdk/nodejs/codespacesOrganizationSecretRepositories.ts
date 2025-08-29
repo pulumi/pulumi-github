@@ -65,11 +65,11 @@ export class CodespacesOrganizationSecretRepositories extends pulumi.CustomResou
     /**
      * Name of the existing secret
      */
-    public readonly secretName!: pulumi.Output<string>;
+    declare public readonly secretName: pulumi.Output<string>;
     /**
      * An array of repository ids that can access the organization secret.
      */
-    public readonly selectedRepositoryIds!: pulumi.Output<number[]>;
+    declare public readonly selectedRepositoryIds: pulumi.Output<number[]>;
 
     /**
      * Create a CodespacesOrganizationSecretRepositories resource with the given unique name, arguments, and options.
@@ -84,18 +84,18 @@ export class CodespacesOrganizationSecretRepositories extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CodespacesOrganizationSecretRepositoriesState | undefined;
-            resourceInputs["secretName"] = state ? state.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
+            resourceInputs["secretName"] = state?.secretName;
+            resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
         } else {
             const args = argsOrState as CodespacesOrganizationSecretRepositoriesArgs | undefined;
-            if ((!args || args.secretName === undefined) && !opts.urn) {
+            if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            if ((!args || args.selectedRepositoryIds === undefined) && !opts.urn) {
+            if (args?.selectedRepositoryIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectedRepositoryIds'");
             }
-            resourceInputs["secretName"] = args ? args.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
+            resourceInputs["secretName"] = args?.secretName;
+            resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CodespacesOrganizationSecretRepositories.__pulumiType, name, resourceInputs, opts);

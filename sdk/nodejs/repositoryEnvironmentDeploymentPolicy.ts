@@ -106,19 +106,19 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
     /**
      * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      */
-    public readonly branchPattern!: pulumi.Output<string | undefined>;
+    declare public readonly branchPattern: pulumi.Output<string | undefined>;
     /**
      * The name of the environment.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * The repository of the environment.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      */
-    public readonly tagPattern!: pulumi.Output<string | undefined>;
+    declare public readonly tagPattern: pulumi.Output<string | undefined>;
 
     /**
      * Create a RepositoryEnvironmentDeploymentPolicy resource with the given unique name, arguments, and options.
@@ -133,22 +133,22 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryEnvironmentDeploymentPolicyState | undefined;
-            resourceInputs["branchPattern"] = state ? state.branchPattern : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["tagPattern"] = state ? state.tagPattern : undefined;
+            resourceInputs["branchPattern"] = state?.branchPattern;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["tagPattern"] = state?.tagPattern;
         } else {
             const args = argsOrState as RepositoryEnvironmentDeploymentPolicyArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["branchPattern"] = args ? args.branchPattern : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["tagPattern"] = args ? args.tagPattern : undefined;
+            resourceInputs["branchPattern"] = args?.branchPattern;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["tagPattern"] = args?.tagPattern;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironmentDeploymentPolicy.__pulumiType, name, resourceInputs, opts);

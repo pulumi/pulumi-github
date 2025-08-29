@@ -66,19 +66,19 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
     /**
      * Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
      */
-    public readonly propertyName!: pulumi.Output<string>;
+    declare public readonly propertyName: pulumi.Output<string>;
     /**
      * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      */
-    public readonly propertyType!: pulumi.Output<string>;
+    declare public readonly propertyType: pulumi.Output<string>;
     /**
      * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      */
-    public readonly propertyValues!: pulumi.Output<string[]>;
+    declare public readonly propertyValues: pulumi.Output<string[]>;
     /**
      * The repository of the environment.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a RepositoryCustomProperty resource with the given unique name, arguments, and options.
@@ -93,28 +93,28 @@ export class RepositoryCustomProperty extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryCustomPropertyState | undefined;
-            resourceInputs["propertyName"] = state ? state.propertyName : undefined;
-            resourceInputs["propertyType"] = state ? state.propertyType : undefined;
-            resourceInputs["propertyValues"] = state ? state.propertyValues : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["propertyName"] = state?.propertyName;
+            resourceInputs["propertyType"] = state?.propertyType;
+            resourceInputs["propertyValues"] = state?.propertyValues;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as RepositoryCustomPropertyArgs | undefined;
-            if ((!args || args.propertyName === undefined) && !opts.urn) {
+            if (args?.propertyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'propertyName'");
             }
-            if ((!args || args.propertyType === undefined) && !opts.urn) {
+            if (args?.propertyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'propertyType'");
             }
-            if ((!args || args.propertyValues === undefined) && !opts.urn) {
+            if (args?.propertyValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'propertyValues'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["propertyName"] = args ? args.propertyName : undefined;
-            resourceInputs["propertyType"] = args ? args.propertyType : undefined;
-            resourceInputs["propertyValues"] = args ? args.propertyValues : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["propertyName"] = args?.propertyName;
+            resourceInputs["propertyType"] = args?.propertyType;
+            resourceInputs["propertyValues"] = args?.propertyValues;
+            resourceInputs["repository"] = args?.repository;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryCustomProperty.__pulumiType, name, resourceInputs, opts);

@@ -83,27 +83,27 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
     /**
      * ID of the invitation to be used in `github.UserInvitationAccepter`
      */
-    public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly invitationId: pulumi.Output<string>;
     /**
      * The permission of the outside collaborator for the repository.
      * Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
      * Must be `push` for personal repositories. Defaults to `push`.
      */
-    public readonly permission!: pulumi.Output<string | undefined>;
+    declare public readonly permission: pulumi.Output<string | undefined>;
     /**
      * Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
      */
-    public readonly permissionDiffSuppression!: pulumi.Output<boolean | undefined>;
+    declare public readonly permissionDiffSuppression: pulumi.Output<boolean | undefined>;
     /**
      * The GitHub repository
      *
      * > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The user to add to the repository as a collaborator.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a RepositoryCollaborator resource with the given unique name, arguments, and options.
@@ -118,23 +118,23 @@ export class RepositoryCollaborator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryCollaboratorState | undefined;
-            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
-            resourceInputs["permission"] = state ? state.permission : undefined;
-            resourceInputs["permissionDiffSuppression"] = state ? state.permissionDiffSuppression : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["invitationId"] = state?.invitationId;
+            resourceInputs["permission"] = state?.permission;
+            resourceInputs["permissionDiffSuppression"] = state?.permissionDiffSuppression;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as RepositoryCollaboratorArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["permissionDiffSuppression"] = args ? args.permissionDiffSuppression : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["permissionDiffSuppression"] = args?.permissionDiffSuppression;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["username"] = args?.username;
             resourceInputs["invitationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

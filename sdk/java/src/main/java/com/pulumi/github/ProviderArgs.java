@@ -21,16 +21,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-     * and `app_auth` are not set.
+     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      * 
      */
     @Import(name="appAuth", json=true)
     private @Nullable Output<ProviderAppAuthArgs> appAuth;
 
     /**
-     * @return The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-     * and `app_auth` are not set.
+     * @return The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
      * 
      */
     public Optional<Output<ProviderAppAuthArgs>> appAuth() {
@@ -121,18 +119,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-     * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
      * 
      */
     @Import(name="parallelRequests", json=true)
     private @Nullable Output<Boolean> parallelRequests;
 
     /**
-     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-     * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
      * 
      */
     public Optional<Output<Boolean>> parallelRequests() {
@@ -155,16 +149,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-     * 1s if not set, the max_retries must be set to greater than zero.
+     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
      * 
      */
     @Import(name="retryDelayMs", json=true)
     private @Nullable Output<Integer> retryDelayMs;
 
     /**
-     * @return Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-     * 1s if not set, the max_retries must be set to greater than zero.
+     * @return Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
      * 
      */
     public Optional<Output<Integer>> retryDelayMs() {
@@ -172,16 +164,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-     * to [500, 502, 503, 504]
+     * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
      * 
      */
     @Import(name="retryableErrors", json=true)
     private @Nullable Output<List<Integer>> retryableErrors;
 
     /**
-     * @return Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-     * to [500, 502, 503, 504]
+     * @return Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
      * 
      */
     public Optional<Output<List<Integer>>> retryableErrors() {
@@ -254,8 +244,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-         * and `app_auth` are not set.
+         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
          * 
          * @return builder
          * 
@@ -266,8 +255,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-         * and `app_auth` are not set.
+         * @param appAuth The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
          * 
          * @return builder
          * 
@@ -390,9 +378,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-         * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-         * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
          * 
          * @return builder
          * 
@@ -403,9 +389,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-         * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-         * enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
          * 
          * @return builder
          * 
@@ -436,8 +420,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-         * 1s if not set, the max_retries must be set to greater than zero.
+         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
          * 
          * @return builder
          * 
@@ -448,8 +431,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-         * 1s if not set, the max_retries must be set to greater than zero.
+         * @param retryDelayMs Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
          * 
          * @return builder
          * 
@@ -459,8 +441,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-         * to [500, 502, 503, 504]
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
          * 
          * @return builder
          * 
@@ -471,8 +452,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-         * to [500, 502, 503, 504]
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
          * 
          * @return builder
          * 
@@ -482,8 +462,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-         * to [500, 502, 503, 504]
+         * @param retryableErrors Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
          * 
          * @return builder
          * 

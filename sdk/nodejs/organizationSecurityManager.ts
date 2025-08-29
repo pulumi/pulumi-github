@@ -57,7 +57,7 @@ export class OrganizationSecurityManager extends pulumi.CustomResource {
     /**
      * The slug of the team to manage.
      */
-    public readonly teamSlug!: pulumi.Output<string>;
+    declare public readonly teamSlug: pulumi.Output<string>;
 
     /**
      * Create a OrganizationSecurityManager resource with the given unique name, arguments, and options.
@@ -72,13 +72,13 @@ export class OrganizationSecurityManager extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationSecurityManagerState | undefined;
-            resourceInputs["teamSlug"] = state ? state.teamSlug : undefined;
+            resourceInputs["teamSlug"] = state?.teamSlug;
         } else {
             const args = argsOrState as OrganizationSecurityManagerArgs | undefined;
-            if ((!args || args.teamSlug === undefined) && !opts.urn) {
+            if (args?.teamSlug === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamSlug'");
             }
-            resourceInputs["teamSlug"] = args ? args.teamSlug : undefined;
+            resourceInputs["teamSlug"] = args?.teamSlug;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationSecurityManager.__pulumiType, name, resourceInputs, opts);

@@ -75,31 +75,31 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
     /**
      * Can repository admins bypass the environment protections.  Defaults to `true`.
      */
-    public readonly canAdminsBypass!: pulumi.Output<boolean | undefined>;
+    declare public readonly canAdminsBypass: pulumi.Output<boolean | undefined>;
     /**
      * The deployment branch policy configuration
      */
-    public readonly deploymentBranchPolicy!: pulumi.Output<outputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
+    declare public readonly deploymentBranchPolicy: pulumi.Output<outputs.RepositoryEnvironmentDeploymentBranchPolicy | undefined>;
     /**
      * The name of the environment.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
      */
-    public readonly preventSelfReview!: pulumi.Output<boolean | undefined>;
+    declare public readonly preventSelfReview: pulumi.Output<boolean | undefined>;
     /**
      * The repository of the environment.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The environment reviewers configuration.
      */
-    public readonly reviewers!: pulumi.Output<outputs.RepositoryEnvironmentReviewer[] | undefined>;
+    declare public readonly reviewers: pulumi.Output<outputs.RepositoryEnvironmentReviewer[] | undefined>;
     /**
      * Amount of time to delay a job after the job is initially triggered.
      */
-    public readonly waitTimer!: pulumi.Output<number | undefined>;
+    declare public readonly waitTimer: pulumi.Output<number | undefined>;
 
     /**
      * Create a RepositoryEnvironment resource with the given unique name, arguments, and options.
@@ -114,28 +114,28 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryEnvironmentState | undefined;
-            resourceInputs["canAdminsBypass"] = state ? state.canAdminsBypass : undefined;
-            resourceInputs["deploymentBranchPolicy"] = state ? state.deploymentBranchPolicy : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["preventSelfReview"] = state ? state.preventSelfReview : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["reviewers"] = state ? state.reviewers : undefined;
-            resourceInputs["waitTimer"] = state ? state.waitTimer : undefined;
+            resourceInputs["canAdminsBypass"] = state?.canAdminsBypass;
+            resourceInputs["deploymentBranchPolicy"] = state?.deploymentBranchPolicy;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["preventSelfReview"] = state?.preventSelfReview;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["reviewers"] = state?.reviewers;
+            resourceInputs["waitTimer"] = state?.waitTimer;
         } else {
             const args = argsOrState as RepositoryEnvironmentArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["canAdminsBypass"] = args ? args.canAdminsBypass : undefined;
-            resourceInputs["deploymentBranchPolicy"] = args ? args.deploymentBranchPolicy : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["preventSelfReview"] = args ? args.preventSelfReview : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["reviewers"] = args ? args.reviewers : undefined;
-            resourceInputs["waitTimer"] = args ? args.waitTimer : undefined;
+            resourceInputs["canAdminsBypass"] = args?.canAdminsBypass;
+            resourceInputs["deploymentBranchPolicy"] = args?.deploymentBranchPolicy;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["preventSelfReview"] = args?.preventSelfReview;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["reviewers"] = args?.reviewers;
+            resourceInputs["waitTimer"] = args?.waitTimer;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironment.__pulumiType, name, resourceInputs, opts);

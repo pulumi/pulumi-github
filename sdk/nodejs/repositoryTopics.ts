@@ -62,11 +62,11 @@ export class RepositoryTopics extends pulumi.CustomResource {
     /**
      * The repository name.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * A list of topics to add to the repository.
      */
-    public readonly topics!: pulumi.Output<string[]>;
+    declare public readonly topics: pulumi.Output<string[]>;
 
     /**
      * Create a RepositoryTopics resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class RepositoryTopics extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryTopicsState | undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["topics"] = state ? state.topics : undefined;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["topics"] = state?.topics;
         } else {
             const args = argsOrState as RepositoryTopicsArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.topics === undefined) && !opts.urn) {
+            if (args?.topics === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topics'");
             }
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["topics"] = args?.topics;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryTopics.__pulumiType, name, resourceInputs, opts);
