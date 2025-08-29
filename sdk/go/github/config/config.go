@@ -11,8 +11,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-// and `appAuth` are not set.
+// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
 func GetAppAuth(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:appAuth")
 }
@@ -52,9 +51,7 @@ func GetOwner(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:owner")
 }
 
-// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-// Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-// enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
 func GetParallelRequests(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:parallelRequests")
 }
@@ -64,14 +61,12 @@ func GetReadDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:readDelayMs")
 }
 
-// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-// 1s if not set, the maxRetries must be set to greater than zero.
+// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
 func GetRetryDelayMs(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:retryDelayMs")
 }
 
-// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
-// to [500, 502, 503, 504]
+// Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
 func GetRetryableErrors(ctx *pulumi.Context) string {
 	return config.Get(ctx, "github:retryableErrors")
 }

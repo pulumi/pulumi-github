@@ -105,36 +105,36 @@ export class Issue extends pulumi.CustomResource {
     /**
      * List of Logins to assign the to the issue
      */
-    public readonly assignees!: pulumi.Output<string[] | undefined>;
+    declare public readonly assignees: pulumi.Output<string[] | undefined>;
     /**
      * Body of the issue
      */
-    public readonly body!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * (Computed) - The issue id
      */
-    public /*out*/ readonly issueId!: pulumi.Output<number>;
+    declare public /*out*/ readonly issueId: pulumi.Output<number>;
     /**
      * List of labels to attach to the issue
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Milestone number to assign to the issue
      */
-    public readonly milestoneNumber!: pulumi.Output<number | undefined>;
+    declare public readonly milestoneNumber: pulumi.Output<number | undefined>;
     /**
      * (Computed) - The issue number
      */
-    public /*out*/ readonly number!: pulumi.Output<number>;
+    declare public /*out*/ readonly number: pulumi.Output<number>;
     /**
      * The GitHub repository name
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Title of the issue
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
 
     /**
      * Create a Issue resource with the given unique name, arguments, and options.
@@ -149,29 +149,29 @@ export class Issue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IssueState | undefined;
-            resourceInputs["assignees"] = state ? state.assignees : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["issueId"] = state ? state.issueId : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["milestoneNumber"] = state ? state.milestoneNumber : undefined;
-            resourceInputs["number"] = state ? state.number : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["assignees"] = state?.assignees;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["issueId"] = state?.issueId;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["milestoneNumber"] = state?.milestoneNumber;
+            resourceInputs["number"] = state?.number;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["title"] = state?.title;
         } else {
             const args = argsOrState as IssueArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["assignees"] = args ? args.assignees : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["milestoneNumber"] = args ? args.milestoneNumber : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["assignees"] = args?.assignees;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["milestoneNumber"] = args?.milestoneNumber;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["title"] = args?.title;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["issueId"] = undefined /*out*/;
             resourceInputs["number"] = undefined /*out*/;

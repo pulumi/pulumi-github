@@ -34,8 +34,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<Pulumi.Github.Config.Types.AppAuth?> _appAuth = new __Value<Pulumi.Github.Config.Types.AppAuth?>(() => __config.GetObject<Pulumi.Github.Config.Types.AppAuth>("appAuth"));
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-        /// and `app_auth` are not set.
+        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
         /// </summary>
         public static Pulumi.Github.Config.Types.AppAuth? AppAuth
         {
@@ -95,9 +94,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<bool?> _parallelRequests = new __Value<bool?>(() => __config.GetBoolean("parallelRequests"));
         /// <summary>
-        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-        /// Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-        /// enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
         /// </summary>
         public static bool? ParallelRequests
         {
@@ -117,8 +114,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _retryDelayMs = new __Value<int?>(() => __config.GetInt32("retryDelayMs"));
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-        /// 1s if not set, the max_retries must be set to greater than zero.
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         /// </summary>
         public static int? RetryDelayMs
         {
@@ -128,8 +124,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<ImmutableArray<int>> _retryableErrors = new __Value<ImmutableArray<int>>(() => __config.GetObject<ImmutableArray<int>>("retryableErrors"));
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults
-        /// to [500, 502, 503, 504]
+        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
         /// </summary>
         public static ImmutableArray<int> RetryableErrors
         {

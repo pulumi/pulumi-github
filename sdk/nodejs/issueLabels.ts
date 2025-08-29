@@ -79,11 +79,11 @@ export class IssueLabels extends pulumi.CustomResource {
     /**
      * List of labels
      */
-    public readonly labels!: pulumi.Output<outputs.IssueLabelsLabel[] | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.IssueLabelsLabel[] | undefined>;
     /**
      * The GitHub repository
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
 
     /**
      * Create a IssueLabels resource with the given unique name, arguments, and options.
@@ -98,15 +98,15 @@ export class IssueLabels extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IssueLabelsState | undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["repository"] = state?.repository;
         } else {
             const args = argsOrState as IssueLabelsArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["repository"] = args?.repository;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IssueLabels.__pulumiType, name, resourceInputs, opts);

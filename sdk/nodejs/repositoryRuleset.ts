@@ -89,43 +89,43 @@ export class RepositoryRuleset extends pulumi.CustomResource {
     /**
      * (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
      */
-    public readonly bypassActors!: pulumi.Output<outputs.RepositoryRulesetBypassActor[] | undefined>;
+    declare public readonly bypassActors: pulumi.Output<outputs.RepositoryRulesetBypassActor[] | undefined>;
     /**
      * (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
      */
-    public readonly conditions!: pulumi.Output<outputs.RepositoryRulesetConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.RepositoryRulesetConditions | undefined>;
     /**
      * (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
      */
-    public readonly enforcement!: pulumi.Output<string>;
+    declare public readonly enforcement: pulumi.Output<string>;
     /**
      * (String)
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * (String) The name of the ruleset.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (String) GraphQL global node id for use with v4 API.
      */
-    public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
      * (String) Name of the repository to apply rulset to.
      */
-    public readonly repository!: pulumi.Output<string | undefined>;
+    declare public readonly repository: pulumi.Output<string | undefined>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */
-    public readonly rules!: pulumi.Output<outputs.RepositoryRulesetRules>;
+    declare public readonly rules: pulumi.Output<outputs.RepositoryRulesetRules>;
     /**
      * (Number) GitHub ID for the ruleset.
      */
-    public /*out*/ readonly rulesetId!: pulumi.Output<number>;
+    declare public /*out*/ readonly rulesetId: pulumi.Output<number>;
     /**
      * (String) Possible values are `branch` and `tag`.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
 
     /**
      * Create a RepositoryRuleset resource with the given unique name, arguments, and options.
@@ -140,34 +140,34 @@ export class RepositoryRuleset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryRulesetState | undefined;
-            resourceInputs["bypassActors"] = state ? state.bypassActors : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["enforcement"] = state ? state.enforcement : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["rulesetId"] = state ? state.rulesetId : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["bypassActors"] = state?.bypassActors;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["enforcement"] = state?.enforcement;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeId"] = state?.nodeId;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["rulesetId"] = state?.rulesetId;
+            resourceInputs["target"] = state?.target;
         } else {
             const args = argsOrState as RepositoryRulesetArgs | undefined;
-            if ((!args || args.enforcement === undefined) && !opts.urn) {
+            if (args?.enforcement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enforcement'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["bypassActors"] = args ? args.bypassActors : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["enforcement"] = args ? args.enforcement : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["bypassActors"] = args?.bypassActors;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["enforcement"] = args?.enforcement;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["target"] = args?.target;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["nodeId"] = undefined /*out*/;
             resourceInputs["rulesetId"] = undefined /*out*/;

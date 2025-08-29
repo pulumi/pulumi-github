@@ -48,27 +48,27 @@ export class ActionsSecret extends pulumi.CustomResource {
     /**
      * Date of actionsSecret creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
-    public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    public readonly plaintextValue!: pulumi.Output<string | undefined>;
+    declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
      * Name of the repository
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Name of the secret
      */
-    public readonly secretName!: pulumi.Output<string>;
+    declare public readonly secretName: pulumi.Output<string>;
     /**
      * Date of actionsSecret update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a ActionsSecret resource with the given unique name, arguments, and options.
@@ -83,24 +83,24 @@ export class ActionsSecret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsSecretState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["encryptedValue"] = state ? state.encryptedValue : undefined;
-            resourceInputs["plaintextValue"] = state ? state.plaintextValue : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["secretName"] = state ? state.secretName : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["encryptedValue"] = state?.encryptedValue;
+            resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["secretName"] = state?.secretName;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.secretName === undefined) && !opts.urn) {
+            if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["secretName"] = args ? args.secretName : undefined;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["secretName"] = args?.secretName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

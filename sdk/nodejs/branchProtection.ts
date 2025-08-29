@@ -99,55 +99,55 @@ export class BranchProtection extends pulumi.CustomResource {
     /**
      * Boolean, setting this to `true` to allow the branch to be deleted.
      */
-    public readonly allowsDeletions!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowsDeletions: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      */
-    public readonly allowsForcePushes!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowsForcePushes: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforceAdmins: pulumi.Output<boolean | undefined>;
     /**
      * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      */
-    public readonly forcePushBypassers!: pulumi.Output<string[] | undefined>;
+    declare public readonly forcePushBypassers: pulumi.Output<string[] | undefined>;
     /**
      * Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
      */
-    public readonly lockBranch!: pulumi.Output<boolean | undefined>;
+    declare public readonly lockBranch: pulumi.Output<boolean | undefined>;
     /**
      * Identifies the protection rule pattern.
      */
-    public readonly pattern!: pulumi.Output<string>;
+    declare public readonly pattern: pulumi.Output<string>;
     /**
      * The name or node ID of the repository associated with this branch protection rule.
      */
-    public readonly repositoryId!: pulumi.Output<string>;
+    declare public readonly repositoryId: pulumi.Output<string>;
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    public readonly requireConversationResolution!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireConversationResolution: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    public readonly requireSignedCommits!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireSignedCommits: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
      */
-    public readonly requiredLinearHistory!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiredLinearHistory: pulumi.Output<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionRequiredPullRequestReview[] | undefined>;
+    declare public readonly requiredPullRequestReviews: pulumi.Output<outputs.BranchProtectionRequiredPullRequestReview[] | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionRequiredStatusCheck[] | undefined>;
+    declare public readonly requiredStatusChecks: pulumi.Output<outputs.BranchProtectionRequiredStatusCheck[] | undefined>;
     /**
      * Restrict pushes to matching branches. See Restrict Pushes below for details.
      */
-    public readonly restrictPushes!: pulumi.Output<outputs.BranchProtectionRestrictPush[] | undefined>;
+    declare public readonly restrictPushes: pulumi.Output<outputs.BranchProtectionRestrictPush[] | undefined>;
 
     /**
      * Create a BranchProtection resource with the given unique name, arguments, and options.
@@ -162,40 +162,40 @@ export class BranchProtection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchProtectionState | undefined;
-            resourceInputs["allowsDeletions"] = state ? state.allowsDeletions : undefined;
-            resourceInputs["allowsForcePushes"] = state ? state.allowsForcePushes : undefined;
-            resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
-            resourceInputs["forcePushBypassers"] = state ? state.forcePushBypassers : undefined;
-            resourceInputs["lockBranch"] = state ? state.lockBranch : undefined;
-            resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
-            resourceInputs["requireConversationResolution"] = state ? state.requireConversationResolution : undefined;
-            resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
-            resourceInputs["requiredLinearHistory"] = state ? state.requiredLinearHistory : undefined;
-            resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
-            resourceInputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
-            resourceInputs["restrictPushes"] = state ? state.restrictPushes : undefined;
+            resourceInputs["allowsDeletions"] = state?.allowsDeletions;
+            resourceInputs["allowsForcePushes"] = state?.allowsForcePushes;
+            resourceInputs["enforceAdmins"] = state?.enforceAdmins;
+            resourceInputs["forcePushBypassers"] = state?.forcePushBypassers;
+            resourceInputs["lockBranch"] = state?.lockBranch;
+            resourceInputs["pattern"] = state?.pattern;
+            resourceInputs["repositoryId"] = state?.repositoryId;
+            resourceInputs["requireConversationResolution"] = state?.requireConversationResolution;
+            resourceInputs["requireSignedCommits"] = state?.requireSignedCommits;
+            resourceInputs["requiredLinearHistory"] = state?.requiredLinearHistory;
+            resourceInputs["requiredPullRequestReviews"] = state?.requiredPullRequestReviews;
+            resourceInputs["requiredStatusChecks"] = state?.requiredStatusChecks;
+            resourceInputs["restrictPushes"] = state?.restrictPushes;
         } else {
             const args = argsOrState as BranchProtectionArgs | undefined;
-            if ((!args || args.pattern === undefined) && !opts.urn) {
+            if (args?.pattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if ((!args || args.repositoryId === undefined) && !opts.urn) {
+            if (args?.repositoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryId'");
             }
-            resourceInputs["allowsDeletions"] = args ? args.allowsDeletions : undefined;
-            resourceInputs["allowsForcePushes"] = args ? args.allowsForcePushes : undefined;
-            resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
-            resourceInputs["forcePushBypassers"] = args ? args.forcePushBypassers : undefined;
-            resourceInputs["lockBranch"] = args ? args.lockBranch : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
-            resourceInputs["requireConversationResolution"] = args ? args.requireConversationResolution : undefined;
-            resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
-            resourceInputs["requiredLinearHistory"] = args ? args.requiredLinearHistory : undefined;
-            resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
-            resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
-            resourceInputs["restrictPushes"] = args ? args.restrictPushes : undefined;
+            resourceInputs["allowsDeletions"] = args?.allowsDeletions;
+            resourceInputs["allowsForcePushes"] = args?.allowsForcePushes;
+            resourceInputs["enforceAdmins"] = args?.enforceAdmins;
+            resourceInputs["forcePushBypassers"] = args?.forcePushBypassers;
+            resourceInputs["lockBranch"] = args?.lockBranch;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["repositoryId"] = args?.repositoryId;
+            resourceInputs["requireConversationResolution"] = args?.requireConversationResolution;
+            resourceInputs["requireSignedCommits"] = args?.requireSignedCommits;
+            resourceInputs["requiredLinearHistory"] = args?.requiredLinearHistory;
+            resourceInputs["requiredPullRequestReviews"] = args?.requiredPullRequestReviews;
+            resourceInputs["requiredStatusChecks"] = args?.requiredStatusChecks;
+            resourceInputs["restrictPushes"] = args?.restrictPushes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchProtection.__pulumiType, name, resourceInputs, opts);

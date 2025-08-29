@@ -67,48 +67,48 @@ export class Team extends pulumi.CustomResource {
     /**
      * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      */
-    public readonly createDefaultMaintainer!: pulumi.Output<boolean | undefined>;
+    declare public readonly createDefaultMaintainer: pulumi.Output<boolean | undefined>;
     /**
      * A description of the team.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
      */
-    public readonly ldapDn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly membersCount!: pulumi.Output<number>;
+    declare public readonly ldapDn: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly membersCount: pulumi.Output<number>;
     /**
      * The name of the team.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Node ID of the created team.
      */
-    public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
      * The ID or slug of the parent team, if this is a nested team.
      */
-    public readonly parentTeamId!: pulumi.Output<string | undefined>;
+    declare public readonly parentTeamId: pulumi.Output<string | undefined>;
     /**
      * The id of the parent team read in Github.
      */
-    public readonly parentTeamReadId!: pulumi.Output<string>;
+    declare public readonly parentTeamReadId: pulumi.Output<string>;
     /**
      * The id of the parent team read in Github.
      */
-    public readonly parentTeamReadSlug!: pulumi.Output<string>;
+    declare public readonly parentTeamReadSlug: pulumi.Output<string>;
     /**
      * The level of privacy for the team. Must be one of `secret` or `closed`.
      * Defaults to `secret`.
      */
-    public readonly privacy!: pulumi.Output<string | undefined>;
+    declare public readonly privacy: pulumi.Output<string | undefined>;
     /**
      * The slug of the created team, which may or may not differ from `name`,
      * depending on whether `name` contains "URL-unsafe" characters.
      * Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
      */
-    public /*out*/ readonly slug!: pulumi.Output<string>;
+    declare public /*out*/ readonly slug: pulumi.Output<string>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -123,28 +123,28 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            resourceInputs["createDefaultMaintainer"] = state ? state.createDefaultMaintainer : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["ldapDn"] = state ? state.ldapDn : undefined;
-            resourceInputs["membersCount"] = state ? state.membersCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
-            resourceInputs["parentTeamId"] = state ? state.parentTeamId : undefined;
-            resourceInputs["parentTeamReadId"] = state ? state.parentTeamReadId : undefined;
-            resourceInputs["parentTeamReadSlug"] = state ? state.parentTeamReadSlug : undefined;
-            resourceInputs["privacy"] = state ? state.privacy : undefined;
-            resourceInputs["slug"] = state ? state.slug : undefined;
+            resourceInputs["createDefaultMaintainer"] = state?.createDefaultMaintainer;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["ldapDn"] = state?.ldapDn;
+            resourceInputs["membersCount"] = state?.membersCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeId"] = state?.nodeId;
+            resourceInputs["parentTeamId"] = state?.parentTeamId;
+            resourceInputs["parentTeamReadId"] = state?.parentTeamReadId;
+            resourceInputs["parentTeamReadSlug"] = state?.parentTeamReadSlug;
+            resourceInputs["privacy"] = state?.privacy;
+            resourceInputs["slug"] = state?.slug;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            resourceInputs["createDefaultMaintainer"] = args ? args.createDefaultMaintainer : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ldapDn"] = args ? args.ldapDn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentTeamId"] = args ? args.parentTeamId : undefined;
-            resourceInputs["parentTeamReadId"] = args ? args.parentTeamReadId : undefined;
-            resourceInputs["parentTeamReadSlug"] = args ? args.parentTeamReadSlug : undefined;
-            resourceInputs["privacy"] = args ? args.privacy : undefined;
+            resourceInputs["createDefaultMaintainer"] = args?.createDefaultMaintainer;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ldapDn"] = args?.ldapDn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentTeamId"] = args?.parentTeamId;
+            resourceInputs["parentTeamReadId"] = args?.parentTeamReadId;
+            resourceInputs["parentTeamReadSlug"] = args?.parentTeamReadSlug;
+            resourceInputs["privacy"] = args?.privacy;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["membersCount"] = undefined /*out*/;
             resourceInputs["nodeId"] = undefined /*out*/;

@@ -50,27 +50,27 @@ export class CodespacesUserSecret extends pulumi.CustomResource {
     /**
      * Date of codespacesSecret creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
-    public readonly encryptedValue!: pulumi.Output<string | undefined>;
+    declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
      * Plaintext value of the secret to be encrypted
      */
-    public readonly plaintextValue!: pulumi.Output<string | undefined>;
+    declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
      * Name of the secret
      */
-    public readonly secretName!: pulumi.Output<string>;
+    declare public readonly secretName: pulumi.Output<string>;
     /**
      * An array of repository ids that can access the user secret.
      */
-    public readonly selectedRepositoryIds!: pulumi.Output<number[] | undefined>;
+    declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
      * Date of codespacesSecret update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a CodespacesUserSecret resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class CodespacesUserSecret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CodespacesUserSecretState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["encryptedValue"] = state ? state.encryptedValue : undefined;
-            resourceInputs["plaintextValue"] = state ? state.plaintextValue : undefined;
-            resourceInputs["secretName"] = state ? state.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = state ? state.selectedRepositoryIds : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["encryptedValue"] = state?.encryptedValue;
+            resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["secretName"] = state?.secretName;
+            resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as CodespacesUserSecretArgs | undefined;
-            if ((!args || args.secretName === undefined) && !opts.urn) {
+            if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
-            resourceInputs["secretName"] = args ? args.secretName : undefined;
-            resourceInputs["selectedRepositoryIds"] = args ? args.selectedRepositoryIds : undefined;
+            resourceInputs["secretName"] = args?.secretName;
+            resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

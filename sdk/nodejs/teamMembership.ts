@@ -78,20 +78,20 @@ export class TeamMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === TeamMembership.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The role of the user within the team.
      * Must be one of `member` or `maintainer`. Defaults to `member`.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * The GitHub team id or the GitHub team slug
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * The user to add to the team.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a TeamMembership resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class TeamMembership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembershipState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["teamId"] = state?.teamId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as TeamMembershipArgs | undefined;
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["username"] = args?.username;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -98,27 +98,27 @@ export class ProjectCard extends pulumi.CustomResource {
     /**
      * The ID of the card.
      */
-    public /*out*/ readonly cardId!: pulumi.Output<number>;
+    declare public /*out*/ readonly cardId: pulumi.Output<number>;
     /**
      * The ID of the card.
      */
-    public readonly columnId!: pulumi.Output<string>;
+    declare public readonly columnId: pulumi.Output<string>;
     /**
      * `github_issue.issue_id`.
      */
-    public readonly contentId!: pulumi.Output<number | undefined>;
+    declare public readonly contentId: pulumi.Output<number | undefined>;
     /**
      * Must be either `Issue` or `PullRequest`
      *
      * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
      * See note example or issue example for more information.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The note contents of the card. Markdown supported.
      */
-    public readonly note!: pulumi.Output<string | undefined>;
+    declare public readonly note: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProjectCard resource with the given unique name, arguments, and options.
@@ -133,21 +133,21 @@ export class ProjectCard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectCardState | undefined;
-            resourceInputs["cardId"] = state ? state.cardId : undefined;
-            resourceInputs["columnId"] = state ? state.columnId : undefined;
-            resourceInputs["contentId"] = state ? state.contentId : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["note"] = state ? state.note : undefined;
+            resourceInputs["cardId"] = state?.cardId;
+            resourceInputs["columnId"] = state?.columnId;
+            resourceInputs["contentId"] = state?.contentId;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["note"] = state?.note;
         } else {
             const args = argsOrState as ProjectCardArgs | undefined;
-            if ((!args || args.columnId === undefined) && !opts.urn) {
+            if (args?.columnId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columnId'");
             }
-            resourceInputs["columnId"] = args ? args.columnId : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["note"] = args ? args.note : undefined;
+            resourceInputs["columnId"] = args?.columnId;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["note"] = args?.note;
             resourceInputs["cardId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }

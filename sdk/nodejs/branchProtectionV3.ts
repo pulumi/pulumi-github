@@ -68,36 +68,36 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
     /**
      * The Git branch to protect.
      */
-    public readonly branch!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * Boolean, setting this to `true` enforces status checks for repository administrators.
      */
-    public readonly enforceAdmins!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly enforceAdmins: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The GitHub repository name.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
      */
-    public readonly requireConversationResolution!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireConversationResolution: pulumi.Output<boolean | undefined>;
     /**
      * Boolean, setting this to `true` requires all commits to be signed with GPG.
      */
-    public readonly requireSignedCommits!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireSignedCommits: pulumi.Output<boolean | undefined>;
     /**
      * Enforce restrictions for pull request reviews. See Required Pull Request Reviews below for details.
      */
-    public readonly requiredPullRequestReviews!: pulumi.Output<outputs.BranchProtectionV3RequiredPullRequestReviews | undefined>;
+    declare public readonly requiredPullRequestReviews: pulumi.Output<outputs.BranchProtectionV3RequiredPullRequestReviews | undefined>;
     /**
      * Enforce restrictions for required status checks. See Required Status Checks below for details.
      */
-    public readonly requiredStatusChecks!: pulumi.Output<outputs.BranchProtectionV3RequiredStatusChecks | undefined>;
+    declare public readonly requiredStatusChecks: pulumi.Output<outputs.BranchProtectionV3RequiredStatusChecks | undefined>;
     /**
      * Enforce restrictions for the users and teams that may push to the branch. See Restrictions below for details.
      */
-    public readonly restrictions!: pulumi.Output<outputs.BranchProtectionV3Restrictions | undefined>;
+    declare public readonly restrictions: pulumi.Output<outputs.BranchProtectionV3Restrictions | undefined>;
 
     /**
      * Create a BranchProtectionV3 resource with the given unique name, arguments, and options.
@@ -112,31 +112,31 @@ export class BranchProtectionV3 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchProtectionV3State | undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["enforceAdmins"] = state ? state.enforceAdmins : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["requireConversationResolution"] = state ? state.requireConversationResolution : undefined;
-            resourceInputs["requireSignedCommits"] = state ? state.requireSignedCommits : undefined;
-            resourceInputs["requiredPullRequestReviews"] = state ? state.requiredPullRequestReviews : undefined;
-            resourceInputs["requiredStatusChecks"] = state ? state.requiredStatusChecks : undefined;
-            resourceInputs["restrictions"] = state ? state.restrictions : undefined;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["enforceAdmins"] = state?.enforceAdmins;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["requireConversationResolution"] = state?.requireConversationResolution;
+            resourceInputs["requireSignedCommits"] = state?.requireSignedCommits;
+            resourceInputs["requiredPullRequestReviews"] = state?.requiredPullRequestReviews;
+            resourceInputs["requiredStatusChecks"] = state?.requiredStatusChecks;
+            resourceInputs["restrictions"] = state?.restrictions;
         } else {
             const args = argsOrState as BranchProtectionV3Args | undefined;
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["enforceAdmins"] = args ? args.enforceAdmins : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["requireConversationResolution"] = args ? args.requireConversationResolution : undefined;
-            resourceInputs["requireSignedCommits"] = args ? args.requireSignedCommits : undefined;
-            resourceInputs["requiredPullRequestReviews"] = args ? args.requiredPullRequestReviews : undefined;
-            resourceInputs["requiredStatusChecks"] = args ? args.requiredStatusChecks : undefined;
-            resourceInputs["restrictions"] = args ? args.restrictions : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["enforceAdmins"] = args?.enforceAdmins;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["requireConversationResolution"] = args?.requireConversationResolution;
+            resourceInputs["requireSignedCommits"] = args?.requireSignedCommits;
+            resourceInputs["requiredPullRequestReviews"] = args?.requiredPullRequestReviews;
+            resourceInputs["requiredStatusChecks"] = args?.requiredStatusChecks;
+            resourceInputs["restrictions"] = args?.restrictions;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

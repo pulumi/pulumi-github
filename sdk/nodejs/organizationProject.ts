@@ -50,16 +50,16 @@ export class OrganizationProject extends pulumi.CustomResource {
     /**
      * The body of the project.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the project.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * URL of the project
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a OrganizationProject resource with the given unique name, arguments, and options.
@@ -74,14 +74,14 @@ export class OrganizationProject extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationProjectState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as OrganizationProjectArgs | undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["name"] = args?.name;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

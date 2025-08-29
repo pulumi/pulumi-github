@@ -64,23 +64,23 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
     /**
      * An etag representing the autolink reference object.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters. Default is true.
      */
-    public readonly isAlphanumeric!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAlphanumeric: pulumi.Output<boolean | undefined>;
     /**
      * This prefix appended by a number will generate a link any time it is found in an issue, pull request, or commit.
      */
-    public readonly keyPrefix!: pulumi.Output<string>;
+    declare public readonly keyPrefix: pulumi.Output<string>;
     /**
      * The repository of the autolink reference.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The template of the target URL used for the links; must be a valid URL and contain `<num>` for the reference number
      */
-    public readonly targetUrlTemplate!: pulumi.Output<string>;
+    declare public readonly targetUrlTemplate: pulumi.Output<string>;
 
     /**
      * Create a RepositoryAutolinkReference resource with the given unique name, arguments, and options.
@@ -95,26 +95,26 @@ export class RepositoryAutolinkReference extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryAutolinkReferenceState | undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["isAlphanumeric"] = state ? state.isAlphanumeric : undefined;
-            resourceInputs["keyPrefix"] = state ? state.keyPrefix : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["targetUrlTemplate"] = state ? state.targetUrlTemplate : undefined;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["isAlphanumeric"] = state?.isAlphanumeric;
+            resourceInputs["keyPrefix"] = state?.keyPrefix;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["targetUrlTemplate"] = state?.targetUrlTemplate;
         } else {
             const args = argsOrState as RepositoryAutolinkReferenceArgs | undefined;
-            if ((!args || args.keyPrefix === undefined) && !opts.urn) {
+            if (args?.keyPrefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyPrefix'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.targetUrlTemplate === undefined) && !opts.urn) {
+            if (args?.targetUrlTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetUrlTemplate'");
             }
-            resourceInputs["isAlphanumeric"] = args ? args.isAlphanumeric : undefined;
-            resourceInputs["keyPrefix"] = args ? args.keyPrefix : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["targetUrlTemplate"] = args ? args.targetUrlTemplate : undefined;
+            resourceInputs["isAlphanumeric"] = args?.isAlphanumeric;
+            resourceInputs["keyPrefix"] = args?.keyPrefix;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["targetUrlTemplate"] = args?.targetUrlTemplate;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -63,7 +63,7 @@ export class ActionsOrganizationOidcSubjectClaimCustomizationTemplate extends pu
     /**
      * A list of OpenID Connect claims.
      */
-    public readonly includeClaimKeys!: pulumi.Output<string[]>;
+    declare public readonly includeClaimKeys: pulumi.Output<string[]>;
 
     /**
      * Create a ActionsOrganizationOidcSubjectClaimCustomizationTemplate resource with the given unique name, arguments, and options.
@@ -78,13 +78,13 @@ export class ActionsOrganizationOidcSubjectClaimCustomizationTemplate extends pu
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationOidcSubjectClaimCustomizationTemplateState | undefined;
-            resourceInputs["includeClaimKeys"] = state ? state.includeClaimKeys : undefined;
+            resourceInputs["includeClaimKeys"] = state?.includeClaimKeys;
         } else {
             const args = argsOrState as ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs | undefined;
-            if ((!args || args.includeClaimKeys === undefined) && !opts.urn) {
+            if (args?.includeClaimKeys === undefined && !opts.urn) {
                 throw new Error("Missing required property 'includeClaimKeys'");
             }
-            resourceInputs["includeClaimKeys"] = args ? args.includeClaimKeys : undefined;
+            resourceInputs["includeClaimKeys"] = args?.includeClaimKeys;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsOrganizationOidcSubjectClaimCustomizationTemplate.__pulumiType, name, resourceInputs, opts);

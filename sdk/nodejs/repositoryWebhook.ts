@@ -77,24 +77,24 @@ export class RepositoryWebhook extends pulumi.CustomResource {
     /**
      * Indicate if the webhook should receive events. Defaults to `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for the webhook. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.RepositoryWebhookConfiguration | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly configuration: pulumi.Output<outputs.RepositoryWebhookConfiguration | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */
-    public readonly events!: pulumi.Output<string[]>;
+    declare public readonly events: pulumi.Output<string[]>;
     /**
      * The repository of the webhook.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * URL of the webhook.  This is a sensitive attribute because it may include basic auth credentials.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a RepositoryWebhook resource with the given unique name, arguments, and options.
@@ -109,24 +109,24 @@ export class RepositoryWebhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryWebhookState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["events"] = state?.events;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as RepositoryWebhookArgs | undefined;
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

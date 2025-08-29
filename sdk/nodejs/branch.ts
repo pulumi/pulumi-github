@@ -72,31 +72,31 @@ export class Branch extends pulumi.CustomResource {
     /**
      * The repository branch to create.
      */
-    public readonly branch!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * An etag representing the Branch object.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A string representing a branch reference, in the form of `refs/heads/<branch>`.
      */
-    public /*out*/ readonly ref!: pulumi.Output<string>;
+    declare public /*out*/ readonly ref: pulumi.Output<string>;
     /**
      * The GitHub repository name.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * A string storing the reference's `HEAD` commit's SHA1.
      */
-    public /*out*/ readonly sha!: pulumi.Output<string>;
+    declare public /*out*/ readonly sha: pulumi.Output<string>;
     /**
      * The branch name to start from. Defaults to `main`.
      */
-    public readonly sourceBranch!: pulumi.Output<string | undefined>;
+    declare public readonly sourceBranch: pulumi.Output<string | undefined>;
     /**
      * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      */
-    public readonly sourceSha!: pulumi.Output<string>;
+    declare public readonly sourceSha: pulumi.Output<string>;
 
     /**
      * Create a Branch resource with the given unique name, arguments, and options.
@@ -111,25 +111,25 @@ export class Branch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchState | undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["ref"] = state ? state.ref : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["sha"] = state ? state.sha : undefined;
-            resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
-            resourceInputs["sourceSha"] = state ? state.sourceSha : undefined;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["ref"] = state?.ref;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["sha"] = state?.sha;
+            resourceInputs["sourceBranch"] = state?.sourceBranch;
+            resourceInputs["sourceSha"] = state?.sourceSha;
         } else {
             const args = argsOrState as BranchArgs | undefined;
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["sourceBranch"] = args ? args.sourceBranch : undefined;
-            resourceInputs["sourceSha"] = args ? args.sourceSha : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["sourceBranch"] = args?.sourceBranch;
+            resourceInputs["sourceSha"] = args?.sourceSha;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ref"] = undefined /*out*/;
             resourceInputs["sha"] = undefined /*out*/;

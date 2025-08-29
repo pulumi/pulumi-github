@@ -76,16 +76,16 @@ export class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends pulu
     /**
      * A list of OpenID Connect claims.
      */
-    public readonly includeClaimKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly includeClaimKeys: pulumi.Output<string[] | undefined>;
     /**
      * The name of the repository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
      * be set.
      */
-    public readonly useDefault!: pulumi.Output<boolean>;
+    declare public readonly useDefault: pulumi.Output<boolean>;
 
     /**
      * Create a ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource with the given unique name, arguments, and options.
@@ -100,20 +100,20 @@ export class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends pulu
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionsRepositoryOidcSubjectClaimCustomizationTemplateState | undefined;
-            resourceInputs["includeClaimKeys"] = state ? state.includeClaimKeys : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["useDefault"] = state ? state.useDefault : undefined;
+            resourceInputs["includeClaimKeys"] = state?.includeClaimKeys;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["useDefault"] = state?.useDefault;
         } else {
             const args = argsOrState as ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.useDefault === undefined) && !opts.urn) {
+            if (args?.useDefault === undefined && !opts.urn) {
                 throw new Error("Missing required property 'useDefault'");
             }
-            resourceInputs["includeClaimKeys"] = args ? args.includeClaimKeys : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["useDefault"] = args ? args.useDefault : undefined;
+            resourceInputs["includeClaimKeys"] = args?.includeClaimKeys;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["useDefault"] = args?.useDefault;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRepositoryOidcSubjectClaimCustomizationTemplate.__pulumiType, name, resourceInputs, opts);

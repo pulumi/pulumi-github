@@ -58,12 +58,12 @@ export class UserGpgKey extends pulumi.CustomResource {
      * Your public GPG key, generated in ASCII-armored format.
      * See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
      */
-    public readonly armoredPublicKey!: pulumi.Output<string>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly armoredPublicKey: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The key ID of the GPG key, e.g. `3262EFF25BA0D270`
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
 
     /**
      * Create a UserGpgKey resource with the given unique name, arguments, and options.
@@ -78,15 +78,15 @@ export class UserGpgKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGpgKeyState | undefined;
-            resourceInputs["armoredPublicKey"] = state ? state.armoredPublicKey : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["armoredPublicKey"] = state?.armoredPublicKey;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["keyId"] = state?.keyId;
         } else {
             const args = argsOrState as UserGpgKeyArgs | undefined;
-            if ((!args || args.armoredPublicKey === undefined) && !opts.urn) {
+            if (args?.armoredPublicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'armoredPublicKey'");
             }
-            resourceInputs["armoredPublicKey"] = args ? args.armoredPublicKey : undefined;
+            resourceInputs["armoredPublicKey"] = args?.armoredPublicKey;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
         }

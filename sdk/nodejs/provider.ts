@@ -30,21 +30,21 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The GitHub Base API URL
      */
-    public readonly baseUrl!: pulumi.Output<string | undefined>;
+    declare public readonly baseUrl: pulumi.Output<string | undefined>;
     /**
      * The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
      *
      * @deprecated Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)
      */
-    public readonly organization!: pulumi.Output<string | undefined>;
+    declare public readonly organization: pulumi.Output<string | undefined>;
     /**
      * The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
+    declare public readonly owner: pulumi.Output<string | undefined>;
     /**
      * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
-    public readonly token!: pulumi.Output<string | undefined>;
+    declare public readonly token: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -57,18 +57,18 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["appAuth"] = pulumi.output(args ? args.appAuth : undefined).apply(JSON.stringify);
-            resourceInputs["baseUrl"] = (args ? args.baseUrl : undefined) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
-            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["parallelRequests"] = pulumi.output(args ? args.parallelRequests : undefined).apply(JSON.stringify);
-            resourceInputs["readDelayMs"] = pulumi.output(args ? args.readDelayMs : undefined).apply(JSON.stringify);
-            resourceInputs["retryDelayMs"] = pulumi.output(args ? args.retryDelayMs : undefined).apply(JSON.stringify);
-            resourceInputs["retryableErrors"] = pulumi.output(args ? args.retryableErrors : undefined).apply(JSON.stringify);
+            resourceInputs["appAuth"] = pulumi.output(args?.appAuth).apply(JSON.stringify);
+            resourceInputs["baseUrl"] = (args?.baseUrl) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
+            resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["organization"] = args?.organization;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["parallelRequests"] = pulumi.output(args?.parallelRequests).apply(JSON.stringify);
+            resourceInputs["readDelayMs"] = pulumi.output(args?.readDelayMs).apply(JSON.stringify);
+            resourceInputs["retryDelayMs"] = pulumi.output(args?.retryDelayMs).apply(JSON.stringify);
+            resourceInputs["retryableErrors"] = pulumi.output(args?.retryableErrors).apply(JSON.stringify);
             resourceInputs["token"] = (args?.token ? pulumi.secret(args.token) : undefined) ?? utilities.getEnv("GITHUB_TOKEN");
-            resourceInputs["writeDelayMs"] = pulumi.output(args ? args.writeDelayMs : undefined).apply(JSON.stringify);
+            resourceInputs["writeDelayMs"] = pulumi.output(args?.writeDelayMs).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
@@ -91,8 +91,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`
-     * and `appAuth` are not set.
+     * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      */
     appAuth?: pulumi.Input<inputs.ProviderAppAuth>;
     /**
@@ -118,9 +117,7 @@ export interface ProviderArgs {
      */
     owner?: pulumi.Input<string>;
     /**
-     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github
-     * Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we
-     * enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
      */
     parallelRequests?: pulumi.Input<boolean>;
     /**
@@ -128,13 +125,11 @@ export interface ProviderArgs {
      */
     readDelayMs?: pulumi.Input<number>;
     /**
-     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or
-     * 1s if not set, the maxRetries must be set to greater than zero.
+     * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
      */
     retryDelayMs?: pulumi.Input<number>;
     /**
-     * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults
-     * to [500, 502, 503, 504]
+     * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
      */
     retryableErrors?: pulumi.Input<pulumi.Input<number>[]>;
     /**

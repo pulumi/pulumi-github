@@ -53,67 +53,67 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
     /**
      * Name of the branch serving as the base of the Pull Request.
      */
-    public readonly baseRef!: pulumi.Output<string>;
+    declare public readonly baseRef: pulumi.Output<string>;
     /**
      * Name of the base repository to retrieve the Pull Requests from.
      */
-    public readonly baseRepository!: pulumi.Output<string>;
+    declare public readonly baseRepository: pulumi.Output<string>;
     /**
      * Head commit SHA of the Pull Request base.
      */
-    public /*out*/ readonly baseSha!: pulumi.Output<string>;
+    declare public /*out*/ readonly baseSha: pulumi.Output<string>;
     /**
      * Body of the Pull Request.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * Indicates Whether this Pull Request is a draft.
      */
-    public /*out*/ readonly draft!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly draft: pulumi.Output<boolean>;
     /**
      * Name of the branch serving as the head of the Pull Request.
      */
-    public readonly headRef!: pulumi.Output<string>;
+    declare public readonly headRef: pulumi.Output<string>;
     /**
      * Head commit SHA of the Pull Request head.
      */
-    public /*out*/ readonly headSha!: pulumi.Output<string>;
+    declare public /*out*/ readonly headSha: pulumi.Output<string>;
     /**
      * List of label names set on the Pull Request.
      */
-    public /*out*/ readonly labels!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly labels: pulumi.Output<string[]>;
     /**
      * Controls whether the base repository maintainers can modify the Pull Request. Default: false.
      */
-    public readonly maintainerCanModify!: pulumi.Output<boolean | undefined>;
+    declare public readonly maintainerCanModify: pulumi.Output<boolean | undefined>;
     /**
      * The number of the Pull Request within the repository.
      */
-    public /*out*/ readonly number!: pulumi.Output<number>;
+    declare public /*out*/ readonly number: pulumi.Output<number>;
     /**
      * Unix timestamp indicating the Pull Request creation time.
      */
-    public /*out*/ readonly openedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly openedAt: pulumi.Output<number>;
     /**
      * GitHub login of the user who opened the Pull Request.
      */
-    public /*out*/ readonly openedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly openedBy: pulumi.Output<string>;
     /**
      * Owner of the repository. If not provided, the provider's default owner is used.
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
+    declare public readonly owner: pulumi.Output<string | undefined>;
     /**
      * the current Pull Request state - can be "open", "closed" or "merged".
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The title of the Pull Request.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The timestamp of the last Pull Request update.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<number>;
 
     /**
      * Create a RepositoryPullRequest resource with the given unique name, arguments, and options.
@@ -128,43 +128,43 @@ export class RepositoryPullRequest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPullRequestState | undefined;
-            resourceInputs["baseRef"] = state ? state.baseRef : undefined;
-            resourceInputs["baseRepository"] = state ? state.baseRepository : undefined;
-            resourceInputs["baseSha"] = state ? state.baseSha : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["draft"] = state ? state.draft : undefined;
-            resourceInputs["headRef"] = state ? state.headRef : undefined;
-            resourceInputs["headSha"] = state ? state.headSha : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["maintainerCanModify"] = state ? state.maintainerCanModify : undefined;
-            resourceInputs["number"] = state ? state.number : undefined;
-            resourceInputs["openedAt"] = state ? state.openedAt : undefined;
-            resourceInputs["openedBy"] = state ? state.openedBy : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["baseRef"] = state?.baseRef;
+            resourceInputs["baseRepository"] = state?.baseRepository;
+            resourceInputs["baseSha"] = state?.baseSha;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["draft"] = state?.draft;
+            resourceInputs["headRef"] = state?.headRef;
+            resourceInputs["headSha"] = state?.headSha;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["maintainerCanModify"] = state?.maintainerCanModify;
+            resourceInputs["number"] = state?.number;
+            resourceInputs["openedAt"] = state?.openedAt;
+            resourceInputs["openedBy"] = state?.openedBy;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as RepositoryPullRequestArgs | undefined;
-            if ((!args || args.baseRef === undefined) && !opts.urn) {
+            if (args?.baseRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseRef'");
             }
-            if ((!args || args.baseRepository === undefined) && !opts.urn) {
+            if (args?.baseRepository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseRepository'");
             }
-            if ((!args || args.headRef === undefined) && !opts.urn) {
+            if (args?.headRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'headRef'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["baseRef"] = args ? args.baseRef : undefined;
-            resourceInputs["baseRepository"] = args ? args.baseRepository : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["headRef"] = args ? args.headRef : undefined;
-            resourceInputs["maintainerCanModify"] = args ? args.maintainerCanModify : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["baseRef"] = args?.baseRef;
+            resourceInputs["baseRepository"] = args?.baseRepository;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["headRef"] = args?.headRef;
+            resourceInputs["maintainerCanModify"] = args?.maintainerCanModify;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["title"] = args?.title;
             resourceInputs["baseSha"] = undefined /*out*/;
             resourceInputs["draft"] = undefined /*out*/;
             resourceInputs["headSha"] = undefined /*out*/;

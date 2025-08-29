@@ -88,80 +88,80 @@ export class Release extends pulumi.CustomResource {
     /**
      * URL that can be provided to API calls displaying the attached assets to this release.
      */
-    public /*out*/ readonly assetsUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetsUrl: pulumi.Output<string>;
     /**
      * Text describing the contents of the tag.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * This is the date of the commit used for the release, and not the date when the release was drafted or published.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. For more information, see [Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
      */
-    public readonly discussionCategoryName!: pulumi.Output<string | undefined>;
+    declare public readonly discussionCategoryName: pulumi.Output<string | undefined>;
     /**
      * Set to `false` to create a published release.
      */
-    public readonly draft!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public readonly draft: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
      */
-    public readonly generateReleaseNotes!: pulumi.Output<boolean | undefined>;
+    declare public readonly generateReleaseNotes: pulumi.Output<boolean | undefined>;
     /**
      * URL of the release in GitHub.
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * The name of the release.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * GraphQL global node id for use with v4 API
      */
-    public /*out*/ readonly nodeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
      * Set to `false` to identify the release as a full release.
      */
-    public readonly prerelease!: pulumi.Output<boolean | undefined>;
+    declare public readonly prerelease: pulumi.Output<boolean | undefined>;
     /**
      * This is the date when the release was published. This will be empty if the release is a draft.
      */
-    public /*out*/ readonly publishedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly publishedAt: pulumi.Output<string>;
     /**
      * The ID of the release.
      */
-    public /*out*/ readonly releaseId!: pulumi.Output<number>;
+    declare public /*out*/ readonly releaseId: pulumi.Output<number>;
     /**
      * The name of the repository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * The name of the tag.
      */
-    public readonly tagName!: pulumi.Output<string>;
+    declare public readonly tagName: pulumi.Output<string>;
     /**
      * URL that can be provided to API calls to fetch the release TAR archive.
      */
-    public /*out*/ readonly tarballUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly tarballUrl: pulumi.Output<string>;
     /**
      * The branch name or commit SHA the tag is created from. Defaults to the default branch of the repository.
      */
-    public readonly targetCommitish!: pulumi.Output<string | undefined>;
+    declare public readonly targetCommitish: pulumi.Output<string | undefined>;
     /**
      * URL that can be provided to API calls to upload assets.
      */
-    public /*out*/ readonly uploadUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly uploadUrl: pulumi.Output<string>;
     /**
      * URL that can be provided to API calls that reference this release.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * URL that can be provided to API calls to fetch the release ZIP archive.
      */
-    public /*out*/ readonly zipballUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly zipballUrl: pulumi.Output<string>;
 
     /**
      * Create a Release resource with the given unique name, arguments, and options.
@@ -176,43 +176,43 @@ export class Release extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseState | undefined;
-            resourceInputs["assetsUrl"] = state ? state.assetsUrl : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["discussionCategoryName"] = state ? state.discussionCategoryName : undefined;
-            resourceInputs["draft"] = state ? state.draft : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["generateReleaseNotes"] = state ? state.generateReleaseNotes : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeId"] = state ? state.nodeId : undefined;
-            resourceInputs["prerelease"] = state ? state.prerelease : undefined;
-            resourceInputs["publishedAt"] = state ? state.publishedAt : undefined;
-            resourceInputs["releaseId"] = state ? state.releaseId : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["tagName"] = state ? state.tagName : undefined;
-            resourceInputs["tarballUrl"] = state ? state.tarballUrl : undefined;
-            resourceInputs["targetCommitish"] = state ? state.targetCommitish : undefined;
-            resourceInputs["uploadUrl"] = state ? state.uploadUrl : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["zipballUrl"] = state ? state.zipballUrl : undefined;
+            resourceInputs["assetsUrl"] = state?.assetsUrl;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["discussionCategoryName"] = state?.discussionCategoryName;
+            resourceInputs["draft"] = state?.draft;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["generateReleaseNotes"] = state?.generateReleaseNotes;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeId"] = state?.nodeId;
+            resourceInputs["prerelease"] = state?.prerelease;
+            resourceInputs["publishedAt"] = state?.publishedAt;
+            resourceInputs["releaseId"] = state?.releaseId;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["tagName"] = state?.tagName;
+            resourceInputs["tarballUrl"] = state?.tarballUrl;
+            resourceInputs["targetCommitish"] = state?.targetCommitish;
+            resourceInputs["uploadUrl"] = state?.uploadUrl;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["zipballUrl"] = state?.zipballUrl;
         } else {
             const args = argsOrState as ReleaseArgs | undefined;
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            if ((!args || args.tagName === undefined) && !opts.urn) {
+            if (args?.tagName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagName'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["discussionCategoryName"] = args ? args.discussionCategoryName : undefined;
-            resourceInputs["draft"] = args ? args.draft : undefined;
-            resourceInputs["generateReleaseNotes"] = args ? args.generateReleaseNotes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["prerelease"] = args ? args.prerelease : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["tagName"] = args ? args.tagName : undefined;
-            resourceInputs["targetCommitish"] = args ? args.targetCommitish : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["discussionCategoryName"] = args?.discussionCategoryName;
+            resourceInputs["draft"] = args?.draft;
+            resourceInputs["generateReleaseNotes"] = args?.generateReleaseNotes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["prerelease"] = args?.prerelease;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["tagName"] = args?.tagName;
+            resourceInputs["targetCommitish"] = args?.targetCommitish;
             resourceInputs["assetsUrl"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
