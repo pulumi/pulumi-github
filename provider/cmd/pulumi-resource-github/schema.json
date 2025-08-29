@@ -50,11 +50,11 @@
         "variables": {
             "appAuth": {
                 "$ref": "#/types/github:config/appAuth:appAuth",
-                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`\nand `app_auth` are not set.\n"
+                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set."
             },
             "baseUrl": {
                 "type": "string",
-                "description": "The GitHub Base API URL\n",
+                "description": "The GitHub Base API URL",
                 "default": "https://api.github.com/",
                 "defaultInfo": {
                     "environment": [
@@ -64,43 +64,43 @@
             },
             "insecure": {
                 "type": "boolean",
-                "description": "Enable `insecure` mode for testing purposes\n"
+                "description": "Enable `insecure` mode for testing purposes"
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3\n"
+                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3"
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.",
                 "deprecationMessage": "Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)"
             },
             "owner": {
                 "type": "string",
-                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.\n"
+                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts."
             },
             "parallelRequests": {
                 "type": "boolean",
-                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github\nEnterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we\nenforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set\n"
+                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set"
             },
             "readDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set."
             },
             "retryDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or\n1s if not set, the max_retries must be set to greater than zero.\n"
+                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero."
             },
             "retryableErrors": {
                 "type": "array",
                 "items": {
                     "type": "integer"
                 },
-                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults\nto [500, 502, 503, 504]\n"
+                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]"
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_TOKEN"
@@ -110,7 +110,7 @@
             },
             "writeDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set."
             }
         }
     },
@@ -3027,66 +3027,66 @@
         "properties": {
             "appAuth": {
                 "$ref": "#/types/github:index/ProviderAppAuth:ProviderAppAuth",
-                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`\nand `app_auth` are not set.\n"
+                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set."
             },
             "baseUrl": {
                 "type": "string",
-                "description": "The GitHub Base API URL\n"
+                "description": "The GitHub Base API URL"
             },
             "insecure": {
                 "type": "boolean",
-                "description": "Enable `insecure` mode for testing purposes\n"
+                "description": "Enable `insecure` mode for testing purposes"
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3\n"
+                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3"
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.",
                 "deprecationMessage": "Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)"
             },
             "owner": {
                 "type": "string",
-                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.\n"
+                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts."
             },
             "parallelRequests": {
                 "type": "boolean",
-                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github\nEnterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we\nenforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set\n"
+                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set"
             },
             "readDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set."
             },
             "retryDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or\n1s if not set, the max_retries must be set to greater than zero.\n"
+                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero."
             },
             "retryableErrors": {
                 "type": "array",
                 "items": {
                     "type": "integer"
                 },
-                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults\nto [500, 502, 503, 504]\n"
+                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]"
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.",
                 "secret": true
             },
             "writeDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set."
             }
         },
         "inputProperties": {
             "appAuth": {
                 "$ref": "#/types/github:index/ProviderAppAuth:ProviderAppAuth",
-                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token`\nand `app_auth` are not set.\n"
+                "description": "The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set."
             },
             "baseUrl": {
                 "type": "string",
-                "description": "The GitHub Base API URL\n",
+                "description": "The GitHub Base API URL",
                 "default": "https://api.github.com/",
                 "defaultInfo": {
                     "environment": [
@@ -3096,43 +3096,43 @@
             },
             "insecure": {
                 "type": "boolean",
-                "description": "Enable `insecure` mode for testing purposes\n"
+                "description": "Enable `insecure` mode for testing purposes"
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3\n"
+                "description": "Number of times to retry a request after receiving an error status codeDefaults to 3"
             },
             "organization": {
                 "type": "string",
-                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.\n",
+                "description": "The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.",
                 "deprecationMessage": "Use owner (or GITHUB_OWNER) instead of organization (or GITHUB_ORGANIZATION)"
             },
             "owner": {
                 "type": "string",
-                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.\n"
+                "description": "The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts."
             },
             "parallelRequests": {
                 "type": "boolean",
-                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github\nEnterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we\nenforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set\n"
+                "description": "Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set"
             },
             "readDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set."
             },
             "retryDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or\n1s if not set, the max_retries must be set to greater than zero.\n"
+                "description": "Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero."
             },
             "retryableErrors": {
                 "type": "array",
                 "items": {
                     "type": "integer"
                 },
-                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults\nto [500, 502, 503, 504]\n"
+                "description": "Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]"
             },
             "token": {
                 "type": "string",
-                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.\n",
+                "description": "The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.",
                 "defaultInfo": {
                     "environment": [
                         "GITHUB_TOKEN"
@@ -3142,7 +3142,7 @@
             },
             "writeDelayMs": {
                 "type": "integer",
-                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set.\n"
+                "description": "Amount of time in milliseconds to sleep in between writes to GitHub API. Defaults to 1000ms or 1s if not set."
             }
         },
         "methods": {
@@ -3808,7 +3808,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The name of the repository.\n"
+                    "description": "The name of the repository."
                 },
                 "useDefault": {
                     "type": "boolean",
@@ -3829,7 +3829,7 @@
                 },
                 "repository": {
                     "type": "string",
-                    "description": "The name of the repository.\n"
+                    "description": "The name of the repository."
                 },
                 "useDefault": {
                     "type": "boolean",
@@ -3852,7 +3852,7 @@
                     },
                     "repository": {
                         "type": "string",
-                        "description": "The name of the repository.\n"
+                        "description": "The name of the repository."
                     },
                     "useDefault": {
                         "type": "boolean",
@@ -5646,7 +5646,7 @@
                 },
                 "enterpriseSlug": {
                     "type": "string",
-                    "description": "The slug of the enterprise.\n"
+                    "description": "The slug of the enterprise."
                 }
             },
             "required": [
@@ -5672,7 +5672,7 @@
                 },
                 "enterpriseSlug": {
                     "type": "string",
-                    "description": "The slug of the enterprise.\n",
+                    "description": "The slug of the enterprise.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -5701,7 +5701,7 @@
                     },
                     "enterpriseSlug": {
                         "type": "string",
-                        "description": "The slug of the enterprise.\n",
+                        "description": "The slug of the enterprise.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -6220,7 +6220,7 @@
                     "items": {
                         "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
                     },
-                    "description": "List of labels\n"
+                    "description": "List of labels"
                 },
                 "repository": {
                     "type": "string",
@@ -6236,7 +6236,7 @@
                     "items": {
                         "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
                     },
-                    "description": "List of labels\n"
+                    "description": "List of labels"
                 },
                 "repository": {
                     "type": "string",
@@ -6255,7 +6255,7 @@
                         "items": {
                             "$ref": "#/types/github:index/IssueLabelsLabel:IssueLabelsLabel"
                         },
-                        "description": "List of labels\n"
+                        "description": "List of labels"
                     },
                     "repository": {
                         "type": "string",
@@ -7085,7 +7085,7 @@
             "properties": {
                 "cardId": {
                     "type": "integer",
-                    "description": "The ID of the card.\n"
+                    "description": "The ID of the card."
                 },
                 "columnId": {
                     "type": "string",
@@ -7139,7 +7139,7 @@
                 "properties": {
                     "cardId": {
                         "type": "integer",
-                        "description": "The ID of the card.\n"
+                        "description": "The ID of the card."
                     },
                     "columnId": {
                         "type": "string",
@@ -7170,7 +7170,7 @@
             "properties": {
                 "columnId": {
                     "type": "integer",
-                    "description": "The ID of the column.\n"
+                    "description": "The ID of the column."
                 },
                 "etag": {
                     "type": "string"
@@ -7209,7 +7209,7 @@
                 "properties": {
                     "columnId": {
                         "type": "integer",
-                        "description": "The ID of the column.\n"
+                        "description": "The ID of the column."
                     },
                     "etag": {
                         "type": "string"
@@ -7633,7 +7633,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of topics of the repository.\n"
+                    "description": "The list of topics of the repository."
                 },
                 "visibility": {
                     "type": "string",
@@ -7794,7 +7794,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of topics of the repository.\n"
+                    "description": "The list of topics of the repository."
                 },
                 "visibility": {
                     "type": "string",
@@ -7978,7 +7978,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The list of topics of the repository.\n"
+                        "description": "The list of topics of the repository."
                     },
                     "visibility": {
                         "type": "string",
@@ -8511,7 +8511,7 @@
                 },
                 "etag": {
                     "type": "string",
-                    "description": "An etag representing the Branch object.\n"
+                    "description": "An etag representing the Branch object."
                 },
                 "name": {
                     "type": "string",
@@ -8558,7 +8558,7 @@
                     },
                     "etag": {
                         "type": "string",
-                        "description": "An etag representing the Branch object.\n"
+                        "description": "An etag representing the Branch object."
                     },
                     "name": {
                         "type": "string",
@@ -8582,7 +8582,7 @@
                 },
                 "deploymentBranchPolicy": {
                     "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
-                    "description": "The deployment branch policy configuration\n"
+                    "description": "The deployment branch policy configuration"
                 },
                 "environment": {
                     "type": "string",
@@ -8601,7 +8601,7 @@
                     "items": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
                     },
-                    "description": "The environment reviewers configuration.\n"
+                    "description": "The environment reviewers configuration."
                 },
                 "waitTimer": {
                     "type": "integer",
@@ -8619,7 +8619,7 @@
                 },
                 "deploymentBranchPolicy": {
                     "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
-                    "description": "The deployment branch policy configuration\n"
+                    "description": "The deployment branch policy configuration"
                 },
                 "environment": {
                     "type": "string",
@@ -8640,7 +8640,7 @@
                     "items": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
                     },
-                    "description": "The environment reviewers configuration.\n"
+                    "description": "The environment reviewers configuration."
                 },
                 "waitTimer": {
                     "type": "integer",
@@ -8660,7 +8660,7 @@
                     },
                     "deploymentBranchPolicy": {
                         "$ref": "#/types/github:index/RepositoryEnvironmentDeploymentBranchPolicy:RepositoryEnvironmentDeploymentBranchPolicy",
-                        "description": "The deployment branch policy configuration\n"
+                        "description": "The deployment branch policy configuration"
                     },
                     "environment": {
                         "type": "string",
@@ -8681,7 +8681,7 @@
                         "items": {
                             "$ref": "#/types/github:index/RepositoryEnvironmentReviewer:RepositoryEnvironmentReviewer"
                         },
-                        "description": "The environment reviewers configuration.\n"
+                        "description": "The environment reviewers configuration."
                     },
                     "waitTimer": {
                         "type": "integer",
@@ -9664,11 +9664,11 @@
                 },
                 "parentTeamReadId": {
                     "type": "string",
-                    "description": "The id of the parent team read in Github.\n"
+                    "description": "The id of the parent team read in Github."
                 },
                 "parentTeamReadSlug": {
                     "type": "string",
-                    "description": "The id of the parent team read in Github.\n"
+                    "description": "The id of the parent team read in Github."
                 },
                 "privacy": {
                     "type": "string",
@@ -9711,11 +9711,11 @@
                 },
                 "parentTeamReadId": {
                     "type": "string",
-                    "description": "The id of the parent team read in Github.\n"
+                    "description": "The id of the parent team read in Github."
                 },
                 "parentTeamReadSlug": {
                     "type": "string",
-                    "description": "The id of the parent team read in Github.\n"
+                    "description": "The id of the parent team read in Github."
                 },
                 "privacy": {
                     "type": "string",
@@ -9757,11 +9757,11 @@
                     },
                     "parentTeamReadId": {
                         "type": "string",
-                        "description": "The id of the parent team read in Github.\n"
+                        "description": "The id of the parent team read in Github."
                     },
                     "parentTeamReadSlug": {
                         "type": "string",
-                        "description": "The id of the parent team read in Github.\n"
+                        "description": "The id of the parent team read in Github."
                     },
                     "privacy": {
                         "type": "string",
@@ -9980,11 +9980,11 @@
                 },
                 "teamSlug": {
                     "type": "string",
-                    "description": "The slug of the Team within the Organization.\n"
+                    "description": "The slug of the Team within the Organization."
                 },
                 "teamUid": {
                     "type": "string",
-                    "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.\n"
+                    "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource."
                 }
             },
             "required": [
@@ -10020,11 +10020,11 @@
                     },
                     "teamSlug": {
                         "type": "string",
-                        "description": "The slug of the Team within the Organization.\n"
+                        "description": "The slug of the Team within the Organization."
                     },
                     "teamUid": {
                         "type": "string",
-                        "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.\n"
+                        "description": "The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource."
                     }
                 },
                 "type": "object"
@@ -10279,7 +10279,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10335,7 +10335,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10366,7 +10366,7 @@
                 "description": "A collection of values returned by getActionsOrganizationOidcSubjectClaimCustomizationTemplate.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeClaimKeys": {
@@ -10390,7 +10390,7 @@
                 "description": "A collection of values returned by getActionsOrganizationPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -10420,7 +10420,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "token": {
@@ -10442,7 +10442,7 @@
                 "description": "A collection of values returned by getActionsOrganizationSecrets.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "secrets": {
@@ -10466,7 +10466,7 @@
                 "description": "A collection of values returned by getActionsOrganizationVariables.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "variables": {
@@ -10503,7 +10503,7 @@
                 "description": "A collection of values returned by getActionsPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -10551,7 +10551,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -10590,7 +10590,7 @@
                 "description": "A collection of values returned by getActionsRepositoryOidcSubjectClaimCustomizationTemplate.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeClaimKeys": {
@@ -10640,7 +10640,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10687,7 +10687,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10743,7 +10743,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "installationId": {
@@ -10801,7 +10801,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ref": {
@@ -10846,7 +10846,7 @@
                 "description": "A collection of values returned by getBranchProtectionRules.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -10874,7 +10874,7 @@
                 "description": "A collection of values returned by getCodespacesOrganizationPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -10900,7 +10900,7 @@
                 "description": "A collection of values returned by getCodespacesOrganizationSecrets.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "secrets": {
@@ -10937,7 +10937,7 @@
                 "description": "A collection of values returned by getCodespacesPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -10984,7 +10984,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11014,7 +11014,7 @@
                 "description": "A collection of values returned by getCodespacesUserPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -11040,7 +11040,7 @@
                 "description": "A collection of values returned by getCodespacesUserSecrets.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "secrets": {
@@ -11100,7 +11100,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "owner": {
@@ -11129,7 +11129,7 @@
                 "description": "A collection of values returned by getDependabotOrganizationPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -11155,7 +11155,7 @@
                 "description": "A collection of values returned by getDependabotOrganizationSecrets.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "secrets": {
@@ -11192,7 +11192,7 @@
                 "description": "A collection of values returned by getDependabotPublicKey.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
@@ -11239,7 +11239,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11294,7 +11294,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11335,7 +11335,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -11369,7 +11369,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11505,7 +11505,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "importerIpv4s": {
@@ -11645,7 +11645,7 @@
                 "description": "A collection of values returned by getIssueLabels.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "labels": {
@@ -11694,7 +11694,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "organization": {
@@ -11774,7 +11774,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ignoreArchivedRepos": {
@@ -11941,7 +11941,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11971,7 +11971,7 @@
                 "description": "A collection of values returned by getOrganizationExternalIdentities.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "identities": {
@@ -11995,7 +11995,7 @@
                 "description": "A collection of values returned by getOrganizationIpAllowList.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ipAllowLists": {
@@ -12026,7 +12026,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -12061,7 +12061,7 @@
                 "description": "A collection of values returned by getOrganizationTeams.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "resultsPerPage": {
@@ -12097,7 +12097,7 @@
                 "description": "A collection of values returned by getOrganizationWebhooks.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "webhooks": {
@@ -12149,7 +12149,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "owner": {
@@ -12245,7 +12245,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -12359,7 +12359,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeRepoId": {
@@ -12503,7 +12503,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "isTemplate": {
@@ -12654,7 +12654,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -12703,7 +12703,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "onlyNonProtectedBranches": {
@@ -12743,7 +12743,7 @@
                 "description": "A collection of values returned by getRepositoryCustomProperties.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "properties": {
@@ -12784,7 +12784,7 @@
                 "description": "A collection of values returned by getRepositoryDeployKeys.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keys": {
@@ -12842,7 +12842,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -12884,7 +12884,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -12953,7 +12953,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ref": {
@@ -13020,7 +13020,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "number": {
@@ -13116,7 +13116,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "labels": {
@@ -13234,7 +13234,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "owner": {
@@ -13289,7 +13289,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -13331,7 +13331,7 @@
                 "description": "A collection of values returned by getRepositoryWebhooks.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "repository": {
@@ -13388,7 +13388,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "status": {
@@ -13413,7 +13413,7 @@
                 "description": "A collection of values returned by getSshKeys.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keys": {
@@ -13466,7 +13466,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "members": {
@@ -13569,7 +13569,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "recursive": {
@@ -13653,7 +13653,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "location": {
@@ -13749,7 +13749,7 @@
                 "description": "A collection of values returned by getUserExternalIdentity.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "login": {
@@ -13814,7 +13814,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "logins": {
