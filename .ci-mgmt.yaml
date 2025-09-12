@@ -1,5 +1,7 @@
 provider: github
 major-version: 6
+esc:
+  enabled: true
 env:
   GH_ORGANIZATION: ${{ secrets.GH_ORGANIZATION }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
