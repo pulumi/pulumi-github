@@ -1,0 +1,30 @@
+Prevent 422 Commit signoff is enforced by the organization and cannot be disabled.
+
+This patch fixes a bug in the GitHub API 2022-11-28 version where updating a repository
+with web_commit_signoff_required=true throws a 422 error when the field is already true.
+
+It checks if the web_commit_signoff_required field has actually changed during a
+repository update. If the field hasn't changed and is already true, it's removed from
+the update request to avoid the API error.
+
+For more information: https://github.com/integrations/terraform-provider-github/issues/2077
+
+diff --git a/github/resource_github_repository.go b/github/resource_github_repository.go
+index f28cc4c6..aa6184c0 100644
+--- a/github/resource_github_repository.go
++++ b/github/resource_github_repository.go
+@@ -765,6 +765,14 @@ func resourceGithubRepositoryUpdate(d *schema.ResourceData, meta interface{}) er
+ 		repoReq.DefaultBranch = github.String(d.Get("default_branch").(string))
+ 	}
+
++	// There's a bug in the GitHub 2022-11-28 version, that throws a 422 error
++	// whenever the `web_commit_signoff_required` is set to true, even when it
++	// is already true.
++	if !d.HasChange("web_commit_signoff_required") && d.Get("web_commit_signoff_required").(bool) {
++		// remove the field from the request
++		repoReq.WebCommitSignoffRequired = nil
++	}
++
+ 	repoName := d.Id()
+ 	owner := meta.(*Owner).name
+ 	ctx := context.WithValue(context.Background(), ctxId, d.Id())
