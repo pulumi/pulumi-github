@@ -118,7 +118,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryEnvironmentsResult
     {
         /// <summary>
-        /// The list of this repository's environments. Each element of `environments` has the following attributes:
+        /// The list of this repository's environments. Each element of `Environments` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryEnvironmentsEnvironmentResult> Environments;
         /// <summary>

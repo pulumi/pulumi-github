@@ -352,14 +352,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+     * Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
      * 
      */
     @Import(name="mergeCommitMessage")
     private @Nullable Output<String> mergeCommitMessage;
 
     /**
-     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+     * @return Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
      * 
      */
     public Optional<Output<String>> mergeCommitMessage() {
@@ -367,14 +367,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+     * Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
      * 
      */
     @Import(name="mergeCommitTitle")
     private @Nullable Output<String> mergeCommitTitle;
 
     /**
-     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+     * @return Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
      * 
      */
     public Optional<Output<String>> mergeCommitTitle() {
@@ -452,14 +452,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+     * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      * 
      */
     @Import(name="squashMergeCommitMessage")
     private @Nullable Output<String> squashMergeCommitMessage;
 
     /**
-     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+     * @return Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      * 
      */
     public Optional<Output<String>> squashMergeCommitMessage() {
@@ -467,14 +467,14 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+     * Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
      * 
      */
     @Import(name="squashMergeCommitTitle")
     private @Nullable Output<String> squashMergeCommitTitle;
 
     /**
-     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+     * @return Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
      * 
      */
     public Optional<Output<String>> squashMergeCommitTitle() {
@@ -1071,7 +1071,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
          * 
          * @return builder
          * 
@@ -1082,7 +1082,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+         * @param mergeCommitMessage Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allowMergeCommit` is `true`.
          * 
          * @return builder
          * 
@@ -1092,7 +1092,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
          * 
          * @return builder
          * 
@@ -1103,7 +1103,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+         * @param mergeCommitTitle Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allowMergeCommit` is `true`.
          * 
          * @return builder
          * 
@@ -1207,7 +1207,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
          * 
          * @return builder
          * 
@@ -1218,7 +1218,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+         * @param squashMergeCommitMessage Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
          * 
          * @return builder
          * 
@@ -1228,7 +1228,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
          * 
          * @return builder
          * 
@@ -1239,7 +1239,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+         * @param squashMergeCommitTitle Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
          * 
          * @return builder
          * 

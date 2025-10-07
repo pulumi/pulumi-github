@@ -16,14 +16,14 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
     public static final RepositoryEnvironmentDeploymentPolicyState Empty = new RepositoryEnvironmentDeploymentPolicyState();
 
     /**
-     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      * 
      */
     @Import(name="branchPattern")
     private @Nullable Output<String> branchPattern;
 
     /**
-     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      * 
      */
     public Optional<Output<String>> branchPattern() {
@@ -61,14 +61,14 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
     }
 
     /**
-     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      * 
      */
     @Import(name="tagPattern")
     private @Nullable Output<String> tagPattern;
 
     /**
-     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      * 
      */
     public Optional<Output<String>> tagPattern() {
@@ -103,7 +103,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+         * @param branchPattern The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
-         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+         * @param tagPattern The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
          * 
          * @return builder
          * 

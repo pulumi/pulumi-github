@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class BranchProtectionRequiredPullRequestReviewGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `False`.
         /// </summary>
         [Input("dismissStaleReviews")]
         public Input<bool>? DismissStaleReviews { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _dismissalRestrictions;
 
         /// <summary>
-        /// The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// The list of actor Names/IDs with dismissal access. If not empty, `RestrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         /// </summary>
         public InputList<string> DismissalRestrictions
         {
@@ -43,13 +43,13 @@ namespace Pulumi.Github.Inputs
         }
 
         /// <summary>
-        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `False`.
         /// </summary>
         [Input("requireCodeOwnerReviews")]
         public Input<bool>? RequireCodeOwnerReviews { get; set; }
 
         /// <summary>
-        /// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        /// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `False`
         /// </summary>
         [Input("requireLastPushApproval")]
         public Input<bool>? RequireLastPushApproval { get; set; }

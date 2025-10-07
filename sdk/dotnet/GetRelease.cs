@@ -37,6 +37,29 @@ namespace Pulumi.Github
         /// ```
         /// 
         /// To retrieve a specific release from a repository based on it's ID:
+        /// 
+        /// 
+        /// 
+        /// Finally, to retrieve a release based on it's tag:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "tag",
+        ///         ReleaseTag = "v1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetReleaseResult> InvokeAsync(GetReleaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseArgs(), options.WithDefaults());
@@ -67,6 +90,29 @@ namespace Pulumi.Github
         /// ```
         /// 
         /// To retrieve a specific release from a repository based on it's ID:
+        /// 
+        /// 
+        /// 
+        /// Finally, to retrieve a release based on it's tag:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "tag",
+        ///         ReleaseTag = "v1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetReleaseResult> Invoke(GetReleaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithDefaults());
@@ -97,6 +143,29 @@ namespace Pulumi.Github
         /// ```
         /// 
         /// To retrieve a specific release from a repository based on it's ID:
+        /// 
+        /// 
+        /// 
+        /// Finally, to retrieve a release based on it's tag:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Github = Pulumi.Github;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Github.GetRelease.Invoke(new()
+        ///     {
+        ///         Repository = "example-repository",
+        ///         Owner = "example-owner",
+        ///         RetrieveBy = "tag",
+        ///         ReleaseTag = "v1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetReleaseResult> Invoke(GetReleaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReleaseResult>("github:index/getRelease:getRelease", args ?? new GetReleaseInvokeArgs(), options.WithDefaults());
@@ -112,13 +181,13 @@ namespace Pulumi.Github
         public string Owner { get; set; } = null!;
 
         /// <summary>
-        /// ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+        /// ID of the release to retrieve. Must be specified when `RetrieveBy` = `Id`.
         /// </summary>
         [Input("releaseId")]
         public int? ReleaseId { get; set; }
 
         /// <summary>
-        /// Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+        /// Tag of the release to retrieve. Must be specified when `RetrieveBy` = `Tag`.
         /// </summary>
         [Input("releaseTag")]
         public string? ReleaseTag { get; set; }
@@ -130,7 +199,7 @@ namespace Pulumi.Github
         public string Repository { get; set; } = null!;
 
         /// <summary>
-        /// Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
+        /// Describes how to fetch the release. Valid values are `Id`, `Tag`, `Latest`.
         /// </summary>
         [Input("retrieveBy", required: true)]
         public string RetrieveBy { get; set; } = null!;
@@ -150,13 +219,13 @@ namespace Pulumi.Github
         public Input<string> Owner { get; set; } = null!;
 
         /// <summary>
-        /// ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+        /// ID of the release to retrieve. Must be specified when `RetrieveBy` = `Id`.
         /// </summary>
         [Input("releaseId")]
         public Input<int>? ReleaseId { get; set; }
 
         /// <summary>
-        /// Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+        /// Tag of the release to retrieve. Must be specified when `RetrieveBy` = `Tag`.
         /// </summary>
         [Input("releaseTag")]
         public Input<string>? ReleaseTag { get; set; }
@@ -168,7 +237,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Describes how to fetch the release. Valid values are `id`, `tag`, `latest`.
+        /// Describes how to fetch the release. Valid values are `Id`, `Tag`, `Latest`.
         /// </summary>
         [Input("retrieveBy", required: true)]
         public Input<string> RetrieveBy { get; set; } = null!;
@@ -184,7 +253,7 @@ namespace Pulumi.Github
     public sealed class GetReleaseResult
     {
         /// <summary>
-        /// **Deprecated**: Use `assets_url` resource instead
+        /// **Deprecated**: Use `AssetsUrl` resource instead
         /// </summary>
         public readonly string AssertsUrl;
         /// <summary>
@@ -255,7 +324,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// Download URL of a specific release in `zip` format
+        /// Download URL of a specific release in `Zip` format
         /// </summary>
         public readonly string ZipballUrl;
 

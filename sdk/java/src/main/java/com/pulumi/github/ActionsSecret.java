@@ -32,14 +32,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsSecret:ActionsSecret")
 public class ActionsSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actions_secret creation.
+     * Date of actionsSecret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actions_secret creation.
+     * @return Date of actionsSecret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -102,14 +102,14 @@ public class ActionsSecret extends com.pulumi.resources.CustomResource {
         return this.secretName;
     }
     /**
-     * Date of actions_secret update.
+     * Date of actionsSecret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actions_secret update.
+     * @return Date of actionsSecret update.
      * 
      */
     public Output<String> updatedAt() {

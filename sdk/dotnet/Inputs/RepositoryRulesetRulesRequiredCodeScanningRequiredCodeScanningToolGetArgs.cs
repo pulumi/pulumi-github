@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        /// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `None`, `Errors`, `ErrorsAndWarnings`, `All`.
         /// </summary>
         [Input("alertsThreshold", required: true)]
         public Input<string> AlertsThreshold { get; set; } = null!;
 
         /// <summary>
-        /// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        /// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `None`, `Critical`, `HighOrHigher`, `MediumOrHigher`, `All`.
         /// </summary>
         [Input("securityAlertsThreshold", required: true)]
         public Input<string> SecurityAlertsThreshold { get; set; } = null!;

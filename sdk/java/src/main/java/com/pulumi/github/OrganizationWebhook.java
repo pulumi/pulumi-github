@@ -20,6 +20,47 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to create and manage webhooks for GitHub organization.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.OrganizationWebhook;
+ * import com.pulumi.github.OrganizationWebhookArgs;
+ * import com.pulumi.github.inputs.OrganizationWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new OrganizationWebhook("foo", OrganizationWebhookArgs.builder()
+ *             .name("web")
+ *             .configuration(OrganizationWebhookConfigurationArgs.builder()
+ *                 .url("https://google.de/")
+ *                 .contentType("form")
+ *                 .insecureSsl(false)
+ *                 .build())
+ *             .active(false)
+ *             .events("issues")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Organization webhooks can be imported using the `id` of the webhook.
@@ -48,14 +89,14 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.active);
     }
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     @Export(name="configuration", refs={OrganizationWebhookConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OrganizationWebhookConfiguration> configuration;
 
     /**
-     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * @return key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     public Output<Optional<OrganizationWebhookConfiguration>> configuration() {

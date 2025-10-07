@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryDeploymentBranchPoliciesResult {
     /**
-     * @return The list of this repository / environment deployment policies. Each element of `deployment_branch_policies` has the following attributes:
+     * @return The list of this repository / environment deployment policies. Each element of `deploymentBranchPolicies` has the following attributes:
      * 
      */
     private List<GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy> deploymentBranchPolicies;
@@ -27,7 +27,7 @@ public final class GetRepositoryDeploymentBranchPoliciesResult {
 
     private GetRepositoryDeploymentBranchPoliciesResult() {}
     /**
-     * @return The list of this repository / environment deployment policies. Each element of `deployment_branch_policies` has the following attributes:
+     * @return The list of this repository / environment deployment policies. Each element of `deploymentBranchPolicies` has the following attributes:
      * 
      */
     public List<GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy> deploymentBranchPolicies() {

@@ -91,7 +91,7 @@ namespace Pulumi.Github
     public sealed class GetCollaboratorsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+        /// Filter collaborators returned by their affiliation. Can be one of: `Outside`, `Direct`, `All`.  Defaults to `All`.
         /// </summary>
         [Input("affiliation")]
         public string? Affiliation { get; set; }
@@ -103,7 +103,7 @@ namespace Pulumi.Github
         public string Owner { get; set; } = null!;
 
         /// <summary>
-        /// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+        /// Filter collaborators returned by their permission. Can be one of: `Pull`, `Triage`, `Push`, `Maintain`, `Admin`.  Defaults to not doing any filtering on permission.
         /// </summary>
         [Input("permission")]
         public string? Permission { get; set; }
@@ -123,7 +123,7 @@ namespace Pulumi.Github
     public sealed class GetCollaboratorsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter collaborators returned by their affiliation. Can be one of: `outside`, `direct`, `all`.  Defaults to `all`.
+        /// Filter collaborators returned by their affiliation. Can be one of: `Outside`, `Direct`, `All`.  Defaults to `All`.
         /// </summary>
         [Input("affiliation")]
         public Input<string>? Affiliation { get; set; }
@@ -135,7 +135,7 @@ namespace Pulumi.Github
         public Input<string> Owner { get; set; } = null!;
 
         /// <summary>
-        /// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+        /// Filter collaborators returned by their permission. Can be one of: `Pull`, `Triage`, `Push`, `Maintain`, `Admin`.  Defaults to not doing any filtering on permission.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
@@ -158,7 +158,7 @@ namespace Pulumi.Github
     {
         public readonly string? Affiliation;
         /// <summary>
-        /// An Array of GitHub collaborators.  Each `collaborator` block consists of the fields documented below.
+        /// An Array of GitHub collaborators.  Each `Collaborator` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCollaboratorsCollaboratorResult> Collaborators;
         /// <summary>

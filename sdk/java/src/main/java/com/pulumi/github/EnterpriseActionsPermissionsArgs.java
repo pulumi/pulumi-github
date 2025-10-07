@@ -19,14 +19,14 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
     public static final EnterpriseActionsPermissionsArgs Empty = new EnterpriseActionsPermissionsArgs();
 
     /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     @Import(name="allowedActions")
     private @Nullable Output<String> allowedActions;
 
     /**
-     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     public Optional<Output<String>> allowedActions() {
@@ -34,14 +34,14 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
     }
 
     /**
-     * Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     @Import(name="allowedActionsConfig")
     private @Nullable Output<EnterpriseActionsPermissionsAllowedActionsConfigArgs> allowedActionsConfig;
 
     /**
-     * @return Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * @return Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     public Optional<Output<EnterpriseActionsPermissionsAllowedActionsConfigArgs>> allowedActionsConfig() {
@@ -64,14 +64,14 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
     }
 
     /**
-     * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+     * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      * 
      */
     @Import(name="enabledOrganizationsConfig")
     private @Nullable Output<EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs> enabledOrganizationsConfig;
 
     /**
-     * @return Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+     * @return Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      * 
      */
     public Optional<Output<EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs>> enabledOrganizationsConfig() {
@@ -122,7 +122,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param allowedActionsConfig Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * @param allowedActionsConfig Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param allowedActionsConfig Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * @param allowedActionsConfig Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabledOrganizationsConfig Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+         * @param enabledOrganizationsConfig Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class EnterpriseActionsPermissionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabledOrganizationsConfig Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+         * @param enabledOrganizationsConfig Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
          * 
          * @return builder
          * 

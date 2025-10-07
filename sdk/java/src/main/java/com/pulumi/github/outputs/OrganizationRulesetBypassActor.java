@@ -22,7 +22,7 @@ public final class OrganizationRulesetBypassActor {
      */
     private String actorType;
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -48,7 +48,7 @@ public final class OrganizationRulesetBypassActor {
         return this.actorType;
     }
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 

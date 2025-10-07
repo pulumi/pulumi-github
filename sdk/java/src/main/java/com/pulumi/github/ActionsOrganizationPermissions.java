@@ -84,28 +84,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions")
 public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomResource {
     /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     @Export(name="allowedActions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedActions;
 
     /**
-     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     public Output<Optional<String>> allowedActions() {
         return Codegen.optional(this.allowedActions);
     }
     /**
-     * Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     @Export(name="allowedActionsConfig", refs={ActionsOrganizationPermissionsAllowedActionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsOrganizationPermissionsAllowedActionsConfig> allowedActionsConfig;
 
     /**
-     * @return Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * @return Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     public Output<Optional<ActionsOrganizationPermissionsAllowedActionsConfig>> allowedActionsConfig() {
@@ -126,14 +126,14 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
         return this.enabledRepositories;
     }
     /**
-     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      * 
      */
     @Export(name="enabledRepositoriesConfig", refs={ActionsOrganizationPermissionsEnabledRepositoriesConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsOrganizationPermissionsEnabledRepositoriesConfig> enabledRepositoriesConfig;
 
     /**
-     * @return Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * @return Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      * 
      */
     public Output<Optional<ActionsOrganizationPermissionsEnabledRepositoriesConfig>> enabledRepositoriesConfig() {

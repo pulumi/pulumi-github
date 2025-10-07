@@ -130,7 +130,7 @@ namespace Pulumi.Github
     public partial class RepositoryEnvironmentDeploymentPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `TagPattern` must be specified.
         /// </summary>
         [Output("branchPattern")]
         public Output<string?> BranchPattern { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `BranchPattern` must be specified.
         /// </summary>
         [Output("tagPattern")]
         public Output<string?> TagPattern { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentDeploymentPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `TagPattern` must be specified.
         /// </summary>
         [Input("branchPattern")]
         public Input<string>? BranchPattern { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `BranchPattern` must be specified.
         /// </summary>
         [Input("tagPattern")]
         public Input<string>? TagPattern { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentDeploymentPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+        /// The name pattern that branches must match in order to deploy to the environment. If not specified, `TagPattern` must be specified.
         /// </summary>
         [Input("branchPattern")]
         public Input<string>? BranchPattern { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+        /// The name pattern that tags must match in order to deploy to the environment. If not specified, `BranchPattern` must be specified.
         /// </summary>
         [Input("tagPattern")]
         public Input<string>? TagPattern { get; set; }

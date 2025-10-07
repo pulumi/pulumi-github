@@ -45,7 +45,7 @@ namespace Pulumi.Github
     public partial class ActionsVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of actions_variable creation.
+        /// Date of ActionsVariable creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Date of actions_variable update.
+        /// Date of ActionsVariable update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Github
     public sealed class ActionsVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of actions_variable creation.
+        /// Date of ActionsVariable creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Date of actions_variable update.
+        /// Date of ActionsVariable update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
