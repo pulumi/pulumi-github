@@ -44,6 +44,35 @@ import (
 // ```
 //
 // To retrieve a specific release from a repository based on it's ID:
+//
+// Finally, to retrieve a release based on it's tag:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
+//				Repository: "example-repository",
+//				Owner:      "example-owner",
+//				RetrieveBy: "tag",
+//				ReleaseTag: pulumi.StringRef("v1.0.0"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRelease(ctx *pulumi.Context, args *LookupReleaseArgs, opts ...pulumi.InvokeOption) (*LookupReleaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReleaseResult

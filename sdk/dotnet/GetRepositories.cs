@@ -118,7 +118,7 @@ namespace Pulumi.Github
         public int? ResultsPerPage { get; set; }
 
         /// <summary>
-        /// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+        /// Sorts the repositories returned by the specified attribute. Valid values include `Stars`, `Fork`, and `Updated`. Defaults to `Updated`.
         /// </summary>
         [Input("sort")]
         public string? Sort { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.Github
         public Input<int>? ResultsPerPage { get; set; }
 
         /// <summary>
-        /// Sorts the repositories returned by the specified attribute. Valid values include `stars`, `fork`, and `updated`. Defaults to `updated`.
+        /// Sorts the repositories returned by the specified attribute. Valid values include `Stars`, `Fork`, and `Updated`. Defaults to `Updated`.
         /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }

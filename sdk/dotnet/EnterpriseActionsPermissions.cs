@@ -67,25 +67,25 @@ namespace Pulumi.Github
     public partial class EnterpriseActionsPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Output("allowedActions")]
         public Output<string?> AllowedActions { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an enterprise. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Output("allowedActionsConfig")]
         public Output<Outputs.EnterpriseActionsPermissionsAllowedActionsConfig?> AllowedActionsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Output("enabledOrganizations")]
         public Output<string> EnabledOrganizations { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `EnabledOrganizations` = `Selected`. See Enabled Organizations Config below for details.
         /// </summary>
         [Output("enabledOrganizationsConfig")]
         public Output<Outputs.EnterpriseActionsPermissionsEnabledOrganizationsConfig?> EnabledOrganizationsConfig { get; private set; } = null!;
@@ -143,25 +143,25 @@ namespace Pulumi.Github
     public sealed class EnterpriseActionsPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an enterprise. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.EnterpriseActionsPermissionsAllowedActionsConfigArgs>? AllowedActionsConfig { get; set; }
 
         /// <summary>
-        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Input("enabledOrganizations", required: true)]
         public Input<string> EnabledOrganizations { get; set; } = null!;
 
         /// <summary>
-        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `EnabledOrganizations` = `Selected`. See Enabled Organizations Config below for details.
         /// </summary>
         [Input("enabledOrganizationsConfig")]
         public Input<Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs>? EnabledOrganizationsConfig { get; set; }
@@ -181,25 +181,25 @@ namespace Pulumi.Github
     public sealed class EnterpriseActionsPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an enterprise. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.EnterpriseActionsPermissionsAllowedActionsConfigGetArgs>? AllowedActionsConfig { get; set; }
 
         /// <summary>
-        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Input("enabledOrganizations")]
         public Input<string>? EnabledOrganizations { get; set; }
 
         /// <summary>
-        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+        /// Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `EnabledOrganizations` = `Selected`. See Enabled Organizations Config below for details.
         /// </summary>
         [Input("enabledOrganizationsConfig")]
         public Input<Inputs.EnterpriseActionsPermissionsEnabledOrganizationsConfigGetArgs>? EnabledOrganizationsConfig { get; set; }

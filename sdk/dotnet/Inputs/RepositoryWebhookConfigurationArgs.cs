@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryWebhookConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type for the payload. Valid values are either `form` or `json`.
+        /// The content type for the payload. Valid values are either `Form` or `Json`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Insecure SSL boolean toggle. Defaults to `false`.
+        /// Insecure SSL boolean toggle. Defaults to `False`.
         /// </summary>
         [Input("insecureSsl")]
         public Input<bool>? InsecureSsl { get; set; }

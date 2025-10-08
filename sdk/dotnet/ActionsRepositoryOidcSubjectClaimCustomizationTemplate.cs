@@ -16,13 +16,13 @@ namespace Pulumi.Github
     /// More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
     /// available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
     /// 
-    /// The following table lists the behaviour of `use_default`:
+    /// The following table lists the behaviour of `UseDefault`:
     /// 
-    /// | `use_default` | `include_claim_keys` | Template used                                             |
+    /// | `UseDefault` | `IncludeClaimKeys` | Template used                                             |
     /// |---------------|----------------------|-----------------------------------------------------------|
-    /// | `true`        | Unset                | GitHub's default                                          |
-    /// | `false`       | Set                  | `include_claim_keys`                                      |
-    /// | `false`       | Unset                | Organization's default if set, otherwise GitHub's default |
+    /// | `True`        | Unset                | GitHub's default                                          |
+    /// | `False`       | Set                  | `IncludeClaimKeys`                                      |
+    /// | `False`       | Unset                | Organization's default if set, otherwise GitHub's default |
     /// 
     /// ## Example Usage
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use the default template or not. If `true`, `include_claim_keys` must not
+        /// Whether to use the default template or not. If `True`, `IncludeClaimKeys` must not
         /// be set.
         /// </summary>
         [Output("useDefault")]
@@ -149,7 +149,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Whether to use the default template or not. If `true`, `include_claim_keys` must not
+        /// Whether to use the default template or not. If `True`, `IncludeClaimKeys` must not
         /// be set.
         /// </summary>
         [Input("useDefault", required: true)]
@@ -182,7 +182,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Whether to use the default template or not. If `true`, `include_claim_keys` must not
+        /// Whether to use the default template or not. If `True`, `IncludeClaimKeys` must not
         /// be set.
         /// </summary>
         [Input("useDefault")]

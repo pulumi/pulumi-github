@@ -14,7 +14,7 @@ namespace Pulumi.Github
     /// 
     /// This resource allows you to set the default branch for a given repository.
     /// 
-    /// Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+    /// Note that use of this resource is incompatible with the `DefaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
     /// 
     /// ## Example Usage
     /// 
@@ -89,7 +89,7 @@ namespace Pulumi.Github
     public partial class BranchDefault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The branch (e.g. `main`)
+        /// The branch (e.g. `Main`)
         /// </summary>
         [Output("branch")]
         public Output<string> Branch { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `False`.
         /// </summary>
         [Output("rename")]
         public Output<bool?> Rename { get; private set; } = null!;
@@ -156,13 +156,13 @@ namespace Pulumi.Github
     public sealed class BranchDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branch (e.g. `main`)
+        /// The branch (e.g. `Main`)
         /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
-        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `False`.
         /// </summary>
         [Input("rename")]
         public Input<bool>? Rename { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Github
     public sealed class BranchDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The branch (e.g. `main`)
+        /// The branch (e.g. `Main`)
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Github
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
+        /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `False`.
         /// </summary>
         [Input("rename")]
         public Input<bool>? Rename { get; set; }

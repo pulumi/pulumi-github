@@ -70,14 +70,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.owner);
     }
     /**
-     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+     * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+     * @return The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
      * 
      */
     public Output<Optional<String>> token() {

@@ -43,6 +43,98 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleTeam = new Github.Team("example", new()
+    ///     {
+    ///         Name = "Example Name",
+    ///     });
+    /// 
+    ///     // Protect the main branch of the foo repository. Additionally, require that
+    ///     // the "ci/check" check ran by the Github Actions app is passing and only allow
+    ///     // the engineers team merge to the branch.
+    ///     var example = new Github.BranchProtectionV3("example", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         Branch = "main",
+    ///         EnforceAdmins = true,
+    ///         RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
+    ///         {
+    ///             Strict = false,
+    ///             Checks = new[]
+    ///             {
+    ///                 "ci/check:824642007264",
+    ///             },
+    ///         },
+    ///         RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
+    ///         {
+    ///             DismissStaleReviews = true,
+    ///             DismissalUsers = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             DismissalTeams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///             DismissalApp = new[]
+    ///             {
+    ///                 "foo-app",
+    ///             },
+    ///             BypassPullRequestAllowances = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs
+    ///             {
+    ///                 Users = new[]
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///                 Teams = new[]
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                 },
+    ///                 Apps = new[]
+    ///                 {
+    ///                     "foo-app",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///         {
+    ///             Users = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             Teams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///             Apps = new[]
+    ///             {
+    ///                 "foo-app",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTeamRepository = new Github.TeamRepository("example", new()
+    ///     {
+    ///         TeamId = exampleTeam.Id,
+    ///         Repository = exampleRepository.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
@@ -61,7 +153,7 @@ namespace Pulumi.Github
         public Output<string> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
@@ -76,13 +168,13 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Output("requireConversationResolution")]
         public Output<bool?> RequireConversationResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Output("requireSignedCommits")]
         public Output<bool?> RequireSignedCommits { get; private set; } = null!;
@@ -158,7 +250,7 @@ namespace Pulumi.Github
         public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -170,13 +262,13 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
@@ -214,7 +306,7 @@ namespace Pulumi.Github
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -229,13 +321,13 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }

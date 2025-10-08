@@ -16,7 +16,7 @@ namespace Pulumi.Github.Inputs
         private InputList<string>? _checks;
 
         /// <summary>
-        /// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+        /// The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and AppId like so "context:app_id".
         /// </summary>
         public InputList<string> Checks
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Github.Inputs
         /// For workflows that use matrixes, append the matrix name to the value using the following pattern `(&lt;matrix_value&gt;[, &lt;matrix_value&gt;])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
         /// For workflows that use reusable workflows, the pattern is `&lt;initial_workflow.jobs.job.[name/id]&gt; / &lt;reused-workflow.jobs.job.[name/id]&gt;`. This can extend multiple levels.
         /// </summary>
-        [Obsolete(@"GitHub is deprecating the use of `contexts`. Use a `checks` array instead.")]
+        [Obsolete(@"GitHub is deprecating the use of `Contexts`. Use a `Checks` array instead.")]
         public InputList<string> Contexts
         {
             get => _contexts ?? (_contexts = new InputList<string>());
@@ -46,7 +46,7 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? IncludeAdmins { get; set; }
 
         /// <summary>
-        /// Require branches to be up to date before merging. Defaults to `false`.
+        /// Require branches to be up to date before merging. Defaults to `False`.
         /// </summary>
         [Input("strict")]
         public Input<bool>? Strict { get; set; }
