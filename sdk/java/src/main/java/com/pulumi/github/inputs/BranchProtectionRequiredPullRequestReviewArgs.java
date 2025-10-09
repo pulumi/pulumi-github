@@ -34,14 +34,14 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
     }
 
     /**
-     * The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
     @Import(name="dismissalRestrictions")
     private @Nullable Output<List<String>> dismissalRestrictions;
 
     /**
-     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
     public Optional<Output<List<String>>> dismissalRestrictions() {
@@ -177,7 +177,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class BranchProtectionRequiredPullRequestReviewArgs extends com.pul
         }
 
         /**
-         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+         * @param dismissalRestrictions The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
          * 
          * @return builder
          * 

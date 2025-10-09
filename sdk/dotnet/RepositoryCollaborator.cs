@@ -75,14 +75,14 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
+        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        /// Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
 
         /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
         /// </summary>
         [Output("permissionDiffSuppression")]
         public Output<bool?> PermissionDiffSuppression { get; private set; } = null!;
@@ -149,14 +149,14 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
+        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        /// Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
         /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }
@@ -191,14 +191,14 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permission of the outside collaborator for the repository.
-        /// Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        /// Must be `push` for personal repositories. Defaults to `push`.
+        /// Must be one of `Pull`, `Push`, `Maintain`, `Triage` or `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+        /// Must be `Push` for personal repositories. Defaults to `Push`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
-        /// Suppress plan diffs for `triage` and `maintain`.  Defaults to `false`.
+        /// Suppress plan diffs for `Triage` and `Maintain`.  Defaults to `False`.
         /// </summary>
         [Input("permissionDiffSuppression")]
         public Input<bool>? PermissionDiffSuppression { get; set; }

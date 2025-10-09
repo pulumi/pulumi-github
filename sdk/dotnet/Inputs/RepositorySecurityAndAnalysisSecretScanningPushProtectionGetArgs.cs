@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositorySecurityAndAnalysisSecretScanningPushProtectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub Pages site's build status e.g. `building` or `built`.
+        /// The GitHub Pages site's build status e.g. `Building` or `Built`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryWebhookConfiguration
     {
         /// <summary>
-        /// The content type for the payload. Valid values are either `form` or `json`.
+        /// The content type for the payload. Valid values are either `Form` or `Json`.
         /// </summary>
         public readonly string? ContentType;
         /// <summary>
-        /// Insecure SSL boolean toggle. Defaults to `false`.
+        /// Insecure SSL boolean toggle. Defaults to `False`.
         /// </summary>
         public readonly bool? InsecureSsl;
         /// <summary>

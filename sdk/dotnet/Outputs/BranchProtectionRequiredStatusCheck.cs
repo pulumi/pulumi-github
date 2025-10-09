@@ -23,7 +23,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Contexts;
         /// <summary>
-        /// Require branches to be up to date before merging. Defaults to `false`.
+        /// Require branches to be up to date before merging. Defaults to `False`.
         /// </summary>
         public readonly bool? Strict;
 

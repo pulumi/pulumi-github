@@ -35,14 +35,14 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      * 
      */
     @Import(name="repositoryIds")
     private @Nullable Output<List<Integer>> repositoryIds;
 
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      * 
      */
     public Optional<Output<List<Integer>>> repositoryIds() {
@@ -50,18 +50,18 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Conflicts with `repository_id`. (see below for nested schema)
+     * Conflicts with `repositoryId`. (see below for nested schema)
      * 
-     * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      * 
      */
     @Import(name="repositoryName")
     private @Nullable Output<OrganizationRulesetConditionsRepositoryNameArgs> repositoryName;
 
     /**
-     * @return Conflicts with `repository_id`. (see below for nested schema)
+     * @return Conflicts with `repositoryId`. (see below for nested schema)
      * 
-     * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      * 
      */
     public Optional<Output<OrganizationRulesetConditionsRepositoryNameArgs>> repositoryName() {
@@ -116,7 +116,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
          * 
          * @return builder
          * 
@@ -147,9 +147,9 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryName Conflicts with `repository_id`. (see below for nested schema)
+         * @param repositoryName Conflicts with `repositoryId`. (see below for nested schema)
          * 
-         * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+         * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
          * 
          * @return builder
          * 
@@ -160,9 +160,9 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryName Conflicts with `repository_id`. (see below for nested schema)
+         * @param repositoryName Conflicts with `repositoryId`. (see below for nested schema)
          * 
-         * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+         * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
          * 
          * @return builder
          * 

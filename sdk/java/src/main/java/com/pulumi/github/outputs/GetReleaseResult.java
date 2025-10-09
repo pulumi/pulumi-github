@@ -17,13 +17,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetReleaseResult {
     /**
-     * @return **Deprecated**: Use `assets_url` resource instead
+     * @return **Deprecated**: Use `assetsUrl` resource instead
      * 
      * @deprecated
-     * use assets_url instead
+     * use assetsUrl instead
      * 
      */
-    @Deprecated /* use assets_url instead */
+    @Deprecated /* use assetsUrl instead */
     private String assertsUrl;
     /**
      * @return Collection of assets for the release. Each asset conforms to the following schema:
@@ -116,13 +116,13 @@ public final class GetReleaseResult {
 
     private GetReleaseResult() {}
     /**
-     * @return **Deprecated**: Use `assets_url` resource instead
+     * @return **Deprecated**: Use `assetsUrl` resource instead
      * 
      * @deprecated
-     * use assets_url instead
+     * use assetsUrl instead
      * 
      */
-    @Deprecated /* use assets_url instead */
+    @Deprecated /* use assetsUrl instead */
     public String assertsUrl() {
         return this.assertsUrl;
     }

@@ -16,14 +16,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     public static final DependabotSecretState Empty = new DependabotSecretState();
 
     /**
-     * Date of dependabot_secret creation.
+     * Date of dependabotSecret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of dependabot_secret creation.
+     * @return Date of dependabotSecret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -91,14 +91,14 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Date of dependabot_secret update.
+     * Date of dependabotSecret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of dependabot_secret update.
+     * @return Date of dependabotSecret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -135,7 +135,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt Date of dependabot_secret creation.
+         * @param createdAt Date of dependabotSecret creation.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt Date of dependabot_secret creation.
+         * @param createdAt Date of dependabotSecret creation.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt Date of dependabot_secret update.
+         * @param updatedAt Date of dependabotSecret update.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt Date of dependabot_secret update.
+         * @param updatedAt Date of dependabotSecret update.
          * 
          * @return builder
          * 

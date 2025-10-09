@@ -18,7 +18,7 @@ namespace Pulumi.Github.Inputs
         /// <summary>
         /// The list of app slugs with push access.
         /// 
-        /// `restrictions` is only available for organization-owned repositories.
+        /// `Restrictions` is only available for organization-owned repositories.
         /// </summary>
         public InputList<string> Apps
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Github.Inputs
 
         /// <summary>
         /// The list of team slugs with push access.
-        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public InputList<string> Teams
         {

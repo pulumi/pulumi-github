@@ -23,12 +23,12 @@ import javax.annotation.Nullable;
  * More information on integrating GitHub with cloud providers using OpenID Connect and a list of available claims is
  * available in the [Actions documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
  * 
- * The following table lists the behaviour of `use_default`:
+ * The following table lists the behaviour of `useDefault`:
  * 
- * | `use_default` | `include_claim_keys` | Template used                                             |
+ * | `useDefault` | `includeClaimKeys` | Template used                                             |
  * |---------------|----------------------|-----------------------------------------------------------|
  * | `true`        | Unset                | GitHub&#39;s default                                          |
- * | `false`       | Set                  | `include_claim_keys`                                      |
+ * | `false`       | Set                  | `includeClaimKeys`                                      |
  * | `false`       | Unset                | Organization&#39;s default if set, otherwise GitHub&#39;s default |
  * 
  * ## Example Usage
@@ -115,7 +115,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
         return this.repository;
     }
     /**
-     * Whether to use the default template or not. If `true`, `include_claim_keys` must not
+     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
      * be set.
      * 
      */
@@ -123,7 +123,7 @@ public class ActionsRepositoryOidcSubjectClaimCustomizationTemplate extends com.
     private Output<Boolean> useDefault;
 
     /**
-     * @return Whether to use the default template or not. If `true`, `include_claim_keys` must not
+     * @return Whether to use the default template or not. If `true`, `includeClaimKeys` must not
      * be set.
      * 
      */
