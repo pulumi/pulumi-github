@@ -1,30 +1,43 @@
 Prevent 422 Commit signoff is enforced by the organization and cannot be disabled.
 
-This patch fixes a bug in the GitHub API 2022-11-28 version where updating a repository
-with web_commit_signoff_required=true throws a 422 error when the field is already true.
-
-It checks if the web_commit_signoff_required field has actually changed during a
-repository update. If the field hasn't changed and is already true, it's removed from
-the update request to avoid the API error.
+This patch fixes a bug in the GitHub API 2022-11-28 version when updating a repository
+within an organization that has "Require sign off on web-based commits" enabled.
+When trying to update the repository with `web_commit_signoff_required` field, the API
+returns a 422 error: "Commit signoff is enforced by the organization and cannot be disabled".
 
 For more information: https://github.com/integrations/terraform-provider-github/issues/2077
 
 diff --git a/github/resource_github_repository.go b/github/resource_github_repository.go
-index f28cc4c6..aa6184c0 100644
+index f28cc4c6..a4714fcc 100644
 --- a/github/resource_github_repository.go
 +++ b/github/resource_github_repository.go
-@@ -765,6 +765,14 @@ func resourceGithubRepositoryUpdate(d *schema.ResourceData, meta interface{}) er
- 		repoReq.DefaultBranch = github.String(d.Get("default_branch").(string))
- 	}
-
-+	// There's a bug in the GitHub 2022-11-28 version, that throws a 422 error
-+	// whenever the `web_commit_signoff_required` is set to true, even when it
-+	// is already true.
-+	if !d.HasChange("web_commit_signoff_required") && d.Get("web_commit_signoff_required").(bool) {
-+		// remove the field from the request
-+		repoReq.WebCommitSignoffRequired = nil
-+	}
-+
- 	repoName := d.Id()
+@@ -769,6 +769,20 @@ func resourceGithubRepositoryUpdate(d *schema.ResourceData, meta interface{}) er
  	owner := meta.(*Owner).name
  	ctx := context.WithValue(context.Background(), ctxId, d.Id())
+
++	// When the organization has "Require sign off on web-based commits" enabled,
++	// the API doesn't allow you to send `web_commit_signoff_required` in order to
++	// update the repository with this field or it will throw a 422 error.
++	// As a workaround, we check if the organization requires it, and if so,
++	// we remove the field from the request.
++	if d.HasChange("web_commit_signoff_required") && meta.(*Owner).IsOrganization {
++		organization, _, err := client.Organizations.Get(ctx, owner)
++		if err == nil {
++			if organization != nil && organization.GetWebCommitSignoffRequired() {
++				repoReq.WebCommitSignoffRequired = nil
++			}
++		}
++	}
++
+ 	repo, _, err := client.Repositories.Edit(ctx, owner, repoName, repoReq)
+ 	if err != nil {
+ 		return err
+@@ -875,6 +889,8 @@ func resourceGithubRepositoryDelete(d *schema.ResourceData, meta interface{}) er
+ 				return err
+ 			}
+ 			repoReq := resourceGithubRepositoryObject(d)
++			// Always remove `web_commit_signoff_required` when archiving, to avoid 422 error
++			repoReq.WebCommitSignoffRequired = nil
+ 			log.Printf("[DEBUG] Archiving repository on delete: %s/%s", owner, repoName)
+ 			_, _, err := client.Repositories.Edit(ctx, owner, repoName, repoReq)
+ 			return err
