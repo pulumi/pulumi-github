@@ -35,14 +35,14 @@ public final class OrganizationWebhookArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<OrganizationWebhookConfigurationArgs> configuration;
 
     /**
-     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * @return key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     public Optional<Output<OrganizationWebhookConfigurationArgs>> configuration() {
@@ -112,7 +112,7 @@ public final class OrganizationWebhookArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class OrganizationWebhookArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+         * @param configuration key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
          * 
          * @return builder
          * 

@@ -78,7 +78,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permissions of team members regarding the repository.
-        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `Pull`.
         /// </summary>
         [Output("permission")]
         public Output<string?> Permission { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// The permissions of team members regarding the repository.
-        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `Pull`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The permissions of team members regarding the repository.
-        /// Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+        /// Must be one of `Pull`, `Triage`, `Push`, `Maintain`, `Admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `Pull`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }

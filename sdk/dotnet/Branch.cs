@@ -87,13 +87,13 @@ namespace Pulumi.Github
         public Output<string> Sha { get; private set; } = null!;
 
         /// <summary>
-        /// The branch name to start from. Defaults to `main`.
+        /// The branch name to start from. Defaults to `Main`.
         /// </summary>
         [Output("sourceBranch")]
         public Output<string?> SourceBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        /// The commit hash to start from. Defaults to the tip of `SourceBranch`. If provided, `SourceBranch` is ignored.
         /// </summary>
         [Output("sourceSha")]
         public Output<string> SourceSha { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// The branch name to start from. Defaults to `main`.
+        /// The branch name to start from. Defaults to `Main`.
         /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
 
         /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        /// The commit hash to start from. Defaults to the tip of `SourceBranch`. If provided, `SourceBranch` is ignored.
         /// </summary>
         [Input("sourceSha")]
         public Input<string>? SourceSha { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.Github
         public Input<string>? Sha { get; set; }
 
         /// <summary>
-        /// The branch name to start from. Defaults to `main`.
+        /// The branch name to start from. Defaults to `Main`.
         /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
 
         /// <summary>
-        /// The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+        /// The commit hash to start from. Defaults to the tip of `SourceBranch`. If provided, `SourceBranch` is ignored.
         /// </summary>
         [Input("sourceSha")]
         public Input<string>? SourceSha { get; set; }

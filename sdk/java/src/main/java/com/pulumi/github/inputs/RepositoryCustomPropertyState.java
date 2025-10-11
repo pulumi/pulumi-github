@@ -32,14 +32,14 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     }
 
     /**
-     * Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      * 
      */
     @Import(name="propertyType")
     private @Nullable Output<String> propertyType;
 
     /**
-     * @return Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+     * @return Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      * 
      */
     public Optional<Output<String>> propertyType() {
@@ -47,14 +47,14 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
     }
 
     /**
-     * Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      * 
      */
     @Import(name="propertyValues")
     private @Nullable Output<List<String>> propertyValues;
 
     /**
-     * @return Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+     * @return Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      * 
      */
     public Optional<Output<List<String>>> propertyValues() {
@@ -125,7 +125,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyType Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+         * @param propertyType Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class RepositoryCustomPropertyState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param propertyValues Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+         * @param propertyValues Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
          * 
          * @return builder
          * 

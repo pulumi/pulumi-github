@@ -16,14 +16,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     public static final ActionsVariableState Empty = new ActionsVariableState();
 
     /**
-     * Date of actions_variable creation.
+     * Date of actionsVariable creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actions_variable creation.
+     * @return Date of actionsVariable creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -46,14 +46,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Date of actions_variable update.
+     * Date of actionsVariable update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actions_variable update.
+     * @return Date of actionsVariable update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -119,7 +119,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt Date of actions_variable creation.
+         * @param createdAt Date of actionsVariable creation.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt Date of actions_variable creation.
+         * @param createdAt Date of actionsVariable creation.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedAt Date of actions_variable update.
+         * @param updatedAt Date of actionsVariable update.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedAt Date of actions_variable update.
+         * @param updatedAt Date of actionsVariable update.
          * 
          * @return builder
          * 

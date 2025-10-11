@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositorySecurityAndAnalysisAdvancedSecurity
     {
         /// <summary>
-        /// Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+        /// Set to `Enabled` to enable advanced security features on the repository. Can be `Enabled` or `Disabled`.
         /// </summary>
         public readonly string Status;
 

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryAutolinkReferencesResult {
     /**
-     * @return The list of this repository&#39;s autolink references. Each element of `autolink_references` has the following attributes:
+     * @return The list of this repository&#39;s autolink references. Each element of `autolinkReferences` has the following attributes:
      * 
      */
     private List<GetRepositoryAutolinkReferencesAutolinkReference> autolinkReferences;
@@ -26,7 +26,7 @@ public final class GetRepositoryAutolinkReferencesResult {
 
     private GetRepositoryAutolinkReferencesResult() {}
     /**
-     * @return The list of this repository&#39;s autolink references. Each element of `autolink_references` has the following attributes:
+     * @return The list of this repository&#39;s autolink references. Each element of `autolinkReferences` has the following attributes:
      * 
      */
     public List<GetRepositoryAutolinkReferencesAutolinkReference> autolinkReferences() {

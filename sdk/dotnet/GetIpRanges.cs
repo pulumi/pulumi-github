@@ -84,19 +84,19 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
-        /// A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Actions` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ActionsIpv4s;
         /// <summary>
-        /// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Actions` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ActionsIpv6s;
         /// <summary>
-        /// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Api` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ApiIpv4s;
         /// <summary>
-        /// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Api` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ApiIpv6s;
         /// <summary>
@@ -104,11 +104,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Apis;
         /// <summary>
-        /// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Dependabot` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> DependabotIpv4s;
         /// <summary>
-        /// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Dependabot` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> DependabotIpv6s;
         /// <summary>
@@ -116,11 +116,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Dependabots;
         /// <summary>
-        /// A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Git` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> GitIpv4s;
         /// <summary>
-        /// A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Git` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> GitIpv6s;
         /// <summary>
@@ -132,11 +132,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Hooks;
         /// <summary>
-        /// A subset of the `hooks` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Hooks` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> HooksIpv4s;
         /// <summary>
-        /// A subset of the `hooks` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Hooks` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> HooksIpv6s;
         /// <summary>
@@ -144,11 +144,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A subset of the `importer` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Importer` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ImporterIpv4s;
         /// <summary>
-        /// A subset of the `importer` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Importer` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ImporterIpv6s;
         /// <summary>
@@ -160,11 +160,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Packages;
         /// <summary>
-        /// A subset of the `packages` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Packages` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> PackagesIpv4s;
         /// <summary>
-        /// A subset of the `packages` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Packages` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> PackagesIpv6s;
         /// <summary>
@@ -172,19 +172,19 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Pages;
         /// <summary>
-        /// A subset of the `pages` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Pages` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> PagesIpv4s;
         /// <summary>
-        /// A subset of the `pages` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Pages` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> PagesIpv6s;
         /// <summary>
-        /// A subset of the `web` array that contains IP addresses in IPv4 CIDR format.
+        /// A subset of the `Web` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> WebIpv4s;
         /// <summary>
-        /// A subset of the `web` array that contains IP addresses in IPv6 CIDR format.
+        /// A subset of the `Web` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> WebIpv6s;
         /// <summary>

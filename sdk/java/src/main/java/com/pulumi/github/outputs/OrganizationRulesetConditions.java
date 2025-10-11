@@ -21,14 +21,14 @@ public final class OrganizationRulesetConditions {
      */
     private OrganizationRulesetConditionsRefName refName;
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      * 
      */
     private @Nullable List<Integer> repositoryIds;
     /**
-     * @return Conflicts with `repository_id`. (see below for nested schema)
+     * @return Conflicts with `repositoryId`. (see below for nested schema)
      * 
-     * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      * 
      */
     private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
@@ -42,16 +42,16 @@ public final class OrganizationRulesetConditions {
         return this.refName;
     }
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      * 
      */
     public List<Integer> repositoryIds() {
         return this.repositoryIds == null ? List.of() : this.repositoryIds;
     }
     /**
-     * @return Conflicts with `repository_id`. (see below for nested schema)
+     * @return Conflicts with `repositoryId`. (see below for nested schema)
      * 
-     * One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      * 
      */
     public Optional<OrganizationRulesetConditionsRepositoryName> repositoryName() {

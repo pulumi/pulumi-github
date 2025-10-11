@@ -50,7 +50,7 @@ namespace Pulumi.Github
     public partial class ActionsRepositoryAccessLevel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
+        /// Where the actions or reusable workflows of the repository may be used. Possible values are `None`, `User`, `Organization`, or `Enterprise`.
         /// </summary>
         [Output("accessLevel")]
         public Output<string> AccessLevel { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Github
     public sealed class ActionsRepositoryAccessLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
+        /// Where the actions or reusable workflows of the repository may be used. Possible values are `None`, `User`, `Organization`, or `Enterprise`.
         /// </summary>
         [Input("accessLevel", required: true)]
         public Input<string> AccessLevel { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Github
     public sealed class ActionsRepositoryAccessLevelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
+        /// Where the actions or reusable workflows of the repository may be used. Possible values are `None`, `User`, `Organization`, or `Enterprise`.
         /// </summary>
         [Input("accessLevel")]
         public Input<string>? AccessLevel { get; set; }

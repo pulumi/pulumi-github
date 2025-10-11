@@ -139,7 +139,7 @@ namespace Pulumi.Github
     public sealed class GetTreeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+        /// Setting this parameter to `True` returns the objects or subtrees referenced by the tree specified in `TreeSha`.
         /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Github
     public sealed class GetTreeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+        /// Setting this parameter to `True` returns the objects or subtrees referenced by the tree specified in `TreeSha`.
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Github
     public sealed class GetTreeResult
     {
         /// <summary>
-        /// Objects (of `path`, `mode`, `type`, `size`, and `sha`) specifying a tree structure.
+        /// Objects (of `Path`, `Mode`, `Type`, `Size`, and `Sha`) specifying a tree structure.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTreeEntryResult> Entries;
         /// <summary>

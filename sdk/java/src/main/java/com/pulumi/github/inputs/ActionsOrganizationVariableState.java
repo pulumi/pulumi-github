@@ -18,14 +18,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     public static final ActionsOrganizationVariableState Empty = new ActionsOrganizationVariableState();
 
     /**
-     * Date of actions_variable creation.
+     * Date of actionsVariable creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actions_variable creation.
+     * @return Date of actionsVariable creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -48,14 +48,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * Date of actions_variable update.
+     * Date of actionsVariable update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actions_variable update.
+     * @return Date of actionsVariable update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -94,7 +94,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
 
     /**
      * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Import(name="visibility")
@@ -102,7 +102,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
 
     /**
      * @return Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -139,7 +139,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param createdAt Date of actions_variable creation.
+         * @param createdAt Date of actionsVariable creation.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param createdAt Date of actions_variable creation.
+         * @param createdAt Date of actionsVariable creation.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param updatedAt Date of actions_variable update.
+         * @param updatedAt Date of actionsVariable update.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param updatedAt Date of actions_variable update.
+         * @param updatedAt Date of actionsVariable update.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
 
         /**
          * @param visibility Configures the access that repositories have to the organization variable.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
 
         /**
          * @param visibility Configures the access that repositories have to the organization variable.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 

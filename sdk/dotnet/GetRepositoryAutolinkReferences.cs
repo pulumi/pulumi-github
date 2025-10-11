@@ -118,7 +118,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryAutolinkReferencesResult
     {
         /// <summary>
-        /// The list of this repository's autolink references. Each element of `autolink_references` has the following attributes:
+        /// The list of this repository's autolink references. Each element of `AutolinkReferences` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryAutolinkReferencesAutolinkReferenceResult> AutolinkReferences;
         /// <summary>

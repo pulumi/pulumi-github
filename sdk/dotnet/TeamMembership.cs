@@ -74,7 +74,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
+        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
+        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
+        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

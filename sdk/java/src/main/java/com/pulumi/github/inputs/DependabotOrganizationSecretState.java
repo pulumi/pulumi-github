@@ -18,14 +18,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     public static final DependabotOrganizationSecretState Empty = new DependabotOrganizationSecretState();
 
     /**
-     * Date of dependabot_secret creation.
+     * Date of dependabotSecret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of dependabot_secret creation.
+     * @return Date of dependabotSecret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -93,14 +93,14 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
     }
 
     /**
-     * Date of dependabot_secret update.
+     * Date of dependabotSecret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of dependabot_secret update.
+     * @return Date of dependabotSecret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -109,7 +109,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
 
     /**
      * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Import(name="visibility")
@@ -117,7 +117,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
 
     /**
      * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -155,7 +155,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Date of dependabot_secret creation.
+         * @param createdAt Date of dependabotSecret creation.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Date of dependabot_secret creation.
+         * @param createdAt Date of dependabotSecret creation.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param updatedAt Date of dependabot_secret update.
+         * @param updatedAt Date of dependabotSecret update.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
         }
 
         /**
-         * @param updatedAt Date of dependabot_secret update.
+         * @param updatedAt Date of dependabotSecret update.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
 
         /**
          * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class DependabotOrganizationSecretState extends com.pulumi.resource
 
         /**
          * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 

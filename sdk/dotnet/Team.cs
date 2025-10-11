@@ -52,7 +52,7 @@ namespace Pulumi.Github
     public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Output("createDefaultMaintainer")]
         public Output<bool?> CreateDefaultMaintainer { get; private set; } = null!;
@@ -106,15 +106,15 @@ namespace Pulumi.Github
         public Output<string> ParentTeamReadSlug { get; private set; } = null!;
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
+        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
+        /// Defaults to `Secret`.
         /// </summary>
         [Output("privacy")]
         public Output<string?> Privacy { get; private set; } = null!;
 
         /// <summary>
-        /// The slug of the created team, which may or may not differ from `name`,
-        /// depending on whether `name` contains "URL-unsafe" characters.
+        /// The slug of the created team, which may or may not differ from `Name`,
+        /// depending on whether `Name` contains "URL-unsafe" characters.
         /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         /// </summary>
         [Output("slug")]
@@ -167,7 +167,7 @@ namespace Pulumi.Github
     public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
@@ -209,8 +209,8 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
+        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
+        /// Defaults to `Secret`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Github
     public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
@@ -278,15 +278,15 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `secret` or `closed`.
-        /// Defaults to `secret`.
+        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
+        /// Defaults to `Secret`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
 
         /// <summary>
-        /// The slug of the created team, which may or may not differ from `name`,
-        /// depending on whether `name` contains "URL-unsafe" characters.
+        /// The slug of the created team, which may or may not differ from `Name`,
+        /// depending on whether `Name` contains "URL-unsafe" characters.
         /// Useful when referencing the team in [`github.BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         /// </summary>
         [Input("slug")]

@@ -66,7 +66,7 @@ namespace Pulumi.Github
     public partial class RepositoryWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Github
     public sealed class RepositoryWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Github
     public sealed class RepositoryWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate if the webhook should receive events. Defaults to `true`.
+        /// Indicate if the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

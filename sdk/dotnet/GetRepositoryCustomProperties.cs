@@ -122,7 +122,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The list of this repository's custom properties. Each element of `property` has the following attributes:
+        /// The list of this repository's custom properties. Each element of `Property` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryCustomPropertiesPropertyResult> Properties;
         public readonly string Repository;

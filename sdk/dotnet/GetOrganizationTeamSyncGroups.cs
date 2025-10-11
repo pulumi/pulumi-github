@@ -80,7 +80,7 @@ namespace Pulumi.Github
     public sealed class GetOrganizationTeamSyncGroupsResult
     {
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups.  Each `group` block consists of the fields documented below.
+        /// An Array of GitHub Identity Provider Groups.  Each `Group` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationTeamSyncGroupsGroupResult> Groups;
         /// <summary>

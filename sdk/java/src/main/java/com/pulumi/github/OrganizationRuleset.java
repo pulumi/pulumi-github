@@ -114,14 +114,14 @@ public class OrganizationRuleset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassActors);
     }
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      * 
      */
     @Export(name="conditions", refs={OrganizationRulesetConditions.class}, tree="[0]")
     private Output</* @Nullable */ OrganizationRulesetConditions> conditions;
 
     /**
-     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      * 
      */
     public Output<Optional<OrganizationRulesetConditions>> conditions() {

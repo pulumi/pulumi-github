@@ -34,7 +34,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<Pulumi.Github.Config.Types.AppAuth?> _appAuth = new __Value<Pulumi.Github.Config.Types.AppAuth?>(() => __config.GetObject<Pulumi.Github.Config.Types.AppAuth>("appAuth"));
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// The GitHub App credentials used to connect to GitHub. Conflicts with `Token`. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
         /// </summary>
         public static Pulumi.Github.Config.Types.AppAuth? AppAuth
         {
@@ -54,7 +54,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<bool?> _insecure = new __Value<bool?>(() => __config.GetBoolean("insecure"));
         /// <summary>
-        /// Enable `insecure` mode for testing purposes
+        /// Enable `Insecure` mode for testing purposes
         /// </summary>
         public static bool? Insecure
         {
@@ -74,7 +74,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _organization = new __Value<string?>(() => __config.Get("organization"));
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
         /// </summary>
         public static string? Organization
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _owner = new __Value<string?>(() => __config.Get("owner"));
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
         /// </summary>
         public static string? Owner
         {
@@ -114,7 +114,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<int?> _retryDelayMs = new __Value<int?>(() => __config.GetInt32("retryDelayMs"));
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the MaxRetries must be set to greater than zero.
         /// </summary>
         public static int? RetryDelayMs
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<ImmutableArray<int>> _retryableErrors = new __Value<ImmutableArray<int>>(() => __config.GetObject<ImmutableArray<int>>("retryableErrors"));
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
+        /// Allow the provider to retry after receiving an error status code, the MaxRetries should be set for this to workDefaults to [500, 502, 503, 504]
         /// </summary>
         public static ImmutableArray<int> RetryableErrors
         {
@@ -134,7 +134,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token") ?? Utilities.GetEnv("GITHUB_TOKEN"));
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
         /// </summary>
         public static string? Token
         {

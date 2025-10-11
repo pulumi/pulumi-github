@@ -22,7 +22,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// List of team members. Not returned if `summary_only = true`
+        /// List of team members. Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string Privacy;
         /// <summary>
-        /// List of team repositories. Not returned if `summary_only = true`
+        /// List of team repositories. Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>

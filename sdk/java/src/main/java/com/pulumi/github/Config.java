@@ -16,7 +16,7 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("github");
 /**
- * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+ * The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `appAuth` are not set.
  * 
  */
     public Optional<AppAuth> appAuth() {
@@ -72,21 +72,21 @@ public final class Config {
         return Codegen.integerProp("readDelayMs").config(config).get();
     }
 /**
- * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+ * Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the maxRetries must be set to greater than zero.
  * 
  */
     public Optional<Integer> retryDelayMs() {
         return Codegen.integerProp("retryDelayMs").config(config).get();
     }
 /**
- * Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
+ * Allow the provider to retry after receiving an error status code, the maxRetries should be set for this to workDefaults to [500, 502, 503, 504]
  * 
  */
     public Optional<List<Integer>> retryableErrors() {
         return Codegen.objectProp("retryableErrors", TypeShape.<List<Integer>>builder(List.class).addParameter(Integer.class).build()).config(config).get();
     }
 /**
- * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+ * The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `appAuth` are not set.
  * 
  */
     public Optional<String> token() {

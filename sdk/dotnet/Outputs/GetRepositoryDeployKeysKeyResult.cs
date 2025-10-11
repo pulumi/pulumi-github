@@ -26,7 +26,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// `true` if the key was verified.
+        /// `True` if the key was verified.
         /// </summary>
         public readonly bool Verified;
 

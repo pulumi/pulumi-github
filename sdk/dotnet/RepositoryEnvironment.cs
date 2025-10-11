@@ -70,7 +70,7 @@ namespace Pulumi.Github
     public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// Can repository admins bypass the environment protections.  Defaults to `True`.
         /// </summary>
         [Output("canAdminsBypass")]
         public Output<bool?> CanAdminsBypass { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Github
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `False`.
         /// </summary>
         [Output("preventSelfReview")]
         public Output<bool?> PreventSelfReview { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// Can repository admins bypass the environment protections.  Defaults to `True`.
         /// </summary>
         [Input("canAdminsBypass")]
         public Input<bool>? CanAdminsBypass { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Github
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `False`.
         /// </summary>
         [Input("preventSelfReview")]
         public Input<bool>? PreventSelfReview { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `true`.
+        /// Can repository admins bypass the environment protections.  Defaults to `True`.
         /// </summary>
         [Input("canAdminsBypass")]
         public Input<bool>? CanAdminsBypass { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Github
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
+        /// Whether or not a user who created the job is prevented from approving their own job. Defaults to `False`.
         /// </summary>
         [Input("preventSelfReview")]
         public Input<bool>? PreventSelfReview { get; set; }

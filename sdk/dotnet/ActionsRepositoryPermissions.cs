@@ -59,13 +59,13 @@ namespace Pulumi.Github
     public partial class ActionsRepositoryPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Output("allowedActions")]
         public Output<string?> AllowedActions { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an repository. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Output("allowedActionsConfig")]
         public Output<Outputs.ActionsRepositoryPermissionsAllowedActionsConfig?> AllowedActionsConfig { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.Github
     public sealed class ActionsRepositoryPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an repository. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.ActionsRepositoryPermissionsAllowedActionsConfigArgs>? AllowedActionsConfig { get; set; }
@@ -161,13 +161,13 @@ namespace Pulumi.Github
     public sealed class ActionsRepositoryPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an repository. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.ActionsRepositoryPermissionsAllowedActionsConfigGetArgs>? AllowedActionsConfig { get; set; }

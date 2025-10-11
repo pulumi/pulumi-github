@@ -88,7 +88,7 @@ namespace Pulumi.Github
     public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
+        /// Whether or not to include archived repos in the `Repositories` list. Defaults to `False`.
         /// </summary>
         [Input("ignoreArchivedRepos")]
         public bool? IgnoreArchivedRepos { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Github
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+        /// Exclude the repos, members and other attributes from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public bool? SummaryOnly { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Github
     public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether or not to include archived repos in the `repositories` list. Defaults to `false`.
+        /// Whether or not to include archived repos in the `Repositories` list. Defaults to `False`.
         /// </summary>
         [Input("ignoreArchivedRepos")]
         public Input<bool>? IgnoreArchivedRepos { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Github
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Exclude the repos, members and other attributes from the returned result. Defaults to `false`.
+        /// Exclude the repos, members and other attributes from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public Input<bool>? SummaryOnly { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// **Deprecated**: use `users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
+        /// **Deprecated**: use `Users` instead by replacing `github_organization.example.members` to `github_organization.example.users[*].login` which will give you the same value, expect this field to be removed in next major version
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
@@ -231,7 +231,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Plan;
         /// <summary>
-        /// (`list`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
+        /// (`List`) A list of the full names of the repositories in the organization formatted as `owner/name` strings
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
@@ -248,7 +248,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool TwoFactorRequirementEnabled;
         /// <summary>
-        /// (`list`) A list with the members of the organization with following fields:
+        /// (`List`) A list with the members of the organization with following fields:
         /// </summary>
         public readonly ImmutableArray<ImmutableDictionary<string, string>> Users;
         /// <summary>

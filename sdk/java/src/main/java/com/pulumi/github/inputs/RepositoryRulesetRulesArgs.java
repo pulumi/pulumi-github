@@ -26,14 +26,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     public static final RepositoryRulesetRulesArgs Empty = new RepositoryRulesetRulesArgs();
 
     /**
-     * (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
      * 
      */
     @Import(name="branchNamePattern")
     private @Nullable Output<RepositoryRulesetRulesBranchNamePatternArgs> branchNamePattern;
 
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesBranchNamePatternArgs>> branchNamePattern() {
@@ -41,14 +41,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     @Import(name="commitAuthorEmailPattern")
     private @Nullable Output<RepositoryRulesetRulesCommitAuthorEmailPatternArgs> commitAuthorEmailPattern;
 
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesCommitAuthorEmailPatternArgs>> commitAuthorEmailPattern() {
@@ -56,14 +56,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     @Import(name="commitMessagePattern")
     private @Nullable Output<RepositoryRulesetRulesCommitMessagePatternArgs> commitMessagePattern;
 
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesCommitMessagePatternArgs>> commitMessagePattern() {
@@ -71,14 +71,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     @Import(name="committerEmailPattern")
     private @Nullable Output<RepositoryRulesetRulesCommitterEmailPatternArgs> committerEmailPattern;
 
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesCommitterEmailPatternArgs>> committerEmailPattern() {
@@ -236,14 +236,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
      * 
      */
     @Import(name="tagNamePattern")
     private @Nullable Output<RepositoryRulesetRulesTagNamePatternArgs> tagNamePattern;
 
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesTagNamePatternArgs>> tagNamePattern() {
@@ -321,7 +321,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param branchNamePattern (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+         * @param branchNamePattern (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param branchNamePattern (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+         * @param branchNamePattern (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param commitAuthorEmailPattern (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param commitAuthorEmailPattern (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param commitAuthorEmailPattern (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param commitAuthorEmailPattern (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param commitMessagePattern (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param commitMessagePattern (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param commitMessagePattern (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param commitMessagePattern (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param committerEmailPattern (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param committerEmailPattern (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param committerEmailPattern (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+         * @param committerEmailPattern (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagNamePattern (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+         * @param tagNamePattern (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagNamePattern (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+         * @param tagNamePattern (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
          * 
          * @return builder
          * 

@@ -52,10 +52,10 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
         /// ___
         /// 
-        /// The `group` block consists of:
+        /// The `Group` block consists of:
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.TeamSyncGroupMappingGroup>> Groups { get; private set; } = null!;
@@ -116,10 +116,10 @@ namespace Pulumi.Github
         private InputList<Inputs.TeamSyncGroupMappingGroupArgs>? _groups;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
         /// ___
         /// 
-        /// The `group` block consists of:
+        /// The `Group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupArgs> Groups
         {
@@ -148,10 +148,10 @@ namespace Pulumi.Github
         private InputList<Inputs.TeamSyncGroupMappingGroupGetArgs>? _groups;
 
         /// <summary>
-        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
+        /// An Array of GitHub Identity Provider Groups (or empty []).  Each `Group` block consists of the fields documented below.
         /// ___
         /// 
-        /// The `group` block consists of:
+        /// The `Group` block consists of:
         /// </summary>
         public InputList<Inputs.TeamSyncGroupMappingGroupGetArgs> Groups
         {

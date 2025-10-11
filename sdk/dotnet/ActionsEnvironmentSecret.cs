@@ -16,7 +16,7 @@ namespace Pulumi.Github
     public partial class ActionsEnvironmentSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of actions_environment_secret creation.
+        /// Date of ActionsEnvironmentSecret creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Github
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// Date of actions_environment_secret update.
+        /// Date of ActionsEnvironmentSecret update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Github
     public sealed class ActionsEnvironmentSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of actions_environment_secret creation.
+        /// Date of ActionsEnvironmentSecret creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Github
         public Input<string>? SecretName { get; set; }
 
         /// <summary>
-        /// Date of actions_environment_secret update.
+        /// Date of ActionsEnvironmentSecret update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

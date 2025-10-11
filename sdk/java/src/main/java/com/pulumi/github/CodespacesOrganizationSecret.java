@@ -35,14 +35,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret")
 public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of codespaces_secret creation.
+     * Date of codespacesSecret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of codespaces_secret creation.
+     * @return Date of codespacesSecret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -105,14 +105,14 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of codespaces_secret update.
+     * Date of codespacesSecret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of codespaces_secret update.
+     * @return Date of codespacesSecret update.
      * 
      */
     public Output<String> updatedAt() {
@@ -120,7 +120,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
     }
     /**
      * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
@@ -128,7 +128,7 @@ public class CodespacesOrganizationSecret extends com.pulumi.resources.CustomRes
 
     /**
      * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Output<String> visibility() {

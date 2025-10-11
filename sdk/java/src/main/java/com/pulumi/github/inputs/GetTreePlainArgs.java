@@ -17,14 +17,14 @@ public final class GetTreePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTreePlainArgs Empty = new GetTreePlainArgs();
 
     /**
-     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+     * Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
      * 
      */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
     /**
-     * @return Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+     * @return Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
      * 
      */
     public Optional<Boolean> recursive() {
@@ -88,7 +88,7 @@ public final class GetTreePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param recursive Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `tree_sha`.
+         * @param recursive Setting this parameter to `true` returns the objects or subtrees referenced by the tree specified in `treeSha`.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * This resource allows you to set the default branch for a given repository.
  * 
- * Note that use of this resource is incompatible with the `default_branch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
+ * Note that use of this resource is incompatible with the `defaultBranch` option of the `github.Repository` resource.  Using both will result in plans always showing a diff.
  * 
  * ## Example Usage
  * 

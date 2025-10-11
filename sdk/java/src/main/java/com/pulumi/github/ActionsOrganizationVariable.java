@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsOrganizationVariable:ActionsOrganizationVariable")
 public class ActionsOrganizationVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actions_variable creation.
+     * Date of actionsVariable creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actions_variable creation.
+     * @return Date of actionsVariable creation.
      * 
      */
     public Output<String> createdAt() {
@@ -135,14 +135,14 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of actions_variable update.
+     * Date of actionsVariable update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actions_variable update.
+     * @return Date of actionsVariable update.
      * 
      */
     public Output<String> updatedAt() {
@@ -178,7 +178,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
     }
     /**
      * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
@@ -186,7 +186,7 @@ public class ActionsOrganizationVariable extends com.pulumi.resources.CustomReso
 
     /**
      * @return Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Output<String> visibility() {

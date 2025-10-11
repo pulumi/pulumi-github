@@ -265,7 +265,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly int RepoId;
         /// <summary>
-        /// An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+        /// An Array of GitHub repository licenses. Each `RepositoryLicense` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryRepositoryLicenseResult> RepositoryLicenses;
         /// <summary>

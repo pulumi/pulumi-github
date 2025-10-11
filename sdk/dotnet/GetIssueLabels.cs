@@ -68,7 +68,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The list of this repository's labels. Each element of `labels` has the following attributes:
+        /// The list of this repository's labels. Each element of `Labels` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIssueLabelsLabelResult> Labels;
         public readonly string Repository;

@@ -144,14 +144,14 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      * 
      */
     @Export(name="restrictedToWorkflows", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictedToWorkflows;
 
     /**
-     * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * @return If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      * 
      */
     public Output<Optional<Boolean>> restrictedToWorkflows() {
@@ -200,14 +200,14 @@ public class ActionsRunnerGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      * 
      */
     @Export(name="selectedWorkflows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> selectedWorkflows;
 
     /**
-     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      * 
      */
     public Output<Optional<List<String>>> selectedWorkflows() {

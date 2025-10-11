@@ -32,14 +32,14 @@ public final class GetReleasePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+     * ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      * 
      */
     @Import(name="releaseId")
     private @Nullable Integer releaseId;
 
     /**
-     * @return ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+     * @return ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      * 
      */
     public Optional<Integer> releaseId() {
@@ -47,14 +47,14 @@ public final class GetReleasePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+     * Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      * 
      */
     @Import(name="releaseTag")
     private @Nullable String releaseTag;
 
     /**
-     * @return Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+     * @return Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      * 
      */
     public Optional<String> releaseTag() {
@@ -131,7 +131,7 @@ public final class GetReleasePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseId ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+         * @param releaseId ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetReleasePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
          * 
          * @return builder
          * 

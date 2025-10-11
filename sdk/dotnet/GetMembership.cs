@@ -148,11 +148,11 @@ namespace Pulumi.Github
         public readonly string Id;
         public readonly string? Organization;
         /// <summary>
-        /// `admin` or `member` -- the role the user has within the organization.
+        /// `Admin` or `Member` -- the role the user has within the organization.
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// `active` or `pending` -- the state of membership within the organization.  `active` if the member has accepted the invite, or `pending` if the invite is still pending.
+        /// `Active` or `Pending` -- the state of membership within the organization.  `Active` if the member has accepted the invite, or `Pending` if the invite is still pending.
         /// </summary>
         public readonly string State;
         /// <summary>

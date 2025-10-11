@@ -32,14 +32,14 @@ public final class UserInvitationAccepterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+     * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      * 
      */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
     /**
-     * @return ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+     * @return ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      * 
      */
     public Optional<Output<String>> invitationId() {
@@ -93,7 +93,7 @@ public final class UserInvitationAccepterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param invitationId ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+         * @param invitationId ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class UserInvitationAccepterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param invitationId ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+         * @param invitationId ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
          * 
          * @return builder
          * 

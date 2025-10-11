@@ -33,14 +33,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsOrganizationSecret:ActionsOrganizationSecret")
 public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actions_secret creation.
+     * Date of actionsSecret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actions_secret creation.
+     * @return Date of actionsSecret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -103,14 +103,14 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of actions_secret update.
+     * Date of actionsSecret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actions_secret update.
+     * @return Date of actionsSecret update.
      * 
      */
     public Output<String> updatedAt() {
@@ -118,7 +118,7 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
     }
     /**
      * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
@@ -126,7 +126,7 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
 
     /**
      * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Output<String> visibility() {

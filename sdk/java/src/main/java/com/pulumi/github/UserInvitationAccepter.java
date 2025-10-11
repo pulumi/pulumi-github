@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  * 
  * ## Allowing empty invitation IDs
  * 
- * Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`&#39;s.
+ * Set `allowEmptyId` when using `forEach` over a list of `github_repository_collaborator.invitation_id`&#39;s.
  * 
- * This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `for_each` loop.
+ * This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `forEach` loop.
  * This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
  * 
  * Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
@@ -95,14 +95,14 @@ public class UserInvitationAccepter extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.allowEmptyId);
     }
     /**
-     * ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+     * ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      * 
      */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invitationId;
 
     /**
-     * @return ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+     * @return ID of the invitation to accept. Must be set when `allowEmptyId` is `false`.
      * 
      */
     public Output<Optional<String>> invitationId() {

@@ -20,7 +20,7 @@ public final class BranchProtectionRequiredPullRequestReview {
      */
     private @Nullable Boolean dismissStaleReviews;
     /**
-     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
     private @Nullable List<String> dismissalRestrictions;
@@ -60,7 +60,7 @@ public final class BranchProtectionRequiredPullRequestReview {
         return Optional.ofNullable(this.dismissStaleReviews);
     }
     /**
-     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
+     * @return The list of actor Names/IDs with dismissal access. If not empty, `restrictDismissals` is ignored. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams.
      * 
      */
     public List<String> dismissalRestrictions() {

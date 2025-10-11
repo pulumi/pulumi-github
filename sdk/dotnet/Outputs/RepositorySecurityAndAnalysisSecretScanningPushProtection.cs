@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositorySecurityAndAnalysisSecretScanningPushProtection
     {
         /// <summary>
-        /// The GitHub Pages site's build status e.g. `building` or `built`.
+        /// The GitHub Pages site's build status e.g. `Building` or `Built`.
         /// </summary>
         public readonly string Status;
 

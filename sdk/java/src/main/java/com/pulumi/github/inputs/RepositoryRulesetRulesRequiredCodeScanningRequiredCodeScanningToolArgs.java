@@ -15,14 +15,14 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
     public static final RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs Empty = new RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs();
 
     /**
-     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+     * The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
      * 
      */
     @Import(name="alertsThreshold", required=true)
     private Output<String> alertsThreshold;
 
     /**
-     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
      * 
      */
     public Output<String> alertsThreshold() {
@@ -30,14 +30,14 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
     }
 
     /**
-     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+     * The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
      * 
      */
     @Import(name="securityAlertsThreshold", required=true)
     private Output<String> securityAlertsThreshold;
 
     /**
-     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
      * 
      */
     public Output<String> securityAlertsThreshold() {
@@ -86,7 +86,7 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
         }
 
         /**
-         * @param alertsThreshold The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+         * @param alertsThreshold The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
         }
 
         /**
-         * @param alertsThreshold The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+         * @param alertsThreshold The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
         }
 
         /**
-         * @param securityAlertsThreshold The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+         * @param securityAlertsThreshold The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
         }
 
         /**
-         * @param securityAlertsThreshold The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+         * @param securityAlertsThreshold The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
          * 
          * @return builder
          * 

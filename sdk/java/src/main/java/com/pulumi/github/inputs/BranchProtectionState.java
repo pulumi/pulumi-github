@@ -36,14 +36,14 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+     * Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      * 
      */
     @Import(name="allowsForcePushes")
     private @Nullable Output<Boolean> allowsForcePushes;
 
     /**
-     * @return Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+     * @return Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
      * 
      */
     public Optional<Output<Boolean>> allowsForcePushes() {
@@ -66,14 +66,14 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+     * The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      * 
      */
     @Import(name="forcePushBypassers")
     private @Nullable Output<List<String>> forcePushBypassers;
 
     /**
-     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+     * @return The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
      * 
      */
     public Optional<Output<List<String>>> forcePushBypassers() {
@@ -273,7 +273,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+         * @param allowsForcePushes Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `forcePushBypassers`.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class BranchProtectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+         * @param forcePushBypassers The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a &#34;/&#34; for users or the organization name followed by a &#34;/&#34; for teams. If the list is not empty, `allowsForcePushes` should be set to `false`.
          * 
          * @return builder
          * 

@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsVariable:ActionsVariable")
 public class ActionsVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actions_variable creation.
+     * Date of actionsVariable creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actions_variable creation.
+     * @return Date of actionsVariable creation.
      * 
      */
     public Output<String> createdAt() {
@@ -92,14 +92,14 @@ public class ActionsVariable extends com.pulumi.resources.CustomResource {
         return this.repository;
     }
     /**
-     * Date of actions_variable update.
+     * Date of actionsVariable update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actions_variable update.
+     * @return Date of actionsVariable update.
      * 
      */
     public Output<String> updatedAt() {

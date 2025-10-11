@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class BranchProtectionRestrictPushGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+        /// Boolean, setting this to `False` allows people, teams, or apps to create new branches matching this rule. Defaults to `True`.
         /// </summary>
         [Input("blocksCreations")]
         public Input<bool>? BlocksCreations { get; set; }

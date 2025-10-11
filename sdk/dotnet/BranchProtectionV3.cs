@@ -61,7 +61,7 @@ namespace Pulumi.Github
         public Output<string> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
@@ -76,13 +76,13 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Output("requireConversationResolution")]
         public Output<bool?> RequireConversationResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Output("requireSignedCommits")]
         public Output<bool?> RequireSignedCommits { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Github
         public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -170,13 +170,13 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Github
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -229,13 +229,13 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }

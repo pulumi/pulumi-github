@@ -88,13 +88,13 @@ namespace Pulumi.Github
     public sealed class GetRepositoryBranchesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+        /// . If true, the `Branches` attributes will be populated only with non protected branches. Default: `False`.
         /// </summary>
         [Input("onlyNonProtectedBranches")]
         public bool? OnlyNonProtectedBranches { get; set; }
 
         /// <summary>
-        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// . If true, the `Branches` attributes will be populated only with protected branches. Default: `False`.
         /// </summary>
         [Input("onlyProtectedBranches")]
         public bool? OnlyProtectedBranches { get; set; }
@@ -114,13 +114,13 @@ namespace Pulumi.Github
     public sealed class GetRepositoryBranchesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// . If true, the `branches` attributes will be populated only with non protected branches. Default: `false`.
+        /// . If true, the `Branches` attributes will be populated only with non protected branches. Default: `False`.
         /// </summary>
         [Input("onlyNonProtectedBranches")]
         public Input<bool>? OnlyNonProtectedBranches { get; set; }
 
         /// <summary>
-        /// . If true, the `branches` attributes will be populated only with protected branches. Default: `false`.
+        /// . If true, the `Branches` attributes will be populated only with protected branches. Default: `False`.
         /// </summary>
         [Input("onlyProtectedBranches")]
         public Input<bool>? OnlyProtectedBranches { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryBranchesResult
     {
         /// <summary>
-        /// The list of this repository's branches. Each element of `branches` has the following attributes:
+        /// The list of this repository's branches. Each element of `Branches` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryBranchesBranchResult> Branches;
         /// <summary>

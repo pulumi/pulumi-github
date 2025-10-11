@@ -16,14 +16,14 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     public static final ActionsEnvironmentSecretState Empty = new ActionsEnvironmentSecretState();
 
     /**
-     * Date of actions_environment_secret creation.
+     * Date of actionsEnvironmentSecret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actions_environment_secret creation.
+     * @return Date of actionsEnvironmentSecret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -106,14 +106,14 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     }
 
     /**
-     * Date of actions_environment_secret update.
+     * Date of actionsEnvironmentSecret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actions_environment_secret update.
+     * @return Date of actionsEnvironmentSecret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -151,7 +151,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Date of actions_environment_secret creation.
+         * @param createdAt Date of actionsEnvironmentSecret creation.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Date of actions_environment_secret creation.
+         * @param createdAt Date of actionsEnvironmentSecret creation.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updatedAt Date of actions_environment_secret update.
+         * @param updatedAt Date of actionsEnvironmentSecret update.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updatedAt Date of actions_environment_secret update.
+         * @param updatedAt Date of actionsEnvironmentSecret update.
          * 
          * @return builder
          * 

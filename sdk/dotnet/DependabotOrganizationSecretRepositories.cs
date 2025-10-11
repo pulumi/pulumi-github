@@ -13,7 +13,7 @@ namespace Pulumi.Github
     /// This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
     /// You must have write access to an organization secret to use this resource.
     /// 
-    /// This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
+    /// This resource is only applicable when `Visibility` of the existing organization secret has been set to `Selected`.
     /// 
     /// ## Example Usage
     /// 

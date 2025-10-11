@@ -112,31 +112,31 @@ namespace Pulumi.Github
     public partial class BranchProtection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// Boolean, setting this to `True` to allow the branch to be deleted.
         /// </summary>
         [Output("allowsDeletions")]
         public Output<bool?> AllowsDeletions { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+        /// Boolean, setting this to `True` to allow force pushes on the branch to everyone. Set it to `False` if you specify `ForcePushBypassers`.
         /// </summary>
         [Output("allowsForcePushes")]
         public Output<bool?> AllowsForcePushes { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Output("enforceAdmins")]
         public Output<bool?> EnforceAdmins { get; private set; } = null!;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `AllowsForcePushes` should be set to `False`.
         /// </summary>
         [Output("forcePushBypassers")]
         public Output<ImmutableArray<string>> ForcePushBypassers { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+        /// Boolean, Setting this to `True` will make the branch read-only and preventing any pushes to it. Defaults to `False`
         /// </summary>
         [Output("lockBranch")]
         public Output<bool?> LockBranch { get; private set; } = null!;
@@ -154,19 +154,19 @@ namespace Pulumi.Github
         public Output<string> RepositoryId { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Output("requireConversationResolution")]
         public Output<bool?> RequireConversationResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Output("requireSignedCommits")]
         public Output<bool?> RequireSignedCommits { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// Boolean, setting this to `True` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         /// </summary>
         [Output("requiredLinearHistory")]
         public Output<bool?> RequiredLinearHistory { get; private set; } = null!;
@@ -236,19 +236,19 @@ namespace Pulumi.Github
     public sealed class BranchProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// Boolean, setting this to `True` to allow the branch to be deleted.
         /// </summary>
         [Input("allowsDeletions")]
         public Input<bool>? AllowsDeletions { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+        /// Boolean, setting this to `True` to allow force pushes on the branch to everyone. Set it to `False` if you specify `ForcePushBypassers`.
         /// </summary>
         [Input("allowsForcePushes")]
         public Input<bool>? AllowsForcePushes { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Github
         private InputList<string>? _forcePushBypassers;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `AllowsForcePushes` should be set to `False`.
         /// </summary>
         public InputList<string> ForcePushBypassers
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+        /// Boolean, Setting this to `True` will make the branch read-only and preventing any pushes to it. Defaults to `False`
         /// </summary>
         [Input("lockBranch")]
         public Input<bool>? LockBranch { get; set; }
@@ -284,19 +284,19 @@ namespace Pulumi.Github
         public Input<string> RepositoryId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// Boolean, setting this to `True` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         /// </summary>
         [Input("requiredLinearHistory")]
         public Input<bool>? RequiredLinearHistory { get; set; }
@@ -346,19 +346,19 @@ namespace Pulumi.Github
     public sealed class BranchProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean, setting this to `true` to allow the branch to be deleted.
+        /// Boolean, setting this to `True` to allow the branch to be deleted.
         /// </summary>
         [Input("allowsDeletions")]
         public Input<bool>? AllowsDeletions { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` to allow force pushes on the branch to everyone. Set it to `false` if you specify `force_push_bypassers`.
+        /// Boolean, setting this to `True` to allow force pushes on the branch to everyone. Set it to `False` if you specify `ForcePushBypassers`.
         /// </summary>
         [Input("allowsForcePushes")]
         public Input<bool>? AllowsForcePushes { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces status checks for repository administrators.
+        /// Boolean, setting this to `True` enforces status checks for repository administrators.
         /// </summary>
         [Input("enforceAdmins")]
         public Input<bool>? EnforceAdmins { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Github
         private InputList<string>? _forcePushBypassers;
 
         /// <summary>
-        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `allows_force_pushes` should be set to `false`.
+        /// The list of actor Names/IDs that are allowed to bypass force push restrictions. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. If the list is not empty, `AllowsForcePushes` should be set to `False`.
         /// </summary>
         public InputList<string> ForcePushBypassers
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Boolean, Setting this to `true` will make the branch read-only and preventing any pushes to it. Defaults to `false`
+        /// Boolean, Setting this to `True` will make the branch read-only and preventing any pushes to it. Defaults to `False`
         /// </summary>
         [Input("lockBranch")]
         public Input<bool>? LockBranch { get; set; }
@@ -394,19 +394,19 @@ namespace Pulumi.Github
         public Input<string>? RepositoryId { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all conversations on code must be resolved before a pull request can be merged.
+        /// Boolean, setting this to `True` requires all conversations on code must be resolved before a pull request can be merged.
         /// </summary>
         [Input("requireConversationResolution")]
         public Input<bool>? RequireConversationResolution { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` requires all commits to be signed with GPG.
+        /// Boolean, setting this to `True` requires all commits to be signed with GPG.
         /// </summary>
         [Input("requireSignedCommits")]
         public Input<bool>? RequireSignedCommits { get; set; }
 
         /// <summary>
-        /// Boolean, setting this to `true` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        /// Boolean, setting this to `True` enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
         /// </summary>
         [Input("requiredLinearHistory")]
         public Input<bool>? RequiredLinearHistory { get; set; }

@@ -25,6 +25,20 @@ import * as utilities from "./utilities";
  * ```
  *
  * To retrieve a specific release from a repository based on it's ID:
+ *
+ * Finally, to retrieve a release based on it's tag:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     retrieveBy: "tag",
+ *     releaseTag: "v1.0.0",
+ * });
+ * ```
  */
 export function getRelease(args: GetReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -164,6 +178,20 @@ export interface GetReleaseResult {
  * ```
  *
  * To retrieve a specific release from a repository based on it's ID:
+ *
+ * Finally, to retrieve a release based on it's tag:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = github.getRelease({
+ *     repository: "example-repository",
+ *     owner: "example-owner",
+ *     retrieveBy: "tag",
+ *     releaseTag: "v1.0.0",
+ * });
+ * ```
  */
 export function getReleaseOutput(args: GetReleaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositorySecurityAndAnalysisGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+        /// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `Public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
         /// </summary>
         [Input("advancedSecurity")]
         public Input<Inputs.RepositorySecurityAndAnalysisAdvancedSecurityGetArgs>? AdvancedSecurity { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Github.Inputs
     {
         /// <summary>
         /// The role of the user within the team.
-        /// Must be one of `member` or `maintainer`. Defaults to `member`.
+        /// Must be one of `Member` or `Maintainer`. Defaults to `Member`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

@@ -145,13 +145,13 @@ namespace Pulumi.Github
         public int? ResultsPerPage { get; set; }
 
         /// <summary>
-        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `False`.
         /// </summary>
         [Input("rootTeamsOnly")]
         public bool? RootTeamsOnly { get; set; }
 
         /// <summary>
-        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public bool? SummaryOnly { get; set; }
@@ -171,13 +171,13 @@ namespace Pulumi.Github
         public Input<int>? ResultsPerPage { get; set; }
 
         /// <summary>
-        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `False`.
         /// </summary>
         [Input("rootTeamsOnly")]
         public Input<bool>? RootTeamsOnly { get; set; }
 
         /// <summary>
-        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public Input<bool>? SummaryOnly { get; set; }
@@ -201,15 +201,15 @@ namespace Pulumi.Github
         /// </summary>
         public readonly int? ResultsPerPage;
         /// <summary>
-        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `false`.
+        /// (Optional) Only return teams that are at the organization's root, i.e. no nested teams. Defaults to `False`.
         /// </summary>
         public readonly bool? RootTeamsOnly;
         /// <summary>
-        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+        /// (Optional) Exclude the members and repositories of the team from the returned result. Defaults to `False`.
         /// </summary>
         public readonly bool? SummaryOnly;
         /// <summary>
-        /// (Required) An Array of GitHub Teams.  Each `team` block consists of the fields documented below.
+        /// (Required) An Array of GitHub Teams.  Each `Team` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationTeamsTeamResult> Teams;
 

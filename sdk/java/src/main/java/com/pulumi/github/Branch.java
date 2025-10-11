@@ -161,14 +161,14 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceBranch);
     }
     /**
-     * The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+     * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      * 
      */
     @Export(name="sourceSha", refs={String.class}, tree="[0]")
     private Output<String> sourceSha;
 
     /**
-     * @return The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+     * @return The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      * 
      */
     public Output<String> sourceSha() {

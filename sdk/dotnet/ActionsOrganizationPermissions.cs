@@ -66,25 +66,25 @@ namespace Pulumi.Github
     public partial class ActionsOrganizationPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Output("allowedActions")]
         public Output<string?> AllowedActions { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an organization. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Output("allowedActionsConfig")]
         public Output<Outputs.ActionsOrganizationPermissionsAllowedActionsConfig?> AllowedActionsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Output("enabledRepositories")]
         public Output<string> EnabledRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `EnabledRepositories` = `Selected`. See Enabled Repositories Config below for details.
         /// </summary>
         [Output("enabledRepositoriesConfig")]
         public Output<Outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig?> EnabledRepositoriesConfig { get; private set; } = null!;
@@ -136,25 +136,25 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an organization. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs>? AllowedActionsConfig { get; set; }
 
         /// <summary>
-        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Input("enabledRepositories", required: true)]
         public Input<string> EnabledRepositories { get; set; } = null!;
 
         /// <summary>
-        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `EnabledRepositories` = `Selected`. See Enabled Repositories Config below for details.
         /// </summary>
         [Input("enabledRepositoriesConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs>? EnabledRepositoriesConfig { get; set; }
@@ -168,25 +168,25 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+        /// The permissions policy that controls the actions that are allowed to run. Can be one of: `All`, `LocalOnly`, or `Selected`.
         /// </summary>
         [Input("allowedActions")]
         public Input<string>? AllowedActions { get; set; }
 
         /// <summary>
-        /// Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+        /// Sets the actions that are allowed in an organization. Only available when `AllowedActions` = `Selected`. See Allowed Actions Config below for details.
         /// </summary>
         [Input("allowedActionsConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsAllowedActionsConfigGetArgs>? AllowedActionsConfig { get; set; }
 
         /// <summary>
-        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+        /// The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `All`, `None`, or `Selected`.
         /// </summary>
         [Input("enabledRepositories")]
         public Input<string>? EnabledRepositories { get; set; }
 
         /// <summary>
-        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+        /// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `EnabledRepositories` = `Selected`. See Enabled Repositories Config below for details.
         /// </summary>
         [Input("enabledRepositoriesConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs>? EnabledRepositoriesConfig { get; set; }

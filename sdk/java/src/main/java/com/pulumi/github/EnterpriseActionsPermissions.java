@@ -85,28 +85,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions")
 public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomResource {
     /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     @Export(name="allowedActions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedActions;
 
     /**
-     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     public Output<Optional<String>> allowedActions() {
         return Codegen.optional(this.allowedActions);
     }
     /**
-     * Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     @Export(name="allowedActionsConfig", refs={EnterpriseActionsPermissionsAllowedActionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ EnterpriseActionsPermissionsAllowedActionsConfig> allowedActionsConfig;
 
     /**
-     * @return Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * @return Sets the actions that are allowed in an enterprise. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     public Output<Optional<EnterpriseActionsPermissionsAllowedActionsConfig>> allowedActionsConfig() {
@@ -127,14 +127,14 @@ public class EnterpriseActionsPermissions extends com.pulumi.resources.CustomRes
         return this.enabledOrganizations;
     }
     /**
-     * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+     * Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      * 
      */
     @Export(name="enabledOrganizationsConfig", refs={EnterpriseActionsPermissionsEnabledOrganizationsConfig.class}, tree="[0]")
     private Output</* @Nullable */ EnterpriseActionsPermissionsEnabledOrganizationsConfig> enabledOrganizationsConfig;
 
     /**
-     * @return Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabled_organizations` = `selected`. See Enabled Organizations Config below for details.
+     * @return Sets the list of selected organizations that are enabled for GitHub Actions in an enterprise. Only available when `enabledOrganizations` = `selected`. See Enabled Organizations Config below for details.
      * 
      */
     public Output<Optional<EnterpriseActionsPermissionsEnabledOrganizationsConfig>> enabledOrganizationsConfig() {

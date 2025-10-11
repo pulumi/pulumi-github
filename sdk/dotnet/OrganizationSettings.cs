@@ -68,7 +68,7 @@ namespace Pulumi.Github
     public partial class OrganizationSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether or not advanced security is enabled for new repositories. Defaults to `false`.
+        /// Whether or not advanced security is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("advancedSecurityEnabledForNewRepositories")]
         public Output<bool?> AdvancedSecurityEnabledForNewRepositories { get; private set; } = null!;
@@ -92,25 +92,25 @@ namespace Pulumi.Github
         public Output<string?> Company { get; private set; } = null!;
 
         /// <summary>
-        /// The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
+        /// The default permission for organization members to create new repositories. Can be one of `Read`, `Write`, `Admin`, or `None`. Defaults to `Read`.
         /// </summary>
         [Output("defaultRepositoryPermission")]
         public Output<string?> DefaultRepositoryPermission { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("dependabotAlertsEnabledForNewRepositories")]
         public Output<bool?> DependabotAlertsEnabledForNewRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("dependabotSecurityUpdatesEnabledForNewRepositories")]
         public Output<bool?> DependabotSecurityUpdatesEnabledForNewRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependency graph is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("dependencyGraphEnabledForNewRepositories")]
         public Output<bool?> DependencyGraphEnabledForNewRepositories { get; private set; } = null!;
@@ -152,43 +152,43 @@ namespace Pulumi.Github
         public Output<bool?> MembersCanCreateInternalRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new pages. Defaults to `true`.
+        /// Whether or not organization members can create new pages. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreatePages")]
         public Output<bool?> MembersCanCreatePages { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new private pages. Defaults to `true`.
+        /// Whether or not organization members can create new private pages. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreatePrivatePages")]
         public Output<bool?> MembersCanCreatePrivatePages { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new private repositories. Defaults to `true`.
+        /// Whether or not organization members can create new private repositories. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreatePrivateRepositories")]
         public Output<bool?> MembersCanCreatePrivateRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new public pages. Defaults to `true`.
+        /// Whether or not organization members can create new public pages. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreatePublicPages")]
         public Output<bool?> MembersCanCreatePublicPages { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new public repositories. Defaults to `true`.
+        /// Whether or not organization members can create new public repositories. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreatePublicRepositories")]
         public Output<bool?> MembersCanCreatePublicRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can create new repositories. Defaults to `true`.
+        /// Whether or not organization members can create new repositories. Defaults to `True`.
         /// </summary>
         [Output("membersCanCreateRepositories")]
         public Output<bool?> MembersCanCreateRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not organization members can fork private repositories. Defaults to `false`.
+        /// Whether or not organization members can fork private repositories. Defaults to `False`.
         /// </summary>
         [Output("membersCanForkPrivateRepositories")]
         public Output<bool?> MembersCanForkPrivateRepositories { get; private set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Github
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("secretScanningEnabledForNewRepositories")]
         public Output<bool?> SecretScanningEnabledForNewRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Output("secretScanningPushProtectionEnabledForNewRepositories")]
         public Output<bool?> SecretScanningPushProtectionEnabledForNewRepositories { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Github
         public Output<string?> TwitterUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
+        /// Whether or not commit signatures are required for commits to the organization. Defaults to `False`.
         /// </summary>
         [Output("webCommitSignoffRequired")]
         public Output<bool?> WebCommitSignoffRequired { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Github
     public sealed class OrganizationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not advanced security is enabled for new repositories. Defaults to `false`.
+        /// Whether or not advanced security is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("advancedSecurityEnabledForNewRepositories")]
         public Input<bool>? AdvancedSecurityEnabledForNewRepositories { get; set; }
@@ -294,25 +294,25 @@ namespace Pulumi.Github
         public Input<string>? Company { get; set; }
 
         /// <summary>
-        /// The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
+        /// The default permission for organization members to create new repositories. Can be one of `Read`, `Write`, `Admin`, or `None`. Defaults to `Read`.
         /// </summary>
         [Input("defaultRepositoryPermission")]
         public Input<string>? DefaultRepositoryPermission { get; set; }
 
         /// <summary>
-        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependabotAlertsEnabledForNewRepositories")]
         public Input<bool>? DependabotAlertsEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependabotSecurityUpdatesEnabledForNewRepositories")]
         public Input<bool>? DependabotSecurityUpdatesEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependency graph is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependencyGraphEnabledForNewRepositories")]
         public Input<bool>? DependencyGraphEnabledForNewRepositories { get; set; }
@@ -354,43 +354,43 @@ namespace Pulumi.Github
         public Input<bool>? MembersCanCreateInternalRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new pages. Defaults to `true`.
+        /// Whether or not organization members can create new pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePages")]
         public Input<bool>? MembersCanCreatePages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new private pages. Defaults to `true`.
+        /// Whether or not organization members can create new private pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePrivatePages")]
         public Input<bool>? MembersCanCreatePrivatePages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new private repositories. Defaults to `true`.
+        /// Whether or not organization members can create new private repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePrivateRepositories")]
         public Input<bool>? MembersCanCreatePrivateRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new public pages. Defaults to `true`.
+        /// Whether or not organization members can create new public pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePublicPages")]
         public Input<bool>? MembersCanCreatePublicPages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new public repositories. Defaults to `true`.
+        /// Whether or not organization members can create new public repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePublicRepositories")]
         public Input<bool>? MembersCanCreatePublicRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new repositories. Defaults to `true`.
+        /// Whether or not organization members can create new repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreateRepositories")]
         public Input<bool>? MembersCanCreateRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can fork private repositories. Defaults to `false`.
+        /// Whether or not organization members can fork private repositories. Defaults to `False`.
         /// </summary>
         [Input("membersCanForkPrivateRepositories")]
         public Input<bool>? MembersCanForkPrivateRepositories { get; set; }
@@ -402,13 +402,13 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("secretScanningEnabledForNewRepositories")]
         public Input<bool>? SecretScanningEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("secretScanningPushProtectionEnabledForNewRepositories")]
         public Input<bool>? SecretScanningPushProtectionEnabledForNewRepositories { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Github
         public Input<string>? TwitterUsername { get; set; }
 
         /// <summary>
-        /// Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
+        /// Whether or not commit signatures are required for commits to the organization. Defaults to `False`.
         /// </summary>
         [Input("webCommitSignoffRequired")]
         public Input<bool>? WebCommitSignoffRequired { get; set; }
@@ -434,7 +434,7 @@ namespace Pulumi.Github
     public sealed class OrganizationSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not advanced security is enabled for new repositories. Defaults to `false`.
+        /// Whether or not advanced security is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("advancedSecurityEnabledForNewRepositories")]
         public Input<bool>? AdvancedSecurityEnabledForNewRepositories { get; set; }
@@ -458,25 +458,25 @@ namespace Pulumi.Github
         public Input<string>? Company { get; set; }
 
         /// <summary>
-        /// The default permission for organization members to create new repositories. Can be one of `read`, `write`, `admin`, or `none`. Defaults to `read`.
+        /// The default permission for organization members to create new repositories. Can be one of `Read`, `Write`, `Admin`, or `None`. Defaults to `Read`.
         /// </summary>
         [Input("defaultRepositoryPermission")]
         public Input<string>? DefaultRepositoryPermission { get; set; }
 
         /// <summary>
-        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot alerts are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependabotAlertsEnabledForNewRepositories")]
         public Input<bool>? DependabotAlertsEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependabot security updates are enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependabotSecurityUpdatesEnabledForNewRepositories")]
         public Input<bool>? DependabotSecurityUpdatesEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not dependency graph is enabled for new repositories. Defaults to `false`.
+        /// Whether or not dependency graph is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("dependencyGraphEnabledForNewRepositories")]
         public Input<bool>? DependencyGraphEnabledForNewRepositories { get; set; }
@@ -518,43 +518,43 @@ namespace Pulumi.Github
         public Input<bool>? MembersCanCreateInternalRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new pages. Defaults to `true`.
+        /// Whether or not organization members can create new pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePages")]
         public Input<bool>? MembersCanCreatePages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new private pages. Defaults to `true`.
+        /// Whether or not organization members can create new private pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePrivatePages")]
         public Input<bool>? MembersCanCreatePrivatePages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new private repositories. Defaults to `true`.
+        /// Whether or not organization members can create new private repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePrivateRepositories")]
         public Input<bool>? MembersCanCreatePrivateRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new public pages. Defaults to `true`.
+        /// Whether or not organization members can create new public pages. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePublicPages")]
         public Input<bool>? MembersCanCreatePublicPages { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new public repositories. Defaults to `true`.
+        /// Whether or not organization members can create new public repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreatePublicRepositories")]
         public Input<bool>? MembersCanCreatePublicRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can create new repositories. Defaults to `true`.
+        /// Whether or not organization members can create new repositories. Defaults to `True`.
         /// </summary>
         [Input("membersCanCreateRepositories")]
         public Input<bool>? MembersCanCreateRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not organization members can fork private repositories. Defaults to `false`.
+        /// Whether or not organization members can fork private repositories. Defaults to `False`.
         /// </summary>
         [Input("membersCanForkPrivateRepositories")]
         public Input<bool>? MembersCanForkPrivateRepositories { get; set; }
@@ -566,13 +566,13 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not secret scanning is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("secretScanningEnabledForNewRepositories")]
         public Input<bool>? SecretScanningEnabledForNewRepositories { get; set; }
 
         /// <summary>
-        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `false`.
+        /// Whether or not secret scanning push protection is enabled for new repositories. Defaults to `False`.
         /// </summary>
         [Input("secretScanningPushProtectionEnabledForNewRepositories")]
         public Input<bool>? SecretScanningPushProtectionEnabledForNewRepositories { get; set; }
@@ -584,7 +584,7 @@ namespace Pulumi.Github
         public Input<string>? TwitterUsername { get; set; }
 
         /// <summary>
-        /// Whether or not commit signatures are required for commits to the organization. Defaults to `false`.
+        /// Whether or not commit signatures are required for commits to the organization. Defaults to `False`.
         /// </summary>
         [Input("webCommitSignoffRequired")]
         public Input<bool>? WebCommitSignoffRequired { get; set; }

@@ -48,7 +48,7 @@ namespace Pulumi.Github
     public partial class Membership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defaults to `false`. If set to true,
+        /// Defaults to `False`. If set to true,
         /// when this resource is destroyed, the member will not be removed
         /// from the organization. Instead, the member's role will be
         /// downgraded to 'member'.
@@ -61,8 +61,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// `admin` role represents the `owner` role available via GitHub UI.
+        /// Must be one of `Member` or `Admin`. Defaults to `Member`.
+        /// `Admin` role represents the `Owner` role available via GitHub UI.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Github
     public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `false`. If set to true,
+        /// Defaults to `False`. If set to true,
         /// when this resource is destroyed, the member will not be removed
         /// from the organization. Instead, the member's role will be
         /// downgraded to 'member'.
@@ -130,8 +130,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// `admin` role represents the `owner` role available via GitHub UI.
+        /// Must be one of `Member` or `Admin`. Defaults to `Member`.
+        /// `Admin` role represents the `Owner` role available via GitHub UI.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Github
     public sealed class MembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `false`. If set to true,
+        /// Defaults to `False`. If set to true,
         /// when this resource is destroyed, the member will not be removed
         /// from the organization. Instead, the member's role will be
         /// downgraded to 'member'.
@@ -164,8 +164,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The role of the user within the organization.
-        /// Must be one of `member` or `admin`. Defaults to `member`.
-        /// `admin` role represents the `owner` role available via GitHub UI.
+        /// Must be one of `Member` or `Admin`. Defaults to `Member`.
+        /// `Admin` role represents the `Owner` role available via GitHub UI.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

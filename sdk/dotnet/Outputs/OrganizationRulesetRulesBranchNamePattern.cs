@@ -22,7 +22,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? Negate;
         /// <summary>
-        /// The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        /// The operator to use for matching. Can be one of: `StartsWith`, `EndsWith`, `Contains`, `Regex`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

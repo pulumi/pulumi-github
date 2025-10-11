@@ -34,7 +34,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string HtmlUrl;
         /// <summary>
-        /// `license` block consists of the fields documented below.
+        /// `License` block consists of the fields documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryRepositoryLicenseLicenseResult> Licenses;
         /// <summary>

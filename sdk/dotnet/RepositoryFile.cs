@@ -154,7 +154,7 @@ namespace Pulumi.Github
         public Output<string> File { get; private set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
+        /// Enable overwriting existing files. If set to `True` it will overwrite an existing file with the same name. If set to `False` it will fail if there is an existing file with the same name.
         /// </summary>
         [Output("overwriteOnCreate")]
         public Output<bool?> OverwriteOnCreate { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Github
         public Input<string> File { get; set; } = null!;
 
         /// <summary>
-        /// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
+        /// Enable overwriting existing files. If set to `True` it will overwrite an existing file with the same name. If set to `False` it will fail if there is an existing file with the same name.
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Github
         public Input<string>? File { get; set; }
 
         /// <summary>
-        /// Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
+        /// Enable overwriting existing files. If set to `True` it will overwrite an existing file with the same name. If set to `False` it will fail if there is an existing file with the same name.
         /// </summary>
         [Input("overwriteOnCreate")]
         public Input<bool>? OverwriteOnCreate { get; set; }

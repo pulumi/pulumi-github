@@ -16,14 +16,14 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     public static final ActionsSecretState Empty = new ActionsSecretState();
 
     /**
-     * Date of actions_secret creation.
+     * Date of actionsSecret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actions_secret creation.
+     * @return Date of actionsSecret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -91,14 +91,14 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Date of actions_secret update.
+     * Date of actionsSecret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actions_secret update.
+     * @return Date of actionsSecret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -135,7 +135,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt Date of actions_secret creation.
+         * @param createdAt Date of actionsSecret creation.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt Date of actions_secret creation.
+         * @param createdAt Date of actionsSecret creation.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param updatedAt Date of actions_secret update.
+         * @param updatedAt Date of actionsSecret update.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param updatedAt Date of actions_secret update.
+         * @param updatedAt Date of actionsSecret update.
          * 
          * @return builder
          * 

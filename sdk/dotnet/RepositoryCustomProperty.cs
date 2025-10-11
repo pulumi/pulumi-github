@@ -14,7 +14,7 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
-    /// &gt; Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `string`
+    /// &gt; Note that this assumes there already is a custom property defined on the org level called `my-cool-property` of type `String`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -62,13 +62,13 @@ namespace Pulumi.Github
         public Output<string> PropertyName { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
         /// </summary>
         [Output("propertyType")]
         public Output<string> PropertyType { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
         /// </summary>
         [Output("propertyValues")]
         public Output<ImmutableArray<string>> PropertyValues { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Github
         public Input<string> PropertyName { get; set; } = null!;
 
         /// <summary>
-        /// Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
         /// </summary>
         [Input("propertyType", required: true)]
         public Input<string> PropertyType { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Github
         private InputList<string>? _propertyValues;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
         /// </summary>
         public InputList<string> PropertyValues
         {
@@ -170,7 +170,7 @@ namespace Pulumi.Github
         public Input<string>? PropertyName { get; set; }
 
         /// <summary>
-        /// Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+        /// Type of the custom property. Can be one of `SingleSelect`, `MultiSelect`, `String`, or `TrueFalse`
         /// </summary>
         [Input("propertyType")]
         public Input<string>? PropertyType { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Github
         private InputList<string>? _propertyValues;
 
         /// <summary>
-        /// Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+        /// Value of the custom property in the form of an array. Properties of type `SingleSelect`, `String`, and `TrueFalse` are represented as a string array of length 1
         /// </summary>
         public InputList<string> PropertyValues
         {

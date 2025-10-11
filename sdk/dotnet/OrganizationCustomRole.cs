@@ -69,7 +69,7 @@ namespace Pulumi.Github
     public partial class OrganizationCustomRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
+        /// The system role from which the role inherits permissions. Can be one of: `Read`, `Triage`, `Write`, or `Maintain`.
         /// </summary>
         [Output("baseRole")]
         public Output<string> BaseRole { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Github
     public sealed class OrganizationCustomRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
+        /// The system role from which the role inherits permissions. Can be one of: `Read`, `Triage`, `Write`, or `Maintain`.
         /// </summary>
         [Input("baseRole", required: true)]
         public Input<string> BaseRole { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Github
     public sealed class OrganizationCustomRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
+        /// The system role from which the role inherits permissions. Can be one of: `Read`, `Triage`, `Write`, or `Maintain`.
         /// </summary>
         [Input("baseRole")]
         public Input<string>? BaseRole { get; set; }

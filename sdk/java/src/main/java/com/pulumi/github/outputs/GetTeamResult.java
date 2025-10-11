@@ -27,7 +27,7 @@ public final class GetTeamResult {
      */
     private String id;
     /**
-     * @return List of team members (list of GitHub usernames). Not returned if `summary_only = true`
+     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
      * 
      */
     private List<String> members;
@@ -53,12 +53,12 @@ public final class GetTeamResult {
      */
     private String privacy;
     /**
-     * @return List of team repositories (list of repo names). Not returned if `summary_only = true`
+     * @return List of team repositories (list of repo names). Not returned if `summaryOnly = true`
      * 
      */
     private List<String> repositories;
     /**
-     * @return List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+     * @return List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
      * 
      */
     private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
@@ -82,7 +82,7 @@ public final class GetTeamResult {
         return this.id;
     }
     /**
-     * @return List of team members (list of GitHub usernames). Not returned if `summary_only = true`
+     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
      * 
      */
     public List<String> members() {
@@ -120,14 +120,14 @@ public final class GetTeamResult {
         return this.privacy;
     }
     /**
-     * @return List of team repositories (list of repo names). Not returned if `summary_only = true`
+     * @return List of team repositories (list of repo names). Not returned if `summaryOnly = true`
      * 
      */
     public List<String> repositories() {
         return this.repositories;
     }
     /**
-     * @return List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+     * @return List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
      * 
      */
     public List<GetTeamRepositoriesDetailed> repositoriesDetaileds() {

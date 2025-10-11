@@ -43,10 +43,10 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     private @Nullable List<String> dismissalUsers;
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     private @Nullable Boolean includeAdmins;
     /**
      * @return Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
@@ -103,10 +103,10 @@ public final class BranchProtectionV3RequiredPullRequestReviews {
     }
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     public Optional<Boolean> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }

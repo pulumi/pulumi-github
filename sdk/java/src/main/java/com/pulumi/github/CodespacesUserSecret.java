@@ -35,14 +35,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/codespacesUserSecret:CodespacesUserSecret")
 public class CodespacesUserSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of codespaces_secret creation.
+     * Date of codespacesSecret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of codespaces_secret creation.
+     * @return Date of codespacesSecret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -105,14 +105,14 @@ public class CodespacesUserSecret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of codespaces_secret update.
+     * Date of codespacesSecret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of codespaces_secret update.
+     * @return Date of codespacesSecret update.
      * 
      */
     public Output<String> updatedAt() {

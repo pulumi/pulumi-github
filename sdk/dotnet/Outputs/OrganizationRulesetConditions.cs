@@ -18,13 +18,13 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.OrganizationRulesetConditionsRefName RefName;
         /// <summary>
-        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `RepositoryName`.
         /// </summary>
         public readonly ImmutableArray<int> RepositoryIds;
         /// <summary>
-        /// Conflicts with `repository_id`. (see below for nested schema)
+        /// Conflicts with `RepositoryId`. (see below for nested schema)
         /// 
-        /// One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+        /// One of `RepositoryId` and `RepositoryName` must be set for the rule to target any repositories.
         /// </summary>
         public readonly Outputs.OrganizationRulesetConditionsRepositoryName? RepositoryName;
 

@@ -24,7 +24,7 @@ public final class GetOrganizationTeamsTeam {
      */
     private Integer id;
     /**
-     * @return List of team members. Not returned if `summary_only = true`
+     * @return List of team members. Not returned if `summaryOnly = true`
      * 
      */
     private List<String> members;
@@ -49,7 +49,7 @@ public final class GetOrganizationTeamsTeam {
      */
     private String privacy;
     /**
-     * @return List of team repositories. Not returned if `summary_only = true`
+     * @return List of team repositories. Not returned if `summaryOnly = true`
      * 
      */
     private List<String> repositories;
@@ -75,7 +75,7 @@ public final class GetOrganizationTeamsTeam {
         return this.id;
     }
     /**
-     * @return List of team members. Not returned if `summary_only = true`
+     * @return List of team members. Not returned if `summaryOnly = true`
      * 
      */
     public List<String> members() {
@@ -110,7 +110,7 @@ public final class GetOrganizationTeamsTeam {
         return this.privacy;
     }
     /**
-     * @return List of team repositories. Not returned if `summary_only = true`
+     * @return List of team repositories. Not returned if `summaryOnly = true`
      * 
      */
     public List<String> repositories() {

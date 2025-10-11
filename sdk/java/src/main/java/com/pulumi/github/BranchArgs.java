@@ -62,14 +62,14 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+     * The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      * 
      */
     @Import(name="sourceSha")
     private @Nullable Output<String> sourceSha;
 
     /**
-     * @return The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+     * @return The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
      * 
      */
     public Optional<Output<String>> sourceSha() {
@@ -167,7 +167,7 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+         * @param sourceSha The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceSha The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
+         * @param sourceSha The commit hash to start from. Defaults to the tip of `sourceBranch`. If provided, `sourceBranch` is ignored.
          * 
          * @return builder
          * 

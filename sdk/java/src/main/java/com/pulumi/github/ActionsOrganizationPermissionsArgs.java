@@ -19,14 +19,14 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
     public static final ActionsOrganizationPermissionsArgs Empty = new ActionsOrganizationPermissionsArgs();
 
     /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     @Import(name="allowedActions")
     private @Nullable Output<String> allowedActions;
 
     /**
-     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     public Optional<Output<String>> allowedActions() {
@@ -34,14 +34,14 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     @Import(name="allowedActionsConfig")
     private @Nullable Output<ActionsOrganizationPermissionsAllowedActionsConfigArgs> allowedActionsConfig;
 
     /**
-     * @return Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * @return Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     public Optional<Output<ActionsOrganizationPermissionsAllowedActionsConfigArgs>> allowedActionsConfig() {
@@ -64,14 +64,14 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      * 
      */
     @Import(name="enabledRepositoriesConfig")
     private @Nullable Output<ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs> enabledRepositoriesConfig;
 
     /**
-     * @return Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+     * @return Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      * 
      */
     public Optional<Output<ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs>> enabledRepositoriesConfig() {
@@ -106,7 +106,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+         * @param allowedActions The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+         * @param allowedActionsConfig Sets the actions that are allowed in an organization. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabled_repositories` = `selected`. See Enabled Repositories Config below for details.
+         * @param enabledRepositoriesConfig Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
          * 
          * @return builder
          * 

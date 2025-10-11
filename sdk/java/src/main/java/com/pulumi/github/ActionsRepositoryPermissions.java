@@ -80,28 +80,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions")
 public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomResource {
     /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     @Export(name="allowedActions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedActions;
 
     /**
-     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * @return The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `localOnly`, or `selected`.
      * 
      */
     public Output<Optional<String>> allowedActions() {
         return Codegen.optional(this.allowedActions);
     }
     /**
-     * Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * Sets the actions that are allowed in an repository. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     @Export(name="allowedActionsConfig", refs={ActionsRepositoryPermissionsAllowedActionsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ActionsRepositoryPermissionsAllowedActionsConfig> allowedActionsConfig;
 
     /**
-     * @return Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
+     * @return Sets the actions that are allowed in an repository. Only available when `allowedActions` = `selected`. See Allowed Actions Config below for details.
      * 
      */
     public Output<Optional<ActionsRepositoryPermissionsAllowedActionsConfig>> allowedActionsConfig() {

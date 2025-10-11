@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryRulesetBypassActor {
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
     private Integer actorId;
@@ -22,7 +22,7 @@ public final class RepositoryRulesetBypassActor {
      */
     private String actorType;
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -34,7 +34,7 @@ public final class RepositoryRulesetBypassActor {
 
     private RepositoryRulesetBypassActor() {}
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
     public Integer actorId() {
@@ -48,7 +48,7 @@ public final class RepositoryRulesetBypassActor {
         return this.actorType;
     }
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 

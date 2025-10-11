@@ -32,14 +32,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/dependabotSecret:DependabotSecret")
 public class DependabotSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of dependabot_secret creation.
+     * Date of dependabotSecret creation.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of dependabot_secret creation.
+     * @return Date of dependabotSecret creation.
      * 
      */
     public Output<String> createdAt() {
@@ -102,14 +102,14 @@ public class DependabotSecret extends com.pulumi.resources.CustomResource {
         return this.secretName;
     }
     /**
-     * Date of dependabot_secret update.
+     * Date of dependabotSecret update.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of dependabot_secret update.
+     * @return Date of dependabotSecret update.
      * 
      */
     public Output<String> updatedAt() {

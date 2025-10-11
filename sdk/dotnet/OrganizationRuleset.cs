@@ -87,13 +87,13 @@ namespace Pulumi.Github
         public Output<ImmutableArray<Outputs.OrganizationRulesetBypassActor>> BypassActors { get; private set; } = null!;
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `RefName` is required alongside one of `RepositoryName` or `RepositoryId`. (see below for nested schema)
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.OrganizationRulesetConditions?> Conditions { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Output("enforcement")]
         public Output<string> Enforcement { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Github
         public Output<int> RulesetId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -193,13 +193,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `RefName` is required alongside one of `RepositoryName` or `RepositoryId`. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.OrganizationRulesetConditionsArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Input("enforcement", required: true)]
         public Input<string> Enforcement { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Github
         public Input<Inputs.OrganizationRulesetRulesArgs> Rules { get; set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
@@ -243,13 +243,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for an organization ruleset condition. `RefName` is required alongside one of `RepositoryName` or `RepositoryId`. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.OrganizationRulesetConditionsGetArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Input("enforcement")]
         public Input<string>? Enforcement { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Github
         public Input<int>? RulesetId { get; set; }
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

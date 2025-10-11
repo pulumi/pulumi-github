@@ -18,14 +18,14 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
     public static final CodespacesUserSecretState Empty = new CodespacesUserSecretState();
 
     /**
-     * Date of codespaces_secret creation.
+     * Date of codespacesSecret creation.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of codespaces_secret creation.
+     * @return Date of codespacesSecret creation.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -93,14 +93,14 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Date of codespaces_secret update.
+     * Date of codespacesSecret update.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of codespaces_secret update.
+     * @return Date of codespacesSecret update.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -137,7 +137,7 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param createdAt Date of codespaces_secret creation.
+         * @param createdAt Date of codespacesSecret creation.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param createdAt Date of codespaces_secret creation.
+         * @param createdAt Date of codespacesSecret creation.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param updatedAt Date of codespaces_secret update.
+         * @param updatedAt Date of codespacesSecret update.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class CodespacesUserSecretState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param updatedAt Date of codespaces_secret update.
+         * @param updatedAt Date of codespacesSecret update.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
     public static final BranchProtectionV3RequiredStatusChecksArgs Empty = new BranchProtectionV3RequiredStatusChecksArgs();
 
     /**
-     * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+     * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
      * 
      */
     @Import(name="checks")
     private @Nullable Output<List<String>> checks;
 
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
      * 
      */
     public Optional<Output<List<String>>> checks() {
@@ -67,19 +67,19 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
 
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     @Import(name="includeAdmins")
     private @Nullable Output<Boolean> includeAdmins;
 
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     public Optional<Output<Boolean>> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
@@ -127,7 +127,7 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         }
 
         /**
-         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         }
 
         /**
-         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
         }
 
         /**
-         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+         * @param checks The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
          * 
          * @return builder
          * 
@@ -219,10 +219,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
          * @return builder
          * 
          * @deprecated
-         * Use enforce_admins instead
+         * Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforce_admins instead */
+        @Deprecated /* Use enforceAdmins instead */
         public Builder includeAdmins(@Nullable Output<Boolean> includeAdmins) {
             $.includeAdmins = includeAdmins;
             return this;
@@ -232,10 +232,10 @@ public final class BranchProtectionV3RequiredStatusChecksArgs extends com.pulumi
          * @return builder
          * 
          * @deprecated
-         * Use enforce_admins instead
+         * Use enforceAdmins instead
          * 
          */
-        @Deprecated /* Use enforce_admins instead */
+        @Deprecated /* Use enforceAdmins instead */
         public Builder includeAdmins(Boolean includeAdmins) {
             return includeAdmins(Output.of(includeAdmins));
         }

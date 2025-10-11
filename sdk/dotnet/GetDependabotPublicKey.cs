@@ -13,7 +13,7 @@ namespace Pulumi.Github
     {
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 
@@ -63,7 +63,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// Use this data source to retrieve information about a GitHub Dependabot public key. This data source is required to be used with other GitHub secrets interactions.
-        /// Note that the provider `token` must have admin rights to a repository to retrieve it's Dependabot public key.
+        /// Note that the provider `Token` must have admin rights to a repository to retrieve it's Dependabot public key.
         /// 
         /// ## Example Usage
         /// 

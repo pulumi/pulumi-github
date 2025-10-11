@@ -110,7 +110,7 @@ namespace Pulumi.Github
         public Output<string?> DiscussionCategoryName { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `false` to create a published release.
+        /// Set to `False` to create a published release.
         /// </summary>
         [Output("draft")]
         public Output<bool?> Draft { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Github
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
+        /// Set to `True` to automatically generate the name and body for this release. If `Name` is specified, the specified `Name` will be used; otherwise, a name will be automatically generated. If `Body` is specified, the `Body` will be pre-pended to the automatically generated notes.
         /// </summary>
         [Output("generateReleaseNotes")]
         public Output<bool?> GenerateReleaseNotes { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `false` to identify the release as a full release.
+        /// Set to `False` to identify the release as a full release.
         /// </summary>
         [Output("prerelease")]
         public Output<bool?> Prerelease { get; private set; } = null!;
@@ -261,13 +261,13 @@ namespace Pulumi.Github
         public Input<string>? DiscussionCategoryName { get; set; }
 
         /// <summary>
-        /// Set to `false` to create a published release.
+        /// Set to `False` to create a published release.
         /// </summary>
         [Input("draft")]
         public Input<bool>? Draft { get; set; }
 
         /// <summary>
-        /// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
+        /// Set to `True` to automatically generate the name and body for this release. If `Name` is specified, the specified `Name` will be used; otherwise, a name will be automatically generated. If `Body` is specified, the `Body` will be pre-pended to the automatically generated notes.
         /// </summary>
         [Input("generateReleaseNotes")]
         public Input<bool>? GenerateReleaseNotes { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Set to `false` to identify the release as a full release.
+        /// Set to `False` to identify the release as a full release.
         /// </summary>
         [Input("prerelease")]
         public Input<bool>? Prerelease { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Github
         public Input<string>? DiscussionCategoryName { get; set; }
 
         /// <summary>
-        /// Set to `false` to create a published release.
+        /// Set to `False` to create a published release.
         /// </summary>
         [Input("draft")]
         public Input<bool>? Draft { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Github
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// Set to `true` to automatically generate the name and body for this release. If `name` is specified, the specified `name` will be used; otherwise, a name will be automatically generated. If `body` is specified, the `body` will be pre-pended to the automatically generated notes.
+        /// Set to `True` to automatically generate the name and body for this release. If `Name` is specified, the specified `Name` will be used; otherwise, a name will be automatically generated. If `Body` is specified, the `Body` will be pre-pended to the automatically generated notes.
         /// </summary>
         [Input("generateReleaseNotes")]
         public Input<bool>? GenerateReleaseNotes { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
-        /// Set to `false` to identify the release as a full release.
+        /// Set to `False` to identify the release as a full release.
         /// </summary>
         [Input("prerelease")]
         public Input<bool>? Prerelease { get; set; }

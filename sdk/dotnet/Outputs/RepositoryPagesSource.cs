@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryPagesSource
     {
         /// <summary>
-        /// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        /// The repository branch used to publish the site's source files. (i.e. `Main` or `gh-pages`.
         /// </summary>
         public readonly string Branch;
         /// <summary>

@@ -48,7 +48,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateState e
     }
 
     /**
-     * Whether to use the default template or not. If `true`, `include_claim_keys` must not
+     * Whether to use the default template or not. If `true`, `includeClaimKeys` must not
      * be set.
      * 
      */
@@ -56,7 +56,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateState e
     private @Nullable Output<Boolean> useDefault;
 
     /**
-     * @return Whether to use the default template or not. If `true`, `include_claim_keys` must not
+     * @return Whether to use the default template or not. If `true`, `includeClaimKeys` must not
      * be set.
      * 
      */
@@ -143,7 +143,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateState e
         }
 
         /**
-         * @param useDefault Whether to use the default template or not. If `true`, `include_claim_keys` must not
+         * @param useDefault Whether to use the default template or not. If `true`, `includeClaimKeys` must not
          * be set.
          * 
          * @return builder
@@ -155,7 +155,7 @@ public final class ActionsRepositoryOidcSubjectClaimCustomizationTemplateState e
         }
 
         /**
-         * @param useDefault Whether to use the default template or not. If `true`, `include_claim_keys` must not
+         * @param useDefault Whether to use the default template or not. If `true`, `includeClaimKeys` must not
          * be set.
          * 
          * @return builder

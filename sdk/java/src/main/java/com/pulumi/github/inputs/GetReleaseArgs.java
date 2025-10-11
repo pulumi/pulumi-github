@@ -33,14 +33,14 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+     * ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      * 
      */
     @Import(name="releaseId")
     private @Nullable Output<Integer> releaseId;
 
     /**
-     * @return ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+     * @return ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
      * 
      */
     public Optional<Output<Integer>> releaseId() {
@@ -48,14 +48,14 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+     * Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      * 
      */
     @Import(name="releaseTag")
     private @Nullable Output<String> releaseTag;
 
     /**
-     * @return Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+     * @return Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
      * 
      */
     public Optional<Output<String>> releaseTag() {
@@ -142,7 +142,7 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseId ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+         * @param releaseId ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseId ID of the release to retrieve. Must be specified when `retrieve_by` = `id`.
+         * @param releaseId ID of the release to retrieve. Must be specified when `retrieveBy` = `id`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetReleaseArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieve_by` = `tag`.
+         * @param releaseTag Tag of the release to retrieve. Must be specified when `retrieveBy` = `tag`.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BranchProtectionV3RequiredStatusChecks {
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
      * 
      */
     private @Nullable List<String> checks;
@@ -34,10 +34,10 @@ public final class BranchProtectionV3RequiredStatusChecks {
     private @Nullable List<String> contexts;
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     private @Nullable Boolean includeAdmins;
     /**
      * @return Require branches to be up to date before merging. Defaults to `false`.
@@ -47,7 +47,7 @@ public final class BranchProtectionV3RequiredStatusChecks {
 
     private BranchProtectionV3RequiredStatusChecks() {}
     /**
-     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so &#34;context:app_id&#34;.
+     * @return The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so &#34;context:app_id&#34;.
      * 
      */
     public List<String> checks() {
@@ -71,10 +71,10 @@ public final class BranchProtectionV3RequiredStatusChecks {
     }
     /**
      * @deprecated
-     * Use enforce_admins instead
+     * Use enforceAdmins instead
      * 
      */
-    @Deprecated /* Use enforce_admins instead */
+    @Deprecated /* Use enforceAdmins instead */
     public Optional<Boolean> includeAdmins() {
         return Optional.ofNullable(this.includeAdmins);
     }
