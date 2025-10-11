@@ -13,7 +13,7 @@ namespace Pulumi.Github
     /// This resource allows you to create and manage repositories within your
     /// GitHub organization or personal account.
     /// 
-    /// &gt; **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `allow_merge_commit`, `allow_squash_merge`, `allow_rebase_merge`, `merge_commit_title`, `merge_commit_message`, `squash_merge_commit_title` and `squash_merge_commit_message`.
+    /// &gt; **Note** When used with GitHub App authentication, even GET requests must have the `contents:write` permission. Without it, the following arguments will be ignored, leading to unexpected behavior and confusing diffs: `AllowMergeCommit`, `AllowSquashMerge`, `AllowRebaseMerge`, `MergeCommitTitle`, `MergeCommitMessage`, `SquashMergeCommitTitle` and `SquashMergeCommitMessage`.
     /// 
     /// ## Example Usage
     /// 
@@ -81,49 +81,49 @@ namespace Pulumi.Github
     public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// Set to `True` to allow auto-merging pull requests on the repository.
         /// </summary>
         [Output("allowAutoMerge")]
         public Output<bool?> AllowAutoMerge { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `false` to disable merge commits on the repository.
+        /// Set to `False` to disable merge commits on the repository.
         /// </summary>
         [Output("allowMergeCommit")]
         public Output<bool?> AllowMergeCommit { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `false` to disable rebase merges on the repository.
+        /// Set to `False` to disable rebase merges on the repository.
         /// </summary>
         [Output("allowRebaseMerge")]
         public Output<bool?> AllowRebaseMerge { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `false` to disable squash merges on the repository.
+        /// Set to `False` to disable squash merges on the repository.
         /// </summary>
         [Output("allowSquashMerge")]
         public Output<bool?> AllowSquashMerge { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to always suggest updating pull request branches.
+        /// Set to `True` to always suggest updating pull request branches.
         /// </summary>
         [Output("allowUpdateBranch")]
         public Output<bool?> AllowUpdateBranch { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// Set to `True` to archive the repository instead of deleting on destroy.
         /// </summary>
         [Output("archiveOnDestroy")]
         public Output<bool?> ArchiveOnDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
+        /// Specifies if the repository should be archived. Defaults to `False`. **NOTE** Currently, the API does not support unarchiving.
         /// </summary>
         [Output("archived")]
         public Output<bool?> Archived { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to produce an initial commit in the repository.
+        /// Set to `True` to produce an initial commit in the repository.
         /// </summary>
         [Output("autoInit")]
         public Output<bool?> AutoInit { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Github
         public Output<string> DefaultBranch { get; private set; } = null!;
 
         /// <summary>
-        /// Automatically delete head branch after a pull request is merged. Defaults to `false`.
+        /// Automatically delete head branch after a pull request is merged. Defaults to `False`.
         /// </summary>
         [Output("deleteBranchOnMerge")]
         public Output<bool?> DeleteBranchOnMerge { get; private set; } = null!;
@@ -170,32 +170,32 @@ namespace Pulumi.Github
         public Output<string?> GitignoreTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// Set to `True` to enable GitHub Discussions on the repository. Defaults to `False`.
         /// </summary>
         [Output("hasDiscussions")]
         public Output<bool?> HasDiscussions { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable the (deprecated) downloads features on the repository.
+        /// Set to `True` to enable the (deprecated) downloads features on the repository.
         /// </summary>
         [Output("hasDownloads")]
         public Output<bool?> HasDownloads { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Issues features
+        /// Set to `True` to enable the GitHub Issues features
         /// on the repository.
         /// </summary>
         [Output("hasIssues")]
         public Output<bool?> HasIssues { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
+        /// Set to `True` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `False` and will otherwise default to `True`. If you specify `True` when it has been disabled it will return an error.
         /// </summary>
         [Output("hasProjects")]
         public Output<bool?> HasProjects { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Wiki features on
+        /// Set to `True` to enable the GitHub Wiki features on
         /// the repository.
         /// </summary>
         [Output("hasWiki")]
@@ -220,13 +220,13 @@ namespace Pulumi.Github
         public Output<string> HttpCloneUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// Set to `True` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         /// </summary>
         [Output("ignoreVulnerabilityAlertsDuringRead")]
         public Output<bool?> IgnoreVulnerabilityAlertsDuringRead { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to tell GitHub that this is a template repository.
+        /// Set to `True` to tell GitHub that this is a template repository.
         /// </summary>
         [Output("isTemplate")]
         public Output<bool?> IsTemplate { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Github
         public Output<string?> LicenseTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Output("mergeCommitMessage")]
         public Output<string?> MergeCommitMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Output("mergeCommitTitle")]
         public Output<string?> MergeCommitTitle { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Github
         public Output<string> PrimaryLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to create a private repository.
+        /// Set to `True` to create a private repository.
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Output("private")]
@@ -293,13 +293,13 @@ namespace Pulumi.Github
         public Output<Outputs.RepositorySecurityAndAnalysis> SecurityAndAnalysis { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Output("squashMergeCommitMessage")]
         public Output<string?> SquashMergeCommitMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Output("squashMergeCommitTitle")]
         public Output<string?> SquashMergeCommitTitle { get; private set; } = null!;
@@ -329,19 +329,19 @@ namespace Pulumi.Github
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        /// Can be `Public` or `Private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `Internal`. The `Visibility` parameter overrides the `Private` parameter.
         /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        /// Set to `True` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         /// </summary>
         [Output("vulnerabilityAlerts")]
         public Output<bool?> VulnerabilityAlerts { get; private set; } = null!;
 
         /// <summary>
-        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `False`.
         /// </summary>
         [Output("webCommitSignoffRequired")]
         public Output<bool?> WebCommitSignoffRequired { get; private set; } = null!;
@@ -393,49 +393,49 @@ namespace Pulumi.Github
     public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// Set to `True` to allow auto-merging pull requests on the repository.
         /// </summary>
         [Input("allowAutoMerge")]
         public Input<bool>? AllowAutoMerge { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable merge commits on the repository.
+        /// Set to `False` to disable merge commits on the repository.
         /// </summary>
         [Input("allowMergeCommit")]
         public Input<bool>? AllowMergeCommit { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable rebase merges on the repository.
+        /// Set to `False` to disable rebase merges on the repository.
         /// </summary>
         [Input("allowRebaseMerge")]
         public Input<bool>? AllowRebaseMerge { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable squash merges on the repository.
+        /// Set to `False` to disable squash merges on the repository.
         /// </summary>
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
 
         /// <summary>
-        /// Set to `true` to always suggest updating pull request branches.
+        /// Set to `True` to always suggest updating pull request branches.
         /// </summary>
         [Input("allowUpdateBranch")]
         public Input<bool>? AllowUpdateBranch { get; set; }
 
         /// <summary>
-        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// Set to `True` to archive the repository instead of deleting on destroy.
         /// </summary>
         [Input("archiveOnDestroy")]
         public Input<bool>? ArchiveOnDestroy { get; set; }
 
         /// <summary>
-        /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
+        /// Specifies if the repository should be archived. Defaults to `False`. **NOTE** Currently, the API does not support unarchiving.
         /// </summary>
         [Input("archived")]
         public Input<bool>? Archived { get; set; }
 
         /// <summary>
-        /// Set to `true` to produce an initial commit in the repository.
+        /// Set to `True` to produce an initial commit in the repository.
         /// </summary>
         [Input("autoInit")]
         public Input<bool>? AutoInit { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Github
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
-        /// Automatically delete head branch after a pull request is merged. Defaults to `false`.
+        /// Automatically delete head branch after a pull request is merged. Defaults to `False`.
         /// </summary>
         [Input("deleteBranchOnMerge")]
         public Input<bool>? DeleteBranchOnMerge { get; set; }
@@ -467,32 +467,32 @@ namespace Pulumi.Github
         public Input<string>? GitignoreTemplate { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// Set to `True` to enable GitHub Discussions on the repository. Defaults to `False`.
         /// </summary>
         [Input("hasDiscussions")]
         public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the (deprecated) downloads features on the repository.
+        /// Set to `True` to enable the (deprecated) downloads features on the repository.
         /// </summary>
         [Input("hasDownloads")]
         public Input<bool>? HasDownloads { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Issues features
+        /// Set to `True` to enable the GitHub Issues features
         /// on the repository.
         /// </summary>
         [Input("hasIssues")]
         public Input<bool>? HasIssues { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
+        /// Set to `True` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `False` and will otherwise default to `True`. If you specify `True` when it has been disabled it will return an error.
         /// </summary>
         [Input("hasProjects")]
         public Input<bool>? HasProjects { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Wiki features on
+        /// Set to `True` to enable the GitHub Wiki features on
         /// the repository.
         /// </summary>
         [Input("hasWiki")]
@@ -505,13 +505,13 @@ namespace Pulumi.Github
         public Input<string>? HomepageUrl { get; set; }
 
         /// <summary>
-        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// Set to `True` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         /// </summary>
         [Input("ignoreVulnerabilityAlertsDuringRead")]
         public Input<bool>? IgnoreVulnerabilityAlertsDuringRead { get; set; }
 
         /// <summary>
-        /// Set to `true` to tell GitHub that this is a template repository.
+        /// Set to `True` to tell GitHub that this is a template repository.
         /// </summary>
         [Input("isTemplate")]
         public Input<bool>? IsTemplate { get; set; }
@@ -523,13 +523,13 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Input("mergeCommitMessage")]
         public Input<string>? MergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Input("mergeCommitTitle")]
         public Input<string>? MergeCommitTitle { get; set; }
@@ -547,7 +547,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryPagesArgs>? Pages { get; set; }
 
         /// <summary>
-        /// Set to `true` to create a private repository.
+        /// Set to `True` to create a private repository.
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Input("private")]
@@ -560,13 +560,13 @@ namespace Pulumi.Github
         public Input<Inputs.RepositorySecurityAndAnalysisArgs>? SecurityAndAnalysis { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Input("squashMergeCommitTitle")]
         public Input<string>? SquashMergeCommitTitle { get; set; }
@@ -590,19 +590,19 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        /// Can be `Public` or `Private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `Internal`. The `Visibility` parameter overrides the `Private` parameter.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        /// Set to `True` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         /// </summary>
         [Input("vulnerabilityAlerts")]
         public Input<bool>? VulnerabilityAlerts { get; set; }
 
         /// <summary>
-        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `False`.
         /// </summary>
         [Input("webCommitSignoffRequired")]
         public Input<bool>? WebCommitSignoffRequired { get; set; }
@@ -616,49 +616,49 @@ namespace Pulumi.Github
     public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to `true` to allow auto-merging pull requests on the repository.
+        /// Set to `True` to allow auto-merging pull requests on the repository.
         /// </summary>
         [Input("allowAutoMerge")]
         public Input<bool>? AllowAutoMerge { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable merge commits on the repository.
+        /// Set to `False` to disable merge commits on the repository.
         /// </summary>
         [Input("allowMergeCommit")]
         public Input<bool>? AllowMergeCommit { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable rebase merges on the repository.
+        /// Set to `False` to disable rebase merges on the repository.
         /// </summary>
         [Input("allowRebaseMerge")]
         public Input<bool>? AllowRebaseMerge { get; set; }
 
         /// <summary>
-        /// Set to `false` to disable squash merges on the repository.
+        /// Set to `False` to disable squash merges on the repository.
         /// </summary>
         [Input("allowSquashMerge")]
         public Input<bool>? AllowSquashMerge { get; set; }
 
         /// <summary>
-        /// Set to `true` to always suggest updating pull request branches.
+        /// Set to `True` to always suggest updating pull request branches.
         /// </summary>
         [Input("allowUpdateBranch")]
         public Input<bool>? AllowUpdateBranch { get; set; }
 
         /// <summary>
-        /// Set to `true` to archive the repository instead of deleting on destroy.
+        /// Set to `True` to archive the repository instead of deleting on destroy.
         /// </summary>
         [Input("archiveOnDestroy")]
         public Input<bool>? ArchiveOnDestroy { get; set; }
 
         /// <summary>
-        /// Specifies if the repository should be archived. Defaults to `false`. **NOTE** Currently, the API does not support unarchiving.
+        /// Specifies if the repository should be archived. Defaults to `False`. **NOTE** Currently, the API does not support unarchiving.
         /// </summary>
         [Input("archived")]
         public Input<bool>? Archived { get; set; }
 
         /// <summary>
-        /// Set to `true` to produce an initial commit in the repository.
+        /// Set to `True` to produce an initial commit in the repository.
         /// </summary>
         [Input("autoInit")]
         public Input<bool>? AutoInit { get; set; }
@@ -672,7 +672,7 @@ namespace Pulumi.Github
         public Input<string>? DefaultBranch { get; set; }
 
         /// <summary>
-        /// Automatically delete head branch after a pull request is merged. Defaults to `false`.
+        /// Automatically delete head branch after a pull request is merged. Defaults to `False`.
         /// </summary>
         [Input("deleteBranchOnMerge")]
         public Input<bool>? DeleteBranchOnMerge { get; set; }
@@ -705,32 +705,32 @@ namespace Pulumi.Github
         public Input<string>? GitignoreTemplate { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
+        /// Set to `True` to enable GitHub Discussions on the repository. Defaults to `False`.
         /// </summary>
         [Input("hasDiscussions")]
         public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the (deprecated) downloads features on the repository.
+        /// Set to `True` to enable the (deprecated) downloads features on the repository.
         /// </summary>
         [Input("hasDownloads")]
         public Input<bool>? HasDownloads { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Issues features
+        /// Set to `True` to enable the GitHub Issues features
         /// on the repository.
         /// </summary>
         [Input("hasIssues")]
         public Input<bool>? HasIssues { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
+        /// Set to `True` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `False` and will otherwise default to `True`. If you specify `True` when it has been disabled it will return an error.
         /// </summary>
         [Input("hasProjects")]
         public Input<bool>? HasProjects { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable the GitHub Wiki features on
+        /// Set to `True` to enable the GitHub Wiki features on
         /// the repository.
         /// </summary>
         [Input("hasWiki")]
@@ -755,13 +755,13 @@ namespace Pulumi.Github
         public Input<string>? HttpCloneUrl { get; set; }
 
         /// <summary>
-        /// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        /// Set to `True` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
         /// </summary>
         [Input("ignoreVulnerabilityAlertsDuringRead")]
         public Input<bool>? IgnoreVulnerabilityAlertsDuringRead { get; set; }
 
         /// <summary>
-        /// Set to `true` to tell GitHub that this is a template repository.
+        /// Set to `True` to tell GitHub that this is a template repository.
         /// </summary>
         [Input("isTemplate")]
         public Input<bool>? IsTemplate { get; set; }
@@ -773,13 +773,13 @@ namespace Pulumi.Github
         public Input<string>? LicenseTemplate { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Input("mergeCommitMessage")]
         public Input<string>? MergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
+        /// Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `AllowMergeCommit` is `True`.
         /// </summary>
         [Input("mergeCommitTitle")]
         public Input<string>? MergeCommitTitle { get; set; }
@@ -809,7 +809,7 @@ namespace Pulumi.Github
         public Input<string>? PrimaryLanguage { get; set; }
 
         /// <summary>
-        /// Set to `true` to create a private repository.
+        /// Set to `True` to create a private repository.
         /// Repositories are created as public (e.g. open source) by default.
         /// </summary>
         [Input("private")]
@@ -828,13 +828,13 @@ namespace Pulumi.Github
         public Input<Inputs.RepositorySecurityAndAnalysisGetArgs>? SecurityAndAnalysis { get; set; }
 
         /// <summary>
-        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Input("squashMergeCommitMessage")]
         public Input<string>? SquashMergeCommitMessage { get; set; }
 
         /// <summary>
-        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
+        /// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `AllowSquashMerge` is `True`.
         /// </summary>
         [Input("squashMergeCommitTitle")]
         public Input<string>? SquashMergeCommitTitle { get; set; }
@@ -870,19 +870,19 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
+        /// Can be `Public` or `Private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `Internal`. The `Visibility` parameter overrides the `Private` parameter.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        /// Set to `True` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
         /// </summary>
         [Input("vulnerabilityAlerts")]
         public Input<bool>? VulnerabilityAlerts { get; set; }
 
         /// <summary>
-        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        /// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `False`.
         /// </summary>
         [Input("webCommitSignoffRequired")]
         public Input<bool>? WebCommitSignoffRequired { get; set; }

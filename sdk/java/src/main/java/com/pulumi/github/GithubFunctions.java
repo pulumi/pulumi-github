@@ -9893,6 +9893,42 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetReleaseResult> getRelease(GetReleaseArgs args) {
         return getRelease(args, InvokeOptions.Empty);
@@ -9938,6 +9974,42 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
+     * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args) {
@@ -9985,6 +10057,42 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("github:index/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
@@ -10031,6 +10139,42 @@ public final class GithubFunctions {
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
      * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("github:index/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
@@ -10076,6 +10220,42 @@ public final class GithubFunctions {
      * </pre>
      * 
      * To retrieve a specific release from a repository based on it&#39;s ID:
+     * 
+     * Finally, to retrieve a release based on it&#39;s tag:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("tag")
+     *             .releaseTag("v1.0.0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args, InvokeOptions options) {

@@ -28,7 +28,7 @@ namespace Pulumi.Github
     public partial class CodespacesUserSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of codespaces_secret creation.
+        /// Date of CodespacesSecret creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
         /// <summary>
-        /// Date of codespaces_secret update.
+        /// Date of CodespacesSecret update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Github
     public sealed class CodespacesUserSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of codespaces_secret creation.
+        /// Date of CodespacesSecret creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Date of codespaces_secret update.
+        /// Date of CodespacesSecret update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

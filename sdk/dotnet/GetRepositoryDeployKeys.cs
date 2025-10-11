@@ -122,7 +122,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The list of this repository's deploy keys. Each element of `keys` has the following attributes:
+        /// The list of this repository's deploy keys. Each element of `Keys` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryDeployKeysKeyResult> Keys;
         public readonly string Repository;

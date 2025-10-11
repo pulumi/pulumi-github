@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool
     {
         /// <summary>
-        /// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+        /// The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `None`, `Errors`, `ErrorsAndWarnings`, `All`.
         /// </summary>
         public readonly string AlertsThreshold;
         /// <summary>
-        /// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+        /// The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `None`, `Critical`, `HighOrHigher`, `MediumOrHigher`, `All`.
         /// </summary>
         public readonly string SecurityAlertsThreshold;
         /// <summary>

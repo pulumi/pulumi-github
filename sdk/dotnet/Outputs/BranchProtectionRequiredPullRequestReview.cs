@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class BranchProtectionRequiredPullRequestReview
     {
         /// <summary>
-        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `False`.
         /// </summary>
         public readonly bool? DismissStaleReviews;
         /// <summary>
-        /// The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+        /// The list of actor Names/IDs with dismissal access. If not empty, `RestrictDismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
         /// </summary>
         public readonly ImmutableArray<string> DismissalRestrictions;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PullRequestBypassers;
         /// <summary>
-        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `False`.
         /// </summary>
         public readonly bool? RequireCodeOwnerReviews;
         /// <summary>
-        /// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        /// Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `False`
         /// </summary>
         public readonly bool? RequireLastPushApproval;
         /// <summary>

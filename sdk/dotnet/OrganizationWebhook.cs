@@ -12,6 +12,8 @@ namespace Pulumi.Github
     /// <summary>
     /// This resource allows you to create and manage webhooks for GitHub organization.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// Organization webhooks can be imported using the `id` of the webhook.
@@ -26,13 +28,13 @@ namespace Pulumi.Github
     public partial class OrganizationWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate of the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        /// key/value pair of configuration for this webhook. Available keys are `Url`, `ContentType`, `Secret` and `InsecureSsl`.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.OrganizationWebhookConfiguration?> Configuration { get; private set; } = null!;
@@ -99,13 +101,13 @@ namespace Pulumi.Github
     public sealed class OrganizationWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate of the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        /// key/value pair of configuration for this webhook. Available keys are `Url`, `ContentType`, `Secret` and `InsecureSsl`.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.OrganizationWebhookConfigurationArgs>? Configuration { get; set; }
@@ -131,13 +133,13 @@ namespace Pulumi.Github
     public sealed class OrganizationWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicate of the webhook should receive events. Defaults to `true`.
+        /// Indicate of the webhook should receive events. Defaults to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+        /// key/value pair of configuration for this webhook. Available keys are `Url`, `ContentType`, `Secret` and `InsecureSsl`.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.OrganizationWebhookConfigurationGetArgs>? Configuration { get; set; }

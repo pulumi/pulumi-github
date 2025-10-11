@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool {
     /**
-     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
      * 
      */
     private String alertsThreshold;
     /**
-     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
      * 
      */
     private String securityAlertsThreshold;
@@ -28,14 +28,14 @@ public final class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
     private RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool() {}
     /**
-     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+     * @return The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errorsAndWarnings`, `all`.
      * 
      */
     public String alertsThreshold() {
         return this.alertsThreshold;
     }
     /**
-     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+     * @return The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `highOrHigher`, `mediumOrHigher`, `all`.
      * 
      */
     public String securityAlertsThreshold() {

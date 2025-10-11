@@ -18,7 +18,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowances? BypassPullRequestAllowances;
         /// <summary>
-        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+        /// Dismiss approved reviews automatically when a new commit is pushed. Defaults to `False`.
         /// </summary>
         public readonly bool? DismissStaleReviews;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Github.Outputs
         public readonly ImmutableArray<string> DismissalApps;
         /// <summary>
         /// The list of team slugs with dismissal access.
-        /// Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+        /// Always use `Slug` of the team, **not** its name. Each team already **has** to have access to the repository.
         /// </summary>
         public readonly ImmutableArray<string> DismissalTeams;
         /// <summary>
@@ -36,11 +36,11 @@ namespace Pulumi.Github.Outputs
         public readonly ImmutableArray<string> DismissalUsers;
         public readonly bool? IncludeAdmins;
         /// <summary>
-        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+        /// Require an approved review in pull requests including files with a designated code owner. Defaults to `False`.
         /// </summary>
         public readonly bool? RequireCodeOwnerReviews;
         /// <summary>
-        /// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+        /// Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `False`
         /// </summary>
         public readonly bool? RequireLastPushApproval;
         /// <summary>

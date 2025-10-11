@@ -100,7 +100,7 @@ namespace Pulumi.Github
         public Output<Outputs.RepositoryRulesetConditions?> Conditions { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Output("enforcement")]
         public Output<string> Enforcement { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Github
         public Output<int> RulesetId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryRulesetConditionsArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Input("enforcement", required: true)]
         public Input<string> Enforcement { get; set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryRulesetRulesArgs> Rules { get; set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryRulesetConditionsGetArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        /// (String) Possible values for Enforcement are `Disabled`, `Active`, `Evaluate`. Note: `Evaluate` is currently only supported for owners of type `Organization`.
         /// </summary>
         [Input("enforcement")]
         public Input<string>? Enforcement { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Github
         public Input<int>? RulesetId { get; set; }
 
         /// <summary>
-        /// (String) Possible values are `branch` and `tag`.
+        /// (String) Possible values are `Branch` and `Tag`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

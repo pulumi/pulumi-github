@@ -21,22 +21,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRules {
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
      * 
      */
     private @Nullable OrganizationRulesetRulesBranchNamePattern branchNamePattern;
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     private @Nullable OrganizationRulesetRulesCommitAuthorEmailPattern commitAuthorEmailPattern;
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     private @Nullable OrganizationRulesetRulesCommitMessagePattern commitMessagePattern;
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     private @Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern;
@@ -86,7 +86,7 @@ public final class OrganizationRulesetRules {
      */
     private @Nullable OrganizationRulesetRulesRequiredWorkflows requiredWorkflows;
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      * 
      */
     private @Nullable OrganizationRulesetRulesTagNamePattern tagNamePattern;
@@ -98,28 +98,28 @@ public final class OrganizationRulesetRules {
 
     private OrganizationRulesetRules() {}
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the branchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tagNamePattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetRulesBranchNamePattern> branchNamePattern() {
         return Optional.ofNullable(this.branchNamePattern);
     }
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetRulesCommitAuthorEmailPattern> commitAuthorEmailPattern() {
         return Optional.ofNullable(this.commitAuthorEmailPattern);
     }
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the commitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetRulesCommitMessagePattern> commitMessagePattern() {
         return Optional.ofNullable(this.commitMessagePattern);
     }
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetRulesCommitterEmailPattern> committerEmailPattern() {
@@ -189,7 +189,7 @@ public final class OrganizationRulesetRules {
         return Optional.ofNullable(this.requiredWorkflows);
     }
     /**
-     * @return (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters to be used for the tagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branchNamePattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetRulesTagNamePattern> tagNamePattern() {

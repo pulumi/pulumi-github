@@ -26,7 +26,7 @@ namespace Pulumi.Github
     public partial class DependabotSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of dependabot_secret creation.
+        /// Date of DependabotSecret creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Github
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// Date of dependabot_secret update.
+        /// Date of DependabotSecret update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Github
     public sealed class DependabotSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of dependabot_secret creation.
+        /// Date of DependabotSecret creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Github
         public Input<string>? SecretName { get; set; }
 
         /// <summary>
-        /// Date of dependabot_secret update.
+        /// Date of DependabotSecret update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
