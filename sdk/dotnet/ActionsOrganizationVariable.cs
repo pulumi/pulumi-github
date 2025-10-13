@@ -72,7 +72,7 @@ namespace Pulumi.Github
     public partial class ActionsOrganizationVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of actions_variable creation.
+        /// Date of ActionsVariable creation.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
         /// <summary>
-        /// Date of actions_variable update.
+        /// Date of ActionsVariable update.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// Configures the access that repositories have to the organization variable.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
         /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// Configures the access that repositories have to the organization variable.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
         /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of actions_variable creation.
+        /// Date of ActionsVariable creation.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Date of actions_variable update.
+        /// Date of ActionsVariable update.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Github
 
         /// <summary>
         /// Configures the access that repositories have to the organization variable.
-        /// Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

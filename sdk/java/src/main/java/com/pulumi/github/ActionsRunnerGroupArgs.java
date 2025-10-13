@@ -50,14 +50,14 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      * 
      */
     @Import(name="restrictedToWorkflows")
     private @Nullable Output<Boolean> restrictedToWorkflows;
 
     /**
-     * @return If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+     * @return If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
      * 
      */
     public Optional<Output<Boolean>> restrictedToWorkflows() {
@@ -80,14 +80,14 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      * 
      */
     @Import(name="selectedWorkflows")
     private @Nullable Output<List<String>> selectedWorkflows;
 
     /**
-     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+     * @return List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
      * 
      */
     public Optional<Output<List<String>>> selectedWorkflows() {
@@ -181,7 +181,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+         * @param restrictedToWorkflows If true, the runner group will be restricted to running only the workflows specified in the selectedWorkflows array. Defaults to false.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ActionsRunnerGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+         * @param selectedWorkflows List of workflows the runner group should be allowed to run. This setting will be ignored unless restrictedToWorkflows is set to true.
          * 
          * @return builder
          * 

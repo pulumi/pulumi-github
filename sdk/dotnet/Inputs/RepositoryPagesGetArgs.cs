@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryPagesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+        /// The type of GitHub Pages site to build. Can be `Legacy` or `Workflow`. If you use `Legacy` as build type you need to set the option `Source`.
         /// </summary>
         [Input("buildType")]
         public Input<string>? BuildType { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.RepositoryPagesSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// The GitHub Pages site's build status e.g. `building` or `built`.
+        /// The GitHub Pages site's build status e.g. `Building` or `Built`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

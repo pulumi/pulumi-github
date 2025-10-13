@@ -157,7 +157,7 @@ public final class GetRepositoryResult {
      */
     private Integer repoId;
     /**
-     * @return An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+     * @return An Array of GitHub repository licenses. Each `repositoryLicense` block consists of the fields documented below.
      * 
      */
     private List<GetRepositoryRepositoryLicense> repositoryLicenses;
@@ -397,7 +397,7 @@ public final class GetRepositoryResult {
         return this.repoId;
     }
     /**
-     * @return An Array of GitHub repository licenses. Each `repository_license` block consists of the fields documented below.
+     * @return An Array of GitHub repository licenses. Each `repositoryLicense` block consists of the fields documented below.
      * 
      */
     public List<GetRepositoryRepositoryLicense> repositoryLicenses() {

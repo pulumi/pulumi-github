@@ -106,7 +106,7 @@ namespace Pulumi.Github
         public string Slug { get; set; } = null!;
 
         /// <summary>
-        /// Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+        /// Exclude the members and repositories of the team from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public bool? SummaryOnly { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Github
         public Input<string> Slug { get; set; } = null!;
 
         /// <summary>
-        /// Exclude the members and repositories of the team from the returned result. Defaults to `false`.
+        /// Exclude the members and repositories of the team from the returned result. Defaults to `False`.
         /// </summary>
         [Input("summaryOnly")]
         public Input<bool>? SummaryOnly { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of team members (list of GitHub usernames). Not returned if `summary_only = true`
+        /// List of team members (list of GitHub usernames). Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<string> Members;
         public readonly string? MembershipType;
@@ -183,11 +183,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Privacy;
         /// <summary>
-        /// List of team repositories (list of repo names). Not returned if `summary_only = true`
+        /// List of team repositories (list of repo names). Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
-        /// List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+        /// List of team repositories (list of `RepoId` and `RoleName`). Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamRepositoriesDetailedResult> RepositoriesDetaileds;
         public readonly int? ResultsPerPage;

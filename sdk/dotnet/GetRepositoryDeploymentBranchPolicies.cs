@@ -133,7 +133,7 @@ namespace Pulumi.Github
     public sealed class GetRepositoryDeploymentBranchPoliciesResult
     {
         /// <summary>
-        /// The list of this repository / environment deployment policies. Each element of `deployment_branch_policies` has the following attributes:
+        /// The list of this repository / environment deployment policies. Each element of `DeploymentBranchPolicies` has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult> DeploymentBranchPolicies;
         public readonly string EnvironmentName;

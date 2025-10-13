@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy")
 public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+     * The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      * 
      */
     @Export(name="branchPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branchPattern;
 
     /**
-     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
+     * @return The name pattern that branches must match in order to deploy to the environment. If not specified, `tagPattern` must be specified.
      * 
      */
     public Output<Optional<String>> branchPattern() {
@@ -201,14 +201,14 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
         return this.repository;
     }
     /**
-     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      * 
      */
     @Export(name="tagPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tagPattern;
 
     /**
-     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
+     * @return The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      * 
      */
     public Output<Optional<String>> tagPattern() {

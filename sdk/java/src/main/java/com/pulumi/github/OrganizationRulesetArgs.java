@@ -36,14 +36,14 @@ public final class OrganizationRulesetArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<OrganizationRulesetConditionsArgs> conditions;
 
     /**
-     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
      * 
      */
     public Optional<Output<OrganizationRulesetConditionsArgs>> conditions() {
@@ -171,7 +171,7 @@ public final class OrganizationRulesetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param conditions (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+         * @param conditions (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class OrganizationRulesetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param conditions (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+         * @param conditions (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
          * 
          * @return builder
          * 

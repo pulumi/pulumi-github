@@ -24,7 +24,7 @@ public final class RepositoryRulesetRulesCommitAuthorEmailPattern {
      */
     private @Nullable Boolean negate;
     /**
-     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      * 
      */
     private String operator;
@@ -50,7 +50,7 @@ public final class RepositoryRulesetRulesCommitAuthorEmailPattern {
         return Optional.ofNullable(this.negate);
     }
     /**
-     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      * 
      */
     public String operator() {

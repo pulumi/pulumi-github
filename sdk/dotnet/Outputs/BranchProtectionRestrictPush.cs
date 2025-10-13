@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class BranchProtectionRestrictPush
     {
         /// <summary>
-        /// Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+        /// Boolean, setting this to `False` allows people, teams, or apps to create new branches matching this rule. Defaults to `True`.
         /// </summary>
         public readonly bool? BlocksCreations;
         /// <summary>

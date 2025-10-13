@@ -22,7 +22,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string ActorType;
         /// <summary>
-        /// (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        /// (String) When the specified actor can bypass the ruleset. PullRequest means that an actor can only bypass rules on pull requests. Can be one of: `Always`, `PullRequest`.
         /// 
         /// ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 

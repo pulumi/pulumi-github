@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * This resource allows you to create and manage webhooks for GitHub organization.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * Organization webhooks can be imported using the `id` of the webhook.
@@ -48,14 +50,14 @@ public class OrganizationWebhook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.active);
     }
     /**
-     * key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     @Export(name="configuration", refs={OrganizationWebhookConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OrganizationWebhookConfiguration> configuration;
 
     /**
-     * @return key/value pair of configuration for this webhook. Available keys are `url`, `content_type`, `secret` and `insecure_ssl`.
+     * @return key/value pair of configuration for this webhook. Available keys are `url`, `contentType`, `secret` and `insecureSsl`.
      * 
      */
     public Output<Optional<OrganizationWebhookConfiguration>> configuration() {

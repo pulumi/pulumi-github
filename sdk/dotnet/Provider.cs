@@ -25,19 +25,19 @@ namespace Pulumi.Github
         public Output<string?> BaseUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
         /// </summary>
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
         /// </summary>
         [Output("owner")]
         public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
         /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Github
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub App credentials used to connect to GitHub. Conflicts with `token`. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// The GitHub App credentials used to connect to GitHub. Conflicts with `Token`. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
         /// </summary>
         [Input("appAuth", json: true)]
         public Input<Inputs.ProviderAppAuthArgs>? AppAuth { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Github
         public Input<string>? BaseUrl { get; set; }
 
         /// <summary>
-        /// Enable `insecure` mode for testing purposes
+        /// Enable `Insecure` mode for testing purposes
         /// </summary>
         [Input("insecure", json: true)]
         public Input<bool>? Insecure { get; set; }
@@ -105,13 +105,13 @@ namespace Pulumi.Github
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
+        /// The GitHub organization name to manage. Use this field instead of `Owner` when managing organization accounts.
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
         /// <summary>
-        /// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
+        /// The GitHub owner name to manage. Use this field instead of `Organization` when managing individual accounts.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
@@ -129,7 +129,7 @@ namespace Pulumi.Github
         public Input<int>? ReadDelayMs { get; set; }
 
         /// <summary>
-        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
+        /// Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the MaxRetries must be set to greater than zero.
         /// </summary>
         [Input("retryDelayMs", json: true)]
         public Input<int>? RetryDelayMs { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Github
         private InputList<int>? _retryableErrors;
 
         /// <summary>
-        /// Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
+        /// Allow the provider to retry after receiving an error status code, the MaxRetries should be set for this to workDefaults to [500, 502, 503, 504]
         /// </summary>
         public InputList<int> RetryableErrors
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Github
         private Input<string>? _token;
 
         /// <summary>
-        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `token` and `app_auth` are not set.
+        /// The OAuth token used to connect to GitHub. Anonymous mode is enabled if both `Token` and `AppAuth` are not set.
         /// </summary>
         public Input<string>? Token
         {

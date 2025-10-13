@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class GetOrganizationWebhooksWebhookResult
     {
         /// <summary>
-        /// `true` if the webhook is active.
+        /// `True` if the webhook is active.
         /// </summary>
         public readonly bool Active;
         /// <summary>

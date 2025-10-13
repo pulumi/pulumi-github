@@ -88,28 +88,28 @@ public class RepositoryCustomProperty extends com.pulumi.resources.CustomResourc
         return this.propertyName;
     }
     /**
-     * Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+     * Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      * 
      */
     @Export(name="propertyType", refs={String.class}, tree="[0]")
     private Output<String> propertyType;
 
     /**
-     * @return Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
+     * @return Type of the custom property. Can be one of `singleSelect`, `multiSelect`, `string`, or `trueFalse`
      * 
      */
     public Output<String> propertyType() {
         return this.propertyType;
     }
     /**
-     * Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+     * Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      * 
      */
     @Export(name="propertyValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> propertyValues;
 
     /**
-     * @return Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
+     * @return Value of the custom property in the form of an array. Properties of type `singleSelect`, `string`, and `trueFalse` are represented as a string array of length 1
      * 
      */
     public Output<List<String>> propertyValues() {

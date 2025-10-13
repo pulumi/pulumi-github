@@ -188,7 +188,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
     /**
      * Must be either `Issue` or `PullRequest`
      * 
-     * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
      * See note example or issue example for more information.
      * 
      */
@@ -198,7 +198,7 @@ public class ProjectCard extends com.pulumi.resources.CustomResource {
     /**
      * @return Must be either `Issue` or `PullRequest`
      * 
-     * **Remarks:** You must either set the `note` attribute or both `content_id` and `content_type`.
+     * **Remarks:** You must either set the `note` attribute or both `contentId` and `contentType`.
      * See note example or issue example for more information.
      * 
      */
