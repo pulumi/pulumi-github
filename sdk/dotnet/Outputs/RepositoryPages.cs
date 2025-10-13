@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryPages
     {
         /// <summary>
-        /// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+        /// The type of GitHub Pages site to build. Can be `Legacy` or `Workflow`. If you use `Legacy` as build type you need to set the option `Source`.
         /// </summary>
         public readonly string? BuildType;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryPagesSource? Source;
         /// <summary>
-        /// The GitHub Pages site's build status e.g. `building` or `built`.
+        /// The GitHub Pages site's build status e.g. `Building` or `Built`.
         /// </summary>
         public readonly string? Status;
         public readonly string? Url;

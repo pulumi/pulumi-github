@@ -77,7 +77,7 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
+        /// The state of the milestone. Either `Open` or `Closed`. Default: `Open`
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
+        /// The state of the milestone. Either `Open` or `Closed`. Default: `Open`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// The state of the milestone. Either `open` or `closed`. Default: `open`
+        /// The state of the milestone. Either `Open` or `Closed`. Default: `Open`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

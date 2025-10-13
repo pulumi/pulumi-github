@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * This resource allows you to create and manage webhooks for GitHub organization.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Organization webhooks can be imported using the `id` of the webhook.

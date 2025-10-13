@@ -46,7 +46,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string OrganizationsUrl;
         /// <summary>
-        /// Filter collaborators returned by their permission. Can be one of: `pull`, `triage`, `push`, `maintain`, `admin`.  Defaults to not doing any filtering on permission.
+        /// Filter collaborators returned by their permission. Can be one of: `Pull`, `Triage`, `Push`, `Maintain`, `Admin`.  Defaults to not doing any filtering on permission.
         /// </summary>
         public readonly string Permission;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly string SubscriptionsUrl;
         /// <summary>
-        /// The type of the collaborator (ex. `user`).
+        /// The type of the collaborator (ex. `User`).
         /// </summary>
         public readonly string Type;
         /// <summary>

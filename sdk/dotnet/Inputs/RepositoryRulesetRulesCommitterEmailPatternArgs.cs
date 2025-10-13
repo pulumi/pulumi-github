@@ -25,7 +25,7 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? Negate { get; set; }
 
         /// <summary>
-        /// The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+        /// The operator to use for matching. Can be one of: `StartsWith`, `EndsWith`, `Contains`, `Regex`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

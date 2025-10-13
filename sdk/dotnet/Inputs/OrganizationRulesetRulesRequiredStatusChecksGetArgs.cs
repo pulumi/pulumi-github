@@ -25,7 +25,7 @@ namespace Pulumi.Github.Inputs
         }
 
         /// <summary>
-        /// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+        /// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `False`.
         /// </summary>
         [Input("strictRequiredStatusChecksPolicy")]
         public Input<bool>? StrictRequiredStatusChecksPolicy { get; set; }

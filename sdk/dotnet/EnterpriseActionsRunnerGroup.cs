@@ -101,7 +101,7 @@ namespace Pulumi.Github
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+        /// If true, the runner group will be restricted to running only the workflows specified in the SelectedWorkflows array. Defaults to false.
         /// </summary>
         [Output("restrictedToWorkflows")]
         public Output<bool?> RestrictedToWorkflows { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Github
         public Output<string> SelectedOrganizationsUrl { get; private set; } = null!;
 
         /// <summary>
-        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless RestrictedToWorkflows is set to true.
         /// </summary>
         [Output("selectedWorkflows")]
         public Output<ImmutableArray<string>> SelectedWorkflows { get; private set; } = null!;
 
         /// <summary>
-        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
+        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `All` or `Selected`
         /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+        /// If true, the runner group will be restricted to running only the workflows specified in the SelectedWorkflows array. Defaults to false.
         /// </summary>
         [Input("restrictedToWorkflows")]
         public Input<bool>? RestrictedToWorkflows { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Github
         private InputList<string>? _selectedWorkflows;
 
         /// <summary>
-        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless RestrictedToWorkflows is set to true.
         /// </summary>
         public InputList<string> SelectedWorkflows
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
+        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `All` or `Selected`
         /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false.
+        /// If true, the runner group will be restricted to running only the workflows specified in the SelectedWorkflows array. Defaults to false.
         /// </summary>
         [Input("restrictedToWorkflows")]
         public Input<bool>? RestrictedToWorkflows { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Github
         private InputList<string>? _selectedWorkflows;
 
         /// <summary>
-        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true.
+        /// List of workflows the runner group should be allowed to run. This setting will be ignored unless RestrictedToWorkflows is set to true.
         /// </summary>
         public InputList<string> SelectedWorkflows
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
+        /// Visibility of a runner group to enterprise organizations. Whether the runner group can include `All` or `Selected`
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

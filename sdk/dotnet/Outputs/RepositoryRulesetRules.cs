@@ -14,19 +14,19 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetRules
     {
         /// <summary>
-        /// (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters to be used for the BranchNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `TagNamePattern` as it only applied to rulesets with target `Branch`. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesBranchNamePattern? BranchNamePattern;
         /// <summary>
-        /// (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters to be used for the CommitAuthorEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesCommitAuthorEmailPattern? CommitAuthorEmailPattern;
         /// <summary>
-        /// (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters to be used for the CommitMessagePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesCommitMessagePattern? CommitMessagePattern;
         /// <summary>
-        /// (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters to be used for the CommitterEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesCommitterEmailPattern? CommitterEmailPattern;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesRequiredStatusChecks? RequiredStatusChecks;
         /// <summary>
-        /// (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters to be used for the TagNamePattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `BranchNamePattern` as it only applied to rulesets with target `Tag`. (see below for nested schema)
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesTagNamePattern? TagNamePattern;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? Update;
         /// <summary>
-        /// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+        /// (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `Update` to be set to `True`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
         /// </summary>
         public readonly bool? UpdateAllowsFetchAndMerge;
 

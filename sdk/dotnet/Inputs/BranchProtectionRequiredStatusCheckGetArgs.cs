@@ -30,7 +30,7 @@ namespace Pulumi.Github.Inputs
         }
 
         /// <summary>
-        /// Require branches to be up to date before merging. Defaults to `false`.
+        /// Require branches to be up to date before merging. Defaults to `False`.
         /// </summary>
         [Input("strict")]
         public Input<bool>? Strict { get; set; }

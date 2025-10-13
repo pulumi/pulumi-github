@@ -80,7 +80,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
     /**
      * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     @Import(name="visibility", required=true)
@@ -88,7 +88,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
     /**
      * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
      * 
      */
     public Output<String> visibility() {
@@ -219,7 +219,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
         /**
          * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
         /**
          * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
          * 
          * @return builder
          * 

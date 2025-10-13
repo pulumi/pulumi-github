@@ -44,9 +44,9 @@ namespace Pulumi.Github
     /// 
     /// ## Allowing empty invitation IDs
     /// 
-    /// Set `allow_empty_id` when using `for_each` over a list of `github_repository_collaborator.invitation_id`'s.
+    /// Set `AllowEmptyId` when using `ForEach` over a list of `github_repository_collaborator.invitation_id`'s.
     /// 
-    /// This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `for_each` loop.
+    /// This allows applying a module again when a new `github.RepositoryCollaborator` resource is added to the `ForEach` loop.
     /// This is needed as the `github_repository_collaborator.invitation_id` will be empty after a state refresh when the invitation has been accepted.
     /// 
     /// Note that when an invitation is accepted manually or by another tool between a state refresh and a `pulumi up` using that refreshed state,
@@ -64,7 +64,7 @@ namespace Pulumi.Github
         public Output<bool?> AllowEmptyId { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+        /// ID of the invitation to accept. Must be set when `AllowEmptyId` is `False`.
         /// </summary>
         [Output("invitationId")]
         public Output<string?> InvitationId { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Github
         public Input<bool>? AllowEmptyId { get; set; }
 
         /// <summary>
-        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+        /// ID of the invitation to accept. Must be set when `AllowEmptyId` is `False`.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Github
         public Input<bool>? AllowEmptyId { get; set; }
 
         /// <summary>
-        /// ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
+        /// ID of the invitation to accept. Must be set when `AllowEmptyId` is `False`.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }

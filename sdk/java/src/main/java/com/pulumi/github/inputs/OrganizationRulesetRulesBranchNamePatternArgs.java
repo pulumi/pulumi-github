@@ -48,14 +48,14 @@ public final class OrganizationRulesetRulesBranchNamePatternArgs extends com.pul
     }
 
     /**
-     * The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+     * @return The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
      * 
      */
     public Output<String> operator() {
@@ -147,7 +147,7 @@ public final class OrganizationRulesetRulesBranchNamePatternArgs extends com.pul
         }
 
         /**
-         * @param operator The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+         * @param operator The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class OrganizationRulesetRulesBranchNamePatternArgs extends com.pul
         }
 
         /**
-         * @param operator The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+         * @param operator The operator to use for matching. Can be one of: `startsWith`, `endsWith`, `contains`, `regex`.
          * 
          * @return builder
          * 
