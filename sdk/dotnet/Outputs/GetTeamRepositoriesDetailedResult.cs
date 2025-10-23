@@ -14,15 +14,19 @@ namespace Pulumi.Github.Outputs
     public sealed class GetTeamRepositoriesDetailedResult
     {
         public readonly int RepoId;
+        public readonly string RepoName;
         public readonly string RoleName;
 
         [OutputConstructor]
         private GetTeamRepositoriesDetailedResult(
             int repoId,
 
+            string repoName,
+
             string roleName)
         {
             RepoId = repoId;
+            RepoName = repoName;
             RoleName = roleName;
         }
     }

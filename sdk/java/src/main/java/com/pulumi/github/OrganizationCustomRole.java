@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note:** This resource is deprecated, please use the `githubOrganizationrepositoryRole` resource instead.
+ * 
  * This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
  * 
  * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.

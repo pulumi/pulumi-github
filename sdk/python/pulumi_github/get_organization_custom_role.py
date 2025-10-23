@@ -97,6 +97,8 @@ class AwaitableGetOrganizationCustomRoleResult(GetOrganizationCustomRoleResult):
 def get_organization_custom_role(name: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationCustomRoleResult:
     """
+    > **Note:** This data source is deprecated, please use the `github_organizationrepository_role` data source instead.
+
     Use this data source to retrieve information about a custom role in a GitHub Organization.
 
     > Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -127,6 +129,8 @@ def get_organization_custom_role(name: Optional[_builtins.str] = None,
 def get_organization_custom_role_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCustomRoleResult]:
     """
+    > **Note:** This data source is deprecated, please use the `github_organizationrepository_role` data source instead.
+
     Use this data source to retrieve information about a custom role in a GitHub Organization.
 
     > Note: Custom roles are currently only available in GitHub Enterprise Cloud.

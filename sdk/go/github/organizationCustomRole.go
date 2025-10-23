@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** This resource is deprecated, please use the `githubOrganizationrepositoryRole` resource instead.
+//
 // This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
 //
 // > Note: Custom roles are currently only available in GitHub Enterprise Cloud.

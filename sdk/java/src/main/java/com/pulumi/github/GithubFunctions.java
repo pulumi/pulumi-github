@@ -48,9 +48,19 @@ import com.pulumi.github.inputs.GetIssueLabelsPlainArgs;
 import com.pulumi.github.inputs.GetMembershipArgs;
 import com.pulumi.github.inputs.GetMembershipPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationArgs;
+import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+import com.pulumi.github.inputs.GetOrganizationCustomPropertiesPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationCustomRoleArgs;
 import com.pulumi.github.inputs.GetOrganizationCustomRolePlainArgs;
 import com.pulumi.github.inputs.GetOrganizationPlainArgs;
+import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+import com.pulumi.github.inputs.GetOrganizationRepositoryRolePlainArgs;
+import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+import com.pulumi.github.inputs.GetOrganizationRolePlainArgs;
+import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+import com.pulumi.github.inputs.GetOrganizationRoleTeamsPlainArgs;
+import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+import com.pulumi.github.inputs.GetOrganizationRoleUsersPlainArgs;
 import com.pulumi.github.inputs.GetOrganizationTeamsArgs;
 import com.pulumi.github.inputs.GetOrganizationTeamsPlainArgs;
 import com.pulumi.github.inputs.GetRefArgs;
@@ -129,10 +139,18 @@ import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetIssueLabelsResult;
 import com.pulumi.github.outputs.GetMembershipResult;
+import com.pulumi.github.outputs.GetOrganizationCustomPropertiesResult;
 import com.pulumi.github.outputs.GetOrganizationCustomRoleResult;
 import com.pulumi.github.outputs.GetOrganizationExternalIdentitiesResult;
 import com.pulumi.github.outputs.GetOrganizationIpAllowListResult;
+import com.pulumi.github.outputs.GetOrganizationRepositoryRoleResult;
+import com.pulumi.github.outputs.GetOrganizationRepositoryRolesResult;
 import com.pulumi.github.outputs.GetOrganizationResult;
+import com.pulumi.github.outputs.GetOrganizationRoleResult;
+import com.pulumi.github.outputs.GetOrganizationRoleTeamsResult;
+import com.pulumi.github.outputs.GetOrganizationRoleUsersResult;
+import com.pulumi.github.outputs.GetOrganizationRolesResult;
+import com.pulumi.github.outputs.GetOrganizationSecurityManagersResult;
 import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsResult;
 import com.pulumi.github.outputs.GetOrganizationTeamsResult;
 import com.pulumi.github.outputs.GetOrganizationWebhooksResult;
@@ -7843,6 +7861,208 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about a GitHub organization custom property.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = GithubFunctions.getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs.builder()
+     *             .propertyName("environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationCustomPropertiesResult> getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs args) {
+        return getOrganizationCustomProperties(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub organization custom property.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = GithubFunctions.getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs.builder()
+     *             .propertyName("environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationCustomPropertiesResult> getOrganizationCustomPropertiesPlain(GetOrganizationCustomPropertiesPlainArgs args) {
+        return getOrganizationCustomPropertiesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub organization custom property.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = GithubFunctions.getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs.builder()
+     *             .propertyName("environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationCustomPropertiesResult> getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", TypeShape.of(GetOrganizationCustomPropertiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub organization custom property.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = GithubFunctions.getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs.builder()
+     *             .propertyName("environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationCustomPropertiesResult> getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", TypeShape.of(GetOrganizationCustomPropertiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub organization custom property.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationCustomPropertiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = GithubFunctions.getOrganizationCustomProperties(GetOrganizationCustomPropertiesArgs.builder()
+     *             .propertyName("environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationCustomPropertiesResult> getOrganizationCustomPropertiesPlain(GetOrganizationCustomPropertiesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", TypeShape.of(GetOrganizationCustomPropertiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -7885,6 +8105,8 @@ public final class GithubFunctions {
         return getOrganizationCustomRole(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -7927,6 +8149,8 @@ public final class GithubFunctions {
         return getOrganizationCustomRolePlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -7969,6 +8193,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -8011,6 +8237,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
      * &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -8590,6 +8818,1834 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetOrganizationIpAllowListResult> getOrganizationIpAllowListPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationIpAllowList:getOrganizationIpAllowList", TypeShape.of(GetOrganizationIpAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization repository role.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRoleResult> getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs args) {
+        return getOrganizationRepositoryRole(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup a custom organization repository role.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRepositoryRoleResult> getOrganizationRepositoryRolePlain(GetOrganizationRepositoryRolePlainArgs args) {
+        return getOrganizationRepositoryRolePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup a custom organization repository role.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRoleResult> getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole", TypeShape.of(GetOrganizationRepositoryRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization repository role.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRoleResult> getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole", TypeShape.of(GetOrganizationRepositoryRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization repository role.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRepositoryRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRole(GetOrganizationRepositoryRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRepositoryRoleResult> getOrganizationRepositoryRolePlain(GetOrganizationRepositoryRolePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole", TypeShape.of(GetOrganizationRepositoryRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRoles() {
+        return getOrganizationRepositoryRoles(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRolesPlain() {
+        return getOrganizationRepositoryRolesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRoles(InvokeArgs args) {
+        return getOrganizationRepositoryRoles(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRolesPlain(InvokeArgs args) {
+        return getOrganizationRepositoryRolesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRoles(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRepositoryRoles:getOrganizationRepositoryRoles", TypeShape.of(GetOrganizationRepositoryRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRoles(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRepositoryRoles:getOrganizationRepositoryRoles", TypeShape.of(GetOrganizationRepositoryRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom repository roles in an organization.
+     * 
+     * &gt; **Note**: Custom organization repository roles are currently only available in GitHub Enterprise Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRepositoryRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization repository role.
+     * - `name` (String) The name of the organization repository role.
+     * - `description` (String) The description of the organization repository role.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRepositoryRolesResult> getOrganizationRepositoryRolesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRepositoryRoles:getOrganizationRepositoryRoles", TypeShape.of(GetOrganizationRepositoryRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRole(GetOrganizationRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRoleResult> getOrganizationRole(GetOrganizationRoleArgs args) {
+        return getOrganizationRole(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRole(GetOrganizationRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleResult> getOrganizationRolePlain(GetOrganizationRolePlainArgs args) {
+        return getOrganizationRolePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRole(GetOrganizationRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRoleResult> getOrganizationRole(GetOrganizationRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRole:getOrganizationRole", TypeShape.of(GetOrganizationRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRole(GetOrganizationRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationRoleResult> getOrganizationRole(GetOrganizationRoleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRole:getOrganizationRole", TypeShape.of(GetOrganizationRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRole(GetOrganizationRoleArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleResult> getOrganizationRolePlain(GetOrganizationRolePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRole:getOrganizationRole", TypeShape.of(GetOrganizationRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all teams assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `teams`
+     * 
+     * ### Read-Only
+     * 
+     * - `teamId` (Number) The ID of the team.
+     * - `slug` (String) The Slug of the team name.
+     * - `name` (String) The name of the team.
+     * - `permission` (String) The permission that the team will have for its repositories.
+     * 
+     */
+    public static Output<GetOrganizationRoleTeamsResult> getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs args) {
+        return getOrganizationRoleTeams(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all teams assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `teams`
+     * 
+     * ### Read-Only
+     * 
+     * - `teamId` (Number) The ID of the team.
+     * - `slug` (String) The Slug of the team name.
+     * - `name` (String) The name of the team.
+     * - `permission` (String) The permission that the team will have for its repositories.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleTeamsResult> getOrganizationRoleTeamsPlain(GetOrganizationRoleTeamsPlainArgs args) {
+        return getOrganizationRoleTeamsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all teams assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `teams`
+     * 
+     * ### Read-Only
+     * 
+     * - `teamId` (Number) The ID of the team.
+     * - `slug` (String) The Slug of the team name.
+     * - `name` (String) The name of the team.
+     * - `permission` (String) The permission that the team will have for its repositories.
+     * 
+     */
+    public static Output<GetOrganizationRoleTeamsResult> getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoleTeams:getOrganizationRoleTeams", TypeShape.of(GetOrganizationRoleTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all teams assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `teams`
+     * 
+     * ### Read-Only
+     * 
+     * - `teamId` (Number) The ID of the team.
+     * - `slug` (String) The Slug of the team name.
+     * - `name` (String) The name of the team.
+     * - `permission` (String) The permission that the team will have for its repositories.
+     * 
+     */
+    public static Output<GetOrganizationRoleTeamsResult> getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoleTeams:getOrganizationRoleTeams", TypeShape.of(GetOrganizationRoleTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all teams assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleTeams(GetOrganizationRoleTeamsArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `teams`
+     * 
+     * ### Read-Only
+     * 
+     * - `teamId` (Number) The ID of the team.
+     * - `slug` (String) The Slug of the team name.
+     * - `name` (String) The name of the team.
+     * - `permission` (String) The permission that the team will have for its repositories.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleTeamsResult> getOrganizationRoleTeamsPlain(GetOrganizationRoleTeamsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRoleTeams:getOrganizationRoleTeams", TypeShape.of(GetOrganizationRoleTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all users assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleUsers(GetOrganizationRoleUsersArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `users`
+     * 
+     * ### Read-Only
+     * 
+     * - `userId` (Number) The ID of the user.
+     * - `login` (String) The login for the GitHub user account.
+     * 
+     */
+    public static Output<GetOrganizationRoleUsersResult> getOrganizationRoleUsers(GetOrganizationRoleUsersArgs args) {
+        return getOrganizationRoleUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all users assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleUsers(GetOrganizationRoleUsersArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `users`
+     * 
+     * ### Read-Only
+     * 
+     * - `userId` (Number) The ID of the user.
+     * - `login` (String) The login for the GitHub user account.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleUsersResult> getOrganizationRoleUsersPlain(GetOrganizationRoleUsersPlainArgs args) {
+        return getOrganizationRoleUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all users assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleUsers(GetOrganizationRoleUsersArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `users`
+     * 
+     * ### Read-Only
+     * 
+     * - `userId` (Number) The ID of the user.
+     * - `login` (String) The login for the GitHub user account.
+     * 
+     */
+    public static Output<GetOrganizationRoleUsersResult> getOrganizationRoleUsers(GetOrganizationRoleUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoleUsers:getOrganizationRoleUsers", TypeShape.of(GetOrganizationRoleUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all users assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleUsers(GetOrganizationRoleUsersArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `users`
+     * 
+     * ### Read-Only
+     * 
+     * - `userId` (Number) The ID of the user.
+     * - `login` (String) The login for the GitHub user account.
+     * 
+     */
+    public static Output<GetOrganizationRoleUsersResult> getOrganizationRoleUsers(GetOrganizationRoleUsersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoleUsers:getOrganizationRoleUsers", TypeShape.of(GetOrganizationRoleUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all users assigned to a custom organization role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetOrganizationRoleUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoleUsers(GetOrganizationRoleUsersArgs.builder()
+     *             .roleId(1234)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `users`
+     * 
+     * ### Read-Only
+     * 
+     * - `userId` (Number) The ID of the user.
+     * - `login` (String) The login for the GitHub user account.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRoleUsersResult> getOrganizationRoleUsersPlain(GetOrganizationRoleUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRoleUsers:getOrganizationRoleUsers", TypeShape.of(GetOrganizationRoleUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRolesResult> getOrganizationRoles() {
+        return getOrganizationRoles(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRolesResult> getOrganizationRolesPlain() {
+        return getOrganizationRolesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRolesResult> getOrganizationRoles(InvokeArgs args) {
+        return getOrganizationRoles(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRolesResult> getOrganizationRolesPlain(InvokeArgs args) {
+        return getOrganizationRolesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRolesResult> getOrganizationRoles(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoles:getOrganizationRoles", TypeShape.of(GetOrganizationRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static Output<GetOrganizationRolesResult> getOrganizationRoles(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationRoles:getOrganizationRoles", TypeShape.of(GetOrganizationRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lookup all custom roles in an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getOrganizationRoles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Nested Schema for `roles`
+     * 
+     * ### Read-Only
+     * 
+     * - `roleId` (Number) The ID of the organization role.
+     * - `name` (String) The name of the organization role.
+     * - `description` (String) The description of the organization role.
+     * - `source` (String) The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     * - `baseRole` (String) The system role from which this role inherits permissions.
+     * - `permissions` (Set of String) The permissions included in this role.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationRolesResult> getOrganizationRolesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationRoles:getOrganizationRoles", TypeShape.of(GetOrganizationRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagers() {
+        return getOrganizationSecurityManagers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagersPlain() {
+        return getOrganizationSecurityManagersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagers(InvokeArgs args) {
+        return getOrganizationSecurityManagers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagersPlain(InvokeArgs args) {
+        return getOrganizationSecurityManagersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", TypeShape.of(GetOrganizationSecurityManagersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", TypeShape.of(GetOrganizationSecurityManagersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the security managers for an organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = GithubFunctions.getOrganizationSecurityManagers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSecurityManagersResult> getOrganizationSecurityManagersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", TypeShape.of(GetOrganizationSecurityManagersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the identity provider (IdP) groups for an organization.

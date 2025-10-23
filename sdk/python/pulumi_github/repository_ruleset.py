@@ -32,7 +32,7 @@ class RepositoryRulesetArgs:
         The set of arguments for constructing a RepositoryRuleset resource.
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
-        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch` and `tag`.
+        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
@@ -78,7 +78,7 @@ class RepositoryRulesetArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[_builtins.str]:
         """
-        (String) Possible values are `branch` and `tag`.
+        (String) Possible values are `branch`, `tag` and `push`.
         """
         return pulumi.get(self, "target")
 
@@ -159,7 +159,7 @@ class _RepositoryRulesetState:
         :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.int] ruleset_id: (Number) GitHub ID for the ruleset.
-        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch` and `tag`.
+        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         """
         if bypass_actors is not None:
             pulumi.set(__self__, "bypass_actors", bypass_actors)
@@ -294,7 +294,7 @@ class _RepositoryRulesetState:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (String) Possible values are `branch` and `tag`.
+        (String) Possible values are `branch`, `tag` and `push`.
         """
         return pulumi.get(self, "target")
 
@@ -357,6 +357,30 @@ class RepositoryRuleset(pulumi.CustomResource):
                     "required_deployment_environments": ["test"],
                 },
             })
+        # Example with push ruleset
+        example_push = github.RepositoryRuleset("example_push",
+            name="example_push",
+            repository=example.name,
+            target="push",
+            enforcement="active",
+            rules={
+                "file_path_restriction": {
+                    "restricted_file_paths": [
+                        ".github/workflows/*",
+                        "*.env",
+                    ],
+                },
+                "max_file_size": {
+                    "max_file_size": 104857600,
+                },
+                "file_extension_restriction": {
+                    "restricted_file_extensions": [
+                        "*.exe",
+                        "*.dll",
+                        "*.so",
+                    ],
+                },
+            })
         ```
 
         ## Import
@@ -375,7 +399,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
         :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
-        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch` and `tag`.
+        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         """
         ...
     @overload
@@ -421,6 +445,30 @@ class RepositoryRuleset(pulumi.CustomResource):
                 "required_signatures": True,
                 "required_deployments": {
                     "required_deployment_environments": ["test"],
+                },
+            })
+        # Example with push ruleset
+        example_push = github.RepositoryRuleset("example_push",
+            name="example_push",
+            repository=example.name,
+            target="push",
+            enforcement="active",
+            rules={
+                "file_path_restriction": {
+                    "restricted_file_paths": [
+                        ".github/workflows/*",
+                        "*.env",
+                    ],
+                },
+                "max_file_size": {
+                    "max_file_size": 104857600,
+                },
+                "file_extension_restriction": {
+                    "restricted_file_extensions": [
+                        "*.exe",
+                        "*.dll",
+                        "*.so",
+                    ],
                 },
             })
         ```
@@ -516,7 +564,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
         :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.int] ruleset_id: (Number) GitHub ID for the ruleset.
-        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch` and `tag`.
+        :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -610,7 +658,7 @@ class RepositoryRuleset(pulumi.CustomResource):
     @pulumi.getter
     def target(self) -> pulumi.Output[_builtins.str]:
         """
-        (String) Possible values are `branch` and `tag`.
+        (String) Possible values are `branch`, `tag` and `push`.
         """
         return pulumi.get(self, "target")
 

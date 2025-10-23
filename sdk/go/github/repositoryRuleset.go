@@ -73,6 +73,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example with push ruleset
+//			_, err = github.NewRepositoryRuleset(ctx, "example_push", &github.RepositoryRulesetArgs{
+//				Name:        pulumi.String("example_push"),
+//				Repository:  example.Name,
+//				Target:      pulumi.String("push"),
+//				Enforcement: pulumi.String("active"),
+//				Rules: &github.RepositoryRulesetRulesArgs{
+//					FilePathRestriction: &github.RepositoryRulesetRulesFilePathRestrictionArgs{
+//						RestrictedFilePaths: pulumi.StringArray{
+//							pulumi.String(".github/workflows/*"),
+//							pulumi.String("*.env"),
+//						},
+//					},
+//					MaxFileSize: &github.RepositoryRulesetRulesMaxFileSizeArgs{
+//						MaxFileSize: pulumi.Int(104857600),
+//					},
+//					FileExtensionRestriction: &github.RepositoryRulesetRulesFileExtensionRestrictionArgs{
+//						RestrictedFileExtensions: pulumi.StringArray{
+//							pulumi.String("*.exe"),
+//							pulumi.String("*.dll"),
+//							pulumi.String("*.so"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -107,7 +135,7 @@ type RepositoryRuleset struct {
 	Rules RepositoryRulesetRulesOutput `pulumi:"rules"`
 	// (Number) GitHub ID for the ruleset.
 	RulesetId pulumi.IntOutput `pulumi:"rulesetId"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringOutput `pulumi:"target"`
 }
 
@@ -168,7 +196,7 @@ type repositoryRulesetState struct {
 	Rules *RepositoryRulesetRules `pulumi:"rules"`
 	// (Number) GitHub ID for the ruleset.
 	RulesetId *int `pulumi:"rulesetId"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target *string `pulumi:"target"`
 }
 
@@ -191,7 +219,7 @@ type RepositoryRulesetState struct {
 	Rules RepositoryRulesetRulesPtrInput
 	// (Number) GitHub ID for the ruleset.
 	RulesetId pulumi.IntPtrInput
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringPtrInput
 }
 
@@ -212,7 +240,7 @@ type repositoryRulesetArgs struct {
 	Repository *string `pulumi:"repository"`
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRules `pulumi:"rules"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target string `pulumi:"target"`
 }
 
@@ -230,7 +258,7 @@ type RepositoryRulesetArgs struct {
 	Repository pulumi.StringPtrInput
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRulesInput
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringInput
 }
 
@@ -366,7 +394,7 @@ func (o RepositoryRulesetOutput) RulesetId() pulumi.IntOutput {
 	return o.ApplyT(func(v *RepositoryRuleset) pulumi.IntOutput { return v.RulesetId }).(pulumi.IntOutput)
 }
 
-// (String) Possible values are `branch` and `tag`.
+// (String) Possible values are `branch`, `tag` and `push`.
 func (o RepositoryRulesetOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryRuleset) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }

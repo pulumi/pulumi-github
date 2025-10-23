@@ -14,13 +14,21 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredWorkflows
     {
         /// <summary>
+        /// Allow repositories and branches to be created if a check would otherwise prohibit it.
+        /// </summary>
+        public readonly bool? DoNotEnforceOnCreate;
+        /// <summary>
         /// Actions workflows that are required. Several can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> RequiredWorkflows;
 
         [OutputConstructor]
-        private OrganizationRulesetRulesRequiredWorkflows(ImmutableArray<Outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows)
+        private OrganizationRulesetRulesRequiredWorkflows(
+            bool? doNotEnforceOnCreate,
+
+            ImmutableArray<Outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows)
         {
+            DoNotEnforceOnCreate = doNotEnforceOnCreate;
             RequiredWorkflows = requiredWorkflows;
         }
     }

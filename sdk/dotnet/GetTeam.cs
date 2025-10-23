@@ -183,11 +183,11 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Privacy;
         /// <summary>
-        /// List of team repositories (list of repo names). Not returned if `SummaryOnly = true`
+        /// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
-        /// List of team repositories (list of `RepoId` and `RoleName`). Not returned if `SummaryOnly = true`
+        /// List of team repositories (each item comprises of `RepoId`, `RepoName` &amp; `RoleName`). Not returned if `SummaryOnly = true`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamRepositoriesDetailedResult> RepositoriesDetaileds;
         public readonly int? ResultsPerPage;

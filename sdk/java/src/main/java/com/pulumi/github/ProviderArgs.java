@@ -119,14 +119,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
      * 
      */
     @Import(name="parallelRequests", json=true)
     private @Nullable Output<Boolean> parallelRequests;
 
     /**
-     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+     * @return Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
      * 
      */
     public Optional<Output<Boolean>> parallelRequests() {
@@ -378,7 +378,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com&#39;s best practices to avoid hitting abuse rate limitsDefaults to false if not set
+         * @param parallelRequests Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com&#39;s best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
          * 
          * @return builder
          * 

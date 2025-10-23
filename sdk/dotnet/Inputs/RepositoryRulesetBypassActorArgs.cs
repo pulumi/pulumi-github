@@ -13,19 +13,19 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetBypassActorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+        /// The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         /// </summary>
-        [Input("actorId", required: true)]
-        public Input<int> ActorId { get; set; } = null!;
+        [Input("actorId")]
+        public Input<int>? ActorId { get; set; }
 
         /// <summary>
-        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
         /// </summary>
         [Input("actorType", required: true)]
         public Input<string> ActorType { get; set; } = null!;
 
         /// <summary>
-        /// (String) When the specified actor can bypass the ruleset. PullRequest means that an actor can only bypass rules on pull requests. Can be one of: `Always`, `PullRequest`.
+        /// (String) When the specified actor can bypass the ruleset. PullRequest means that an actor can only bypass rules on pull requests. Can be one of: `Always`, `PullRequest`, `Exempt`.
         /// 
         /// &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 

@@ -15,8 +15,8 @@ namespace Pulumi.Github.Inputs
         /// <summary>
         /// (Number) The ID of the actor that can bypass a ruleset.
         /// </summary>
-        [Input("actorId", required: true)]
-        public Input<int> ActorId { get; set; } = null!;
+        [Input("actorId")]
+        public Input<int>? ActorId { get; set; }
 
         /// <summary>
         /// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
@@ -25,7 +25,7 @@ namespace Pulumi.Github.Inputs
         public Input<string> ActorType { get; set; } = null!;
 
         /// <summary>
-        /// (String) When the specified actor can bypass the ruleset. PullRequest means that an actor can only bypass rules on pull requests. Can be one of: `Always`, `PullRequest`.
+        /// (String) When the specified actor can bypass the ruleset. PullRequest means that an actor can only bypass rules on pull requests. Can be one of: `Always`, `PullRequest`, `Exempt`.
         /// 
         /// ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 

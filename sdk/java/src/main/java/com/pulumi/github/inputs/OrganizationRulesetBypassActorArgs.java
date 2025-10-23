@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +21,15 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
      * (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
-    @Import(name="actorId", required=true)
-    private Output<Integer> actorId;
+    @Import(name="actorId")
+    private @Nullable Output<Integer> actorId;
 
     /**
      * @return (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
-    public Output<Integer> actorId() {
-        return this.actorId;
+    public Optional<Output<Integer>> actorId() {
+        return Optional.ofNullable(this.actorId);
     }
 
     /**
@@ -46,7 +48,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
     }
 
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -58,7 +60,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
     private Output<String> bypassMode;
 
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -102,7 +104,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder actorId(Output<Integer> actorId) {
+        public Builder actorId(@Nullable Output<Integer> actorId) {
             $.actorId = actorId;
             return this;
         }
@@ -139,7 +141,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
          * 
          * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
@@ -155,7 +157,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
          * 
          * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
@@ -170,9 +172,6 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         public OrganizationRulesetBypassActorArgs build() {
-            if ($.actorId == null) {
-                throw new MissingRequiredPropertyException("OrganizationRulesetBypassActorArgs", "actorId");
-            }
             if ($.actorType == null) {
                 throw new MissingRequiredPropertyException("OrganizationRulesetBypassActorArgs", "actorType");
             }

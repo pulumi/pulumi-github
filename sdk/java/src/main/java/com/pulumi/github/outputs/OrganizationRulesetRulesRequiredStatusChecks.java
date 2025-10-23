@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRulesRequiredStatusChecks {
     /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    private @Nullable Boolean doNotEnforceOnCreate;
+    /**
      * @return Status checks that are required. Several can be defined.
      * 
      */
@@ -26,6 +31,13 @@ public final class OrganizationRulesetRulesRequiredStatusChecks {
     private @Nullable Boolean strictRequiredStatusChecksPolicy;
 
     private OrganizationRulesetRulesRequiredStatusChecks() {}
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    public Optional<Boolean> doNotEnforceOnCreate() {
+        return Optional.ofNullable(this.doNotEnforceOnCreate);
+    }
     /**
      * @return Status checks that are required. Several can be defined.
      * 
@@ -50,15 +62,23 @@ public final class OrganizationRulesetRulesRequiredStatusChecks {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean doNotEnforceOnCreate;
         private List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks;
         private @Nullable Boolean strictRequiredStatusChecksPolicy;
         public Builder() {}
         public Builder(OrganizationRulesetRulesRequiredStatusChecks defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.doNotEnforceOnCreate = defaults.doNotEnforceOnCreate;
     	      this.requiredChecks = defaults.requiredChecks;
     	      this.strictRequiredStatusChecksPolicy = defaults.strictRequiredStatusChecksPolicy;
         }
 
+        @CustomType.Setter
+        public Builder doNotEnforceOnCreate(@Nullable Boolean doNotEnforceOnCreate) {
+
+            this.doNotEnforceOnCreate = doNotEnforceOnCreate;
+            return this;
+        }
         @CustomType.Setter
         public Builder requiredChecks(List<OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks) {
             if (requiredChecks == null) {
@@ -78,6 +98,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecks {
         }
         public OrganizationRulesetRulesRequiredStatusChecks build() {
             final var _resultValue = new OrganizationRulesetRulesRequiredStatusChecks();
+            _resultValue.doNotEnforceOnCreate = doNotEnforceOnCreate;
             _resultValue.requiredChecks = requiredChecks;
             _resultValue.strictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
             return _resultValue;

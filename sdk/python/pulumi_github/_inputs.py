@@ -109,6 +109,12 @@ __all__ = [
     'RepositoryRulesetRulesCommitMessagePatternArgsDict',
     'RepositoryRulesetRulesCommitterEmailPatternArgs',
     'RepositoryRulesetRulesCommitterEmailPatternArgsDict',
+    'RepositoryRulesetRulesFileExtensionRestrictionArgs',
+    'RepositoryRulesetRulesFileExtensionRestrictionArgsDict',
+    'RepositoryRulesetRulesFilePathRestrictionArgs',
+    'RepositoryRulesetRulesFilePathRestrictionArgsDict',
+    'RepositoryRulesetRulesMaxFileSizeArgs',
+    'RepositoryRulesetRulesMaxFileSizeArgsDict',
     'RepositoryRulesetRulesMergeQueueArgs',
     'RepositoryRulesetRulesMergeQueueArgsDict',
     'RepositoryRulesetRulesPullRequestArgs',
@@ -1241,22 +1247,22 @@ class IssueLabelsLabelArgs:
 
 if not MYPY:
     class OrganizationRulesetBypassActorArgsDict(TypedDict):
-        actor_id: pulumi.Input[_builtins.int]
-        """
-        (Number) The ID of the actor that can bypass a ruleset.
-        """
         actor_type: pulumi.Input[_builtins.str]
         """
         The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
         """
         bypass_mode: pulumi.Input[_builtins.str]
         """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
         * `OrganizationAdmin` > `1`
         * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        """
+        actor_id: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        (Number) The ID of the actor that can bypass a ruleset.
         """
 elif False:
     OrganizationRulesetBypassActorArgsDict: TypeAlias = Mapping[str, Any]
@@ -1264,34 +1270,23 @@ elif False:
 @pulumi.input_type
 class OrganizationRulesetBypassActorArgs:
     def __init__(__self__, *,
-                 actor_id: pulumi.Input[_builtins.int],
                  actor_type: pulumi.Input[_builtins.str],
-                 bypass_mode: pulumi.Input[_builtins.str]):
+                 bypass_mode: pulumi.Input[_builtins.str],
+                 actor_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
         :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
-        :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
                * `OrganizationAdmin` > `1`
                * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
         """
-        pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="actorId")
-    def actor_id(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Number) The ID of the actor that can bypass a ruleset.
-        """
-        return pulumi.get(self, "actor_id")
-
-    @actor_id.setter
-    def actor_id(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "actor_id", value)
+        if actor_id is not None:
+            pulumi.set(__self__, "actor_id", actor_id)
 
     @_builtins.property
     @pulumi.getter(name="actorType")
@@ -1309,7 +1304,7 @@ class OrganizationRulesetBypassActorArgs:
     @pulumi.getter(name="bypassMode")
     def bypass_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
@@ -1321,6 +1316,18 @@ class OrganizationRulesetBypassActorArgs:
     @bypass_mode.setter
     def bypass_mode(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bypass_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        (Number) The ID of the actor that can bypass a ruleset.
+        """
+        return pulumi.get(self, "actor_id")
+
+    @actor_id.setter
+    def actor_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "actor_id", value)
 
 
 if not MYPY:
@@ -2410,6 +2417,10 @@ if not MYPY:
         """
         Status checks that are required. Several can be defined.
         """
+        do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
         strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -2421,12 +2432,16 @@ elif False:
 class OrganizationRulesetRulesRequiredStatusChecksArgs:
     def __init__(__self__, *,
                  required_checks: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]],
+                 do_not_enforce_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
                  strict_required_status_checks_policy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]] required_checks: Status checks that are required. Several can be defined.
+        :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
         :param pulumi.Input[_builtins.bool] strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
+        if do_not_enforce_on_create is not None:
+            pulumi.set(__self__, "do_not_enforce_on_create", do_not_enforce_on_create)
         if strict_required_status_checks_policy is not None:
             pulumi.set(__self__, "strict_required_status_checks_policy", strict_required_status_checks_policy)
 
@@ -2441,6 +2456,18 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
     @required_checks.setter
     def required_checks(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs']]]):
         pulumi.set(self, "required_checks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="doNotEnforceOnCreate")
+    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
+        return pulumi.get(self, "do_not_enforce_on_create")
+
+    @do_not_enforce_on_create.setter
+    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "do_not_enforce_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="strictRequiredStatusChecksPolicy")
@@ -2512,17 +2539,25 @@ if not MYPY:
         """
         Actions workflows that are required. Several can be defined.
         """
+        do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
 elif False:
     OrganizationRulesetRulesRequiredWorkflowsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredWorkflowsArgs:
     def __init__(__self__, *,
-                 required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]]):
+                 required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]],
+                 do_not_enforce_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]] required_workflows: Actions workflows that are required. Several can be defined.
+        :param pulumi.Input[_builtins.bool] do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
         """
         pulumi.set(__self__, "required_workflows", required_workflows)
+        if do_not_enforce_on_create is not None:
+            pulumi.set(__self__, "do_not_enforce_on_create", do_not_enforce_on_create)
 
     @_builtins.property
     @pulumi.getter(name="requiredWorkflows")
@@ -2535,6 +2570,18 @@ class OrganizationRulesetRulesRequiredWorkflowsArgs:
     @required_workflows.setter
     def required_workflows(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs']]]):
         pulumi.set(self, "required_workflows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="doNotEnforceOnCreate")
+    def do_not_enforce_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        """
+        return pulumi.get(self, "do_not_enforce_on_create")
+
+    @do_not_enforce_on_create.setter
+    def do_not_enforce_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "do_not_enforce_on_create", value)
 
 
 if not MYPY:
@@ -3302,22 +3349,22 @@ class RepositoryPagesSourceArgs:
 
 if not MYPY:
     class RepositoryRulesetBypassActorArgsDict(TypedDict):
-        actor_id: pulumi.Input[_builtins.int]
-        """
-        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-        """
         actor_type: pulumi.Input[_builtins.str]
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
         """
         bypass_mode: pulumi.Input[_builtins.str]
         """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
         * `OrganizationAdmin` > `1`
         * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        """
+        actor_id: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
 elif False:
     RepositoryRulesetBypassActorArgsDict: TypeAlias = Mapping[str, Any]
@@ -3325,40 +3372,29 @@ elif False:
 @pulumi.input_type
 class RepositoryRulesetBypassActorArgs:
     def __init__(__self__, *,
-                 actor_id: pulumi.Input[_builtins.int],
                  actor_type: pulumi.Input[_builtins.str],
-                 bypass_mode: pulumi.Input[_builtins.str]):
+                 bypass_mode: pulumi.Input[_builtins.str],
+                 actor_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
-        :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        :param pulumi.Input[_builtins.str] actor_type: The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+        :param pulumi.Input[_builtins.str] bypass_mode: (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
                * `OrganizationAdmin` > `1`
                * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        :param pulumi.Input[_builtins.int] actor_id: The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
-        pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="actorId")
-    def actor_id(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-        """
-        return pulumi.get(self, "actor_id")
-
-    @actor_id.setter
-    def actor_id(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "actor_id", value)
+        if actor_id is not None:
+            pulumi.set(__self__, "actor_id", actor_id)
 
     @_builtins.property
     @pulumi.getter(name="actorType")
     def actor_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
         """
         return pulumi.get(self, "actor_type")
 
@@ -3370,7 +3406,7 @@ class RepositoryRulesetBypassActorArgs:
     @pulumi.getter(name="bypassMode")
     def bypass_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`.
+        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
@@ -3382,6 +3418,18 @@ class RepositoryRulesetBypassActorArgs:
     @bypass_mode.setter
     def bypass_mode(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bypass_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+        """
+        return pulumi.get(self, "actor_id")
+
+    @actor_id.setter
+    def actor_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "actor_id", value)
 
 
 if not MYPY:
@@ -3491,6 +3539,18 @@ if not MYPY:
         """
         (Boolean) Only allow users with bypass permissions to delete matching refs.
         """
+        file_extension_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgsDict']]
+        """
+        (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        """
+        file_path_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgsDict']]
+        """
+        (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        """
+        max_file_size: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgsDict']]
+        """
+        (Integer) The maximum allowed size, in bytes, of a file.
+        """
         merge_queue: NotRequired[pulumi.Input['RepositoryRulesetRulesMergeQueueArgsDict']]
         """
         (Block List, Max: 1) Merges must be performed via a merge queue.
@@ -3547,6 +3607,9 @@ class RepositoryRulesetRulesArgs:
                  committer_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']] = None,
                  creation: Optional[pulumi.Input[_builtins.bool]] = None,
                  deletion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 file_extension_restriction: Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']] = None,
+                 file_path_restriction: Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']] = None,
+                 max_file_size: Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']] = None,
                  merge_queue: Optional[pulumi.Input['RepositoryRulesetRulesMergeQueueArgs']] = None,
                  non_fast_forward: Optional[pulumi.Input[_builtins.bool]] = None,
                  pull_request: Optional[pulumi.Input['RepositoryRulesetRulesPullRequestArgs']] = None,
@@ -3565,6 +3628,9 @@ class RepositoryRulesetRulesArgs:
         :param pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs'] committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param pulumi.Input[_builtins.bool] creation: (Boolean) Only allow users with bypass permission to create matching refs.
         :param pulumi.Input[_builtins.bool] deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
+        :param pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs'] file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        :param pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs'] file_path_restriction: (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        :param pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs'] max_file_size: (Integer) The maximum allowed size, in bytes, of a file.
         :param pulumi.Input['RepositoryRulesetRulesMergeQueueArgs'] merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue.
         :param pulumi.Input[_builtins.bool] non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param pulumi.Input['RepositoryRulesetRulesPullRequestArgs'] pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -3589,6 +3655,12 @@ class RepositoryRulesetRulesArgs:
             pulumi.set(__self__, "creation", creation)
         if deletion is not None:
             pulumi.set(__self__, "deletion", deletion)
+        if file_extension_restriction is not None:
+            pulumi.set(__self__, "file_extension_restriction", file_extension_restriction)
+        if file_path_restriction is not None:
+            pulumi.set(__self__, "file_path_restriction", file_path_restriction)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
         if merge_queue is not None:
             pulumi.set(__self__, "merge_queue", merge_queue)
         if non_fast_forward is not None:
@@ -3683,6 +3755,42 @@ class RepositoryRulesetRulesArgs:
     @deletion.setter
     def deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "deletion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtensionRestriction")
+    def file_extension_restriction(self) -> Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']]:
+        """
+        (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        """
+        return pulumi.get(self, "file_extension_restriction")
+
+    @file_extension_restriction.setter
+    def file_extension_restriction(self, value: Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']]):
+        pulumi.set(self, "file_extension_restriction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filePathRestriction")
+    def file_path_restriction(self) -> Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']]:
+        """
+        (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        """
+        return pulumi.get(self, "file_path_restriction")
+
+    @file_path_restriction.setter
+    def file_path_restriction(self, value: Optional[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs']]):
+        pulumi.set(self, "file_path_restriction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']]:
+        """
+        (Integer) The maximum allowed size, in bytes, of a file.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs']]):
+        pulumi.set(self, "max_file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeQueue")
@@ -4175,6 +4283,99 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
     @negate.setter
     def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "negate", value)
+
+
+if not MYPY:
+    class RepositoryRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
+        restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        A list of file extensions.
+        """
+elif False:
+    RepositoryRulesetRulesFileExtensionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryRulesetRulesFileExtensionRestrictionArgs:
+    def __init__(__self__, *,
+                 restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_file_extensions: A list of file extensions.
+        """
+        pulumi.set(__self__, "restricted_file_extensions", restricted_file_extensions)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedFileExtensions")
+    def restricted_file_extensions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of file extensions.
+        """
+        return pulumi.get(self, "restricted_file_extensions")
+
+    @restricted_file_extensions.setter
+    def restricted_file_extensions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "restricted_file_extensions", value)
+
+
+if not MYPY:
+    class RepositoryRulesetRulesFilePathRestrictionArgsDict(TypedDict):
+        restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        The file paths that are restricted from being pushed to the commit graph.
+        """
+elif False:
+    RepositoryRulesetRulesFilePathRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryRulesetRulesFilePathRestrictionArgs:
+    def __init__(__self__, *,
+                 restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_file_paths: The file paths that are restricted from being pushed to the commit graph.
+        """
+        pulumi.set(__self__, "restricted_file_paths", restricted_file_paths)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedFilePaths")
+    def restricted_file_paths(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The file paths that are restricted from being pushed to the commit graph.
+        """
+        return pulumi.get(self, "restricted_file_paths")
+
+    @restricted_file_paths.setter
+    def restricted_file_paths(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "restricted_file_paths", value)
+
+
+if not MYPY:
+    class RepositoryRulesetRulesMaxFileSizeArgsDict(TypedDict):
+        max_file_size: pulumi.Input[_builtins.int]
+        """
+        The maximum allowed size of a file in bytes.
+        """
+elif False:
+    RepositoryRulesetRulesMaxFileSizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryRulesetRulesMaxFileSizeArgs:
+    def __init__(__self__, *,
+                 max_file_size: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] max_file_size: The maximum allowed size of a file in bytes.
+        """
+        pulumi.set(__self__, "max_file_size", max_file_size)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum allowed size of a file in bytes.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_file_size", value)
 
 
 if not MYPY:

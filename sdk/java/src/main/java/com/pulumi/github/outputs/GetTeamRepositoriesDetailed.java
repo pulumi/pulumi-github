@@ -12,11 +12,15 @@ import java.util.Objects;
 @CustomType
 public final class GetTeamRepositoriesDetailed {
     private Integer repoId;
+    private String repoName;
     private String roleName;
 
     private GetTeamRepositoriesDetailed() {}
     public Integer repoId() {
         return this.repoId;
+    }
+    public String repoName() {
+        return this.repoName;
     }
     public String roleName() {
         return this.roleName;
@@ -32,11 +36,13 @@ public final class GetTeamRepositoriesDetailed {
     @CustomType.Builder
     public static final class Builder {
         private Integer repoId;
+        private String repoName;
         private String roleName;
         public Builder() {}
         public Builder(GetTeamRepositoriesDetailed defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repoId = defaults.repoId;
+    	      this.repoName = defaults.repoName;
     	      this.roleName = defaults.roleName;
         }
 
@@ -46,6 +52,14 @@ public final class GetTeamRepositoriesDetailed {
               throw new MissingRequiredPropertyException("GetTeamRepositoriesDetailed", "repoId");
             }
             this.repoId = repoId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder repoName(String repoName) {
+            if (repoName == null) {
+              throw new MissingRequiredPropertyException("GetTeamRepositoriesDetailed", "repoName");
+            }
+            this.repoName = repoName;
             return this;
         }
         @CustomType.Setter
@@ -59,6 +73,7 @@ public final class GetTeamRepositoriesDetailed {
         public GetTeamRepositoriesDetailed build() {
             final var _resultValue = new GetTeamRepositoriesDetailed();
             _resultValue.repoId = repoId;
+            _resultValue.repoName = repoName;
             _resultValue.roleName = roleName;
             return _resultValue;
         }

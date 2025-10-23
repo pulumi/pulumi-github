@@ -160,7 +160,7 @@ export interface BranchProtectionV3RequiredStatusChecks {
     /**
      * The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and appId like so "context:app_id".
      */
-    checks?: string[];
+    checks: string[];
     /**
      * [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
      *
@@ -171,7 +171,7 @@ export interface BranchProtectionV3RequiredStatusChecks {
      *
      * @deprecated GitHub is deprecating the use of `contexts`. Use a `checks` array instead.
      */
-    contexts?: string[];
+    contexts: string[];
     /**
      * @deprecated Use enforceAdmins instead
      */
@@ -571,6 +571,105 @@ export interface GetOrganizationIpAllowListIpAllowList {
     updatedAt: string;
 }
 
+export interface GetOrganizationRepositoryRolesRole {
+    /**
+     * The system role from which this role inherits permissions.
+     */
+    baseRole: string;
+    /**
+     * The description of the organization repository role.
+     */
+    description: string;
+    /**
+     * The name of the organization repository role.
+     */
+    name: string;
+    /**
+     * The permissions included in this role.
+     */
+    permissions: string[];
+    /**
+     * The ID of the organization repository role.
+     */
+    roleId: number;
+}
+
+export interface GetOrganizationRoleTeamsTeam {
+    /**
+     * The name of the team.
+     */
+    name: string;
+    /**
+     * The permission that the team will have for its repositories.
+     */
+    permission: string;
+    /**
+     * The Slug of the team name.
+     */
+    slug: string;
+    /**
+     * The ID of the team.
+     */
+    teamId: number;
+}
+
+export interface GetOrganizationRoleUsersUser {
+    /**
+     * The login for the GitHub user account.
+     */
+    login: string;
+    /**
+     * The ID of the user.
+     */
+    userId: number;
+}
+
+export interface GetOrganizationRolesRole {
+    /**
+     * The system role from which this role inherits permissions.
+     */
+    baseRole: string;
+    /**
+     * The description of the organization role.
+     */
+    description: string;
+    /**
+     * The name of the organization role.
+     */
+    name: string;
+    /**
+     * A list of permissions included in this role.
+     */
+    permissions: string[];
+    /**
+     * The ID of the organization role.
+     */
+    roleId: number;
+    /**
+     * The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+     */
+    source: string;
+}
+
+export interface GetOrganizationSecurityManagersTeam {
+    /**
+     * Unique identifier of the team.
+     */
+    id: number;
+    /**
+     * Name of the team.
+     */
+    name: string;
+    /**
+     * Permission that the team will have for its repositories.
+     */
+    permission: string;
+    /**
+     * Name based identifier of the team.
+     */
+    slug: string;
+}
+
 export interface GetOrganizationTeamSyncGroupsGroup {
     /**
      * The description of the IdP group.
@@ -588,11 +687,11 @@ export interface GetOrganizationTeamSyncGroupsGroup {
 
 export interface GetOrganizationTeamsTeam {
     /**
-     * the team's description.
+     * The team's description.
      */
     description: string;
     /**
-     * the ID of the team.
+     * The ID of the team.
      */
     id: number;
     /**
@@ -600,19 +699,29 @@ export interface GetOrganizationTeamsTeam {
      */
     members: string[];
     /**
-     * the team's full name.
+     * The team's full name.
      */
     name: string;
     /**
-     * the Node ID of the team.
+     * The Node ID of the team.
      */
     nodeId: string;
     /**
-     * the parent team.
+     * (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+     *
+     * @deprecated Use parentTeamId and parentTeamSlug instead.
      */
     parent: {[key: string]: string};
     /**
-     * the team's privacy type.
+     * The ID of the parent team, if there is one.
+     */
+    parentTeamId: string;
+    /**
+     * The slug of the parent team, if there is one.
+     */
+    parentTeamSlug: string;
+    /**
+     * The team's privacy type.
      */
     privacy: string;
     /**
@@ -620,7 +729,7 @@ export interface GetOrganizationTeamsTeam {
      */
     repositories: string[];
     /**
-     * the slug of the team.
+     * The slug of the team.
      */
     slug: string;
 }
@@ -1007,6 +1116,7 @@ export interface GetRepositoryWebhooksWebhook {
 
 export interface GetTeamRepositoriesDetailed {
     repoId: number;
+    repoName: string;
     roleName: string;
 }
 
@@ -1041,13 +1151,13 @@ export interface OrganizationRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset.
      */
-    actorId: number;
+    actorId?: number;
     /**
      * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      */
     actorType: string;
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
@@ -1286,6 +1396,10 @@ export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     */
+    doNotEnforceOnCreate?: boolean;
+    /**
      * Status checks that are required. Several can be defined.
      */
     requiredChecks: outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck[];
@@ -1307,6 +1421,10 @@ export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflows {
+    /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     */
+    doNotEnforceOnCreate?: boolean;
     /**
      * Actions workflows that are required. Several can be defined.
      */
@@ -1462,15 +1580,15 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      */
-    actorId: number;
+    actorId?: number;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
      */
     actorType: string;
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
@@ -1523,6 +1641,18 @@ export interface RepositoryRulesetRules {
      * (Boolean) Only allow users with bypass permissions to delete matching refs.
      */
     deletion?: boolean;
+    /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    fileExtensionRestriction?: outputs.RepositoryRulesetRulesFileExtensionRestriction;
+    /**
+     * (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     */
+    filePathRestriction?: outputs.RepositoryRulesetRulesFilePathRestriction;
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     */
+    maxFileSize?: outputs.RepositoryRulesetRulesMaxFileSize;
     /**
      * (Block List, Max: 1) Merges must be performed via a merge queue.
      */
@@ -1643,6 +1773,27 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
      * The pattern to match with.
      */
     pattern: string;
+}
+
+export interface RepositoryRulesetRulesFileExtensionRestriction {
+    /**
+     * A list of file extensions.
+     */
+    restrictedFileExtensions: string[];
+}
+
+export interface RepositoryRulesetRulesFilePathRestriction {
+    /**
+     * The file paths that are restricted from being pushed to the commit graph.
+     */
+    restrictedFilePaths: string[];
+}
+
+export interface RepositoryRulesetRulesMaxFileSize {
+    /**
+     * The maximum allowed size of a file in bytes.
+     */
+    maxFileSize: number;
 }
 
 export interface RepositoryRulesetRulesMergeQueue {

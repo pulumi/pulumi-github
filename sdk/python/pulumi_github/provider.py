@@ -40,7 +40,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
         :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]
@@ -156,7 +156,7 @@ class ProviderArgs:
     @pulumi.getter(name="parallelRequests")
     def parallel_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
         """
         return pulumi.get(self, "parallel_requests")
 
@@ -258,7 +258,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] max_retries: Number of times to retry a request after receiving an error status codeDefaults to 3
         :param pulumi.Input[_builtins.str] organization: The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
         :param pulumi.Input[_builtins.str] owner: The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
-        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        :param pulumi.Input[_builtins.bool] parallel_requests: Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
         :param pulumi.Input[_builtins.int] read_delay_ms: Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
         :param pulumi.Input[_builtins.int] retry_delay_ms: Amount of time in milliseconds to sleep in between requests to GitHub API after an error response. Defaults to 1000ms or 1s if not set, the max_retries must be set to greater than zero.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] retryable_errors: Allow the provider to retry after receiving an error status code, the max_retries should be set for this to workDefaults to [500, 502, 503, 504]

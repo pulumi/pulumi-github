@@ -42,6 +42,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.RepositoryRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,6 +87,30 @@ import javax.annotation.Nullable;
  *                 .requiredSignatures(true)
  *                 .requiredDeployments(RepositoryRulesetRulesRequiredDeploymentsArgs.builder()
  *                     .requiredDeploymentEnvironments("test")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example with push ruleset
+ *         var examplePush = new RepositoryRuleset("examplePush", RepositoryRulesetArgs.builder()
+ *             .name("example_push")
+ *             .repository(example.name())
+ *             .target("push")
+ *             .enforcement("active")
+ *             .rules(RepositoryRulesetRulesArgs.builder()
+ *                 .filePathRestriction(RepositoryRulesetRulesFilePathRestrictionArgs.builder()
+ *                     .restrictedFilePaths(                    
+ *                         ".github/workflows/*",
+ *                         "*.env")
+ *                     .build())
+ *                 .maxFileSize(RepositoryRulesetRulesMaxFileSizeArgs.builder()
+ *                     .maxFileSize(104857600)
+ *                     .build())
+ *                 .fileExtensionRestriction(RepositoryRulesetRulesFileExtensionRestrictionArgs.builder()
+ *                     .restrictedFileExtensions(                    
+ *                         "*.exe",
+ *                         "*.dll",
+ *                         "*.so")
  *                     .build())
  *                 .build())
  *             .build());
@@ -231,14 +258,14 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
         return this.rulesetId;
     }
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**
-     * @return (String) Possible values are `branch` and `tag`.
+     * @return (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     public Output<String> target() {

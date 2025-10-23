@@ -48,6 +48,31 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
+ * // Example with push ruleset
+ * const examplePush = new github.RepositoryRuleset("example_push", {
+ *     name: "example_push",
+ *     repository: example.name,
+ *     target: "push",
+ *     enforcement: "active",
+ *     rules: {
+ *         filePathRestriction: {
+ *             restrictedFilePaths: [
+ *                 ".github/workflows/*",
+ *                 "*.env",
+ *             ],
+ *         },
+ *         maxFileSize: {
+ *             maxFileSize: 104857600,
+ *         },
+ *         fileExtensionRestriction: {
+ *             restrictedFileExtensions: [
+ *                 "*.exe",
+ *                 "*.dll",
+ *                 "*.so",
+ *             ],
+ *         },
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -123,7 +148,7 @@ export class RepositoryRuleset extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly rulesetId: pulumi.Output<number>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     declare public readonly target: pulumi.Output<string>;
 
@@ -218,7 +243,7 @@ export interface RepositoryRulesetState {
      */
     rulesetId?: pulumi.Input<number>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     target?: pulumi.Input<string>;
 }
@@ -252,7 +277,7 @@ export interface RepositoryRulesetArgs {
      */
     rules: pulumi.Input<inputs.RepositoryRulesetRules>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     target: pulumi.Input<string>;
 }

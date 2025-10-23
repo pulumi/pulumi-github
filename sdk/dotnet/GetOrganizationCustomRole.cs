@@ -12,6 +12,8 @@ namespace Pulumi.Github
     public static class GetOrganizationCustomRole
     {
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `GithubOrganizationrepositoryRole` data source instead.
+        /// 
         /// Use this data source to retrieve information about a custom role in a GitHub Organization.
         /// 
         /// &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -38,6 +40,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationCustomRoleResult>("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args ?? new GetOrganizationCustomRoleArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `GithubOrganizationrepositoryRole` data source instead.
+        /// 
         /// Use this data source to retrieve information about a custom role in a GitHub Organization.
         /// 
         /// &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.
@@ -64,6 +68,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationCustomRoleResult>("github:index/getOrganizationCustomRole:getOrganizationCustomRole", args ?? new GetOrganizationCustomRoleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `GithubOrganizationrepositoryRole` data source instead.
+        /// 
         /// Use this data source to retrieve information about a custom role in a GitHub Organization.
         /// 
         /// &gt; Note: Custom roles are currently only available in GitHub Enterprise Cloud.

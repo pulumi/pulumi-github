@@ -78,7 +78,7 @@ type providerArgs struct {
 	Organization *string `pulumi:"organization"`
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner *string `pulumi:"owner"`
-	// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+	// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
 	ParallelRequests *bool `pulumi:"parallelRequests"`
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs *int `pulumi:"readDelayMs"`
@@ -108,7 +108,7 @@ type ProviderArgs struct {
 	Organization pulumi.StringPtrInput
 	// The GitHub owner name to manage. Use this field instead of `organization` when managing individual accounts.
 	Owner pulumi.StringPtrInput
-	// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+	// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
 	ParallelRequests pulumi.BoolPtrInput
 	// Amount of time in milliseconds to sleep in between non-write requests to GitHub API. Defaults to 0ms if not set.
 	ReadDelayMs pulumi.IntPtrInput

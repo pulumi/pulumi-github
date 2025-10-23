@@ -76,7 +76,7 @@ Object.defineProperty(exports, "owner", {
 });
 
 /**
- * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+ * Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
  */
 export declare const parallelRequests: boolean | undefined;
 Object.defineProperty(exports, "parallelRequests", {

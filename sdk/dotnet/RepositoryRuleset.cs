@@ -73,6 +73,39 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
+    ///     // Example with push ruleset
+    ///     var examplePush = new Github.RepositoryRuleset("example_push", new()
+    ///     {
+    ///         Name = "example_push",
+    ///         Repository = example.Name,
+    ///         Target = "push",
+    ///         Enforcement = "active",
+    ///         Rules = new Github.Inputs.RepositoryRulesetRulesArgs
+    ///         {
+    ///             FilePathRestriction = new Github.Inputs.RepositoryRulesetRulesFilePathRestrictionArgs
+    ///             {
+    ///                 RestrictedFilePaths = new[]
+    ///                 {
+    ///                     ".github/workflows/*",
+    ///                     "*.env",
+    ///                 },
+    ///             },
+    ///             MaxFileSize = new Github.Inputs.RepositoryRulesetRulesMaxFileSizeArgs
+    ///             {
+    ///                 MaxFileSize = 104857600,
+    ///             },
+    ///             FileExtensionRestriction = new Github.Inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs
+    ///             {
+    ///                 RestrictedFileExtensions = new[]
+    ///                 {
+    ///                     "*.exe",
+    ///                     "*.dll",
+    ///                     "*.so",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -142,7 +175,7 @@ namespace Pulumi.Github
         public Output<int> RulesetId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -236,7 +269,7 @@ namespace Pulumi.Github
         public Input<Inputs.RepositoryRulesetRulesArgs> Rules { get; set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
@@ -310,7 +343,7 @@ namespace Pulumi.Github
         public Input<int>? RulesetId { get; set; }
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
