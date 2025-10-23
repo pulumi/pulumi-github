@@ -62,6 +62,10 @@
                     }
                 }
             },
+            "github_actions_organization_secret_repository": {
+                "current": "github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository",
+                "majorVersion": 6
+            },
             "github_actions_organization_variable": {
                 "current": "github:index/actionsOrganizationVariable:ActionsOrganizationVariable",
                 "majorVersion": 6,
@@ -387,6 +391,15 @@
                 "current": "github:index/organizationBlock:OrganizationBlock",
                 "majorVersion": 6
             },
+            "github_organization_custom_properties": {
+                "current": "github:index/organizationCustomProperties:OrganizationCustomProperties",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_values": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_organization_custom_role": {
                 "current": "github:index/organizationCustomRole:OrganizationCustomRole",
                 "majorVersion": 6,
@@ -398,6 +411,36 @@
             },
             "github_organization_project": {
                 "current": "github:index/organizationProject:OrganizationProject",
+                "majorVersion": 6
+            },
+            "github_organization_repository_role": {
+                "current": "github:index/organizationRepositoryRole:OrganizationRepositoryRole",
+                "majorVersion": 6,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_role": {
+                "current": "github:index/organizationRole:OrganizationRole",
+                "majorVersion": 6,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_role_team": {
+                "current": "github:index/organizationRoleTeam:OrganizationRoleTeam",
+                "majorVersion": 6
+            },
+            "github_organization_role_team_assignment": {
+                "current": "github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment",
+                "majorVersion": 6
+            },
+            "github_organization_role_user": {
+                "current": "github:index/organizationRoleUser:OrganizationRoleUser",
                 "majorVersion": 6
             },
             "github_organization_ruleset": {
@@ -702,6 +745,29 @@
                                     "maxItemsOne": true
                                 },
                                 "committer_email_pattern": {
+                                    "maxItemsOne": true
+                                },
+                                "file_extension_restriction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "restricted_file_extensions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "file_path_restriction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "restricted_file_paths": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "max_file_size": {
                                     "maxItemsOne": true
                                 },
                                 "merge_queue": {
@@ -1133,6 +1199,15 @@
                     }
                 }
             },
+            "github_organization_custom_properties": {
+                "current": "github:index/getOrganizationCustomProperties:getOrganizationCustomProperties",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_values": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_organization_custom_role": {
                 "current": "github:index/getOrganizationCustomRole:getOrganizationCustomRole",
                 "majorVersion": 6,
@@ -1156,6 +1231,83 @@
                 "majorVersion": 6,
                 "fields": {
                     "ip_allow_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_repository_role": {
+                "current": "github:index/getOrganizationRepositoryRole:getOrganizationRepositoryRole",
+                "majorVersion": 6,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_repository_roles": {
+                "current": "github:index/getOrganizationRepositoryRoles:getOrganizationRepositoryRoles",
+                "majorVersion": 6,
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "permissions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "github_organization_role": {
+                "current": "github:index/getOrganizationRole:getOrganizationRole",
+                "majorVersion": 6,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_role_teams": {
+                "current": "github:index/getOrganizationRoleTeams:getOrganizationRoleTeams",
+                "majorVersion": 6,
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_role_users": {
+                "current": "github:index/getOrganizationRoleUsers:getOrganizationRoleUsers",
+                "majorVersion": 6,
+                "fields": {
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_organization_roles": {
+                "current": "github:index/getOrganizationRoles:getOrganizationRoles",
+                "majorVersion": 6,
+                "fields": {
+                    "roles": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "permissions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "github_organization_security_managers": {
+                "current": "github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers",
+                "majorVersion": 6,
+                "fields": {
+                    "teams": {
                         "maxItemsOne": false
                     }
                 }
