@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsOrganizationSecret{}
 	case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
 		r = &ActionsOrganizationSecretRepositories{}
+	case "github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository":
+		r = &ActionsOrganizationSecretRepository{}
 	case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
 		r = &ActionsOrganizationVariable{}
 	case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
@@ -91,10 +93,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Membership{}
 	case "github:index/organizationBlock:OrganizationBlock":
 		r = &OrganizationBlock{}
+	case "github:index/organizationCustomProperties:OrganizationCustomProperties":
+		r = &OrganizationCustomProperties{}
 	case "github:index/organizationCustomRole:OrganizationCustomRole":
 		r = &OrganizationCustomRole{}
 	case "github:index/organizationProject:OrganizationProject":
 		r = &OrganizationProject{}
+	case "github:index/organizationRepositoryRole:OrganizationRepositoryRole":
+		r = &OrganizationRepositoryRole{}
+	case "github:index/organizationRole:OrganizationRole":
+		r = &OrganizationRole{}
+	case "github:index/organizationRoleTeam:OrganizationRoleTeam":
+		r = &OrganizationRoleTeam{}
+	case "github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment":
+		r = &OrganizationRoleTeamAssignment{}
+	case "github:index/organizationRoleUser:OrganizationRoleUser":
+		r = &OrganizationRoleUser{}
 	case "github:index/organizationRuleset:OrganizationRuleset":
 		r = &OrganizationRuleset{}
 	case "github:index/organizationSecurityManager:OrganizationSecurityManager":
@@ -220,6 +234,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationSecretRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -369,12 +388,42 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/organizationCustomProperties",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/organizationCustomRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/organizationProject",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationRepositoryRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationRoleTeam",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationRoleTeamAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/organizationRoleUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

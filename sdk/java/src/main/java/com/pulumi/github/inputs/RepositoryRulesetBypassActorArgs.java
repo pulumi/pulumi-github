@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,29 +18,29 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     public static final RepositoryRulesetBypassActorArgs Empty = new RepositoryRulesetBypassActorArgs();
 
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
-    @Import(name="actorId", required=true)
-    private Output<Integer> actorId;
+    @Import(name="actorId")
+    private @Nullable Output<Integer> actorId;
 
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * @return The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      * 
      */
-    public Output<Integer> actorId() {
-        return this.actorId;
+    public Optional<Output<Integer>> actorId() {
+        return Optional.ofNullable(this.actorId);
     }
 
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
      * 
      */
     @Import(name="actorType", required=true)
     private Output<String> actorType;
 
     /**
-     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
      * 
      */
     public Output<String> actorType() {
@@ -46,7 +48,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     }
 
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -58,7 +60,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
     private Output<String> bypassMode;
 
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -97,18 +99,18 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+         * @param actorId The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
          * 
          * @return builder
          * 
          */
-        public Builder actorId(Output<Integer> actorId) {
+        public Builder actorId(@Nullable Output<Integer> actorId) {
             $.actorId = actorId;
             return this;
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+         * @param actorId The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
          * 
          * @return builder
          * 
@@ -118,7 +120,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
          * 
          * @return builder
          * 
@@ -129,7 +131,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+         * @param actorType The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
          * 
          * @return builder
          * 
@@ -139,7 +141,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
@@ -155,7 +157,7 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         /**
-         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+         * @param bypassMode (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
          * 
          * &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
          * 
@@ -170,9 +172,6 @@ public final class RepositoryRulesetBypassActorArgs extends com.pulumi.resources
         }
 
         public RepositoryRulesetBypassActorArgs build() {
-            if ($.actorId == null) {
-                throw new MissingRequiredPropertyException("RepositoryRulesetBypassActorArgs", "actorId");
-            }
             if ($.actorType == null) {
                 throw new MissingRequiredPropertyException("RepositoryRulesetBypassActorArgs", "actorType");
             }

@@ -724,14 +724,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vulnerabilityAlerts", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> vulnerabilityAlerts;
+    private Output<Boolean> vulnerabilityAlerts;
 
     /**
      * @return Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
      * 
      */
-    public Output<Optional<Boolean>> vulnerabilityAlerts() {
-        return Codegen.optional(this.vulnerabilityAlerts);
+    public Output<Boolean> vulnerabilityAlerts() {
+        return this.vulnerabilityAlerts;
     }
     /**
      * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.

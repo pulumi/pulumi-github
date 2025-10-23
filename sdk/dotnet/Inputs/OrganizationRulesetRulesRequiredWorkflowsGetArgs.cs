@@ -12,6 +12,12 @@ namespace Pulumi.Github.Inputs
 
     public sealed class OrganizationRulesetRulesRequiredWorkflowsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allow repositories and branches to be created if a check would otherwise prohibit it.
+        /// </summary>
+        [Input("doNotEnforceOnCreate")]
+        public Input<bool>? DoNotEnforceOnCreate { get; set; }
+
         [Input("requiredWorkflows", required: true)]
         private InputList<Inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowGetArgs>? _requiredWorkflows;
 

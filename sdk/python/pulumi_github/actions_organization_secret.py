@@ -21,6 +21,7 @@ class ActionsOrganizationSecretArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str],
                  visibility: pulumi.Input[_builtins.str],
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
@@ -35,6 +36,8 @@ class ActionsOrganizationSecretArgs:
         """
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "visibility", visibility)
+        if destroy_on_drift is not None:
+            pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
@@ -66,6 +69,15 @@ class ActionsOrganizationSecretArgs:
     @visibility.setter
     def visibility(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
+
+    @destroy_on_drift.setter
+    def destroy_on_drift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "destroy_on_drift", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
@@ -108,6 +120,7 @@ class ActionsOrganizationSecretArgs:
 class _ActionsOrganizationSecretState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -127,6 +140,8 @@ class _ActionsOrganizationSecretState:
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if destroy_on_drift is not None:
+            pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
@@ -151,6 +166,15 @@ class _ActionsOrganizationSecretState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
+
+    @destroy_on_drift.setter
+    def destroy_on_drift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "destroy_on_drift", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
@@ -232,6 +256,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -294,6 +319,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -308,6 +334,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsOrganizationSecretArgs.__new__(ActionsOrganizationSecretArgs)
 
+            __props__.__dict__["destroy_on_drift"] = destroy_on_drift
             __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
             __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if secret_name is None and not opts.urn:
@@ -332,6 +359,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
             encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
             plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
             secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -359,6 +387,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         __props__ = _ActionsOrganizationSecretState.__new__(_ActionsOrganizationSecretState)
 
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["destroy_on_drift"] = destroy_on_drift
         __props__.__dict__["encrypted_value"] = encrypted_value
         __props__.__dict__["plaintext_value"] = plaintext_value
         __props__.__dict__["secret_name"] = secret_name
@@ -374,6 +403,11 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         Date of actions_secret creation.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")

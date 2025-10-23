@@ -8,6 +8,9 @@ import com.pulumi.github.outputs.RepositoryRulesetRulesBranchNamePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitterEmailPattern;
+import com.pulumi.github.outputs.RepositoryRulesetRulesFileExtensionRestriction;
+import com.pulumi.github.outputs.RepositoryRulesetRulesFilePathRestriction;
+import com.pulumi.github.outputs.RepositoryRulesetRulesMaxFileSize;
 import com.pulumi.github.outputs.RepositoryRulesetRulesMergeQueue;
 import com.pulumi.github.outputs.RepositoryRulesetRulesPullRequest;
 import com.pulumi.github.outputs.RepositoryRulesetRulesRequiredCodeScanning;
@@ -51,6 +54,21 @@ public final class RepositoryRulesetRules {
      * 
      */
     private @Nullable Boolean deletion;
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesFileExtensionRestriction fileExtensionRestriction;
+    /**
+     * @return (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction;
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesMaxFileSize maxFileSize;
     /**
      * @return (Block List, Max: 1) Merges must be performed via a merge queue.
      * 
@@ -151,6 +169,27 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.deletion);
     }
     /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<RepositoryRulesetRulesFileExtensionRestriction> fileExtensionRestriction() {
+        return Optional.ofNullable(this.fileExtensionRestriction);
+    }
+    /**
+     * @return (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     * 
+     */
+    public Optional<RepositoryRulesetRulesFilePathRestriction> filePathRestriction() {
+        return Optional.ofNullable(this.filePathRestriction);
+    }
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    public Optional<RepositoryRulesetRulesMaxFileSize> maxFileSize() {
+        return Optional.ofNullable(this.maxFileSize);
+    }
+    /**
      * @return (Block List, Max: 1) Merges must be performed via a merge queue.
      * 
      */
@@ -243,6 +282,9 @@ public final class RepositoryRulesetRules {
         private @Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern;
         private @Nullable Boolean creation;
         private @Nullable Boolean deletion;
+        private @Nullable RepositoryRulesetRulesFileExtensionRestriction fileExtensionRestriction;
+        private @Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction;
+        private @Nullable RepositoryRulesetRulesMaxFileSize maxFileSize;
         private @Nullable RepositoryRulesetRulesMergeQueue mergeQueue;
         private @Nullable Boolean nonFastForward;
         private @Nullable RepositoryRulesetRulesPullRequest pullRequest;
@@ -263,6 +305,9 @@ public final class RepositoryRulesetRules {
     	      this.committerEmailPattern = defaults.committerEmailPattern;
     	      this.creation = defaults.creation;
     	      this.deletion = defaults.deletion;
+    	      this.fileExtensionRestriction = defaults.fileExtensionRestriction;
+    	      this.filePathRestriction = defaults.filePathRestriction;
+    	      this.maxFileSize = defaults.maxFileSize;
     	      this.mergeQueue = defaults.mergeQueue;
     	      this.nonFastForward = defaults.nonFastForward;
     	      this.pullRequest = defaults.pullRequest;
@@ -310,6 +355,24 @@ public final class RepositoryRulesetRules {
         public Builder deletion(@Nullable Boolean deletion) {
 
             this.deletion = deletion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fileExtensionRestriction(@Nullable RepositoryRulesetRulesFileExtensionRestriction fileExtensionRestriction) {
+
+            this.fileExtensionRestriction = fileExtensionRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filePathRestriction(@Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction) {
+
+            this.filePathRestriction = filePathRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxFileSize(@Nullable RepositoryRulesetRulesMaxFileSize maxFileSize) {
+
+            this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
@@ -386,6 +449,9 @@ public final class RepositoryRulesetRules {
             _resultValue.committerEmailPattern = committerEmailPattern;
             _resultValue.creation = creation;
             _resultValue.deletion = deletion;
+            _resultValue.fileExtensionRestriction = fileExtensionRestriction;
+            _resultValue.filePathRestriction = filePathRestriction;
+            _resultValue.maxFileSize = maxFileSize;
             _resultValue.mergeQueue = mergeQueue;
             _resultValue.nonFastForward = nonFastForward;
             _resultValue.pullRequest = pullRequest;

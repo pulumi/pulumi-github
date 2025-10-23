@@ -38,6 +38,18 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? Deletion;
         /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesFileExtensionRestriction? FileExtensionRestriction;
+        /// <summary>
+        /// (Block List, Max 1) Parameters to be used for the FilePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesFilePathRestriction? FilePathRestriction;
+        /// <summary>
+        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesMaxFileSize? MaxFileSize;
+        /// <summary>
         /// (Block List, Max: 1) Merges must be performed via a merge queue.
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesMergeQueue? MergeQueue;
@@ -96,6 +108,12 @@ namespace Pulumi.Github.Outputs
 
             bool? deletion,
 
+            Outputs.RepositoryRulesetRulesFileExtensionRestriction? fileExtensionRestriction,
+
+            Outputs.RepositoryRulesetRulesFilePathRestriction? filePathRestriction,
+
+            Outputs.RepositoryRulesetRulesMaxFileSize? maxFileSize,
+
             Outputs.RepositoryRulesetRulesMergeQueue? mergeQueue,
 
             bool? nonFastForward,
@@ -124,6 +142,9 @@ namespace Pulumi.Github.Outputs
             CommitterEmailPattern = committerEmailPattern;
             Creation = creation;
             Deletion = deletion;
+            FileExtensionRestriction = fileExtensionRestriction;
+            FilePathRestriction = filePathRestriction;
+            MaxFileSize = maxFileSize;
             MergeQueue = mergeQueue;
             NonFastForward = nonFastForward;
             PullRequest = pullRequest;

@@ -14,6 +14,10 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetRulesRequiredStatusChecks
     {
         /// <summary>
+        /// Allow repositories and branches to be created if a check would otherwise prohibit it.
+        /// </summary>
+        public readonly bool? DoNotEnforceOnCreate;
+        /// <summary>
         /// Status checks that are required. Several can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> RequiredChecks;
@@ -24,10 +28,13 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private OrganizationRulesetRulesRequiredStatusChecks(
+            bool? doNotEnforceOnCreate,
+
             ImmutableArray<Outputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck> requiredChecks,
 
             bool? strictRequiredStatusChecksPolicy)
         {
+            DoNotEnforceOnCreate = doNotEnforceOnCreate;
             RequiredChecks = requiredChecks;
             StrictRequiredStatusChecksPolicy = strictRequiredStatusChecksPolicy;
         }

@@ -14,11 +14,11 @@ namespace Pulumi.Github.Outputs
     public sealed class GetOrganizationTeamsTeamResult
     {
         /// <summary>
-        /// the team's description.
+        /// The team's description.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// the ID of the team.
+        /// The ID of the team.
         /// </summary>
         public readonly int Id;
         /// <summary>
@@ -26,19 +26,27 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Members;
         /// <summary>
-        /// the team's full name.
+        /// The team's full name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the Node ID of the team.
+        /// The Node ID of the team.
         /// </summary>
         public readonly string NodeId;
         /// <summary>
-        /// the parent team.
+        /// (**DEPRECATED**) The parent team, use `ParentTeamId` or `ParentTeamSlug` instead.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Parent;
         /// <summary>
-        /// the team's privacy type.
+        /// The ID of the parent team, if there is one.
+        /// </summary>
+        public readonly string ParentTeamId;
+        /// <summary>
+        /// The slug of the parent team, if there is one.
+        /// </summary>
+        public readonly string ParentTeamSlug;
+        /// <summary>
+        /// The team's privacy type.
         /// </summary>
         public readonly string Privacy;
         /// <summary>
@@ -46,7 +54,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
-        /// the slug of the team.
+        /// The slug of the team.
         /// </summary>
         public readonly string Slug;
 
@@ -64,6 +72,10 @@ namespace Pulumi.Github.Outputs
 
             ImmutableDictionary<string, string> parent,
 
+            string parentTeamId,
+
+            string parentTeamSlug,
+
             string privacy,
 
             ImmutableArray<string> repositories,
@@ -76,6 +88,8 @@ namespace Pulumi.Github.Outputs
             Name = name;
             NodeId = nodeId;
             Parent = parent;
+            ParentTeamId = parentTeamId;
+            ParentTeamSlug = parentTeamSlug;
             Privacy = privacy;
             Repositories = repositories;
             Slug = slug;

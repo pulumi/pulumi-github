@@ -61,6 +61,16 @@ import (
 //						Operator: pulumi.String("starts_with"),
 //						Pattern:  pulumi.String("ex"),
 //					},
+//					RequiredWorkflows: &github.OrganizationRulesetRulesRequiredWorkflowsArgs{
+//						DoNotEnforceOnCreate: pulumi.Bool(true),
+//						RequiredWorkflows: github.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArray{
+//							&github.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs{
+//								RepositoryId: pulumi.Int(1234),
+//								Path:         pulumi.String(".github/workflows/ci.yml"),
+//								Ref:          pulumi.String("main"),
+//							},
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {

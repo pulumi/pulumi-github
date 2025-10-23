@@ -6,11 +6,19 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationRulesetRulesRequiredWorkflows {
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    private @Nullable Boolean doNotEnforceOnCreate;
     /**
      * @return Actions workflows that are required. Several can be defined.
      * 
@@ -18,6 +26,13 @@ public final class OrganizationRulesetRulesRequiredWorkflows {
     private List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows;
 
     private OrganizationRulesetRulesRequiredWorkflows() {}
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    public Optional<Boolean> doNotEnforceOnCreate() {
+        return Optional.ofNullable(this.doNotEnforceOnCreate);
+    }
     /**
      * @return Actions workflows that are required. Several can be defined.
      * 
@@ -35,13 +50,21 @@ public final class OrganizationRulesetRulesRequiredWorkflows {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean doNotEnforceOnCreate;
         private List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows;
         public Builder() {}
         public Builder(OrganizationRulesetRulesRequiredWorkflows defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.doNotEnforceOnCreate = defaults.doNotEnforceOnCreate;
     	      this.requiredWorkflows = defaults.requiredWorkflows;
         }
 
+        @CustomType.Setter
+        public Builder doNotEnforceOnCreate(@Nullable Boolean doNotEnforceOnCreate) {
+
+            this.doNotEnforceOnCreate = doNotEnforceOnCreate;
+            return this;
+        }
         @CustomType.Setter
         public Builder requiredWorkflows(List<OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow> requiredWorkflows) {
             if (requiredWorkflows == null) {
@@ -55,6 +78,7 @@ public final class OrganizationRulesetRulesRequiredWorkflows {
         }
         public OrganizationRulesetRulesRequiredWorkflows build() {
             final var _resultValue = new OrganizationRulesetRulesRequiredWorkflows();
+            _resultValue.doNotEnforceOnCreate = doNotEnforceOnCreate;
             _resultValue.requiredWorkflows = requiredWorkflows;
             return _resultValue;
         }

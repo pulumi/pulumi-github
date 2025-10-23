@@ -77,9 +77,11 @@ type LookupTeamResult struct {
 	Permission string `pulumi:"permission"`
 	// the team's privacy type.
 	Privacy string `pulumi:"privacy"`
-	// List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+	// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+	//
+	// Deprecated: Use repositoriesDetailed instead.
 	Repositories []string `pulumi:"repositories"`
-	// List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+	// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
 	RepositoriesDetaileds []GetTeamRepositoriesDetailed `pulumi:"repositoriesDetaileds"`
 	ResultsPerPage        *int                          `pulumi:"resultsPerPage"`
 	Slug                  string                        `pulumi:"slug"`
@@ -165,12 +167,14 @@ func (o LookupTeamResultOutput) Privacy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Privacy }).(pulumi.StringOutput)
 }
 
-// List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+//
+// Deprecated: Use repositoriesDetailed instead.
 func (o LookupTeamResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
 func (o LookupTeamResultOutput) RepositoriesDetaileds() GetTeamRepositoriesDetailedArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []GetTeamRepositoriesDetailed { return v.RepositoriesDetaileds }).(GetTeamRepositoriesDetailedArrayOutput)
 }

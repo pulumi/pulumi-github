@@ -86,11 +86,13 @@ export interface GetTeamResult {
      */
     readonly privacy: string;
     /**
-     * List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     *
+     * @deprecated Use repositoriesDetailed instead.
      */
     readonly repositories: string[];
     /**
-     * List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+     * List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
      */
     readonly repositoriesDetaileds: outputs.GetTeamRepositoriesDetailed[];
     readonly resultsPerPage?: number;

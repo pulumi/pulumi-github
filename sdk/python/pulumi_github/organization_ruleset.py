@@ -322,6 +322,14 @@ class OrganizationRuleset(pulumi.CustomResource):
                     "operator": "starts_with",
                     "pattern": "ex",
                 },
+                "required_workflows": {
+                    "do_not_enforce_on_create": True,
+                    "required_workflows": [{
+                        "repository_id": 1234,
+                        "path": ".github/workflows/ci.yml",
+                        "ref": "main",
+                    }],
+                },
             })
         ```
 
@@ -385,6 +393,14 @@ class OrganizationRuleset(pulumi.CustomResource):
                     "negate": False,
                     "operator": "starts_with",
                     "pattern": "ex",
+                },
+                "required_workflows": {
+                    "do_not_enforce_on_create": True,
+                    "required_workflows": [{
+                        "repository_id": 1234,
+                        "path": ".github/workflows/ci.yml",
+                        "ref": "main",
+                    }],
                 },
             })
         ```

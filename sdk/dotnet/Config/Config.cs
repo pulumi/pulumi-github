@@ -94,7 +94,7 @@ namespace Pulumi.Github
 
         private static readonly __Value<bool?> _parallelRequests = new __Value<bool?>(() => __config.GetBoolean("parallelRequests"));
         /// <summary>
-        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. Although, it is not possible to enable this setting on github.com because we enforce the respect of github.com's best practices to avoid hitting abuse rate limitsDefaults to false if not set
+        /// Allow the provider to make parallel API calls to GitHub. You may want to set it to true when you have a private Github Enterprise without strict rate limits. While it is possible to enable this setting on github.com, github.com's best practices recommend using serialization to avoid hitting abuse rate limitsDefaults to false if not set
         /// </summary>
         public static bool? ParallelRequests
         {

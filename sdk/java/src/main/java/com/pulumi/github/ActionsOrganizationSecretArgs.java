@@ -6,6 +6,7 @@ package com.pulumi.github;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +18,13 @@ import javax.annotation.Nullable;
 public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ActionsOrganizationSecretArgs Empty = new ActionsOrganizationSecretArgs();
+
+    @Import(name="destroyOnDrift")
+    private @Nullable Output<Boolean> destroyOnDrift;
+
+    public Optional<Output<Boolean>> destroyOnDrift() {
+        return Optional.ofNullable(this.destroyOnDrift);
+    }
 
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -98,6 +106,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
     private ActionsOrganizationSecretArgs() {}
 
     private ActionsOrganizationSecretArgs(ActionsOrganizationSecretArgs $) {
+        this.destroyOnDrift = $.destroyOnDrift;
         this.encryptedValue = $.encryptedValue;
         this.plaintextValue = $.plaintextValue;
         this.secretName = $.secretName;
@@ -121,6 +130,15 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
         public Builder(ActionsOrganizationSecretArgs defaults) {
             $ = new ActionsOrganizationSecretArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
+            $.destroyOnDrift = destroyOnDrift;
+            return this;
+        }
+
+        public Builder destroyOnDrift(Boolean destroyOnDrift) {
+            return destroyOnDrift(Output.of(destroyOnDrift));
         }
 
         /**

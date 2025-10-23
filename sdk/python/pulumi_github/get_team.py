@@ -131,9 +131,10 @@ class GetTeamResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use repositories_detailed instead.""")
     def repositories(self) -> Sequence[_builtins.str]:
         """
-        List of team repositories (list of repo names). Not returned if `summary_only = true`
+        (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summary_only = true`
         """
         return pulumi.get(self, "repositories")
 
@@ -141,7 +142,7 @@ class GetTeamResult:
     @pulumi.getter(name="repositoriesDetaileds")
     def repositories_detaileds(self) -> Sequence['outputs.GetTeamRepositoriesDetailedResult']:
         """
-        List of team repositories (list of `repo_id` and `role_name`). Not returned if `summary_only = true`
+        List of team repositories (each item comprises of `repo_id`, `repo_name` & `role_name`). Not returned if `summary_only = true`
         """
         return pulumi.get(self, "repositories_detaileds")
 

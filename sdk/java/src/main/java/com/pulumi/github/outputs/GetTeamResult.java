@@ -53,12 +53,16 @@ public final class GetTeamResult {
      */
     private String privacy;
     /**
-     * @return List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * 
+     * @deprecated
+     * Use repositoriesDetailed instead.
      * 
      */
+    @Deprecated /* Use repositoriesDetailed instead. */
     private List<String> repositories;
     /**
-     * @return List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`
      * 
      */
     private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
@@ -120,14 +124,18 @@ public final class GetTeamResult {
         return this.privacy;
     }
     /**
-     * @return List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * 
+     * @deprecated
+     * Use repositoriesDetailed instead.
      * 
      */
+    @Deprecated /* Use repositoriesDetailed instead. */
     public List<String> repositories() {
         return this.repositories;
     }
     /**
-     * @return List of team repositories (list of `repoId` and `roleName`). Not returned if `summaryOnly = true`
+     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`
      * 
      */
     public List<GetTeamRepositoriesDetailed> repositoriesDetaileds() {

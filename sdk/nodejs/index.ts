@@ -35,6 +35,11 @@ export type ActionsOrganizationSecretRepositories = import("./actionsOrganizatio
 export const ActionsOrganizationSecretRepositories: typeof import("./actionsOrganizationSecretRepositories").ActionsOrganizationSecretRepositories = null as any;
 utilities.lazyLoad(exports, ["ActionsOrganizationSecretRepositories"], () => require("./actionsOrganizationSecretRepositories"));
 
+export { ActionsOrganizationSecretRepositoryArgs, ActionsOrganizationSecretRepositoryState } from "./actionsOrganizationSecretRepository";
+export type ActionsOrganizationSecretRepository = import("./actionsOrganizationSecretRepository").ActionsOrganizationSecretRepository;
+export const ActionsOrganizationSecretRepository: typeof import("./actionsOrganizationSecretRepository").ActionsOrganizationSecretRepository = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationSecretRepository"], () => require("./actionsOrganizationSecretRepository"));
+
 export { ActionsOrganizationVariableArgs, ActionsOrganizationVariableState } from "./actionsOrganizationVariable";
 export type ActionsOrganizationVariable = import("./actionsOrganizationVariable").ActionsOrganizationVariable;
 export const ActionsOrganizationVariable: typeof import("./actionsOrganizationVariable").ActionsOrganizationVariable = null as any;
@@ -320,6 +325,11 @@ export const getOrganization: typeof import("./getOrganization").getOrganization
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
+export { GetOrganizationCustomPropertiesArgs, GetOrganizationCustomPropertiesResult, GetOrganizationCustomPropertiesOutputArgs } from "./getOrganizationCustomProperties";
+export const getOrganizationCustomProperties: typeof import("./getOrganizationCustomProperties").getOrganizationCustomProperties = null as any;
+export const getOrganizationCustomPropertiesOutput: typeof import("./getOrganizationCustomProperties").getOrganizationCustomPropertiesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationCustomProperties","getOrganizationCustomPropertiesOutput"], () => require("./getOrganizationCustomProperties"));
+
 export { GetOrganizationCustomRoleArgs, GetOrganizationCustomRoleResult, GetOrganizationCustomRoleOutputArgs } from "./getOrganizationCustomRole";
 export const getOrganizationCustomRole: typeof import("./getOrganizationCustomRole").getOrganizationCustomRole = null as any;
 export const getOrganizationCustomRoleOutput: typeof import("./getOrganizationCustomRole").getOrganizationCustomRoleOutput = null as any;
@@ -334,6 +344,41 @@ export { GetOrganizationIpAllowListResult } from "./getOrganizationIpAllowList";
 export const getOrganizationIpAllowList: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowList = null as any;
 export const getOrganizationIpAllowListOutput: typeof import("./getOrganizationIpAllowList").getOrganizationIpAllowListOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationIpAllowList","getOrganizationIpAllowListOutput"], () => require("./getOrganizationIpAllowList"));
+
+export { GetOrganizationRepositoryRoleArgs, GetOrganizationRepositoryRoleResult, GetOrganizationRepositoryRoleOutputArgs } from "./getOrganizationRepositoryRole";
+export const getOrganizationRepositoryRole: typeof import("./getOrganizationRepositoryRole").getOrganizationRepositoryRole = null as any;
+export const getOrganizationRepositoryRoleOutput: typeof import("./getOrganizationRepositoryRole").getOrganizationRepositoryRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRepositoryRole","getOrganizationRepositoryRoleOutput"], () => require("./getOrganizationRepositoryRole"));
+
+export { GetOrganizationRepositoryRolesResult } from "./getOrganizationRepositoryRoles";
+export const getOrganizationRepositoryRoles: typeof import("./getOrganizationRepositoryRoles").getOrganizationRepositoryRoles = null as any;
+export const getOrganizationRepositoryRolesOutput: typeof import("./getOrganizationRepositoryRoles").getOrganizationRepositoryRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRepositoryRoles","getOrganizationRepositoryRolesOutput"], () => require("./getOrganizationRepositoryRoles"));
+
+export { GetOrganizationRoleArgs, GetOrganizationRoleResult, GetOrganizationRoleOutputArgs } from "./getOrganizationRole";
+export const getOrganizationRole: typeof import("./getOrganizationRole").getOrganizationRole = null as any;
+export const getOrganizationRoleOutput: typeof import("./getOrganizationRole").getOrganizationRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRole","getOrganizationRoleOutput"], () => require("./getOrganizationRole"));
+
+export { GetOrganizationRoleTeamsArgs, GetOrganizationRoleTeamsResult, GetOrganizationRoleTeamsOutputArgs } from "./getOrganizationRoleTeams";
+export const getOrganizationRoleTeams: typeof import("./getOrganizationRoleTeams").getOrganizationRoleTeams = null as any;
+export const getOrganizationRoleTeamsOutput: typeof import("./getOrganizationRoleTeams").getOrganizationRoleTeamsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRoleTeams","getOrganizationRoleTeamsOutput"], () => require("./getOrganizationRoleTeams"));
+
+export { GetOrganizationRoleUsersArgs, GetOrganizationRoleUsersResult, GetOrganizationRoleUsersOutputArgs } from "./getOrganizationRoleUsers";
+export const getOrganizationRoleUsers: typeof import("./getOrganizationRoleUsers").getOrganizationRoleUsers = null as any;
+export const getOrganizationRoleUsersOutput: typeof import("./getOrganizationRoleUsers").getOrganizationRoleUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRoleUsers","getOrganizationRoleUsersOutput"], () => require("./getOrganizationRoleUsers"));
+
+export { GetOrganizationRolesResult } from "./getOrganizationRoles";
+export const getOrganizationRoles: typeof import("./getOrganizationRoles").getOrganizationRoles = null as any;
+export const getOrganizationRolesOutput: typeof import("./getOrganizationRoles").getOrganizationRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationRoles","getOrganizationRolesOutput"], () => require("./getOrganizationRoles"));
+
+export { GetOrganizationSecurityManagersResult } from "./getOrganizationSecurityManagers";
+export const getOrganizationSecurityManagers: typeof import("./getOrganizationSecurityManagers").getOrganizationSecurityManagers = null as any;
+export const getOrganizationSecurityManagersOutput: typeof import("./getOrganizationSecurityManagers").getOrganizationSecurityManagersOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationSecurityManagers","getOrganizationSecurityManagersOutput"], () => require("./getOrganizationSecurityManagers"));
 
 export { GetOrganizationTeamSyncGroupsResult } from "./getOrganizationTeamSyncGroups";
 export const getOrganizationTeamSyncGroups: typeof import("./getOrganizationTeamSyncGroups").getOrganizationTeamSyncGroups = null as any;
@@ -490,6 +535,11 @@ export type OrganizationBlock = import("./organizationBlock").OrganizationBlock;
 export const OrganizationBlock: typeof import("./organizationBlock").OrganizationBlock = null as any;
 utilities.lazyLoad(exports, ["OrganizationBlock"], () => require("./organizationBlock"));
 
+export { OrganizationCustomPropertiesArgs, OrganizationCustomPropertiesState } from "./organizationCustomProperties";
+export type OrganizationCustomProperties = import("./organizationCustomProperties").OrganizationCustomProperties;
+export const OrganizationCustomProperties: typeof import("./organizationCustomProperties").OrganizationCustomProperties = null as any;
+utilities.lazyLoad(exports, ["OrganizationCustomProperties"], () => require("./organizationCustomProperties"));
+
 export { OrganizationCustomRoleArgs, OrganizationCustomRoleState } from "./organizationCustomRole";
 export type OrganizationCustomRole = import("./organizationCustomRole").OrganizationCustomRole;
 export const OrganizationCustomRole: typeof import("./organizationCustomRole").OrganizationCustomRole = null as any;
@@ -499,6 +549,31 @@ export { OrganizationProjectArgs, OrganizationProjectState } from "./organizatio
 export type OrganizationProject = import("./organizationProject").OrganizationProject;
 export const OrganizationProject: typeof import("./organizationProject").OrganizationProject = null as any;
 utilities.lazyLoad(exports, ["OrganizationProject"], () => require("./organizationProject"));
+
+export { OrganizationRepositoryRoleArgs, OrganizationRepositoryRoleState } from "./organizationRepositoryRole";
+export type OrganizationRepositoryRole = import("./organizationRepositoryRole").OrganizationRepositoryRole;
+export const OrganizationRepositoryRole: typeof import("./organizationRepositoryRole").OrganizationRepositoryRole = null as any;
+utilities.lazyLoad(exports, ["OrganizationRepositoryRole"], () => require("./organizationRepositoryRole"));
+
+export { OrganizationRoleArgs, OrganizationRoleState } from "./organizationRole";
+export type OrganizationRole = import("./organizationRole").OrganizationRole;
+export const OrganizationRole: typeof import("./organizationRole").OrganizationRole = null as any;
+utilities.lazyLoad(exports, ["OrganizationRole"], () => require("./organizationRole"));
+
+export { OrganizationRoleTeamArgs, OrganizationRoleTeamState } from "./organizationRoleTeam";
+export type OrganizationRoleTeam = import("./organizationRoleTeam").OrganizationRoleTeam;
+export const OrganizationRoleTeam: typeof import("./organizationRoleTeam").OrganizationRoleTeam = null as any;
+utilities.lazyLoad(exports, ["OrganizationRoleTeam"], () => require("./organizationRoleTeam"));
+
+export { OrganizationRoleTeamAssignmentArgs, OrganizationRoleTeamAssignmentState } from "./organizationRoleTeamAssignment";
+export type OrganizationRoleTeamAssignment = import("./organizationRoleTeamAssignment").OrganizationRoleTeamAssignment;
+export const OrganizationRoleTeamAssignment: typeof import("./organizationRoleTeamAssignment").OrganizationRoleTeamAssignment = null as any;
+utilities.lazyLoad(exports, ["OrganizationRoleTeamAssignment"], () => require("./organizationRoleTeamAssignment"));
+
+export { OrganizationRoleUserArgs, OrganizationRoleUserState } from "./organizationRoleUser";
+export type OrganizationRoleUser = import("./organizationRoleUser").OrganizationRoleUser;
+export const OrganizationRoleUser: typeof import("./organizationRoleUser").OrganizationRoleUser = null as any;
+utilities.lazyLoad(exports, ["OrganizationRoleUser"], () => require("./organizationRoleUser"));
 
 export { OrganizationRulesetArgs, OrganizationRulesetState } from "./organizationRuleset";
 export type OrganizationRuleset = import("./organizationRuleset").OrganizationRuleset;
@@ -694,6 +769,8 @@ const _module = {
                 return new ActionsOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories":
                 return new ActionsOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository":
+                return new ActionsOrganizationSecretRepository(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
                 return new ActionsOrganizationVariable(name, <any>undefined, { urn })
             case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
@@ -752,10 +829,22 @@ const _module = {
                 return new Membership(name, <any>undefined, { urn })
             case "github:index/organizationBlock:OrganizationBlock":
                 return new OrganizationBlock(name, <any>undefined, { urn })
+            case "github:index/organizationCustomProperties:OrganizationCustomProperties":
+                return new OrganizationCustomProperties(name, <any>undefined, { urn })
             case "github:index/organizationCustomRole:OrganizationCustomRole":
                 return new OrganizationCustomRole(name, <any>undefined, { urn })
             case "github:index/organizationProject:OrganizationProject":
                 return new OrganizationProject(name, <any>undefined, { urn })
+            case "github:index/organizationRepositoryRole:OrganizationRepositoryRole":
+                return new OrganizationRepositoryRole(name, <any>undefined, { urn })
+            case "github:index/organizationRole:OrganizationRole":
+                return new OrganizationRole(name, <any>undefined, { urn })
+            case "github:index/organizationRoleTeam:OrganizationRoleTeam":
+                return new OrganizationRoleTeam(name, <any>undefined, { urn })
+            case "github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment":
+                return new OrganizationRoleTeamAssignment(name, <any>undefined, { urn })
+            case "github:index/organizationRoleUser:OrganizationRoleUser":
+                return new OrganizationRoleUser(name, <any>undefined, { urn })
             case "github:index/organizationRuleset:OrganizationRuleset":
                 return new OrganizationRuleset(name, <any>undefined, { urn })
             case "github:index/organizationSecurityManager:OrganizationSecurityManager":
@@ -833,6 +922,7 @@ pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationOidcSu
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationVariable", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryAccessLevel", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryOidcSubjectClaimCustomizationTemplate", _module)
@@ -862,8 +952,14 @@ pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabels", _module)
 pulumi.runtime.registerResourceModule("github", "index/membership", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationBlock", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationCustomProperties", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationCustomRole", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationProject", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRepositoryRole", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRole", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRoleTeam", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRoleTeamAssignment", _module)
+pulumi.runtime.registerResourceModule("github", "index/organizationRoleUser", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationRuleset", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSecurityManager", _module)
 pulumi.runtime.registerResourceModule("github", "index/organizationSettings", _module)

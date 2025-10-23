@@ -9,6 +9,9 @@ import com.pulumi.github.inputs.RepositoryRulesetRulesBranchNamePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitAuthorEmailPatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitterEmailPatternArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesMergeQueueArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesPullRequestArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredCodeScanningArgs;
@@ -113,6 +116,51 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> deletion() {
         return Optional.ofNullable(this.deletion);
+    }
+
+    /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    @Import(name="fileExtensionRestriction")
+    private @Nullable Output<RepositoryRulesetRulesFileExtensionRestrictionArgs> fileExtensionRestriction;
+
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesFileExtensionRestrictionArgs>> fileExtensionRestriction() {
+        return Optional.ofNullable(this.fileExtensionRestriction);
+    }
+
+    /**
+     * (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     * 
+     */
+    @Import(name="filePathRestriction")
+    private @Nullable Output<RepositoryRulesetRulesFilePathRestrictionArgs> filePathRestriction;
+
+    /**
+     * @return (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesFilePathRestrictionArgs>> filePathRestriction() {
+        return Optional.ofNullable(this.filePathRestriction);
+    }
+
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    @Import(name="maxFileSize")
+    private @Nullable Output<RepositoryRulesetRulesMaxFileSizeArgs> maxFileSize;
+
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesMaxFileSizeArgs>> maxFileSize() {
+        return Optional.ofNullable(this.maxFileSize);
     }
 
     /**
@@ -289,6 +337,9 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         this.committerEmailPattern = $.committerEmailPattern;
         this.creation = $.creation;
         this.deletion = $.deletion;
+        this.fileExtensionRestriction = $.fileExtensionRestriction;
+        this.filePathRestriction = $.filePathRestriction;
+        this.maxFileSize = $.maxFileSize;
         this.mergeQueue = $.mergeQueue;
         this.nonFastForward = $.nonFastForward;
         this.pullRequest = $.pullRequest;
@@ -444,6 +495,69 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
          */
         public Builder deletion(Boolean deletion) {
             return deletion(Output.of(deletion));
+        }
+
+        /**
+         * @param fileExtensionRestriction (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtensionRestriction(@Nullable Output<RepositoryRulesetRulesFileExtensionRestrictionArgs> fileExtensionRestriction) {
+            $.fileExtensionRestriction = fileExtensionRestriction;
+            return this;
+        }
+
+        /**
+         * @param fileExtensionRestriction (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtensionRestriction(RepositoryRulesetRulesFileExtensionRestrictionArgs fileExtensionRestriction) {
+            return fileExtensionRestriction(Output.of(fileExtensionRestriction));
+        }
+
+        /**
+         * @param filePathRestriction (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filePathRestriction(@Nullable Output<RepositoryRulesetRulesFilePathRestrictionArgs> filePathRestriction) {
+            $.filePathRestriction = filePathRestriction;
+            return this;
+        }
+
+        /**
+         * @param filePathRestriction (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filePathRestriction(RepositoryRulesetRulesFilePathRestrictionArgs filePathRestriction) {
+            return filePathRestriction(Output.of(filePathRestriction));
+        }
+
+        /**
+         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFileSize(@Nullable Output<RepositoryRulesetRulesMaxFileSizeArgs> maxFileSize) {
+            $.maxFileSize = maxFileSize;
+            return this;
+        }
+
+        /**
+         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFileSize(RepositoryRulesetRulesMaxFileSizeArgs maxFileSize) {
+            return maxFileSize(Output.of(maxFileSize));
         }
 
         /**

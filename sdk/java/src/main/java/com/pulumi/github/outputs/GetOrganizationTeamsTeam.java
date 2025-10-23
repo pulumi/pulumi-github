@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationTeamsTeam {
     /**
-     * @return the team&#39;s description.
+     * @return The team&#39;s description.
      * 
      */
     private String description;
     /**
-     * @return the ID of the team.
+     * @return The ID of the team.
      * 
      */
     private Integer id;
@@ -29,22 +29,36 @@ public final class GetOrganizationTeamsTeam {
      */
     private List<String> members;
     /**
-     * @return the team&#39;s full name.
+     * @return The team&#39;s full name.
      * 
      */
     private String name;
     /**
-     * @return the Node ID of the team.
+     * @return The Node ID of the team.
      * 
      */
     private String nodeId;
     /**
-     * @return the parent team.
+     * @return (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+     * 
+     * @deprecated
+     * Use parentTeamId and parentTeamSlug instead.
      * 
      */
+    @Deprecated /* Use parentTeamId and parentTeamSlug instead. */
     private Map<String,String> parent;
     /**
-     * @return the team&#39;s privacy type.
+     * @return The ID of the parent team, if there is one.
+     * 
+     */
+    private String parentTeamId;
+    /**
+     * @return The slug of the parent team, if there is one.
+     * 
+     */
+    private String parentTeamSlug;
+    /**
+     * @return The team&#39;s privacy type.
      * 
      */
     private String privacy;
@@ -54,21 +68,21 @@ public final class GetOrganizationTeamsTeam {
      */
     private List<String> repositories;
     /**
-     * @return the slug of the team.
+     * @return The slug of the team.
      * 
      */
     private String slug;
 
     private GetOrganizationTeamsTeam() {}
     /**
-     * @return the team&#39;s description.
+     * @return The team&#39;s description.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return the ID of the team.
+     * @return The ID of the team.
      * 
      */
     public Integer id() {
@@ -82,28 +96,46 @@ public final class GetOrganizationTeamsTeam {
         return this.members;
     }
     /**
-     * @return the team&#39;s full name.
+     * @return The team&#39;s full name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return the Node ID of the team.
+     * @return The Node ID of the team.
      * 
      */
     public String nodeId() {
         return this.nodeId;
     }
     /**
-     * @return the parent team.
+     * @return (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+     * 
+     * @deprecated
+     * Use parentTeamId and parentTeamSlug instead.
      * 
      */
+    @Deprecated /* Use parentTeamId and parentTeamSlug instead. */
     public Map<String,String> parent() {
         return this.parent;
     }
     /**
-     * @return the team&#39;s privacy type.
+     * @return The ID of the parent team, if there is one.
+     * 
+     */
+    public String parentTeamId() {
+        return this.parentTeamId;
+    }
+    /**
+     * @return The slug of the parent team, if there is one.
+     * 
+     */
+    public String parentTeamSlug() {
+        return this.parentTeamSlug;
+    }
+    /**
+     * @return The team&#39;s privacy type.
      * 
      */
     public String privacy() {
@@ -117,7 +149,7 @@ public final class GetOrganizationTeamsTeam {
         return this.repositories;
     }
     /**
-     * @return the slug of the team.
+     * @return The slug of the team.
      * 
      */
     public String slug() {
@@ -139,6 +171,8 @@ public final class GetOrganizationTeamsTeam {
         private String name;
         private String nodeId;
         private Map<String,String> parent;
+        private String parentTeamId;
+        private String parentTeamSlug;
         private String privacy;
         private List<String> repositories;
         private String slug;
@@ -151,6 +185,8 @@ public final class GetOrganizationTeamsTeam {
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
     	      this.parent = defaults.parent;
+    	      this.parentTeamId = defaults.parentTeamId;
+    	      this.parentTeamSlug = defaults.parentTeamSlug;
     	      this.privacy = defaults.privacy;
     	      this.repositories = defaults.repositories;
     	      this.slug = defaults.slug;
@@ -208,6 +244,22 @@ public final class GetOrganizationTeamsTeam {
             return this;
         }
         @CustomType.Setter
+        public Builder parentTeamId(String parentTeamId) {
+            if (parentTeamId == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamsTeam", "parentTeamId");
+            }
+            this.parentTeamId = parentTeamId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder parentTeamSlug(String parentTeamSlug) {
+            if (parentTeamSlug == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationTeamsTeam", "parentTeamSlug");
+            }
+            this.parentTeamSlug = parentTeamSlug;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privacy(String privacy) {
             if (privacy == null) {
               throw new MissingRequiredPropertyException("GetOrganizationTeamsTeam", "privacy");
@@ -242,6 +294,8 @@ public final class GetOrganizationTeamsTeam {
             _resultValue.name = name;
             _resultValue.nodeId = nodeId;
             _resultValue.parent = parent;
+            _resultValue.parentTeamId = parentTeamId;
+            _resultValue.parentTeamSlug = parentTeamSlug;
             _resultValue.privacy = privacy;
             _resultValue.repositories = repositories;
             _resultValue.slug = slug;

@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.OrganizationRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,6 +80,14 @@ import javax.annotation.Nullable;
  *                     .negate(false)
  *                     .operator("starts_with")
  *                     .pattern("ex")
+ *                     .build())
+ *                 .requiredWorkflows(OrganizationRulesetRulesRequiredWorkflowsArgs.builder()
+ *                     .doNotEnforceOnCreate(true)
+ *                     .requiredWorkflows(OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs.builder()
+ *                         .repositoryId(1234)
+ *                         .path(".github/workflows/ci.yml")
+ *                         .ref("main")
+ *                         .build())
  *                     .build())
  *                 .build())
  *             .build());

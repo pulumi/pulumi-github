@@ -2204,10 +2204,10 @@ func (o IssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelsLabelOu
 
 type OrganizationRulesetBypassActor struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
-	ActorId int `pulumi:"actorId"`
+	ActorId *int `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
-	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
@@ -2229,10 +2229,10 @@ type OrganizationRulesetBypassActorInput interface {
 
 type OrganizationRulesetBypassActorArgs struct {
 	// (Number) The ID of the actor that can bypass a ruleset.
-	ActorId pulumi.IntInput `pulumi:"actorId"`
+	ActorId pulumi.IntPtrInput `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
-	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
@@ -2293,8 +2293,8 @@ func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOu
 }
 
 // (Number) The ID of the actor that can bypass a ruleset.
-func (o OrganizationRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
-	return o.ApplyT(func(v OrganizationRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
+func (o OrganizationRulesetBypassActorOutput) ActorId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetBypassActor) *int { return v.ActorId }).(pulumi.IntPtrOutput)
 }
 
 // The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
@@ -2302,7 +2302,7 @@ func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
 }
 
-// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 //
 // ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 //
@@ -4513,6 +4513,8 @@ func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArra
 }
 
 type OrganizationRulesetRulesRequiredStatusChecks struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate *bool `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
 	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -4531,6 +4533,8 @@ type OrganizationRulesetRulesRequiredStatusChecksInput interface {
 }
 
 type OrganizationRulesetRulesRequiredStatusChecksArgs struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate pulumi.BoolPtrInput `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
 	// Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
@@ -4614,6 +4618,11 @@ func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulese
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o OrganizationRulesetRulesRequiredStatusChecksOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) *bool { return v.DoNotEnforceOnCreate }).(pulumi.BoolPtrOutput)
+}
+
 // Status checks that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredStatusChecksOutput) RequiredChecks() OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
@@ -4648,6 +4657,16 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) Elem() Organizati
 		var ret OrganizationRulesetRulesRequiredStatusChecks
 		return ret
 	}).(OrganizationRulesetRulesRequiredStatusChecksOutput)
+}
+
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DoNotEnforceOnCreate
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Status checks that are required. Several can be defined.
@@ -4777,6 +4796,8 @@ func (o OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayOutput) In
 }
 
 type OrganizationRulesetRulesRequiredWorkflows struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate *bool `pulumi:"doNotEnforceOnCreate"`
 	// Actions workflows that are required. Several can be defined.
 	RequiredWorkflows []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow `pulumi:"requiredWorkflows"`
 }
@@ -4793,6 +4814,8 @@ type OrganizationRulesetRulesRequiredWorkflowsInput interface {
 }
 
 type OrganizationRulesetRulesRequiredWorkflowsArgs struct {
+	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	DoNotEnforceOnCreate pulumi.BoolPtrInput `pulumi:"doNotEnforceOnCreate"`
 	// Actions workflows that are required. Several can be defined.
 	RequiredWorkflows OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayInput `pulumi:"requiredWorkflows"`
 }
@@ -4874,6 +4897,11 @@ func (o OrganizationRulesetRulesRequiredWorkflowsOutput) ToOrganizationRulesetRu
 	}).(OrganizationRulesetRulesRequiredWorkflowsPtrOutput)
 }
 
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o OrganizationRulesetRulesRequiredWorkflowsOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflows) *bool { return v.DoNotEnforceOnCreate }).(pulumi.BoolPtrOutput)
+}
+
 // Actions workflows that are required. Several can be defined.
 func (o OrganizationRulesetRulesRequiredWorkflowsOutput) RequiredWorkflows() OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredWorkflows) []OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflow {
@@ -4903,6 +4931,16 @@ func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) Elem() OrganizationR
 		var ret OrganizationRulesetRulesRequiredWorkflows
 		return ret
 	}).(OrganizationRulesetRulesRequiredWorkflowsOutput)
+}
+
+// Allow repositories and branches to be created if a check would otherwise prohibit it.
+func (o OrganizationRulesetRulesRequiredWorkflowsPtrOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredWorkflows) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DoNotEnforceOnCreate
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Actions workflows that are required. Several can be defined.
@@ -6580,11 +6618,11 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type RepositoryRulesetBypassActor struct {
-	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-	ActorId int `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+	ActorId *int `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
 	ActorType string `pulumi:"actorType"`
-	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
@@ -6605,11 +6643,11 @@ type RepositoryRulesetBypassActorInput interface {
 }
 
 type RepositoryRulesetBypassActorArgs struct {
-	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-	ActorId pulumi.IntInput `pulumi:"actorId"`
-	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+	// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+	ActorId pulumi.IntPtrInput `pulumi:"actorId"`
+	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
-	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+	// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
@@ -6669,17 +6707,17 @@ func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutput
 	return o
 }
 
-// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
-func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntOutput {
-	return o.ApplyT(func(v RepositoryRulesetBypassActor) int { return v.ActorId }).(pulumi.IntOutput)
+// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetBypassActor) *int { return v.ActorId }).(pulumi.IntPtrOutput)
 }
 
-// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
 func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.ActorType }).(pulumi.StringOutput)
 }
 
-// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+// (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
 //
 // > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 //
@@ -7015,6 +7053,12 @@ type RepositoryRulesetRules struct {
 	Creation *bool `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion *bool `pulumi:"deletion"`
+	// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FileExtensionRestriction *RepositoryRulesetRulesFileExtensionRestriction `pulumi:"fileExtensionRestriction"`
+	// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+	FilePathRestriction *RepositoryRulesetRulesFilePathRestriction `pulumi:"filePathRestriction"`
+	// (Integer) The maximum allowed size, in bytes, of a file.
+	MaxFileSize *RepositoryRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
 	MergeQueue *RepositoryRulesetRulesMergeQueue `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
@@ -7063,6 +7107,12 @@ type RepositoryRulesetRulesArgs struct {
 	Creation pulumi.BoolPtrInput `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion pulumi.BoolPtrInput `pulumi:"deletion"`
+	// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FileExtensionRestriction RepositoryRulesetRulesFileExtensionRestrictionPtrInput `pulumi:"fileExtensionRestriction"`
+	// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+	FilePathRestriction RepositoryRulesetRulesFilePathRestrictionPtrInput `pulumi:"filePathRestriction"`
+	// (Integer) The maximum allowed size, in bytes, of a file.
+	MaxFileSize RepositoryRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
 	MergeQueue RepositoryRulesetRulesMergeQueuePtrInput `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
@@ -7198,6 +7248,25 @@ func (o RepositoryRulesetRulesOutput) Creation() pulumi.BoolPtrOutput {
 // (Boolean) Only allow users with bypass permissions to delete matching refs.
 func (o RepositoryRulesetRulesOutput) Deletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRules) *bool { return v.Deletion }).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) FileExtensionRestriction() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesFileExtensionRestriction {
+		return v.FileExtensionRestriction
+	}).(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+func (o RepositoryRulesetRulesOutput) FilePathRestriction() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesFilePathRestriction {
+		return v.FilePathRestriction
+	}).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum allowed size, in bytes, of a file.
+func (o RepositoryRulesetRulesOutput) MaxFileSize() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMaxFileSize { return v.MaxFileSize }).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
 
 // (Block List, Max: 1) Merges must be performed via a merge queue.
@@ -7343,6 +7412,36 @@ func (o RepositoryRulesetRulesPtrOutput) Deletion() pulumi.BoolPtrOutput {
 		}
 		return v.Deletion
 	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) FileExtensionRestriction() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesFileExtensionRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.FileExtensionRestriction
+	}).(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) FilePathRestriction() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesFilePathRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.FilePathRestriction
+	}).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum allowed size, in bytes, of a file.
+func (o RepositoryRulesetRulesPtrOutput) MaxFileSize() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesMaxFileSize {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
 
 // (Block List, Max: 1) Merges must be performed via a merge queue.
@@ -8229,6 +8328,417 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.S
 		}
 		return &v.Pattern
 	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryRulesetRulesFileExtensionRestriction struct {
+	// A list of file extensions.
+	RestrictedFileExtensions []string `pulumi:"restrictedFileExtensions"`
+}
+
+// RepositoryRulesetRulesFileExtensionRestrictionInput is an input type that accepts RepositoryRulesetRulesFileExtensionRestrictionArgs and RepositoryRulesetRulesFileExtensionRestrictionOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesFileExtensionRestrictionInput` via:
+//
+//	RepositoryRulesetRulesFileExtensionRestrictionArgs{...}
+type RepositoryRulesetRulesFileExtensionRestrictionInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesFileExtensionRestrictionOutput() RepositoryRulesetRulesFileExtensionRestrictionOutput
+	ToRepositoryRulesetRulesFileExtensionRestrictionOutputWithContext(context.Context) RepositoryRulesetRulesFileExtensionRestrictionOutput
+}
+
+type RepositoryRulesetRulesFileExtensionRestrictionArgs struct {
+	// A list of file extensions.
+	RestrictedFileExtensions pulumi.StringArrayInput `pulumi:"restrictedFileExtensions"`
+}
+
+func (RepositoryRulesetRulesFileExtensionRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesFileExtensionRestrictionArgs) ToRepositoryRulesetRulesFileExtensionRestrictionOutput() RepositoryRulesetRulesFileExtensionRestrictionOutput {
+	return i.ToRepositoryRulesetRulesFileExtensionRestrictionOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesFileExtensionRestrictionArgs) ToRepositoryRulesetRulesFileExtensionRestrictionOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFileExtensionRestrictionOutput)
+}
+
+func (i RepositoryRulesetRulesFileExtensionRestrictionArgs) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutput() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return i.ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesFileExtensionRestrictionArgs) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFileExtensionRestrictionOutput).ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesFileExtensionRestrictionPtrInput is an input type that accepts RepositoryRulesetRulesFileExtensionRestrictionArgs, RepositoryRulesetRulesFileExtensionRestrictionPtr and RepositoryRulesetRulesFileExtensionRestrictionPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesFileExtensionRestrictionPtrInput` via:
+//
+//	        RepositoryRulesetRulesFileExtensionRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesFileExtensionRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutput() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput
+	ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Context) RepositoryRulesetRulesFileExtensionRestrictionPtrOutput
+}
+
+type repositoryRulesetRulesFileExtensionRestrictionPtrType RepositoryRulesetRulesFileExtensionRestrictionArgs
+
+func RepositoryRulesetRulesFileExtensionRestrictionPtr(v *RepositoryRulesetRulesFileExtensionRestrictionArgs) RepositoryRulesetRulesFileExtensionRestrictionPtrInput {
+	return (*repositoryRulesetRulesFileExtensionRestrictionPtrType)(v)
+}
+
+func (*repositoryRulesetRulesFileExtensionRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesFileExtensionRestrictionPtrType) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutput() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return i.ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesFileExtensionRestrictionPtrType) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+type RepositoryRulesetRulesFileExtensionRestrictionOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesFileExtensionRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionOutput) ToRepositoryRulesetRulesFileExtensionRestrictionOutput() RepositoryRulesetRulesFileExtensionRestrictionOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionOutput) ToRepositoryRulesetRulesFileExtensionRestrictionOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionOutput) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutput() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionOutput) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesFileExtensionRestriction) *RepositoryRulesetRulesFileExtensionRestriction {
+		return &v
+	}).(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// A list of file extensions.
+func (o RepositoryRulesetRulesFileExtensionRestrictionOutput) RestrictedFileExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesFileExtensionRestriction) []string { return v.RestrictedFileExtensions }).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesFileExtensionRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesFileExtensionRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionPtrOutput) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutput() RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionPtrOutput) ToRepositoryRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFileExtensionRestrictionPtrOutput) Elem() RepositoryRulesetRulesFileExtensionRestrictionOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesFileExtensionRestriction) RepositoryRulesetRulesFileExtensionRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesFileExtensionRestriction
+		return ret
+	}).(RepositoryRulesetRulesFileExtensionRestrictionOutput)
+}
+
+// A list of file extensions.
+func (o RepositoryRulesetRulesFileExtensionRestrictionPtrOutput) RestrictedFileExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesFileExtensionRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedFileExtensions
+	}).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesFilePathRestriction struct {
+	// The file paths that are restricted from being pushed to the commit graph.
+	RestrictedFilePaths []string `pulumi:"restrictedFilePaths"`
+}
+
+// RepositoryRulesetRulesFilePathRestrictionInput is an input type that accepts RepositoryRulesetRulesFilePathRestrictionArgs and RepositoryRulesetRulesFilePathRestrictionOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesFilePathRestrictionInput` via:
+//
+//	RepositoryRulesetRulesFilePathRestrictionArgs{...}
+type RepositoryRulesetRulesFilePathRestrictionInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesFilePathRestrictionOutput() RepositoryRulesetRulesFilePathRestrictionOutput
+	ToRepositoryRulesetRulesFilePathRestrictionOutputWithContext(context.Context) RepositoryRulesetRulesFilePathRestrictionOutput
+}
+
+type RepositoryRulesetRulesFilePathRestrictionArgs struct {
+	// The file paths that are restricted from being pushed to the commit graph.
+	RestrictedFilePaths pulumi.StringArrayInput `pulumi:"restrictedFilePaths"`
+}
+
+func (RepositoryRulesetRulesFilePathRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesFilePathRestrictionArgs) ToRepositoryRulesetRulesFilePathRestrictionOutput() RepositoryRulesetRulesFilePathRestrictionOutput {
+	return i.ToRepositoryRulesetRulesFilePathRestrictionOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesFilePathRestrictionArgs) ToRepositoryRulesetRulesFilePathRestrictionOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFilePathRestrictionOutput)
+}
+
+func (i RepositoryRulesetRulesFilePathRestrictionArgs) ToRepositoryRulesetRulesFilePathRestrictionPtrOutput() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return i.ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesFilePathRestrictionArgs) ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFilePathRestrictionOutput).ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesFilePathRestrictionPtrInput is an input type that accepts RepositoryRulesetRulesFilePathRestrictionArgs, RepositoryRulesetRulesFilePathRestrictionPtr and RepositoryRulesetRulesFilePathRestrictionPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesFilePathRestrictionPtrInput` via:
+//
+//	        RepositoryRulesetRulesFilePathRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesFilePathRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesFilePathRestrictionPtrOutput() RepositoryRulesetRulesFilePathRestrictionPtrOutput
+	ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Context) RepositoryRulesetRulesFilePathRestrictionPtrOutput
+}
+
+type repositoryRulesetRulesFilePathRestrictionPtrType RepositoryRulesetRulesFilePathRestrictionArgs
+
+func RepositoryRulesetRulesFilePathRestrictionPtr(v *RepositoryRulesetRulesFilePathRestrictionArgs) RepositoryRulesetRulesFilePathRestrictionPtrInput {
+	return (*repositoryRulesetRulesFilePathRestrictionPtrType)(v)
+}
+
+func (*repositoryRulesetRulesFilePathRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesFilePathRestrictionPtrType) ToRepositoryRulesetRulesFilePathRestrictionPtrOutput() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return i.ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesFilePathRestrictionPtrType) ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+type RepositoryRulesetRulesFilePathRestrictionOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesFilePathRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionOutput) ToRepositoryRulesetRulesFilePathRestrictionOutput() RepositoryRulesetRulesFilePathRestrictionOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionOutput) ToRepositoryRulesetRulesFilePathRestrictionOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionOutput) ToRepositoryRulesetRulesFilePathRestrictionPtrOutput() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionOutput) ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesFilePathRestriction) *RepositoryRulesetRulesFilePathRestriction {
+		return &v
+	}).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// The file paths that are restricted from being pushed to the commit graph.
+func (o RepositoryRulesetRulesFilePathRestrictionOutput) RestrictedFilePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesFilePathRestriction) []string { return v.RestrictedFilePaths }).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesFilePathRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesFilePathRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionPtrOutput) ToRepositoryRulesetRulesFilePathRestrictionPtrOutput() RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionPtrOutput) ToRepositoryRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesFilePathRestrictionPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesFilePathRestrictionPtrOutput) Elem() RepositoryRulesetRulesFilePathRestrictionOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesFilePathRestriction) RepositoryRulesetRulesFilePathRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesFilePathRestriction
+		return ret
+	}).(RepositoryRulesetRulesFilePathRestrictionOutput)
+}
+
+// The file paths that are restricted from being pushed to the commit graph.
+func (o RepositoryRulesetRulesFilePathRestrictionPtrOutput) RestrictedFilePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesFilePathRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedFilePaths
+	}).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesMaxFileSize struct {
+	// The maximum allowed size of a file in bytes.
+	MaxFileSize int `pulumi:"maxFileSize"`
+}
+
+// RepositoryRulesetRulesMaxFileSizeInput is an input type that accepts RepositoryRulesetRulesMaxFileSizeArgs and RepositoryRulesetRulesMaxFileSizeOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMaxFileSizeInput` via:
+//
+//	RepositoryRulesetRulesMaxFileSizeArgs{...}
+type RepositoryRulesetRulesMaxFileSizeInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMaxFileSizeOutput() RepositoryRulesetRulesMaxFileSizeOutput
+	ToRepositoryRulesetRulesMaxFileSizeOutputWithContext(context.Context) RepositoryRulesetRulesMaxFileSizeOutput
+}
+
+type RepositoryRulesetRulesMaxFileSizeArgs struct {
+	// The maximum allowed size of a file in bytes.
+	MaxFileSize pulumi.IntInput `pulumi:"maxFileSize"`
+}
+
+func (RepositoryRulesetRulesMaxFileSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesMaxFileSizeArgs) ToRepositoryRulesetRulesMaxFileSizeOutput() RepositoryRulesetRulesMaxFileSizeOutput {
+	return i.ToRepositoryRulesetRulesMaxFileSizeOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMaxFileSizeArgs) ToRepositoryRulesetRulesMaxFileSizeOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFileSizeOutput)
+}
+
+func (i RepositoryRulesetRulesMaxFileSizeArgs) ToRepositoryRulesetRulesMaxFileSizePtrOutput() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return i.ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMaxFileSizeArgs) ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFileSizeOutput).ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesMaxFileSizePtrInput is an input type that accepts RepositoryRulesetRulesMaxFileSizeArgs, RepositoryRulesetRulesMaxFileSizePtr and RepositoryRulesetRulesMaxFileSizePtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMaxFileSizePtrInput` via:
+//
+//	        RepositoryRulesetRulesMaxFileSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesMaxFileSizePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMaxFileSizePtrOutput() RepositoryRulesetRulesMaxFileSizePtrOutput
+	ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(context.Context) RepositoryRulesetRulesMaxFileSizePtrOutput
+}
+
+type repositoryRulesetRulesMaxFileSizePtrType RepositoryRulesetRulesMaxFileSizeArgs
+
+func RepositoryRulesetRulesMaxFileSizePtr(v *RepositoryRulesetRulesMaxFileSizeArgs) RepositoryRulesetRulesMaxFileSizePtrInput {
+	return (*repositoryRulesetRulesMaxFileSizePtrType)(v)
+}
+
+func (*repositoryRulesetRulesMaxFileSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesMaxFileSizePtrType) ToRepositoryRulesetRulesMaxFileSizePtrOutput() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return i.ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesMaxFileSizePtrType) ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFileSizePtrOutput)
+}
+
+type RepositoryRulesetRulesMaxFileSizeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMaxFileSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMaxFileSizeOutput) ToRepositoryRulesetRulesMaxFileSizeOutput() RepositoryRulesetRulesMaxFileSizeOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFileSizeOutput) ToRepositoryRulesetRulesMaxFileSizeOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizeOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFileSizeOutput) ToRepositoryRulesetRulesMaxFileSizePtrOutput() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o.ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesMaxFileSizeOutput) ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesMaxFileSize) *RepositoryRulesetRulesMaxFileSize {
+		return &v
+	}).(RepositoryRulesetRulesMaxFileSizePtrOutput)
+}
+
+// The maximum allowed size of a file in bytes.
+func (o RepositoryRulesetRulesMaxFileSizeOutput) MaxFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMaxFileSize) int { return v.MaxFileSize }).(pulumi.IntOutput)
+}
+
+type RepositoryRulesetRulesMaxFileSizePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMaxFileSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMaxFileSizePtrOutput) ToRepositoryRulesetRulesMaxFileSizePtrOutput() RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFileSizePtrOutput) ToRepositoryRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFileSizePtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFileSizePtrOutput) Elem() RepositoryRulesetRulesMaxFileSizeOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMaxFileSize) RepositoryRulesetRulesMaxFileSize {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesMaxFileSize
+		return ret
+	}).(RepositoryRulesetRulesMaxFileSizeOutput)
+}
+
+// The maximum allowed size of a file in bytes.
+func (o RepositoryRulesetRulesMaxFileSizePtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMaxFileSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type RepositoryRulesetRulesMergeQueue struct {
@@ -13095,6 +13605,635 @@ func (o GetOrganizationIpAllowListIpAllowListArrayOutput) Index(i pulumi.IntInpu
 	}).(GetOrganizationIpAllowListIpAllowListOutput)
 }
 
+type GetOrganizationRepositoryRolesRole struct {
+	// The system role from which this role inherits permissions.
+	BaseRole string `pulumi:"baseRole"`
+	// The description of the organization repository role.
+	Description string `pulumi:"description"`
+	// The name of the organization repository role.
+	Name string `pulumi:"name"`
+	// The permissions included in this role.
+	Permissions []string `pulumi:"permissions"`
+	// The ID of the organization repository role.
+	RoleId int `pulumi:"roleId"`
+}
+
+// GetOrganizationRepositoryRolesRoleInput is an input type that accepts GetOrganizationRepositoryRolesRoleArgs and GetOrganizationRepositoryRolesRoleOutput values.
+// You can construct a concrete instance of `GetOrganizationRepositoryRolesRoleInput` via:
+//
+//	GetOrganizationRepositoryRolesRoleArgs{...}
+type GetOrganizationRepositoryRolesRoleInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRepositoryRolesRoleOutput() GetOrganizationRepositoryRolesRoleOutput
+	ToGetOrganizationRepositoryRolesRoleOutputWithContext(context.Context) GetOrganizationRepositoryRolesRoleOutput
+}
+
+type GetOrganizationRepositoryRolesRoleArgs struct {
+	// The system role from which this role inherits permissions.
+	BaseRole pulumi.StringInput `pulumi:"baseRole"`
+	// The description of the organization repository role.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The name of the organization repository role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The permissions included in this role.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The ID of the organization repository role.
+	RoleId pulumi.IntInput `pulumi:"roleId"`
+}
+
+func (GetOrganizationRepositoryRolesRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRepositoryRolesRole)(nil)).Elem()
+}
+
+func (i GetOrganizationRepositoryRolesRoleArgs) ToGetOrganizationRepositoryRolesRoleOutput() GetOrganizationRepositoryRolesRoleOutput {
+	return i.ToGetOrganizationRepositoryRolesRoleOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRepositoryRolesRoleArgs) ToGetOrganizationRepositoryRolesRoleOutputWithContext(ctx context.Context) GetOrganizationRepositoryRolesRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRepositoryRolesRoleOutput)
+}
+
+// GetOrganizationRepositoryRolesRoleArrayInput is an input type that accepts GetOrganizationRepositoryRolesRoleArray and GetOrganizationRepositoryRolesRoleArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRepositoryRolesRoleArrayInput` via:
+//
+//	GetOrganizationRepositoryRolesRoleArray{ GetOrganizationRepositoryRolesRoleArgs{...} }
+type GetOrganizationRepositoryRolesRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRepositoryRolesRoleArrayOutput() GetOrganizationRepositoryRolesRoleArrayOutput
+	ToGetOrganizationRepositoryRolesRoleArrayOutputWithContext(context.Context) GetOrganizationRepositoryRolesRoleArrayOutput
+}
+
+type GetOrganizationRepositoryRolesRoleArray []GetOrganizationRepositoryRolesRoleInput
+
+func (GetOrganizationRepositoryRolesRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRepositoryRolesRole)(nil)).Elem()
+}
+
+func (i GetOrganizationRepositoryRolesRoleArray) ToGetOrganizationRepositoryRolesRoleArrayOutput() GetOrganizationRepositoryRolesRoleArrayOutput {
+	return i.ToGetOrganizationRepositoryRolesRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRepositoryRolesRoleArray) ToGetOrganizationRepositoryRolesRoleArrayOutputWithContext(ctx context.Context) GetOrganizationRepositoryRolesRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRepositoryRolesRoleArrayOutput)
+}
+
+type GetOrganizationRepositoryRolesRoleOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRepositoryRolesRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRepositoryRolesRole)(nil)).Elem()
+}
+
+func (o GetOrganizationRepositoryRolesRoleOutput) ToGetOrganizationRepositoryRolesRoleOutput() GetOrganizationRepositoryRolesRoleOutput {
+	return o
+}
+
+func (o GetOrganizationRepositoryRolesRoleOutput) ToGetOrganizationRepositoryRolesRoleOutputWithContext(ctx context.Context) GetOrganizationRepositoryRolesRoleOutput {
+	return o
+}
+
+// The system role from which this role inherits permissions.
+func (o GetOrganizationRepositoryRolesRoleOutput) BaseRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRepositoryRolesRole) string { return v.BaseRole }).(pulumi.StringOutput)
+}
+
+// The description of the organization repository role.
+func (o GetOrganizationRepositoryRolesRoleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRepositoryRolesRole) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the organization repository role.
+func (o GetOrganizationRepositoryRolesRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRepositoryRolesRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The permissions included in this role.
+func (o GetOrganizationRepositoryRolesRoleOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationRepositoryRolesRole) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the organization repository role.
+func (o GetOrganizationRepositoryRolesRoleOutput) RoleId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationRepositoryRolesRole) int { return v.RoleId }).(pulumi.IntOutput)
+}
+
+type GetOrganizationRepositoryRolesRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRepositoryRolesRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRepositoryRolesRole)(nil)).Elem()
+}
+
+func (o GetOrganizationRepositoryRolesRoleArrayOutput) ToGetOrganizationRepositoryRolesRoleArrayOutput() GetOrganizationRepositoryRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRepositoryRolesRoleArrayOutput) ToGetOrganizationRepositoryRolesRoleArrayOutputWithContext(ctx context.Context) GetOrganizationRepositoryRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRepositoryRolesRoleArrayOutput) Index(i pulumi.IntInput) GetOrganizationRepositoryRolesRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRepositoryRolesRole {
+		return vs[0].([]GetOrganizationRepositoryRolesRole)[vs[1].(int)]
+	}).(GetOrganizationRepositoryRolesRoleOutput)
+}
+
+type GetOrganizationRoleTeamsTeam struct {
+	// The name of the team.
+	Name string `pulumi:"name"`
+	// The permission that the team will have for its repositories.
+	Permission string `pulumi:"permission"`
+	// The Slug of the team name.
+	Slug string `pulumi:"slug"`
+	// The ID of the team.
+	TeamId int `pulumi:"teamId"`
+}
+
+// GetOrganizationRoleTeamsTeamInput is an input type that accepts GetOrganizationRoleTeamsTeamArgs and GetOrganizationRoleTeamsTeamOutput values.
+// You can construct a concrete instance of `GetOrganizationRoleTeamsTeamInput` via:
+//
+//	GetOrganizationRoleTeamsTeamArgs{...}
+type GetOrganizationRoleTeamsTeamInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRoleTeamsTeamOutput() GetOrganizationRoleTeamsTeamOutput
+	ToGetOrganizationRoleTeamsTeamOutputWithContext(context.Context) GetOrganizationRoleTeamsTeamOutput
+}
+
+type GetOrganizationRoleTeamsTeamArgs struct {
+	// The name of the team.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The permission that the team will have for its repositories.
+	Permission pulumi.StringInput `pulumi:"permission"`
+	// The Slug of the team name.
+	Slug pulumi.StringInput `pulumi:"slug"`
+	// The ID of the team.
+	TeamId pulumi.IntInput `pulumi:"teamId"`
+}
+
+func (GetOrganizationRoleTeamsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRoleTeamsTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationRoleTeamsTeamArgs) ToGetOrganizationRoleTeamsTeamOutput() GetOrganizationRoleTeamsTeamOutput {
+	return i.ToGetOrganizationRoleTeamsTeamOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRoleTeamsTeamArgs) ToGetOrganizationRoleTeamsTeamOutputWithContext(ctx context.Context) GetOrganizationRoleTeamsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRoleTeamsTeamOutput)
+}
+
+// GetOrganizationRoleTeamsTeamArrayInput is an input type that accepts GetOrganizationRoleTeamsTeamArray and GetOrganizationRoleTeamsTeamArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRoleTeamsTeamArrayInput` via:
+//
+//	GetOrganizationRoleTeamsTeamArray{ GetOrganizationRoleTeamsTeamArgs{...} }
+type GetOrganizationRoleTeamsTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRoleTeamsTeamArrayOutput() GetOrganizationRoleTeamsTeamArrayOutput
+	ToGetOrganizationRoleTeamsTeamArrayOutputWithContext(context.Context) GetOrganizationRoleTeamsTeamArrayOutput
+}
+
+type GetOrganizationRoleTeamsTeamArray []GetOrganizationRoleTeamsTeamInput
+
+func (GetOrganizationRoleTeamsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRoleTeamsTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationRoleTeamsTeamArray) ToGetOrganizationRoleTeamsTeamArrayOutput() GetOrganizationRoleTeamsTeamArrayOutput {
+	return i.ToGetOrganizationRoleTeamsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRoleTeamsTeamArray) ToGetOrganizationRoleTeamsTeamArrayOutputWithContext(ctx context.Context) GetOrganizationRoleTeamsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRoleTeamsTeamArrayOutput)
+}
+
+type GetOrganizationRoleTeamsTeamOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRoleTeamsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRoleTeamsTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationRoleTeamsTeamOutput) ToGetOrganizationRoleTeamsTeamOutput() GetOrganizationRoleTeamsTeamOutput {
+	return o
+}
+
+func (o GetOrganizationRoleTeamsTeamOutput) ToGetOrganizationRoleTeamsTeamOutputWithContext(ctx context.Context) GetOrganizationRoleTeamsTeamOutput {
+	return o
+}
+
+// The name of the team.
+func (o GetOrganizationRoleTeamsTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRoleTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The permission that the team will have for its repositories.
+func (o GetOrganizationRoleTeamsTeamOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRoleTeamsTeam) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// The Slug of the team name.
+func (o GetOrganizationRoleTeamsTeamOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRoleTeamsTeam) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+// The ID of the team.
+func (o GetOrganizationRoleTeamsTeamOutput) TeamId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationRoleTeamsTeam) int { return v.TeamId }).(pulumi.IntOutput)
+}
+
+type GetOrganizationRoleTeamsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRoleTeamsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRoleTeamsTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationRoleTeamsTeamArrayOutput) ToGetOrganizationRoleTeamsTeamArrayOutput() GetOrganizationRoleTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRoleTeamsTeamArrayOutput) ToGetOrganizationRoleTeamsTeamArrayOutputWithContext(ctx context.Context) GetOrganizationRoleTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRoleTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetOrganizationRoleTeamsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRoleTeamsTeam {
+		return vs[0].([]GetOrganizationRoleTeamsTeam)[vs[1].(int)]
+	}).(GetOrganizationRoleTeamsTeamOutput)
+}
+
+type GetOrganizationRoleUsersUser struct {
+	// The login for the GitHub user account.
+	Login string `pulumi:"login"`
+	// The ID of the user.
+	UserId int `pulumi:"userId"`
+}
+
+// GetOrganizationRoleUsersUserInput is an input type that accepts GetOrganizationRoleUsersUserArgs and GetOrganizationRoleUsersUserOutput values.
+// You can construct a concrete instance of `GetOrganizationRoleUsersUserInput` via:
+//
+//	GetOrganizationRoleUsersUserArgs{...}
+type GetOrganizationRoleUsersUserInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRoleUsersUserOutput() GetOrganizationRoleUsersUserOutput
+	ToGetOrganizationRoleUsersUserOutputWithContext(context.Context) GetOrganizationRoleUsersUserOutput
+}
+
+type GetOrganizationRoleUsersUserArgs struct {
+	// The login for the GitHub user account.
+	Login pulumi.StringInput `pulumi:"login"`
+	// The ID of the user.
+	UserId pulumi.IntInput `pulumi:"userId"`
+}
+
+func (GetOrganizationRoleUsersUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRoleUsersUser)(nil)).Elem()
+}
+
+func (i GetOrganizationRoleUsersUserArgs) ToGetOrganizationRoleUsersUserOutput() GetOrganizationRoleUsersUserOutput {
+	return i.ToGetOrganizationRoleUsersUserOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRoleUsersUserArgs) ToGetOrganizationRoleUsersUserOutputWithContext(ctx context.Context) GetOrganizationRoleUsersUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRoleUsersUserOutput)
+}
+
+// GetOrganizationRoleUsersUserArrayInput is an input type that accepts GetOrganizationRoleUsersUserArray and GetOrganizationRoleUsersUserArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRoleUsersUserArrayInput` via:
+//
+//	GetOrganizationRoleUsersUserArray{ GetOrganizationRoleUsersUserArgs{...} }
+type GetOrganizationRoleUsersUserArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRoleUsersUserArrayOutput() GetOrganizationRoleUsersUserArrayOutput
+	ToGetOrganizationRoleUsersUserArrayOutputWithContext(context.Context) GetOrganizationRoleUsersUserArrayOutput
+}
+
+type GetOrganizationRoleUsersUserArray []GetOrganizationRoleUsersUserInput
+
+func (GetOrganizationRoleUsersUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRoleUsersUser)(nil)).Elem()
+}
+
+func (i GetOrganizationRoleUsersUserArray) ToGetOrganizationRoleUsersUserArrayOutput() GetOrganizationRoleUsersUserArrayOutput {
+	return i.ToGetOrganizationRoleUsersUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRoleUsersUserArray) ToGetOrganizationRoleUsersUserArrayOutputWithContext(ctx context.Context) GetOrganizationRoleUsersUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRoleUsersUserArrayOutput)
+}
+
+type GetOrganizationRoleUsersUserOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRoleUsersUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRoleUsersUser)(nil)).Elem()
+}
+
+func (o GetOrganizationRoleUsersUserOutput) ToGetOrganizationRoleUsersUserOutput() GetOrganizationRoleUsersUserOutput {
+	return o
+}
+
+func (o GetOrganizationRoleUsersUserOutput) ToGetOrganizationRoleUsersUserOutputWithContext(ctx context.Context) GetOrganizationRoleUsersUserOutput {
+	return o
+}
+
+// The login for the GitHub user account.
+func (o GetOrganizationRoleUsersUserOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRoleUsersUser) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// The ID of the user.
+func (o GetOrganizationRoleUsersUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationRoleUsersUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+type GetOrganizationRoleUsersUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRoleUsersUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRoleUsersUser)(nil)).Elem()
+}
+
+func (o GetOrganizationRoleUsersUserArrayOutput) ToGetOrganizationRoleUsersUserArrayOutput() GetOrganizationRoleUsersUserArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRoleUsersUserArrayOutput) ToGetOrganizationRoleUsersUserArrayOutputWithContext(ctx context.Context) GetOrganizationRoleUsersUserArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRoleUsersUserArrayOutput) Index(i pulumi.IntInput) GetOrganizationRoleUsersUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRoleUsersUser {
+		return vs[0].([]GetOrganizationRoleUsersUser)[vs[1].(int)]
+	}).(GetOrganizationRoleUsersUserOutput)
+}
+
+type GetOrganizationRolesRole struct {
+	// The system role from which this role inherits permissions.
+	BaseRole string `pulumi:"baseRole"`
+	// The description of the organization role.
+	Description string `pulumi:"description"`
+	// The name of the organization role.
+	Name string `pulumi:"name"`
+	// A list of permissions included in this role.
+	Permissions []string `pulumi:"permissions"`
+	// The ID of the organization role.
+	RoleId int `pulumi:"roleId"`
+	// The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+	Source string `pulumi:"source"`
+}
+
+// GetOrganizationRolesRoleInput is an input type that accepts GetOrganizationRolesRoleArgs and GetOrganizationRolesRoleOutput values.
+// You can construct a concrete instance of `GetOrganizationRolesRoleInput` via:
+//
+//	GetOrganizationRolesRoleArgs{...}
+type GetOrganizationRolesRoleInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRolesRoleOutput() GetOrganizationRolesRoleOutput
+	ToGetOrganizationRolesRoleOutputWithContext(context.Context) GetOrganizationRolesRoleOutput
+}
+
+type GetOrganizationRolesRoleArgs struct {
+	// The system role from which this role inherits permissions.
+	BaseRole pulumi.StringInput `pulumi:"baseRole"`
+	// The description of the organization role.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The name of the organization role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of permissions included in this role.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// The ID of the organization role.
+	RoleId pulumi.IntInput `pulumi:"roleId"`
+	// The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (GetOrganizationRolesRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRolesRole)(nil)).Elem()
+}
+
+func (i GetOrganizationRolesRoleArgs) ToGetOrganizationRolesRoleOutput() GetOrganizationRolesRoleOutput {
+	return i.ToGetOrganizationRolesRoleOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRolesRoleArgs) ToGetOrganizationRolesRoleOutputWithContext(ctx context.Context) GetOrganizationRolesRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRolesRoleOutput)
+}
+
+// GetOrganizationRolesRoleArrayInput is an input type that accepts GetOrganizationRolesRoleArray and GetOrganizationRolesRoleArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRolesRoleArrayInput` via:
+//
+//	GetOrganizationRolesRoleArray{ GetOrganizationRolesRoleArgs{...} }
+type GetOrganizationRolesRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationRolesRoleArrayOutput() GetOrganizationRolesRoleArrayOutput
+	ToGetOrganizationRolesRoleArrayOutputWithContext(context.Context) GetOrganizationRolesRoleArrayOutput
+}
+
+type GetOrganizationRolesRoleArray []GetOrganizationRolesRoleInput
+
+func (GetOrganizationRolesRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRolesRole)(nil)).Elem()
+}
+
+func (i GetOrganizationRolesRoleArray) ToGetOrganizationRolesRoleArrayOutput() GetOrganizationRolesRoleArrayOutput {
+	return i.ToGetOrganizationRolesRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationRolesRoleArray) ToGetOrganizationRolesRoleArrayOutputWithContext(ctx context.Context) GetOrganizationRolesRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRolesRoleArrayOutput)
+}
+
+type GetOrganizationRolesRoleOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRolesRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationRolesRole)(nil)).Elem()
+}
+
+func (o GetOrganizationRolesRoleOutput) ToGetOrganizationRolesRoleOutput() GetOrganizationRolesRoleOutput {
+	return o
+}
+
+func (o GetOrganizationRolesRoleOutput) ToGetOrganizationRolesRoleOutputWithContext(ctx context.Context) GetOrganizationRolesRoleOutput {
+	return o
+}
+
+// The system role from which this role inherits permissions.
+func (o GetOrganizationRolesRoleOutput) BaseRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) string { return v.BaseRole }).(pulumi.StringOutput)
+}
+
+// The description of the organization role.
+func (o GetOrganizationRolesRoleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the organization role.
+func (o GetOrganizationRolesRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of permissions included in this role.
+func (o GetOrganizationRolesRoleOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the organization role.
+func (o GetOrganizationRolesRoleOutput) RoleId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) int { return v.RoleId }).(pulumi.IntOutput)
+}
+
+// The source of this role; one of `Predefined`, `Organization`, or `Enterprise`.
+func (o GetOrganizationRolesRoleOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationRolesRole) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type GetOrganizationRolesRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationRolesRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationRolesRole)(nil)).Elem()
+}
+
+func (o GetOrganizationRolesRoleArrayOutput) ToGetOrganizationRolesRoleArrayOutput() GetOrganizationRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRolesRoleArrayOutput) ToGetOrganizationRolesRoleArrayOutputWithContext(ctx context.Context) GetOrganizationRolesRoleArrayOutput {
+	return o
+}
+
+func (o GetOrganizationRolesRoleArrayOutput) Index(i pulumi.IntInput) GetOrganizationRolesRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRolesRole {
+		return vs[0].([]GetOrganizationRolesRole)[vs[1].(int)]
+	}).(GetOrganizationRolesRoleOutput)
+}
+
+type GetOrganizationSecurityManagersTeam struct {
+	// Unique identifier of the team.
+	Id int `pulumi:"id"`
+	// Name of the team.
+	Name string `pulumi:"name"`
+	// Permission that the team will have for its repositories.
+	Permission string `pulumi:"permission"`
+	// Name based identifier of the team.
+	Slug string `pulumi:"slug"`
+}
+
+// GetOrganizationSecurityManagersTeamInput is an input type that accepts GetOrganizationSecurityManagersTeamArgs and GetOrganizationSecurityManagersTeamOutput values.
+// You can construct a concrete instance of `GetOrganizationSecurityManagersTeamInput` via:
+//
+//	GetOrganizationSecurityManagersTeamArgs{...}
+type GetOrganizationSecurityManagersTeamInput interface {
+	pulumi.Input
+
+	ToGetOrganizationSecurityManagersTeamOutput() GetOrganizationSecurityManagersTeamOutput
+	ToGetOrganizationSecurityManagersTeamOutputWithContext(context.Context) GetOrganizationSecurityManagersTeamOutput
+}
+
+type GetOrganizationSecurityManagersTeamArgs struct {
+	// Unique identifier of the team.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the team.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Permission that the team will have for its repositories.
+	Permission pulumi.StringInput `pulumi:"permission"`
+	// Name based identifier of the team.
+	Slug pulumi.StringInput `pulumi:"slug"`
+}
+
+func (GetOrganizationSecurityManagersTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationSecurityManagersTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationSecurityManagersTeamArgs) ToGetOrganizationSecurityManagersTeamOutput() GetOrganizationSecurityManagersTeamOutput {
+	return i.ToGetOrganizationSecurityManagersTeamOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationSecurityManagersTeamArgs) ToGetOrganizationSecurityManagersTeamOutputWithContext(ctx context.Context) GetOrganizationSecurityManagersTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationSecurityManagersTeamOutput)
+}
+
+// GetOrganizationSecurityManagersTeamArrayInput is an input type that accepts GetOrganizationSecurityManagersTeamArray and GetOrganizationSecurityManagersTeamArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationSecurityManagersTeamArrayInput` via:
+//
+//	GetOrganizationSecurityManagersTeamArray{ GetOrganizationSecurityManagersTeamArgs{...} }
+type GetOrganizationSecurityManagersTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationSecurityManagersTeamArrayOutput() GetOrganizationSecurityManagersTeamArrayOutput
+	ToGetOrganizationSecurityManagersTeamArrayOutputWithContext(context.Context) GetOrganizationSecurityManagersTeamArrayOutput
+}
+
+type GetOrganizationSecurityManagersTeamArray []GetOrganizationSecurityManagersTeamInput
+
+func (GetOrganizationSecurityManagersTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationSecurityManagersTeam)(nil)).Elem()
+}
+
+func (i GetOrganizationSecurityManagersTeamArray) ToGetOrganizationSecurityManagersTeamArrayOutput() GetOrganizationSecurityManagersTeamArrayOutput {
+	return i.ToGetOrganizationSecurityManagersTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationSecurityManagersTeamArray) ToGetOrganizationSecurityManagersTeamArrayOutputWithContext(ctx context.Context) GetOrganizationSecurityManagersTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationSecurityManagersTeamArrayOutput)
+}
+
+type GetOrganizationSecurityManagersTeamOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationSecurityManagersTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationSecurityManagersTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationSecurityManagersTeamOutput) ToGetOrganizationSecurityManagersTeamOutput() GetOrganizationSecurityManagersTeamOutput {
+	return o
+}
+
+func (o GetOrganizationSecurityManagersTeamOutput) ToGetOrganizationSecurityManagersTeamOutputWithContext(ctx context.Context) GetOrganizationSecurityManagersTeamOutput {
+	return o
+}
+
+// Unique identifier of the team.
+func (o GetOrganizationSecurityManagersTeamOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationSecurityManagersTeam) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the team.
+func (o GetOrganizationSecurityManagersTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationSecurityManagersTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Permission that the team will have for its repositories.
+func (o GetOrganizationSecurityManagersTeamOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationSecurityManagersTeam) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// Name based identifier of the team.
+func (o GetOrganizationSecurityManagersTeamOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationSecurityManagersTeam) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+type GetOrganizationSecurityManagersTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationSecurityManagersTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationSecurityManagersTeam)(nil)).Elem()
+}
+
+func (o GetOrganizationSecurityManagersTeamArrayOutput) ToGetOrganizationSecurityManagersTeamArrayOutput() GetOrganizationSecurityManagersTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationSecurityManagersTeamArrayOutput) ToGetOrganizationSecurityManagersTeamArrayOutputWithContext(ctx context.Context) GetOrganizationSecurityManagersTeamArrayOutput {
+	return o
+}
+
+func (o GetOrganizationSecurityManagersTeamArrayOutput) Index(i pulumi.IntInput) GetOrganizationSecurityManagersTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationSecurityManagersTeam {
+		return vs[0].([]GetOrganizationSecurityManagersTeam)[vs[1].(int)]
+	}).(GetOrganizationSecurityManagersTeamOutput)
+}
+
 type GetOrganizationTeamSyncGroupsGroup struct {
 	// The description of the IdP group.
 	GroupDescription string `pulumi:"groupDescription"`
@@ -13211,23 +14350,29 @@ func (o GetOrganizationTeamSyncGroupsGroupArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetOrganizationTeamsTeam struct {
-	// the team's description.
+	// The team's description.
 	Description string `pulumi:"description"`
-	// the ID of the team.
+	// The ID of the team.
 	Id int `pulumi:"id"`
 	// List of team members. Not returned if `summaryOnly = true`
 	Members []string `pulumi:"members"`
-	// the team's full name.
+	// The team's full name.
 	Name string `pulumi:"name"`
-	// the Node ID of the team.
+	// The Node ID of the team.
 	NodeId string `pulumi:"nodeId"`
-	// the parent team.
+	// (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+	//
+	// Deprecated: Use parentTeamId and parentTeamSlug instead.
 	Parent map[string]string `pulumi:"parent"`
-	// the team's privacy type.
+	// The ID of the parent team, if there is one.
+	ParentTeamId string `pulumi:"parentTeamId"`
+	// The slug of the parent team, if there is one.
+	ParentTeamSlug string `pulumi:"parentTeamSlug"`
+	// The team's privacy type.
 	Privacy string `pulumi:"privacy"`
 	// List of team repositories. Not returned if `summaryOnly = true`
 	Repositories []string `pulumi:"repositories"`
-	// the slug of the team.
+	// The slug of the team.
 	Slug string `pulumi:"slug"`
 }
 
@@ -13243,23 +14388,29 @@ type GetOrganizationTeamsTeamInput interface {
 }
 
 type GetOrganizationTeamsTeamArgs struct {
-	// the team's description.
+	// The team's description.
 	Description pulumi.StringInput `pulumi:"description"`
-	// the ID of the team.
+	// The ID of the team.
 	Id pulumi.IntInput `pulumi:"id"`
 	// List of team members. Not returned if `summaryOnly = true`
 	Members pulumi.StringArrayInput `pulumi:"members"`
-	// the team's full name.
+	// The team's full name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// the Node ID of the team.
+	// The Node ID of the team.
 	NodeId pulumi.StringInput `pulumi:"nodeId"`
-	// the parent team.
+	// (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+	//
+	// Deprecated: Use parentTeamId and parentTeamSlug instead.
 	Parent pulumi.StringMapInput `pulumi:"parent"`
-	// the team's privacy type.
+	// The ID of the parent team, if there is one.
+	ParentTeamId pulumi.StringInput `pulumi:"parentTeamId"`
+	// The slug of the parent team, if there is one.
+	ParentTeamSlug pulumi.StringInput `pulumi:"parentTeamSlug"`
+	// The team's privacy type.
 	Privacy pulumi.StringInput `pulumi:"privacy"`
 	// List of team repositories. Not returned if `summaryOnly = true`
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
-	// the slug of the team.
+	// The slug of the team.
 	Slug pulumi.StringInput `pulumi:"slug"`
 }
 
@@ -13314,12 +14465,12 @@ func (o GetOrganizationTeamsTeamOutput) ToGetOrganizationTeamsTeamOutputWithCont
 	return o
 }
 
-// the team's description.
+// The team's description.
 func (o GetOrganizationTeamsTeamOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// the ID of the team.
+// The ID of the team.
 func (o GetOrganizationTeamsTeamOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -13329,22 +14480,34 @@ func (o GetOrganizationTeamsTeamOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
 
-// the team's full name.
+// The team's full name.
 func (o GetOrganizationTeamsTeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the Node ID of the team.
+// The Node ID of the team.
 func (o GetOrganizationTeamsTeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// the parent team.
+// (**DEPRECATED**) The parent team, use `parentTeamId` or `parentTeamSlug` instead.
+//
+// Deprecated: Use parentTeamId and parentTeamSlug instead.
 func (o GetOrganizationTeamsTeamOutput) Parent() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) map[string]string { return v.Parent }).(pulumi.StringMapOutput)
 }
 
-// the team's privacy type.
+// The ID of the parent team, if there is one.
+func (o GetOrganizationTeamsTeamOutput) ParentTeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.ParentTeamId }).(pulumi.StringOutput)
+}
+
+// The slug of the parent team, if there is one.
+func (o GetOrganizationTeamsTeamOutput) ParentTeamSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.ParentTeamSlug }).(pulumi.StringOutput)
+}
+
+// The team's privacy type.
 func (o GetOrganizationTeamsTeamOutput) Privacy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Privacy }).(pulumi.StringOutput)
 }
@@ -13354,7 +14517,7 @@ func (o GetOrganizationTeamsTeamOutput) Repositories() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// the slug of the team.
+// The slug of the team.
 func (o GetOrganizationTeamsTeamOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationTeamsTeam) string { return v.Slug }).(pulumi.StringOutput)
 }
@@ -15566,6 +16729,7 @@ func (o GetRepositoryWebhooksWebhookArrayOutput) Index(i pulumi.IntInput) GetRep
 
 type GetTeamRepositoriesDetailed struct {
 	RepoId   int    `pulumi:"repoId"`
+	RepoName string `pulumi:"repoName"`
 	RoleName string `pulumi:"roleName"`
 }
 
@@ -15582,6 +16746,7 @@ type GetTeamRepositoriesDetailedInput interface {
 
 type GetTeamRepositoriesDetailedArgs struct {
 	RepoId   pulumi.IntInput    `pulumi:"repoId"`
+	RepoName pulumi.StringInput `pulumi:"repoName"`
 	RoleName pulumi.StringInput `pulumi:"roleName"`
 }
 
@@ -15638,6 +16803,10 @@ func (o GetTeamRepositoriesDetailedOutput) ToGetTeamRepositoriesDetailedOutputWi
 
 func (o GetTeamRepositoriesDetailedOutput) RepoId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTeamRepositoriesDetailed) int { return v.RepoId }).(pulumi.IntOutput)
+}
+
+func (o GetTeamRepositoriesDetailedOutput) RepoName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamRepositoriesDetailed) string { return v.RepoName }).(pulumi.StringOutput)
 }
 
 func (o GetTeamRepositoriesDetailedOutput) RoleName() pulumi.StringOutput {
@@ -15877,6 +17046,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitMessagePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestrictionInput)(nil)).Elem(), RepositoryRulesetRulesFileExtensionRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestrictionPtrInput)(nil)).Elem(), RepositoryRulesetRulesFileExtensionRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFilePathRestrictionInput)(nil)).Elem(), RepositoryRulesetRulesFilePathRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFilePathRestrictionPtrInput)(nil)).Elem(), RepositoryRulesetRulesFilePathRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFileSizeInput)(nil)).Elem(), RepositoryRulesetRulesMaxFileSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFileSizePtrInput)(nil)).Elem(), RepositoryRulesetRulesMaxFileSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueueInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueuePtrInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
@@ -15945,6 +17120,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentityArrayInput)(nil)).Elem(), GetOrganizationExternalIdentitiesIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListArrayInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRepositoryRolesRoleInput)(nil)).Elem(), GetOrganizationRepositoryRolesRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRepositoryRolesRoleArrayInput)(nil)).Elem(), GetOrganizationRepositoryRolesRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRoleTeamsTeamInput)(nil)).Elem(), GetOrganizationRoleTeamsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRoleTeamsTeamArrayInput)(nil)).Elem(), GetOrganizationRoleTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRoleUsersUserInput)(nil)).Elem(), GetOrganizationRoleUsersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRoleUsersUserArrayInput)(nil)).Elem(), GetOrganizationRoleUsersUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRolesRoleInput)(nil)).Elem(), GetOrganizationRolesRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRolesRoleArrayInput)(nil)).Elem(), GetOrganizationRolesRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationSecurityManagersTeamInput)(nil)).Elem(), GetOrganizationSecurityManagersTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationSecurityManagersTeamArrayInput)(nil)).Elem(), GetOrganizationSecurityManagersTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamSyncGroupsGroupArrayInput)(nil)).Elem(), GetOrganizationTeamSyncGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationTeamsTeamInput)(nil)).Elem(), GetOrganizationTeamsTeamArgs{})
@@ -16079,6 +17264,12 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitMessagePatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesFileExtensionRestrictionOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesFilePathRestrictionOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesFilePathRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFileSizeOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFileSizePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueueOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueuePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestOutput{})
@@ -16147,6 +17338,16 @@ func init() {
 	pulumi.RegisterOutputType(GetOrganizationExternalIdentitiesIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRepositoryRolesRoleOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRepositoryRolesRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRoleTeamsTeamOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRoleTeamsTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRoleUsersUserOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRoleUsersUserArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRolesRoleOutput{})
+	pulumi.RegisterOutputType(GetOrganizationRolesRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationSecurityManagersTeamOutput{})
+	pulumi.RegisterOutputType(GetOrganizationSecurityManagersTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamSyncGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationTeamsTeamOutput{})

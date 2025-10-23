@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationRulesetBypassActor {
@@ -15,14 +17,14 @@ public final class OrganizationRulesetBypassActor {
      * @return (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
-    private Integer actorId;
+    private @Nullable Integer actorId;
     /**
      * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      * 
      */
     private String actorType;
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -37,8 +39,8 @@ public final class OrganizationRulesetBypassActor {
      * @return (Number) The ID of the actor that can bypass a ruleset.
      * 
      */
-    public Integer actorId() {
-        return this.actorId;
+    public Optional<Integer> actorId() {
+        return Optional.ofNullable(this.actorId);
     }
     /**
      * @return The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
@@ -48,7 +50,7 @@ public final class OrganizationRulesetBypassActor {
         return this.actorType;
     }
     /**
-     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * @return (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      * 
      * ~&gt;Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      * 
@@ -69,7 +71,7 @@ public final class OrganizationRulesetBypassActor {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer actorId;
+        private @Nullable Integer actorId;
         private String actorType;
         private String bypassMode;
         public Builder() {}
@@ -81,10 +83,8 @@ public final class OrganizationRulesetBypassActor {
         }
 
         @CustomType.Setter
-        public Builder actorId(Integer actorId) {
-            if (actorId == null) {
-              throw new MissingRequiredPropertyException("OrganizationRulesetBypassActor", "actorId");
-            }
+        public Builder actorId(@Nullable Integer actorId) {
+
             this.actorId = actorId;
             return this;
         }

@@ -49,6 +49,24 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? Deletion { get; set; }
 
         /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        [Input("fileExtensionRestriction")]
+        public Input<Inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs>? FileExtensionRestriction { get; set; }
+
+        /// <summary>
+        /// (Block List, Max 1) Parameters to be used for the FilePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        /// </summary>
+        [Input("filePathRestriction")]
+        public Input<Inputs.RepositoryRulesetRulesFilePathRestrictionArgs>? FilePathRestriction { get; set; }
+
+        /// <summary>
+        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// </summary>
+        [Input("maxFileSize")]
+        public Input<Inputs.RepositoryRulesetRulesMaxFileSizeArgs>? MaxFileSize { get; set; }
+
+        /// <summary>
         /// (Block List, Max: 1) Merges must be performed via a merge queue.
         /// </summary>
         [Input("mergeQueue")]

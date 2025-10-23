@@ -44,6 +44,14 @@ import * as utilities from "./utilities";
  *             operator: "starts_with",
  *             pattern: "ex",
  *         },
+ *         requiredWorkflows: {
+ *             doNotEnforceOnCreate: true,
+ *             requiredWorkflows: [{
+ *                 repositoryId: 1234,
+ *                 path: ".github/workflows/ci.yml",
+ *                 ref: "main",
+ *             }],
+ *         },
  *     },
  * });
  * ```

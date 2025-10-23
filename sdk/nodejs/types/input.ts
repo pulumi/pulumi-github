@@ -245,13 +245,13 @@ export interface OrganizationRulesetBypassActor {
     /**
      * (Number) The ID of the actor that can bypass a ruleset.
      */
-    actorId: pulumi.Input<number>;
+    actorId?: pulumi.Input<number>;
     /**
      * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
      */
     actorType: pulumi.Input<string>;
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
@@ -490,6 +490,10 @@ export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     */
+    doNotEnforceOnCreate?: pulumi.Input<boolean>;
+    /**
      * Status checks that are required. Several can be defined.
      */
     requiredChecks: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesRequiredStatusChecksRequiredCheck>[]>;
@@ -511,6 +515,10 @@ export interface OrganizationRulesetRulesRequiredStatusChecksRequiredCheck {
 }
 
 export interface OrganizationRulesetRulesRequiredWorkflows {
+    /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     */
+    doNotEnforceOnCreate?: pulumi.Input<boolean>;
     /**
      * Actions workflows that are required. Several can be defined.
      */
@@ -681,15 +689,15 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
      */
-    actorId: pulumi.Input<number>;
+    actorId?: pulumi.Input<number>;
     /**
-     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+     * The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
      */
     actorType: pulumi.Input<string>;
     /**
-     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`.
+     * (String) When the specified actor can bypass the ruleset. pullRequest means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pullRequest`, `exempt`.
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
@@ -742,6 +750,18 @@ export interface RepositoryRulesetRules {
      * (Boolean) Only allow users with bypass permissions to delete matching refs.
      */
     deletion?: pulumi.Input<boolean>;
+    /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    fileExtensionRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFileExtensionRestriction>;
+    /**
+     * (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+     */
+    filePathRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFilePathRestriction>;
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     */
+    maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize>;
     /**
      * (Block List, Max: 1) Merges must be performed via a merge queue.
      */
@@ -862,6 +882,27 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
      * The pattern to match with.
      */
     pattern: pulumi.Input<string>;
+}
+
+export interface RepositoryRulesetRulesFileExtensionRestriction {
+    /**
+     * A list of file extensions.
+     */
+    restrictedFileExtensions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface RepositoryRulesetRulesFilePathRestriction {
+    /**
+     * The file paths that are restricted from being pushed to the commit graph.
+     */
+    restrictedFilePaths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface RepositoryRulesetRulesMaxFileSize {
+    /**
+     * The maximum allowed size of a file in bytes.
+     */
+    maxFileSize: pulumi.Input<number>;
 }
 
 export interface RepositoryRulesetRulesMergeQueue {

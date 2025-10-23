@@ -63,6 +63,19 @@ namespace Pulumi.Github
     ///                 Operator = "starts_with",
     ///                 Pattern = "ex",
     ///             },
+    ///             RequiredWorkflows = new Github.Inputs.OrganizationRulesetRulesRequiredWorkflowsArgs
+    ///             {
+    ///                 DoNotEnforceOnCreate = true,
+    ///                 RequiredWorkflows = new[]
+    ///                 {
+    ///                     new Github.Inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs
+    ///                     {
+    ///                         RepositoryId = 1234,
+    ///                         Path = ".github/workflows/ci.yml",
+    ///                         Ref = "main",
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 

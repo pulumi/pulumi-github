@@ -19,6 +19,21 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
     public static final OrganizationRulesetRulesRequiredStatusChecksArgs Empty = new OrganizationRulesetRulesRequiredStatusChecksArgs();
 
     /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    @Import(name="doNotEnforceOnCreate")
+    private @Nullable Output<Boolean> doNotEnforceOnCreate;
+
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    public Optional<Output<Boolean>> doNotEnforceOnCreate() {
+        return Optional.ofNullable(this.doNotEnforceOnCreate);
+    }
+
+    /**
      * Status checks that are required. Several can be defined.
      * 
      */
@@ -51,6 +66,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
     private OrganizationRulesetRulesRequiredStatusChecksArgs() {}
 
     private OrganizationRulesetRulesRequiredStatusChecksArgs(OrganizationRulesetRulesRequiredStatusChecksArgs $) {
+        this.doNotEnforceOnCreate = $.doNotEnforceOnCreate;
         this.requiredChecks = $.requiredChecks;
         this.strictRequiredStatusChecksPolicy = $.strictRequiredStatusChecksPolicy;
     }
@@ -71,6 +87,27 @@ public final class OrganizationRulesetRulesRequiredStatusChecksArgs extends com.
 
         public Builder(OrganizationRulesetRulesRequiredStatusChecksArgs defaults) {
             $ = new OrganizationRulesetRulesRequiredStatusChecksArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder doNotEnforceOnCreate(@Nullable Output<Boolean> doNotEnforceOnCreate) {
+            $.doNotEnforceOnCreate = doNotEnforceOnCreate;
+            return this;
+        }
+
+        /**
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder doNotEnforceOnCreate(Boolean doNotEnforceOnCreate) {
+            return doNotEnforceOnCreate(Output.of(doNotEnforceOnCreate));
         }
 
         /**

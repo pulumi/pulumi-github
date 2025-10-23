@@ -7,13 +7,31 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OrganizationRulesetRulesRequiredWorkflowsArgs Empty = new OrganizationRulesetRulesRequiredWorkflowsArgs();
+
+    /**
+     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    @Import(name="doNotEnforceOnCreate")
+    private @Nullable Output<Boolean> doNotEnforceOnCreate;
+
+    /**
+     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * 
+     */
+    public Optional<Output<Boolean>> doNotEnforceOnCreate() {
+        return Optional.ofNullable(this.doNotEnforceOnCreate);
+    }
 
     /**
      * Actions workflows that are required. Several can be defined.
@@ -33,6 +51,7 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
     private OrganizationRulesetRulesRequiredWorkflowsArgs() {}
 
     private OrganizationRulesetRulesRequiredWorkflowsArgs(OrganizationRulesetRulesRequiredWorkflowsArgs $) {
+        this.doNotEnforceOnCreate = $.doNotEnforceOnCreate;
         this.requiredWorkflows = $.requiredWorkflows;
     }
 
@@ -52,6 +71,27 @@ public final class OrganizationRulesetRulesRequiredWorkflowsArgs extends com.pul
 
         public Builder(OrganizationRulesetRulesRequiredWorkflowsArgs defaults) {
             $ = new OrganizationRulesetRulesRequiredWorkflowsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder doNotEnforceOnCreate(@Nullable Output<Boolean> doNotEnforceOnCreate) {
+            $.doNotEnforceOnCreate = doNotEnforceOnCreate;
+            return this;
+        }
+
+        /**
+         * @param doNotEnforceOnCreate Allow repositories and branches to be created if a check would otherwise prohibit it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder doNotEnforceOnCreate(Boolean doNotEnforceOnCreate) {
+            return doNotEnforceOnCreate(Output.of(doNotEnforceOnCreate));
         }
 
         /**

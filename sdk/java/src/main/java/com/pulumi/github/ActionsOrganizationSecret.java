@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.ActionsOrganizationSecretArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ActionsOrganizationSecretState;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -45,6 +46,12 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
      */
     public Output<String> createdAt() {
         return this.createdAt;
+    }
+    @Export(name="destroyOnDrift", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> destroyOnDrift;
+
+    public Output<Optional<Boolean>> destroyOnDrift() {
+        return Codegen.optional(this.destroyOnDrift);
     }
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.

@@ -49,6 +49,7 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
      * Date of actionsSecret creation.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly destroyOnDrift: pulumi.Output<boolean | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
@@ -89,6 +90,7 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ActionsOrganizationSecretState | undefined;
             resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["destroyOnDrift"] = state?.destroyOnDrift;
             resourceInputs["encryptedValue"] = state?.encryptedValue;
             resourceInputs["plaintextValue"] = state?.plaintextValue;
             resourceInputs["secretName"] = state?.secretName;
@@ -103,6 +105,7 @@ export class ActionsOrganizationSecret extends pulumi.CustomResource {
             if (args?.visibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibility'");
             }
+            resourceInputs["destroyOnDrift"] = args?.destroyOnDrift;
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["secretName"] = args?.secretName;
@@ -126,6 +129,7 @@ export interface ActionsOrganizationSecretState {
      * Date of actionsSecret creation.
      */
     createdAt?: pulumi.Input<string>;
+    destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
@@ -157,6 +161,7 @@ export interface ActionsOrganizationSecretState {
  * The set of arguments for constructing a ActionsOrganizationSecret resource.
  */
 export interface ActionsOrganizationSecretArgs {
+    destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */

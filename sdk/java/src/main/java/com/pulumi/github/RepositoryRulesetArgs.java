@@ -111,14 +111,14 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return (String) Possible values are `branch` and `tag`.
+     * @return (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     public Output<String> target() {
@@ -292,7 +292,7 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param target (String) Possible values are `branch` and `tag`.
+         * @param target (String) Possible values are `branch`, `tag` and `push`.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param target (String) Possible values are `branch` and `tag`.
+         * @param target (String) Possible values are `branch`, `tag` and `push`.
          * 
          * @return builder
          * 
