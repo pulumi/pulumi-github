@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,13 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
+    }
+
+    @Import(name="destroyOnDrift")
+    private @Nullable Output<Boolean> destroyOnDrift;
+
+    public Optional<Output<Boolean>> destroyOnDrift() {
+        return Optional.ofNullable(this.destroyOnDrift);
     }
 
     /**
@@ -109,6 +117,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
 
     private ActionsSecretState(ActionsSecretState $) {
         this.createdAt = $.createdAt;
+        this.destroyOnDrift = $.destroyOnDrift;
         this.encryptedValue = $.encryptedValue;
         this.plaintextValue = $.plaintextValue;
         this.repository = $.repository;
@@ -153,6 +162,15 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
+        }
+
+        public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
+            $.destroyOnDrift = destroyOnDrift;
+            return this;
+        }
+
+        public Builder destroyOnDrift(Boolean destroyOnDrift) {
+            return destroyOnDrift(Output.of(destroyOnDrift));
         }
 
         /**

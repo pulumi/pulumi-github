@@ -21,6 +21,7 @@ class ActionsSecretArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -32,6 +33,8 @@ class ActionsSecretArgs:
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "secret_name", secret_name)
+        if destroy_on_drift is not None:
+            pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
@@ -62,6 +65,15 @@ class ActionsSecretArgs:
         pulumi.set(self, "secret_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
+
+    @destroy_on_drift.setter
+    def destroy_on_drift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "destroy_on_drift", value)
+
+    @_builtins.property
     @pulumi.getter(name="encryptedValue")
     def encrypted_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -90,6 +102,7 @@ class ActionsSecretArgs:
 class _ActionsSecretState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
@@ -106,6 +119,8 @@ class _ActionsSecretState:
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if destroy_on_drift is not None:
+            pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if plaintext_value is not None:
@@ -128,6 +143,15 @@ class _ActionsSecretState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
+
+    @destroy_on_drift.setter
+    def destroy_on_drift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "destroy_on_drift", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
@@ -196,6 +220,7 @@ class ActionsSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
@@ -255,6 +280,7 @@ class ActionsSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
@@ -268,6 +294,7 @@ class ActionsSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsSecretArgs.__new__(ActionsSecretArgs)
 
+            __props__.__dict__["destroy_on_drift"] = destroy_on_drift
             __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
             __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if repository is None and not opts.urn:
@@ -291,6 +318,7 @@ class ActionsSecret(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
             encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
             plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
@@ -315,6 +343,7 @@ class ActionsSecret(pulumi.CustomResource):
         __props__ = _ActionsSecretState.__new__(_ActionsSecretState)
 
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["destroy_on_drift"] = destroy_on_drift
         __props__.__dict__["encrypted_value"] = encrypted_value
         __props__.__dict__["plaintext_value"] = plaintext_value
         __props__.__dict__["repository"] = repository
@@ -329,6 +358,11 @@ class ActionsSecret(pulumi.CustomResource):
         Date of actions_secret creation.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="destroyOnDrift")
+    def destroy_on_drift(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "destroy_on_drift")
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")

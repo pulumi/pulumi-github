@@ -31,6 +31,9 @@ namespace Pulumi.Github
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("destroyOnDrift")]
+        public Output<bool?> DestroyOnDrift { get; private set; } = null!;
+
         /// <summary>
         /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
@@ -112,6 +115,9 @@ namespace Pulumi.Github
 
     public sealed class ActionsSecretArgs : global::Pulumi.ResourceArgs
     {
+        [Input("destroyOnDrift")]
+        public Input<bool>? DestroyOnDrift { get; set; }
+
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
 
@@ -169,6 +175,9 @@ namespace Pulumi.Github
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        [Input("destroyOnDrift")]
+        public Input<bool>? DestroyOnDrift { get; set; }
 
         [Input("encryptedValue")]
         private Input<string>? _encryptedValue;
