@@ -3771,7 +3771,8 @@
             ],
             "inputProperties": {
                 "destroyOnDrift": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "willReplaceOnChanges": true
                 },
                 "encryptedValue": {
                     "type": "string",
@@ -3816,7 +3817,8 @@
                         "description": "Date of\u003cspan pulumi-lang-nodejs=\" actionsSecret \" pulumi-lang-dotnet=\" ActionsSecret \" pulumi-lang-go=\" actionsSecret \" pulumi-lang-python=\" actions_secret \" pulumi-lang-yaml=\" actionsSecret \" pulumi-lang-java=\" actionsSecret \"\u003e actions_secret \u003c/span\u003ecreation.\n"
                     },
                     "destroyOnDrift": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "willReplaceOnChanges": true
                     },
                     "encryptedValue": {
                         "type": "string",
@@ -4403,6 +4405,9 @@
                     "type": "string",
                     "description": "Date of\u003cspan pulumi-lang-nodejs=\" actionsSecret \" pulumi-lang-dotnet=\" ActionsSecret \" pulumi-lang-go=\" actionsSecret \" pulumi-lang-python=\" actions_secret \" pulumi-lang-yaml=\" actionsSecret \" pulumi-lang-java=\" actionsSecret \"\u003e actions_secret \u003c/span\u003ecreation.\n"
                 },
+                "destroyOnDrift": {
+                    "type": "boolean"
+                },
                 "encryptedValue": {
                     "type": "string",
                     "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
@@ -4433,6 +4438,10 @@
                 "updatedAt"
             ],
             "inputProperties": {
+                "destroyOnDrift": {
+                    "type": "boolean",
+                    "willReplaceOnChanges": true
+                },
                 "encryptedValue": {
                     "type": "string",
                     "description": "Encrypted value of the secret using the GitHub public key in Base64 format.\n",
@@ -4466,6 +4475,10 @@
                     "createdAt": {
                         "type": "string",
                         "description": "Date of\u003cspan pulumi-lang-nodejs=\" actionsSecret \" pulumi-lang-dotnet=\" ActionsSecret \" pulumi-lang-go=\" actionsSecret \" pulumi-lang-python=\" actions_secret \" pulumi-lang-yaml=\" actionsSecret \" pulumi-lang-java=\" actionsSecret \"\u003e actions_secret \u003c/span\u003ecreation.\n"
+                    },
+                    "destroyOnDrift": {
+                        "type": "boolean",
+                        "willReplaceOnChanges": true
                     },
                     "encryptedValue": {
                         "type": "string",

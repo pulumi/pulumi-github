@@ -27,7 +27,8 @@ type ActionsSecret struct {
 	pulumi.CustomResourceState
 
 	// Date of actionsSecret creation.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt      pulumi.StringOutput  `pulumi:"createdAt"`
+	DestroyOnDrift pulumi.BoolPtrOutput `pulumi:"destroyOnDrift"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
@@ -88,7 +89,8 @@ func GetActionsSecret(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ActionsSecret resources.
 type actionsSecretState struct {
 	// Date of actionsSecret creation.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt      *string `pulumi:"createdAt"`
+	DestroyOnDrift *bool   `pulumi:"destroyOnDrift"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
@@ -103,7 +105,8 @@ type actionsSecretState struct {
 
 type ActionsSecretState struct {
 	// Date of actionsSecret creation.
-	CreatedAt pulumi.StringPtrInput
+	CreatedAt      pulumi.StringPtrInput
+	DestroyOnDrift pulumi.BoolPtrInput
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
@@ -121,6 +124,7 @@ func (ActionsSecretState) ElementType() reflect.Type {
 }
 
 type actionsSecretArgs struct {
+	DestroyOnDrift *bool `pulumi:"destroyOnDrift"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Plaintext value of the secret to be encrypted
@@ -133,6 +137,7 @@ type actionsSecretArgs struct {
 
 // The set of arguments for constructing a ActionsSecret resource.
 type ActionsSecretArgs struct {
+	DestroyOnDrift pulumi.BoolPtrInput
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted
@@ -233,6 +238,10 @@ func (o ActionsSecretOutput) ToActionsSecretOutputWithContext(ctx context.Contex
 // Date of actionsSecret creation.
 func (o ActionsSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o ActionsSecretOutput) DestroyOnDrift() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActionsSecret) pulumi.BoolPtrOutput { return v.DestroyOnDrift }).(pulumi.BoolPtrOutput)
 }
 
 // Encrypted value of the secret using the GitHub public key in Base64 format.

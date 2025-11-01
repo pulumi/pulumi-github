@@ -49,6 +49,7 @@ export class ActionsSecret extends pulumi.CustomResource {
      * Date of actionsSecret creation.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly destroyOnDrift: pulumi.Output<boolean | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
@@ -84,6 +85,7 @@ export class ActionsSecret extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ActionsSecretState | undefined;
             resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["destroyOnDrift"] = state?.destroyOnDrift;
             resourceInputs["encryptedValue"] = state?.encryptedValue;
             resourceInputs["plaintextValue"] = state?.plaintextValue;
             resourceInputs["repository"] = state?.repository;
@@ -97,6 +99,7 @@ export class ActionsSecret extends pulumi.CustomResource {
             if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
+            resourceInputs["destroyOnDrift"] = args?.destroyOnDrift;
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["repository"] = args?.repository;
@@ -119,6 +122,7 @@ export interface ActionsSecretState {
      * Date of actionsSecret creation.
      */
     createdAt?: pulumi.Input<string>;
+    destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
@@ -145,6 +149,7 @@ export interface ActionsSecretState {
  * The set of arguments for constructing a ActionsSecret resource.
  */
 export interface ActionsSecretArgs {
+    destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
