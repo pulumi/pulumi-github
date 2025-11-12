@@ -337,6 +337,45 @@ class BranchProtectionV3(pulumi.CustomResource):
             })
         ```
 
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("example", name="example")
+        example_team = github.Team("example", name="Example Name")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/check" check ran by the Github Actions app is passing and only allow
+        # the engineers team merge to the branch.
+        example = github.BranchProtectionV3("example",
+            repository=example_repository.name,
+            branch="main",
+            enforce_admins=True,
+            required_status_checks={
+                "strict": False,
+                "checks": ["ci/check:824642007264"],
+            },
+            required_pull_request_reviews={
+                "dismiss_stale_reviews": True,
+                "dismissal_users": ["foo-user"],
+                "dismissal_teams": [example_team.slug],
+                "dismissal_app": ["foo-app"],
+                "bypass_pull_request_allowances": {
+                    "users": ["foo-user"],
+                    "teams": [example_team.slug],
+                    "apps": ["foo-app"],
+                },
+            },
+            restrictions={
+                "users": ["foo-user"],
+                "teams": [example_team.slug],
+                "apps": ["foo-app"],
+            })
+        example_team_repository = github.TeamRepository("example",
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
+        ```
+
         ## Import
 
         GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
@@ -382,6 +421,45 @@ class BranchProtectionV3(pulumi.CustomResource):
             restrictions={
                 "users": ["foo-user"],
             })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_repository = github.Repository("example", name="example")
+        example_team = github.Team("example", name="Example Name")
+        # Protect the main branch of the foo repository. Additionally, require that
+        # the "ci/check" check ran by the Github Actions app is passing and only allow
+        # the engineers team merge to the branch.
+        example = github.BranchProtectionV3("example",
+            repository=example_repository.name,
+            branch="main",
+            enforce_admins=True,
+            required_status_checks={
+                "strict": False,
+                "checks": ["ci/check:824642007264"],
+            },
+            required_pull_request_reviews={
+                "dismiss_stale_reviews": True,
+                "dismissal_users": ["foo-user"],
+                "dismissal_teams": [example_team.slug],
+                "dismissal_app": ["foo-app"],
+                "bypass_pull_request_allowances": {
+                    "users": ["foo-user"],
+                    "teams": [example_team.slug],
+                    "apps": ["foo-app"],
+                },
+            },
+            restrictions={
+                "users": ["foo-user"],
+                "teams": [example_team.slug],
+                "apps": ["foo-app"],
+            })
+        example_team_repository = github.TeamRepository("example",
+            team_id=example_team.id,
+            repository=example_repository.name,
+            permission="pull")
         ```
 
         ## Import
