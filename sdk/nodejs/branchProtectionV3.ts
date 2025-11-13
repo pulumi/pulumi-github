@@ -29,6 +29,47 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleRepository = new github.Repository("example", {name: "example"});
+ * const exampleTeam = new github.Team("example", {name: "Example Name"});
+ * // Protect the main branch of the foo repository. Additionally, require that
+ * // the "ci/check" check ran by the Github Actions app is passing and only allow
+ * // the engineers team merge to the branch.
+ * const example = new github.BranchProtectionV3("example", {
+ *     repository: exampleRepository.name,
+ *     branch: "main",
+ *     enforceAdmins: true,
+ *     requiredStatusChecks: {
+ *         strict: false,
+ *         checks: ["ci/check:824642007264"],
+ *     },
+ *     requiredPullRequestReviews: {
+ *         dismissStaleReviews: true,
+ *         dismissalUsers: ["foo-user"],
+ *         dismissalTeams: [exampleTeam.slug],
+ *         dismissalApp: ["foo-app"],
+ *         bypassPullRequestAllowances: {
+ *             users: ["foo-user"],
+ *             teams: [exampleTeam.slug],
+ *             apps: ["foo-app"],
+ *         },
+ *     },
+ *     restrictions: {
+ *         users: ["foo-user"],
+ *         teams: [exampleTeam.slug],
+ *         apps: ["foo-app"],
+ *     },
+ * });
+ * const exampleTeamRepository = new github.TeamRepository("example", {
+ *     teamId: exampleTeam.id,
+ *     repository: exampleRepository.name,
+ *     permission: "pull",
+ * });
+ * ```
+ *
  * ## Import
  *
  * GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.

@@ -14,6 +14,33 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Github.OrganizationWebhook("foo", new()
+    ///     {
+    ///         Name = "web",
+    ///         Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
+    ///         {
+    ///             Url = "https://google.de/",
+    ///             ContentType = "form",
+    ///             InsecureSsl = false,
+    ///         },
+    ///         Active = false,
+    ///         Events = new[]
+    ///         {
+    ///             "issues",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Organization webhooks can be imported using the `id` of the webhook.
