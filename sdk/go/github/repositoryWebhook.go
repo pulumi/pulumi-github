@@ -12,9 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage webhooks for repositories within your
-// GitHub organization or personal account.
-//
 // ## Example Usage
 //
 // ```go
@@ -158,6 +155,7 @@ type repositoryWebhookArgs struct {
 	Active *bool `pulumi:"active"`
 	// Configuration block for the webhook. Detailed below.
 	Configuration *RepositoryWebhookConfiguration `pulumi:"configuration"`
+	Etag          *string                         `pulumi:"etag"`
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
 	Events []string `pulumi:"events"`
 	// The repository of the webhook.
@@ -170,6 +168,7 @@ type RepositoryWebhookArgs struct {
 	Active pulumi.BoolPtrInput
 	// Configuration block for the webhook. Detailed below.
 	Configuration RepositoryWebhookConfigurationPtrInput
+	Etag          pulumi.StringPtrInput
 	// A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
 	Events pulumi.StringArrayInput
 	// The repository of the webhook.

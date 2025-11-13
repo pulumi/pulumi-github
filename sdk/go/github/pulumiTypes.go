@@ -2861,6 +2861,14 @@ type OrganizationRulesetRules struct {
 	Creation *bool `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion *bool `pulumi:"deletion"`
+	// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FileExtensionRestriction *OrganizationRulesetRulesFileExtensionRestriction `pulumi:"fileExtensionRestriction"`
+	// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FilePathRestriction *OrganizationRulesetRulesFilePathRestriction `pulumi:"filePathRestriction"`
+	// (Integer) The maximum number of characters allowed in file paths.
+	MaxFilePathLength *OrganizationRulesetRulesMaxFilePathLength `pulumi:"maxFilePathLength"`
+	// (Integer) The maximum allowed size, in bytes, of a file.
+	MaxFileSize *OrganizationRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward *bool `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -2905,6 +2913,14 @@ type OrganizationRulesetRulesArgs struct {
 	Creation pulumi.BoolPtrInput `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
 	Deletion pulumi.BoolPtrInput `pulumi:"deletion"`
+	// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FileExtensionRestriction OrganizationRulesetRulesFileExtensionRestrictionPtrInput `pulumi:"fileExtensionRestriction"`
+	// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+	FilePathRestriction OrganizationRulesetRulesFilePathRestrictionPtrInput `pulumi:"filePathRestriction"`
+	// (Integer) The maximum number of characters allowed in file paths.
+	MaxFilePathLength OrganizationRulesetRulesMaxFilePathLengthPtrInput `pulumi:"maxFilePathLength"`
+	// (Integer) The maximum allowed size, in bytes, of a file.
+	MaxFileSize OrganizationRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
 	// (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -3040,6 +3056,32 @@ func (o OrganizationRulesetRulesOutput) Deletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.Deletion }).(pulumi.BoolPtrOutput)
 }
 
+// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) FileExtensionRestriction() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesFileExtensionRestriction {
+		return v.FileExtensionRestriction
+	}).(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) FilePathRestriction() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesFilePathRestriction {
+		return v.FilePathRestriction
+	}).(OrganizationRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum number of characters allowed in file paths.
+func (o OrganizationRulesetRulesOutput) MaxFilePathLength() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesMaxFilePathLength {
+		return v.MaxFilePathLength
+	}).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+// (Integer) The maximum allowed size, in bytes, of a file.
+func (o OrganizationRulesetRulesOutput) MaxFileSize() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesMaxFileSize { return v.MaxFileSize }).(OrganizationRulesetRulesMaxFileSizePtrOutput)
+}
+
 // (Boolean) Prevent users with push access from force pushing to branches.
 func (o OrganizationRulesetRulesOutput) NonFastForward() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRules) *bool { return v.NonFastForward }).(pulumi.BoolPtrOutput)
@@ -3173,6 +3215,46 @@ func (o OrganizationRulesetRulesPtrOutput) Deletion() pulumi.BoolPtrOutput {
 		}
 		return v.Deletion
 	}).(pulumi.BoolPtrOutput)
+}
+
+// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) FileExtensionRestriction() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesFileExtensionRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.FileExtensionRestriction
+	}).(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) FilePathRestriction() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesFilePathRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.FilePathRestriction
+	}).(OrganizationRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum number of characters allowed in file paths.
+func (o OrganizationRulesetRulesPtrOutput) MaxFilePathLength() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesMaxFilePathLength {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFilePathLength
+	}).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+// (Integer) The maximum allowed size, in bytes, of a file.
+func (o OrganizationRulesetRulesPtrOutput) MaxFileSize() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesMaxFileSize {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(OrganizationRulesetRulesMaxFileSizePtrOutput)
 }
 
 // (Boolean) Prevent users with push access from force pushing to branches.
@@ -4041,6 +4123,554 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrganizationRulesetRulesFileExtensionRestriction struct {
+	// The file extensions that are restricted from being pushed to the commit graph.
+	RestrictedFileExtensions []string `pulumi:"restrictedFileExtensions"`
+}
+
+// OrganizationRulesetRulesFileExtensionRestrictionInput is an input type that accepts OrganizationRulesetRulesFileExtensionRestrictionArgs and OrganizationRulesetRulesFileExtensionRestrictionOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesFileExtensionRestrictionInput` via:
+//
+//	OrganizationRulesetRulesFileExtensionRestrictionArgs{...}
+type OrganizationRulesetRulesFileExtensionRestrictionInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesFileExtensionRestrictionOutput() OrganizationRulesetRulesFileExtensionRestrictionOutput
+	ToOrganizationRulesetRulesFileExtensionRestrictionOutputWithContext(context.Context) OrganizationRulesetRulesFileExtensionRestrictionOutput
+}
+
+type OrganizationRulesetRulesFileExtensionRestrictionArgs struct {
+	// The file extensions that are restricted from being pushed to the commit graph.
+	RestrictedFileExtensions pulumi.StringArrayInput `pulumi:"restrictedFileExtensions"`
+}
+
+func (OrganizationRulesetRulesFileExtensionRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesFileExtensionRestrictionArgs) ToOrganizationRulesetRulesFileExtensionRestrictionOutput() OrganizationRulesetRulesFileExtensionRestrictionOutput {
+	return i.ToOrganizationRulesetRulesFileExtensionRestrictionOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesFileExtensionRestrictionArgs) ToOrganizationRulesetRulesFileExtensionRestrictionOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFileExtensionRestrictionOutput)
+}
+
+func (i OrganizationRulesetRulesFileExtensionRestrictionArgs) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutput() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return i.ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesFileExtensionRestrictionArgs) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFileExtensionRestrictionOutput).ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesFileExtensionRestrictionPtrInput is an input type that accepts OrganizationRulesetRulesFileExtensionRestrictionArgs, OrganizationRulesetRulesFileExtensionRestrictionPtr and OrganizationRulesetRulesFileExtensionRestrictionPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesFileExtensionRestrictionPtrInput` via:
+//
+//	        OrganizationRulesetRulesFileExtensionRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesFileExtensionRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutput() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput
+	ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Context) OrganizationRulesetRulesFileExtensionRestrictionPtrOutput
+}
+
+type organizationRulesetRulesFileExtensionRestrictionPtrType OrganizationRulesetRulesFileExtensionRestrictionArgs
+
+func OrganizationRulesetRulesFileExtensionRestrictionPtr(v *OrganizationRulesetRulesFileExtensionRestrictionArgs) OrganizationRulesetRulesFileExtensionRestrictionPtrInput {
+	return (*organizationRulesetRulesFileExtensionRestrictionPtrType)(v)
+}
+
+func (*organizationRulesetRulesFileExtensionRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesFileExtensionRestrictionPtrType) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutput() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return i.ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesFileExtensionRestrictionPtrType) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+type OrganizationRulesetRulesFileExtensionRestrictionOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesFileExtensionRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionOutput) ToOrganizationRulesetRulesFileExtensionRestrictionOutput() OrganizationRulesetRulesFileExtensionRestrictionOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionOutput) ToOrganizationRulesetRulesFileExtensionRestrictionOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionOutput) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutput() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionOutput) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesFileExtensionRestriction) *OrganizationRulesetRulesFileExtensionRestriction {
+		return &v
+	}).(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput)
+}
+
+// The file extensions that are restricted from being pushed to the commit graph.
+func (o OrganizationRulesetRulesFileExtensionRestrictionOutput) RestrictedFileExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesFileExtensionRestriction) []string { return v.RestrictedFileExtensions }).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetRulesFileExtensionRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesFileExtensionRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesFileExtensionRestriction)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionPtrOutput) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutput() OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionPtrOutput) ToOrganizationRulesetRulesFileExtensionRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFileExtensionRestrictionPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFileExtensionRestrictionPtrOutput) Elem() OrganizationRulesetRulesFileExtensionRestrictionOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesFileExtensionRestriction) OrganizationRulesetRulesFileExtensionRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesFileExtensionRestriction
+		return ret
+	}).(OrganizationRulesetRulesFileExtensionRestrictionOutput)
+}
+
+// The file extensions that are restricted from being pushed to the commit graph.
+func (o OrganizationRulesetRulesFileExtensionRestrictionPtrOutput) RestrictedFileExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesFileExtensionRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedFileExtensions
+	}).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetRulesFilePathRestriction struct {
+	// The file paths that are restricted from being pushed to the commit graph.
+	RestrictedFilePaths []string `pulumi:"restrictedFilePaths"`
+}
+
+// OrganizationRulesetRulesFilePathRestrictionInput is an input type that accepts OrganizationRulesetRulesFilePathRestrictionArgs and OrganizationRulesetRulesFilePathRestrictionOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesFilePathRestrictionInput` via:
+//
+//	OrganizationRulesetRulesFilePathRestrictionArgs{...}
+type OrganizationRulesetRulesFilePathRestrictionInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesFilePathRestrictionOutput() OrganizationRulesetRulesFilePathRestrictionOutput
+	ToOrganizationRulesetRulesFilePathRestrictionOutputWithContext(context.Context) OrganizationRulesetRulesFilePathRestrictionOutput
+}
+
+type OrganizationRulesetRulesFilePathRestrictionArgs struct {
+	// The file paths that are restricted from being pushed to the commit graph.
+	RestrictedFilePaths pulumi.StringArrayInput `pulumi:"restrictedFilePaths"`
+}
+
+func (OrganizationRulesetRulesFilePathRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesFilePathRestrictionArgs) ToOrganizationRulesetRulesFilePathRestrictionOutput() OrganizationRulesetRulesFilePathRestrictionOutput {
+	return i.ToOrganizationRulesetRulesFilePathRestrictionOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesFilePathRestrictionArgs) ToOrganizationRulesetRulesFilePathRestrictionOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFilePathRestrictionOutput)
+}
+
+func (i OrganizationRulesetRulesFilePathRestrictionArgs) ToOrganizationRulesetRulesFilePathRestrictionPtrOutput() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return i.ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesFilePathRestrictionArgs) ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFilePathRestrictionOutput).ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesFilePathRestrictionPtrInput is an input type that accepts OrganizationRulesetRulesFilePathRestrictionArgs, OrganizationRulesetRulesFilePathRestrictionPtr and OrganizationRulesetRulesFilePathRestrictionPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesFilePathRestrictionPtrInput` via:
+//
+//	        OrganizationRulesetRulesFilePathRestrictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesFilePathRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesFilePathRestrictionPtrOutput() OrganizationRulesetRulesFilePathRestrictionPtrOutput
+	ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Context) OrganizationRulesetRulesFilePathRestrictionPtrOutput
+}
+
+type organizationRulesetRulesFilePathRestrictionPtrType OrganizationRulesetRulesFilePathRestrictionArgs
+
+func OrganizationRulesetRulesFilePathRestrictionPtr(v *OrganizationRulesetRulesFilePathRestrictionArgs) OrganizationRulesetRulesFilePathRestrictionPtrInput {
+	return (*organizationRulesetRulesFilePathRestrictionPtrType)(v)
+}
+
+func (*organizationRulesetRulesFilePathRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesFilePathRestrictionPtrType) ToOrganizationRulesetRulesFilePathRestrictionPtrOutput() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return i.ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesFilePathRestrictionPtrType) ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+type OrganizationRulesetRulesFilePathRestrictionOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesFilePathRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionOutput) ToOrganizationRulesetRulesFilePathRestrictionOutput() OrganizationRulesetRulesFilePathRestrictionOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionOutput) ToOrganizationRulesetRulesFilePathRestrictionOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionOutput) ToOrganizationRulesetRulesFilePathRestrictionPtrOutput() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionOutput) ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesFilePathRestriction) *OrganizationRulesetRulesFilePathRestriction {
+		return &v
+	}).(OrganizationRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// The file paths that are restricted from being pushed to the commit graph.
+func (o OrganizationRulesetRulesFilePathRestrictionOutput) RestrictedFilePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesFilePathRestriction) []string { return v.RestrictedFilePaths }).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetRulesFilePathRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesFilePathRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesFilePathRestriction)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionPtrOutput) ToOrganizationRulesetRulesFilePathRestrictionPtrOutput() OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionPtrOutput) ToOrganizationRulesetRulesFilePathRestrictionPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesFilePathRestrictionPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesFilePathRestrictionPtrOutput) Elem() OrganizationRulesetRulesFilePathRestrictionOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesFilePathRestriction) OrganizationRulesetRulesFilePathRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesFilePathRestriction
+		return ret
+	}).(OrganizationRulesetRulesFilePathRestrictionOutput)
+}
+
+// The file paths that are restricted from being pushed to the commit graph.
+func (o OrganizationRulesetRulesFilePathRestrictionPtrOutput) RestrictedFilePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesFilePathRestriction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedFilePaths
+	}).(pulumi.StringArrayOutput)
+}
+
+type OrganizationRulesetRulesMaxFilePathLength struct {
+	// The maximum allowed length of a file path.
+	MaxFilePathLength int `pulumi:"maxFilePathLength"`
+}
+
+// OrganizationRulesetRulesMaxFilePathLengthInput is an input type that accepts OrganizationRulesetRulesMaxFilePathLengthArgs and OrganizationRulesetRulesMaxFilePathLengthOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesMaxFilePathLengthInput` via:
+//
+//	OrganizationRulesetRulesMaxFilePathLengthArgs{...}
+type OrganizationRulesetRulesMaxFilePathLengthInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesMaxFilePathLengthOutput() OrganizationRulesetRulesMaxFilePathLengthOutput
+	ToOrganizationRulesetRulesMaxFilePathLengthOutputWithContext(context.Context) OrganizationRulesetRulesMaxFilePathLengthOutput
+}
+
+type OrganizationRulesetRulesMaxFilePathLengthArgs struct {
+	// The maximum allowed length of a file path.
+	MaxFilePathLength pulumi.IntInput `pulumi:"maxFilePathLength"`
+}
+
+func (OrganizationRulesetRulesMaxFilePathLengthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesMaxFilePathLengthArgs) ToOrganizationRulesetRulesMaxFilePathLengthOutput() OrganizationRulesetRulesMaxFilePathLengthOutput {
+	return i.ToOrganizationRulesetRulesMaxFilePathLengthOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesMaxFilePathLengthArgs) ToOrganizationRulesetRulesMaxFilePathLengthOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFilePathLengthOutput)
+}
+
+func (i OrganizationRulesetRulesMaxFilePathLengthArgs) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutput() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return i.ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesMaxFilePathLengthArgs) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFilePathLengthOutput).ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesMaxFilePathLengthPtrInput is an input type that accepts OrganizationRulesetRulesMaxFilePathLengthArgs, OrganizationRulesetRulesMaxFilePathLengthPtr and OrganizationRulesetRulesMaxFilePathLengthPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesMaxFilePathLengthPtrInput` via:
+//
+//	        OrganizationRulesetRulesMaxFilePathLengthArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesMaxFilePathLengthPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesMaxFilePathLengthPtrOutput() OrganizationRulesetRulesMaxFilePathLengthPtrOutput
+	ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Context) OrganizationRulesetRulesMaxFilePathLengthPtrOutput
+}
+
+type organizationRulesetRulesMaxFilePathLengthPtrType OrganizationRulesetRulesMaxFilePathLengthArgs
+
+func OrganizationRulesetRulesMaxFilePathLengthPtr(v *OrganizationRulesetRulesMaxFilePathLengthArgs) OrganizationRulesetRulesMaxFilePathLengthPtrInput {
+	return (*organizationRulesetRulesMaxFilePathLengthPtrType)(v)
+}
+
+func (*organizationRulesetRulesMaxFilePathLengthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesMaxFilePathLengthPtrType) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutput() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return i.ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesMaxFilePathLengthPtrType) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+type OrganizationRulesetRulesMaxFilePathLengthOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesMaxFilePathLengthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthOutput) ToOrganizationRulesetRulesMaxFilePathLengthOutput() OrganizationRulesetRulesMaxFilePathLengthOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthOutput) ToOrganizationRulesetRulesMaxFilePathLengthOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthOutput) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutput() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthOutput) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesMaxFilePathLength) *OrganizationRulesetRulesMaxFilePathLength {
+		return &v
+	}).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+// The maximum allowed length of a file path.
+func (o OrganizationRulesetRulesMaxFilePathLengthOutput) MaxFilePathLength() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesMaxFilePathLength) int { return v.MaxFilePathLength }).(pulumi.IntOutput)
+}
+
+type OrganizationRulesetRulesMaxFilePathLengthPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesMaxFilePathLengthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthPtrOutput) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutput() OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthPtrOutput) ToOrganizationRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFilePathLengthPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFilePathLengthPtrOutput) Elem() OrganizationRulesetRulesMaxFilePathLengthOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesMaxFilePathLength) OrganizationRulesetRulesMaxFilePathLength {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesMaxFilePathLength
+		return ret
+	}).(OrganizationRulesetRulesMaxFilePathLengthOutput)
+}
+
+// The maximum allowed length of a file path.
+func (o OrganizationRulesetRulesMaxFilePathLengthPtrOutput) MaxFilePathLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesMaxFilePathLength) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFilePathLength
+	}).(pulumi.IntPtrOutput)
+}
+
+type OrganizationRulesetRulesMaxFileSize struct {
+	// The maximum allowed size of a file in bytes.
+	MaxFileSize int `pulumi:"maxFileSize"`
+}
+
+// OrganizationRulesetRulesMaxFileSizeInput is an input type that accepts OrganizationRulesetRulesMaxFileSizeArgs and OrganizationRulesetRulesMaxFileSizeOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesMaxFileSizeInput` via:
+//
+//	OrganizationRulesetRulesMaxFileSizeArgs{...}
+type OrganizationRulesetRulesMaxFileSizeInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesMaxFileSizeOutput() OrganizationRulesetRulesMaxFileSizeOutput
+	ToOrganizationRulesetRulesMaxFileSizeOutputWithContext(context.Context) OrganizationRulesetRulesMaxFileSizeOutput
+}
+
+type OrganizationRulesetRulesMaxFileSizeArgs struct {
+	// The maximum allowed size of a file in bytes.
+	MaxFileSize pulumi.IntInput `pulumi:"maxFileSize"`
+}
+
+func (OrganizationRulesetRulesMaxFileSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesMaxFileSizeArgs) ToOrganizationRulesetRulesMaxFileSizeOutput() OrganizationRulesetRulesMaxFileSizeOutput {
+	return i.ToOrganizationRulesetRulesMaxFileSizeOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesMaxFileSizeArgs) ToOrganizationRulesetRulesMaxFileSizeOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFileSizeOutput)
+}
+
+func (i OrganizationRulesetRulesMaxFileSizeArgs) ToOrganizationRulesetRulesMaxFileSizePtrOutput() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return i.ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesMaxFileSizeArgs) ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFileSizeOutput).ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesMaxFileSizePtrInput is an input type that accepts OrganizationRulesetRulesMaxFileSizeArgs, OrganizationRulesetRulesMaxFileSizePtr and OrganizationRulesetRulesMaxFileSizePtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesMaxFileSizePtrInput` via:
+//
+//	        OrganizationRulesetRulesMaxFileSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesMaxFileSizePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesMaxFileSizePtrOutput() OrganizationRulesetRulesMaxFileSizePtrOutput
+	ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(context.Context) OrganizationRulesetRulesMaxFileSizePtrOutput
+}
+
+type organizationRulesetRulesMaxFileSizePtrType OrganizationRulesetRulesMaxFileSizeArgs
+
+func OrganizationRulesetRulesMaxFileSizePtr(v *OrganizationRulesetRulesMaxFileSizeArgs) OrganizationRulesetRulesMaxFileSizePtrInput {
+	return (*organizationRulesetRulesMaxFileSizePtrType)(v)
+}
+
+func (*organizationRulesetRulesMaxFileSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesMaxFileSizePtrType) ToOrganizationRulesetRulesMaxFileSizePtrOutput() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return i.ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesMaxFileSizePtrType) ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesMaxFileSizePtrOutput)
+}
+
+type OrganizationRulesetRulesMaxFileSizeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesMaxFileSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesMaxFileSizeOutput) ToOrganizationRulesetRulesMaxFileSizeOutput() OrganizationRulesetRulesMaxFileSizeOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFileSizeOutput) ToOrganizationRulesetRulesMaxFileSizeOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizeOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFileSizeOutput) ToOrganizationRulesetRulesMaxFileSizePtrOutput() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o.ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesMaxFileSizeOutput) ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesMaxFileSize) *OrganizationRulesetRulesMaxFileSize {
+		return &v
+	}).(OrganizationRulesetRulesMaxFileSizePtrOutput)
+}
+
+// The maximum allowed size of a file in bytes.
+func (o OrganizationRulesetRulesMaxFileSizeOutput) MaxFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesMaxFileSize) int { return v.MaxFileSize }).(pulumi.IntOutput)
+}
+
+type OrganizationRulesetRulesMaxFileSizePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesMaxFileSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesMaxFileSize)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesMaxFileSizePtrOutput) ToOrganizationRulesetRulesMaxFileSizePtrOutput() OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFileSizePtrOutput) ToOrganizationRulesetRulesMaxFileSizePtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesMaxFileSizePtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesMaxFileSizePtrOutput) Elem() OrganizationRulesetRulesMaxFileSizeOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesMaxFileSize) OrganizationRulesetRulesMaxFileSize {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesMaxFileSize
+		return ret
+	}).(OrganizationRulesetRulesMaxFileSizeOutput)
+}
+
+// The maximum allowed size of a file in bytes.
+func (o OrganizationRulesetRulesMaxFileSizePtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesMaxFileSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
 type OrganizationRulesetRulesPullRequest struct {
 	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
@@ -4513,7 +5143,7 @@ func (o OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArra
 }
 
 type OrganizationRulesetRulesRequiredStatusChecks struct {
-	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
 	DoNotEnforceOnCreate *bool `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks []OrganizationRulesetRulesRequiredStatusChecksRequiredCheck `pulumi:"requiredChecks"`
@@ -4533,7 +5163,7 @@ type OrganizationRulesetRulesRequiredStatusChecksInput interface {
 }
 
 type OrganizationRulesetRulesRequiredStatusChecksArgs struct {
-	// Allow repositories and branches to be created if a check would otherwise prohibit it.
+	// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
 	DoNotEnforceOnCreate pulumi.BoolPtrInput `pulumi:"doNotEnforceOnCreate"`
 	// Status checks that are required. Several can be defined.
 	RequiredChecks OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArrayInput `pulumi:"requiredChecks"`
@@ -4618,7 +5248,7 @@ func (o OrganizationRulesetRulesRequiredStatusChecksOutput) ToOrganizationRulese
 	}).(OrganizationRulesetRulesRequiredStatusChecksPtrOutput)
 }
 
-// Allow repositories and branches to be created if a check would otherwise prohibit it.
+// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
 func (o OrganizationRulesetRulesRequiredStatusChecksOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesRequiredStatusChecks) *bool { return v.DoNotEnforceOnCreate }).(pulumi.BoolPtrOutput)
 }
@@ -4659,7 +5289,7 @@ func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) Elem() Organizati
 	}).(OrganizationRulesetRulesRequiredStatusChecksOutput)
 }
 
-// Allow repositories and branches to be created if a check would otherwise prohibit it.
+// (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
 func (o OrganizationRulesetRulesRequiredStatusChecksPtrOutput) DoNotEnforceOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesRequiredStatusChecks) *bool {
 		if v == nil {
@@ -7057,6 +7687,8 @@ type RepositoryRulesetRules struct {
 	FileExtensionRestriction *RepositoryRulesetRulesFileExtensionRestriction `pulumi:"fileExtensionRestriction"`
 	// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
 	FilePathRestriction *RepositoryRulesetRulesFilePathRestriction `pulumi:"filePathRestriction"`
+	// (Integer) The maximum number of characters allowed in file paths.
+	MaxFilePathLength *RepositoryRulesetRulesMaxFilePathLength `pulumi:"maxFilePathLength"`
 	// (Integer) The maximum allowed size, in bytes, of a file.
 	MaxFileSize *RepositoryRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
@@ -7111,6 +7743,8 @@ type RepositoryRulesetRulesArgs struct {
 	FileExtensionRestriction RepositoryRulesetRulesFileExtensionRestrictionPtrInput `pulumi:"fileExtensionRestriction"`
 	// (Block List, Max 1) Parameters to be used for the filePathRestriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
 	FilePathRestriction RepositoryRulesetRulesFilePathRestrictionPtrInput `pulumi:"filePathRestriction"`
+	// (Integer) The maximum number of characters allowed in file paths.
+	MaxFilePathLength RepositoryRulesetRulesMaxFilePathLengthPtrInput `pulumi:"maxFilePathLength"`
 	// (Integer) The maximum allowed size, in bytes, of a file.
 	MaxFileSize RepositoryRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
@@ -7262,6 +7896,11 @@ func (o RepositoryRulesetRulesOutput) FilePathRestriction() RepositoryRulesetRul
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesFilePathRestriction {
 		return v.FilePathRestriction
 	}).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum number of characters allowed in file paths.
+func (o RepositoryRulesetRulesOutput) MaxFilePathLength() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMaxFilePathLength { return v.MaxFilePathLength }).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
 // (Integer) The maximum allowed size, in bytes, of a file.
@@ -7432,6 +8071,16 @@ func (o RepositoryRulesetRulesPtrOutput) FilePathRestriction() RepositoryRuleset
 		}
 		return v.FilePathRestriction
 	}).(RepositoryRulesetRulesFilePathRestrictionPtrOutput)
+}
+
+// (Integer) The maximum number of characters allowed in file paths.
+func (o RepositoryRulesetRulesPtrOutput) MaxFilePathLength() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesMaxFilePathLength {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFilePathLength
+	}).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
 // (Integer) The maximum allowed size, in bytes, of a file.
@@ -8602,6 +9251,143 @@ func (o RepositoryRulesetRulesFilePathRestrictionPtrOutput) RestrictedFilePaths(
 		}
 		return v.RestrictedFilePaths
 	}).(pulumi.StringArrayOutput)
+}
+
+type RepositoryRulesetRulesMaxFilePathLength struct {
+	// The maximum allowed length of a file path.
+	MaxFilePathLength int `pulumi:"maxFilePathLength"`
+}
+
+// RepositoryRulesetRulesMaxFilePathLengthInput is an input type that accepts RepositoryRulesetRulesMaxFilePathLengthArgs and RepositoryRulesetRulesMaxFilePathLengthOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMaxFilePathLengthInput` via:
+//
+//	RepositoryRulesetRulesMaxFilePathLengthArgs{...}
+type RepositoryRulesetRulesMaxFilePathLengthInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMaxFilePathLengthOutput() RepositoryRulesetRulesMaxFilePathLengthOutput
+	ToRepositoryRulesetRulesMaxFilePathLengthOutputWithContext(context.Context) RepositoryRulesetRulesMaxFilePathLengthOutput
+}
+
+type RepositoryRulesetRulesMaxFilePathLengthArgs struct {
+	// The maximum allowed length of a file path.
+	MaxFilePathLength pulumi.IntInput `pulumi:"maxFilePathLength"`
+}
+
+func (RepositoryRulesetRulesMaxFilePathLengthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesMaxFilePathLengthArgs) ToRepositoryRulesetRulesMaxFilePathLengthOutput() RepositoryRulesetRulesMaxFilePathLengthOutput {
+	return i.ToRepositoryRulesetRulesMaxFilePathLengthOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMaxFilePathLengthArgs) ToRepositoryRulesetRulesMaxFilePathLengthOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFilePathLengthOutput)
+}
+
+func (i RepositoryRulesetRulesMaxFilePathLengthArgs) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutput() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return i.ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesMaxFilePathLengthArgs) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFilePathLengthOutput).ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesMaxFilePathLengthPtrInput is an input type that accepts RepositoryRulesetRulesMaxFilePathLengthArgs, RepositoryRulesetRulesMaxFilePathLengthPtr and RepositoryRulesetRulesMaxFilePathLengthPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesMaxFilePathLengthPtrInput` via:
+//
+//	        RepositoryRulesetRulesMaxFilePathLengthArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesMaxFilePathLengthPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesMaxFilePathLengthPtrOutput() RepositoryRulesetRulesMaxFilePathLengthPtrOutput
+	ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Context) RepositoryRulesetRulesMaxFilePathLengthPtrOutput
+}
+
+type repositoryRulesetRulesMaxFilePathLengthPtrType RepositoryRulesetRulesMaxFilePathLengthArgs
+
+func RepositoryRulesetRulesMaxFilePathLengthPtr(v *RepositoryRulesetRulesMaxFilePathLengthArgs) RepositoryRulesetRulesMaxFilePathLengthPtrInput {
+	return (*repositoryRulesetRulesMaxFilePathLengthPtrType)(v)
+}
+
+func (*repositoryRulesetRulesMaxFilePathLengthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesMaxFilePathLengthPtrType) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutput() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return i.ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesMaxFilePathLengthPtrType) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+type RepositoryRulesetRulesMaxFilePathLengthOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMaxFilePathLengthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthOutput) ToRepositoryRulesetRulesMaxFilePathLengthOutput() RepositoryRulesetRulesMaxFilePathLengthOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthOutput) ToRepositoryRulesetRulesMaxFilePathLengthOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthOutput) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutput() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthOutput) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesMaxFilePathLength) *RepositoryRulesetRulesMaxFilePathLength {
+		return &v
+	}).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
+}
+
+// The maximum allowed length of a file path.
+func (o RepositoryRulesetRulesMaxFilePathLengthOutput) MaxFilePathLength() pulumi.IntOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesMaxFilePathLength) int { return v.MaxFilePathLength }).(pulumi.IntOutput)
+}
+
+type RepositoryRulesetRulesMaxFilePathLengthPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesMaxFilePathLengthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesMaxFilePathLength)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthPtrOutput) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutput() RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthPtrOutput) ToRepositoryRulesetRulesMaxFilePathLengthPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesMaxFilePathLengthPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesMaxFilePathLengthPtrOutput) Elem() RepositoryRulesetRulesMaxFilePathLengthOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMaxFilePathLength) RepositoryRulesetRulesMaxFilePathLength {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesMaxFilePathLength
+		return ret
+	}).(RepositoryRulesetRulesMaxFilePathLengthOutput)
+}
+
+// The maximum allowed length of a file path.
+func (o RepositoryRulesetRulesMaxFilePathLengthPtrOutput) MaxFilePathLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesMaxFilePathLength) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFilePathLength
+	}).(pulumi.IntPtrOutput)
 }
 
 type RepositoryRulesetRulesMaxFileSize struct {
@@ -16996,6 +17782,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitMessagePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestrictionInput)(nil)).Elem(), OrganizationRulesetRulesFileExtensionRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestrictionPtrInput)(nil)).Elem(), OrganizationRulesetRulesFileExtensionRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFilePathRestrictionInput)(nil)).Elem(), OrganizationRulesetRulesFilePathRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFilePathRestrictionPtrInput)(nil)).Elem(), OrganizationRulesetRulesFilePathRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesMaxFilePathLengthInput)(nil)).Elem(), OrganizationRulesetRulesMaxFilePathLengthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesMaxFilePathLengthPtrInput)(nil)).Elem(), OrganizationRulesetRulesMaxFilePathLengthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesMaxFileSizeInput)(nil)).Elem(), OrganizationRulesetRulesMaxFileSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesMaxFileSizePtrInput)(nil)).Elem(), OrganizationRulesetRulesMaxFileSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestPtrInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningArgs{})
@@ -17050,6 +17844,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestrictionPtrInput)(nil)).Elem(), RepositoryRulesetRulesFileExtensionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFilePathRestrictionInput)(nil)).Elem(), RepositoryRulesetRulesFilePathRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFilePathRestrictionPtrInput)(nil)).Elem(), RepositoryRulesetRulesFilePathRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFilePathLengthInput)(nil)).Elem(), RepositoryRulesetRulesMaxFilePathLengthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFilePathLengthPtrInput)(nil)).Elem(), RepositoryRulesetRulesMaxFilePathLengthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFileSizeInput)(nil)).Elem(), RepositoryRulesetRulesMaxFileSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMaxFileSizePtrInput)(nil)).Elem(), RepositoryRulesetRulesMaxFileSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueueInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
@@ -17214,6 +18010,14 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitMessagePatternPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesFileExtensionRestrictionOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesFilePathRestrictionOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesFilePathRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesMaxFilePathLengthOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesMaxFilePathLengthPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesMaxFileSizeOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesMaxFileSizePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningOutput{})
@@ -17268,6 +18072,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFilePathRestrictionOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFilePathRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFilePathLengthOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFilePathLengthPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFileSizeOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMaxFileSizePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueueOutput{})

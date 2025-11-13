@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Note:** This resource is deprecated, please use the `githubOrganizationrepositoryRole` resource instead.
+ * &gt; **Note:** This resource is deprecated, please use the `github.OrganizationRepositoryRole` resource instead.
  * 
  * This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
  * 

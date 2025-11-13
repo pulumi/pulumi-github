@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+ * > **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
  *
  * Use this data source to retrieve information about a custom role in a GitHub Organization.
  *
@@ -62,7 +62,7 @@ export interface GetOrganizationCustomRoleResult {
     readonly permissions: string[];
 }
 /**
- * > **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+ * > **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
  *
  * Use this data source to retrieve information about a custom role in a GitHub Organization.
  *

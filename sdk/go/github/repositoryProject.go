@@ -128,6 +128,7 @@ func (RepositoryProjectState) ElementType() reflect.Type {
 type repositoryProjectArgs struct {
 	// The body of the project.
 	Body *string `pulumi:"body"`
+	Etag *string `pulumi:"etag"`
 	// The name of the project.
 	Name *string `pulumi:"name"`
 	// The repository of the project.
@@ -138,6 +139,7 @@ type repositoryProjectArgs struct {
 type RepositoryProjectArgs struct {
 	// The body of the project.
 	Body pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// The name of the project.
 	Name pulumi.StringPtrInput
 	// The repository of the project.

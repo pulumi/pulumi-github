@@ -5,17 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a GitHub repository deploy key resource.
- *
- * A deploy key is an SSH key that is stored on your server and grants
- * access to a single GitHub repository. This key is attached directly to the repository instead of to a personal user
- * account.
- *
- * This resource allows you to add/remove repository deploy keys.
- *
- * Further documentation on GitHub repository deploy keys:
- * - [About deploy keys](https://developer.github.com/guides/managing-deploy-keys/#deploy-keys)
- *
  * ## Example Usage
  *
  * ```typescript

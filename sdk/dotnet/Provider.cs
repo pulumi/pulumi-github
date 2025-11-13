@@ -99,6 +99,12 @@ namespace Pulumi.Github
         public Input<bool>? Insecure { get; set; }
 
         /// <summary>
+        /// Number of items per page for paginationDefaults to 100
+        /// </summary>
+        [Input("maxPerPage", json: true)]
+        public Input<int>? MaxPerPage { get; set; }
+
+        /// <summary>
         /// Number of times to retry a request after receiving an error status codeDefaults to 3
         /// </summary>
         [Input("maxRetries", json: true)]

@@ -373,6 +373,9 @@ class RepositoryRuleset(pulumi.CustomResource):
                 "max_file_size": {
                     "max_file_size": 104857600,
                 },
+                "max_file_path_length": {
+                    "max_file_path_length": 255,
+                },
                 "file_extension_restriction": {
                     "restricted_file_extensions": [
                         "*.exe",
@@ -462,6 +465,9 @@ class RepositoryRuleset(pulumi.CustomResource):
                 },
                 "max_file_size": {
                     "max_file_size": 104857600,
+                },
+                "max_file_path_length": {
+                    "max_file_path_length": 255,
                 },
                 "file_extension_restriction": {
                     "restricted_file_extensions": [

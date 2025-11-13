@@ -32,6 +32,13 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
         return this.branch;
     }
 
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      * 
@@ -66,6 +73,7 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
 
     private BranchDefaultArgs(BranchDefaultArgs $) {
         this.branch = $.branch;
+        this.etag = $.etag;
         this.rename = $.rename;
         this.repository = $.repository;
     }
@@ -107,6 +115,15 @@ public final class BranchDefaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
+        }
+
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

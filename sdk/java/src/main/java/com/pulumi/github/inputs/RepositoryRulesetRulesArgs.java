@@ -11,6 +11,7 @@ import com.pulumi.github.inputs.RepositoryRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitterEmailPatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFilePathLengthArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesMergeQueueArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesPullRequestArgs;
@@ -146,6 +147,21 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<RepositoryRulesetRulesFilePathRestrictionArgs>> filePathRestriction() {
         return Optional.ofNullable(this.filePathRestriction);
+    }
+
+    /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    @Import(name="maxFilePathLength")
+    private @Nullable Output<RepositoryRulesetRulesMaxFilePathLengthArgs> maxFilePathLength;
+
+    /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesMaxFilePathLengthArgs>> maxFilePathLength() {
+        return Optional.ofNullable(this.maxFilePathLength);
     }
 
     /**
@@ -339,6 +355,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         this.deletion = $.deletion;
         this.fileExtensionRestriction = $.fileExtensionRestriction;
         this.filePathRestriction = $.filePathRestriction;
+        this.maxFilePathLength = $.maxFilePathLength;
         this.maxFileSize = $.maxFileSize;
         this.mergeQueue = $.mergeQueue;
         this.nonFastForward = $.nonFastForward;
@@ -537,6 +554,27 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
          */
         public Builder filePathRestriction(RepositoryRulesetRulesFilePathRestrictionArgs filePathRestriction) {
             return filePathRestriction(Output.of(filePathRestriction));
+        }
+
+        /**
+         * @param maxFilePathLength (Integer) The maximum number of characters allowed in file paths.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFilePathLength(@Nullable Output<RepositoryRulesetRulesMaxFilePathLengthArgs> maxFilePathLength) {
+            $.maxFilePathLength = maxFilePathLength;
+            return this;
+        }
+
+        /**
+         * @param maxFilePathLength (Integer) The maximum number of characters allowed in file paths.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFilePathLength(RepositoryRulesetRulesMaxFilePathLengthArgs maxFilePathLength) {
+            return maxFilePathLength(Output.of(maxFilePathLength));
         }
 
         /**

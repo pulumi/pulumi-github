@@ -452,9 +452,6 @@ class RepositoryFile(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
-
         ## Example Usage
 
         ### Existing Branch
@@ -531,9 +528,6 @@ class RepositoryFile(pulumi.CustomResource):
                  args: RepositoryFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage files within a
-        GitHub repository.
-
         ## Example Usage
 
         ### Existing Branch

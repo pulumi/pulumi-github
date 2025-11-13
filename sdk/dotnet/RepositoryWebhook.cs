@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage webhooks for repositories within your
-    /// GitHub organization or personal account.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -155,6 +152,9 @@ namespace Pulumi.Github
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.RepositoryWebhookConfigurationArgs>? Configuration { get; set; }
+
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         [Input("events", required: true)]
         private InputList<string>? _events;

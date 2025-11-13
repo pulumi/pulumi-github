@@ -31,6 +31,13 @@ public final class RepositoryProjectArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.body);
     }
 
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
     /**
      * The name of the project.
      * 
@@ -65,6 +72,7 @@ public final class RepositoryProjectArgs extends com.pulumi.resources.ResourceAr
 
     private RepositoryProjectArgs(RepositoryProjectArgs $) {
         this.body = $.body;
+        this.etag = $.etag;
         this.name = $.name;
         this.repository = $.repository;
     }
@@ -106,6 +114,15 @@ public final class RepositoryProjectArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder body(String body) {
             return body(Output.of(body));
+        }
+
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

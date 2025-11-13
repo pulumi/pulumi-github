@@ -135,6 +135,12 @@ namespace Pulumi.Github
         public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
+        /// An etag representing the Branch object.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// The name pattern that branches must match in order to deploy to the environment.
         /// </summary>
         [Input("name")]

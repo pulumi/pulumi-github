@@ -83,6 +83,36 @@ import (
 //
 // ```
 //
+// ### With Repository Forking
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewRepository(ctx, "forked_repo", &github.RepositoryArgs{
+//				Name:        pulumi.String("forked-repository"),
+//				Description: pulumi.String("This is a fork of another repository"),
+//				Fork:        pulumi.Bool(true),
+//				SourceOwner: pulumi.String("some-org"),
+//				SourceRepo:  pulumi.String("original-repository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Repositories can be imported using the `name`, e.g.
@@ -120,6 +150,8 @@ type Repository struct {
 	// A description of the repository.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
+	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+	Fork pulumi.BoolPtrOutput `pulumi:"fork"`
 	// A string of the form "orgname/reponame".
 	FullName pulumi.StringOutput `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -171,6 +203,10 @@ type Repository struct {
 	RepoId pulumi.IntOutput `pulumi:"repoId"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisOutput `pulumi:"securityAndAnalysis"`
+	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+	SourceOwner pulumi.StringPtrOutput `pulumi:"sourceOwner"`
+	// The name of the repository to fork. Required when `fork` is `true`.
+	SourceRepo pulumi.StringPtrOutput `pulumi:"sourceRepo"`
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrOutput `pulumi:"squashMergeCommitMessage"`
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -248,6 +284,8 @@ type repositoryState struct {
 	// A description of the repository.
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
+	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+	Fork *bool `pulumi:"fork"`
 	// A string of the form "orgname/reponame".
 	FullName *string `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -299,6 +337,10 @@ type repositoryState struct {
 	RepoId *int `pulumi:"repoId"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
+	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+	SourceOwner *string `pulumi:"sourceOwner"`
+	// The name of the repository to fork. Required when `fork` is `true`.
+	SourceRepo *string `pulumi:"sourceRepo"`
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -347,6 +389,8 @@ type RepositoryState struct {
 	// A description of the repository.
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
+	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+	Fork pulumi.BoolPtrInput
 	// A string of the form "orgname/reponame".
 	FullName pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -398,6 +442,10 @@ type RepositoryState struct {
 	RepoId pulumi.IntPtrInput
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisPtrInput
+	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+	SourceOwner pulumi.StringPtrInput
+	// The name of the repository to fork. Required when `fork` is `true`.
+	SourceRepo pulumi.StringPtrInput
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrInput
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -449,6 +497,9 @@ type repositoryArgs struct {
 	DeleteBranchOnMerge *bool `pulumi:"deleteBranchOnMerge"`
 	// A description of the repository.
 	Description *string `pulumi:"description"`
+	Etag        *string `pulumi:"etag"`
+	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+	Fork *bool `pulumi:"fork"`
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
@@ -486,6 +537,10 @@ type repositoryArgs struct {
 	Private *bool `pulumi:"private"`
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis *RepositorySecurityAndAnalysis `pulumi:"securityAndAnalysis"`
+	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+	SourceOwner *string `pulumi:"sourceOwner"`
+	// The name of the repository to fork. Required when `fork` is `true`.
+	SourceRepo *string `pulumi:"sourceRepo"`
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage *string `pulumi:"squashMergeCommitMessage"`
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -530,6 +585,9 @@ type RepositoryArgs struct {
 	DeleteBranchOnMerge pulumi.BoolPtrInput
 	// A description of the repository.
 	Description pulumi.StringPtrInput
+	Etag        pulumi.StringPtrInput
+	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+	Fork pulumi.BoolPtrInput
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate pulumi.StringPtrInput
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
@@ -567,6 +625,10 @@ type RepositoryArgs struct {
 	Private pulumi.BoolPtrInput
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisPtrInput
+	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+	SourceOwner pulumi.StringPtrInput
+	// The name of the repository to fork. Required when `fork` is `true`.
+	SourceRepo pulumi.StringPtrInput
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrInput
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -733,6 +795,11 @@ func (o RepositoryOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+func (o RepositoryOutput) Fork() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.Fork }).(pulumi.BoolPtrOutput)
+}
+
 // A string of the form "orgname/reponame".
 func (o RepositoryOutput) FullName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.FullName }).(pulumi.StringOutput)
@@ -851,6 +918,16 @@ func (o RepositoryOutput) RepoId() pulumi.IntOutput {
 // The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisOutput {
 	return o.ApplyT(func(v *Repository) RepositorySecurityAndAnalysisOutput { return v.SecurityAndAnalysis }).(RepositorySecurityAndAnalysisOutput)
+}
+
+// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+func (o RepositoryOutput) SourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SourceOwner }).(pulumi.StringPtrOutput)
+}
+
+// The name of the repository to fork. Required when `fork` is `true`.
+func (o RepositoryOutput) SourceRepo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SourceRepo }).(pulumi.StringPtrOutput)
 }
 
 // Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.

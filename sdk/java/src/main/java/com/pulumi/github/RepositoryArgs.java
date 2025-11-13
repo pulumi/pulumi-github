@@ -197,6 +197,28 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
+    /**
+     * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     * 
+     */
+    @Import(name="fork")
+    private @Nullable Output<Boolean> fork;
+
+    /**
+     * @return Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     * 
+     */
+    public Optional<Output<Boolean>> fork() {
+        return Optional.ofNullable(this.fork);
+    }
+
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, &#34;Haskell&#34;.
      * 
@@ -452,6 +474,36 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     * 
+     */
+    @Import(name="sourceOwner")
+    private @Nullable Output<String> sourceOwner;
+
+    /**
+     * @return The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     * 
+     */
+    public Optional<Output<String>> sourceOwner() {
+        return Optional.ofNullable(this.sourceOwner);
+    }
+
+    /**
+     * The name of the repository to fork. Required when `fork` is `true`.
+     * 
+     */
+    @Import(name="sourceRepo")
+    private @Nullable Output<String> sourceRepo;
+
+    /**
+     * @return The name of the repository to fork. Required when `fork` is `true`.
+     * 
+     */
+    public Optional<Output<String>> sourceRepo() {
+        return Optional.ofNullable(this.sourceRepo);
+    }
+
+    /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      * 
      */
@@ -570,6 +622,8 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultBranch = $.defaultBranch;
         this.deleteBranchOnMerge = $.deleteBranchOnMerge;
         this.description = $.description;
+        this.etag = $.etag;
+        this.fork = $.fork;
         this.gitignoreTemplate = $.gitignoreTemplate;
         this.hasDiscussions = $.hasDiscussions;
         this.hasDownloads = $.hasDownloads;
@@ -586,6 +640,8 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         this.pages = $.pages;
         this.private_ = $.private_;
         this.securityAndAnalysis = $.securityAndAnalysis;
+        this.sourceOwner = $.sourceOwner;
+        this.sourceRepo = $.sourceRepo;
         this.squashMergeCommitMessage = $.squashMergeCommitMessage;
         this.squashMergeCommitTitle = $.squashMergeCommitTitle;
         this.template = $.template;
@@ -854,6 +910,36 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
+        }
+
+        /**
+         * @param fork Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fork(@Nullable Output<Boolean> fork) {
+            $.fork = fork;
+            return this;
+        }
+
+        /**
+         * @param fork Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fork(Boolean fork) {
+            return fork(Output.of(fork));
         }
 
         /**
@@ -1204,6 +1290,48 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityAndAnalysis(RepositorySecurityAndAnalysisArgs securityAndAnalysis) {
             return securityAndAnalysis(Output.of(securityAndAnalysis));
+        }
+
+        /**
+         * @param sourceOwner The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceOwner(@Nullable Output<String> sourceOwner) {
+            $.sourceOwner = sourceOwner;
+            return this;
+        }
+
+        /**
+         * @param sourceOwner The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceOwner(String sourceOwner) {
+            return sourceOwner(Output.of(sourceOwner));
+        }
+
+        /**
+         * @param sourceRepo The name of the repository to fork. Required when `fork` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceRepo(@Nullable Output<String> sourceRepo) {
+            $.sourceRepo = sourceRepo;
+            return this;
+        }
+
+        /**
+         * @param sourceRepo The name of the repository to fork. Required when `fork` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceRepo(String sourceRepo) {
+            return sourceRepo(Output.of(sourceRepo));
         }
 
         /**

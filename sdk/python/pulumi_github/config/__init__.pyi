@@ -30,6 +30,11 @@ insecure: Optional[bool]
 Enable `insecure` mode for testing purposes
 """
 
+maxPerPage: Optional[int]
+"""
+Number of items per page for paginationDefaults to 100
+"""
+
 maxRetries: Optional[int]
 """
 Number of times to retry a request after receiving an error status codeDefaults to 3

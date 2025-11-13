@@ -7,9 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage webhooks for repositories within your
- * GitHub organization or personal account.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -82,7 +79,7 @@ export class RepositoryWebhook extends pulumi.CustomResource {
      * Configuration block for the webhook. Detailed below.
      */
     declare public readonly configuration: pulumi.Output<outputs.RepositoryWebhookConfiguration | undefined>;
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */
@@ -125,9 +122,9 @@ export class RepositoryWebhook extends pulumi.CustomResource {
             }
             resourceInputs["active"] = args?.active;
             resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["events"] = args?.events;
             resourceInputs["repository"] = args?.repository;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -174,6 +171,7 @@ export interface RepositoryWebhookArgs {
      * Configuration block for the webhook. Detailed below.
      */
     configuration?: pulumi.Input<inputs.RepositoryWebhookConfiguration>;
+    etag?: pulumi.Input<string>;
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      */

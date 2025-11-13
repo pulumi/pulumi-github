@@ -178,7 +178,8 @@ func (BranchDefaultState) ElementType() reflect.Type {
 
 type branchDefaultArgs struct {
 	// The branch (e.g. `main`)
-	Branch string `pulumi:"branch"`
+	Branch string  `pulumi:"branch"`
+	Etag   *string `pulumi:"etag"`
 	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
 	Rename *bool `pulumi:"rename"`
 	// The GitHub repository
@@ -189,6 +190,7 @@ type branchDefaultArgs struct {
 type BranchDefaultArgs struct {
 	// The branch (e.g. `main`)
 	Branch pulumi.StringInput
+	Etag   pulumi.StringPtrInput
 	// Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
 	Rename pulumi.BoolPtrInput
 	// The GitHub repository

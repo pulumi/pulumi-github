@@ -54,6 +54,43 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
+ * // Example with push ruleset  
+ * const examplePush = new github.OrganizationRuleset("example_push", {
+ *     name: "example_push",
+ *     target: "push",
+ *     enforcement: "active",
+ *     conditions: {
+ *         refName: {
+ *             includes: ["~ALL"],
+ *             excludes: [],
+ *         },
+ *         repositoryName: {
+ *             includes: ["~ALL"],
+ *             excludes: [],
+ *         },
+ *     },
+ *     rules: {
+ *         filePathRestriction: {
+ *             restrictedFilePaths: [
+ *                 ".github/workflows/*",
+ *                 "*.env",
+ *             ],
+ *         },
+ *         maxFileSize: {
+ *             maxFileSize: 104857600,
+ *         },
+ *         maxFilePathLength: {
+ *             maxFilePathLength: 255,
+ *         },
+ *         fileExtensionRestriction: {
+ *             restrictedFileExtensions: [
+ *                 "*.exe",
+ *                 "*.dll",
+ *                 "*.so",
+ *             ],
+ *         },
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -125,7 +162,7 @@ export class OrganizationRuleset extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly rulesetId: pulumi.Output<number>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     declare public readonly target: pulumi.Output<string>;
 
@@ -214,7 +251,7 @@ export interface OrganizationRulesetState {
      */
     rulesetId?: pulumi.Input<number>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     target?: pulumi.Input<string>;
 }
@@ -244,7 +281,7 @@ export interface OrganizationRulesetArgs {
      */
     rules: pulumi.Input<inputs.OrganizationRulesetRules>;
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      */
     target: pulumi.Input<string>;
 }

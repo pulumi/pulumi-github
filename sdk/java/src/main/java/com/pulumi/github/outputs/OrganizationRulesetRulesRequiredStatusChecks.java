@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * @return (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
      * 
      */
     private @Nullable Boolean doNotEnforceOnCreate;
@@ -32,7 +32,7 @@ public final class OrganizationRulesetRulesRequiredStatusChecks {
 
     private OrganizationRulesetRulesRequiredStatusChecks() {}
     /**
-     * @return Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * @return (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
      * 
      */
     public Optional<Boolean> doNotEnforceOnCreate() {

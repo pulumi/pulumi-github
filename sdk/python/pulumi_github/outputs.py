@@ -38,6 +38,10 @@ __all__ = [
     'OrganizationRulesetRulesCommitAuthorEmailPattern',
     'OrganizationRulesetRulesCommitMessagePattern',
     'OrganizationRulesetRulesCommitterEmailPattern',
+    'OrganizationRulesetRulesFileExtensionRestriction',
+    'OrganizationRulesetRulesFilePathRestriction',
+    'OrganizationRulesetRulesMaxFilePathLength',
+    'OrganizationRulesetRulesMaxFileSize',
     'OrganizationRulesetRulesPullRequest',
     'OrganizationRulesetRulesRequiredCodeScanning',
     'OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
@@ -64,6 +68,7 @@ __all__ = [
     'RepositoryRulesetRulesCommitterEmailPattern',
     'RepositoryRulesetRulesFileExtensionRestriction',
     'RepositoryRulesetRulesFilePathRestriction',
+    'RepositoryRulesetRulesMaxFilePathLength',
     'RepositoryRulesetRulesMaxFileSize',
     'RepositoryRulesetRulesMergeQueue',
     'RepositoryRulesetRulesPullRequest',
@@ -1192,6 +1197,14 @@ class OrganizationRulesetRules(dict):
             suggest = "commit_message_pattern"
         elif key == "committerEmailPattern":
             suggest = "committer_email_pattern"
+        elif key == "fileExtensionRestriction":
+            suggest = "file_extension_restriction"
+        elif key == "filePathRestriction":
+            suggest = "file_path_restriction"
+        elif key == "maxFilePathLength":
+            suggest = "max_file_path_length"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
         elif key == "nonFastForward":
             suggest = "non_fast_forward"
         elif key == "pullRequest":
@@ -1227,6 +1240,10 @@ class OrganizationRulesetRules(dict):
                  committer_email_pattern: Optional['outputs.OrganizationRulesetRulesCommitterEmailPattern'] = None,
                  creation: Optional[_builtins.bool] = None,
                  deletion: Optional[_builtins.bool] = None,
+                 file_extension_restriction: Optional['outputs.OrganizationRulesetRulesFileExtensionRestriction'] = None,
+                 file_path_restriction: Optional['outputs.OrganizationRulesetRulesFilePathRestriction'] = None,
+                 max_file_path_length: Optional['outputs.OrganizationRulesetRulesMaxFilePathLength'] = None,
+                 max_file_size: Optional['outputs.OrganizationRulesetRulesMaxFileSize'] = None,
                  non_fast_forward: Optional[_builtins.bool] = None,
                  pull_request: Optional['outputs.OrganizationRulesetRulesPullRequest'] = None,
                  required_code_scanning: Optional['outputs.OrganizationRulesetRulesRequiredCodeScanning'] = None,
@@ -1243,6 +1260,10 @@ class OrganizationRulesetRules(dict):
         :param 'OrganizationRulesetRulesCommitterEmailPatternArgs' committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param _builtins.bool creation: (Boolean) Only allow users with bypass permission to create matching refs.
         :param _builtins.bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
+        :param 'OrganizationRulesetRulesFileExtensionRestrictionArgs' file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        :param 'OrganizationRulesetRulesFilePathRestrictionArgs' file_path_restriction: (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        :param 'OrganizationRulesetRulesMaxFilePathLengthArgs' max_file_path_length: (Integer) The maximum number of characters allowed in file paths.
+        :param 'OrganizationRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in bytes, of a file.
         :param _builtins.bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'OrganizationRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         :param 'OrganizationRulesetRulesRequiredCodeScanningArgs' required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
@@ -1265,6 +1286,14 @@ class OrganizationRulesetRules(dict):
             pulumi.set(__self__, "creation", creation)
         if deletion is not None:
             pulumi.set(__self__, "deletion", deletion)
+        if file_extension_restriction is not None:
+            pulumi.set(__self__, "file_extension_restriction", file_extension_restriction)
+        if file_path_restriction is not None:
+            pulumi.set(__self__, "file_path_restriction", file_path_restriction)
+        if max_file_path_length is not None:
+            pulumi.set(__self__, "max_file_path_length", max_file_path_length)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
         if non_fast_forward is not None:
             pulumi.set(__self__, "non_fast_forward", non_fast_forward)
         if pull_request is not None:
@@ -1331,6 +1360,38 @@ class OrganizationRulesetRules(dict):
         (Boolean) Only allow users with bypass permissions to delete matching refs.
         """
         return pulumi.get(self, "deletion")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtensionRestriction")
+    def file_extension_restriction(self) -> Optional['outputs.OrganizationRulesetRulesFileExtensionRestriction']:
+        """
+        (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        """
+        return pulumi.get(self, "file_extension_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="filePathRestriction")
+    def file_path_restriction(self) -> Optional['outputs.OrganizationRulesetRulesFilePathRestriction']:
+        """
+        (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+        """
+        return pulumi.get(self, "file_path_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="maxFilePathLength")
+    def max_file_path_length(self) -> Optional['outputs.OrganizationRulesetRulesMaxFilePathLength']:
+        """
+        (Integer) The maximum number of characters allowed in file paths.
+        """
+        return pulumi.get(self, "max_file_path_length")
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional['outputs.OrganizationRulesetRulesMaxFileSize']:
+        """
+        (Integer) The maximum allowed size, in bytes, of a file.
+        """
+        return pulumi.get(self, "max_file_size")
 
     @_builtins.property
     @pulumi.getter(name="nonFastForward")
@@ -1618,6 +1679,146 @@ class OrganizationRulesetRulesCommitterEmailPattern(dict):
 
 
 @pulumi.output_type
+class OrganizationRulesetRulesFileExtensionRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictedFileExtensions":
+            suggest = "restricted_file_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesFileExtensionRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesFileExtensionRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesFileExtensionRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restricted_file_extensions: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] restricted_file_extensions: The file extensions that are restricted from being pushed to the commit graph.
+        """
+        pulumi.set(__self__, "restricted_file_extensions", restricted_file_extensions)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedFileExtensions")
+    def restricted_file_extensions(self) -> Sequence[_builtins.str]:
+        """
+        The file extensions that are restricted from being pushed to the commit graph.
+        """
+        return pulumi.get(self, "restricted_file_extensions")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesFilePathRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictedFilePaths":
+            suggest = "restricted_file_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesFilePathRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesFilePathRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesFilePathRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restricted_file_paths: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] restricted_file_paths: The file paths that are restricted from being pushed to the commit graph.
+        """
+        pulumi.set(__self__, "restricted_file_paths", restricted_file_paths)
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedFilePaths")
+    def restricted_file_paths(self) -> Sequence[_builtins.str]:
+        """
+        The file paths that are restricted from being pushed to the commit graph.
+        """
+        return pulumi.get(self, "restricted_file_paths")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesMaxFilePathLength(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxFilePathLength":
+            suggest = "max_file_path_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesMaxFilePathLength. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesMaxFilePathLength.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesMaxFilePathLength.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_file_path_length: _builtins.int):
+        """
+        :param _builtins.int max_file_path_length: The maximum allowed length of a file path.
+        """
+        pulumi.set(__self__, "max_file_path_length", max_file_path_length)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFilePathLength")
+    def max_file_path_length(self) -> _builtins.int:
+        """
+        The maximum allowed length of a file path.
+        """
+        return pulumi.get(self, "max_file_path_length")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesMaxFileSize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxFileSize":
+            suggest = "max_file_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesMaxFileSize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesMaxFileSize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesMaxFileSize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_file_size: _builtins.int):
+        """
+        :param _builtins.int max_file_size: The maximum allowed size of a file in bytes.
+        """
+        pulumi.set(__self__, "max_file_size", max_file_size)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> _builtins.int:
+        """
+        The maximum allowed size of a file in bytes.
+        """
+        return pulumi.get(self, "max_file_size")
+
+
+@pulumi.output_type
 class OrganizationRulesetRulesPullRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1832,7 +2033,7 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
                  strict_required_status_checks_policy: Optional[_builtins.bool] = None):
         """
         :param Sequence['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs'] required_checks: Status checks that are required. Several can be defined.
-        :param _builtins.bool do_not_enforce_on_create: Allow repositories and branches to be created if a check would otherwise prohibit it.
+        :param _builtins.bool do_not_enforce_on_create: (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
         :param _builtins.bool strict_required_status_checks_policy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "required_checks", required_checks)
@@ -1853,7 +2054,7 @@ class OrganizationRulesetRulesRequiredStatusChecks(dict):
     @pulumi.getter(name="doNotEnforceOnCreate")
     def do_not_enforce_on_create(self) -> Optional[_builtins.bool]:
         """
-        Allow repositories and branches to be created if a check would otherwise prohibit it.
+        (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
         """
         return pulumi.get(self, "do_not_enforce_on_create")
 
@@ -2634,6 +2835,8 @@ class RepositoryRulesetRules(dict):
             suggest = "file_extension_restriction"
         elif key == "filePathRestriction":
             suggest = "file_path_restriction"
+        elif key == "maxFilePathLength":
+            suggest = "max_file_path_length"
         elif key == "maxFileSize":
             suggest = "max_file_size"
         elif key == "mergeQueue":
@@ -2677,6 +2880,7 @@ class RepositoryRulesetRules(dict):
                  deletion: Optional[_builtins.bool] = None,
                  file_extension_restriction: Optional['outputs.RepositoryRulesetRulesFileExtensionRestriction'] = None,
                  file_path_restriction: Optional['outputs.RepositoryRulesetRulesFilePathRestriction'] = None,
+                 max_file_path_length: Optional['outputs.RepositoryRulesetRulesMaxFilePathLength'] = None,
                  max_file_size: Optional['outputs.RepositoryRulesetRulesMaxFileSize'] = None,
                  merge_queue: Optional['outputs.RepositoryRulesetRulesMergeQueue'] = None,
                  non_fast_forward: Optional[_builtins.bool] = None,
@@ -2698,6 +2902,7 @@ class RepositoryRulesetRules(dict):
         :param _builtins.bool deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
         :param 'RepositoryRulesetRulesFileExtensionRestrictionArgs' file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         :param 'RepositoryRulesetRulesFilePathRestrictionArgs' file_path_restriction: (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+        :param 'RepositoryRulesetRulesMaxFilePathLengthArgs' max_file_path_length: (Integer) The maximum number of characters allowed in file paths.
         :param 'RepositoryRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in bytes, of a file.
         :param 'RepositoryRulesetRulesMergeQueueArgs' merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue.
         :param _builtins.bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
@@ -2727,6 +2932,8 @@ class RepositoryRulesetRules(dict):
             pulumi.set(__self__, "file_extension_restriction", file_extension_restriction)
         if file_path_restriction is not None:
             pulumi.set(__self__, "file_path_restriction", file_path_restriction)
+        if max_file_path_length is not None:
+            pulumi.set(__self__, "max_file_path_length", max_file_path_length)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if merge_queue is not None:
@@ -2815,6 +3022,14 @@ class RepositoryRulesetRules(dict):
         (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
         """
         return pulumi.get(self, "file_path_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="maxFilePathLength")
+    def max_file_path_length(self) -> Optional['outputs.RepositoryRulesetRulesMaxFilePathLength']:
+        """
+        (Integer) The maximum number of characters allowed in file paths.
+        """
+        return pulumi.get(self, "max_file_path_length")
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
@@ -3193,6 +3408,41 @@ class RepositoryRulesetRulesFilePathRestriction(dict):
         The file paths that are restricted from being pushed to the commit graph.
         """
         return pulumi.get(self, "restricted_file_paths")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesMaxFilePathLength(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxFilePathLength":
+            suggest = "max_file_path_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesMaxFilePathLength. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesMaxFilePathLength.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesMaxFilePathLength.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_file_path_length: _builtins.int):
+        """
+        :param _builtins.int max_file_path_length: The maximum allowed length of a file path.
+        """
+        pulumi.set(__self__, "max_file_path_length", max_file_path_length)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFilePathLength")
+    def max_file_path_length(self) -> _builtins.int:
+        """
+        The maximum allowed length of a file path.
+        """
+        return pulumi.get(self, "max_file_path_length")
 
 
 @pulumi.output_type

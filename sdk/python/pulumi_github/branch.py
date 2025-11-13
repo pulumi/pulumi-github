@@ -21,17 +21,21 @@ class BranchArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  source_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  source_sha: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
         :param pulumi.Input[_builtins.str] branch: The repository branch to create.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name.
+        :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[_builtins.str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if source_branch is not None:
             pulumi.set(__self__, "source_branch", source_branch)
         if source_sha is not None:
@@ -60,6 +64,18 @@ class BranchArgs:
     @repository.setter
     def repository(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An etag representing the Branch object.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceBranch")
@@ -213,6 +229,7 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  source_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  source_sha: Optional[pulumi.Input[_builtins.str]] = None,
@@ -256,6 +273,7 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The repository branch to create.
+        :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name.
         :param pulumi.Input[_builtins.str] source_branch: The branch name to start from. Defaults to `main`.
         :param pulumi.Input[_builtins.str] source_sha: The commit hash to start from. Defaults to the tip of `source_branch`. If provided, `source_branch` is ignored.
@@ -318,6 +336,7 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  source_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  source_sha: Optional[pulumi.Input[_builtins.str]] = None,
@@ -333,12 +352,12 @@ class Branch(pulumi.CustomResource):
             if branch is None and not opts.urn:
                 raise TypeError("Missing required property 'branch'")
             __props__.__dict__["branch"] = branch
+            __props__.__dict__["etag"] = etag
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             __props__.__dict__["source_branch"] = source_branch
             __props__.__dict__["source_sha"] = source_sha
-            __props__.__dict__["etag"] = None
             __props__.__dict__["ref"] = None
             __props__.__dict__["sha"] = None
         super(Branch, __self__).__init__(

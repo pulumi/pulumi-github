@@ -18,6 +18,8 @@ import * as utilities from "./utilities";
  * This resource will first check if the label exists, and then issue an update,
  * otherwise it will create.
  *
+ * > **Note:** When a repository is archived, Pulumi will skip deletion of issue labels to avoid API errors, as archived repositories are read-only. The labels will be removed from Pulumi state without attempting to delete them from GitHub.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -76,7 +78,7 @@ export class IssueLabel extends pulumi.CustomResource {
      * A short description of the label.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The name of the label.
      */
@@ -119,9 +121,9 @@ export class IssueLabel extends pulumi.CustomResource {
             }
             resourceInputs["color"] = args?.color;
             resourceInputs["description"] = args?.description;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["name"] = args?.name;
             resourceInputs["repository"] = args?.repository;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -168,6 +170,7 @@ export interface IssueLabelArgs {
      * A short description of the label.
      */
     description?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The name of the label.
      */

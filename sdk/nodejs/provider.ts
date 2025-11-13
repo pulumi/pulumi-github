@@ -60,6 +60,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["appAuth"] = pulumi.output(args?.appAuth).apply(JSON.stringify);
             resourceInputs["baseUrl"] = (args?.baseUrl) ?? (utilities.getEnv("GITHUB_BASE_URL") || "https://api.github.com/");
             resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
+            resourceInputs["maxPerPage"] = pulumi.output(args?.maxPerPage).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
             resourceInputs["organization"] = args?.organization;
             resourceInputs["owner"] = args?.owner;
@@ -102,6 +103,10 @@ export interface ProviderArgs {
      * Enable `insecure` mode for testing purposes
      */
     insecure?: pulumi.Input<boolean>;
+    /**
+     * Number of items per page for paginationDefaults to 100
+     */
+    maxPerPage?: pulumi.Input<number>;
     /**
      * Number of times to retry a request after receiving an error status codeDefaults to 3
      */

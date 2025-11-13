@@ -94,6 +94,10 @@ namespace Pulumi.Github
     ///             {
     ///                 MaxFileSize = 104857600,
     ///             },
+    ///             MaxFilePathLength = new Github.Inputs.RepositoryRulesetRulesMaxFilePathLengthArgs
+    ///             {
+    ///                 MaxFilePathLength = 255,
+    ///             },
     ///             FileExtensionRestriction = new Github.Inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs
     ///             {
     ///                 RestrictedFileExtensions = new[]

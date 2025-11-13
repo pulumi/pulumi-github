@@ -32,6 +32,21 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
     }
 
     /**
+     * An etag representing the Branch object.
+     * 
+     */
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    /**
+     * @return An etag representing the Branch object.
+     * 
+     */
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
+    /**
      * The name pattern that branches must match in order to deploy to the environment.
      * 
      */
@@ -65,6 +80,7 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
 
     private RepositoryDeploymentBranchPolicyArgs(RepositoryDeploymentBranchPolicyArgs $) {
         this.environmentName = $.environmentName;
+        this.etag = $.etag;
         this.name = $.name;
         this.repository = $.repository;
     }
@@ -106,6 +122,27 @@ public final class RepositoryDeploymentBranchPolicyArgs extends com.pulumi.resou
          */
         public Builder environmentName(String environmentName) {
             return environmentName(Output.of(environmentName));
+        }
+
+        /**
+         * @param etag An etag representing the Branch object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        /**
+         * @param etag An etag representing the Branch object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

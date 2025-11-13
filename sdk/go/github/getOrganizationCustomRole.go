@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+// > **Note:** This data source is deprecated, please use the `OrganizationRepositoryRole` data source instead.
 //
 // Use this data source to retrieve information about a custom role in a GitHub Organization.
 //

@@ -175,6 +175,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserInvitationAccepter{}
 	case "github:index/userSshKey:UserSshKey":
 		r = &UserSshKey{}
+	case "github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions":
+		r = &WorkflowRepositoryPermissions{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -589,6 +591,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/userSshKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/workflowRepositoryPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

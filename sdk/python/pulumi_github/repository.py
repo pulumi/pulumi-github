@@ -32,6 +32,8 @@ class RepositoryArgs:
                  default_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
+                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -48,6 +50,8 @@ class RepositoryArgs:
                  pages: Optional[pulumi.Input['RepositoryPagesArgs']] = None,
                  private: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
+                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
                  template: Optional[pulumi.Input['RepositoryTemplateArgs']] = None,
@@ -70,6 +74,7 @@ class RepositoryArgs:
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
+        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
@@ -89,6 +94,8 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -122,6 +129,10 @@ class RepositoryArgs:
             pulumi.set(__self__, "delete_branch_on_merge", delete_branch_on_merge)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if fork is not None:
+            pulumi.set(__self__, "fork", fork)
         if gitignore_template is not None:
             pulumi.set(__self__, "gitignore_template", gitignore_template)
         if has_discussions is not None:
@@ -157,6 +168,10 @@ class RepositoryArgs:
             pulumi.set(__self__, "private", private)
         if security_and_analysis is not None:
             pulumi.set(__self__, "security_and_analysis", security_and_analysis)
+        if source_owner is not None:
+            pulumi.set(__self__, "source_owner", source_owner)
+        if source_repo is not None:
+            pulumi.set(__self__, "source_repo", source_repo)
         if squash_merge_commit_message is not None:
             pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
@@ -306,6 +321,27 @@ class RepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def fork(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        """
+        return pulumi.get(self, "fork")
+
+    @fork.setter
+    def fork(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "fork", value)
 
     @_builtins.property
     @pulumi.getter(name="gitignoreTemplate")
@@ -504,6 +540,30 @@ class RepositoryArgs:
         pulumi.set(self, "security_and_analysis", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceOwner")
+    def source_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_owner")
+
+    @source_owner.setter
+    def source_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceRepo")
+    def source_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the repository to fork. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_repo")
+
+    @source_repo.setter
+    def source_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_repo", value)
+
+    @_builtins.property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -603,6 +663,7 @@ class _RepositoryState:
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
+                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
                  full_name: Optional[pulumi.Input[_builtins.str]] = None,
                  git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -626,6 +687,8 @@ class _RepositoryState:
                  private: Optional[pulumi.Input[_builtins.bool]] = None,
                  repo_id: Optional[pulumi.Input[_builtins.int]] = None,
                  security_and_analysis: Optional[pulumi.Input['RepositorySecurityAndAnalysisArgs']] = None,
+                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
                  ssh_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -650,6 +713,7 @@ class _RepositoryState:
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
+        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
@@ -676,6 +740,8 @@ class _RepositoryState:
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[_builtins.int] repo_id: GitHub ID for the repository
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
@@ -713,6 +779,8 @@ class _RepositoryState:
             pulumi.set(__self__, "description", description)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if fork is not None:
+            pulumi.set(__self__, "fork", fork)
         if full_name is not None:
             pulumi.set(__self__, "full_name", full_name)
         if git_clone_url is not None:
@@ -762,6 +830,10 @@ class _RepositoryState:
             pulumi.set(__self__, "repo_id", repo_id)
         if security_and_analysis is not None:
             pulumi.set(__self__, "security_and_analysis", security_and_analysis)
+        if source_owner is not None:
+            pulumi.set(__self__, "source_owner", source_owner)
+        if source_repo is not None:
+            pulumi.set(__self__, "source_repo", source_repo)
         if squash_merge_commit_message is not None:
             pulumi.set(__self__, "squash_merge_commit_message", squash_merge_commit_message)
         if squash_merge_commit_title is not None:
@@ -924,6 +996,18 @@ class _RepositoryState:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "etag", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def fork(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        """
+        return pulumi.get(self, "fork")
+
+    @fork.setter
+    def fork(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "fork", value)
 
     @_builtins.property
     @pulumi.getter(name="fullName")
@@ -1206,6 +1290,30 @@ class _RepositoryState:
         pulumi.set(self, "security_and_analysis", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceOwner")
+    def source_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_owner")
+
+    @source_owner.setter
+    def source_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceRepo")
+    def source_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the repository to fork. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_repo")
+
+    @source_repo.setter
+    def source_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_repo", value)
+
+    @_builtins.property
     @pulumi.getter(name="squashMergeCommitMessage")
     def squash_merge_commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1331,6 +1439,8 @@ class Repository(pulumi.CustomResource):
                  default_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
+                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1347,6 +1457,8 @@ class Repository(pulumi.CustomResource):
                  pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
                  private: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
                  template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
@@ -1396,6 +1508,20 @@ class Repository(pulumi.CustomResource):
             })
         ```
 
+        ### With Repository Forking
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        forked_repo = github.Repository("forked_repo",
+            name="forked-repository",
+            description="This is a fork of another repository",
+            fork=True,
+            source_owner="some-org",
+            source_repo="original-repository")
+        ```
+
         ## Import
 
         Repositories can be imported using the `name`, e.g.
@@ -1419,6 +1545,7 @@ class Repository(pulumi.CustomResource):
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
+        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
@@ -1438,6 +1565,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
@@ -1493,6 +1622,20 @@ class Repository(pulumi.CustomResource):
             })
         ```
 
+        ### With Repository Forking
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        forked_repo = github.Repository("forked_repo",
+            name="forked-repository",
+            description="This is a fork of another repository",
+            fork=True,
+            source_owner="some-org",
+            source_repo="original-repository")
+        ```
+
         ## Import
 
         Repositories can be imported using the `name`, e.g.
@@ -1527,6 +1670,8 @@ class Repository(pulumi.CustomResource):
                  default_branch: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
+                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1543,6 +1688,8 @@ class Repository(pulumi.CustomResource):
                  pages: Optional[pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']]] = None,
                  private: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+                 source_owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_repo: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
                  squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
                  template: Optional[pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']]] = None,
@@ -1570,6 +1717,8 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["default_branch"] = default_branch
             __props__.__dict__["delete_branch_on_merge"] = delete_branch_on_merge
             __props__.__dict__["description"] = description
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["fork"] = fork
             __props__.__dict__["gitignore_template"] = gitignore_template
             __props__.__dict__["has_discussions"] = has_discussions
             __props__.__dict__["has_downloads"] = has_downloads
@@ -1586,6 +1735,8 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["pages"] = pages
             __props__.__dict__["private"] = private
             __props__.__dict__["security_and_analysis"] = security_and_analysis
+            __props__.__dict__["source_owner"] = source_owner
+            __props__.__dict__["source_repo"] = source_repo
             __props__.__dict__["squash_merge_commit_message"] = squash_merge_commit_message
             __props__.__dict__["squash_merge_commit_title"] = squash_merge_commit_title
             __props__.__dict__["template"] = template
@@ -1593,7 +1744,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vulnerability_alerts"] = vulnerability_alerts
             __props__.__dict__["web_commit_signoff_required"] = web_commit_signoff_required
-            __props__.__dict__["etag"] = None
             __props__.__dict__["full_name"] = None
             __props__.__dict__["git_clone_url"] = None
             __props__.__dict__["html_url"] = None
@@ -1625,6 +1775,7 @@ class Repository(pulumi.CustomResource):
             delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             etag: Optional[pulumi.Input[_builtins.str]] = None,
+            fork: Optional[pulumi.Input[_builtins.bool]] = None,
             full_name: Optional[pulumi.Input[_builtins.str]] = None,
             git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
             gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1648,6 +1799,8 @@ class Repository(pulumi.CustomResource):
             private: Optional[pulumi.Input[_builtins.bool]] = None,
             repo_id: Optional[pulumi.Input[_builtins.int]] = None,
             security_and_analysis: Optional[pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']]] = None,
+            source_owner: Optional[pulumi.Input[_builtins.str]] = None,
+            source_repo: Optional[pulumi.Input[_builtins.str]] = None,
             squash_merge_commit_message: Optional[pulumi.Input[_builtins.str]] = None,
             squash_merge_commit_title: Optional[pulumi.Input[_builtins.str]] = None,
             ssh_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1677,6 +1830,7 @@ class Repository(pulumi.CustomResource):
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
+        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
@@ -1703,6 +1857,8 @@ class Repository(pulumi.CustomResource):
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[_builtins.int] repo_id: GitHub ID for the repository
         :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
+        :param pulumi.Input[_builtins.str] source_owner: The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        :param pulumi.Input[_builtins.str] source_repo: The name of the repository to fork. Required when `fork` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_message: Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[_builtins.str] ssh_clone_url: URL that can be provided to `git clone` to clone the repository via SSH.
@@ -1729,6 +1885,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["delete_branch_on_merge"] = delete_branch_on_merge
         __props__.__dict__["description"] = description
         __props__.__dict__["etag"] = etag
+        __props__.__dict__["fork"] = fork
         __props__.__dict__["full_name"] = full_name
         __props__.__dict__["git_clone_url"] = git_clone_url
         __props__.__dict__["gitignore_template"] = gitignore_template
@@ -1752,6 +1909,8 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["private"] = private
         __props__.__dict__["repo_id"] = repo_id
         __props__.__dict__["security_and_analysis"] = security_and_analysis
+        __props__.__dict__["source_owner"] = source_owner
+        __props__.__dict__["source_repo"] = source_repo
         __props__.__dict__["squash_merge_commit_message"] = squash_merge_commit_message
         __props__.__dict__["squash_merge_commit_title"] = squash_merge_commit_title
         __props__.__dict__["ssh_clone_url"] = ssh_clone_url
@@ -1858,6 +2017,14 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "etag")
+
+    @_builtins.property
+    @pulumi.getter
+    def fork(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        """
+        return pulumi.get(self, "fork")
 
     @_builtins.property
     @pulumi.getter(name="fullName")
@@ -2046,6 +2213,22 @@ class Repository(pulumi.CustomResource):
         The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
         """
         return pulumi.get(self, "security_and_analysis")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceOwner")
+    def source_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceRepo")
+    def source_repo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the repository to fork. Required when `fork` is `true`.
+        """
+        return pulumi.get(self, "source_repo")
 
     @_builtins.property
     @pulumi.getter(name="squashMergeCommitMessage")

@@ -61,6 +61,12 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.RepositoryRulesetRulesFilePathRestrictionGetArgs>? FilePathRestriction { get; set; }
 
         /// <summary>
+        /// (Integer) The maximum number of characters allowed in file paths.
+        /// </summary>
+        [Input("maxFilePathLength")]
+        public Input<Inputs.RepositoryRulesetRulesMaxFilePathLengthGetArgs>? MaxFilePathLength { get; set; }
+
+        /// <summary>
         /// (Integer) The maximum allowed size, in bytes, of a file.
         /// </summary>
         [Input("maxFileSize")]

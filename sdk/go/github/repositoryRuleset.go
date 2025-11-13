@@ -89,6 +89,9 @@ import (
 //					MaxFileSize: &github.RepositoryRulesetRulesMaxFileSizeArgs{
 //						MaxFileSize: pulumi.Int(104857600),
 //					},
+//					MaxFilePathLength: &github.RepositoryRulesetRulesMaxFilePathLengthArgs{
+//						MaxFilePathLength: pulumi.Int(255),
+//					},
 //					FileExtensionRestriction: &github.RepositoryRulesetRulesFileExtensionRestrictionArgs{
 //						RestrictedFileExtensions: pulumi.StringArray{
 //							pulumi.String("*.exe"),

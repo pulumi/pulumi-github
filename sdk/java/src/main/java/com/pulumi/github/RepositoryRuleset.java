@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFilePathLengthArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -105,6 +106,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .maxFileSize(RepositoryRulesetRulesMaxFileSizeArgs.builder()
  *                     .maxFileSize(104857600)
+ *                     .build())
+ *                 .maxFilePathLength(RepositoryRulesetRulesMaxFilePathLengthArgs.builder()
+ *                     .maxFilePathLength(255)
  *                     .build())
  *                 .fileExtensionRestriction(RepositoryRulesetRulesFileExtensionRestrictionArgs.builder()
  *                     .restrictedFileExtensions(                    

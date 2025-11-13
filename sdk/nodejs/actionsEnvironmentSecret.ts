@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * ## Import
+ *
+ * This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
  */
 export class ActionsEnvironmentSecret extends pulumi.CustomResource {
     /**

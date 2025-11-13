@@ -21,15 +21,19 @@ class RepositoryDeploymentBranchPolicyArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryDeploymentBranchPolicy resource.
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[_builtins.str] repository: The repository to create the policy in.
+        :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] name: The name pattern that branches must match in order to deploy to the environment.
         """
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "repository", repository)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -56,6 +60,18 @@ class RepositoryDeploymentBranchPolicyArgs:
     @repository.setter
     def repository(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An etag representing the Branch object.
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
@@ -149,6 +165,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -184,6 +201,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
+        :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] name: The name pattern that branches must match in order to deploy to the environment.
         :param pulumi.Input[_builtins.str] repository: The repository to create the policy in.
         """
@@ -238,6 +256,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -252,11 +271,11 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
+            __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
-            __props__.__dict__["etag"] = None
         super(RepositoryDeploymentBranchPolicy, __self__).__init__(
             'github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy',
             resource_name,

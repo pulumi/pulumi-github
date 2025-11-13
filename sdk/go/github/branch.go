@@ -157,6 +157,8 @@ func (BranchState) ElementType() reflect.Type {
 type branchArgs struct {
 	// The repository branch to create.
 	Branch string `pulumi:"branch"`
+	// An etag representing the Branch object.
+	Etag *string `pulumi:"etag"`
 	// The GitHub repository name.
 	Repository string `pulumi:"repository"`
 	// The branch name to start from. Defaults to `main`.
@@ -169,6 +171,8 @@ type branchArgs struct {
 type BranchArgs struct {
 	// The repository branch to create.
 	Branch pulumi.StringInput
+	// An etag representing the Branch object.
+	Etag pulumi.StringPtrInput
 	// The GitHub repository name.
 	Repository pulumi.StringInput
 	// The branch name to start from. Defaults to `main`.

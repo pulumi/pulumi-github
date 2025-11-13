@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
+    /// ## Import
+    /// 
+    /// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
     /// </summary>
     [GithubResourceType("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")]
     public partial class ActionsEnvironmentSecret : global::Pulumi.CustomResource

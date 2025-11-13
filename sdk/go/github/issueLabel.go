@@ -25,6 +25,8 @@ import (
 // This resource will first check if the label exists, and then issue an update,
 // otherwise it will create.
 //
+// > **Note:** When a repository is archived, Pulumi will skip deletion of issue labels to avoid API errors, as archived repositories are read-only. The labels will be removed from Pulumi state without attempting to delete them from GitHub.
+//
 // ## Example Usage
 //
 // ```go
@@ -149,6 +151,7 @@ type issueLabelArgs struct {
 	Color string `pulumi:"color"`
 	// A short description of the label.
 	Description *string `pulumi:"description"`
+	Etag        *string `pulumi:"etag"`
 	// The name of the label.
 	Name *string `pulumi:"name"`
 	// The GitHub repository
@@ -161,6 +164,7 @@ type IssueLabelArgs struct {
 	Color pulumi.StringInput
 	// A short description of the label.
 	Description pulumi.StringPtrInput
+	Etag        pulumi.StringPtrInput
 	// The name of the label.
 	Name pulumi.StringPtrInput
 	// The GitHub repository

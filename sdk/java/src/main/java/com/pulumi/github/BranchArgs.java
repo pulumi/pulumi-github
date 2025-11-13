@@ -32,6 +32,21 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An etag representing the Branch object.
+     * 
+     */
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    /**
+     * @return An etag representing the Branch object.
+     * 
+     */
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
+    /**
      * The GitHub repository name.
      * 
      */
@@ -80,6 +95,7 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
 
     private BranchArgs(BranchArgs $) {
         this.branch = $.branch;
+        this.etag = $.etag;
         this.repository = $.repository;
         this.sourceBranch = $.sourceBranch;
         this.sourceSha = $.sourceSha;
@@ -122,6 +138,27 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
+        }
+
+        /**
+         * @param etag An etag representing the Branch object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        /**
+         * @param etag An etag representing the Branch object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

@@ -76,6 +76,50 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example with push ruleset
+//			_, err = github.NewOrganizationRuleset(ctx, "example_push", &github.OrganizationRulesetArgs{
+//				Name:        pulumi.String("example_push"),
+//				Target:      pulumi.String("push"),
+//				Enforcement: pulumi.String("active"),
+//				Conditions: &github.OrganizationRulesetConditionsArgs{
+//					RefName: &github.OrganizationRulesetConditionsRefNameArgs{
+//						Includes: pulumi.StringArray{
+//							pulumi.String("~ALL"),
+//						},
+//						Excludes: pulumi.StringArray{},
+//					},
+//					RepositoryName: &github.OrganizationRulesetConditionsRepositoryNameArgs{
+//						Includes: pulumi.StringArray{
+//							pulumi.String("~ALL"),
+//						},
+//						Excludes: pulumi.StringArray{},
+//					},
+//				},
+//				Rules: &github.OrganizationRulesetRulesArgs{
+//					FilePathRestriction: &github.OrganizationRulesetRulesFilePathRestrictionArgs{
+//						RestrictedFilePaths: pulumi.StringArray{
+//							pulumi.String(".github/workflows/*"),
+//							pulumi.String("*.env"),
+//						},
+//					},
+//					MaxFileSize: &github.OrganizationRulesetRulesMaxFileSizeArgs{
+//						MaxFileSize: pulumi.Int(104857600),
+//					},
+//					MaxFilePathLength: &github.OrganizationRulesetRulesMaxFilePathLengthArgs{
+//						MaxFilePathLength: pulumi.Int(255),
+//					},
+//					FileExtensionRestriction: &github.OrganizationRulesetRulesFileExtensionRestrictionArgs{
+//						RestrictedFileExtensions: pulumi.StringArray{
+//							pulumi.String("*.exe"),
+//							pulumi.String("*.dll"),
+//							pulumi.String("*.so"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -108,7 +152,7 @@ type OrganizationRuleset struct {
 	Rules OrganizationRulesetRulesOutput `pulumi:"rules"`
 	// (Number) GitHub ID for the ruleset.
 	RulesetId pulumi.IntOutput `pulumi:"rulesetId"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringOutput `pulumi:"target"`
 }
 
@@ -167,7 +211,7 @@ type organizationRulesetState struct {
 	Rules *OrganizationRulesetRules `pulumi:"rules"`
 	// (Number) GitHub ID for the ruleset.
 	RulesetId *int `pulumi:"rulesetId"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target *string `pulumi:"target"`
 }
 
@@ -188,7 +232,7 @@ type OrganizationRulesetState struct {
 	Rules OrganizationRulesetRulesPtrInput
 	// (Number) GitHub ID for the ruleset.
 	RulesetId pulumi.IntPtrInput
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringPtrInput
 }
 
@@ -207,7 +251,7 @@ type organizationRulesetArgs struct {
 	Name *string `pulumi:"name"`
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules OrganizationRulesetRules `pulumi:"rules"`
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target string `pulumi:"target"`
 }
 
@@ -223,7 +267,7 @@ type OrganizationRulesetArgs struct {
 	Name pulumi.StringPtrInput
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules OrganizationRulesetRulesInput
-	// (String) Possible values are `branch` and `tag`.
+	// (String) Possible values are `branch`, `tag` and `push`.
 	Target pulumi.StringInput
 }
 
@@ -354,7 +398,7 @@ func (o OrganizationRulesetOutput) RulesetId() pulumi.IntOutput {
 	return o.ApplyT(func(v *OrganizationRuleset) pulumi.IntOutput { return v.RulesetId }).(pulumi.IntOutput)
 }
 
-// (String) Possible values are `branch` and `tag`.
+// (String) Possible values are `branch`, `tag` and `push`.
 func (o OrganizationRulesetOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationRuleset) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }

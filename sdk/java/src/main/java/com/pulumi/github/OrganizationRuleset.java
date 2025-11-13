@@ -41,6 +41,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryNameArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesFilePathRestrictionArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFileSizeArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFilePathLengthArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesFileExtensionRestrictionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,6 +93,42 @@ import javax.annotation.Nullable;
  *                         .path(".github/workflows/ci.yml")
  *                         .ref("main")
  *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example with push ruleset  
+ *         var examplePush = new OrganizationRuleset("examplePush", OrganizationRulesetArgs.builder()
+ *             .name("example_push")
+ *             .target("push")
+ *             .enforcement("active")
+ *             .conditions(OrganizationRulesetConditionsArgs.builder()
+ *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
+ *                     .includes("~ALL")
+ *                     .excludes()
+ *                     .build())
+ *                 .repositoryName(OrganizationRulesetConditionsRepositoryNameArgs.builder()
+ *                     .includes("~ALL")
+ *                     .excludes()
+ *                     .build())
+ *                 .build())
+ *             .rules(OrganizationRulesetRulesArgs.builder()
+ *                 .filePathRestriction(OrganizationRulesetRulesFilePathRestrictionArgs.builder()
+ *                     .restrictedFilePaths(                    
+ *                         ".github/workflows/*",
+ *                         "*.env")
+ *                     .build())
+ *                 .maxFileSize(OrganizationRulesetRulesMaxFileSizeArgs.builder()
+ *                     .maxFileSize(104857600)
+ *                     .build())
+ *                 .maxFilePathLength(OrganizationRulesetRulesMaxFilePathLengthArgs.builder()
+ *                     .maxFilePathLength(255)
+ *                     .build())
+ *                 .fileExtensionRestriction(OrganizationRulesetRulesFileExtensionRestrictionArgs.builder()
+ *                     .restrictedFileExtensions(                    
+ *                         "*.exe",
+ *                         "*.dll",
+ *                         "*.so")
  *                     .build())
  *                 .build())
  *             .build());
@@ -221,14 +262,14 @@ public class OrganizationRuleset extends com.pulumi.resources.CustomResource {
         return this.rulesetId;
     }
     /**
-     * (String) Possible values are `branch` and `tag`.
+     * (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**
-     * @return (String) Possible values are `branch` and `tag`.
+     * @return (String) Possible values are `branch`, `tag` and `push`.
      * 
      */
     public Output<String> target() {

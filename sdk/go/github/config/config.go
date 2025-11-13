@@ -34,6 +34,11 @@ func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "github:insecure")
 }
 
+// Number of items per page for paginationDefaults to 100
+func GetMaxPerPage(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "github:maxPerPage")
+}
+
 // Number of times to retry a request after receiving an error status codeDefaults to 3
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "github:maxRetries")

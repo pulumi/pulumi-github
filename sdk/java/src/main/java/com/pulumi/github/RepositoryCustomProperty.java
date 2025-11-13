@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * GitHub Repository Custom Property can be imported using an ID made up of a comibnation of the names of the organization, repository, custom property separated by a `:` character, e.g.
  * 
  * ```sh
- * $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example &lt;organization-name&gt;:&lt;repo-name&gt;:&lt;custom-property-name&gt;
+ * $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
  * ```
  * 
  */

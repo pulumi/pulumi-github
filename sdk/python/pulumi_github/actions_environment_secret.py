@@ -234,7 +234,9 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
+        ## Import
+
+        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +253,9 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  args: ActionsEnvironmentSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
+        ## Import
+
+        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 
         :param str resource_name: The name of the resource.
         :param ActionsEnvironmentSecretArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,8 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.github.Utilities;
+import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyPlainArgs;
 import com.pulumi.github.inputs.GetActionsEnvironmentSecretsArgs;
 import com.pulumi.github.inputs.GetActionsEnvironmentSecretsPlainArgs;
 import com.pulumi.github.inputs.GetActionsEnvironmentVariablesArgs;
@@ -107,6 +109,7 @@ import com.pulumi.github.inputs.GetUserExternalIdentityPlainArgs;
 import com.pulumi.github.inputs.GetUserPlainArgs;
 import com.pulumi.github.inputs.GetUsersArgs;
 import com.pulumi.github.inputs.GetUsersPlainArgs;
+import com.pulumi.github.outputs.GetActionsEnvironmentPublicKeyResult;
 import com.pulumi.github.outputs.GetActionsEnvironmentSecretsResult;
 import com.pulumi.github.outputs.GetActionsEnvironmentVariablesResult;
 import com.pulumi.github.outputs.GetActionsOrganizationOidcSubjectClaimCustomizationTemplateResult;
@@ -181,6 +184,216 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class GithubFunctions {
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .environment("example_environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetActionsEnvironmentPublicKeyResult> getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs args) {
+        return getActionsEnvironmentPublicKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .environment("example_environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentPublicKeyResult> getActionsEnvironmentPublicKeyPlain(GetActionsEnvironmentPublicKeyPlainArgs args) {
+        return getActionsEnvironmentPublicKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .environment("example_environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetActionsEnvironmentPublicKeyResult> getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", TypeShape.of(GetActionsEnvironmentPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .environment("example_environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetActionsEnvironmentPublicKeyResult> getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", TypeShape.of(GetActionsEnvironmentPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub Actions public key of a specific environment. This data source is required to be used with other GitHub secrets interactions.
+     * Note that the provider `token` must have admin rights to a repository to retrieve the action public keys of it&#39;s environments.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetActionsEnvironmentPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getActionsEnvironmentPublicKey(GetActionsEnvironmentPublicKeyArgs.builder()
+     *             .repository("example_repo")
+     *             .environment("example_environment")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetActionsEnvironmentPublicKeyResult> getActionsEnvironmentPublicKeyPlain(GetActionsEnvironmentPublicKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey", TypeShape.of(GetActionsEnvironmentPublicKeyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve the list of secrets of the repository environment.
      * 
@@ -8061,7 +8274,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationCustomProperties:getOrganizationCustomProperties", TypeShape.of(GetOrganizationCustomPropertiesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
      * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
@@ -8105,7 +8318,7 @@ public final class GithubFunctions {
         return getOrganizationCustomRole(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
      * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
@@ -8149,7 +8362,7 @@ public final class GithubFunctions {
         return getOrganizationCustomRolePlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
      * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
@@ -8193,7 +8406,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
      * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
@@ -8237,7 +8450,7 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationCustomRole:getOrganizationCustomRole", TypeShape.of(GetOrganizationCustomRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Note:** This data source is deprecated, please use the `githubOrganizationrepositoryRole` data source instead.
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRepositoryRole` data source instead.
      * 
      * Use this data source to retrieve information about a custom role in a GitHub Organization.
      * 
