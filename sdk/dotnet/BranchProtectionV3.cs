@@ -43,6 +43,98 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleTeam = new Github.Team("example", new()
+    ///     {
+    ///         Name = "Example Name",
+    ///     });
+    /// 
+    ///     // Protect the main branch of the foo repository. Additionally, require that
+    ///     // the "ci/check" check ran by the Github Actions app is passing and only allow
+    ///     // the engineers team merge to the branch.
+    ///     var example = new Github.BranchProtectionV3("example", new()
+    ///     {
+    ///         Repository = exampleRepository.Name,
+    ///         Branch = "main",
+    ///         EnforceAdmins = true,
+    ///         RequiredStatusChecks = new Github.Inputs.BranchProtectionV3RequiredStatusChecksArgs
+    ///         {
+    ///             Strict = false,
+    ///             Checks = new[]
+    ///             {
+    ///                 "ci/check:824642007264",
+    ///             },
+    ///         },
+    ///         RequiredPullRequestReviews = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsArgs
+    ///         {
+    ///             DismissStaleReviews = true,
+    ///             DismissalUsers = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             DismissalTeams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///             DismissalApp = new[]
+    ///             {
+    ///                 "foo-app",
+    ///             },
+    ///             BypassPullRequestAllowances = new Github.Inputs.BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs
+    ///             {
+    ///                 Users = new[]
+    ///                 {
+    ///                     "foo-user",
+    ///                 },
+    ///                 Teams = new[]
+    ///                 {
+    ///                     exampleTeam.Slug,
+    ///                 },
+    ///                 Apps = new[]
+    ///                 {
+    ///                     "foo-app",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Restrictions = new Github.Inputs.BranchProtectionV3RestrictionsArgs
+    ///         {
+    ///             Users = new[]
+    ///             {
+    ///                 "foo-user",
+    ///             },
+    ///             Teams = new[]
+    ///             {
+    ///                 exampleTeam.Slug,
+    ///             },
+    ///             Apps = new[]
+    ///             {
+    ///                 "foo-app",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTeamRepository = new Github.TeamRepository("example", new()
+    ///     {
+    ///         TeamId = exampleTeam.Id,
+    ///         Repository = exampleRepository.Name,
+    ///         Permission = "pull",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// GitHub Branch Protection can be imported using an ID made up of `repository:branch`, e.g.
