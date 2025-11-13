@@ -37,6 +37,13 @@ public final class Config {
         return Codegen.booleanProp("insecure").config(config).get();
     }
 /**
+ * Number of items per page for paginationDefaults to 100
+ * 
+ */
+    public Optional<Integer> maxPerPage() {
+        return Codegen.integerProp("maxPerPage").config(config).get();
+    }
+/**
  * Number of times to retry a request after receiving an error status codeDefaults to 3
  * 
  */

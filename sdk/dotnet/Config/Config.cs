@@ -62,6 +62,16 @@ namespace Pulumi.Github
             set => _insecure.Set(value);
         }
 
+        private static readonly __Value<int?> _maxPerPage = new __Value<int?>(() => __config.GetInt32("maxPerPage"));
+        /// <summary>
+        /// Number of items per page for paginationDefaults to 100
+        /// </summary>
+        public static int? MaxPerPage
+        {
+            get => _maxPerPage.Get();
+            set => _maxPerPage.Set(value);
+        }
+
         private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
         /// <summary>
         /// Number of times to retry a request after receiving an error status codeDefaults to 3

@@ -137,6 +137,8 @@ func (RepositoryDeploymentBranchPolicyState) ElementType() reflect.Type {
 type repositoryDeploymentBranchPolicyArgs struct {
 	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName string `pulumi:"environmentName"`
+	// An etag representing the Branch object.
+	Etag *string `pulumi:"etag"`
 	// The name pattern that branches must match in order to deploy to the environment.
 	Name *string `pulumi:"name"`
 	// The repository to create the policy in.
@@ -147,6 +149,8 @@ type repositoryDeploymentBranchPolicyArgs struct {
 type RepositoryDeploymentBranchPolicyArgs struct {
 	// The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
 	EnvironmentName pulumi.StringInput
+	// An etag representing the Branch object.
+	Etag pulumi.StringPtrInput
 	// The name pattern that branches must match in order to deploy to the environment.
 	Name pulumi.StringPtrInput
 	// The repository to create the policy in.

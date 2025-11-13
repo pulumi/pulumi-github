@@ -43,6 +43,17 @@ Object.defineProperty(exports, "insecure", {
 });
 
 /**
+ * Number of items per page for paginationDefaults to 100
+ */
+export declare const maxPerPage: number | undefined;
+Object.defineProperty(exports, "maxPerPage", {
+    get() {
+        return __config.getObject<number>("maxPerPage");
+    },
+    enumerable: true,
+});
+
+/**
  * Number of times to retry a request after receiving an error status codeDefaults to 3
  */
 export declare const maxRetries: number | undefined;

@@ -66,6 +66,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Number of items per page for paginationDefaults to 100
+     * 
+     */
+    @Import(name="maxPerPage", json=true)
+    private @Nullable Output<Integer> maxPerPage;
+
+    /**
+     * @return Number of items per page for paginationDefaults to 100
+     * 
+     */
+    public Optional<Output<Integer>> maxPerPage() {
+        return Optional.ofNullable(this.maxPerPage);
+    }
+
+    /**
      * Number of times to retry a request after receiving an error status codeDefaults to 3
      * 
      */
@@ -214,6 +229,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.appAuth = $.appAuth;
         this.baseUrl = $.baseUrl;
         this.insecure = $.insecure;
+        this.maxPerPage = $.maxPerPage;
         this.maxRetries = $.maxRetries;
         this.organization = $.organization;
         this.owner = $.owner;
@@ -304,6 +320,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder insecure(Boolean insecure) {
             return insecure(Output.of(insecure));
+        }
+
+        /**
+         * @param maxPerPage Number of items per page for paginationDefaults to 100
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxPerPage(@Nullable Output<Integer> maxPerPage) {
+            $.maxPerPage = maxPerPage;
+            return this;
+        }
+
+        /**
+         * @param maxPerPage Number of items per page for paginationDefaults to 100
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxPerPage(Integer maxPerPage) {
+            return maxPerPage(Output.of(maxPerPage));
         }
 
         /**

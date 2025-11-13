@@ -49,6 +49,30 @@ namespace Pulumi.Github.Inputs
         public Input<bool>? Deletion { get; set; }
 
         /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        [Input("fileExtensionRestriction")]
+        public Input<Inputs.OrganizationRulesetRulesFileExtensionRestrictionGetArgs>? FileExtensionRestriction { get; set; }
+
+        /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        [Input("filePathRestriction")]
+        public Input<Inputs.OrganizationRulesetRulesFilePathRestrictionGetArgs>? FilePathRestriction { get; set; }
+
+        /// <summary>
+        /// (Integer) The maximum number of characters allowed in file paths.
+        /// </summary>
+        [Input("maxFilePathLength")]
+        public Input<Inputs.OrganizationRulesetRulesMaxFilePathLengthGetArgs>? MaxFilePathLength { get; set; }
+
+        /// <summary>
+        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// </summary>
+        [Input("maxFileSize")]
+        public Input<Inputs.OrganizationRulesetRulesMaxFileSizeGetArgs>? MaxFileSize { get; set; }
+
+        /// <summary>
         /// (Boolean) Prevent users with push access from force pushing to branches.
         /// </summary>
         [Input("nonFastForward")]

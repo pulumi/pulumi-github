@@ -69,6 +69,28 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// ### With Repository Forking
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var forkedRepo = new Github.Repository("forked_repo", new()
+    ///     {
+    ///         Name = "forked-repository",
+    ///         Description = "This is a fork of another repository",
+    ///         Fork = true,
+    ///         SourceOwner = "some-org",
+    ///         SourceRepo = "original-repository",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Repositories can be imported using the `name`, e.g.
@@ -150,6 +172,12 @@ namespace Pulumi.Github
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
+        /// </summary>
+        [Output("fork")]
+        public Output<bool?> Fork { get; private set; } = null!;
 
         /// <summary>
         /// A string of the form "orgname/reponame".
@@ -291,6 +319,18 @@ namespace Pulumi.Github
         /// </summary>
         [Output("securityAndAnalysis")]
         public Output<Outputs.RepositorySecurityAndAnalysis> SecurityAndAnalysis { get; private set; } = null!;
+
+        /// <summary>
+        /// The GitHub username or organization that owns the repository being forked. Required when `Fork` is `True`.
+        /// </summary>
+        [Output("sourceOwner")]
+        public Output<string?> SourceOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the repository to fork. Required when `Fork` is `True`.
+        /// </summary>
+        [Output("sourceRepo")]
+        public Output<string?> SourceRepo { get; private set; } = null!;
 
         /// <summary>
         /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
@@ -460,6 +500,15 @@ namespace Pulumi.Github
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
+        /// </summary>
+        [Input("fork")]
+        public Input<bool>? Fork { get; set; }
+
         /// <summary>
         /// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         /// </summary>
@@ -558,6 +607,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("securityAndAnalysis")]
         public Input<Inputs.RepositorySecurityAndAnalysisArgs>? SecurityAndAnalysis { get; set; }
+
+        /// <summary>
+        /// The GitHub username or organization that owns the repository being forked. Required when `Fork` is `True`.
+        /// </summary>
+        [Input("sourceOwner")]
+        public Input<string>? SourceOwner { get; set; }
+
+        /// <summary>
+        /// The name of the repository to fork. Required when `Fork` is `True`.
+        /// </summary>
+        [Input("sourceRepo")]
+        public Input<string>? SourceRepo { get; set; }
 
         /// <summary>
         /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
@@ -685,6 +746,12 @@ namespace Pulumi.Github
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
+        /// </summary>
+        [Input("fork")]
+        public Input<bool>? Fork { get; set; }
 
         /// <summary>
         /// A string of the form "orgname/reponame".
@@ -826,6 +893,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("securityAndAnalysis")]
         public Input<Inputs.RepositorySecurityAndAnalysisGetArgs>? SecurityAndAnalysis { get; set; }
+
+        /// <summary>
+        /// The GitHub username or organization that owns the repository being forked. Required when `Fork` is `True`.
+        /// </summary>
+        [Input("sourceOwner")]
+        public Input<string>? SourceOwner { get; set; }
+
+        /// <summary>
+        /// The name of the repository to fork. Required when `Fork` is `True`.
+        /// </summary>
+        [Input("sourceRepo")]
+        public Input<string>? SourceRepo { get; set; }
 
         /// <summary>
         /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.

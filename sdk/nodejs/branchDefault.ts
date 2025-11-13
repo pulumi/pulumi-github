@@ -92,7 +92,7 @@ export class BranchDefault extends pulumi.CustomResource {
      * The branch (e.g. `main`)
      */
     declare public readonly branch: pulumi.Output<string>;
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */
@@ -128,9 +128,9 @@ export class BranchDefault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["branch"] = args?.branch;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["rename"] = args?.rename;
             resourceInputs["repository"] = args?.repository;
-            resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BranchDefault.__pulumiType, name, resourceInputs, opts);
@@ -164,6 +164,7 @@ export interface BranchDefaultArgs {
      * The branch (e.g. `main`)
      */
     branch: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
      */

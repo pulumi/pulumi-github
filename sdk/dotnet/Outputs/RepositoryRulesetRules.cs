@@ -46,6 +46,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesFilePathRestriction? FilePathRestriction;
         /// <summary>
+        /// (Integer) The maximum number of characters allowed in file paths.
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesMaxFilePathLength? MaxFilePathLength;
+        /// <summary>
         /// (Integer) The maximum allowed size, in bytes, of a file.
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesMaxFileSize? MaxFileSize;
@@ -112,6 +116,8 @@ namespace Pulumi.Github.Outputs
 
             Outputs.RepositoryRulesetRulesFilePathRestriction? filePathRestriction,
 
+            Outputs.RepositoryRulesetRulesMaxFilePathLength? maxFilePathLength,
+
             Outputs.RepositoryRulesetRulesMaxFileSize? maxFileSize,
 
             Outputs.RepositoryRulesetRulesMergeQueue? mergeQueue,
@@ -144,6 +150,7 @@ namespace Pulumi.Github.Outputs
             Deletion = deletion;
             FileExtensionRestriction = fileExtensionRestriction;
             FilePathRestriction = filePathRestriction;
+            MaxFilePathLength = maxFilePathLength;
             MaxFileSize = maxFileSize;
             MergeQueue = mergeQueue;
             NonFastForward = nonFastForward;

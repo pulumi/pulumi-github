@@ -18,9 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage webhooks for repositories within your
- * GitHub organization or personal account.
- * 
  * ## Example Usage
  * 
  * <pre>

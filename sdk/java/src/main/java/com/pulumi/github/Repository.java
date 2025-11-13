@@ -110,6 +110,43 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Repository Forking
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var forkedRepo = new Repository("forkedRepo", RepositoryArgs.builder()
+ *             .name("forked-repository")
+ *             .description("This is a fork of another repository")
+ *             .fork(true)
+ *             .sourceOwner("some-org")
+ *             .sourceRepo("original-repository")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Repositories can be imported using the `name`, e.g.
@@ -288,6 +325,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
 
     public Output<String> etag() {
         return this.etag;
+    }
+    /**
+     * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     * 
+     */
+    @Export(name="fork", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> fork;
+
+    /**
+     * @return Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     * 
+     */
+    public Output<Optional<Boolean>> fork() {
+        return Codegen.optional(this.fork);
     }
     /**
      * A string of the form &#34;orgname/reponame&#34;.
@@ -620,6 +671,34 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<RepositorySecurityAndAnalysis> securityAndAnalysis() {
         return this.securityAndAnalysis;
+    }
+    /**
+     * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     * 
+     */
+    @Export(name="sourceOwner", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sourceOwner;
+
+    /**
+     * @return The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     * 
+     */
+    public Output<Optional<String>> sourceOwner() {
+        return Codegen.optional(this.sourceOwner);
+    }
+    /**
+     * The name of the repository to fork. Required when `fork` is `true`.
+     * 
+     */
+    @Export(name="sourceRepo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sourceRepo;
+
+    /**
+     * @return The name of the repository to fork. Required when `fork` is `true`.
+     * 
+     */
+    public Output<Optional<String>> sourceRepo() {
+        return Codegen.optional(this.sourceRepo);
     }
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.

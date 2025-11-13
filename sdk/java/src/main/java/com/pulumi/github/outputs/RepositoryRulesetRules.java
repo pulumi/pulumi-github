@@ -10,6 +10,7 @@ import com.pulumi.github.outputs.RepositoryRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitterEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesFileExtensionRestriction;
 import com.pulumi.github.outputs.RepositoryRulesetRulesFilePathRestriction;
+import com.pulumi.github.outputs.RepositoryRulesetRulesMaxFilePathLength;
 import com.pulumi.github.outputs.RepositoryRulesetRulesMaxFileSize;
 import com.pulumi.github.outputs.RepositoryRulesetRulesMergeQueue;
 import com.pulumi.github.outputs.RepositoryRulesetRulesPullRequest;
@@ -64,6 +65,11 @@ public final class RepositoryRulesetRules {
      * 
      */
     private @Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction;
+    /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesMaxFilePathLength maxFilePathLength;
     /**
      * @return (Integer) The maximum allowed size, in bytes, of a file.
      * 
@@ -183,6 +189,13 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.filePathRestriction);
     }
     /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    public Optional<RepositoryRulesetRulesMaxFilePathLength> maxFilePathLength() {
+        return Optional.ofNullable(this.maxFilePathLength);
+    }
+    /**
      * @return (Integer) The maximum allowed size, in bytes, of a file.
      * 
      */
@@ -284,6 +297,7 @@ public final class RepositoryRulesetRules {
         private @Nullable Boolean deletion;
         private @Nullable RepositoryRulesetRulesFileExtensionRestriction fileExtensionRestriction;
         private @Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction;
+        private @Nullable RepositoryRulesetRulesMaxFilePathLength maxFilePathLength;
         private @Nullable RepositoryRulesetRulesMaxFileSize maxFileSize;
         private @Nullable RepositoryRulesetRulesMergeQueue mergeQueue;
         private @Nullable Boolean nonFastForward;
@@ -307,6 +321,7 @@ public final class RepositoryRulesetRules {
     	      this.deletion = defaults.deletion;
     	      this.fileExtensionRestriction = defaults.fileExtensionRestriction;
     	      this.filePathRestriction = defaults.filePathRestriction;
+    	      this.maxFilePathLength = defaults.maxFilePathLength;
     	      this.maxFileSize = defaults.maxFileSize;
     	      this.mergeQueue = defaults.mergeQueue;
     	      this.nonFastForward = defaults.nonFastForward;
@@ -367,6 +382,12 @@ public final class RepositoryRulesetRules {
         public Builder filePathRestriction(@Nullable RepositoryRulesetRulesFilePathRestriction filePathRestriction) {
 
             this.filePathRestriction = filePathRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxFilePathLength(@Nullable RepositoryRulesetRulesMaxFilePathLength maxFilePathLength) {
+
+            this.maxFilePathLength = maxFilePathLength;
             return this;
         }
         @CustomType.Setter
@@ -451,6 +472,7 @@ public final class RepositoryRulesetRules {
             _resultValue.deletion = deletion;
             _resultValue.fileExtensionRestriction = fileExtensionRestriction;
             _resultValue.filePathRestriction = filePathRestriction;
+            _resultValue.maxFilePathLength = maxFilePathLength;
             _resultValue.maxFileSize = maxFileSize;
             _resultValue.mergeQueue = mergeQueue;
             _resultValue.nonFastForward = nonFastForward;

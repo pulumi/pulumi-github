@@ -16,9 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to create and manage files within a
- * GitHub repository.
- * 
  * ## Example Usage
  * 
  * ### Existing Branch

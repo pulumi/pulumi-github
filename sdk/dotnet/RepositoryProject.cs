@@ -123,6 +123,9 @@ namespace Pulumi.Github
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// The name of the project.
         /// </summary>

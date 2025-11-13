@@ -49,6 +49,21 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### With Repository Forking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const forkedRepo = new github.Repository("forked_repo", {
+ *     name: "forked-repository",
+ *     description: "This is a fork of another repository",
+ *     fork: true,
+ *     sourceOwner: "some-org",
+ *     sourceRepo: "original-repository",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Repositories can be imported using the `name`, e.g.
@@ -133,7 +148,11 @@ export class Repository extends pulumi.CustomResource {
      * A description of the repository.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
+    /**
+     * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     */
+    declare public readonly fork: pulumi.Output<boolean | undefined>;
     /**
      * A string of the form "orgname/reponame".
      */
@@ -232,6 +251,14 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly securityAndAnalysis: pulumi.Output<outputs.RepositorySecurityAndAnalysis>;
     /**
+     * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     */
+    declare public readonly sourceOwner: pulumi.Output<string | undefined>;
+    /**
+     * The name of the repository to fork. Required when `fork` is `true`.
+     */
+    declare public readonly sourceRepo: pulumi.Output<string | undefined>;
+    /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */
     declare public readonly squashMergeCommitMessage: pulumi.Output<string | undefined>;
@@ -293,6 +320,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["deleteBranchOnMerge"] = state?.deleteBranchOnMerge;
             resourceInputs["description"] = state?.description;
             resourceInputs["etag"] = state?.etag;
+            resourceInputs["fork"] = state?.fork;
             resourceInputs["fullName"] = state?.fullName;
             resourceInputs["gitCloneUrl"] = state?.gitCloneUrl;
             resourceInputs["gitignoreTemplate"] = state?.gitignoreTemplate;
@@ -316,6 +344,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["private"] = state?.private;
             resourceInputs["repoId"] = state?.repoId;
             resourceInputs["securityAndAnalysis"] = state?.securityAndAnalysis;
+            resourceInputs["sourceOwner"] = state?.sourceOwner;
+            resourceInputs["sourceRepo"] = state?.sourceRepo;
             resourceInputs["squashMergeCommitMessage"] = state?.squashMergeCommitMessage;
             resourceInputs["squashMergeCommitTitle"] = state?.squashMergeCommitTitle;
             resourceInputs["sshCloneUrl"] = state?.sshCloneUrl;
@@ -338,6 +368,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["defaultBranch"] = args?.defaultBranch;
             resourceInputs["deleteBranchOnMerge"] = args?.deleteBranchOnMerge;
             resourceInputs["description"] = args?.description;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["fork"] = args?.fork;
             resourceInputs["gitignoreTemplate"] = args?.gitignoreTemplate;
             resourceInputs["hasDiscussions"] = args?.hasDiscussions;
             resourceInputs["hasDownloads"] = args?.hasDownloads;
@@ -354,6 +386,8 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["pages"] = args?.pages;
             resourceInputs["private"] = args?.private;
             resourceInputs["securityAndAnalysis"] = args?.securityAndAnalysis;
+            resourceInputs["sourceOwner"] = args?.sourceOwner;
+            resourceInputs["sourceRepo"] = args?.sourceRepo;
             resourceInputs["squashMergeCommitMessage"] = args?.squashMergeCommitMessage;
             resourceInputs["squashMergeCommitTitle"] = args?.squashMergeCommitTitle;
             resourceInputs["template"] = args?.template;
@@ -361,7 +395,6 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["visibility"] = args?.visibility;
             resourceInputs["vulnerabilityAlerts"] = args?.vulnerabilityAlerts;
             resourceInputs["webCommitSignoffRequired"] = args?.webCommitSignoffRequired;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fullName"] = undefined /*out*/;
             resourceInputs["gitCloneUrl"] = undefined /*out*/;
             resourceInputs["htmlUrl"] = undefined /*out*/;
@@ -430,6 +463,10 @@ export interface RepositoryState {
      */
     description?: pulumi.Input<string>;
     etag?: pulumi.Input<string>;
+    /**
+     * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     */
+    fork?: pulumi.Input<boolean>;
     /**
      * A string of the form "orgname/reponame".
      */
@@ -528,6 +565,14 @@ export interface RepositoryState {
      */
     securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
     /**
+     * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     */
+    sourceOwner?: pulumi.Input<string>;
+    /**
+     * The name of the repository to fork. Required when `fork` is `true`.
+     */
+    sourceRepo?: pulumi.Input<string>;
+    /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */
     squashMergeCommitMessage?: pulumi.Input<string>;
@@ -617,6 +662,11 @@ export interface RepositoryArgs {
      * A description of the repository.
      */
     description?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
+    /**
+     * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
+     */
+    fork?: pulumi.Input<boolean>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */
@@ -686,6 +736,14 @@ export interface RepositoryArgs {
      * The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
      */
     securityAndAnalysis?: pulumi.Input<inputs.RepositorySecurityAndAnalysis>;
+    /**
+     * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
+     */
+    sourceOwner?: pulumi.Input<string>;
+    /**
+     * The name of the repository to fork. Required when `fork` is `true`.
+     */
+    sourceRepo?: pulumi.Input<string>;
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */

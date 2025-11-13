@@ -170,7 +170,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        > **Note:** This resource is deprecated, please use the `github_organizationrepository_role` resource instead.
+        > **Note:** This resource is deprecated, please use the `OrganizationRepositoryRole` resource instead.
 
         This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
 
@@ -232,7 +232,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
                  args: OrganizationCustomRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note:** This resource is deprecated, please use the `github_organizationrepository_role` resource instead.
+        > **Note:** This resource is deprecated, please use the `OrganizationRepositoryRole` resource instead.
 
         This resource allows you to create and manage custom roles in a GitHub Organization for use in repositories.
 

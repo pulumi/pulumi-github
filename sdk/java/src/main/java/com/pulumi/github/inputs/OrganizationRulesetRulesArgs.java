@@ -9,6 +9,10 @@ import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitAuthorEmailPatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesCommitterEmailPatternArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesFileExtensionRestrictionArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesFilePathRestrictionArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFilePathLengthArgs;
+import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFileSizeArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesPullRequestArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredCodeScanningArgs;
 import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredStatusChecksArgs;
@@ -112,6 +116,66 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
      */
     public Optional<Output<Boolean>> deletion() {
         return Optional.ofNullable(this.deletion);
+    }
+
+    /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    @Import(name="fileExtensionRestriction")
+    private @Nullable Output<OrganizationRulesetRulesFileExtensionRestrictionArgs> fileExtensionRestriction;
+
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesFileExtensionRestrictionArgs>> fileExtensionRestriction() {
+        return Optional.ofNullable(this.fileExtensionRestriction);
+    }
+
+    /**
+     * (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    @Import(name="filePathRestriction")
+    private @Nullable Output<OrganizationRulesetRulesFilePathRestrictionArgs> filePathRestriction;
+
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesFilePathRestrictionArgs>> filePathRestriction() {
+        return Optional.ofNullable(this.filePathRestriction);
+    }
+
+    /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    @Import(name="maxFilePathLength")
+    private @Nullable Output<OrganizationRulesetRulesMaxFilePathLengthArgs> maxFilePathLength;
+
+    /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesMaxFilePathLengthArgs>> maxFilePathLength() {
+        return Optional.ofNullable(this.maxFilePathLength);
+    }
+
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    @Import(name="maxFileSize")
+    private @Nullable Output<OrganizationRulesetRulesMaxFileSizeArgs> maxFileSize;
+
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    public Optional<Output<OrganizationRulesetRulesMaxFileSizeArgs>> maxFileSize() {
+        return Optional.ofNullable(this.maxFileSize);
     }
 
     /**
@@ -258,6 +322,10 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
         this.committerEmailPattern = $.committerEmailPattern;
         this.creation = $.creation;
         this.deletion = $.deletion;
+        this.fileExtensionRestriction = $.fileExtensionRestriction;
+        this.filePathRestriction = $.filePathRestriction;
+        this.maxFilePathLength = $.maxFilePathLength;
+        this.maxFileSize = $.maxFileSize;
         this.nonFastForward = $.nonFastForward;
         this.pullRequest = $.pullRequest;
         this.requiredCodeScanning = $.requiredCodeScanning;
@@ -411,6 +479,90 @@ public final class OrganizationRulesetRulesArgs extends com.pulumi.resources.Res
          */
         public Builder deletion(Boolean deletion) {
             return deletion(Output.of(deletion));
+        }
+
+        /**
+         * @param fileExtensionRestriction (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtensionRestriction(@Nullable Output<OrganizationRulesetRulesFileExtensionRestrictionArgs> fileExtensionRestriction) {
+            $.fileExtensionRestriction = fileExtensionRestriction;
+            return this;
+        }
+
+        /**
+         * @param fileExtensionRestriction (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileExtensionRestriction(OrganizationRulesetRulesFileExtensionRestrictionArgs fileExtensionRestriction) {
+            return fileExtensionRestriction(Output.of(fileExtensionRestriction));
+        }
+
+        /**
+         * @param filePathRestriction (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filePathRestriction(@Nullable Output<OrganizationRulesetRulesFilePathRestrictionArgs> filePathRestriction) {
+            $.filePathRestriction = filePathRestriction;
+            return this;
+        }
+
+        /**
+         * @param filePathRestriction (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filePathRestriction(OrganizationRulesetRulesFilePathRestrictionArgs filePathRestriction) {
+            return filePathRestriction(Output.of(filePathRestriction));
+        }
+
+        /**
+         * @param maxFilePathLength (Integer) The maximum number of characters allowed in file paths.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFilePathLength(@Nullable Output<OrganizationRulesetRulesMaxFilePathLengthArgs> maxFilePathLength) {
+            $.maxFilePathLength = maxFilePathLength;
+            return this;
+        }
+
+        /**
+         * @param maxFilePathLength (Integer) The maximum number of characters allowed in file paths.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFilePathLength(OrganizationRulesetRulesMaxFilePathLengthArgs maxFilePathLength) {
+            return maxFilePathLength(Output.of(maxFilePathLength));
+        }
+
+        /**
+         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFileSize(@Nullable Output<OrganizationRulesetRulesMaxFileSizeArgs> maxFileSize) {
+            $.maxFileSize = maxFileSize;
+            return this;
+        }
+
+        /**
+         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxFileSize(OrganizationRulesetRulesMaxFileSizeArgs maxFileSize) {
+            return maxFileSize(Output.of(maxFileSize));
         }
 
         /**

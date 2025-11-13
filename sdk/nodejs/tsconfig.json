@@ -46,6 +46,7 @@
         "enterpriseActionsPermissions.ts",
         "enterpriseActionsRunnerGroup.ts",
         "enterpriseOrganization.ts",
+        "getActionsEnvironmentPublicKey.ts",
         "getActionsEnvironmentSecrets.ts",
         "getActionsEnvironmentVariables.ts",
         "getActionsOrganizationOidcSubjectClaimCustomizationTemplate.ts",
@@ -167,6 +168,7 @@
         "userGpgKey.ts",
         "userInvitationAccepter.ts",
         "userSshKey.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "workflowRepositoryPermissions.ts"
     ]
 }

@@ -22,6 +22,7 @@ class IssueLabelArgs:
                  color: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IssueLabel resource.
@@ -34,6 +35,8 @@ class IssueLabelArgs:
         pulumi.set(__self__, "repository", repository)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -72,6 +75,15 @@ class IssueLabelArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,6 +206,7 @@ class IssueLabel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  color: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -210,6 +223,8 @@ class IssueLabel(pulumi.CustomResource):
 
         This resource will first check if the label exists, and then issue an update,
         otherwise it will create.
+
+        > **Note:** When a repository is archived, Pulumi will skip deletion of issue labels to avoid API errors, as archived repositories are read-only. The labels will be removed from Pulumi state without attempting to delete them from GitHub.
 
         ## Example Usage
 
@@ -259,6 +274,8 @@ class IssueLabel(pulumi.CustomResource):
         This resource will first check if the label exists, and then issue an update,
         otherwise it will create.
 
+        > **Note:** When a repository is archived, Pulumi will skip deletion of issue labels to avoid API errors, as archived repositories are read-only. The labels will be removed from Pulumi state without attempting to delete them from GitHub.
+
         ## Example Usage
 
         ```python
@@ -297,6 +314,7 @@ class IssueLabel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  color: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -312,11 +330,11 @@ class IssueLabel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'color'")
             __props__.__dict__["color"] = color
             __props__.__dict__["description"] = description
+            __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
-            __props__.__dict__["etag"] = None
             __props__.__dict__["url"] = None
         super(IssueLabel, __self__).__init__(
             'github:index/issueLabel:IssueLabel',

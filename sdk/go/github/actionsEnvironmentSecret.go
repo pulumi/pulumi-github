@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// ## Import
+//
+// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
 type ActionsEnvironmentSecret struct {
 	pulumi.CustomResourceState
 

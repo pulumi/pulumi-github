@@ -59,7 +59,7 @@ export class RepositoryProject extends pulumi.CustomResource {
      * The body of the project.
      */
     declare public readonly body: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The name of the project.
      */
@@ -97,9 +97,9 @@ export class RepositoryProject extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["body"] = args?.body;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["name"] = args?.name;
             resourceInputs["repository"] = args?.repository;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -138,6 +138,7 @@ export interface RepositoryProjectArgs {
      * The body of the project.
      */
     body?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The name of the project.
      */

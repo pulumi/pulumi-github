@@ -76,7 +76,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * An etag representing the Branch object.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * A string representing a branch reference, in the form of `refs/heads/<branch>`.
      */
@@ -127,10 +127,10 @@ export class Branch extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["branch"] = args?.branch;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["repository"] = args?.repository;
             resourceInputs["sourceBranch"] = args?.sourceBranch;
             resourceInputs["sourceSha"] = args?.sourceSha;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ref"] = undefined /*out*/;
             resourceInputs["sha"] = undefined /*out*/;
         }
@@ -181,6 +181,10 @@ export interface BranchArgs {
      * The repository branch to create.
      */
     branch: pulumi.Input<string>;
+    /**
+     * An etag representing the Branch object.
+     */
+    etag?: pulumi.Input<string>;
     /**
      * The GitHub repository name.
      */

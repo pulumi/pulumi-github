@@ -8,6 +8,10 @@ import com.pulumi.github.outputs.OrganizationRulesetRulesBranchNamePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitterEmailPattern;
+import com.pulumi.github.outputs.OrganizationRulesetRulesFileExtensionRestriction;
+import com.pulumi.github.outputs.OrganizationRulesetRulesFilePathRestriction;
+import com.pulumi.github.outputs.OrganizationRulesetRulesMaxFilePathLength;
+import com.pulumi.github.outputs.OrganizationRulesetRulesMaxFileSize;
 import com.pulumi.github.outputs.OrganizationRulesetRulesPullRequest;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredCodeScanning;
 import com.pulumi.github.outputs.OrganizationRulesetRulesRequiredStatusChecks;
@@ -50,6 +54,26 @@ public final class OrganizationRulesetRules {
      * 
      */
     private @Nullable Boolean deletion;
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesFileExtensionRestriction fileExtensionRestriction;
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesFilePathRestriction filePathRestriction;
+    /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesMaxFilePathLength maxFilePathLength;
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesMaxFileSize maxFileSize;
     /**
      * @return (Boolean) Prevent users with push access from force pushing to branches.
      * 
@@ -140,6 +164,34 @@ public final class OrganizationRulesetRules {
         return Optional.ofNullable(this.deletion);
     }
     /**
+     * @return (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<OrganizationRulesetRulesFileExtensionRestriction> fileExtensionRestriction() {
+        return Optional.ofNullable(this.fileExtensionRestriction);
+    }
+    /**
+     * @return (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     * 
+     */
+    public Optional<OrganizationRulesetRulesFilePathRestriction> filePathRestriction() {
+        return Optional.ofNullable(this.filePathRestriction);
+    }
+    /**
+     * @return (Integer) The maximum number of characters allowed in file paths.
+     * 
+     */
+    public Optional<OrganizationRulesetRulesMaxFilePathLength> maxFilePathLength() {
+        return Optional.ofNullable(this.maxFilePathLength);
+    }
+    /**
+     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * 
+     */
+    public Optional<OrganizationRulesetRulesMaxFileSize> maxFileSize() {
+        return Optional.ofNullable(this.maxFileSize);
+    }
+    /**
      * @return (Boolean) Prevent users with push access from force pushing to branches.
      * 
      */
@@ -218,6 +270,10 @@ public final class OrganizationRulesetRules {
         private @Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern;
         private @Nullable Boolean creation;
         private @Nullable Boolean deletion;
+        private @Nullable OrganizationRulesetRulesFileExtensionRestriction fileExtensionRestriction;
+        private @Nullable OrganizationRulesetRulesFilePathRestriction filePathRestriction;
+        private @Nullable OrganizationRulesetRulesMaxFilePathLength maxFilePathLength;
+        private @Nullable OrganizationRulesetRulesMaxFileSize maxFileSize;
         private @Nullable Boolean nonFastForward;
         private @Nullable OrganizationRulesetRulesPullRequest pullRequest;
         private @Nullable OrganizationRulesetRulesRequiredCodeScanning requiredCodeScanning;
@@ -236,6 +292,10 @@ public final class OrganizationRulesetRules {
     	      this.committerEmailPattern = defaults.committerEmailPattern;
     	      this.creation = defaults.creation;
     	      this.deletion = defaults.deletion;
+    	      this.fileExtensionRestriction = defaults.fileExtensionRestriction;
+    	      this.filePathRestriction = defaults.filePathRestriction;
+    	      this.maxFilePathLength = defaults.maxFilePathLength;
+    	      this.maxFileSize = defaults.maxFileSize;
     	      this.nonFastForward = defaults.nonFastForward;
     	      this.pullRequest = defaults.pullRequest;
     	      this.requiredCodeScanning = defaults.requiredCodeScanning;
@@ -281,6 +341,30 @@ public final class OrganizationRulesetRules {
         public Builder deletion(@Nullable Boolean deletion) {
 
             this.deletion = deletion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fileExtensionRestriction(@Nullable OrganizationRulesetRulesFileExtensionRestriction fileExtensionRestriction) {
+
+            this.fileExtensionRestriction = fileExtensionRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filePathRestriction(@Nullable OrganizationRulesetRulesFilePathRestriction filePathRestriction) {
+
+            this.filePathRestriction = filePathRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxFilePathLength(@Nullable OrganizationRulesetRulesMaxFilePathLength maxFilePathLength) {
+
+            this.maxFilePathLength = maxFilePathLength;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxFileSize(@Nullable OrganizationRulesetRulesMaxFileSize maxFileSize) {
+
+            this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
@@ -345,6 +429,10 @@ public final class OrganizationRulesetRules {
             _resultValue.committerEmailPattern = committerEmailPattern;
             _resultValue.creation = creation;
             _resultValue.deletion = deletion;
+            _resultValue.fileExtensionRestriction = fileExtensionRestriction;
+            _resultValue.filePathRestriction = filePathRestriction;
+            _resultValue.maxFilePathLength = maxFilePathLength;
+            _resultValue.maxFileSize = maxFileSize;
             _resultValue.nonFastForward = nonFastForward;
             _resultValue.pullRequest = pullRequest;
             _resultValue.requiredCodeScanning = requiredCodeScanning;

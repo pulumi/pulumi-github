@@ -71,7 +71,7 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
     /**
      * An etag representing the Branch object.
      */
-    declare public /*out*/ readonly etag: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The name pattern that branches must match in order to deploy to the environment.
      */
@@ -107,9 +107,9 @@ export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["etag"] = args?.etag;
             resourceInputs["name"] = args?.name;
             resourceInputs["repository"] = args?.repository;
-            resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryDeploymentBranchPolicy.__pulumiType, name, resourceInputs, opts);
@@ -146,6 +146,10 @@ export interface RepositoryDeploymentBranchPolicyArgs {
      * The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
      */
     environmentName: pulumi.Input<string>;
+    /**
+     * An etag representing the Branch object.
+     */
+    etag?: pulumi.Input<string>;
     /**
      * The name pattern that branches must match in order to deploy to the environment.
      */

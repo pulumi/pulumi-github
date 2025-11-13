@@ -160,6 +160,11 @@ export type EnterpriseOrganization = import("./enterpriseOrganization").Enterpri
 export const EnterpriseOrganization: typeof import("./enterpriseOrganization").EnterpriseOrganization = null as any;
 utilities.lazyLoad(exports, ["EnterpriseOrganization"], () => require("./enterpriseOrganization"));
 
+export { GetActionsEnvironmentPublicKeyArgs, GetActionsEnvironmentPublicKeyResult, GetActionsEnvironmentPublicKeyOutputArgs } from "./getActionsEnvironmentPublicKey";
+export const getActionsEnvironmentPublicKey: typeof import("./getActionsEnvironmentPublicKey").getActionsEnvironmentPublicKey = null as any;
+export const getActionsEnvironmentPublicKeyOutput: typeof import("./getActionsEnvironmentPublicKey").getActionsEnvironmentPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getActionsEnvironmentPublicKey","getActionsEnvironmentPublicKeyOutput"], () => require("./getActionsEnvironmentPublicKey"));
+
 export { GetActionsEnvironmentSecretsArgs, GetActionsEnvironmentSecretsResult, GetActionsEnvironmentSecretsOutputArgs } from "./getActionsEnvironmentSecrets";
 export const getActionsEnvironmentSecrets: typeof import("./getActionsEnvironmentSecrets").getActionsEnvironmentSecrets = null as any;
 export const getActionsEnvironmentSecretsOutput: typeof import("./getActionsEnvironmentSecrets").getActionsEnvironmentSecretsOutput = null as any;
@@ -743,6 +748,11 @@ export type UserSshKey = import("./userSshKey").UserSshKey;
 export const UserSshKey: typeof import("./userSshKey").UserSshKey = null as any;
 utilities.lazyLoad(exports, ["UserSshKey"], () => require("./userSshKey"));
 
+export { WorkflowRepositoryPermissionsArgs, WorkflowRepositoryPermissionsState } from "./workflowRepositoryPermissions";
+export type WorkflowRepositoryPermissions = import("./workflowRepositoryPermissions").WorkflowRepositoryPermissions;
+export const WorkflowRepositoryPermissions: typeof import("./workflowRepositoryPermissions").WorkflowRepositoryPermissions = null as any;
+utilities.lazyLoad(exports, ["WorkflowRepositoryPermissions"], () => require("./workflowRepositoryPermissions"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -911,6 +921,8 @@ const _module = {
                 return new UserInvitationAccepter(name, <any>undefined, { urn })
             case "github:index/userSshKey:UserSshKey":
                 return new UserSshKey(name, <any>undefined, { urn })
+            case "github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions":
+                return new WorkflowRepositoryPermissions(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -993,6 +1005,7 @@ pulumi.runtime.registerResourceModule("github", "index/teamSyncGroupMapping", _m
 pulumi.runtime.registerResourceModule("github", "index/userGpgKey", _module)
 pulumi.runtime.registerResourceModule("github", "index/userInvitationAccepter", _module)
 pulumi.runtime.registerResourceModule("github", "index/userSshKey", _module)
+pulumi.runtime.registerResourceModule("github", "index/workflowRepositoryPermissions", _module)
 pulumi.runtime.registerResourcePackage("github", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

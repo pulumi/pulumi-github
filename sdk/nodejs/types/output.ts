@@ -1236,6 +1236,22 @@ export interface OrganizationRulesetRules {
      */
     deletion?: boolean;
     /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    fileExtensionRestriction?: outputs.OrganizationRulesetRulesFileExtensionRestriction;
+    /**
+     * (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    filePathRestriction?: outputs.OrganizationRulesetRulesFilePathRestriction;
+    /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     */
+    maxFilePathLength?: outputs.OrganizationRulesetRulesMaxFilePathLength;
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     */
+    maxFileSize?: outputs.OrganizationRulesetRulesMaxFileSize;
+    /**
      * (Boolean) Prevent users with push access from force pushing to branches.
      */
     nonFastForward?: boolean;
@@ -1349,6 +1365,34 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
     pattern: string;
 }
 
+export interface OrganizationRulesetRulesFileExtensionRestriction {
+    /**
+     * The file extensions that are restricted from being pushed to the commit graph.
+     */
+    restrictedFileExtensions: string[];
+}
+
+export interface OrganizationRulesetRulesFilePathRestriction {
+    /**
+     * The file paths that are restricted from being pushed to the commit graph.
+     */
+    restrictedFilePaths: string[];
+}
+
+export interface OrganizationRulesetRulesMaxFilePathLength {
+    /**
+     * The maximum allowed length of a file path.
+     */
+    maxFilePathLength: number;
+}
+
+export interface OrganizationRulesetRulesMaxFileSize {
+    /**
+     * The maximum allowed size of a file in bytes.
+     */
+    maxFileSize: number;
+}
+
 export interface OrganizationRulesetRulesPullRequest {
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -1396,7 +1440,7 @@ export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
      */
     doNotEnforceOnCreate?: boolean;
     /**
@@ -1650,6 +1694,10 @@ export interface RepositoryRulesetRules {
      */
     filePathRestriction?: outputs.RepositoryRulesetRulesFilePathRestriction;
     /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     */
+    maxFilePathLength?: outputs.RepositoryRulesetRulesMaxFilePathLength;
+    /**
      * (Integer) The maximum allowed size, in bytes, of a file.
      */
     maxFileSize?: outputs.RepositoryRulesetRulesMaxFileSize;
@@ -1787,6 +1835,13 @@ export interface RepositoryRulesetRulesFilePathRestriction {
      * The file paths that are restricted from being pushed to the commit graph.
      */
     restrictedFilePaths: string[];
+}
+
+export interface RepositoryRulesetRulesMaxFilePathLength {
+    /**
+     * The maximum allowed length of a file path.
+     */
+    maxFilePathLength: number;
 }
 
 export interface RepositoryRulesetRulesMaxFileSize {

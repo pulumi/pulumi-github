@@ -21,6 +21,7 @@ class BranchDefaultArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  rename: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchDefault resource.
@@ -30,6 +31,8 @@ class BranchDefaultArgs:
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if rename is not None:
             pulumi.set(__self__, "rename", rename)
 
@@ -56,6 +59,15 @@ class BranchDefaultArgs:
     @repository.setter
     def repository(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
@@ -145,6 +157,7 @@ class BranchDefault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  rename: Optional[pulumi.Input[_builtins.bool]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -278,6 +291,7 @@ class BranchDefault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  rename: Optional[pulumi.Input[_builtins.bool]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -292,11 +306,11 @@ class BranchDefault(pulumi.CustomResource):
             if branch is None and not opts.urn:
                 raise TypeError("Missing required property 'branch'")
             __props__.__dict__["branch"] = branch
+            __props__.__dict__["etag"] = etag
             __props__.__dict__["rename"] = rename
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
-            __props__.__dict__["etag"] = None
         super(BranchDefault, __self__).__init__(
             'github:index/branchDefault:BranchDefault',
             resource_name,

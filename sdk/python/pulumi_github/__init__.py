@@ -37,6 +37,7 @@ from .emu_group_mapping import *
 from .enterprise_actions_permissions import *
 from .enterprise_actions_runner_group import *
 from .enterprise_organization import *
+from .get_actions_environment_public_key import *
 from .get_actions_environment_secrets import *
 from .get_actions_environment_variables import *
 from .get_actions_organization_oidc_subject_claim_customization_template import *
@@ -154,6 +155,7 @@ from .team_sync_group_mapping import *
 from .user_gpg_key import *
 from .user_invitation_accepter import *
 from .user_ssh_key import *
+from .workflow_repository_permissions import *
 from ._inputs import *
 from . import outputs
 
@@ -781,6 +783,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/userSshKey:UserSshKey": "UserSshKey"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/workflowRepositoryPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions": "WorkflowRepositoryPermissions"
   }
  }
 ]

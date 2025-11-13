@@ -161,6 +161,9 @@ namespace Pulumi.Github
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
         /// <summary>
         /// Indicate if it should rename the branch rather than use an existing branch. Defaults to `False`.
         /// </summary>

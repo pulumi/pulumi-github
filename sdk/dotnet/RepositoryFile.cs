@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource allows you to create and manage files within a
-    /// GitHub repository.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Existing Branch

@@ -79,6 +79,61 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
+    ///     // Example with push ruleset  
+    ///     var examplePush = new Github.OrganizationRuleset("example_push", new()
+    ///     {
+    ///         Name = "example_push",
+    ///         Target = "push",
+    ///         Enforcement = "active",
+    ///         Conditions = new Github.Inputs.OrganizationRulesetConditionsArgs
+    ///         {
+    ///             RefName = new Github.Inputs.OrganizationRulesetConditionsRefNameArgs
+    ///             {
+    ///                 Includes = new[]
+    ///                 {
+    ///                     "~ALL",
+    ///                 },
+    ///                 Excludes = new() { },
+    ///             },
+    ///             RepositoryName = new Github.Inputs.OrganizationRulesetConditionsRepositoryNameArgs
+    ///             {
+    ///                 Includes = new[]
+    ///                 {
+    ///                     "~ALL",
+    ///                 },
+    ///                 Excludes = new() { },
+    ///             },
+    ///         },
+    ///         Rules = new Github.Inputs.OrganizationRulesetRulesArgs
+    ///         {
+    ///             FilePathRestriction = new Github.Inputs.OrganizationRulesetRulesFilePathRestrictionArgs
+    ///             {
+    ///                 RestrictedFilePaths = new[]
+    ///                 {
+    ///                     ".github/workflows/*",
+    ///                     "*.env",
+    ///                 },
+    ///             },
+    ///             MaxFileSize = new Github.Inputs.OrganizationRulesetRulesMaxFileSizeArgs
+    ///             {
+    ///                 MaxFileSize = 104857600,
+    ///             },
+    ///             MaxFilePathLength = new Github.Inputs.OrganizationRulesetRulesMaxFilePathLengthArgs
+    ///             {
+    ///                 MaxFilePathLength = 255,
+    ///             },
+    ///             FileExtensionRestriction = new Github.Inputs.OrganizationRulesetRulesFileExtensionRestrictionArgs
+    ///             {
+    ///                 RestrictedFileExtensions = new[]
+    ///                 {
+    ///                     "*.exe",
+    ///                     "*.dll",
+    ///                     "*.so",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -142,7 +197,7 @@ namespace Pulumi.Github
         public Output<int> RulesetId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -230,7 +285,7 @@ namespace Pulumi.Github
         public Input<Inputs.OrganizationRulesetRulesArgs> Rules { get; set; } = null!;
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
@@ -298,7 +353,7 @@ namespace Pulumi.Github
         public Input<int>? RulesetId { get; set; }
 
         /// <summary>
-        /// (String) Possible values are `Branch` and `Tag`.
+        /// (String) Possible values are `Branch`, `Tag` and `Push`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

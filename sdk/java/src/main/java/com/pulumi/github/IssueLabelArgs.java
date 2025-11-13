@@ -46,6 +46,13 @@ public final class IssueLabelArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
     /**
      * The name of the label.
      * 
@@ -81,6 +88,7 @@ public final class IssueLabelArgs extends com.pulumi.resources.ResourceArgs {
     private IssueLabelArgs(IssueLabelArgs $) {
         this.color = $.color;
         this.description = $.description;
+        this.etag = $.etag;
         this.name = $.name;
         this.repository = $.repository;
     }
@@ -143,6 +151,15 @@ public final class IssueLabelArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

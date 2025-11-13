@@ -70,6 +70,8 @@ type providerArgs struct {
 	BaseUrl *string `pulumi:"baseUrl"`
 	// Enable `insecure` mode for testing purposes
 	Insecure *bool `pulumi:"insecure"`
+	// Number of items per page for paginationDefaults to 100
+	MaxPerPage *int `pulumi:"maxPerPage"`
 	// Number of times to retry a request after receiving an error status codeDefaults to 3
 	MaxRetries *int `pulumi:"maxRetries"`
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.
@@ -100,6 +102,8 @@ type ProviderArgs struct {
 	BaseUrl pulumi.StringPtrInput
 	// Enable `insecure` mode for testing purposes
 	Insecure pulumi.BoolPtrInput
+	// Number of items per page for paginationDefaults to 100
+	MaxPerPage pulumi.IntPtrInput
 	// Number of times to retry a request after receiving an error status codeDefaults to 3
 	MaxRetries pulumi.IntPtrInput
 	// The GitHub organization name to manage. Use this field instead of `owner` when managing organization accounts.

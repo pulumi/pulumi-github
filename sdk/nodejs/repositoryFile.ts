@@ -5,9 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to create and manage files within a
- * GitHub repository.
- *
  * ## Example Usage
  *
  * ### Existing Branch

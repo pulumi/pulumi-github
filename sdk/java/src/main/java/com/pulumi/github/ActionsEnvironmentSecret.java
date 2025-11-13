@@ -16,7 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * ## Import
+ * 
+ * This resource does not support importing. If you&#39;d like to help contribute it, please visit our GitHub page!
  * 
  */
 @ResourceType(type="github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")

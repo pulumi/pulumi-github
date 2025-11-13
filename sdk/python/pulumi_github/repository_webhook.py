@@ -24,7 +24,8 @@ class RepositoryWebhookArgs:
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  repository: pulumi.Input[_builtins.str],
                  active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None):
+                 configuration: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryWebhook resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
@@ -38,6 +39,8 @@ class RepositoryWebhookArgs:
             pulumi.set(__self__, "active", active)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
 
     @_builtins.property
     @pulumi.getter
@@ -86,6 +89,15 @@ class RepositoryWebhookArgs:
     @configuration.setter
     def configuration(self, value: Optional[pulumi.Input['RepositoryWebhookConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etag", value)
 
 
 @pulumi.input_type
@@ -196,13 +208,11 @@ class RepositoryWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[_builtins.bool]] = None,
                  configuration: Optional[pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource allows you to create and manage webhooks for repositories within your
-        GitHub organization or personal account.
-
         ## Example Usage
 
         ```python
@@ -251,9 +261,6 @@ class RepositoryWebhook(pulumi.CustomResource):
                  args: RepositoryWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource allows you to create and manage webhooks for repositories within your
-        GitHub organization or personal account.
-
         ## Example Usage
 
         ```python
@@ -305,6 +312,7 @@ class RepositoryWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[_builtins.bool]] = None,
                  configuration: Optional[pulumi.Input[Union['RepositoryWebhookConfigurationArgs', 'RepositoryWebhookConfigurationArgsDict']]] = None,
+                 etag: Optional[pulumi.Input[_builtins.str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -318,13 +326,13 @@ class RepositoryWebhook(pulumi.CustomResource):
 
             __props__.__dict__["active"] = active
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["etag"] = etag
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__.__dict__["events"] = events
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
-            __props__.__dict__["etag"] = None
             __props__.__dict__["url"] = None
         super(RepositoryWebhook, __self__).__init__(
             'github:index/repositoryWebhook:RepositoryWebhook',

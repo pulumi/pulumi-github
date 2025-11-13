@@ -330,6 +330,22 @@ export interface OrganizationRulesetRules {
      */
     deletion?: pulumi.Input<boolean>;
     /**
+     * (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    fileExtensionRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFileExtensionRestriction>;
+    /**
+     * (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+     */
+    filePathRestriction?: pulumi.Input<inputs.OrganizationRulesetRulesFilePathRestriction>;
+    /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     */
+    maxFilePathLength?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFilePathLength>;
+    /**
+     * (Integer) The maximum allowed size, in bytes, of a file.
+     */
+    maxFileSize?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFileSize>;
+    /**
      * (Boolean) Prevent users with push access from force pushing to branches.
      */
     nonFastForward?: pulumi.Input<boolean>;
@@ -443,6 +459,34 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
     pattern: pulumi.Input<string>;
 }
 
+export interface OrganizationRulesetRulesFileExtensionRestriction {
+    /**
+     * The file extensions that are restricted from being pushed to the commit graph.
+     */
+    restrictedFileExtensions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface OrganizationRulesetRulesFilePathRestriction {
+    /**
+     * The file paths that are restricted from being pushed to the commit graph.
+     */
+    restrictedFilePaths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface OrganizationRulesetRulesMaxFilePathLength {
+    /**
+     * The maximum allowed length of a file path.
+     */
+    maxFilePathLength: pulumi.Input<number>;
+}
+
+export interface OrganizationRulesetRulesMaxFileSize {
+    /**
+     * The maximum allowed size of a file in bytes.
+     */
+    maxFileSize: pulumi.Input<number>;
+}
+
 export interface OrganizationRulesetRulesPullRequest {
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -490,7 +534,7 @@ export interface OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScannin
 
 export interface OrganizationRulesetRulesRequiredStatusChecks {
     /**
-     * Allow repositories and branches to be created if a check would otherwise prohibit it.
+     * (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
      */
     doNotEnforceOnCreate?: pulumi.Input<boolean>;
     /**
@@ -759,6 +803,10 @@ export interface RepositoryRulesetRules {
      */
     filePathRestriction?: pulumi.Input<inputs.RepositoryRulesetRulesFilePathRestriction>;
     /**
+     * (Integer) The maximum number of characters allowed in file paths.
+     */
+    maxFilePathLength?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFilePathLength>;
+    /**
      * (Integer) The maximum allowed size, in bytes, of a file.
      */
     maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize>;
@@ -896,6 +944,13 @@ export interface RepositoryRulesetRulesFilePathRestriction {
      * The file paths that are restricted from being pushed to the commit graph.
      */
     restrictedFilePaths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface RepositoryRulesetRulesMaxFilePathLength {
+    /**
+     * The maximum allowed length of a file path.
+     */
+    maxFilePathLength: pulumi.Input<number>;
 }
 
 export interface RepositoryRulesetRulesMaxFileSize {

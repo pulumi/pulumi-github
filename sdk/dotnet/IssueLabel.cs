@@ -23,6 +23,8 @@ namespace Pulumi.Github
     /// This resource will first check if the label exists, and then issue an update,
     /// otherwise it will create.
     /// 
+    /// &gt; **Note:** When a repository is archived, Pulumi will skip deletion of issue labels to avoid API errors, as archived repositories are read-only. The labels will be removed from Pulumi state without attempting to delete them from GitHub.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -145,6 +147,9 @@ namespace Pulumi.Github
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// The name of the label.

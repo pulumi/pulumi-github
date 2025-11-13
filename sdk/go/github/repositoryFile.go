@@ -12,9 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to create and manage files within a
-// GitHub repository.
-//
 // ## Example Usage
 //
 // ### Existing Branch

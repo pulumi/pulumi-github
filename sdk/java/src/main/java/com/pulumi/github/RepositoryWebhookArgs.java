@@ -49,6 +49,13 @@ public final class RepositoryWebhookArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.configuration);
     }
 
+    @Import(name="etag")
+    private @Nullable Output<String> etag;
+
+    public Optional<Output<String>> etag() {
+        return Optional.ofNullable(this.etag);
+    }
+
     /**
      * A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
      * 
@@ -84,6 +91,7 @@ public final class RepositoryWebhookArgs extends com.pulumi.resources.ResourceAr
     private RepositoryWebhookArgs(RepositoryWebhookArgs $) {
         this.active = $.active;
         this.configuration = $.configuration;
+        this.etag = $.etag;
         this.events = $.events;
         this.repository = $.repository;
     }
@@ -146,6 +154,15 @@ public final class RepositoryWebhookArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder configuration(RepositoryWebhookConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
+        }
+
+        public Builder etag(@Nullable Output<String> etag) {
+            $.etag = etag;
+            return this;
+        }
+
+        public Builder etag(String etag) {
+            return etag(Output.of(etag));
         }
 
         /**

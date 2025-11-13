@@ -43,6 +43,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('insecure')
 
     @_builtins.property
+    def max_per_page(self) -> Optional[int]:
+        """
+        Number of items per page for paginationDefaults to 100
+        """
+        return __config__.get_int('maxPerPage')
+
+    @_builtins.property
     def max_retries(self) -> Optional[int]:
         """
         Number of times to retry a request after receiving an error status codeDefaults to 3

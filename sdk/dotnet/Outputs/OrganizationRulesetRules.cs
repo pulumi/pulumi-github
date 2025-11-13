@@ -38,6 +38,22 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly bool? Deletion;
         /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesFileExtensionRestriction? FileExtensionRestriction;
+        /// <summary>
+        /// (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `Push`. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesFilePathRestriction? FilePathRestriction;
+        /// <summary>
+        /// (Integer) The maximum number of characters allowed in file paths.
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesMaxFilePathLength? MaxFilePathLength;
+        /// <summary>
+        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetRulesMaxFileSize? MaxFileSize;
+        /// <summary>
         /// (Boolean) Prevent users with push access from force pushing to branches.
         /// </summary>
         public readonly bool? NonFastForward;
@@ -88,6 +104,14 @@ namespace Pulumi.Github.Outputs
 
             bool? deletion,
 
+            Outputs.OrganizationRulesetRulesFileExtensionRestriction? fileExtensionRestriction,
+
+            Outputs.OrganizationRulesetRulesFilePathRestriction? filePathRestriction,
+
+            Outputs.OrganizationRulesetRulesMaxFilePathLength? maxFilePathLength,
+
+            Outputs.OrganizationRulesetRulesMaxFileSize? maxFileSize,
+
             bool? nonFastForward,
 
             Outputs.OrganizationRulesetRulesPullRequest? pullRequest,
@@ -112,6 +136,10 @@ namespace Pulumi.Github.Outputs
             CommitterEmailPattern = committerEmailPattern;
             Creation = creation;
             Deletion = deletion;
+            FileExtensionRestriction = fileExtensionRestriction;
+            FilePathRestriction = filePathRestriction;
+            MaxFilePathLength = maxFilePathLength;
+            MaxFileSize = maxFileSize;
             NonFastForward = nonFastForward;
             PullRequest = pullRequest;
             RequiredCodeScanning = requiredCodeScanning;

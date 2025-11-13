@@ -64,6 +64,9 @@ import * as utilities from "./utilities";
  *         maxFileSize: {
  *             maxFileSize: 104857600,
  *         },
+ *         maxFilePathLength: {
+ *             maxFilePathLength: 255,
+ *         },
  *         fileExtensionRestriction: {
  *             restrictedFileExtensions: [
  *                 "*.exe",
