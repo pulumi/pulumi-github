@@ -502,6 +502,32 @@
                                 "committer_email_pattern": {
                                     "maxItemsOne": true
                                 },
+                                "file_extension_restriction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "restricted_file_extensions": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "file_path_restriction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "restricted_file_paths": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "max_file_path_length": {
+                                    "maxItemsOne": true
+                                },
+                                "max_file_size": {
+                                    "maxItemsOne": true
+                                },
                                 "pull_request": {
                                     "maxItemsOne": true
                                 },
@@ -767,6 +793,9 @@
                                         }
                                     }
                                 },
+                                "max_file_path_length": {
+                                    "maxItemsOne": true
+                                },
                                 "max_file_size": {
                                     "maxItemsOne": true
                                 },
@@ -885,9 +914,17 @@
             "github_user_ssh_key": {
                 "current": "github:index/userSshKey:UserSshKey",
                 "majorVersion": 6
+            },
+            "github_workflow_repository_permissions": {
+                "current": "github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions",
+                "majorVersion": 6
             }
         },
         "datasources": {
+            "github_actions_environment_public_key": {
+                "current": "github:index/getActionsEnvironmentPublicKey:getActionsEnvironmentPublicKey",
+                "majorVersion": 6
+            },
             "github_actions_environment_secrets": {
                 "current": "github:index/getActionsEnvironmentSecrets:getActionsEnvironmentSecrets",
                 "majorVersion": 6,
