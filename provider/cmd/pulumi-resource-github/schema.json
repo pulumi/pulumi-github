@@ -3869,7 +3869,8 @@
             ],
             "inputProperties": {
                 "destroyOnDrift": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "willReplaceOnChanges": true
                 },
                 "encryptedValue": {
                     "type": "string",
@@ -3914,7 +3915,8 @@
                         "description": "Date of\u003cspan pulumi-lang-nodejs=\" actionsSecret \" pulumi-lang-dotnet=\" ActionsSecret \" pulumi-lang-go=\" actionsSecret \" pulumi-lang-python=\" actions_secret \" pulumi-lang-yaml=\" actionsSecret \" pulumi-lang-java=\" actionsSecret \"\u003e actions_secret \u003c/span\u003ecreation.\n"
                     },
                     "destroyOnDrift": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "willReplaceOnChanges": true
                     },
                     "encryptedValue": {
                         "type": "string",
@@ -4535,7 +4537,8 @@
             ],
             "inputProperties": {
                 "destroyOnDrift": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "willReplaceOnChanges": true
                 },
                 "encryptedValue": {
                     "type": "string",
@@ -4572,7 +4575,8 @@
                         "description": "Date of\u003cspan pulumi-lang-nodejs=\" actionsSecret \" pulumi-lang-dotnet=\" ActionsSecret \" pulumi-lang-go=\" actionsSecret \" pulumi-lang-python=\" actions_secret \" pulumi-lang-yaml=\" actionsSecret \" pulumi-lang-java=\" actionsSecret \"\u003e actions_secret \u003c/span\u003ecreation.\n"
                     },
                     "destroyOnDrift": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "willReplaceOnChanges": true
                     },
                     "encryptedValue": {
                         "type": "string",
@@ -5673,7 +5677,8 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of repository ids that can access the user secret.\n"
+                    "description": "An array of repository ids that can access the user secret.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -5708,7 +5713,8 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of repository ids that can access the user secret.\n"
+                        "description": "An array of repository ids that can access the user secret.\n",
+                        "willReplaceOnChanges": true
                     },
                     "updatedAt": {
                         "type": "string",
