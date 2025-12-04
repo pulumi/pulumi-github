@@ -35,6 +35,7 @@ name: configuration-example
 runtime: nodejs
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as github from "@pulumi/github";
@@ -42,6 +43,7 @@ import * as github from "@pulumi/github";
 // Add a user to the organization
 const membershipForUserX = new github.Membership("membership_for_user_x", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -50,6 +52,7 @@ name: configuration-example
 runtime: python
 
 ```
+
 ```python
 import pulumi
 import pulumi_github as github
@@ -57,6 +60,7 @@ import pulumi_github as github
 # Add a user to the organization
 membership_for_user_x = github.Membership("membership_for_user_x")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -65,6 +69,7 @@ name: configuration-example
 runtime: dotnet
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +84,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -87,6 +93,7 @@ name: configuration-example
 runtime: go
 
 ```
+
 ```go
 package main
 
@@ -106,6 +113,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -114,6 +122,7 @@ name: configuration-example
 runtime: yaml
 
 ```
+
 ```yaml
 resources:
   # Add a user to the organization
@@ -121,6 +130,7 @@ resources:
     type: github:Membership
     name: membership_for_user_x
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -129,6 +139,7 @@ name: configuration-example
 runtime: java
 
 ```
+
 ```java
 package generated_program;
 
@@ -155,6 +166,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -168,6 +180,7 @@ name: configuration-example
 runtime: nodejs
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as github from "@pulumi/github";
@@ -175,6 +188,7 @@ import * as github from "@pulumi/github";
 // Add a user to the organization
 const membershipForUserX = new github.Membership("membership_for_user_x", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -183,6 +197,7 @@ name: configuration-example
 runtime: python
 
 ```
+
 ```python
 import pulumi
 import pulumi_github as github
@@ -190,6 +205,7 @@ import pulumi_github as github
 # Add a user to the organization
 membership_for_user_x = github.Membership("membership_for_user_x")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -198,6 +214,7 @@ name: configuration-example
 runtime: dotnet
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -212,6 +229,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -220,6 +238,7 @@ name: configuration-example
 runtime: go
 
 ```
+
 ```go
 package main
 
@@ -239,6 +258,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -247,6 +267,7 @@ name: configuration-example
 runtime: yaml
 
 ```
+
 ```yaml
 resources:
   # Add a user to the organization
@@ -254,6 +275,7 @@ resources:
     type: github:Membership
     name: membership_for_user_x
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -262,6 +284,7 @@ name: configuration-example
 runtime: java
 
 ```
+
 ```java
 package generated_program;
 
@@ -288,6 +311,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Authentication
