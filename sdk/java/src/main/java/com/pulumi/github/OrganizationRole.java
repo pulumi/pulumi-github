@@ -70,18 +70,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/organizationRole:OrganizationRole")
 public class OrganizationRole extends com.pulumi.resources.CustomResource {
     /**
-     * The system role from which this role inherits permissions.
+     * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      * 
      */
     @Export(name="baseRole", refs={String.class}, tree="[0]")
-    private Output<String> baseRole;
+    private Output</* @Nullable */ String> baseRole;
 
     /**
-     * @return The system role from which this role inherits permissions.
+     * @return The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      * 
      */
-    public Output<String> baseRole() {
-        return this.baseRole;
+    public Output<Optional<String>> baseRole() {
+        return Codegen.optional(this.baseRole);
     }
     /**
      * The description of the organization role.
@@ -112,14 +112,14 @@ public class OrganizationRole extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The permissions included in this role.
+     * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
      * 
      */
     @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissions;
 
     /**
-     * @return The permissions included in this role.
+     * @return The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
      * 
      */
     public Output<List<String>> permissions() {

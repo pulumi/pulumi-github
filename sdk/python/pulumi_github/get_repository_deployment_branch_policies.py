@@ -84,6 +84,8 @@ def get_repository_deployment_branch_policies(environment_name: Optional[_builti
                                               repository: Optional[_builtins.str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryDeploymentBranchPoliciesResult:
     """
+    > **Note:** This data source is deprecated, please use the `get_repository_environment_deployment_policies` data source instead.
+
     Use this data source to retrieve deployment branch policies for a repository / environment.
 
     ## Example Usage
@@ -115,6 +117,8 @@ def get_repository_deployment_branch_policies_output(environment_name: Optional[
                                                      repository: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryDeploymentBranchPoliciesResult]:
     """
+    > **Note:** This data source is deprecated, please use the `get_repository_environment_deployment_policies` data source instead.
+
     Use this data source to retrieve deployment branch policies for a repository / environment.
 
     ## Example Usage

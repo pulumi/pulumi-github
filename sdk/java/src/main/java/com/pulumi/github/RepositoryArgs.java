@@ -209,13 +209,13 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="fork")
-    private @Nullable Output<Boolean> fork;
+    private @Nullable Output<String> fork;
 
     /**
      * @return Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      * 
      */
-    public Optional<Output<Boolean>> fork() {
+    public Optional<Output<String>> fork() {
         return Optional.ofNullable(this.fork);
     }
 
@@ -927,7 +927,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder fork(@Nullable Output<Boolean> fork) {
+        public Builder fork(@Nullable Output<String> fork) {
             $.fork = fork;
             return this;
         }
@@ -938,7 +938,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder fork(Boolean fork) {
+        public Builder fork(String fork) {
             return fork(Output.of(fork));
         }
 

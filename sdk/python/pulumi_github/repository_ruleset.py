@@ -22,23 +22,24 @@ __all__ = ['RepositoryRulesetArgs', 'RepositoryRuleset']
 class RepositoryRulesetArgs:
     def __init__(__self__, *,
                  enforcement: pulumi.Input[_builtins.str],
+                 repository: pulumi.Input[_builtins.str],
                  rules: pulumi.Input['RepositoryRulesetRulesArgs'],
                  target: pulumi.Input[_builtins.str],
                  bypass_actors: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]]] = None,
                  conditions: Optional[pulumi.Input['RepositoryRulesetConditionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryRuleset resource.
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
+        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
-        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
         """
         pulumi.set(__self__, "enforcement", enforcement)
+        pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "rules", rules)
         pulumi.set(__self__, "target", target)
         if bypass_actors is not None:
@@ -47,8 +48,6 @@ class RepositoryRulesetArgs:
             pulumi.set(__self__, "conditions", conditions)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if repository is not None:
-            pulumi.set(__self__, "repository", repository)
 
     @_builtins.property
     @pulumi.getter
@@ -61,6 +60,18 @@ class RepositoryRulesetArgs:
     @enforcement.setter
     def enforcement(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "enforcement", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[_builtins.str]:
+        """
+        (String) Name of the repository to apply ruleset to.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,18 +133,6 @@ class RepositoryRulesetArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
-    @_builtins.property
-    @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) Name of the repository to apply rulset to.
-        """
-        return pulumi.get(self, "repository")
-
-    @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "repository", value)
-
 
 @pulumi.input_type
 class _RepositoryRulesetState:
@@ -156,7 +155,7 @@ class _RepositoryRulesetState:
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[_builtins.str] node_id: (String) GraphQL global node id for use with v4 API.
-        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
+        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.int] ruleset_id: (Number) GitHub ID for the ruleset.
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
@@ -258,7 +257,7 @@ class _RepositoryRulesetState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (String) Name of the repository to apply rulset to.
+        (String) Name of the repository to apply ruleset to.
         """
         return pulumi.get(self, "repository")
 
@@ -356,6 +355,13 @@ class RepositoryRuleset(pulumi.CustomResource):
                 "required_deployments": {
                     "required_deployment_environments": ["test"],
                 },
+                "required_code_scanning": {
+                    "required_code_scanning_tools": [{
+                        "alerts_threshold": "errors",
+                        "security_alerts_threshold": "high_or_higher",
+                        "tool": "CodeQL",
+                    }],
+                },
             })
         # Example with push ruleset
         example_push = github.RepositoryRuleset("example_push",
@@ -371,7 +377,7 @@ class RepositoryRuleset(pulumi.CustomResource):
                     ],
                 },
                 "max_file_size": {
-                    "max_file_size": 104857600,
+                    "max_file_size": 100,
                 },
                 "max_file_path_length": {
                     "max_file_path_length": 255,
@@ -400,7 +406,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
-        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
+        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
         :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         """
@@ -449,6 +455,13 @@ class RepositoryRuleset(pulumi.CustomResource):
                 "required_deployments": {
                     "required_deployment_environments": ["test"],
                 },
+                "required_code_scanning": {
+                    "required_code_scanning_tools": [{
+                        "alerts_threshold": "errors",
+                        "security_alerts_threshold": "high_or_higher",
+                        "tool": "CodeQL",
+                    }],
+                },
             })
         # Example with push ruleset
         example_push = github.RepositoryRuleset("example_push",
@@ -464,7 +477,7 @@ class RepositoryRuleset(pulumi.CustomResource):
                     ],
                 },
                 "max_file_size": {
-                    "max_file_size": 104857600,
+                    "max_file_size": 100,
                 },
                 "max_file_path_length": {
                     "max_file_path_length": 255,
@@ -524,6 +537,8 @@ class RepositoryRuleset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enforcement'")
             __props__.__dict__["enforcement"] = enforcement
             __props__.__dict__["name"] = name
+            if repository is None and not opts.urn:
+                raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
@@ -567,7 +582,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[_builtins.str] node_id: (String) GraphQL global node id for use with v4 API.
-        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply rulset to.
+        :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
         :param pulumi.Input[Union['RepositoryRulesetRulesArgs', 'RepositoryRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.int] ruleset_id: (Number) GitHub ID for the ruleset.
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
@@ -638,9 +653,9 @@ class RepositoryRuleset(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def repository(self) -> pulumi.Output[_builtins.str]:
         """
-        (String) Name of the repository to apply rulset to.
+        (String) Name of the repository to apply ruleset to.
         """
         return pulumi.get(self, "repository")
 

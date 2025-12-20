@@ -15,6 +15,11 @@ export type ActionsEnvironmentVariable = import("./actionsEnvironmentVariable").
 export const ActionsEnvironmentVariable: typeof import("./actionsEnvironmentVariable").ActionsEnvironmentVariable = null as any;
 utilities.lazyLoad(exports, ["ActionsEnvironmentVariable"], () => require("./actionsEnvironmentVariable"));
 
+export { ActionsHostedRunnerArgs, ActionsHostedRunnerState } from "./actionsHostedRunner";
+export type ActionsHostedRunner = import("./actionsHostedRunner").ActionsHostedRunner;
+export const ActionsHostedRunner: typeof import("./actionsHostedRunner").ActionsHostedRunner = null as any;
+utilities.lazyLoad(exports, ["ActionsHostedRunner"], () => require("./actionsHostedRunner"));
+
 export { ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs, ActionsOrganizationOidcSubjectClaimCustomizationTemplateState } from "./actionsOrganizationOidcSubjectClaimCustomizationTemplate";
 export type ActionsOrganizationOidcSubjectClaimCustomizationTemplate = import("./actionsOrganizationOidcSubjectClaimCustomizationTemplate").ActionsOrganizationOidcSubjectClaimCustomizationTemplate;
 export const ActionsOrganizationOidcSubjectClaimCustomizationTemplate: typeof import("./actionsOrganizationOidcSubjectClaimCustomizationTemplate").ActionsOrganizationOidcSubjectClaimCustomizationTemplate = null as any;
@@ -155,10 +160,20 @@ export type EnterpriseActionsRunnerGroup = import("./enterpriseActionsRunnerGrou
 export const EnterpriseActionsRunnerGroup: typeof import("./enterpriseActionsRunnerGroup").EnterpriseActionsRunnerGroup = null as any;
 utilities.lazyLoad(exports, ["EnterpriseActionsRunnerGroup"], () => require("./enterpriseActionsRunnerGroup"));
 
+export { EnterpriseActionsWorkflowPermissionsArgs, EnterpriseActionsWorkflowPermissionsState } from "./enterpriseActionsWorkflowPermissions";
+export type EnterpriseActionsWorkflowPermissions = import("./enterpriseActionsWorkflowPermissions").EnterpriseActionsWorkflowPermissions;
+export const EnterpriseActionsWorkflowPermissions: typeof import("./enterpriseActionsWorkflowPermissions").EnterpriseActionsWorkflowPermissions = null as any;
+utilities.lazyLoad(exports, ["EnterpriseActionsWorkflowPermissions"], () => require("./enterpriseActionsWorkflowPermissions"));
+
 export { EnterpriseOrganizationArgs, EnterpriseOrganizationState } from "./enterpriseOrganization";
 export type EnterpriseOrganization = import("./enterpriseOrganization").EnterpriseOrganization;
 export const EnterpriseOrganization: typeof import("./enterpriseOrganization").EnterpriseOrganization = null as any;
 utilities.lazyLoad(exports, ["EnterpriseOrganization"], () => require("./enterpriseOrganization"));
+
+export { EnterpriseSecurityAnalysisSettingsArgs, EnterpriseSecurityAnalysisSettingsState } from "./enterpriseSecurityAnalysisSettings";
+export type EnterpriseSecurityAnalysisSettings = import("./enterpriseSecurityAnalysisSettings").EnterpriseSecurityAnalysisSettings;
+export const EnterpriseSecurityAnalysisSettings: typeof import("./enterpriseSecurityAnalysisSettings").EnterpriseSecurityAnalysisSettings = null as any;
+utilities.lazyLoad(exports, ["EnterpriseSecurityAnalysisSettings"], () => require("./enterpriseSecurityAnalysisSettings"));
 
 export { GetActionsEnvironmentPublicKeyArgs, GetActionsEnvironmentPublicKeyResult, GetActionsEnvironmentPublicKeyOutputArgs } from "./getActionsEnvironmentPublicKey";
 export const getActionsEnvironmentPublicKey: typeof import("./getActionsEnvironmentPublicKey").getActionsEnvironmentPublicKey = null as any;
@@ -444,6 +459,11 @@ export { GetRepositoryDeploymentBranchPoliciesArgs, GetRepositoryDeploymentBranc
 export const getRepositoryDeploymentBranchPolicies: typeof import("./getRepositoryDeploymentBranchPolicies").getRepositoryDeploymentBranchPolicies = null as any;
 export const getRepositoryDeploymentBranchPoliciesOutput: typeof import("./getRepositoryDeploymentBranchPolicies").getRepositoryDeploymentBranchPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryDeploymentBranchPolicies","getRepositoryDeploymentBranchPoliciesOutput"], () => require("./getRepositoryDeploymentBranchPolicies"));
+
+export { GetRepositoryEnvironmentDeploymentPoliciesArgs, GetRepositoryEnvironmentDeploymentPoliciesResult, GetRepositoryEnvironmentDeploymentPoliciesOutputArgs } from "./getRepositoryEnvironmentDeploymentPolicies";
+export const getRepositoryEnvironmentDeploymentPolicies: typeof import("./getRepositoryEnvironmentDeploymentPolicies").getRepositoryEnvironmentDeploymentPolicies = null as any;
+export const getRepositoryEnvironmentDeploymentPoliciesOutput: typeof import("./getRepositoryEnvironmentDeploymentPolicies").getRepositoryEnvironmentDeploymentPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryEnvironmentDeploymentPolicies","getRepositoryEnvironmentDeploymentPoliciesOutput"], () => require("./getRepositoryEnvironmentDeploymentPolicies"));
 
 export { GetRepositoryEnvironmentsArgs, GetRepositoryEnvironmentsResult, GetRepositoryEnvironmentsOutputArgs } from "./getRepositoryEnvironments";
 export const getRepositoryEnvironments: typeof import("./getRepositoryEnvironments").getRepositoryEnvironments = null as any;
@@ -771,6 +791,8 @@ const _module = {
                 return new ActionsEnvironmentSecret(name, <any>undefined, { urn })
             case "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable":
                 return new ActionsEnvironmentVariable(name, <any>undefined, { urn })
+            case "github:index/actionsHostedRunner:ActionsHostedRunner":
+                return new ActionsHostedRunner(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate":
                 return new ActionsOrganizationOidcSubjectClaimCustomizationTemplate(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
@@ -827,8 +849,12 @@ const _module = {
                 return new EnterpriseActionsPermissions(name, <any>undefined, { urn })
             case "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup":
                 return new EnterpriseActionsRunnerGroup(name, <any>undefined, { urn })
+            case "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions":
+                return new EnterpriseActionsWorkflowPermissions(name, <any>undefined, { urn })
             case "github:index/enterpriseOrganization:EnterpriseOrganization":
                 return new EnterpriseOrganization(name, <any>undefined, { urn })
+            case "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings":
+                return new EnterpriseSecurityAnalysisSettings(name, <any>undefined, { urn })
             case "github:index/issue:Issue":
                 return new Issue(name, <any>undefined, { urn })
             case "github:index/issueLabel:IssueLabel":
@@ -930,6 +956,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsEnvironmentVariable", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsHostedRunner", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationOidcSubjectClaimCustomizationTemplate", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret", _module)
@@ -958,7 +985,9 @@ pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _modul
 pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsRunnerGroup", _module)
+pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsWorkflowPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseOrganization", _module)
+pulumi.runtime.registerResourceModule("github", "index/enterpriseSecurityAnalysisSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabel", _module)
 pulumi.runtime.registerResourceModule("github", "index/issueLabels", _module)

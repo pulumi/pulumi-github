@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** This resource is deprecated, please use the `OrganizationRoleTeam` resource instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -48,6 +50,8 @@ import (
 // ## Import
 //
 // GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+//
+// text
 //
 // ```sh
 // $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567

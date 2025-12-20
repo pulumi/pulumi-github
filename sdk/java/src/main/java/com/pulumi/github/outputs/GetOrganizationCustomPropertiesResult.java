@@ -49,6 +49,11 @@ public final class GetOrganizationCustomPropertiesResult {
      * 
      */
     private @Nullable String valueType;
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    private String valuesEditableBy;
 
     private GetOrganizationCustomPropertiesResult() {}
     /**
@@ -100,6 +105,13 @@ public final class GetOrganizationCustomPropertiesResult {
     public Optional<String> valueType() {
         return Optional.ofNullable(this.valueType);
     }
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    public String valuesEditableBy() {
+        return this.valuesEditableBy;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -117,6 +129,7 @@ public final class GetOrganizationCustomPropertiesResult {
         private String propertyName;
         private @Nullable Boolean required;
         private @Nullable String valueType;
+        private String valuesEditableBy;
         public Builder() {}
         public Builder(GetOrganizationCustomPropertiesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,6 +140,7 @@ public final class GetOrganizationCustomPropertiesResult {
     	      this.propertyName = defaults.propertyName;
     	      this.required = defaults.required;
     	      this.valueType = defaults.valueType;
+    	      this.valuesEditableBy = defaults.valuesEditableBy;
         }
 
         @CustomType.Setter
@@ -184,6 +198,14 @@ public final class GetOrganizationCustomPropertiesResult {
             this.valueType = valueType;
             return this;
         }
+        @CustomType.Setter
+        public Builder valuesEditableBy(String valuesEditableBy) {
+            if (valuesEditableBy == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationCustomPropertiesResult", "valuesEditableBy");
+            }
+            this.valuesEditableBy = valuesEditableBy;
+            return this;
+        }
         public GetOrganizationCustomPropertiesResult build() {
             final var _resultValue = new GetOrganizationCustomPropertiesResult();
             _resultValue.allowedValues = allowedValues;
@@ -193,6 +215,7 @@ public final class GetOrganizationCustomPropertiesResult {
             _resultValue.propertyName = propertyName;
             _resultValue.required = required;
             _resultValue.valueType = valueType;
+            _resultValue.valuesEditableBy = valuesEditableBy;
             return _resultValue;
         }
     }

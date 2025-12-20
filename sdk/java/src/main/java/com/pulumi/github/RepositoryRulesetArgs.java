@@ -81,18 +81,18 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      * 
      */
-    @Import(name="repository")
-    private @Nullable Output<String> repository;
+    @Import(name="repository", required=true)
+    private Output<String> repository;
 
     /**
-     * @return (String) Name of the repository to apply rulset to.
+     * @return (String) Name of the repository to apply ruleset to.
      * 
      */
-    public Optional<Output<String>> repository() {
-        return Optional.ofNullable(this.repository);
+    public Output<String> repository() {
+        return this.repository;
     }
 
     /**
@@ -250,18 +250,18 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param repository (String) Name of the repository to apply rulset to.
+         * @param repository (String) Name of the repository to apply ruleset to.
          * 
          * @return builder
          * 
          */
-        public Builder repository(@Nullable Output<String> repository) {
+        public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
         /**
-         * @param repository (String) Name of the repository to apply rulset to.
+         * @param repository (String) Name of the repository to apply ruleset to.
          * 
          * @return builder
          * 
@@ -315,6 +315,9 @@ public final class RepositoryRulesetArgs extends com.pulumi.resources.ResourceAr
         public RepositoryRulesetArgs build() {
             if ($.enforcement == null) {
                 throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "enforcement");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "repository");
             }
             if ($.rules == null) {
                 throw new MissingRequiredPropertyException("RepositoryRulesetArgs", "rules");

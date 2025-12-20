@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *         var forkedRepo = new Repository("forkedRepo", RepositoryArgs.builder()
  *             .name("forked-repository")
  *             .description("This is a fork of another repository")
- *             .fork(true)
+ *             .fork("true")
  *             .sourceOwner("some-org")
  *             .sourceRepo("original-repository")
  *             .build());
@@ -330,15 +330,15 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      * 
      */
-    @Export(name="fork", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> fork;
+    @Export(name="fork", refs={String.class}, tree="[0]")
+    private Output<String> fork;
 
     /**
      * @return Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      * 
      */
-    public Output<Optional<Boolean>> fork() {
-        return Codegen.optional(this.fork);
+    public Output<String> fork() {
+        return this.fork;
     }
     /**
      * A string of the form &#34;orgname/reponame&#34;.
@@ -677,28 +677,28 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceOwner", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sourceOwner;
+    private Output<String> sourceOwner;
 
     /**
      * @return The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
      * 
      */
-    public Output<Optional<String>> sourceOwner() {
-        return Codegen.optional(this.sourceOwner);
+    public Output<String> sourceOwner() {
+        return this.sourceOwner;
     }
     /**
      * The name of the repository to fork. Required when `fork` is `true`.
      * 
      */
     @Export(name="sourceRepo", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sourceRepo;
+    private Output<String> sourceRepo;
 
     /**
      * @return The name of the repository to fork. Required when `fork` is `true`.
      * 
      */
-    public Output<Optional<String>> sourceRepo() {
-        return Codegen.optional(this.sourceRepo);
+    public Output<String> sourceRepo() {
+        return this.sourceRepo;
     }
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.

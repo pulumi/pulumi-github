@@ -12,6 +12,8 @@ namespace Pulumi.Github
     public static class GetRepositoryDeploymentBranchPolicies
     {
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+        /// 
         /// Use this data source to retrieve deployment branch policies for a repository / environment.
         /// 
         /// ## Example Usage
@@ -37,6 +39,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+        /// 
         /// Use this data source to retrieve deployment branch policies for a repository / environment.
         /// 
         /// ## Example Usage
@@ -62,6 +66,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryDeploymentBranchPoliciesResult>("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", args ?? new GetRepositoryDeploymentBranchPoliciesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+        /// 
         /// Use this data source to retrieve deployment branch policies for a repository / environment.
         /// 
         /// ## Example Usage

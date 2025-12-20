@@ -82,6 +82,8 @@ import com.pulumi.github.inputs.GetRepositoryDeployKeysArgs;
 import com.pulumi.github.inputs.GetRepositoryDeployKeysPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesArgs;
 import com.pulumi.github.inputs.GetRepositoryDeploymentBranchPoliciesPlainArgs;
+import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryEnvironmentsArgs;
 import com.pulumi.github.inputs.GetRepositoryEnvironmentsPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryFileArgs;
@@ -165,6 +167,7 @@ import com.pulumi.github.outputs.GetRepositoryBranchesResult;
 import com.pulumi.github.outputs.GetRepositoryCustomPropertiesResult;
 import com.pulumi.github.outputs.GetRepositoryDeployKeysResult;
 import com.pulumi.github.outputs.GetRepositoryDeploymentBranchPoliciesResult;
+import com.pulumi.github.outputs.GetRepositoryEnvironmentDeploymentPoliciesResult;
 import com.pulumi.github.outputs.GetRepositoryEnvironmentsResult;
 import com.pulumi.github.outputs.GetRepositoryFileResult;
 import com.pulumi.github.outputs.GetRepositoryMilestoneResult;
@@ -10602,6 +10605,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganizationRoles:getOrganizationRoles", TypeShape.of(GetOrganizationRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10639,6 +10644,8 @@ public final class GithubFunctions {
         return getOrganizationSecurityManagers(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10676,6 +10683,8 @@ public final class GithubFunctions {
         return getOrganizationSecurityManagersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10713,6 +10722,8 @@ public final class GithubFunctions {
         return getOrganizationSecurityManagers(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10750,6 +10761,8 @@ public final class GithubFunctions {
         return getOrganizationSecurityManagersPlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10787,6 +10800,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", TypeShape.of(GetOrganizationSecurityManagersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -10824,6 +10839,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", TypeShape.of(GetOrganizationSecurityManagersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+     * 
      * Use this data source to retrieve the security managers for an organization.
      * 
      * ## Example Usage
@@ -13831,6 +13848,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryDeployKeys:getRepositoryDeployKeys", TypeShape.of(GetRepositoryDeployKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+     * 
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
@@ -13872,6 +13891,8 @@ public final class GithubFunctions {
         return getRepositoryDeploymentBranchPolicies(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+     * 
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
@@ -13913,6 +13934,8 @@ public final class GithubFunctions {
         return getRepositoryDeploymentBranchPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+     * 
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
@@ -13954,6 +13977,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", TypeShape.of(GetRepositoryDeploymentBranchPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+     * 
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
@@ -13995,6 +14020,8 @@ public final class GithubFunctions {
         return Deployment.getInstance().invoke("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", TypeShape.of(GetRepositoryDeploymentBranchPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+     * 
      * Use this data source to retrieve deployment branch policies for a repository / environment.
      * 
      * ## Example Usage
@@ -14034,6 +14061,211 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryDeploymentBranchPoliciesResult> getRepositoryDeploymentBranchPoliciesPlain(GetRepositoryDeploymentBranchPoliciesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryDeploymentBranchPolicies:getRepositoryDeploymentBranchPolicies", TypeShape.of(GetRepositoryDeploymentBranchPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environment("env-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentDeploymentPoliciesResult> getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs args) {
+        return getRepositoryEnvironmentDeploymentPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environment("env-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRepositoryEnvironmentDeploymentPoliciesResult> getRepositoryEnvironmentDeploymentPoliciesPlain(GetRepositoryEnvironmentDeploymentPoliciesPlainArgs args) {
+        return getRepositoryEnvironmentDeploymentPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environment("env-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentDeploymentPoliciesResult> getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies", TypeShape.of(GetRepositoryEnvironmentDeploymentPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environment("env-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryEnvironmentDeploymentPoliciesResult> getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies", TypeShape.of(GetRepositoryEnvironmentDeploymentPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve deployment branch policies for a repository environment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryEnvironmentDeploymentPoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryEnvironmentDeploymentPolicies(GetRepositoryEnvironmentDeploymentPoliciesArgs.builder()
+     *             .repository("example-repository")
+     *             .environment("env-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRepositoryEnvironmentDeploymentPoliciesResult> getRepositoryEnvironmentDeploymentPoliciesPlain(GetRepositoryEnvironmentDeploymentPoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies", TypeShape.of(GetRepositoryEnvironmentDeploymentPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about environments for a repository.

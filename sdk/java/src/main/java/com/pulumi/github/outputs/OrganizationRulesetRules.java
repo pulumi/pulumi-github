@@ -70,7 +70,7 @@ public final class OrganizationRulesetRules {
      */
     private @Nullable OrganizationRulesetRulesMaxFilePathLength maxFilePathLength;
     /**
-     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * @return (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     private @Nullable OrganizationRulesetRulesMaxFileSize maxFileSize;
@@ -185,7 +185,7 @@ public final class OrganizationRulesetRules {
         return Optional.ofNullable(this.maxFilePathLength);
     }
     /**
-     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * @return (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     public Optional<OrganizationRulesetRulesMaxFileSize> maxFileSize() {

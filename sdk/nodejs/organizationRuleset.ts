@@ -52,6 +52,13 @@ import * as utilities from "./utilities";
  *                 ref: "main",
  *             }],
  *         },
+ *         requiredCodeScanning: {
+ *             requiredCodeScanningTools: [{
+ *                 alertsThreshold: "errors",
+ *                 securityAlertsThreshold: "high_or_higher",
+ *                 tool: "CodeQL",
+ *             }],
+ *         },
  *     },
  * });
  * // Example with push ruleset  
@@ -77,7 +84,7 @@ import * as utilities from "./utilities";
  *             ],
  *         },
  *         maxFileSize: {
- *             maxFileSize: 104857600,
+ *             maxFileSize: 100,
  *         },
  *         maxFilePathLength: {
  *             maxFilePathLength: 255,

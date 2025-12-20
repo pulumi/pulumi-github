@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// &gt; **Note:** This resource is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -37,6 +39,8 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+    /// 
+    /// text
     /// 
     /// ```sh
     /// $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567

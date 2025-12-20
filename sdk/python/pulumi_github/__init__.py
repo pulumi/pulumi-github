@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .actions_environment_secret import *
 from .actions_environment_variable import *
+from .actions_hosted_runner import *
 from .actions_organization_oidc_subject_claim_customization_template import *
 from .actions_organization_permissions import *
 from .actions_organization_secret import *
@@ -36,7 +37,9 @@ from .dependabot_secret import *
 from .emu_group_mapping import *
 from .enterprise_actions_permissions import *
 from .enterprise_actions_runner_group import *
+from .enterprise_actions_workflow_permissions import *
 from .enterprise_organization import *
+from .enterprise_security_analysis_settings import *
 from .get_actions_environment_public_key import *
 from .get_actions_environment_secrets import *
 from .get_actions_environment_variables import *
@@ -94,6 +97,7 @@ from .get_repository_branches import *
 from .get_repository_custom_properties import *
 from .get_repository_deploy_keys import *
 from .get_repository_deployment_branch_policies import *
+from .get_repository_environment_deployment_policies import *
 from .get_repository_environments import *
 from .get_repository_file import *
 from .get_repository_milestone import *
@@ -183,6 +187,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable": "ActionsEnvironmentVariable"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsHostedRunner",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsHostedRunner:ActionsHostedRunner": "ActionsHostedRunner"
   }
  },
  {
@@ -411,10 +423,26 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/enterpriseActionsWorkflowPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions": "EnterpriseActionsWorkflowPermissions"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/enterpriseOrganization",
   "fqn": "pulumi_github",
   "classes": {
    "github:index/enterpriseOrganization:EnterpriseOrganization": "EnterpriseOrganization"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/enterpriseSecurityAnalysisSettings",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings": "EnterpriseSecurityAnalysisSettings"
   }
  },
  {

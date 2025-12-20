@@ -64,6 +64,8 @@ class AwaitableGetOrganizationSecurityManagersResult(GetOrganizationSecurityMana
 
 def get_organization_security_managers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationSecurityManagersResult:
     """
+    > **Note:** This data source is deprecated, please use the `OrganizationRoleTeam` resource instead.
+
     Use this data source to retrieve the security managers for an organization.
 
     ## Example Usage
@@ -84,6 +86,8 @@ def get_organization_security_managers(opts: Optional[pulumi.InvokeOptions] = No
         teams=pulumi.get(__ret__, 'teams'))
 def get_organization_security_managers_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationSecurityManagersResult]:
     """
+    > **Note:** This data source is deprecated, please use the `OrganizationRoleTeam` resource instead.
+
     Use this data source to retrieve the security managers for an organization.
 
     ## Example Usage

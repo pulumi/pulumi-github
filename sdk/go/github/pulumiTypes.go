@@ -13,6 +13,420 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ActionsHostedRunnerImage struct {
+	// The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+	Id string `pulumi:"id"`
+	// The size of the image in gigabytes.
+	SizeGb *int `pulumi:"sizeGb"`
+	// The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+	Source *string `pulumi:"source"`
+}
+
+// ActionsHostedRunnerImageInput is an input type that accepts ActionsHostedRunnerImageArgs and ActionsHostedRunnerImageOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerImageInput` via:
+//
+//	ActionsHostedRunnerImageArgs{...}
+type ActionsHostedRunnerImageInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerImageOutput() ActionsHostedRunnerImageOutput
+	ToActionsHostedRunnerImageOutputWithContext(context.Context) ActionsHostedRunnerImageOutput
+}
+
+type ActionsHostedRunnerImageArgs struct {
+	// The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The size of the image in gigabytes.
+	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
+	// The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (ActionsHostedRunnerImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerImage)(nil)).Elem()
+}
+
+func (i ActionsHostedRunnerImageArgs) ToActionsHostedRunnerImageOutput() ActionsHostedRunnerImageOutput {
+	return i.ToActionsHostedRunnerImageOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerImageArgs) ToActionsHostedRunnerImageOutputWithContext(ctx context.Context) ActionsHostedRunnerImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerImageOutput)
+}
+
+func (i ActionsHostedRunnerImageArgs) ToActionsHostedRunnerImagePtrOutput() ActionsHostedRunnerImagePtrOutput {
+	return i.ToActionsHostedRunnerImagePtrOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerImageArgs) ToActionsHostedRunnerImagePtrOutputWithContext(ctx context.Context) ActionsHostedRunnerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerImageOutput).ToActionsHostedRunnerImagePtrOutputWithContext(ctx)
+}
+
+// ActionsHostedRunnerImagePtrInput is an input type that accepts ActionsHostedRunnerImageArgs, ActionsHostedRunnerImagePtr and ActionsHostedRunnerImagePtrOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerImagePtrInput` via:
+//
+//	        ActionsHostedRunnerImageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionsHostedRunnerImagePtrInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerImagePtrOutput() ActionsHostedRunnerImagePtrOutput
+	ToActionsHostedRunnerImagePtrOutputWithContext(context.Context) ActionsHostedRunnerImagePtrOutput
+}
+
+type actionsHostedRunnerImagePtrType ActionsHostedRunnerImageArgs
+
+func ActionsHostedRunnerImagePtr(v *ActionsHostedRunnerImageArgs) ActionsHostedRunnerImagePtrInput {
+	return (*actionsHostedRunnerImagePtrType)(v)
+}
+
+func (*actionsHostedRunnerImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsHostedRunnerImage)(nil)).Elem()
+}
+
+func (i *actionsHostedRunnerImagePtrType) ToActionsHostedRunnerImagePtrOutput() ActionsHostedRunnerImagePtrOutput {
+	return i.ToActionsHostedRunnerImagePtrOutputWithContext(context.Background())
+}
+
+func (i *actionsHostedRunnerImagePtrType) ToActionsHostedRunnerImagePtrOutputWithContext(ctx context.Context) ActionsHostedRunnerImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerImagePtrOutput)
+}
+
+type ActionsHostedRunnerImageOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerImage)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerImageOutput) ToActionsHostedRunnerImageOutput() ActionsHostedRunnerImageOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerImageOutput) ToActionsHostedRunnerImageOutputWithContext(ctx context.Context) ActionsHostedRunnerImageOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerImageOutput) ToActionsHostedRunnerImagePtrOutput() ActionsHostedRunnerImagePtrOutput {
+	return o.ToActionsHostedRunnerImagePtrOutputWithContext(context.Background())
+}
+
+func (o ActionsHostedRunnerImageOutput) ToActionsHostedRunnerImagePtrOutputWithContext(ctx context.Context) ActionsHostedRunnerImagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionsHostedRunnerImage) *ActionsHostedRunnerImage {
+		return &v
+	}).(ActionsHostedRunnerImagePtrOutput)
+}
+
+// The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+func (o ActionsHostedRunnerImageOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerImage) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The size of the image in gigabytes.
+func (o ActionsHostedRunnerImageOutput) SizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerImage) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+func (o ActionsHostedRunnerImageOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerImage) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type ActionsHostedRunnerImagePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsHostedRunnerImage)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerImagePtrOutput) ToActionsHostedRunnerImagePtrOutput() ActionsHostedRunnerImagePtrOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerImagePtrOutput) ToActionsHostedRunnerImagePtrOutputWithContext(ctx context.Context) ActionsHostedRunnerImagePtrOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerImagePtrOutput) Elem() ActionsHostedRunnerImageOutput {
+	return o.ApplyT(func(v *ActionsHostedRunnerImage) ActionsHostedRunnerImage {
+		if v != nil {
+			return *v
+		}
+		var ret ActionsHostedRunnerImage
+		return ret
+	}).(ActionsHostedRunnerImageOutput)
+}
+
+// The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+func (o ActionsHostedRunnerImagePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsHostedRunnerImage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the image in gigabytes.
+func (o ActionsHostedRunnerImagePtrOutput) SizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ActionsHostedRunnerImage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+func (o ActionsHostedRunnerImagePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsHostedRunnerImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionsHostedRunnerMachineSizeDetail struct {
+	// Number of CPU cores.
+	CpuCores *int `pulumi:"cpuCores"`
+	// Machine size identifier.
+	Id *string `pulumi:"id"`
+	// Amount of memory in gigabytes.
+	MemoryGb *int `pulumi:"memoryGb"`
+	// Amount of storage in gigabytes.
+	StorageGb *int `pulumi:"storageGb"`
+}
+
+// ActionsHostedRunnerMachineSizeDetailInput is an input type that accepts ActionsHostedRunnerMachineSizeDetailArgs and ActionsHostedRunnerMachineSizeDetailOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerMachineSizeDetailInput` via:
+//
+//	ActionsHostedRunnerMachineSizeDetailArgs{...}
+type ActionsHostedRunnerMachineSizeDetailInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerMachineSizeDetailOutput() ActionsHostedRunnerMachineSizeDetailOutput
+	ToActionsHostedRunnerMachineSizeDetailOutputWithContext(context.Context) ActionsHostedRunnerMachineSizeDetailOutput
+}
+
+type ActionsHostedRunnerMachineSizeDetailArgs struct {
+	// Number of CPU cores.
+	CpuCores pulumi.IntPtrInput `pulumi:"cpuCores"`
+	// Machine size identifier.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Amount of memory in gigabytes.
+	MemoryGb pulumi.IntPtrInput `pulumi:"memoryGb"`
+	// Amount of storage in gigabytes.
+	StorageGb pulumi.IntPtrInput `pulumi:"storageGb"`
+}
+
+func (ActionsHostedRunnerMachineSizeDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerMachineSizeDetail)(nil)).Elem()
+}
+
+func (i ActionsHostedRunnerMachineSizeDetailArgs) ToActionsHostedRunnerMachineSizeDetailOutput() ActionsHostedRunnerMachineSizeDetailOutput {
+	return i.ToActionsHostedRunnerMachineSizeDetailOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerMachineSizeDetailArgs) ToActionsHostedRunnerMachineSizeDetailOutputWithContext(ctx context.Context) ActionsHostedRunnerMachineSizeDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerMachineSizeDetailOutput)
+}
+
+// ActionsHostedRunnerMachineSizeDetailArrayInput is an input type that accepts ActionsHostedRunnerMachineSizeDetailArray and ActionsHostedRunnerMachineSizeDetailArrayOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerMachineSizeDetailArrayInput` via:
+//
+//	ActionsHostedRunnerMachineSizeDetailArray{ ActionsHostedRunnerMachineSizeDetailArgs{...} }
+type ActionsHostedRunnerMachineSizeDetailArrayInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerMachineSizeDetailArrayOutput() ActionsHostedRunnerMachineSizeDetailArrayOutput
+	ToActionsHostedRunnerMachineSizeDetailArrayOutputWithContext(context.Context) ActionsHostedRunnerMachineSizeDetailArrayOutput
+}
+
+type ActionsHostedRunnerMachineSizeDetailArray []ActionsHostedRunnerMachineSizeDetailInput
+
+func (ActionsHostedRunnerMachineSizeDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsHostedRunnerMachineSizeDetail)(nil)).Elem()
+}
+
+func (i ActionsHostedRunnerMachineSizeDetailArray) ToActionsHostedRunnerMachineSizeDetailArrayOutput() ActionsHostedRunnerMachineSizeDetailArrayOutput {
+	return i.ToActionsHostedRunnerMachineSizeDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerMachineSizeDetailArray) ToActionsHostedRunnerMachineSizeDetailArrayOutputWithContext(ctx context.Context) ActionsHostedRunnerMachineSizeDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerMachineSizeDetailArrayOutput)
+}
+
+type ActionsHostedRunnerMachineSizeDetailOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerMachineSizeDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerMachineSizeDetail)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerMachineSizeDetailOutput) ToActionsHostedRunnerMachineSizeDetailOutput() ActionsHostedRunnerMachineSizeDetailOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerMachineSizeDetailOutput) ToActionsHostedRunnerMachineSizeDetailOutputWithContext(ctx context.Context) ActionsHostedRunnerMachineSizeDetailOutput {
+	return o
+}
+
+// Number of CPU cores.
+func (o ActionsHostedRunnerMachineSizeDetailOutput) CpuCores() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerMachineSizeDetail) *int { return v.CpuCores }).(pulumi.IntPtrOutput)
+}
+
+// Machine size identifier.
+func (o ActionsHostedRunnerMachineSizeDetailOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerMachineSizeDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Amount of memory in gigabytes.
+func (o ActionsHostedRunnerMachineSizeDetailOutput) MemoryGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerMachineSizeDetail) *int { return v.MemoryGb }).(pulumi.IntPtrOutput)
+}
+
+// Amount of storage in gigabytes.
+func (o ActionsHostedRunnerMachineSizeDetailOutput) StorageGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerMachineSizeDetail) *int { return v.StorageGb }).(pulumi.IntPtrOutput)
+}
+
+type ActionsHostedRunnerMachineSizeDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerMachineSizeDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsHostedRunnerMachineSizeDetail)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerMachineSizeDetailArrayOutput) ToActionsHostedRunnerMachineSizeDetailArrayOutput() ActionsHostedRunnerMachineSizeDetailArrayOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerMachineSizeDetailArrayOutput) ToActionsHostedRunnerMachineSizeDetailArrayOutputWithContext(ctx context.Context) ActionsHostedRunnerMachineSizeDetailArrayOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerMachineSizeDetailArrayOutput) Index(i pulumi.IntInput) ActionsHostedRunnerMachineSizeDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsHostedRunnerMachineSizeDetail {
+		return vs[0].([]ActionsHostedRunnerMachineSizeDetail)[vs[1].(int)]
+	}).(ActionsHostedRunnerMachineSizeDetailOutput)
+}
+
+type ActionsHostedRunnerPublicIp struct {
+	// Whether this IP range is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Subnet length.
+	Length *int `pulumi:"length"`
+	// IP address prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ActionsHostedRunnerPublicIpInput is an input type that accepts ActionsHostedRunnerPublicIpArgs and ActionsHostedRunnerPublicIpOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerPublicIpInput` via:
+//
+//	ActionsHostedRunnerPublicIpArgs{...}
+type ActionsHostedRunnerPublicIpInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerPublicIpOutput() ActionsHostedRunnerPublicIpOutput
+	ToActionsHostedRunnerPublicIpOutputWithContext(context.Context) ActionsHostedRunnerPublicIpOutput
+}
+
+type ActionsHostedRunnerPublicIpArgs struct {
+	// Whether this IP range is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Subnet length.
+	Length pulumi.IntPtrInput `pulumi:"length"`
+	// IP address prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ActionsHostedRunnerPublicIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerPublicIp)(nil)).Elem()
+}
+
+func (i ActionsHostedRunnerPublicIpArgs) ToActionsHostedRunnerPublicIpOutput() ActionsHostedRunnerPublicIpOutput {
+	return i.ToActionsHostedRunnerPublicIpOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerPublicIpArgs) ToActionsHostedRunnerPublicIpOutputWithContext(ctx context.Context) ActionsHostedRunnerPublicIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerPublicIpOutput)
+}
+
+// ActionsHostedRunnerPublicIpArrayInput is an input type that accepts ActionsHostedRunnerPublicIpArray and ActionsHostedRunnerPublicIpArrayOutput values.
+// You can construct a concrete instance of `ActionsHostedRunnerPublicIpArrayInput` via:
+//
+//	ActionsHostedRunnerPublicIpArray{ ActionsHostedRunnerPublicIpArgs{...} }
+type ActionsHostedRunnerPublicIpArrayInput interface {
+	pulumi.Input
+
+	ToActionsHostedRunnerPublicIpArrayOutput() ActionsHostedRunnerPublicIpArrayOutput
+	ToActionsHostedRunnerPublicIpArrayOutputWithContext(context.Context) ActionsHostedRunnerPublicIpArrayOutput
+}
+
+type ActionsHostedRunnerPublicIpArray []ActionsHostedRunnerPublicIpInput
+
+func (ActionsHostedRunnerPublicIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsHostedRunnerPublicIp)(nil)).Elem()
+}
+
+func (i ActionsHostedRunnerPublicIpArray) ToActionsHostedRunnerPublicIpArrayOutput() ActionsHostedRunnerPublicIpArrayOutput {
+	return i.ToActionsHostedRunnerPublicIpArrayOutputWithContext(context.Background())
+}
+
+func (i ActionsHostedRunnerPublicIpArray) ToActionsHostedRunnerPublicIpArrayOutputWithContext(ctx context.Context) ActionsHostedRunnerPublicIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsHostedRunnerPublicIpArrayOutput)
+}
+
+type ActionsHostedRunnerPublicIpOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerPublicIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsHostedRunnerPublicIp)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerPublicIpOutput) ToActionsHostedRunnerPublicIpOutput() ActionsHostedRunnerPublicIpOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerPublicIpOutput) ToActionsHostedRunnerPublicIpOutputWithContext(ctx context.Context) ActionsHostedRunnerPublicIpOutput {
+	return o
+}
+
+// Whether this IP range is enabled.
+func (o ActionsHostedRunnerPublicIpOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerPublicIp) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet length.
+func (o ActionsHostedRunnerPublicIpOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerPublicIp) *int { return v.Length }).(pulumi.IntPtrOutput)
+}
+
+// IP address prefix.
+func (o ActionsHostedRunnerPublicIpOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionsHostedRunnerPublicIp) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ActionsHostedRunnerPublicIpArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionsHostedRunnerPublicIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsHostedRunnerPublicIp)(nil)).Elem()
+}
+
+func (o ActionsHostedRunnerPublicIpArrayOutput) ToActionsHostedRunnerPublicIpArrayOutput() ActionsHostedRunnerPublicIpArrayOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerPublicIpArrayOutput) ToActionsHostedRunnerPublicIpArrayOutputWithContext(ctx context.Context) ActionsHostedRunnerPublicIpArrayOutput {
+	return o
+}
+
+func (o ActionsHostedRunnerPublicIpArrayOutput) Index(i pulumi.IntInput) ActionsHostedRunnerPublicIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsHostedRunnerPublicIp {
+		return vs[0].([]ActionsHostedRunnerPublicIp)[vs[1].(int)]
+	}).(ActionsHostedRunnerPublicIpOutput)
+}
+
 type ActionsOrganizationPermissionsAllowedActionsConfig struct {
 	// Whether GitHub-owned actions are allowed in the organization.
 	GithubOwnedAllowed bool `pulumi:"githubOwnedAllowed"`
@@ -2867,7 +3281,7 @@ type OrganizationRulesetRules struct {
 	FilePathRestriction *OrganizationRulesetRulesFilePathRestriction `pulumi:"filePathRestriction"`
 	// (Integer) The maximum number of characters allowed in file paths.
 	MaxFilePathLength *OrganizationRulesetRulesMaxFilePathLength `pulumi:"maxFilePathLength"`
-	// (Integer) The maximum allowed size, in bytes, of a file.
+	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize *OrganizationRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward *bool `pulumi:"nonFastForward"`
@@ -2919,7 +3333,7 @@ type OrganizationRulesetRulesArgs struct {
 	FilePathRestriction OrganizationRulesetRulesFilePathRestrictionPtrInput `pulumi:"filePathRestriction"`
 	// (Integer) The maximum number of characters allowed in file paths.
 	MaxFilePathLength OrganizationRulesetRulesMaxFilePathLengthPtrInput `pulumi:"maxFilePathLength"`
-	// (Integer) The maximum allowed size, in bytes, of a file.
+	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize OrganizationRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
@@ -3077,7 +3491,7 @@ func (o OrganizationRulesetRulesOutput) MaxFilePathLength() OrganizationRulesetR
 	}).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
-// (Integer) The maximum allowed size, in bytes, of a file.
+// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 func (o OrganizationRulesetRulesOutput) MaxFileSize() OrganizationRulesetRulesMaxFileSizePtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesMaxFileSize { return v.MaxFileSize }).(OrganizationRulesetRulesMaxFileSizePtrOutput)
 }
@@ -3247,7 +3661,7 @@ func (o OrganizationRulesetRulesPtrOutput) MaxFilePathLength() OrganizationRules
 	}).(OrganizationRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
-// (Integer) The maximum allowed size, in bytes, of a file.
+// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 func (o OrganizationRulesetRulesPtrOutput) MaxFileSize() OrganizationRulesetRulesMaxFileSizePtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesMaxFileSize {
 		if v == nil {
@@ -4535,7 +4949,7 @@ func (o OrganizationRulesetRulesMaxFilePathLengthPtrOutput) MaxFilePathLength() 
 }
 
 type OrganizationRulesetRulesMaxFileSize struct {
-	// The maximum allowed size of a file in bytes.
+	// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 	MaxFileSize int `pulumi:"maxFileSize"`
 }
 
@@ -4551,7 +4965,7 @@ type OrganizationRulesetRulesMaxFileSizeInput interface {
 }
 
 type OrganizationRulesetRulesMaxFileSizeArgs struct {
-	// The maximum allowed size of a file in bytes.
+	// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 	MaxFileSize pulumi.IntInput `pulumi:"maxFileSize"`
 }
 
@@ -4632,7 +5046,7 @@ func (o OrganizationRulesetRulesMaxFileSizeOutput) ToOrganizationRulesetRulesMax
 	}).(OrganizationRulesetRulesMaxFileSizePtrOutput)
 }
 
-// The maximum allowed size of a file in bytes.
+// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 func (o OrganizationRulesetRulesMaxFileSizeOutput) MaxFileSize() pulumi.IntOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesMaxFileSize) int { return v.MaxFileSize }).(pulumi.IntOutput)
 }
@@ -4661,7 +5075,7 @@ func (o OrganizationRulesetRulesMaxFileSizePtrOutput) Elem() OrganizationRuleset
 	}).(OrganizationRulesetRulesMaxFileSizeOutput)
 }
 
-// The maximum allowed size of a file in bytes.
+// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 func (o OrganizationRulesetRulesMaxFileSizePtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetRulesMaxFileSize) *int {
 		if v == nil {
@@ -7689,7 +8103,7 @@ type RepositoryRulesetRules struct {
 	FilePathRestriction *RepositoryRulesetRulesFilePathRestriction `pulumi:"filePathRestriction"`
 	// (Integer) The maximum number of characters allowed in file paths.
 	MaxFilePathLength *RepositoryRulesetRulesMaxFilePathLength `pulumi:"maxFilePathLength"`
-	// (Integer) The maximum allowed size, in bytes, of a file.
+	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize *RepositoryRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
 	MergeQueue *RepositoryRulesetRulesMergeQueue `pulumi:"mergeQueue"`
@@ -7745,7 +8159,7 @@ type RepositoryRulesetRulesArgs struct {
 	FilePathRestriction RepositoryRulesetRulesFilePathRestrictionPtrInput `pulumi:"filePathRestriction"`
 	// (Integer) The maximum number of characters allowed in file paths.
 	MaxFilePathLength RepositoryRulesetRulesMaxFilePathLengthPtrInput `pulumi:"maxFilePathLength"`
-	// (Integer) The maximum allowed size, in bytes, of a file.
+	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize RepositoryRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
 	// (Block List, Max: 1) Merges must be performed via a merge queue.
 	MergeQueue RepositoryRulesetRulesMergeQueuePtrInput `pulumi:"mergeQueue"`
@@ -7903,7 +8317,7 @@ func (o RepositoryRulesetRulesOutput) MaxFilePathLength() RepositoryRulesetRules
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMaxFilePathLength { return v.MaxFilePathLength }).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
-// (Integer) The maximum allowed size, in bytes, of a file.
+// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 func (o RepositoryRulesetRulesOutput) MaxFileSize() RepositoryRulesetRulesMaxFileSizePtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMaxFileSize { return v.MaxFileSize }).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
@@ -8083,7 +8497,7 @@ func (o RepositoryRulesetRulesPtrOutput) MaxFilePathLength() RepositoryRulesetRu
 	}).(RepositoryRulesetRulesMaxFilePathLengthPtrOutput)
 }
 
-// (Integer) The maximum allowed size, in bytes, of a file.
+// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 func (o RepositoryRulesetRulesPtrOutput) MaxFileSize() RepositoryRulesetRulesMaxFileSizePtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesMaxFileSize {
 		if v == nil {
@@ -9391,7 +9805,7 @@ func (o RepositoryRulesetRulesMaxFilePathLengthPtrOutput) MaxFilePathLength() pu
 }
 
 type RepositoryRulesetRulesMaxFileSize struct {
-	// The maximum allowed size of a file in bytes.
+	// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 	MaxFileSize int `pulumi:"maxFileSize"`
 }
 
@@ -9407,7 +9821,7 @@ type RepositoryRulesetRulesMaxFileSizeInput interface {
 }
 
 type RepositoryRulesetRulesMaxFileSizeArgs struct {
-	// The maximum allowed size of a file in bytes.
+	// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 	MaxFileSize pulumi.IntInput `pulumi:"maxFileSize"`
 }
 
@@ -9488,7 +9902,7 @@ func (o RepositoryRulesetRulesMaxFileSizeOutput) ToRepositoryRulesetRulesMaxFile
 	}).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
 
-// The maximum allowed size of a file in bytes.
+// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 func (o RepositoryRulesetRulesMaxFileSizeOutput) MaxFileSize() pulumi.IntOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesMaxFileSize) int { return v.MaxFileSize }).(pulumi.IntOutput)
 }
@@ -9517,7 +9931,7 @@ func (o RepositoryRulesetRulesMaxFileSizePtrOutput) Elem() RepositoryRulesetRule
 	}).(RepositoryRulesetRulesMaxFileSizeOutput)
 }
 
-// The maximum allowed size of a file in bytes.
+// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
 func (o RepositoryRulesetRulesMaxFileSizePtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRulesMaxFileSize) *int {
 		if v == nil {
@@ -10866,8 +11280,14 @@ func (o RepositoryRulesetRulesTagNamePatternPtrOutput) Pattern() pulumi.StringPt
 type RepositorySecurityAndAnalysis struct {
 	// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
 	AdvancedSecurity *RepositorySecurityAndAnalysisAdvancedSecurity `pulumi:"advancedSecurity"`
+	// The code security configuration for the repository. See Code Security below for details.
+	CodeSecurity *RepositorySecurityAndAnalysisCodeSecurity `pulumi:"codeSecurity"`
 	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
 	SecretScanning *RepositorySecurityAndAnalysisSecretScanning `pulumi:"secretScanning"`
+	// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+	SecretScanningAiDetection *RepositorySecurityAndAnalysisSecretScanningAiDetection `pulumi:"secretScanningAiDetection"`
+	// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+	SecretScanningNonProviderPatterns *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns `pulumi:"secretScanningNonProviderPatterns"`
 	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
 	SecretScanningPushProtection *RepositorySecurityAndAnalysisSecretScanningPushProtection `pulumi:"secretScanningPushProtection"`
 }
@@ -10886,8 +11306,14 @@ type RepositorySecurityAndAnalysisInput interface {
 type RepositorySecurityAndAnalysisArgs struct {
 	// The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
 	AdvancedSecurity RepositorySecurityAndAnalysisAdvancedSecurityPtrInput `pulumi:"advancedSecurity"`
+	// The code security configuration for the repository. See Code Security below for details.
+	CodeSecurity RepositorySecurityAndAnalysisCodeSecurityPtrInput `pulumi:"codeSecurity"`
 	// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
 	SecretScanning RepositorySecurityAndAnalysisSecretScanningPtrInput `pulumi:"secretScanning"`
+	// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+	SecretScanningAiDetection RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput `pulumi:"secretScanningAiDetection"`
+	// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+	SecretScanningNonProviderPatterns RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput `pulumi:"secretScanningNonProviderPatterns"`
 	// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
 	SecretScanningPushProtection RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput `pulumi:"secretScanningPushProtection"`
 }
@@ -10976,11 +11402,32 @@ func (o RepositorySecurityAndAnalysisOutput) AdvancedSecurity() RepositorySecuri
 	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
+// The code security configuration for the repository. See Code Security below for details.
+func (o RepositorySecurityAndAnalysisOutput) CodeSecurity() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisCodeSecurity {
+		return v.CodeSecurity
+	}).(RepositorySecurityAndAnalysisCodeSecurityPtrOutput)
+}
+
 // The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
 func (o RepositorySecurityAndAnalysisOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanning {
 		return v.SecretScanning
 	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+func (o RepositorySecurityAndAnalysisOutput) SecretScanningAiDetection() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningAiDetection {
+		return v.SecretScanningAiDetection
+	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput)
+}
+
+// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+func (o RepositorySecurityAndAnalysisOutput) SecretScanningNonProviderPatterns() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
+		return v.SecretScanningNonProviderPatterns
+	}).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput)
 }
 
 // The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
@@ -11024,6 +11471,16 @@ func (o RepositorySecurityAndAnalysisPtrOutput) AdvancedSecurity() RepositorySec
 	}).(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput)
 }
 
+// The code security configuration for the repository. See Code Security below for details.
+func (o RepositorySecurityAndAnalysisPtrOutput) CodeSecurity() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisCodeSecurity {
+		if v == nil {
+			return nil
+		}
+		return v.CodeSecurity
+	}).(RepositorySecurityAndAnalysisCodeSecurityPtrOutput)
+}
+
 // The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
 func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanning() RepositorySecurityAndAnalysisSecretScanningPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanning {
@@ -11032,6 +11489,26 @@ func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanning() RepositorySecur
 		}
 		return v.SecretScanning
 	}).(RepositorySecurityAndAnalysisSecretScanningPtrOutput)
+}
+
+// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanningAiDetection() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningAiDetection {
+		if v == nil {
+			return nil
+		}
+		return v.SecretScanningAiDetection
+	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput)
+}
+
+// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+func (o RepositorySecurityAndAnalysisPtrOutput) SecretScanningNonProviderPatterns() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysis) *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
+		if v == nil {
+			return nil
+		}
+		return v.SecretScanningNonProviderPatterns
+	}).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput)
 }
 
 // The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
@@ -11181,6 +11658,143 @@ func (o RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput) Status() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositorySecurityAndAnalysisCodeSecurity struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisCodeSecurityInput is an input type that accepts RepositorySecurityAndAnalysisCodeSecurityArgs and RepositorySecurityAndAnalysisCodeSecurityOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisCodeSecurityInput` via:
+//
+//	RepositorySecurityAndAnalysisCodeSecurityArgs{...}
+type RepositorySecurityAndAnalysisCodeSecurityInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisCodeSecurityOutput() RepositorySecurityAndAnalysisCodeSecurityOutput
+	ToRepositorySecurityAndAnalysisCodeSecurityOutputWithContext(context.Context) RepositorySecurityAndAnalysisCodeSecurityOutput
+}
+
+type RepositorySecurityAndAnalysisCodeSecurityArgs struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisCodeSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisCodeSecurity)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisCodeSecurityArgs) ToRepositorySecurityAndAnalysisCodeSecurityOutput() RepositorySecurityAndAnalysisCodeSecurityOutput {
+	return i.ToRepositorySecurityAndAnalysisCodeSecurityOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisCodeSecurityArgs) ToRepositorySecurityAndAnalysisCodeSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisCodeSecurityOutput)
+}
+
+func (i RepositorySecurityAndAnalysisCodeSecurityArgs) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutput() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisCodeSecurityArgs) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisCodeSecurityOutput).ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisCodeSecurityPtrInput is an input type that accepts RepositorySecurityAndAnalysisCodeSecurityArgs, RepositorySecurityAndAnalysisCodeSecurityPtr and RepositorySecurityAndAnalysisCodeSecurityPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisCodeSecurityPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisCodeSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisCodeSecurityPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisCodeSecurityPtrOutput() RepositorySecurityAndAnalysisCodeSecurityPtrOutput
+	ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisCodeSecurityPtrOutput
+}
+
+type repositorySecurityAndAnalysisCodeSecurityPtrType RepositorySecurityAndAnalysisCodeSecurityArgs
+
+func RepositorySecurityAndAnalysisCodeSecurityPtr(v *RepositorySecurityAndAnalysisCodeSecurityArgs) RepositorySecurityAndAnalysisCodeSecurityPtrInput {
+	return (*repositorySecurityAndAnalysisCodeSecurityPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisCodeSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisCodeSecurity)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisCodeSecurityPtrType) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutput() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisCodeSecurityPtrType) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisCodeSecurityPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisCodeSecurityOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisCodeSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisCodeSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityOutput) ToRepositorySecurityAndAnalysisCodeSecurityOutput() RepositorySecurityAndAnalysisCodeSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityOutput) ToRepositorySecurityAndAnalysisCodeSecurityOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityOutput) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutput() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityOutput) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisCodeSecurity) *RepositorySecurityAndAnalysisCodeSecurity {
+		return &v
+	}).(RepositorySecurityAndAnalysisCodeSecurityPtrOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisCodeSecurityOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisCodeSecurity) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisCodeSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisCodeSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisCodeSecurity)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityPtrOutput) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutput() RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityPtrOutput) ToRepositorySecurityAndAnalysisCodeSecurityPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisCodeSecurityPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisCodeSecurityPtrOutput) Elem() RepositorySecurityAndAnalysisCodeSecurityOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisCodeSecurity) RepositorySecurityAndAnalysisCodeSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisCodeSecurity
+		return ret
+	}).(RepositorySecurityAndAnalysisCodeSecurityOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisCodeSecurityPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisCodeSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type RepositorySecurityAndAnalysisSecretScanning struct {
 	// The GitHub Pages site's build status e.g. `building` or `built`.
 	Status string `pulumi:"status"`
@@ -11311,6 +11925,280 @@ func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Elem() RepositoryS
 // The GitHub Pages site's build status e.g. `building` or `built`.
 func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanning) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningAiDetection struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningAiDetectionInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs and RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningAiDetectionInput` via:
+//
+//	RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningAiDetectionInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput
+	ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningAiDetection)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput).ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs, RepositorySecurityAndAnalysisSecretScanningAiDetectionPtr and RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningAiDetectionPtrType RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs
+
+func RepositorySecurityAndAnalysisSecretScanningAiDetectionPtr(v *RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningAiDetectionPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningAiDetectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningAiDetection)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningAiDetectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningAiDetectionPtrType) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningAiDetection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanningAiDetection) *RepositorySecurityAndAnalysisSecretScanningAiDetection {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningAiDetection) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningAiDetection)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput() RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningAiDetection) RepositorySecurityAndAnalysisSecretScanningAiDetection {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanningAiDetection
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningAiDetection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status string `pulumi:"status"`
+}
+
+// RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs and RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsInput` via:
+//
+//	RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs{...}
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput
+	ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput
+}
+
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs struct {
+	// The GitHub Pages site's build status e.g. `building` or `built`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns)(nil)).Elem()
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput)
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput).ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(ctx)
+}
+
+// RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput is an input type that accepts RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs, RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtr and RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput values.
+// You can construct a concrete instance of `RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput` via:
+//
+//	        RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput interface {
+	pulumi.Input
+
+	ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput
+	ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput
+}
+
+type repositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrType RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs
+
+func RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtr(v *RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput {
+	return (*repositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrType)(v)
+}
+
+func (*repositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns)(nil)).Elem()
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrType) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return i.ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(context.Background())
+}
+
+func (i *repositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrType) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o.ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns) *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
+		return &v
+	}).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns)(nil)).Elem()
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput) ToRepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutputWithContext(ctx context.Context) RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput {
+	return o
+}
+
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput) Elem() RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns) RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
+		if v != nil {
+			return *v
+		}
+		var ret RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns
+		return ret
+	}).(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput)
+}
+
+// The GitHub Pages site's build status e.g. `building` or `built`.
+func (o RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns) *string {
 		if v == nil {
 			return nil
 		}
@@ -16196,6 +17084,112 @@ func (o GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput) 
 	}).(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput)
 }
 
+type GetRepositoryEnvironmentDeploymentPoliciesPolicy struct {
+	// The pattern that branch or tag names must match in order to deploy to the environment.
+	Pattern string `pulumi:"pattern"`
+	// Type of the policy; this could be `branch` or `tag`.
+	Type string `pulumi:"type"`
+}
+
+// GetRepositoryEnvironmentDeploymentPoliciesPolicyInput is an input type that accepts GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs and GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput values.
+// You can construct a concrete instance of `GetRepositoryEnvironmentDeploymentPoliciesPolicyInput` via:
+//
+//	GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs{...}
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyInput interface {
+	pulumi.Input
+
+	ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput
+	ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutputWithContext(context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput
+}
+
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs struct {
+	// The pattern that branch or tag names must match in order to deploy to the environment.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+	// Type of the policy; this could be `branch` or `tag`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryEnvironmentDeploymentPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput {
+	return i.ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutputWithContext(ctx context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput)
+}
+
+// GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayInput is an input type that accepts GetRepositoryEnvironmentDeploymentPoliciesPolicyArray and GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayInput` via:
+//
+//	GetRepositoryEnvironmentDeploymentPoliciesPolicyArray{ GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs{...} }
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput
+	ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutputWithContext(context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput
+}
+
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyArray []GetRepositoryEnvironmentDeploymentPoliciesPolicyInput
+
+func (GetRepositoryEnvironmentDeploymentPoliciesPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryEnvironmentDeploymentPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetRepositoryEnvironmentDeploymentPoliciesPolicyArray) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput {
+	return i.ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryEnvironmentDeploymentPoliciesPolicyArray) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput)
+}
+
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryEnvironmentDeploymentPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyOutputWithContext(ctx context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput {
+	return o
+}
+
+// The pattern that branch or tag names must match in order to deploy to the environment.
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryEnvironmentDeploymentPoliciesPolicy) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+// Type of the policy; this could be `branch` or `tag`.
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryEnvironmentDeploymentPoliciesPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryEnvironmentDeploymentPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput() GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput) ToGetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput) Index(i pulumi.IntInput) GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryEnvironmentDeploymentPoliciesPolicy {
+		return vs[0].([]GetRepositoryEnvironmentDeploymentPoliciesPolicy)[vs[1].(int)]
+	}).(GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput)
+}
+
 type GetRepositoryEnvironmentsEnvironment struct {
 	// Environment name.
 	Name string `pulumi:"name"`
@@ -17738,6 +18732,12 @@ func (o GetTreeEntryArrayOutput) Index(i pulumi.IntInput) GetTreeEntryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerImageInput)(nil)).Elem(), ActionsHostedRunnerImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerImagePtrInput)(nil)).Elem(), ActionsHostedRunnerImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerMachineSizeDetailInput)(nil)).Elem(), ActionsHostedRunnerMachineSizeDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerMachineSizeDetailArrayInput)(nil)).Elem(), ActionsHostedRunnerMachineSizeDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerPublicIpInput)(nil)).Elem(), ActionsHostedRunnerPublicIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionsHostedRunnerPublicIpArrayInput)(nil)).Elem(), ActionsHostedRunnerPublicIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsAllowedActionsConfigPtrInput)(nil)).Elem(), ActionsOrganizationPermissionsAllowedActionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionsOrganizationPermissionsEnabledRepositoriesConfigInput)(nil)).Elem(), ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs{})
@@ -17868,8 +18868,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisAdvancedSecurityPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisAdvancedSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisCodeSecurityInput)(nil)).Elem(), RepositorySecurityAndAnalysisCodeSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisCodeSecurityPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisCodeSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningAiDetectionInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrInput)(nil)).Elem(), RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTemplateInput)(nil)).Elem(), RepositoryTemplateArgs{})
@@ -17944,6 +18950,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeployKeysKeyArrayInput)(nil)).Elem(), GetRepositoryDeployKeysKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyInput)(nil)).Elem(), GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayInput)(nil)).Elem(), GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentDeploymentPoliciesPolicyInput)(nil)).Elem(), GetRepositoryEnvironmentDeploymentPoliciesPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayInput)(nil)).Elem(), GetRepositoryEnvironmentDeploymentPoliciesPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEnvironmentsEnvironmentArrayInput)(nil)).Elem(), GetRepositoryEnvironmentsEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageInput)(nil)).Elem(), GetRepositoryPageArgs{})
@@ -17966,6 +18974,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamRepositoriesDetailedArrayInput)(nil)).Elem(), GetTeamRepositoriesDetailedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryInput)(nil)).Elem(), GetTreeEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTreeEntryArrayInput)(nil)).Elem(), GetTreeEntryArray{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerImageOutput{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerImagePtrOutput{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerMachineSizeDetailOutput{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerMachineSizeDetailArrayOutput{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerPublicIpOutput{})
+	pulumi.RegisterOutputType(ActionsHostedRunnerPublicIpArrayOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsAllowedActionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ActionsOrganizationPermissionsEnabledRepositoriesConfigOutput{})
@@ -18096,8 +19110,14 @@ func init() {
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisPtrOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisAdvancedSecurityPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisCodeSecurityOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisCodeSecurityPtrOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsOutput{})
+	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsPtrOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionOutput{})
 	pulumi.RegisterOutputType(RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTemplateOutput{})
@@ -18172,6 +19192,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryDeployKeysKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyOutput{})
 	pulumi.RegisterOutputType(GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryEnvironmentDeploymentPoliciesPolicyOutput{})
+	pulumi.RegisterOutputType(GetRepositoryEnvironmentDeploymentPoliciesPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEnvironmentsEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageOutput{})

@@ -46,6 +46,13 @@ import * as utilities from "./utilities";
  *         requiredDeployments: {
  *             requiredDeploymentEnvironments: ["test"],
  *         },
+ *         requiredCodeScanning: {
+ *             requiredCodeScanningTools: [{
+ *                 alertsThreshold: "errors",
+ *                 securityAlertsThreshold: "high_or_higher",
+ *                 tool: "CodeQL",
+ *             }],
+ *         },
  *     },
  * });
  * // Example with push ruleset
@@ -62,7 +69,7 @@ import * as utilities from "./utilities";
  *             ],
  *         },
  *         maxFileSize: {
- *             maxFileSize: 104857600,
+ *             maxFileSize: 100,
  *         },
  *         maxFilePathLength: {
  *             maxFilePathLength: 255,
@@ -139,9 +146,9 @@ export class RepositoryRuleset extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      */
-    declare public readonly repository: pulumi.Output<string | undefined>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */
@@ -182,6 +189,9 @@ export class RepositoryRuleset extends pulumi.CustomResource {
             const args = argsOrState as RepositoryRulesetArgs | undefined;
             if (args?.enforcement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enforcement'");
+            }
+            if (args?.repository === undefined && !opts.urn) {
+                throw new Error("Missing required property 'repository'");
             }
             if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
@@ -234,7 +244,7 @@ export interface RepositoryRulesetState {
      */
     nodeId?: pulumi.Input<string>;
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      */
     repository?: pulumi.Input<string>;
     /**
@@ -272,9 +282,9 @@ export interface RepositoryRulesetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      */
-    repository?: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
      */

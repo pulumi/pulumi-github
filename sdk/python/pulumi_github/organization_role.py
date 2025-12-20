@@ -25,8 +25,8 @@ class OrganizationRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationRole resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role.
-        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
+        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
         :param pulumi.Input[_builtins.str] name: The name of the organization role.
         """
@@ -42,7 +42,7 @@ class OrganizationRoleArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The permissions included in this role.
+        The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         """
         return pulumi.get(self, "permissions")
 
@@ -54,7 +54,7 @@ class OrganizationRoleArgs:
     @pulumi.getter(name="baseRole")
     def base_role(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The system role from which this role inherits permissions.
+        The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         """
         return pulumi.get(self, "base_role")
 
@@ -97,10 +97,10 @@ class _OrganizationRoleState:
                  role_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering OrganizationRole resources.
-        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
+        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
         :param pulumi.Input[_builtins.str] name: The name of the organization role.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         """
         if base_role is not None:
@@ -118,7 +118,7 @@ class _OrganizationRoleState:
     @pulumi.getter(name="baseRole")
     def base_role(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The system role from which this role inherits permissions.
+        The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         """
         return pulumi.get(self, "base_role")
 
@@ -154,7 +154,7 @@ class _OrganizationRoleState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The permissions included in this role.
+        The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         """
         return pulumi.get(self, "permissions")
 
@@ -216,10 +216,10 @@ class OrganizationRole(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
+        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
         :param pulumi.Input[_builtins.str] name: The name of the organization role.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         """
         ...
     @overload
@@ -312,10 +312,10 @@ class OrganizationRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
+        :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
         :param pulumi.Input[_builtins.str] name: The name of the organization role.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -331,9 +331,9 @@ class OrganizationRole(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="baseRole")
-    def base_role(self) -> pulumi.Output[_builtins.str]:
+    def base_role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The system role from which this role inherits permissions.
+        The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         """
         return pulumi.get(self, "base_role")
 
@@ -357,7 +357,7 @@ class OrganizationRole(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The permissions included in this role.
+        The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         """
         return pulumi.get(self, "permissions")
 

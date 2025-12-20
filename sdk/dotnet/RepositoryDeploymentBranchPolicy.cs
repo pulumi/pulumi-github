@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// &gt; **Note:** This resource is deprecated, please use the `github.RepositoryEnvironmentDeploymentPolicy` resource instead.
+    /// 
     /// This resource allows you to create and manage deployment branch policies.
     /// 
     /// ## Example Usage
@@ -50,6 +52,8 @@ namespace Pulumi.Github
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// text
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id

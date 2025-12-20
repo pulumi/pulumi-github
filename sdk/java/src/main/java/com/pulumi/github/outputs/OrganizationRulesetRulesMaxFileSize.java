@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class OrganizationRulesetRulesMaxFileSize {
     /**
-     * @return The maximum allowed size of a file in bytes.
+     * @return The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      * 
      */
     private Integer maxFileSize;
 
     private OrganizationRulesetRulesMaxFileSize() {}
     /**
-     * @return The maximum allowed size of a file in bytes.
+     * @return The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      * 
      */
     public Integer maxFileSize() {

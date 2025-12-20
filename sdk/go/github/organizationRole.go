@@ -57,13 +57,13 @@ import (
 type OrganizationRole struct {
 	pulumi.CustomResourceState
 
-	// The system role from which this role inherits permissions.
-	BaseRole pulumi.StringOutput `pulumi:"baseRole"`
+	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
+	BaseRole pulumi.StringPtrOutput `pulumi:"baseRole"`
 	// The description of the organization role.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the organization role.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The permissions included in this role.
+	// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The ID of the organization role.
 	RoleId pulumi.IntOutput `pulumi:"roleId"`
@@ -102,26 +102,26 @@ func GetOrganizationRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationRole resources.
 type organizationRoleState struct {
-	// The system role from which this role inherits permissions.
+	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
 	BaseRole *string `pulumi:"baseRole"`
 	// The description of the organization role.
 	Description *string `pulumi:"description"`
 	// The name of the organization role.
 	Name *string `pulumi:"name"`
-	// The permissions included in this role.
+	// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 	Permissions []string `pulumi:"permissions"`
 	// The ID of the organization role.
 	RoleId *int `pulumi:"roleId"`
 }
 
 type OrganizationRoleState struct {
-	// The system role from which this role inherits permissions.
+	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
 	BaseRole pulumi.StringPtrInput
 	// The description of the organization role.
 	Description pulumi.StringPtrInput
 	// The name of the organization role.
 	Name pulumi.StringPtrInput
-	// The permissions included in this role.
+	// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 	Permissions pulumi.StringArrayInput
 	// The ID of the organization role.
 	RoleId pulumi.IntPtrInput
@@ -132,25 +132,25 @@ func (OrganizationRoleState) ElementType() reflect.Type {
 }
 
 type organizationRoleArgs struct {
-	// The system role from which this role inherits permissions.
+	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
 	BaseRole *string `pulumi:"baseRole"`
 	// The description of the organization role.
 	Description *string `pulumi:"description"`
 	// The name of the organization role.
 	Name *string `pulumi:"name"`
-	// The permissions included in this role.
+	// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 	Permissions []string `pulumi:"permissions"`
 }
 
 // The set of arguments for constructing a OrganizationRole resource.
 type OrganizationRoleArgs struct {
-	// The system role from which this role inherits permissions.
+	// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
 	BaseRole pulumi.StringPtrInput
 	// The description of the organization role.
 	Description pulumi.StringPtrInput
 	// The name of the organization role.
 	Name pulumi.StringPtrInput
-	// The permissions included in this role.
+	// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 	Permissions pulumi.StringArrayInput
 }
 
@@ -241,9 +241,9 @@ func (o OrganizationRoleOutput) ToOrganizationRoleOutputWithContext(ctx context.
 	return o
 }
 
-// The system role from which this role inherits permissions.
-func (o OrganizationRoleOutput) BaseRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *OrganizationRole) pulumi.StringOutput { return v.BaseRole }).(pulumi.StringOutput)
+// The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
+func (o OrganizationRoleOutput) BaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationRole) pulumi.StringPtrOutput { return v.BaseRole }).(pulumi.StringPtrOutput)
 }
 
 // The description of the organization role.
@@ -256,7 +256,7 @@ func (o OrganizationRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The permissions included in this role.
+// The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
 func (o OrganizationRoleOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationRole) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }

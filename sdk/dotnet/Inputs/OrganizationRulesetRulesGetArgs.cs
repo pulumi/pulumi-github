@@ -67,7 +67,7 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.OrganizationRulesetRulesMaxFilePathLengthGetArgs>? MaxFilePathLength { get; set; }
 
         /// <summary>
-        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         /// </summary>
         [Input("maxFileSize")]
         public Input<Inputs.OrganizationRulesetRulesMaxFileSizeGetArgs>? MaxFileSize { get; set; }

@@ -62,6 +62,8 @@ type LookupOrganizationCustomPropertiesArgs struct {
 	Required *bool `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
 	ValueType *string `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+	ValuesEditableBy *string `pulumi:"valuesEditableBy"`
 }
 
 // A collection of values returned by getOrganizationCustomProperties.
@@ -80,6 +82,8 @@ type LookupOrganizationCustomPropertiesResult struct {
 	Required *bool `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
 	ValueType *string `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+	ValuesEditableBy string `pulumi:"valuesEditableBy"`
 }
 
 func LookupOrganizationCustomPropertiesOutput(ctx *pulumi.Context, args LookupOrganizationCustomPropertiesOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationCustomPropertiesResultOutput {
@@ -105,6 +109,8 @@ type LookupOrganizationCustomPropertiesOutputArgs struct {
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
 	ValueType pulumi.StringPtrInput `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+	ValuesEditableBy pulumi.StringPtrInput `pulumi:"valuesEditableBy"`
 }
 
 func (LookupOrganizationCustomPropertiesOutputArgs) ElementType() reflect.Type {
@@ -159,6 +165,11 @@ func (o LookupOrganizationCustomPropertiesResultOutput) Required() pulumi.BoolPt
 // The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
 func (o LookupOrganizationCustomPropertiesResultOutput) ValueType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOrganizationCustomPropertiesResult) *string { return v.ValueType }).(pulumi.StringPtrOutput)
+}
+
+// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+func (o LookupOrganizationCustomPropertiesResultOutput) ValuesEditableBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationCustomPropertiesResult) string { return v.ValuesEditableBy }).(pulumi.StringOutput)
 }
 
 func init() {

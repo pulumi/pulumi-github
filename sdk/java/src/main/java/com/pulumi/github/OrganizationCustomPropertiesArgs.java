@@ -108,6 +108,21 @@ public final class OrganizationCustomPropertiesArgs extends com.pulumi.resources
         return Optional.ofNullable(this.valueType);
     }
 
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     * 
+     */
+    @Import(name="valuesEditableBy")
+    private @Nullable Output<String> valuesEditableBy;
+
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     * 
+     */
+    public Optional<Output<String>> valuesEditableBy() {
+        return Optional.ofNullable(this.valuesEditableBy);
+    }
+
     private OrganizationCustomPropertiesArgs() {}
 
     private OrganizationCustomPropertiesArgs(OrganizationCustomPropertiesArgs $) {
@@ -117,6 +132,7 @@ public final class OrganizationCustomPropertiesArgs extends com.pulumi.resources
         this.propertyName = $.propertyName;
         this.required = $.required;
         this.valueType = $.valueType;
+        this.valuesEditableBy = $.valuesEditableBy;
     }
 
     public static Builder builder() {
@@ -271,6 +287,27 @@ public final class OrganizationCustomPropertiesArgs extends com.pulumi.resources
          */
         public Builder valueType(String valueType) {
             return valueType(Output.of(valueType));
+        }
+
+        /**
+         * @param valuesEditableBy Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valuesEditableBy(@Nullable Output<String> valuesEditableBy) {
+            $.valuesEditableBy = valuesEditableBy;
+            return this;
+        }
+
+        /**
+         * @param valuesEditableBy Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valuesEditableBy(String valuesEditableBy) {
+            return valuesEditableBy(Output.of(valuesEditableBy));
         }
 
         public OrganizationCustomPropertiesArgs build() {

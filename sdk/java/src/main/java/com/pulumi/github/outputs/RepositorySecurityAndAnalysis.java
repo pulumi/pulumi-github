@@ -5,7 +5,10 @@ package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.github.outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
+import com.pulumi.github.outputs.RepositorySecurityAndAnalysisCodeSecurity;
 import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanning;
+import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection;
+import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns;
 import com.pulumi.github.outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,10 +22,25 @@ public final class RepositorySecurityAndAnalysis {
      */
     private @Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
     /**
+     * @return The code security configuration for the repository. See Code Security below for details.
+     * 
+     */
+    private @Nullable RepositorySecurityAndAnalysisCodeSecurity codeSecurity;
+    /**
      * @return The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
     private @Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning;
+    /**
+     * @return The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     * 
+     */
+    private @Nullable RepositorySecurityAndAnalysisSecretScanningAiDetection secretScanningAiDetection;
+    /**
+     * @return The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     * 
+     */
+    private @Nullable RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns secretScanningNonProviderPatterns;
     /**
      * @return The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      * 
@@ -38,11 +56,32 @@ public final class RepositorySecurityAndAnalysis {
         return Optional.ofNullable(this.advancedSecurity);
     }
     /**
+     * @return The code security configuration for the repository. See Code Security below for details.
+     * 
+     */
+    public Optional<RepositorySecurityAndAnalysisCodeSecurity> codeSecurity() {
+        return Optional.ofNullable(this.codeSecurity);
+    }
+    /**
      * @return The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
     public Optional<RepositorySecurityAndAnalysisSecretScanning> secretScanning() {
         return Optional.ofNullable(this.secretScanning);
+    }
+    /**
+     * @return The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     * 
+     */
+    public Optional<RepositorySecurityAndAnalysisSecretScanningAiDetection> secretScanningAiDetection() {
+        return Optional.ofNullable(this.secretScanningAiDetection);
+    }
+    /**
+     * @return The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     * 
+     */
+    public Optional<RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns> secretScanningNonProviderPatterns() {
+        return Optional.ofNullable(this.secretScanningNonProviderPatterns);
     }
     /**
      * @return The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
@@ -62,13 +101,19 @@ public final class RepositorySecurityAndAnalysis {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RepositorySecurityAndAnalysisAdvancedSecurity advancedSecurity;
+        private @Nullable RepositorySecurityAndAnalysisCodeSecurity codeSecurity;
         private @Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning;
+        private @Nullable RepositorySecurityAndAnalysisSecretScanningAiDetection secretScanningAiDetection;
+        private @Nullable RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns secretScanningNonProviderPatterns;
         private @Nullable RepositorySecurityAndAnalysisSecretScanningPushProtection secretScanningPushProtection;
         public Builder() {}
         public Builder(RepositorySecurityAndAnalysis defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.advancedSecurity = defaults.advancedSecurity;
+    	      this.codeSecurity = defaults.codeSecurity;
     	      this.secretScanning = defaults.secretScanning;
+    	      this.secretScanningAiDetection = defaults.secretScanningAiDetection;
+    	      this.secretScanningNonProviderPatterns = defaults.secretScanningNonProviderPatterns;
     	      this.secretScanningPushProtection = defaults.secretScanningPushProtection;
         }
 
@@ -79,9 +124,27 @@ public final class RepositorySecurityAndAnalysis {
             return this;
         }
         @CustomType.Setter
+        public Builder codeSecurity(@Nullable RepositorySecurityAndAnalysisCodeSecurity codeSecurity) {
+
+            this.codeSecurity = codeSecurity;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secretScanning(@Nullable RepositorySecurityAndAnalysisSecretScanning secretScanning) {
 
             this.secretScanning = secretScanning;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secretScanningAiDetection(@Nullable RepositorySecurityAndAnalysisSecretScanningAiDetection secretScanningAiDetection) {
+
+            this.secretScanningAiDetection = secretScanningAiDetection;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secretScanningNonProviderPatterns(@Nullable RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns secretScanningNonProviderPatterns) {
+
+            this.secretScanningNonProviderPatterns = secretScanningNonProviderPatterns;
             return this;
         }
         @CustomType.Setter
@@ -93,7 +156,10 @@ public final class RepositorySecurityAndAnalysis {
         public RepositorySecurityAndAnalysis build() {
             final var _resultValue = new RepositorySecurityAndAnalysis();
             _resultValue.advancedSecurity = advancedSecurity;
+            _resultValue.codeSecurity = codeSecurity;
             _resultValue.secretScanning = secretScanning;
+            _resultValue.secretScanningAiDetection = secretScanningAiDetection;
+            _resultValue.secretScanningNonProviderPatterns = secretScanningNonProviderPatterns;
             _resultValue.secretScanningPushProtection = secretScanningPushProtection;
             return _resultValue;
         }

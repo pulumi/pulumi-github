@@ -42,6 +42,30 @@ namespace Pulumi.Github
     /// });
     /// ```
     /// 
+    /// ### Allow Repository Actors To Edit
+    /// 
+    /// This example shows how to allow repository administrators to edit the property values:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var teamContact = new Github.OrganizationCustomProperties("team_contact", new()
+    ///     {
+    ///         PropertyName = "team_contact",
+    ///         ValueType = "string",
+    ///         Required = false,
+    ///         Description = "Contact information for the team managing this repository",
+    ///         ValuesEditableBy = "org_and_repo_actors",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Text Property
     /// 
     /// ```csharp
@@ -132,6 +156,12 @@ namespace Pulumi.Github
         [Output("valueType")]
         public Output<string?> ValueType { get; private set; } = null!;
 
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`. When set to `OrgActors` (the default), only organization owners can edit the property values on repositories. When set to `OrgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        /// </summary>
+        [Output("valuesEditableBy")]
+        public Output<string> ValuesEditableBy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationCustomProperties resource with the given unique name, arguments, and options.
@@ -220,6 +250,12 @@ namespace Pulumi.Github
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }
 
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`. When set to `OrgActors` (the default), only organization owners can edit the property values on repositories. When set to `OrgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        /// </summary>
+        [Input("valuesEditableBy")]
+        public Input<string>? ValuesEditableBy { get; set; }
+
         public OrganizationCustomPropertiesArgs()
         {
         }
@@ -269,6 +305,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }
+
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`. When set to `OrgActors` (the default), only organization owners can edit the property values on repositories. When set to `OrgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        /// </summary>
+        [Input("valuesEditableBy")]
+        public Input<string>? ValuesEditableBy { get; set; }
 
         public OrganizationCustomPropertiesState()
         {

@@ -68,6 +68,15 @@ import (
 //							pulumi.String("test"),
 //						},
 //					},
+//					RequiredCodeScanning: &github.RepositoryRulesetRulesRequiredCodeScanningArgs{
+//						RequiredCodeScanningTools: github.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{
+//							&github.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{
+//								AlertsThreshold:         pulumi.String("errors"),
+//								SecurityAlertsThreshold: pulumi.String("high_or_higher"),
+//								Tool:                    pulumi.String("CodeQL"),
+//							},
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -87,7 +96,7 @@ import (
 //						},
 //					},
 //					MaxFileSize: &github.RepositoryRulesetRulesMaxFileSizeArgs{
-//						MaxFileSize: pulumi.Int(104857600),
+//						MaxFileSize: pulumi.Int(100),
 //					},
 //					MaxFilePathLength: &github.RepositoryRulesetRulesMaxFilePathLengthArgs{
 //						MaxFilePathLength: pulumi.Int(255),
@@ -132,8 +141,8 @@ type RepositoryRuleset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (String) GraphQL global node id for use with v4 API.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
-	// (String) Name of the repository to apply rulset to.
-	Repository pulumi.StringPtrOutput `pulumi:"repository"`
+	// (String) Name of the repository to apply ruleset to.
+	Repository pulumi.StringOutput `pulumi:"repository"`
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRulesOutput `pulumi:"rules"`
 	// (Number) GitHub ID for the ruleset.
@@ -151,6 +160,9 @@ func NewRepositoryRuleset(ctx *pulumi.Context,
 
 	if args.Enforcement == nil {
 		return nil, errors.New("invalid value for required argument 'Enforcement'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
@@ -193,7 +205,7 @@ type repositoryRulesetState struct {
 	Name *string `pulumi:"name"`
 	// (String) GraphQL global node id for use with v4 API.
 	NodeId *string `pulumi:"nodeId"`
-	// (String) Name of the repository to apply rulset to.
+	// (String) Name of the repository to apply ruleset to.
 	Repository *string `pulumi:"repository"`
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules *RepositoryRulesetRules `pulumi:"rules"`
@@ -216,7 +228,7 @@ type RepositoryRulesetState struct {
 	Name pulumi.StringPtrInput
 	// (String) GraphQL global node id for use with v4 API.
 	NodeId pulumi.StringPtrInput
-	// (String) Name of the repository to apply rulset to.
+	// (String) Name of the repository to apply ruleset to.
 	Repository pulumi.StringPtrInput
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRulesPtrInput
@@ -239,8 +251,8 @@ type repositoryRulesetArgs struct {
 	Enforcement string `pulumi:"enforcement"`
 	// (String) The name of the ruleset.
 	Name *string `pulumi:"name"`
-	// (String) Name of the repository to apply rulset to.
-	Repository *string `pulumi:"repository"`
+	// (String) Name of the repository to apply ruleset to.
+	Repository string `pulumi:"repository"`
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRules `pulumi:"rules"`
 	// (String) Possible values are `branch`, `tag` and `push`.
@@ -257,8 +269,8 @@ type RepositoryRulesetArgs struct {
 	Enforcement pulumi.StringInput
 	// (String) The name of the ruleset.
 	Name pulumi.StringPtrInput
-	// (String) Name of the repository to apply rulset to.
-	Repository pulumi.StringPtrInput
+	// (String) Name of the repository to apply ruleset to.
+	Repository pulumi.StringInput
 	// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
 	Rules RepositoryRulesetRulesInput
 	// (String) Possible values are `branch`, `tag` and `push`.
@@ -382,9 +394,9 @@ func (o RepositoryRulesetOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryRuleset) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// (String) Name of the repository to apply rulset to.
-func (o RepositoryRulesetOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryRuleset) pulumi.StringPtrOutput { return v.Repository }).(pulumi.StringPtrOutput)
+// (String) Name of the repository to apply ruleset to.
+func (o RepositoryRulesetOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryRuleset) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
 // (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)

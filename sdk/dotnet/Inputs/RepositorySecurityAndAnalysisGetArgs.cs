@@ -19,10 +19,28 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.RepositorySecurityAndAnalysisAdvancedSecurityGetArgs>? AdvancedSecurity { get; set; }
 
         /// <summary>
+        /// The code security configuration for the repository. See Code Security below for details.
+        /// </summary>
+        [Input("codeSecurity")]
+        public Input<Inputs.RepositorySecurityAndAnalysisCodeSecurityGetArgs>? CodeSecurity { get; set; }
+
+        /// <summary>
         /// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         /// </summary>
         [Input("secretScanning")]
         public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningGetArgs>? SecretScanning { get; set; }
+
+        /// <summary>
+        /// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+        /// </summary>
+        [Input("secretScanningAiDetection")]
+        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningAiDetectionGetArgs>? SecretScanningAiDetection { get; set; }
+
+        /// <summary>
+        /// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+        /// </summary>
+        [Input("secretScanningNonProviderPatterns")]
+        public Input<Inputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsGetArgs>? SecretScanningNonProviderPatterns { get; set; }
 
         /// <summary>
         /// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.

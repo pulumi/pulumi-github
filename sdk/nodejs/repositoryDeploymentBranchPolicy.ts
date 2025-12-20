@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note:** This resource is deprecated, please use the `github.RepositoryEnvironmentDeploymentPolicy` resource instead.
+ *
  * This resource allows you to create and manage deployment branch policies.
  *
  * ## Example Usage
@@ -31,6 +33,8 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
+ *
+ * text
  *
  * ```sh
  * $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id

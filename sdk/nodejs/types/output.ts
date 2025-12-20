@@ -5,6 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionsHostedRunnerImage {
+    /**
+     * The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+     */
+    id: string;
+    /**
+     * The size of the image in gigabytes.
+     */
+    sizeGb: number;
+    /**
+     * The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+     */
+    source?: string;
+}
+
+export interface ActionsHostedRunnerMachineSizeDetail {
+    /**
+     * Number of CPU cores.
+     */
+    cpuCores: number;
+    /**
+     * Machine size identifier.
+     */
+    id: string;
+    /**
+     * Amount of memory in gigabytes.
+     */
+    memoryGb: number;
+    /**
+     * Amount of storage in gigabytes.
+     */
+    storageGb: number;
+}
+
+export interface ActionsHostedRunnerPublicIp {
+    /**
+     * Whether this IP range is enabled.
+     */
+    enabled: boolean;
+    /**
+     * Subnet length.
+     */
+    length: number;
+    /**
+     * IP address prefix.
+     */
+    prefix: string;
+}
+
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
     /**
      * Whether GitHub-owned actions are allowed in the organization.
@@ -867,6 +916,17 @@ export interface GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicy {
     name: string;
 }
 
+export interface GetRepositoryEnvironmentDeploymentPoliciesPolicy {
+    /**
+     * The pattern that branch or tag names must match in order to deploy to the environment.
+     */
+    pattern: string;
+    /**
+     * Type of the policy; this could be `branch` or `tag`.
+     */
+    type: string;
+}
+
 export interface GetRepositoryEnvironmentsEnvironment {
     /**
      * Environment name.
@@ -1248,7 +1308,7 @@ export interface OrganizationRulesetRules {
      */
     maxFilePathLength?: outputs.OrganizationRulesetRulesMaxFilePathLength;
     /**
-     * (Integer) The maximum allowed size, in bytes, of a file.
+     * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
     maxFileSize?: outputs.OrganizationRulesetRulesMaxFileSize;
     /**
@@ -1388,7 +1448,7 @@ export interface OrganizationRulesetRulesMaxFilePathLength {
 
 export interface OrganizationRulesetRulesMaxFileSize {
     /**
-     * The maximum allowed size of a file in bytes.
+     * The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      */
     maxFileSize: number;
 }
@@ -1698,7 +1758,7 @@ export interface RepositoryRulesetRules {
      */
     maxFilePathLength?: outputs.RepositoryRulesetRulesMaxFilePathLength;
     /**
-     * (Integer) The maximum allowed size, in bytes, of a file.
+     * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
     maxFileSize?: outputs.RepositoryRulesetRulesMaxFileSize;
     /**
@@ -1846,7 +1906,7 @@ export interface RepositoryRulesetRulesMaxFilePathLength {
 
 export interface RepositoryRulesetRulesMaxFileSize {
     /**
-     * The maximum allowed size of a file in bytes.
+     * The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      */
     maxFileSize: number;
 }
@@ -1985,9 +2045,21 @@ export interface RepositorySecurityAndAnalysis {
      */
     advancedSecurity?: outputs.RepositorySecurityAndAnalysisAdvancedSecurity;
     /**
+     * The code security configuration for the repository. See Code Security below for details.
+     */
+    codeSecurity?: outputs.RepositorySecurityAndAnalysisCodeSecurity;
+    /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      */
     secretScanning?: outputs.RepositorySecurityAndAnalysisSecretScanning;
+    /**
+     * The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     */
+    secretScanningAiDetection?: outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection;
+    /**
+     * The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     */
+    secretScanningNonProviderPatterns?: outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns;
     /**
      * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      */
@@ -2001,7 +2073,28 @@ export interface RepositorySecurityAndAnalysisAdvancedSecurity {
     status: string;
 }
 
+export interface RepositorySecurityAndAnalysisCodeSecurity {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: string;
+}
+
 export interface RepositorySecurityAndAnalysisSecretScanning {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: string;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningAiDetection {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: string;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
     /**
      * The GitHub Pages site's build status e.g. `building` or `built`.
      */

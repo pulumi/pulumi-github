@@ -50,10 +50,10 @@ namespace Pulumi.Github
     public partial class OrganizationRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The system role from which this role inherits permissions.
+        /// The system role from which this role inherits permissions; one of `None`, `Read`, `Triage`, `Write`, `Maintain`, or `Admin`. Defaults to `None`.
         /// </summary>
         [Output("baseRole")]
-        public Output<string> BaseRole { get; private set; } = null!;
+        public Output<string?> BaseRole { get; private set; } = null!;
 
         /// <summary>
         /// The description of the organization role.
@@ -68,7 +68,7 @@ namespace Pulumi.Github
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The permissions included in this role.
+        /// The permissions included in this role. Only organization permissions can be set if the `BaseRole` isn't set or is set to `None`.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<string>> Permissions { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Github
     public sealed class OrganizationRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The system role from which this role inherits permissions.
+        /// The system role from which this role inherits permissions; one of `None`, `Read`, `Triage`, `Write`, `Maintain`, or `Admin`. Defaults to `None`.
         /// </summary>
         [Input("baseRole")]
         public Input<string>? BaseRole { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Github
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// The permissions included in this role.
+        /// The permissions included in this role. Only organization permissions can be set if the `BaseRole` isn't set or is set to `None`.
         /// </summary>
         public InputList<string> Permissions
         {
@@ -164,7 +164,7 @@ namespace Pulumi.Github
     public sealed class OrganizationRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The system role from which this role inherits permissions.
+        /// The system role from which this role inherits permissions; one of `None`, `Read`, `Triage`, `Write`, `Maintain`, or `Admin`. Defaults to `None`.
         /// </summary>
         [Input("baseRole")]
         public Input<string>? BaseRole { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Github
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// The permissions included in this role.
+        /// The permissions included in this role. Only organization permissions can be set if the `BaseRole` isn't set or is set to `None`.
         /// </summary>
         public InputList<string> Permissions
         {

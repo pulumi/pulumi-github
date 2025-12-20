@@ -27,6 +27,7 @@ export function getOrganizationCustomProperties(args: GetOrganizationCustomPrope
         "propertyName": args.propertyName,
         "required": args.required,
         "valueType": args.valueType,
+        "valuesEditableBy": args.valuesEditableBy,
     }, opts);
 }
 
@@ -58,6 +59,10 @@ export interface GetOrganizationCustomPropertiesArgs {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
      */
     valueType?: string;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     */
+    valuesEditableBy?: string;
 }
 
 /**
@@ -92,6 +97,10 @@ export interface GetOrganizationCustomPropertiesResult {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
      */
     readonly valueType?: string;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     */
+    readonly valuesEditableBy: string;
 }
 /**
  * Use this data source to retrieve information about a GitHub organization custom property.
@@ -116,6 +125,7 @@ export function getOrganizationCustomPropertiesOutput(args: GetOrganizationCusto
         "propertyName": args.propertyName,
         "required": args.required,
         "valueType": args.valueType,
+        "valuesEditableBy": args.valuesEditableBy,
     }, opts);
 }
 
@@ -147,4 +157,8 @@ export interface GetOrganizationCustomPropertiesOutputArgs {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`.
      */
     valueType?: pulumi.Input<string>;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     */
+    valuesEditableBy?: pulumi.Input<string>;
 }

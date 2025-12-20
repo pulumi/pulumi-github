@@ -5,6 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionsHostedRunnerImage {
+    /**
+     * The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The size of the image in gigabytes.
+     */
+    sizeGb?: pulumi.Input<number>;
+    /**
+     * The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+     */
+    source?: pulumi.Input<string>;
+}
+
+export interface ActionsHostedRunnerMachineSizeDetail {
+    /**
+     * Number of CPU cores.
+     */
+    cpuCores?: pulumi.Input<number>;
+    /**
+     * Machine size identifier.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Amount of memory in gigabytes.
+     */
+    memoryGb?: pulumi.Input<number>;
+    /**
+     * Amount of storage in gigabytes.
+     */
+    storageGb?: pulumi.Input<number>;
+}
+
+export interface ActionsHostedRunnerPublicIp {
+    /**
+     * Whether this IP range is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Subnet length.
+     */
+    length?: pulumi.Input<number>;
+    /**
+     * IP address prefix.
+     */
+    prefix?: pulumi.Input<string>;
+}
+
 export interface ActionsOrganizationPermissionsAllowedActionsConfig {
     /**
      * Whether GitHub-owned actions are allowed in the organization.
@@ -342,7 +391,7 @@ export interface OrganizationRulesetRules {
      */
     maxFilePathLength?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFilePathLength>;
     /**
-     * (Integer) The maximum allowed size, in bytes, of a file.
+     * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
     maxFileSize?: pulumi.Input<inputs.OrganizationRulesetRulesMaxFileSize>;
     /**
@@ -482,7 +531,7 @@ export interface OrganizationRulesetRulesMaxFilePathLength {
 
 export interface OrganizationRulesetRulesMaxFileSize {
     /**
-     * The maximum allowed size of a file in bytes.
+     * The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      */
     maxFileSize: pulumi.Input<number>;
 }
@@ -807,7 +856,7 @@ export interface RepositoryRulesetRules {
      */
     maxFilePathLength?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFilePathLength>;
     /**
-     * (Integer) The maximum allowed size, in bytes, of a file.
+     * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      */
     maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize>;
     /**
@@ -955,7 +1004,7 @@ export interface RepositoryRulesetRulesMaxFilePathLength {
 
 export interface RepositoryRulesetRulesMaxFileSize {
     /**
-     * The maximum allowed size of a file in bytes.
+     * The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      */
     maxFileSize: pulumi.Input<number>;
 }
@@ -1094,9 +1143,21 @@ export interface RepositorySecurityAndAnalysis {
      */
     advancedSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisAdvancedSecurity>;
     /**
+     * The code security configuration for the repository. See Code Security below for details.
+     */
+    codeSecurity?: pulumi.Input<inputs.RepositorySecurityAndAnalysisCodeSecurity>;
+    /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      */
     secretScanning?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanning>;
+    /**
+     * The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     */
+    secretScanningAiDetection?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningAiDetection>;
+    /**
+     * The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     */
+    secretScanningNonProviderPatterns?: pulumi.Input<inputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns>;
     /**
      * The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
      */
@@ -1110,7 +1171,28 @@ export interface RepositorySecurityAndAnalysisAdvancedSecurity {
     status: pulumi.Input<string>;
 }
 
+export interface RepositorySecurityAndAnalysisCodeSecurity {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: pulumi.Input<string>;
+}
+
 export interface RepositorySecurityAndAnalysisSecretScanning {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningAiDetection {
+    /**
+     * The GitHub Pages site's build status e.g. `building` or `built`.
+     */
+    status: pulumi.Input<string>;
+}
+
+export interface RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns {
     /**
      * The GitHub Pages site's build status e.g. `building` or `built`.
      */

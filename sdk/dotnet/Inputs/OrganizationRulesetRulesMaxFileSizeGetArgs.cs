@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetRulesMaxFileSizeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum allowed size of a file in bytes.
+        /// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         /// </summary>
         [Input("maxFileSize", required: true)]
         public Input<int> MaxFileSize { get; set; } = null!;

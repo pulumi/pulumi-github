@@ -26,7 +26,7 @@ class GetOrganizationCustomPropertiesResult:
     """
     A collection of values returned by getOrganizationCustomProperties.
     """
-    def __init__(__self__, allowed_values=None, default_value=None, description=None, id=None, property_name=None, required=None, value_type=None):
+    def __init__(__self__, allowed_values=None, default_value=None, description=None, id=None, property_name=None, required=None, value_type=None, values_editable_by=None):
         if allowed_values and not isinstance(allowed_values, list):
             raise TypeError("Expected argument 'allowed_values' to be a list")
         pulumi.set(__self__, "allowed_values", allowed_values)
@@ -48,6 +48,9 @@ class GetOrganizationCustomPropertiesResult:
         if value_type and not isinstance(value_type, str):
             raise TypeError("Expected argument 'value_type' to be a str")
         pulumi.set(__self__, "value_type", value_type)
+        if values_editable_by and not isinstance(values_editable_by, str):
+            raise TypeError("Expected argument 'values_editable_by' to be a str")
+        pulumi.set(__self__, "values_editable_by", values_editable_by)
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
@@ -105,6 +108,14 @@ class GetOrganizationCustomPropertiesResult:
         """
         return pulumi.get(self, "value_type")
 
+    @_builtins.property
+    @pulumi.getter(name="valuesEditableBy")
+    def values_editable_by(self) -> _builtins.str:
+        """
+        Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`.
+        """
+        return pulumi.get(self, "values_editable_by")
+
 
 class AwaitableGetOrganizationCustomPropertiesResult(GetOrganizationCustomPropertiesResult):
     # pylint: disable=using-constant-test
@@ -118,7 +129,8 @@ class AwaitableGetOrganizationCustomPropertiesResult(GetOrganizationCustomProper
             id=self.id,
             property_name=self.property_name,
             required=self.required,
-            value_type=self.value_type)
+            value_type=self.value_type,
+            values_editable_by=self.values_editable_by)
 
 
 def get_organization_custom_properties(allowed_values: Optional[Sequence[_builtins.str]] = None,
@@ -127,6 +139,7 @@ def get_organization_custom_properties(allowed_values: Optional[Sequence[_builti
                                        property_name: Optional[_builtins.str] = None,
                                        required: Optional[_builtins.bool] = None,
                                        value_type: Optional[_builtins.str] = None,
+                                       values_editable_by: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationCustomPropertiesResult:
     """
     Use this data source to retrieve information about a GitHub organization custom property.
@@ -147,6 +160,7 @@ def get_organization_custom_properties(allowed_values: Optional[Sequence[_builti
     :param _builtins.str property_name: The name of the custom property to retrieve.
     :param _builtins.bool required: Whether the custom property is required.
     :param _builtins.str value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`.
+    :param _builtins.str values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`.
     """
     __args__ = dict()
     __args__['allowedValues'] = allowed_values
@@ -155,6 +169,7 @@ def get_organization_custom_properties(allowed_values: Optional[Sequence[_builti
     __args__['propertyName'] = property_name
     __args__['required'] = required
     __args__['valueType'] = value_type
+    __args__['valuesEditableBy'] = values_editable_by
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('github:index/getOrganizationCustomProperties:getOrganizationCustomProperties', __args__, opts=opts, typ=GetOrganizationCustomPropertiesResult).value
 
@@ -165,13 +180,15 @@ def get_organization_custom_properties(allowed_values: Optional[Sequence[_builti
         id=pulumi.get(__ret__, 'id'),
         property_name=pulumi.get(__ret__, 'property_name'),
         required=pulumi.get(__ret__, 'required'),
-        value_type=pulumi.get(__ret__, 'value_type'))
+        value_type=pulumi.get(__ret__, 'value_type'),
+        values_editable_by=pulumi.get(__ret__, 'values_editable_by'))
 def get_organization_custom_properties_output(allowed_values: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                                               default_value: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                               description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                               property_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               required: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                               value_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                              values_editable_by: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCustomPropertiesResult]:
     """
     Use this data source to retrieve information about a GitHub organization custom property.
@@ -192,6 +209,7 @@ def get_organization_custom_properties_output(allowed_values: Optional[pulumi.In
     :param _builtins.str property_name: The name of the custom property to retrieve.
     :param _builtins.bool required: Whether the custom property is required.
     :param _builtins.str value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`.
+    :param _builtins.str values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`.
     """
     __args__ = dict()
     __args__['allowedValues'] = allowed_values
@@ -200,6 +218,7 @@ def get_organization_custom_properties_output(allowed_values: Optional[pulumi.In
     __args__['propertyName'] = property_name
     __args__['required'] = required
     __args__['valueType'] = value_type
+    __args__['valuesEditableBy'] = values_editable_by
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('github:index/getOrganizationCustomProperties:getOrganizationCustomProperties', __args__, opts=opts, typ=GetOrganizationCustomPropertiesResult)
     return __ret__.apply(lambda __response__: GetOrganizationCustomPropertiesResult(
@@ -209,4 +228,5 @@ def get_organization_custom_properties_output(allowed_values: Optional[pulumi.In
         id=pulumi.get(__response__, 'id'),
         property_name=pulumi.get(__response__, 'property_name'),
         required=pulumi.get(__response__, 'required'),
-        value_type=pulumi.get(__response__, 'value_type')))
+        value_type=pulumi.get(__response__, 'value_type'),
+        values_editable_by=pulumi.get(__response__, 'values_editable_by')))

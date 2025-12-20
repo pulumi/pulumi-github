@@ -29,6 +29,23 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Allow Repository Actors To Edit
+ *
+ * This example shows how to allow repository administrators to edit the property values:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const teamContact = new github.OrganizationCustomProperties("team_contact", {
+ *     propertyName: "team_contact",
+ *     valueType: "string",
+ *     required: false,
+ *     description: "Contact information for the team managing this repository",
+ *     valuesEditableBy: "org_and_repo_actors",
+ * });
+ * ```
+ *
  * ### Text Property
  *
  * ```typescript
@@ -118,6 +135,10 @@ export class OrganizationCustomProperties extends pulumi.CustomResource {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
      */
     declare public readonly valueType: pulumi.Output<string | undefined>;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     */
+    declare public readonly valuesEditableBy: pulumi.Output<string>;
 
     /**
      * Create a OrganizationCustomProperties resource with the given unique name, arguments, and options.
@@ -138,6 +159,7 @@ export class OrganizationCustomProperties extends pulumi.CustomResource {
             resourceInputs["propertyName"] = state?.propertyName;
             resourceInputs["required"] = state?.required;
             resourceInputs["valueType"] = state?.valueType;
+            resourceInputs["valuesEditableBy"] = state?.valuesEditableBy;
         } else {
             const args = argsOrState as OrganizationCustomPropertiesArgs | undefined;
             if (args?.propertyName === undefined && !opts.urn) {
@@ -149,6 +171,7 @@ export class OrganizationCustomProperties extends pulumi.CustomResource {
             resourceInputs["propertyName"] = args?.propertyName;
             resourceInputs["required"] = args?.required;
             resourceInputs["valueType"] = args?.valueType;
+            resourceInputs["valuesEditableBy"] = args?.valuesEditableBy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationCustomProperties.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +206,10 @@ export interface OrganizationCustomPropertiesState {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
      */
     valueType?: pulumi.Input<string>;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     */
+    valuesEditableBy?: pulumi.Input<string>;
 }
 
 /**
@@ -213,4 +240,8 @@ export interface OrganizationCustomPropertiesArgs {
      * The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
      */
     valueType?: pulumi.Input<string>;
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     */
+    valuesEditableBy?: pulumi.Input<string>;
 }

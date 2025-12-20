@@ -6,7 +6,10 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.RepositorySecurityAndAnalysisAdvancedSecurityArgs;
+import com.pulumi.github.inputs.RepositorySecurityAndAnalysisCodeSecurityArgs;
+import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs;
 import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningArgs;
+import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs;
 import com.pulumi.github.inputs.RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,6 +36,21 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
     }
 
     /**
+     * The code security configuration for the repository. See Code Security below for details.
+     * 
+     */
+    @Import(name="codeSecurity")
+    private @Nullable Output<RepositorySecurityAndAnalysisCodeSecurityArgs> codeSecurity;
+
+    /**
+     * @return The code security configuration for the repository. See Code Security below for details.
+     * 
+     */
+    public Optional<Output<RepositorySecurityAndAnalysisCodeSecurityArgs>> codeSecurity() {
+        return Optional.ofNullable(this.codeSecurity);
+    }
+
+    /**
      * The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
      * 
      */
@@ -45,6 +63,36 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
      */
     public Optional<Output<RepositorySecurityAndAnalysisSecretScanningArgs>> secretScanning() {
         return Optional.ofNullable(this.secretScanning);
+    }
+
+    /**
+     * The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     * 
+     */
+    @Import(name="secretScanningAiDetection")
+    private @Nullable Output<RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs> secretScanningAiDetection;
+
+    /**
+     * @return The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+     * 
+     */
+    public Optional<Output<RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs>> secretScanningAiDetection() {
+        return Optional.ofNullable(this.secretScanningAiDetection);
+    }
+
+    /**
+     * The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     * 
+     */
+    @Import(name="secretScanningNonProviderPatterns")
+    private @Nullable Output<RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs> secretScanningNonProviderPatterns;
+
+    /**
+     * @return The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+     * 
+     */
+    public Optional<Output<RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs>> secretScanningNonProviderPatterns() {
+        return Optional.ofNullable(this.secretScanningNonProviderPatterns);
     }
 
     /**
@@ -66,7 +114,10 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
 
     private RepositorySecurityAndAnalysisArgs(RepositorySecurityAndAnalysisArgs $) {
         this.advancedSecurity = $.advancedSecurity;
+        this.codeSecurity = $.codeSecurity;
         this.secretScanning = $.secretScanning;
+        this.secretScanningAiDetection = $.secretScanningAiDetection;
+        this.secretScanningNonProviderPatterns = $.secretScanningNonProviderPatterns;
         this.secretScanningPushProtection = $.secretScanningPushProtection;
     }
 
@@ -110,6 +161,27 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
         }
 
         /**
+         * @param codeSecurity The code security configuration for the repository. See Code Security below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeSecurity(@Nullable Output<RepositorySecurityAndAnalysisCodeSecurityArgs> codeSecurity) {
+            $.codeSecurity = codeSecurity;
+            return this;
+        }
+
+        /**
+         * @param codeSecurity The code security configuration for the repository. See Code Security below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeSecurity(RepositorySecurityAndAnalysisCodeSecurityArgs codeSecurity) {
+            return codeSecurity(Output.of(codeSecurity));
+        }
+
+        /**
          * @param secretScanning The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
          * 
          * @return builder
@@ -128,6 +200,48 @@ public final class RepositorySecurityAndAnalysisArgs extends com.pulumi.resource
          */
         public Builder secretScanning(RepositorySecurityAndAnalysisSecretScanningArgs secretScanning) {
             return secretScanning(Output.of(secretScanning));
+        }
+
+        /**
+         * @param secretScanningAiDetection The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretScanningAiDetection(@Nullable Output<RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs> secretScanningAiDetection) {
+            $.secretScanningAiDetection = secretScanningAiDetection;
+            return this;
+        }
+
+        /**
+         * @param secretScanningAiDetection The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretScanningAiDetection(RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs secretScanningAiDetection) {
+            return secretScanningAiDetection(Output.of(secretScanningAiDetection));
+        }
+
+        /**
+         * @param secretScanningNonProviderPatterns The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretScanningNonProviderPatterns(@Nullable Output<RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs> secretScanningNonProviderPatterns) {
+            $.secretScanningNonProviderPatterns = secretScanningNonProviderPatterns;
+            return this;
+        }
+
+        /**
+         * @param secretScanningNonProviderPatterns The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretScanningNonProviderPatterns(RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs secretScanningNonProviderPatterns) {
+            return secretScanningNonProviderPatterns(Output.of(secretScanningNonProviderPatterns));
         }
 
         /**

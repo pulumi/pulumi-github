@@ -12,6 +12,8 @@ namespace Pulumi.Github
     public static class GetOrganizationSecurityManagers
     {
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+        /// 
         /// Use this data source to retrieve the security managers for an organization.
         /// 
         /// ## Example Usage
@@ -33,6 +35,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationSecurityManagersResult>("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+        /// 
         /// Use this data source to retrieve the security managers for an organization.
         /// 
         /// ## Example Usage
@@ -54,6 +58,8 @@ namespace Pulumi.Github
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationSecurityManagersResult>("github:index/getOrganizationSecurityManagers:getOrganizationSecurityManagers", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+        /// 
         /// Use this data source to retrieve the security managers for an organization.
         /// 
         /// ## Example Usage
