@@ -6,11 +6,11 @@ Subject: [PATCH] Work around
 
 
 diff --git a/github/migrate_github_branch_protection.go b/github/migrate_github_branch_protection.go
-index 2eccae49..42dcc1f2 100644
+index 09808970..0dd0ff6c 100644
 --- a/github/migrate_github_branch_protection.go
 +++ b/github/migrate_github_branch_protection.go
 @@ -64,7 +64,9 @@ func resourceGithubBranchProtectionUpgradeV1(_ context.Context, rawState map[str
- 	var blocksCreations bool = false
+ 	blocksCreations := false
  
  	if v, ok := rawState["blocks_creations"]; ok {
 -		blocksCreations = v.(bool)

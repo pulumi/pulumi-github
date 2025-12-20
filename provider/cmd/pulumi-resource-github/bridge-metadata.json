@@ -9,6 +9,21 @@
                 "current": "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable",
                 "majorVersion": 6
             },
+            "github_actions_hosted_runner": {
+                "current": "github:index/actionsHostedRunner:ActionsHostedRunner",
+                "majorVersion": 6,
+                "fields": {
+                    "image": {
+                        "maxItemsOne": true
+                    },
+                    "machine_size_details": {
+                        "maxItemsOne": false
+                    },
+                    "public_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "github_actions_organization_oidc_subject_claim_customization_template": {
                 "current": "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate",
                 "majorVersion": 6,
@@ -349,6 +364,10 @@
                     }
                 }
             },
+            "github_enterprise_actions_workflow_permissions": {
+                "current": "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions",
+                "majorVersion": 6
+            },
             "github_enterprise_organization": {
                 "current": "github:index/enterpriseOrganization:EnterpriseOrganization",
                 "majorVersion": 6,
@@ -357,6 +376,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "github_enterprise_security_analysis_settings": {
+                "current": "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings",
+                "majorVersion": 6
             },
             "github_issue": {
                 "current": "github:index/issue:Issue",
@@ -622,7 +645,16 @@
                                 "advanced_security": {
                                     "maxItemsOne": true
                                 },
+                                "code_security": {
+                                    "maxItemsOne": true
+                                },
                                 "secret_scanning": {
+                                    "maxItemsOne": true
+                                },
+                                "secret_scanning_ai_detection": {
+                                    "maxItemsOne": true
+                                },
+                                "secret_scanning_non_provider_patterns": {
                                     "maxItemsOne": true
                                 },
                                 "secret_scanning_push_protection": {
@@ -1507,6 +1539,15 @@
                 "majorVersion": 6,
                 "fields": {
                     "deployment_branch_policies": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_repository_environment_deployment_policies": {
+                "current": "github:index/getRepositoryEnvironmentDeploymentPolicies:getRepositoryEnvironmentDeploymentPolicies",
+                "majorVersion": 6,
+                "fields": {
+                    "policies": {
                         "maxItemsOne": false
                     }
                 }
