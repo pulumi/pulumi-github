@@ -76,6 +76,18 @@ namespace Pulumi.Github
     ///                     },
     ///                 },
     ///             },
+    ///             RequiredCodeScanning = new Github.Inputs.OrganizationRulesetRulesRequiredCodeScanningArgs
+    ///             {
+    ///                 RequiredCodeScanningTools = new[]
+    ///                 {
+    ///                     new Github.Inputs.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs
+    ///                     {
+    ///                         AlertsThreshold = "errors",
+    ///                         SecurityAlertsThreshold = "high_or_higher",
+    ///                         Tool = "CodeQL",
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -116,7 +128,7 @@ namespace Pulumi.Github
     ///             },
     ///             MaxFileSize = new Github.Inputs.OrganizationRulesetRulesMaxFileSizeArgs
     ///             {
-    ///                 MaxFileSize = 104857600,
+    ///                 MaxFileSize = 100,
     ///             },
     ///             MaxFilePathLength = new Github.Inputs.OrganizationRulesetRulesMaxFilePathLengthArgs
     ///             {

@@ -129,6 +129,12 @@ namespace Pulumi.Github
         [Input("valueType")]
         public string? ValueType { get; set; }
 
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`.
+        /// </summary>
+        [Input("valuesEditableBy")]
+        public string? ValuesEditableBy { get; set; }
+
         public GetOrganizationCustomPropertiesArgs()
         {
         }
@@ -179,6 +185,12 @@ namespace Pulumi.Github
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }
 
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`.
+        /// </summary>
+        [Input("valuesEditableBy")]
+        public Input<string>? ValuesEditableBy { get; set; }
+
         public GetOrganizationCustomPropertiesInvokeArgs()
         {
         }
@@ -217,6 +229,10 @@ namespace Pulumi.Github
         /// The type of the custom property. Can be one of `String`, `SingleSelect`, `MultiSelect`, or `TrueFalse`.
         /// </summary>
         public readonly string? ValueType;
+        /// <summary>
+        /// Who can edit the values of the custom property. Can be one of `OrgActors` or `OrgAndRepoActors`.
+        /// </summary>
+        public readonly string ValuesEditableBy;
 
         [OutputConstructor]
         private GetOrganizationCustomPropertiesResult(
@@ -232,7 +248,9 @@ namespace Pulumi.Github
 
             bool? required,
 
-            string? valueType)
+            string? valueType,
+
+            string valuesEditableBy)
         {
             AllowedValues = allowedValues;
             DefaultValue = defaultValue;
@@ -241,6 +259,7 @@ namespace Pulumi.Github
             PropertyName = propertyName;
             Required = required;
             ValueType = valueType;
+            ValuesEditableBy = valuesEditableBy;
         }
     }
 }

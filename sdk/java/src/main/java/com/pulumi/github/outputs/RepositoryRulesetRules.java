@@ -71,7 +71,7 @@ public final class RepositoryRulesetRules {
      */
     private @Nullable RepositoryRulesetRulesMaxFilePathLength maxFilePathLength;
     /**
-     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * @return (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     private @Nullable RepositoryRulesetRulesMaxFileSize maxFileSize;
@@ -196,7 +196,7 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.maxFilePathLength);
     }
     /**
-     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * @return (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     public Optional<RepositoryRulesetRulesMaxFileSize> maxFileSize() {

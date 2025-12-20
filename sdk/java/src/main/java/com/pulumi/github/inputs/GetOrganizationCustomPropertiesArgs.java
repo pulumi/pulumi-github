@@ -108,6 +108,21 @@ public final class GetOrganizationCustomPropertiesArgs extends com.pulumi.resour
         return Optional.ofNullable(this.valueType);
     }
 
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    @Import(name="valuesEditableBy")
+    private @Nullable Output<String> valuesEditableBy;
+
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    public Optional<Output<String>> valuesEditableBy() {
+        return Optional.ofNullable(this.valuesEditableBy);
+    }
+
     private GetOrganizationCustomPropertiesArgs() {}
 
     private GetOrganizationCustomPropertiesArgs(GetOrganizationCustomPropertiesArgs $) {
@@ -117,6 +132,7 @@ public final class GetOrganizationCustomPropertiesArgs extends com.pulumi.resour
         this.propertyName = $.propertyName;
         this.required = $.required;
         this.valueType = $.valueType;
+        this.valuesEditableBy = $.valuesEditableBy;
     }
 
     public static Builder builder() {
@@ -271,6 +287,27 @@ public final class GetOrganizationCustomPropertiesArgs extends com.pulumi.resour
          */
         public Builder valueType(String valueType) {
             return valueType(Output.of(valueType));
+        }
+
+        /**
+         * @param valuesEditableBy Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valuesEditableBy(@Nullable Output<String> valuesEditableBy) {
+            $.valuesEditableBy = valuesEditableBy;
+            return this;
+        }
+
+        /**
+         * @param valuesEditableBy Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valuesEditableBy(String valuesEditableBy) {
+            return valuesEditableBy(Output.of(valuesEditableBy));
         }
 
         public GetOrganizationCustomPropertiesArgs build() {

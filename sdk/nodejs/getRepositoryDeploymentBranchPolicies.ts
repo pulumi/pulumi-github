@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+ *
  * Use this data source to retrieve deployment branch policies for a repository / environment.
  *
  * ## Example Usage
@@ -59,6 +61,8 @@ export interface GetRepositoryDeploymentBranchPoliciesResult {
     readonly repository: string;
 }
 /**
+ * > **Note:** This data source is deprecated, please use the `github.getRepositoryEnvironmentDeploymentPolicies` data source instead.
+ *
  * Use this data source to retrieve deployment branch policies for a repository / environment.
  *
  * ## Example Usage

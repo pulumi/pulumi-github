@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetRulesMaxFileSize
     {
         /// <summary>
-        /// The maximum allowed size of a file in bytes.
+        /// The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         /// </summary>
         public readonly int MaxFileSize;
 

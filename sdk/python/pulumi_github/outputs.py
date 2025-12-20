@@ -16,6 +16,9 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'ActionsHostedRunnerImage',
+    'ActionsHostedRunnerMachineSizeDetail',
+    'ActionsHostedRunnerPublicIp',
     'ActionsOrganizationPermissionsAllowedActionsConfig',
     'ActionsOrganizationPermissionsEnabledRepositoriesConfig',
     'ActionsRepositoryPermissionsAllowedActionsConfig',
@@ -80,7 +83,10 @@ __all__ = [
     'RepositoryRulesetRulesTagNamePattern',
     'RepositorySecurityAndAnalysis',
     'RepositorySecurityAndAnalysisAdvancedSecurity',
+    'RepositorySecurityAndAnalysisCodeSecurity',
     'RepositorySecurityAndAnalysisSecretScanning',
+    'RepositorySecurityAndAnalysisSecretScanningAiDetection',
+    'RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns',
     'RepositorySecurityAndAnalysisSecretScanningPushProtection',
     'RepositoryTemplate',
     'RepositoryWebhookConfiguration',
@@ -118,6 +124,7 @@ __all__ = [
     'GetRepositoryCustomPropertiesPropertyResult',
     'GetRepositoryDeployKeysKeyResult',
     'GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult',
+    'GetRepositoryEnvironmentDeploymentPoliciesPolicyResult',
     'GetRepositoryEnvironmentsEnvironmentResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
@@ -130,6 +137,184 @@ __all__ = [
     'GetTeamRepositoriesDetailedResult',
     'GetTreeEntryResult',
 ]
+
+@pulumi.output_type
+class ActionsHostedRunnerImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeGb":
+            suggest = "size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsHostedRunnerImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsHostedRunnerImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsHostedRunnerImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 size_gb: Optional[_builtins.int] = None,
+                 source: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+        :param _builtins.int size_gb: The size of the image in gigabytes.
+        :param _builtins.str source: The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+        """
+        pulumi.set(__self__, "id", id)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeGb")
+    def size_gb(self) -> Optional[_builtins.int]:
+        """
+        The size of the image in gigabytes.
+        """
+        return pulumi.get(self, "size_gb")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        """
+        The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ActionsHostedRunnerMachineSizeDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuCores":
+            suggest = "cpu_cores"
+        elif key == "memoryGb":
+            suggest = "memory_gb"
+        elif key == "storageGb":
+            suggest = "storage_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionsHostedRunnerMachineSizeDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionsHostedRunnerMachineSizeDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionsHostedRunnerMachineSizeDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_cores: Optional[_builtins.int] = None,
+                 id: Optional[_builtins.str] = None,
+                 memory_gb: Optional[_builtins.int] = None,
+                 storage_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int cpu_cores: Number of CPU cores.
+        :param _builtins.str id: Machine size identifier.
+        :param _builtins.int memory_gb: Amount of memory in gigabytes.
+        :param _builtins.int storage_gb: Amount of storage in gigabytes.
+        """
+        if cpu_cores is not None:
+            pulumi.set(__self__, "cpu_cores", cpu_cores)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if memory_gb is not None:
+            pulumi.set(__self__, "memory_gb", memory_gb)
+        if storage_gb is not None:
+            pulumi.set(__self__, "storage_gb", storage_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="cpuCores")
+    def cpu_cores(self) -> Optional[_builtins.int]:
+        """
+        Number of CPU cores.
+        """
+        return pulumi.get(self, "cpu_cores")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Machine size identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryGb")
+    def memory_gb(self) -> Optional[_builtins.int]:
+        """
+        Amount of memory in gigabytes.
+        """
+        return pulumi.get(self, "memory_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="storageGb")
+    def storage_gb(self) -> Optional[_builtins.int]:
+        """
+        Amount of storage in gigabytes.
+        """
+        return pulumi.get(self, "storage_gb")
+
+
+@pulumi.output_type
+class ActionsHostedRunnerPublicIp(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 length: Optional[_builtins.int] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Whether this IP range is enabled.
+        :param _builtins.int length: Subnet length.
+        :param _builtins.str prefix: IP address prefix.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether this IP range is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def length(self) -> Optional[_builtins.int]:
+        """
+        Subnet length.
+        """
+        return pulumi.get(self, "length")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        IP address prefix.
+        """
+        return pulumi.get(self, "prefix")
+
 
 @pulumi.output_type
 class ActionsOrganizationPermissionsAllowedActionsConfig(dict):
@@ -1263,7 +1448,7 @@ class OrganizationRulesetRules(dict):
         :param 'OrganizationRulesetRulesFileExtensionRestrictionArgs' file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         :param 'OrganizationRulesetRulesFilePathRestrictionArgs' file_path_restriction: (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         :param 'OrganizationRulesetRulesMaxFilePathLengthArgs' max_file_path_length: (Integer) The maximum number of characters allowed in file paths.
-        :param 'OrganizationRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in bytes, of a file.
+        :param 'OrganizationRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         :param _builtins.bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'OrganizationRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         :param 'OrganizationRulesetRulesRequiredCodeScanningArgs' required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
@@ -1389,7 +1574,7 @@ class OrganizationRulesetRules(dict):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional['outputs.OrganizationRulesetRulesMaxFileSize']:
         """
-        (Integer) The maximum allowed size, in bytes, of a file.
+        (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
@@ -1805,7 +1990,7 @@ class OrganizationRulesetRulesMaxFileSize(dict):
     def __init__(__self__, *,
                  max_file_size: _builtins.int):
         """
-        :param _builtins.int max_file_size: The maximum allowed size of a file in bytes.
+        :param _builtins.int max_file_size: The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         """
         pulumi.set(__self__, "max_file_size", max_file_size)
 
@@ -1813,7 +1998,7 @@ class OrganizationRulesetRulesMaxFileSize(dict):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> _builtins.int:
         """
-        The maximum allowed size of a file in bytes.
+        The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
@@ -2903,7 +3088,7 @@ class RepositoryRulesetRules(dict):
         :param 'RepositoryRulesetRulesFileExtensionRestrictionArgs' file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
         :param 'RepositoryRulesetRulesFilePathRestrictionArgs' file_path_restriction: (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
         :param 'RepositoryRulesetRulesMaxFilePathLengthArgs' max_file_path_length: (Integer) The maximum number of characters allowed in file paths.
-        :param 'RepositoryRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in bytes, of a file.
+        :param 'RepositoryRulesetRulesMaxFileSizeArgs' max_file_size: (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         :param 'RepositoryRulesetRulesMergeQueueArgs' merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue.
         :param _builtins.bool non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param 'RepositoryRulesetRulesPullRequestArgs' pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
@@ -3035,7 +3220,7 @@ class RepositoryRulesetRules(dict):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional['outputs.RepositoryRulesetRulesMaxFileSize']:
         """
-        (Integer) The maximum allowed size, in bytes, of a file.
+        (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
@@ -3467,7 +3652,7 @@ class RepositoryRulesetRulesMaxFileSize(dict):
     def __init__(__self__, *,
                  max_file_size: _builtins.int):
         """
-        :param _builtins.int max_file_size: The maximum allowed size of a file in bytes.
+        :param _builtins.int max_file_size: The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         """
         pulumi.set(__self__, "max_file_size", max_file_size)
 
@@ -3475,7 +3660,7 @@ class RepositoryRulesetRulesMaxFileSize(dict):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> _builtins.int:
         """
-        The maximum allowed size of a file in bytes.
+        The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
         """
         return pulumi.get(self, "max_file_size")
 
@@ -3991,8 +4176,14 @@ class RepositorySecurityAndAnalysis(dict):
         suggest = None
         if key == "advancedSecurity":
             suggest = "advanced_security"
+        elif key == "codeSecurity":
+            suggest = "code_security"
         elif key == "secretScanning":
             suggest = "secret_scanning"
+        elif key == "secretScanningAiDetection":
+            suggest = "secret_scanning_ai_detection"
+        elif key == "secretScanningNonProviderPatterns":
+            suggest = "secret_scanning_non_provider_patterns"
         elif key == "secretScanningPushProtection":
             suggest = "secret_scanning_push_protection"
 
@@ -4009,17 +4200,29 @@ class RepositorySecurityAndAnalysis(dict):
 
     def __init__(__self__, *,
                  advanced_security: Optional['outputs.RepositorySecurityAndAnalysisAdvancedSecurity'] = None,
+                 code_security: Optional['outputs.RepositorySecurityAndAnalysisCodeSecurity'] = None,
                  secret_scanning: Optional['outputs.RepositorySecurityAndAnalysisSecretScanning'] = None,
+                 secret_scanning_ai_detection: Optional['outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection'] = None,
+                 secret_scanning_non_provider_patterns: Optional['outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns'] = None,
                  secret_scanning_push_protection: Optional['outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection'] = None):
         """
         :param 'RepositorySecurityAndAnalysisAdvancedSecurityArgs' advanced_security: The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+        :param 'RepositorySecurityAndAnalysisCodeSecurityArgs' code_security: The code security configuration for the repository. See Code Security below for details.
         :param 'RepositorySecurityAndAnalysisSecretScanningArgs' secret_scanning: The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+        :param 'RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs' secret_scanning_ai_detection: The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+        :param 'RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs' secret_scanning_non_provider_patterns: The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
         :param 'RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs' secret_scanning_push_protection: The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         """
         if advanced_security is not None:
             pulumi.set(__self__, "advanced_security", advanced_security)
+        if code_security is not None:
+            pulumi.set(__self__, "code_security", code_security)
         if secret_scanning is not None:
             pulumi.set(__self__, "secret_scanning", secret_scanning)
+        if secret_scanning_ai_detection is not None:
+            pulumi.set(__self__, "secret_scanning_ai_detection", secret_scanning_ai_detection)
+        if secret_scanning_non_provider_patterns is not None:
+            pulumi.set(__self__, "secret_scanning_non_provider_patterns", secret_scanning_non_provider_patterns)
         if secret_scanning_push_protection is not None:
             pulumi.set(__self__, "secret_scanning_push_protection", secret_scanning_push_protection)
 
@@ -4032,12 +4235,36 @@ class RepositorySecurityAndAnalysis(dict):
         return pulumi.get(self, "advanced_security")
 
     @_builtins.property
+    @pulumi.getter(name="codeSecurity")
+    def code_security(self) -> Optional['outputs.RepositorySecurityAndAnalysisCodeSecurity']:
+        """
+        The code security configuration for the repository. See Code Security below for details.
+        """
+        return pulumi.get(self, "code_security")
+
+    @_builtins.property
     @pulumi.getter(name="secretScanning")
     def secret_scanning(self) -> Optional['outputs.RepositorySecurityAndAnalysisSecretScanning']:
         """
         The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         """
         return pulumi.get(self, "secret_scanning")
+
+    @_builtins.property
+    @pulumi.getter(name="secretScanningAiDetection")
+    def secret_scanning_ai_detection(self) -> Optional['outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection']:
+        """
+        The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+        """
+        return pulumi.get(self, "secret_scanning_ai_detection")
+
+    @_builtins.property
+    @pulumi.getter(name="secretScanningNonProviderPatterns")
+    def secret_scanning_non_provider_patterns(self) -> Optional['outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns']:
+        """
+        The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+        """
+        return pulumi.get(self, "secret_scanning_non_provider_patterns")
 
     @_builtins.property
     @pulumi.getter(name="secretScanningPushProtection")
@@ -4067,7 +4294,61 @@ class RepositorySecurityAndAnalysisAdvancedSecurity(dict):
 
 
 @pulumi.output_type
+class RepositorySecurityAndAnalysisCodeSecurity(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class RepositorySecurityAndAnalysisSecretScanning(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanningAiDetection(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The GitHub Pages site's build status e.g. `building` or `built`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
         """
@@ -6113,6 +6394,35 @@ class GetRepositoryDeploymentBranchPoliciesDeploymentBranchPolicyResult(dict):
         The name pattern that branches must match in order to deploy to the environment.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRepositoryEnvironmentDeploymentPoliciesPolicyResult(dict):
+    def __init__(__self__, *,
+                 pattern: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str pattern: The pattern that branch or tag names must match in order to deploy to the environment.
+        :param _builtins.str type: Type of the policy; this could be `branch` or `tag`.
+        """
+        pulumi.set(__self__, "pattern", pattern)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> _builtins.str:
+        """
+        The pattern that branch or tag names must match in order to deploy to the environment.
+        """
+        return pulumi.get(self, "pattern")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of the policy; this could be `branch` or `tag`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

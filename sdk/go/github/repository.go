@@ -100,7 +100,7 @@ import (
 //			_, err := github.NewRepository(ctx, "forked_repo", &github.RepositoryArgs{
 //				Name:        pulumi.String("forked-repository"),
 //				Description: pulumi.String("This is a fork of another repository"),
-//				Fork:        pulumi.Bool(true),
+//				Fork:        pulumi.String("true"),
 //				SourceOwner: pulumi.String("some-org"),
 //				SourceRepo:  pulumi.String("original-repository"),
 //			})
@@ -151,7 +151,7 @@ type Repository struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Etag        pulumi.StringOutput    `pulumi:"etag"`
 	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-	Fork pulumi.BoolPtrOutput `pulumi:"fork"`
+	Fork pulumi.StringOutput `pulumi:"fork"`
 	// A string of the form "orgname/reponame".
 	FullName pulumi.StringOutput `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -204,9 +204,9 @@ type Repository struct {
 	// The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
 	SecurityAndAnalysis RepositorySecurityAndAnalysisOutput `pulumi:"securityAndAnalysis"`
 	// The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
-	SourceOwner pulumi.StringPtrOutput `pulumi:"sourceOwner"`
+	SourceOwner pulumi.StringOutput `pulumi:"sourceOwner"`
 	// The name of the repository to fork. Required when `fork` is `true`.
-	SourceRepo pulumi.StringPtrOutput `pulumi:"sourceRepo"`
+	SourceRepo pulumi.StringOutput `pulumi:"sourceRepo"`
 	// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
 	SquashMergeCommitMessage pulumi.StringPtrOutput `pulumi:"squashMergeCommitMessage"`
 	// Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allowSquashMerge` is `true`.
@@ -285,7 +285,7 @@ type repositoryState struct {
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
 	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-	Fork *bool `pulumi:"fork"`
+	Fork *string `pulumi:"fork"`
 	// A string of the form "orgname/reponame".
 	FullName *string `pulumi:"fullName"`
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -390,7 +390,7 @@ type RepositoryState struct {
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
 	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-	Fork pulumi.BoolPtrInput
+	Fork pulumi.StringPtrInput
 	// A string of the form "orgname/reponame".
 	FullName pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
@@ -499,7 +499,7 @@ type repositoryArgs struct {
 	Description *string `pulumi:"description"`
 	Etag        *string `pulumi:"etag"`
 	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-	Fork *bool `pulumi:"fork"`
+	Fork *string `pulumi:"fork"`
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
@@ -587,7 +587,7 @@ type RepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	Etag        pulumi.StringPtrInput
 	// Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-	Fork pulumi.BoolPtrInput
+	Fork pulumi.StringPtrInput
 	// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
 	GitignoreTemplate pulumi.StringPtrInput
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
@@ -796,8 +796,8 @@ func (o RepositoryOutput) Etag() pulumi.StringOutput {
 }
 
 // Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
-func (o RepositoryOutput) Fork() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.Fork }).(pulumi.BoolPtrOutput)
+func (o RepositoryOutput) Fork() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Fork }).(pulumi.StringOutput)
 }
 
 // A string of the form "orgname/reponame".
@@ -921,13 +921,13 @@ func (o RepositoryOutput) SecurityAndAnalysis() RepositorySecurityAndAnalysisOut
 }
 
 // The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
-func (o RepositoryOutput) SourceOwner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SourceOwner }).(pulumi.StringPtrOutput)
+func (o RepositoryOutput) SourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.SourceOwner }).(pulumi.StringOutput)
 }
 
 // The name of the repository to fork. Required when `fork` is `true`.
-func (o RepositoryOutput) SourceRepo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.SourceRepo }).(pulumi.StringPtrOutput)
+func (o RepositoryOutput) SourceRepo() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.SourceRepo }).(pulumi.StringOutput)
 }
 
 // Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.

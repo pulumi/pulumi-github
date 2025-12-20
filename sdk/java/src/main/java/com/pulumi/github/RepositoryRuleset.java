@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.RepositoryRulesetBypassActorArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredDeploymentsArgs;
+ * import com.pulumi.github.inputs.RepositoryRulesetRulesRequiredCodeScanningArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFileSizeArgs;
  * import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFilePathLengthArgs;
@@ -89,6 +90,13 @@ import javax.annotation.Nullable;
  *                 .requiredDeployments(RepositoryRulesetRulesRequiredDeploymentsArgs.builder()
  *                     .requiredDeploymentEnvironments("test")
  *                     .build())
+ *                 .requiredCodeScanning(RepositoryRulesetRulesRequiredCodeScanningArgs.builder()
+ *                     .requiredCodeScanningTools(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs.builder()
+ *                         .alertsThreshold("errors")
+ *                         .securityAlertsThreshold("high_or_higher")
+ *                         .tool("CodeQL")
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -105,7 +113,7 @@ import javax.annotation.Nullable;
  *                         "*.env")
  *                     .build())
  *                 .maxFileSize(RepositoryRulesetRulesMaxFileSizeArgs.builder()
- *                     .maxFileSize(104857600)
+ *                     .maxFileSize(100)
  *                     .build())
  *                 .maxFilePathLength(RepositoryRulesetRulesMaxFilePathLengthArgs.builder()
  *                     .maxFilePathLength(255)
@@ -220,18 +228,18 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
         return this.nodeId;
     }
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> repository;
+    private Output<String> repository;
 
     /**
-     * @return (String) Name of the repository to apply rulset to.
+     * @return (String) Name of the repository to apply ruleset to.
      * 
      */
-    public Output<Optional<String>> repository() {
-        return Codegen.optional(this.repository);
+    public Output<String> repository() {
+        return this.repository;
     }
     /**
      * (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)

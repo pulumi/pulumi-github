@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// &gt; **Note:** This resource is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+    /// 
     /// This resource manages relationships between teams and organization roles
     /// in your GitHub organization. This works on predefined roles, and custom roles, where the latter is an Enterprise feature.
     /// 
@@ -45,6 +47,8 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// GitHub Team Organization Role Assignment can be imported using an ID made up of `team_slug:role_id`
+    /// 
+    /// text
     /// 
     /// ```sh
     /// $ pulumi import github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment role_assignment test-team:8132

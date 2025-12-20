@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+ *
  * Use this data source to retrieve the security managers for an organization.
  *
  * ## Example Usage
@@ -38,6 +40,8 @@ export interface GetOrganizationSecurityManagersResult {
     readonly teams: outputs.GetOrganizationSecurityManagersTeam[];
 }
 /**
+ * > **Note:** This data source is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+ *
  * Use this data source to retrieve the security managers for an organization.
  *
  * ## Example Usage

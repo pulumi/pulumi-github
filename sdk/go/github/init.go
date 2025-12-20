@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsEnvironmentSecret{}
 	case "github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable":
 		r = &ActionsEnvironmentVariable{}
+	case "github:index/actionsHostedRunner:ActionsHostedRunner":
+		r = &ActionsHostedRunner{}
 	case "github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate":
 		r = &ActionsOrganizationOidcSubjectClaimCustomizationTemplate{}
 	case "github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions":
@@ -81,8 +83,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnterpriseActionsPermissions{}
 	case "github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup":
 		r = &EnterpriseActionsRunnerGroup{}
+	case "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions":
+		r = &EnterpriseActionsWorkflowPermissions{}
 	case "github:index/enterpriseOrganization:EnterpriseOrganization":
 		r = &EnterpriseOrganization{}
+	case "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings":
+		r = &EnterpriseSecurityAnalysisSettings{}
 	case "github:index/issue:Issue":
 		r = &Issue{}
 	case "github:index/issueLabel:IssueLabel":
@@ -216,6 +222,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsEnvironmentVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsHostedRunner",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -360,7 +371,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/enterpriseActionsWorkflowPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/enterpriseOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/enterpriseSecurityAnalysisSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

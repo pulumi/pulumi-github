@@ -15,14 +15,14 @@ public final class OrganizationRulesetRulesMaxFileSizeArgs extends com.pulumi.re
     public static final OrganizationRulesetRulesMaxFileSizeArgs Empty = new OrganizationRulesetRulesMaxFileSizeArgs();
 
     /**
-     * The maximum allowed size of a file in bytes.
+     * The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      * 
      */
     @Import(name="maxFileSize", required=true)
     private Output<Integer> maxFileSize;
 
     /**
-     * @return The maximum allowed size of a file in bytes.
+     * @return The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
      * 
      */
     public Output<Integer> maxFileSize() {
@@ -54,7 +54,7 @@ public final class OrganizationRulesetRulesMaxFileSizeArgs extends com.pulumi.re
         }
 
         /**
-         * @param maxFileSize The maximum allowed size of a file in bytes.
+         * @param maxFileSize The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class OrganizationRulesetRulesMaxFileSizeArgs extends com.pulumi.re
         }
 
         /**
-         * @param maxFileSize The maximum allowed size of a file in bytes.
+         * @param maxFileSize The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
          * 
          * @return builder
          * 

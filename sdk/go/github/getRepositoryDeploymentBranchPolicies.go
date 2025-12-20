@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** This data source is deprecated, please use the `getRepositoryEnvironmentDeploymentPolicies` data source instead.
+//
 // Use this data source to retrieve deployment branch policies for a repository / environment.
 //
 // ## Example Usage

@@ -111,14 +111,14 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (String) Name of the repository to apply rulset to.
+     * (String) Name of the repository to apply ruleset to.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return (String) Name of the repository to apply rulset to.
+     * @return (String) Name of the repository to apply ruleset to.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -340,7 +340,7 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repository (String) Name of the repository to apply rulset to.
+         * @param repository (String) Name of the repository to apply ruleset to.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repository (String) Name of the repository to apply rulset to.
+         * @param repository (String) Name of the repository to apply ruleset to.
          * 
          * @return builder
          * 

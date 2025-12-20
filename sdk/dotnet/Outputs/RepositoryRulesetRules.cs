@@ -50,7 +50,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesMaxFilePathLength? MaxFilePathLength;
         /// <summary>
-        /// (Integer) The maximum allowed size, in bytes, of a file.
+        /// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesMaxFileSize? MaxFileSize;
         /// <summary>

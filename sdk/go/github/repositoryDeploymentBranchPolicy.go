@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** This resource is deprecated, please use the `RepositoryEnvironmentDeploymentPolicy` resource instead.
+//
 // This resource allows you to create and manage deployment branch policies.
 //
 // ## Example Usage
@@ -56,6 +58,8 @@ import (
 // ```
 //
 // ## Import
+//
+// text
 //
 // ```sh
 // $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id

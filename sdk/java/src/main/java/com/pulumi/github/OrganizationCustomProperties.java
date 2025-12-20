@@ -62,6 +62,45 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Allow Repository Actors To Edit
+ * 
+ * This example shows how to allow repository administrators to edit the property values:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.OrganizationCustomProperties;
+ * import com.pulumi.github.OrganizationCustomPropertiesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var teamContact = new OrganizationCustomProperties("teamContact", OrganizationCustomPropertiesArgs.builder()
+ *             .propertyName("team_contact")
+ *             .valueType("string")
+ *             .required(false)
+ *             .description("Contact information for the team managing this repository")
+ *             .valuesEditableBy("org_and_repo_actors")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Text Property
  * 
  * <pre>
@@ -229,6 +268,20 @@ public class OrganizationCustomProperties extends com.pulumi.resources.CustomRes
      */
     public Output<Optional<String>> valueType() {
         return Codegen.optional(this.valueType);
+    }
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     * 
+     */
+    @Export(name="valuesEditableBy", refs={String.class}, tree="[0]")
+    private Output<String> valuesEditableBy;
+
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+     * 
+     */
+    public Output<String> valuesEditableBy() {
+        return this.valuesEditableBy;
     }
 
     /**

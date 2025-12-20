@@ -83,7 +83,7 @@ namespace Pulumi.Github
     ///     {
     ///         Name = "forked-repository",
     ///         Description = "This is a fork of another repository",
-    ///         Fork = true,
+    ///         Fork = "true",
     ///         SourceOwner = "some-org",
     ///         SourceRepo = "original-repository",
     ///     });
@@ -177,7 +177,7 @@ namespace Pulumi.Github
         /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
         /// </summary>
         [Output("fork")]
-        public Output<bool?> Fork { get; private set; } = null!;
+        public Output<string> Fork { get; private set; } = null!;
 
         /// <summary>
         /// A string of the form "orgname/reponame".
@@ -324,13 +324,13 @@ namespace Pulumi.Github
         /// The GitHub username or organization that owns the repository being forked. Required when `Fork` is `True`.
         /// </summary>
         [Output("sourceOwner")]
-        public Output<string?> SourceOwner { get; private set; } = null!;
+        public Output<string> SourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// The name of the repository to fork. Required when `Fork` is `True`.
         /// </summary>
         [Output("sourceRepo")]
-        public Output<string?> SourceRepo { get; private set; } = null!;
+        public Output<string> SourceRepo { get; private set; } = null!;
 
         /// <summary>
         /// Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `AllowSquashMerge` is `True`.
@@ -507,7 +507,7 @@ namespace Pulumi.Github
         /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
         /// </summary>
         [Input("fork")]
-        public Input<bool>? Fork { get; set; }
+        public Input<string>? Fork { get; set; }
 
         /// <summary>
         /// Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
@@ -751,7 +751,7 @@ namespace Pulumi.Github
         /// Set to `True` to create a fork of an existing repository. When set to `True`, both `SourceOwner` and `SourceRepo` must also be specified.
         /// </summary>
         [Input("fork")]
-        public Input<bool>? Fork { get; set; }
+        public Input<string>? Fork { get; set; }
 
         /// <summary>
         /// A string of the form "orgname/reponame".

@@ -70,6 +70,18 @@ namespace Pulumi.Github
     ///                     "test",
     ///                 },
     ///             },
+    ///             RequiredCodeScanning = new Github.Inputs.RepositoryRulesetRulesRequiredCodeScanningArgs
+    ///             {
+    ///                 RequiredCodeScanningTools = new[]
+    ///                 {
+    ///                     new Github.Inputs.RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs
+    ///                     {
+    ///                         AlertsThreshold = "errors",
+    ///                         SecurityAlertsThreshold = "high_or_higher",
+    ///                         Tool = "CodeQL",
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -92,7 +104,7 @@ namespace Pulumi.Github
     ///             },
     ///             MaxFileSize = new Github.Inputs.RepositoryRulesetRulesMaxFileSizeArgs
     ///             {
-    ///                 MaxFileSize = 104857600,
+    ///                 MaxFileSize = 100,
     ///             },
     ///             MaxFilePathLength = new Github.Inputs.RepositoryRulesetRulesMaxFilePathLengthArgs
     ///             {
@@ -161,10 +173,10 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) Name of the repository to apply rulset to.
+        /// (String) Name of the repository to apply ruleset to.
         /// </summary>
         [Output("repository")]
-        public Output<string?> Repository { get; private set; } = null!;
+        public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
         /// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
@@ -261,10 +273,10 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (String) Name of the repository to apply rulset to.
+        /// (String) Name of the repository to apply ruleset to.
         /// </summary>
-        [Input("repository")]
-        public Input<string>? Repository { get; set; }
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
         /// (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
@@ -329,7 +341,7 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
-        /// (String) Name of the repository to apply rulset to.
+        /// (String) Name of the repository to apply ruleset to.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

@@ -165,14 +165,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Integer) The maximum allowed size, in bytes, of a file.
+     * (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<RepositoryRulesetRulesMaxFileSizeArgs> maxFileSize;
 
     /**
-     * @return (Integer) The maximum allowed size, in bytes, of a file.
+     * @return (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
      * 
      */
     public Optional<Output<RepositoryRulesetRulesMaxFileSizeArgs>> maxFileSize() {
@@ -578,7 +578,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * @param maxFileSize (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxFileSize (Integer) The maximum allowed size, in bytes, of a file.
+         * @param maxFileSize (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
          * 
          * @return builder
          * 

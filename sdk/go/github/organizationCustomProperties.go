@@ -51,6 +51,38 @@ import (
 //
 // ```
 //
+// ### Allow Repository Actors To Edit
+//
+// This example shows how to allow repository administrators to edit the property values:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewOrganizationCustomProperties(ctx, "team_contact", &github.OrganizationCustomPropertiesArgs{
+//				PropertyName:     pulumi.String("team_contact"),
+//				ValueType:        pulumi.String("string"),
+//				Required:         pulumi.Bool(false),
+//				Description:      pulumi.String("Contact information for the team managing this repository"),
+//				ValuesEditableBy: pulumi.String("org_and_repo_actors"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Text Property
 //
 // ```go
@@ -132,6 +164,8 @@ type OrganizationCustomProperties struct {
 	Required pulumi.BoolPtrOutput `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 	ValueType pulumi.StringPtrOutput `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+	ValuesEditableBy pulumi.StringOutput `pulumi:"valuesEditableBy"`
 }
 
 // NewOrganizationCustomProperties registers a new resource with the given unique name, arguments, and options.
@@ -179,6 +213,8 @@ type organizationCustomPropertiesState struct {
 	Required *bool `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 	ValueType *string `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+	ValuesEditableBy *string `pulumi:"valuesEditableBy"`
 }
 
 type OrganizationCustomPropertiesState struct {
@@ -194,6 +230,8 @@ type OrganizationCustomPropertiesState struct {
 	Required pulumi.BoolPtrInput
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 	ValueType pulumi.StringPtrInput
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+	ValuesEditableBy pulumi.StringPtrInput
 }
 
 func (OrganizationCustomPropertiesState) ElementType() reflect.Type {
@@ -213,6 +251,8 @@ type organizationCustomPropertiesArgs struct {
 	Required *bool `pulumi:"required"`
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 	ValueType *string `pulumi:"valueType"`
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+	ValuesEditableBy *string `pulumi:"valuesEditableBy"`
 }
 
 // The set of arguments for constructing a OrganizationCustomProperties resource.
@@ -229,6 +269,8 @@ type OrganizationCustomPropertiesArgs struct {
 	Required pulumi.BoolPtrInput
 	// The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 	ValueType pulumi.StringPtrInput
+	// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+	ValuesEditableBy pulumi.StringPtrInput
 }
 
 func (OrganizationCustomPropertiesArgs) ElementType() reflect.Type {
@@ -346,6 +388,11 @@ func (o OrganizationCustomPropertiesOutput) Required() pulumi.BoolPtrOutput {
 // The type of the custom property. Can be one of `string`, `singleSelect`, `multiSelect`, or `trueFalse`. Defaults to `string`.
 func (o OrganizationCustomPropertiesOutput) ValueType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomProperties) pulumi.StringPtrOutput { return v.ValueType }).(pulumi.StringPtrOutput)
+}
+
+// Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`. When set to `orgActors` (the default), only organization owners can edit the property values on repositories. When set to `orgAndRepoActors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+func (o OrganizationCustomPropertiesOutput) ValuesEditableBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationCustomProperties) pulumi.StringOutput { return v.ValuesEditableBy }).(pulumi.StringOutput)
 }
 
 type OrganizationCustomPropertiesArrayOutput struct{ *pulumi.OutputState }

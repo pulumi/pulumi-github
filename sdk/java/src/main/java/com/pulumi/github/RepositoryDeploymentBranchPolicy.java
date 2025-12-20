@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note:** This resource is deprecated, please use the `github.RepositoryEnvironmentDeploymentPolicy` resource instead.
+ * 
  * This resource allows you to create and manage deployment branch policies.
  * 
  * ## Example Usage
@@ -67,6 +69,8 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * text
  * 
  * ```sh
  * $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id

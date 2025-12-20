@@ -24,7 +24,8 @@ class OrganizationCustomPropertiesArgs:
                  default_value: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 values_editable_by: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomProperties resource.
         :param pulumi.Input[_builtins.str] property_name: The name of the custom property.
@@ -33,6 +34,7 @@ class OrganizationCustomPropertiesArgs:
         :param pulumi.Input[_builtins.str] description: The description of the custom property.
         :param pulumi.Input[_builtins.bool] required: Whether the custom property is required. Defaults to `false`.
         :param pulumi.Input[_builtins.str] value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`. Defaults to `string`.
+        :param pulumi.Input[_builtins.str] values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
         """
         pulumi.set(__self__, "property_name", property_name)
         if allowed_values is not None:
@@ -45,6 +47,8 @@ class OrganizationCustomPropertiesArgs:
             pulumi.set(__self__, "required", required)
         if value_type is not None:
             pulumi.set(__self__, "value_type", value_type)
+        if values_editable_by is not None:
+            pulumi.set(__self__, "values_editable_by", values_editable_by)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
@@ -118,6 +122,18 @@ class OrganizationCustomPropertiesArgs:
     def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="valuesEditableBy")
+    def values_editable_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        """
+        return pulumi.get(self, "values_editable_by")
+
+    @values_editable_by.setter
+    def values_editable_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "values_editable_by", value)
+
 
 @pulumi.input_type
 class _OrganizationCustomPropertiesState:
@@ -127,7 +143,8 @@ class _OrganizationCustomPropertiesState:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  property_name: Optional[pulumi.Input[_builtins.str]] = None,
                  required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 values_editable_by: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomProperties resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: List of allowed values for the custom property. Only applicable when `value_type` is `single_select` or `multi_select`.
@@ -136,6 +153,7 @@ class _OrganizationCustomPropertiesState:
         :param pulumi.Input[_builtins.str] property_name: The name of the custom property.
         :param pulumi.Input[_builtins.bool] required: Whether the custom property is required. Defaults to `false`.
         :param pulumi.Input[_builtins.str] value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`. Defaults to `string`.
+        :param pulumi.Input[_builtins.str] values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
         """
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
@@ -149,6 +167,8 @@ class _OrganizationCustomPropertiesState:
             pulumi.set(__self__, "required", required)
         if value_type is not None:
             pulumi.set(__self__, "value_type", value_type)
+        if values_editable_by is not None:
+            pulumi.set(__self__, "values_editable_by", values_editable_by)
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
@@ -222,6 +242,18 @@ class _OrganizationCustomPropertiesState:
     def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="valuesEditableBy")
+    def values_editable_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        """
+        return pulumi.get(self, "values_editable_by")
+
+    @values_editable_by.setter
+    def values_editable_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "values_editable_by", value)
+
 
 @pulumi.type_token("github:index/organizationCustomProperties:OrganizationCustomProperties")
 class OrganizationCustomProperties(pulumi.CustomResource):
@@ -235,6 +267,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
                  property_name: Optional[pulumi.Input[_builtins.str]] = None,
                  required: Optional[pulumi.Input[_builtins.bool]] = None,
                  value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 values_editable_by: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage custom properties for a GitHub organization.
@@ -258,6 +291,22 @@ class OrganizationCustomProperties(pulumi.CustomResource):
                 "staging",
                 "production",
             ])
+        ```
+
+        ### Allow Repository Actors To Edit
+
+        This example shows how to allow repository administrators to edit the property values:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        team_contact = github.OrganizationCustomProperties("team_contact",
+            property_name="team_contact",
+            value_type="string",
+            required=False,
+            description="Contact information for the team managing this repository",
+            values_editable_by="org_and_repo_actors")
         ```
 
         ### Text Property
@@ -303,6 +352,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] property_name: The name of the custom property.
         :param pulumi.Input[_builtins.bool] required: Whether the custom property is required. Defaults to `false`.
         :param pulumi.Input[_builtins.str] value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`. Defaults to `string`.
+        :param pulumi.Input[_builtins.str] values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
         """
         ...
     @overload
@@ -332,6 +382,22 @@ class OrganizationCustomProperties(pulumi.CustomResource):
                 "staging",
                 "production",
             ])
+        ```
+
+        ### Allow Repository Actors To Edit
+
+        This example shows how to allow repository administrators to edit the property values:
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        team_contact = github.OrganizationCustomProperties("team_contact",
+            property_name="team_contact",
+            value_type="string",
+            required=False,
+            description="Contact information for the team managing this repository",
+            values_editable_by="org_and_repo_actors")
         ```
 
         ### Text Property
@@ -390,6 +456,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
                  property_name: Optional[pulumi.Input[_builtins.str]] = None,
                  required: Optional[pulumi.Input[_builtins.bool]] = None,
                  value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 values_editable_by: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,6 +474,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
             __props__.__dict__["property_name"] = property_name
             __props__.__dict__["required"] = required
             __props__.__dict__["value_type"] = value_type
+            __props__.__dict__["values_editable_by"] = values_editable_by
         super(OrganizationCustomProperties, __self__).__init__(
             'github:index/organizationCustomProperties:OrganizationCustomProperties',
             resource_name,
@@ -422,7 +490,8 @@ class OrganizationCustomProperties(pulumi.CustomResource):
             description: Optional[pulumi.Input[_builtins.str]] = None,
             property_name: Optional[pulumi.Input[_builtins.str]] = None,
             required: Optional[pulumi.Input[_builtins.bool]] = None,
-            value_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationCustomProperties':
+            value_type: Optional[pulumi.Input[_builtins.str]] = None,
+            values_editable_by: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationCustomProperties':
         """
         Get an existing OrganizationCustomProperties resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -436,6 +505,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] property_name: The name of the custom property.
         :param pulumi.Input[_builtins.bool] required: Whether the custom property is required. Defaults to `false`.
         :param pulumi.Input[_builtins.str] value_type: The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`. Defaults to `string`.
+        :param pulumi.Input[_builtins.str] values_editable_by: Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -447,6 +517,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         __props__.__dict__["property_name"] = property_name
         __props__.__dict__["required"] = required
         __props__.__dict__["value_type"] = value_type
+        __props__.__dict__["values_editable_by"] = values_editable_by
         return OrganizationCustomProperties(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -496,4 +567,12 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         The type of the custom property. Can be one of `string`, `single_select`, `multi_select`, or `true_false`. Defaults to `string`.
         """
         return pulumi.get(self, "value_type")
+
+    @_builtins.property
+    @pulumi.getter(name="valuesEditableBy")
+    def values_editable_by(self) -> pulumi.Output[_builtins.str]:
+        """
+        Who can edit the values of the custom property. Can be one of `org_actors` or `org_and_repo_actors`. When set to `org_actors` (the default), only organization owners can edit the property values on repositories. When set to `org_and_repo_actors`, both organization owners and repository administrators with the custom properties permission can edit the values.
+        """
+        return pulumi.get(self, "values_editable_by")
 

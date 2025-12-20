@@ -330,6 +330,13 @@ class OrganizationRuleset(pulumi.CustomResource):
                         "ref": "main",
                     }],
                 },
+                "required_code_scanning": {
+                    "required_code_scanning_tools": [{
+                        "alerts_threshold": "errors",
+                        "security_alerts_threshold": "high_or_higher",
+                        "tool": "CodeQL",
+                    }],
+                },
             })
         # Example with push ruleset  
         example_push = github.OrganizationRuleset("example_push",
@@ -354,7 +361,7 @@ class OrganizationRuleset(pulumi.CustomResource):
                     ],
                 },
                 "max_file_size": {
-                    "max_file_size": 104857600,
+                    "max_file_size": 100,
                 },
                 "max_file_path_length": {
                     "max_file_path_length": 255,
@@ -438,6 +445,13 @@ class OrganizationRuleset(pulumi.CustomResource):
                         "ref": "main",
                     }],
                 },
+                "required_code_scanning": {
+                    "required_code_scanning_tools": [{
+                        "alerts_threshold": "errors",
+                        "security_alerts_threshold": "high_or_higher",
+                        "tool": "CodeQL",
+                    }],
+                },
             })
         # Example with push ruleset  
         example_push = github.OrganizationRuleset("example_push",
@@ -462,7 +476,7 @@ class OrganizationRuleset(pulumi.CustomResource):
                     ],
                 },
                 "max_file_size": {
-                    "max_file_size": 104857600,
+                    "max_file_size": 100,
                 },
                 "max_file_path_length": {
                     "max_file_path_length": 255,

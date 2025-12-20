@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** This data source is deprecated, please use the `OrganizationRoleTeam` resource instead.
+//
 // Use this data source to retrieve the security managers for an organization.
 //
 // ## Example Usage

@@ -33,7 +33,7 @@ class RepositoryArgs:
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
+                 fork: Optional[pulumi.Input[_builtins.str]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -74,7 +74,7 @@ class RepositoryArgs:
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
-        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
@@ -333,14 +333,14 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fork(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fork(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         """
         return pulumi.get(self, "fork")
 
     @fork.setter
-    def fork(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fork(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "fork", value)
 
     @_builtins.property
@@ -663,7 +663,7 @@ class _RepositoryState:
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
+                 fork: Optional[pulumi.Input[_builtins.str]] = None,
                  full_name: Optional[pulumi.Input[_builtins.str]] = None,
                  git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -713,7 +713,7 @@ class _RepositoryState:
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
-        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
@@ -999,14 +999,14 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter
-    def fork(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fork(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         """
         return pulumi.get(self, "fork")
 
     @fork.setter
-    def fork(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fork(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "fork", value)
 
     @_builtins.property
@@ -1440,7 +1440,7 @@ class Repository(pulumi.CustomResource):
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
+                 fork: Optional[pulumi.Input[_builtins.str]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1517,7 +1517,7 @@ class Repository(pulumi.CustomResource):
         forked_repo = github.Repository("forked_repo",
             name="forked-repository",
             description="This is a fork of another repository",
-            fork=True,
+            fork="true",
             source_owner="some-org",
             source_repo="original-repository")
         ```
@@ -1545,7 +1545,7 @@ class Repository(pulumi.CustomResource):
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
-        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
@@ -1631,7 +1631,7 @@ class Repository(pulumi.CustomResource):
         forked_repo = github.Repository("forked_repo",
             name="forked-repository",
             description="This is a fork of another repository",
-            fork=True,
+            fork="true",
             source_owner="some-org",
             source_repo="original-repository")
         ```
@@ -1671,7 +1671,7 @@ class Repository(pulumi.CustomResource):
                  delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 fork: Optional[pulumi.Input[_builtins.bool]] = None,
+                 fork: Optional[pulumi.Input[_builtins.str]] = None,
                  gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
                  has_discussions: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_downloads: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1775,7 +1775,7 @@ class Repository(pulumi.CustomResource):
             delete_branch_on_merge: Optional[pulumi.Input[_builtins.bool]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             etag: Optional[pulumi.Input[_builtins.str]] = None,
-            fork: Optional[pulumi.Input[_builtins.bool]] = None,
+            fork: Optional[pulumi.Input[_builtins.str]] = None,
             full_name: Optional[pulumi.Input[_builtins.str]] = None,
             git_clone_url: Optional[pulumi.Input[_builtins.str]] = None,
             gitignore_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1830,7 +1830,7 @@ class Repository(pulumi.CustomResource):
                initial repository creation and create the target branch inside of the repository prior to setting this attribute.
         :param pulumi.Input[_builtins.bool] delete_branch_on_merge: Automatically delete head branch after a pull request is merged. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the repository.
-        :param pulumi.Input[_builtins.bool] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
+        :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] full_name: A string of the form "orgname/reponame".
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
@@ -2020,7 +2020,7 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def fork(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def fork(self) -> pulumi.Output[_builtins.str]:
         """
         Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         """
@@ -2216,7 +2216,7 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sourceOwner")
-    def source_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def source_owner(self) -> pulumi.Output[_builtins.str]:
         """
         The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
         """
@@ -2224,7 +2224,7 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sourceRepo")
-    def source_repo(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def source_repo(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the repository to fork. Required when `fork` is `true`.
         """

@@ -58,7 +58,7 @@ import * as utilities from "./utilities";
  * const forkedRepo = new github.Repository("forked_repo", {
  *     name: "forked-repository",
  *     description: "This is a fork of another repository",
- *     fork: true,
+ *     fork: "true",
  *     sourceOwner: "some-org",
  *     sourceRepo: "original-repository",
  * });
@@ -152,7 +152,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      */
-    declare public readonly fork: pulumi.Output<boolean | undefined>;
+    declare public readonly fork: pulumi.Output<string>;
     /**
      * A string of the form "orgname/reponame".
      */
@@ -253,11 +253,11 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The GitHub username or organization that owns the repository being forked. Required when `fork` is `true`.
      */
-    declare public readonly sourceOwner: pulumi.Output<string | undefined>;
+    declare public readonly sourceOwner: pulumi.Output<string>;
     /**
      * The name of the repository to fork. Required when `fork` is `true`.
      */
-    declare public readonly sourceRepo: pulumi.Output<string | undefined>;
+    declare public readonly sourceRepo: pulumi.Output<string>;
     /**
      * Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allowSquashMerge` is `true`.
      */
@@ -466,7 +466,7 @@ export interface RepositoryState {
     /**
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      */
-    fork?: pulumi.Input<boolean>;
+    fork?: pulumi.Input<string>;
     /**
      * A string of the form "orgname/reponame".
      */
@@ -666,7 +666,7 @@ export interface RepositoryArgs {
     /**
      * Set to `true` to create a fork of an existing repository. When set to `true`, both `sourceOwner` and `sourceRepo` must also be specified.
      */
-    fork?: pulumi.Input<boolean>;
+    fork?: pulumi.Input<string>;
     /**
      * Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
      */

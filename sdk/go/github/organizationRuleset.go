@@ -71,6 +71,15 @@ import (
 //							},
 //						},
 //					},
+//					RequiredCodeScanning: &github.OrganizationRulesetRulesRequiredCodeScanningArgs{
+//						RequiredCodeScanningTools: github.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArray{
+//							&github.OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{
+//								AlertsThreshold:         pulumi.String("errors"),
+//								SecurityAlertsThreshold: pulumi.String("high_or_higher"),
+//								Tool:                    pulumi.String("CodeQL"),
+//							},
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -103,7 +112,7 @@ import (
 //						},
 //					},
 //					MaxFileSize: &github.OrganizationRulesetRulesMaxFileSizeArgs{
-//						MaxFileSize: pulumi.Int(104857600),
+//						MaxFileSize: pulumi.Int(100),
 //					},
 //					MaxFilePathLength: &github.OrganizationRulesetRulesMaxFilePathLengthArgs{
 //						MaxFilePathLength: pulumi.Int(255),

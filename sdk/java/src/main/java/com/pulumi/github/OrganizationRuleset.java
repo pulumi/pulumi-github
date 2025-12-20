@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesBranchNamePatternArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredWorkflowsArgs;
+ * import com.pulumi.github.inputs.OrganizationRulesetRulesRequiredCodeScanningArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryNameArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesFilePathRestrictionArgs;
  * import com.pulumi.github.inputs.OrganizationRulesetRulesMaxFileSizeArgs;
@@ -94,6 +95,13 @@ import javax.annotation.Nullable;
  *                         .ref("main")
  *                         .build())
  *                     .build())
+ *                 .requiredCodeScanning(OrganizationRulesetRulesRequiredCodeScanningArgs.builder()
+ *                     .requiredCodeScanningTools(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs.builder()
+ *                         .alertsThreshold("errors")
+ *                         .securityAlertsThreshold("high_or_higher")
+ *                         .tool("CodeQL")
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -119,7 +127,7 @@ import javax.annotation.Nullable;
  *                         "*.env")
  *                     .build())
  *                 .maxFileSize(OrganizationRulesetRulesMaxFileSizeArgs.builder()
- *                     .maxFileSize(104857600)
+ *                     .maxFileSize(100)
  *                     .build())
  *                 .maxFilePathLength(OrganizationRulesetRulesMaxFilePathLengthArgs.builder()
  *                     .maxFilePathLength(255)

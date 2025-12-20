@@ -62,9 +62,9 @@ export class OrganizationRole extends pulumi.CustomResource {
     }
 
     /**
-     * The system role from which this role inherits permissions.
+     * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      */
-    declare public readonly baseRole: pulumi.Output<string>;
+    declare public readonly baseRole: pulumi.Output<string | undefined>;
     /**
      * The description of the organization role.
      */
@@ -74,7 +74,7 @@ export class OrganizationRole extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The permissions included in this role.
+     * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
      */
     declare public readonly permissions: pulumi.Output<string[]>;
     /**
@@ -121,7 +121,7 @@ export class OrganizationRole extends pulumi.CustomResource {
  */
 export interface OrganizationRoleState {
     /**
-     * The system role from which this role inherits permissions.
+     * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      */
     baseRole?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface OrganizationRoleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The permissions included in this role.
+     * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -147,7 +147,7 @@ export interface OrganizationRoleState {
  */
 export interface OrganizationRoleArgs {
     /**
-     * The system role from which this role inherits permissions.
+     * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      */
     baseRole?: pulumi.Input<string>;
     /**
@@ -159,7 +159,7 @@ export interface OrganizationRoleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The permissions included in this role.
+     * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn't set or is set to `none`.
      */
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }

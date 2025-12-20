@@ -18,9 +18,21 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositorySecurityAndAnalysisAdvancedSecurity? AdvancedSecurity;
         /// <summary>
+        /// The code security configuration for the repository. See Code Security below for details.
+        /// </summary>
+        public readonly Outputs.RepositorySecurityAndAnalysisCodeSecurity? CodeSecurity;
+        /// <summary>
         /// The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
         /// </summary>
         public readonly Outputs.RepositorySecurityAndAnalysisSecretScanning? SecretScanning;
+        /// <summary>
+        /// The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+        /// </summary>
+        public readonly Outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection? SecretScanningAiDetection;
+        /// <summary>
+        /// The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+        /// </summary>
+        public readonly Outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns? SecretScanningNonProviderPatterns;
         /// <summary>
         /// The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
         /// </summary>
@@ -30,12 +42,21 @@ namespace Pulumi.Github.Outputs
         private RepositorySecurityAndAnalysis(
             Outputs.RepositorySecurityAndAnalysisAdvancedSecurity? advancedSecurity,
 
+            Outputs.RepositorySecurityAndAnalysisCodeSecurity? codeSecurity,
+
             Outputs.RepositorySecurityAndAnalysisSecretScanning? secretScanning,
+
+            Outputs.RepositorySecurityAndAnalysisSecretScanningAiDetection? secretScanningAiDetection,
+
+            Outputs.RepositorySecurityAndAnalysisSecretScanningNonProviderPatterns? secretScanningNonProviderPatterns,
 
             Outputs.RepositorySecurityAndAnalysisSecretScanningPushProtection? secretScanningPushProtection)
         {
             AdvancedSecurity = advancedSecurity;
+            CodeSecurity = codeSecurity;
             SecretScanning = secretScanning;
+            SecretScanningAiDetection = secretScanningAiDetection;
+            SecretScanningNonProviderPatterns = secretScanningNonProviderPatterns;
             SecretScanningPushProtection = secretScanningPushProtection;
         }
     }

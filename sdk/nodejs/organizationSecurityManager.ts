@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note:** This resource is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -21,6 +23,8 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+ *
+ * text
  *
  * ```sh
  * $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567

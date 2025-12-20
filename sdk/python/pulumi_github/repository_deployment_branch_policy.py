@@ -170,6 +170,8 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note:** This resource is deprecated, please use the `RepositoryEnvironmentDeploymentPolicy` resource instead.
+
         This resource allows you to create and manage deployment branch policies.
 
         ## Example Usage
@@ -193,6 +195,8 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        text
 
         ```sh
         $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
@@ -212,6 +216,8 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
                  args: RepositoryDeploymentBranchPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note:** This resource is deprecated, please use the `RepositoryEnvironmentDeploymentPolicy` resource instead.
+
         This resource allows you to create and manage deployment branch policies.
 
         ## Example Usage
@@ -235,6 +241,8 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        text
 
         ```sh
         $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id

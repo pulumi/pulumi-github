@@ -72,6 +72,8 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note:** This resource is deprecated, please use the `OrganizationRoleTeam` resource instead.
+
         ## Example Usage
 
         ```python
@@ -87,6 +89,8 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+
+        text
 
         ```sh
         $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
@@ -103,6 +107,8 @@ class OrganizationSecurityManager(pulumi.CustomResource):
                  args: OrganizationSecurityManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note:** This resource is deprecated, please use the `OrganizationRoleTeam` resource instead.
+
         ## Example Usage
 
         ```python
@@ -118,6 +124,8 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+
+        text
 
         ```sh
         $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567

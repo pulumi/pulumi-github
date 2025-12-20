@@ -107,6 +107,21 @@ public final class GetOrganizationCustomPropertiesPlainArgs extends com.pulumi.r
         return Optional.ofNullable(this.valueType);
     }
 
+    /**
+     * Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    @Import(name="valuesEditableBy")
+    private @Nullable String valuesEditableBy;
+
+    /**
+     * @return Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+     * 
+     */
+    public Optional<String> valuesEditableBy() {
+        return Optional.ofNullable(this.valuesEditableBy);
+    }
+
     private GetOrganizationCustomPropertiesPlainArgs() {}
 
     private GetOrganizationCustomPropertiesPlainArgs(GetOrganizationCustomPropertiesPlainArgs $) {
@@ -116,6 +131,7 @@ public final class GetOrganizationCustomPropertiesPlainArgs extends com.pulumi.r
         this.propertyName = $.propertyName;
         this.required = $.required;
         this.valueType = $.valueType;
+        this.valuesEditableBy = $.valuesEditableBy;
     }
 
     public static Builder builder() {
@@ -209,6 +225,17 @@ public final class GetOrganizationCustomPropertiesPlainArgs extends com.pulumi.r
          */
         public Builder valueType(@Nullable String valueType) {
             $.valueType = valueType;
+            return this;
+        }
+
+        /**
+         * @param valuesEditableBy Who can edit the values of the custom property. Can be one of `orgActors` or `orgAndRepoActors`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valuesEditableBy(@Nullable String valuesEditableBy) {
+            $.valuesEditableBy = valuesEditableBy;
             return this;
         }
 

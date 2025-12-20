@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note:** This resource is deprecated, please use the `github.OrganizationRoleTeam` resource instead.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -57,6 +59,8 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+ * 
+ * text
  * 
  * ```sh
  * $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567

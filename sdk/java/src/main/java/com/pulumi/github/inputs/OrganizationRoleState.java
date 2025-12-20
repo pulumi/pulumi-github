@@ -18,14 +18,14 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
     public static final OrganizationRoleState Empty = new OrganizationRoleState();
 
     /**
-     * The system role from which this role inherits permissions.
+     * The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      * 
      */
     @Import(name="baseRole")
     private @Nullable Output<String> baseRole;
 
     /**
-     * @return The system role from which this role inherits permissions.
+     * @return The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
      * 
      */
     public Optional<Output<String>> baseRole() {
@@ -63,14 +63,14 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The permissions included in this role.
+     * The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
     /**
-     * @return The permissions included in this role.
+     * @return The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
      * 
      */
     public Optional<Output<List<String>>> permissions() {
@@ -121,7 +121,7 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param baseRole The system role from which this role inherits permissions.
+         * @param baseRole The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param baseRole The system role from which this role inherits permissions.
+         * @param baseRole The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissions The permissions included in this role.
+         * @param permissions The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissions The permissions included in this role.
+         * @param permissions The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class OrganizationRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissions The permissions included in this role.
+         * @param permissions The permissions included in this role. Only organization permissions can be set if the `baseRole` isn&#39;t set or is set to `none`.
          * 
          * @return builder
          * 
