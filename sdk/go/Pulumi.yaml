@@ -1,0 +1,3 @@
+name: github
+description: A Pulumi resource provider for github.
+language: go
