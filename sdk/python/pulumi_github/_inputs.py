@@ -3369,7 +3369,7 @@ if not MYPY:
     class RepositoryCollaboratorsIgnoreTeamArgsDict(TypedDict):
         team_id: pulumi.Input[_builtins.str]
         """
-        ID or slug of the team to ignore.
+        The GitHub team id or the GitHub team slug.
         """
 elif False:
     RepositoryCollaboratorsIgnoreTeamArgsDict: TypeAlias = Mapping[str, Any]
@@ -3379,7 +3379,7 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] team_id: ID or slug of the team to ignore.
+        :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug.
         """
         pulumi.set(__self__, "team_id", team_id)
 
@@ -3387,7 +3387,7 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or slug of the team to ignore.
+        The GitHub team id or the GitHub team slug.
         """
         return pulumi.get(self, "team_id")
 
@@ -4018,7 +4018,7 @@ if not MYPY:
         """
         merge_queue: NotRequired[pulumi.Input['RepositoryRulesetRulesMergeQueueArgsDict']]
         """
-        (Block List, Max: 1) Merges must be performed via a merge queue.
+        (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
         """
         non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -4098,7 +4098,7 @@ class RepositoryRulesetRulesArgs:
         :param pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgs'] file_path_restriction: (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
         :param pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgs'] max_file_path_length: (Integer) The maximum number of characters allowed in file paths.
         :param pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgs'] max_file_size: (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
-        :param pulumi.Input['RepositoryRulesetRulesMergeQueueArgs'] merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue.
+        :param pulumi.Input['RepositoryRulesetRulesMergeQueueArgs'] merge_queue: (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
         :param pulumi.Input[_builtins.bool] non_fast_forward: (Boolean) Prevent users with push access from force pushing to branches.
         :param pulumi.Input['RepositoryRulesetRulesPullRequestArgs'] pull_request: (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgs'] required_code_scanning: (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
@@ -4277,7 +4277,7 @@ class RepositoryRulesetRulesArgs:
     @pulumi.getter(name="mergeQueue")
     def merge_queue(self) -> Optional[pulumi.Input['RepositoryRulesetRulesMergeQueueArgs']]:
         """
-        (Block List, Max: 1) Merges must be performed via a merge queue.
+        (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
         """
         return pulumi.get(self, "merge_queue")
 

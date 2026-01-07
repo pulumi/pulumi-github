@@ -688,7 +688,7 @@ export interface ProviderAppAuth {
 
 export interface RepositoryCollaboratorsIgnoreTeam {
     /**
-     * ID or slug of the team to ignore.
+     * The GitHub team id or the GitHub team slug.
      */
     teamId: pulumi.Input<string>;
 }
@@ -860,7 +860,7 @@ export interface RepositoryRulesetRules {
      */
     maxFileSize?: pulumi.Input<inputs.RepositoryRulesetRulesMaxFileSize>;
     /**
-     * (Block List, Max: 1) Merges must be performed via a merge queue.
+     * (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      */
     mergeQueue?: pulumi.Input<inputs.RepositoryRulesetRulesMergeQueue>;
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryCollaboratorsIgnoreTeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID or slug of the team to ignore.
+        /// The GitHub team id or the GitHub team slug.
         /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;

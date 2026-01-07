@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryCollaboratorsIgnoreTeam
     {
         /// <summary>
-        /// ID or slug of the team to ignore.
+        /// The GitHub team id or the GitHub team slug.
         /// </summary>
         public readonly string TeamId;
 

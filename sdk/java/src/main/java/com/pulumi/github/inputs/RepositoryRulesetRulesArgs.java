@@ -180,14 +180,14 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Block List, Max: 1) Merges must be performed via a merge queue.
+     * (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      * 
      */
     @Import(name="mergeQueue")
     private @Nullable Output<RepositoryRulesetRulesMergeQueueArgs> mergeQueue;
 
     /**
-     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetRulesMergeQueueArgs>> mergeQueue() {
@@ -599,7 +599,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue.
+         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue.
+         * @param mergeQueue (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
          * 
          * @return builder
          * 
