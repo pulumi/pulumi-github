@@ -12177,9 +12177,9 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * To retrieve a specific release from a repository based on its ID:
      * 
-     * Finally, to retrieve a release based on it&#39;s tag:
+     * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
      * {@code
@@ -12259,9 +12259,9 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * To retrieve a specific release from a repository based on its ID:
      * 
-     * Finally, to retrieve a release based on it&#39;s tag:
+     * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
      * {@code
@@ -12341,9 +12341,9 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * To retrieve a specific release from a repository based on its ID:
      * 
-     * Finally, to retrieve a release based on it&#39;s tag:
+     * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
      * {@code
@@ -12423,9 +12423,9 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * To retrieve a specific release from a repository based on its ID:
      * 
-     * Finally, to retrieve a release based on it&#39;s tag:
+     * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
      * {@code
@@ -12505,9 +12505,9 @@ public final class GithubFunctions {
      * }
      * </pre>
      * 
-     * To retrieve a specific release from a repository based on it&#39;s ID:
+     * To retrieve a specific release from a repository based on its ID:
      * 
-     * Finally, to retrieve a release based on it&#39;s tag:
+     * Finally, to retrieve a release based on its tag:
      * 
      * <pre>
      * {@code

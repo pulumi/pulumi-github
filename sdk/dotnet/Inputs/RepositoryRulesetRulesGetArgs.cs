@@ -73,7 +73,7 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.RepositoryRulesetRulesMaxFileSizeGetArgs>? MaxFileSize { get; set; }
 
         /// <summary>
-        /// (Block List, Max: 1) Merges must be performed via a merge queue.
+        /// (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
         /// </summary>
         [Input("mergeQueue")]
         public Input<Inputs.RepositoryRulesetRulesMergeQueueGetArgs>? MergeQueue { get; set; }

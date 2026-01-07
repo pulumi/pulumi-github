@@ -36,11 +36,11 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release from a repository based on it's ID:
+        /// To retrieve a specific release from a repository based on its ID:
         /// 
         /// 
         /// 
-        /// Finally, to retrieve a release based on it's tag:
+        /// Finally, to retrieve a release based on its tag:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -89,11 +89,11 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release from a repository based on it's ID:
+        /// To retrieve a specific release from a repository based on its ID:
         /// 
         /// 
         /// 
-        /// Finally, to retrieve a release based on it's tag:
+        /// Finally, to retrieve a release based on its tag:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -142,11 +142,11 @@ namespace Pulumi.Github
         /// });
         /// ```
         /// 
-        /// To retrieve a specific release from a repository based on it's ID:
+        /// To retrieve a specific release from a repository based on its ID:
         /// 
         /// 
         /// 
-        /// Finally, to retrieve a release based on it's tag:
+        /// Finally, to retrieve a release based on its tag:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

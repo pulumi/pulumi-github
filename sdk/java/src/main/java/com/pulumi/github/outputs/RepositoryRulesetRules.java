@@ -76,7 +76,7 @@ public final class RepositoryRulesetRules {
      */
     private @Nullable RepositoryRulesetRulesMaxFileSize maxFileSize;
     /**
-     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      * 
      */
     private @Nullable RepositoryRulesetRulesMergeQueue mergeQueue;
@@ -203,7 +203,7 @@ public final class RepositoryRulesetRules {
         return Optional.ofNullable(this.maxFileSize);
     }
     /**
-     * @return (Block List, Max: 1) Merges must be performed via a merge queue.
+     * @return (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      * 
      */
     public Optional<RepositoryRulesetRulesMergeQueue> mergeQueue() {

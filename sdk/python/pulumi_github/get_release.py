@@ -304,9 +304,9 @@ def get_release(owner: Optional[_builtins.str] = None,
         retrieve_by="latest")
     ```
 
-    To retrieve a specific release from a repository based on it's ID:
+    To retrieve a specific release from a repository based on its ID:
 
-    Finally, to retrieve a release based on it's tag:
+    Finally, to retrieve a release based on its tag:
 
     ```python
     import pulumi
@@ -378,9 +378,9 @@ def get_release_output(owner: Optional[pulumi.Input[_builtins.str]] = None,
         retrieve_by="latest")
     ```
 
-    To retrieve a specific release from a repository based on it's ID:
+    To retrieve a specific release from a repository based on its ID:
 
-    Finally, to retrieve a release based on it's tag:
+    Finally, to retrieve a release based on its tag:
 
     ```python
     import pulumi

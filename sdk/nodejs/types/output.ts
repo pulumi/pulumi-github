@@ -1590,7 +1590,7 @@ export interface OrganizationWebhookConfiguration {
 
 export interface RepositoryCollaboratorsIgnoreTeam {
     /**
-     * ID or slug of the team to ignore.
+     * The GitHub team id or the GitHub team slug.
      */
     teamId: string;
 }
@@ -1762,7 +1762,7 @@ export interface RepositoryRulesetRules {
      */
     maxFileSize?: outputs.RepositoryRulesetRulesMaxFileSize;
     /**
-     * (Block List, Max: 1) Merges must be performed via a merge queue.
+     * (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
      */
     mergeQueue?: outputs.RepositoryRulesetRulesMergeQueue;
     /**

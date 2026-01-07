@@ -6676,7 +6676,7 @@ func (o ProviderAppAuthPtrOutput) PemFile() pulumi.StringPtrOutput {
 }
 
 type RepositoryCollaboratorsIgnoreTeam struct {
-	// ID or slug of the team to ignore.
+	// The GitHub team id or the GitHub team slug.
 	TeamId string `pulumi:"teamId"`
 }
 
@@ -6692,7 +6692,7 @@ type RepositoryCollaboratorsIgnoreTeamInput interface {
 }
 
 type RepositoryCollaboratorsIgnoreTeamArgs struct {
-	// ID or slug of the team to ignore.
+	// The GitHub team id or the GitHub team slug.
 	TeamId pulumi.StringInput `pulumi:"teamId"`
 }
 
@@ -6747,7 +6747,7 @@ func (o RepositoryCollaboratorsIgnoreTeamOutput) ToRepositoryCollaboratorsIgnore
 	return o
 }
 
-// ID or slug of the team to ignore.
+// The GitHub team id or the GitHub team slug.
 func (o RepositoryCollaboratorsIgnoreTeamOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCollaboratorsIgnoreTeam) string { return v.TeamId }).(pulumi.StringOutput)
 }
@@ -8105,7 +8105,7 @@ type RepositoryRulesetRules struct {
 	MaxFilePathLength *RepositoryRulesetRulesMaxFilePathLength `pulumi:"maxFilePathLength"`
 	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize *RepositoryRulesetRulesMaxFileSize `pulumi:"maxFileSize"`
-	// (Block List, Max: 1) Merges must be performed via a merge queue.
+	// (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
 	MergeQueue *RepositoryRulesetRulesMergeQueue `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward *bool `pulumi:"nonFastForward"`
@@ -8161,7 +8161,7 @@ type RepositoryRulesetRulesArgs struct {
 	MaxFilePathLength RepositoryRulesetRulesMaxFilePathLengthPtrInput `pulumi:"maxFilePathLength"`
 	// (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
 	MaxFileSize RepositoryRulesetRulesMaxFileSizePtrInput `pulumi:"maxFileSize"`
-	// (Block List, Max: 1) Merges must be performed via a merge queue.
+	// (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
 	MergeQueue RepositoryRulesetRulesMergeQueuePtrInput `pulumi:"mergeQueue"`
 	// (Boolean) Prevent users with push access from force pushing to branches.
 	NonFastForward pulumi.BoolPtrInput `pulumi:"nonFastForward"`
@@ -8322,7 +8322,7 @@ func (o RepositoryRulesetRulesOutput) MaxFileSize() RepositoryRulesetRulesMaxFil
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMaxFileSize { return v.MaxFileSize }).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
 
-// (Block List, Max: 1) Merges must be performed via a merge queue.
+// (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
 func (o RepositoryRulesetRulesOutput) MergeQueue() RepositoryRulesetRulesMergeQueuePtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesMergeQueue { return v.MergeQueue }).(RepositoryRulesetRulesMergeQueuePtrOutput)
 }
@@ -8507,7 +8507,7 @@ func (o RepositoryRulesetRulesPtrOutput) MaxFileSize() RepositoryRulesetRulesMax
 	}).(RepositoryRulesetRulesMaxFileSizePtrOutput)
 }
 
-// (Block List, Max: 1) Merges must be performed via a merge queue.
+// (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
 func (o RepositoryRulesetRulesPtrOutput) MergeQueue() RepositoryRulesetRulesMergeQueuePtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesMergeQueue {
 		if v == nil {
