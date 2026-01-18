@@ -52,7 +52,7 @@ namespace Pulumi.Github
     public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
+        /// (Optional) Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Output("createDefaultMaintainer")]
         public Output<bool?> CreateDefaultMaintainer { get; private set; } = null!;
@@ -88,6 +88,12 @@ namespace Pulumi.Github
         public Output<string> NodeId { get; private set; } = null!;
 
         /// <summary>
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// </summary>
+        [Output("notificationSetting")]
+        public Output<string?> NotificationSetting { get; private set; } = null!;
+
+        /// <summary>
         /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Output("parentTeamId")]
@@ -106,8 +112,7 @@ namespace Pulumi.Github
         public Output<string> ParentTeamReadSlug { get; private set; } = null!;
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
-        /// Defaults to `Secret`.
+        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
         /// </summary>
         [Output("privacy")]
         public Output<string?> Privacy { get; private set; } = null!;
@@ -167,7 +172,7 @@ namespace Pulumi.Github
     public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
+        /// (Optional) Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
@@ -191,6 +196,12 @@ namespace Pulumi.Github
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// </summary>
+        [Input("notificationSetting")]
+        public Input<string>? NotificationSetting { get; set; }
+
+        /// <summary>
         /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Input("parentTeamId")]
@@ -209,8 +220,7 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
-        /// Defaults to `Secret`.
+        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }
@@ -224,7 +234,7 @@ namespace Pulumi.Github
     public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
+        /// (Optional) Adds a default maintainer to the team. Defaults to `False` and adds the creating user to the team when `True`.
         /// </summary>
         [Input("createDefaultMaintainer")]
         public Input<bool>? CreateDefaultMaintainer { get; set; }
@@ -260,6 +270,12 @@ namespace Pulumi.Github
         public Input<string>? NodeId { get; set; }
 
         /// <summary>
+        /// The notification setting for the team. Must be one of `NotificationsEnabled` _(default)_ or `NotificationsDisabled`.
+        /// </summary>
+        [Input("notificationSetting")]
+        public Input<string>? NotificationSetting { get; set; }
+
+        /// <summary>
         /// The ID or slug of the parent team, if this is a nested team.
         /// </summary>
         [Input("parentTeamId")]
@@ -278,8 +294,7 @@ namespace Pulumi.Github
         public Input<string>? ParentTeamReadSlug { get; set; }
 
         /// <summary>
-        /// The level of privacy for the team. Must be one of `Secret` or `Closed`.
-        /// Defaults to `Secret`.
+        /// The level of privacy for the team. Must be one of `Secret` _(default)_ or `Closed`.
         /// </summary>
         [Input("privacy")]
         public Input<string>? Privacy { get; set; }

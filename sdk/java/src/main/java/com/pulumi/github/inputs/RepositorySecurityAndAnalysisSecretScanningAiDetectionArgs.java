@@ -15,14 +15,14 @@ public final class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs ex
     public static final RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs Empty = new RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs();
 
     /**
-     * The GitHub Pages site&#39;s build status e.g. `building` or `built`.
+     * Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository&#39;s visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The GitHub Pages site&#39;s build status e.g. `building` or `built`.
+     * @return Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository&#39;s visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
      * 
      */
     public Output<String> status() {
@@ -54,7 +54,7 @@ public final class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs ex
         }
 
         /**
-         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
+         * @param status Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository&#39;s visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs ex
         }
 
         /**
-         * @param status The GitHub Pages site&#39;s build status e.g. `building` or `built`.
+         * @param status Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository&#39;s visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
          * 
          * @return builder
          * 

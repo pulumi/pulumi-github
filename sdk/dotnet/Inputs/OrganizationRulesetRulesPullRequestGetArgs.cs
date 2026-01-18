@@ -12,6 +12,18 @@ namespace Pulumi.Github.Inputs
 
     public sealed class OrganizationRulesetRulesPullRequestGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedMergeMethods")]
+        private InputList<string>? _allowedMergeMethods;
+
+        /// <summary>
+        /// Array of allowed merge methods. Allowed values include `Merge`, `Squash`, and `Rebase`. At least one option must be enabled.
+        /// </summary>
+        public InputList<string> AllowedMergeMethods
+        {
+            get => _allowedMergeMethods ?? (_allowedMergeMethods = new InputList<string>());
+            set => _allowedMergeMethods = value;
+        }
+
         /// <summary>
         /// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `False`.
         /// </summary>

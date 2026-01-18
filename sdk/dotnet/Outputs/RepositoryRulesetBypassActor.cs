@@ -26,8 +26,8 @@ namespace Pulumi.Github.Outputs
         /// 
         /// &gt; Note: at the time of writing this, the following actor types correspond to the following actor IDs:
         /// 
-        /// * `OrganizationAdmin` &gt; `1`
-        /// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        /// - `OrganizationAdmin` &gt; `1`
+        /// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         /// </summary>
         public readonly string BypassMode;
 

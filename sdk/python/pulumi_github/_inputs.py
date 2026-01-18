@@ -65,6 +65,8 @@ __all__ = [
     'OrganizationRulesetRulesCommitMessagePatternArgsDict',
     'OrganizationRulesetRulesCommitterEmailPatternArgs',
     'OrganizationRulesetRulesCommitterEmailPatternArgsDict',
+    'OrganizationRulesetRulesCopilotCodeReviewArgs',
+    'OrganizationRulesetRulesCopilotCodeReviewArgsDict',
     'OrganizationRulesetRulesFileExtensionRestrictionArgs',
     'OrganizationRulesetRulesFileExtensionRestrictionArgsDict',
     'OrganizationRulesetRulesFilePathRestrictionArgs',
@@ -123,6 +125,8 @@ __all__ = [
     'RepositoryRulesetRulesCommitMessagePatternArgsDict',
     'RepositoryRulesetRulesCommitterEmailPatternArgs',
     'RepositoryRulesetRulesCommitterEmailPatternArgsDict',
+    'RepositoryRulesetRulesCopilotCodeReviewArgs',
+    'RepositoryRulesetRulesCopilotCodeReviewArgsDict',
     'RepositoryRulesetRulesFileExtensionRestrictionArgs',
     'RepositoryRulesetRulesFileExtensionRestrictionArgsDict',
     'RepositoryRulesetRulesFilePathRestrictionArgs',
@@ -1514,8 +1518,8 @@ if not MYPY:
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        * `OrganizationAdmin` > `1`
-        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        - `OrganizationAdmin` > `1`
+        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         actor_id: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -1536,8 +1540,8 @@ class OrganizationRulesetBypassActorArgs:
                
                ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
-               * `OrganizationAdmin` > `1`
-               * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+               - `OrganizationAdmin` > `1`
+               - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         :param pulumi.Input[_builtins.int] actor_id: (Number) The ID of the actor that can bypass a ruleset.
         """
         pulumi.set(__self__, "actor_type", actor_type)
@@ -1565,8 +1569,8 @@ class OrganizationRulesetBypassActorArgs:
 
         ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        * `OrganizationAdmin` > `1`
-        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        - `OrganizationAdmin` > `1`
+        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
 
@@ -1802,6 +1806,10 @@ if not MYPY:
         """
         (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
+        copilot_code_review: NotRequired[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgsDict']]
+        """
+        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        """
         creation: NotRequired[pulumi.Input[_builtins.bool]]
         """
         (Boolean) Only allow users with bypass permission to create matching refs.
@@ -1872,6 +1880,7 @@ class OrganizationRulesetRulesArgs:
                  commit_author_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs']] = None,
                  commit_message_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs']] = None,
                  committer_email_pattern: Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']] = None,
+                 copilot_code_review: Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']] = None,
                  creation: Optional[pulumi.Input[_builtins.bool]] = None,
                  deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  file_extension_restriction: Optional[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgs']] = None,
@@ -1892,6 +1901,7 @@ class OrganizationRulesetRulesArgs:
         :param pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgs'] commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgs'] commit_message_pattern: (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs'] committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs'] copilot_code_review: (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
         :param pulumi.Input[_builtins.bool] creation: (Boolean) Only allow users with bypass permission to create matching refs.
         :param pulumi.Input[_builtins.bool] deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
         :param pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgs'] file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
@@ -1916,6 +1926,8 @@ class OrganizationRulesetRulesArgs:
             pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
         if committer_email_pattern is not None:
             pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+        if copilot_code_review is not None:
+            pulumi.set(__self__, "copilot_code_review", copilot_code_review)
         if creation is not None:
             pulumi.set(__self__, "creation", creation)
         if deletion is not None:
@@ -1994,6 +2006,18 @@ class OrganizationRulesetRulesArgs:
     @committer_email_pattern.setter
     def committer_email_pattern(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgs']]):
         pulumi.set(self, "committer_email_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="copilotCodeReview")
+    def copilot_code_review(self) -> Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']]:
+        """
+        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        """
+        return pulumi.get(self, "copilot_code_review")
+
+    @copilot_code_review.setter
+    def copilot_code_review(self, value: Optional[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgs']]):
+        pulumi.set(self, "copilot_code_review", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2537,6 +2561,58 @@ class OrganizationRulesetRulesCommitterEmailPatternArgs:
 
 
 if not MYPY:
+    class OrganizationRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
+        review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        """
+        review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+elif False:
+    OrganizationRulesetRulesCopilotCodeReviewArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationRulesetRulesCopilotCodeReviewArgs:
+    def __init__(__self__, *,
+                 review_draft_pull_requests: Optional[pulumi.Input[_builtins.bool]] = None,
+                 review_on_push: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] review_draft_pull_requests: Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] review_on_push: Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+        if review_draft_pull_requests is not None:
+            pulumi.set(__self__, "review_draft_pull_requests", review_draft_pull_requests)
+        if review_on_push is not None:
+            pulumi.set(__self__, "review_on_push", review_on_push)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewDraftPullRequests")
+    def review_draft_pull_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        """
+        return pulumi.get(self, "review_draft_pull_requests")
+
+    @review_draft_pull_requests.setter
+    def review_draft_pull_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "review_draft_pull_requests", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewOnPush")
+    def review_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+        return pulumi.get(self, "review_on_push")
+
+    @review_on_push.setter
+    def review_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "review_on_push", value)
+
+
+if not MYPY:
     class OrganizationRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
         restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
@@ -2662,6 +2738,10 @@ class OrganizationRulesetRulesMaxFileSizeArgs:
 
 if not MYPY:
     class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
+        allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+        """
         dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
         """
         New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -2688,18 +2768,22 @@ elif False:
 @pulumi.input_type
 class OrganizationRulesetRulesPullRequestArgs:
     def __init__(__self__, *,
+                 allowed_merge_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dismiss_stale_reviews_on_push: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_code_owner_review: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None,
                  required_review_thread_resolution: Optional[pulumi.Input[_builtins.bool]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] require_code_owner_review: Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         :param pulumi.Input[_builtins.int] required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param pulumi.Input[_builtins.bool] required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
+        if allowed_merge_methods is not None:
+            pulumi.set(__self__, "allowed_merge_methods", allowed_merge_methods)
         if dismiss_stale_reviews_on_push is not None:
             pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
@@ -2710,6 +2794,18 @@ class OrganizationRulesetRulesPullRequestArgs:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
             pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMergeMethods")
+    def allowed_merge_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+        """
+        return pulumi.get(self, "allowed_merge_methods")
+
+    @allowed_merge_methods.setter
+    def allowed_merge_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_merge_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
@@ -3820,8 +3916,8 @@ if not MYPY:
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        * `OrganizationAdmin` > `1`
-        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        - `OrganizationAdmin` > `1`
+        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         actor_id: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -3842,8 +3938,8 @@ class RepositoryRulesetBypassActorArgs:
                
                > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
                
-               * `OrganizationAdmin` > `1`
-               * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+               - `OrganizationAdmin` > `1`
+               - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         :param pulumi.Input[_builtins.int] actor_id: The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
         """
         pulumi.set(__self__, "actor_type", actor_type)
@@ -3871,8 +3967,8 @@ class RepositoryRulesetBypassActorArgs:
 
         > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        * `OrganizationAdmin` > `1`
-        * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+        - `OrganizationAdmin` > `1`
+        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
         """
         return pulumi.get(self, "bypass_mode")
 
@@ -3992,6 +4088,10 @@ if not MYPY:
         """
         (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         """
+        copilot_code_review: NotRequired[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgsDict']]
+        """
+        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        """
         creation: NotRequired[pulumi.Input[_builtins.bool]]
         """
         (Boolean) Only allow users with bypass permission to create matching refs.
@@ -4070,6 +4170,7 @@ class RepositoryRulesetRulesArgs:
                  commit_author_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs']] = None,
                  commit_message_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs']] = None,
                  committer_email_pattern: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']] = None,
+                 copilot_code_review: Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']] = None,
                  creation: Optional[pulumi.Input[_builtins.bool]] = None,
                  deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  file_extension_restriction: Optional[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs']] = None,
@@ -4092,6 +4193,7 @@ class RepositoryRulesetRulesArgs:
         :param pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgs'] commit_author_email_pattern: (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgs'] commit_message_pattern: (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs'] committer_email_pattern: (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+        :param pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs'] copilot_code_review: (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
         :param pulumi.Input[_builtins.bool] creation: (Boolean) Only allow users with bypass permission to create matching refs.
         :param pulumi.Input[_builtins.bool] deletion: (Boolean) Only allow users with bypass permissions to delete matching refs.
         :param pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgs'] file_extension_restriction: (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
@@ -4118,6 +4220,8 @@ class RepositoryRulesetRulesArgs:
             pulumi.set(__self__, "commit_message_pattern", commit_message_pattern)
         if committer_email_pattern is not None:
             pulumi.set(__self__, "committer_email_pattern", committer_email_pattern)
+        if copilot_code_review is not None:
+            pulumi.set(__self__, "copilot_code_review", copilot_code_review)
         if creation is not None:
             pulumi.set(__self__, "creation", creation)
         if deletion is not None:
@@ -4200,6 +4304,18 @@ class RepositoryRulesetRulesArgs:
     @committer_email_pattern.setter
     def committer_email_pattern(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgs']]):
         pulumi.set(self, "committer_email_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="copilotCodeReview")
+    def copilot_code_review(self) -> Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']]:
+        """
+        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        """
+        return pulumi.get(self, "copilot_code_review")
+
+    @copilot_code_review.setter
+    def copilot_code_review(self, value: Optional[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgs']]):
+        pulumi.set(self, "copilot_code_review", value)
 
     @_builtins.property
     @pulumi.getter
@@ -4767,6 +4883,58 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
 
 
 if not MYPY:
+    class RepositoryRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
+        review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        """
+        review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+elif False:
+    RepositoryRulesetRulesCopilotCodeReviewArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryRulesetRulesCopilotCodeReviewArgs:
+    def __init__(__self__, *,
+                 review_draft_pull_requests: Optional[pulumi.Input[_builtins.bool]] = None,
+                 review_on_push: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] review_draft_pull_requests: Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] review_on_push: Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+        if review_draft_pull_requests is not None:
+            pulumi.set(__self__, "review_draft_pull_requests", review_draft_pull_requests)
+        if review_on_push is not None:
+            pulumi.set(__self__, "review_on_push", review_on_push)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewDraftPullRequests")
+    def review_draft_pull_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+        """
+        return pulumi.get(self, "review_draft_pull_requests")
+
+    @review_draft_pull_requests.setter
+    def review_draft_pull_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "review_draft_pull_requests", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewOnPush")
+    def review_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+        """
+        return pulumi.get(self, "review_on_push")
+
+    @review_on_push.setter
+    def review_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "review_on_push", value)
+
+
+if not MYPY:
     class RepositoryRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
         restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
@@ -5044,6 +5212,10 @@ class RepositoryRulesetRulesMergeQueueArgs:
 
 if not MYPY:
     class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
+        allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+        """
         dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
         """
         New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -5070,18 +5242,22 @@ elif False:
 @pulumi.input_type
 class RepositoryRulesetRulesPullRequestArgs:
     def __init__(__self__, *,
+                 allowed_merge_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dismiss_stale_reviews_on_push: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_code_owner_review: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_last_push_approval: Optional[pulumi.Input[_builtins.bool]] = None,
                  required_approving_review_count: Optional[pulumi.Input[_builtins.int]] = None,
                  required_review_thread_resolution: Optional[pulumi.Input[_builtins.bool]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param pulumi.Input[_builtins.bool] dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] require_code_owner_review: Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         :param pulumi.Input[_builtins.int] required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param pulumi.Input[_builtins.bool] required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
+        if allowed_merge_methods is not None:
+            pulumi.set(__self__, "allowed_merge_methods", allowed_merge_methods)
         if dismiss_stale_reviews_on_push is not None:
             pulumi.set(__self__, "dismiss_stale_reviews_on_push", dismiss_stale_reviews_on_push)
         if require_code_owner_review is not None:
@@ -5092,6 +5268,18 @@ class RepositoryRulesetRulesPullRequestArgs:
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
             pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMergeMethods")
+    def allowed_merge_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+        """
+        return pulumi.get(self, "allowed_merge_methods")
+
+    @allowed_merge_methods.setter
+    def allowed_merge_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_merge_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="dismissStaleReviewsOnPush")
@@ -5726,7 +5914,7 @@ if not MYPY:
     class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict(TypedDict):
         status: pulumi.Input[_builtins.str]
         """
-        The GitHub Pages site's build status e.g. `building` or `built`.
+        Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
         """
 elif False:
     RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict: TypeAlias = Mapping[str, Any]
@@ -5736,7 +5924,7 @@ class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] status: The GitHub Pages site's build status e.g. `building` or `built`.
+        :param pulumi.Input[_builtins.str] status: Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
         """
         pulumi.set(__self__, "status", status)
 
@@ -5744,7 +5932,7 @@ class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The GitHub Pages site's build status e.g. `building` or `built`.
+        Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
         """
         return pulumi.get(self, "status")
 

@@ -50,9 +50,11 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamArgs struct {
-	// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+	// Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
 	MembershipType *string `pulumi:"membershipType"`
-	// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+	//
+	// Deprecated: This is deprecated and will be removed in a future release.
 	ResultsPerPage *int `pulumi:"resultsPerPage"`
 	// The team slug.
 	Slug string `pulumi:"slug"`
@@ -62,30 +64,35 @@ type LookupTeamArgs struct {
 
 // A collection of values returned by getTeam.
 type LookupTeamResult struct {
-	// the team's description.
+	// Team's description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
+	// List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`.
 	Members        []string `pulumi:"members"`
 	MembershipType *string  `pulumi:"membershipType"`
-	// the team's full name.
+	// Team's full name.
 	Name string `pulumi:"name"`
-	// the Node ID of the team.
+	// Node ID of the team.
 	NodeId string `pulumi:"nodeId"`
-	// the team's permission level.
+	// Teams's notification setting. Can be either `notificationsEnabled` or `notificationsDisabled`.
+	NotificationSetting string `pulumi:"notificationSetting"`
+	// (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
+	//
+	// Deprecated: Closing down notice.
 	Permission string `pulumi:"permission"`
-	// the team's privacy type.
+	// Team's privacy type. Can either be `closed` or `secret`.
 	Privacy string `pulumi:"privacy"`
-	// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+	// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
 	//
 	// Deprecated: Use repositoriesDetailed instead.
 	Repositories []string `pulumi:"repositories"`
-	// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
+	// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`.
 	RepositoriesDetaileds []GetTeamRepositoriesDetailed `pulumi:"repositoriesDetaileds"`
-	ResultsPerPage        *int                          `pulumi:"resultsPerPage"`
-	Slug                  string                        `pulumi:"slug"`
-	SummaryOnly           *bool                         `pulumi:"summaryOnly"`
+	// Deprecated: This is deprecated and will be removed in a future release.
+	ResultsPerPage *int   `pulumi:"resultsPerPage"`
+	Slug           string `pulumi:"slug"`
+	SummaryOnly    *bool  `pulumi:"summaryOnly"`
 }
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
@@ -99,9 +106,11 @@ func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamOutputArgs struct {
-	// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+	// Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
 	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
-	// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+	// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+	//
+	// Deprecated: This is deprecated and will be removed in a future release.
 	ResultsPerPage pulumi.IntPtrInput `pulumi:"resultsPerPage"`
 	// The team slug.
 	Slug pulumi.StringInput `pulumi:"slug"`
@@ -128,7 +137,7 @@ func (o LookupTeamResultOutput) ToLookupTeamResultOutputWithContext(ctx context.
 	return o
 }
 
-// the team's description.
+// Team's description.
 func (o LookupTeamResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -138,7 +147,7 @@ func (o LookupTeamResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
+// List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`.
 func (o LookupTeamResultOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -147,38 +156,46 @@ func (o LookupTeamResultOutput) MembershipType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTeamResult) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
 }
 
-// the team's full name.
+// Team's full name.
 func (o LookupTeamResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the Node ID of the team.
+// Node ID of the team.
 func (o LookupTeamResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// the team's permission level.
+// Teams's notification setting. Can be either `notificationsEnabled` or `notificationsDisabled`.
+func (o LookupTeamResultOutput) NotificationSetting() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.NotificationSetting }).(pulumi.StringOutput)
+}
+
+// (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
+//
+// Deprecated: Closing down notice.
 func (o LookupTeamResultOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Permission }).(pulumi.StringOutput)
 }
 
-// the team's privacy type.
+// Team's privacy type. Can either be `closed` or `secret`.
 func (o LookupTeamResultOutput) Privacy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Privacy }).(pulumi.StringOutput)
 }
 
-// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
 //
 // Deprecated: Use repositoriesDetailed instead.
 func (o LookupTeamResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
+// List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`.
 func (o LookupTeamResultOutput) RepositoriesDetaileds() GetTeamRepositoriesDetailedArrayOutput {
 	return o.ApplyT(func(v LookupTeamResult) []GetTeamRepositoriesDetailed { return v.RepositoriesDetaileds }).(GetTeamRepositoriesDetailedArrayOutput)
 }
 
+// Deprecated: This is deprecated and will be removed in a future release.
 func (o LookupTeamResultOutput) ResultsPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTeamResult) *int { return v.ResultsPerPage }).(pulumi.IntPtrOutput)
 }

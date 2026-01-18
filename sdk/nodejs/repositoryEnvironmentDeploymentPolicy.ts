@@ -69,10 +69,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Repository Environment Deployment Policy can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment with the `Id` of the deployment policy, separated by a `:` character, e.g.
+ * This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
  *
  * ```sh
- * $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy daily terraform:daily:123456
+ * $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
  * ```
  */
 export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource {

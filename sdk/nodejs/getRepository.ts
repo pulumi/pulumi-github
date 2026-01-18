@@ -62,6 +62,10 @@ export interface GetRepositoryResult {
      */
     readonly allowAutoMerge: boolean;
     /**
+     * Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+     */
+    readonly allowForking: boolean;
+    /**
      * Whether the repository allows merge commits.
      */
     readonly allowMergeCommit: boolean;
@@ -101,7 +105,9 @@ export interface GetRepositoryResult {
      */
     readonly hasDiscussions: boolean;
     /**
-     * Whether the repository has Downloads feature enabled.
+     * (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     *
+     * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
     readonly hasDownloads: boolean;
     /**

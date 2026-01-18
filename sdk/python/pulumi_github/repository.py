@@ -22,6 +22,7 @@ __all__ = ['RepositoryArgs', 'Repository']
 class RepositoryArgs:
     def __init__(__self__, *,
                  allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -62,6 +63,7 @@ class RepositoryArgs:
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
+        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -77,7 +79,7 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
+        :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
@@ -106,6 +108,8 @@ class RepositoryArgs:
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
+        if allow_forking is not None:
+            pulumi.set(__self__, "allow_forking", allow_forking)
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
@@ -137,6 +141,9 @@ class RepositoryArgs:
             pulumi.set(__self__, "gitignore_template", gitignore_template)
         if has_discussions is not None:
             pulumi.set(__self__, "has_discussions", has_discussions)
+        if has_downloads is not None:
+            warnings.warn("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""", DeprecationWarning)
+            pulumi.log.warn("""has_downloads is deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
         if has_downloads is not None:
             pulumi.set(__self__, "has_downloads", has_downloads)
         if has_issues is not None:
@@ -198,6 +205,18 @@ class RepositoryArgs:
     @allow_auto_merge.setter
     def allow_auto_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_auto_merge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowForking")
+    def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        """
+        return pulumi.get(self, "allow_forking")
+
+    @allow_forking.setter
+    def allow_forking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_forking", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
@@ -369,9 +388,10 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
+    @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
     def has_downloads(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
+        (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 
@@ -652,6 +672,7 @@ class RepositoryArgs:
 class _RepositoryState:
     def __init__(__self__, *,
                  allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -701,6 +722,7 @@ class _RepositoryState:
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
+        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -718,7 +740,7 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
+        :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
@@ -754,6 +776,8 @@ class _RepositoryState:
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
+        if allow_forking is not None:
+            pulumi.set(__self__, "allow_forking", allow_forking)
         if allow_merge_commit is not None:
             pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
         if allow_rebase_merge is not None:
@@ -789,6 +813,9 @@ class _RepositoryState:
             pulumi.set(__self__, "gitignore_template", gitignore_template)
         if has_discussions is not None:
             pulumi.set(__self__, "has_discussions", has_discussions)
+        if has_downloads is not None:
+            warnings.warn("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""", DeprecationWarning)
+            pulumi.log.warn("""has_downloads is deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
         if has_downloads is not None:
             pulumi.set(__self__, "has_downloads", has_downloads)
         if has_issues is not None:
@@ -864,6 +891,18 @@ class _RepositoryState:
     @allow_auto_merge.setter
     def allow_auto_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_auto_merge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowForking")
+    def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        """
+        return pulumi.get(self, "allow_forking")
+
+    @allow_forking.setter
+    def allow_forking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_forking", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
@@ -1059,9 +1098,10 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
+    @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
     def has_downloads(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
+        (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 
@@ -1429,6 +1469,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1526,6 +1567,8 @@ class Repository(pulumi.CustomResource):
 
         Repositories can be imported using the `name`, e.g.
 
+        text
+
         ```sh
         $ pulumi import github:index/repository:Repository terraform terraform
         ```
@@ -1533,6 +1576,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
+        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1548,7 +1592,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fork: Set to `true` to create a fork of an existing repository. When set to `true`, both `source_owner` and `source_repo` must also be specified.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
+        :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
@@ -1640,6 +1684,8 @@ class Repository(pulumi.CustomResource):
 
         Repositories can be imported using the `name`, e.g.
 
+        text
+
         ```sh
         $ pulumi import github:index/repository:Repository terraform terraform
         ```
@@ -1660,6 +1706,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1707,6 +1754,7 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["allow_auto_merge"] = allow_auto_merge
+            __props__.__dict__["allow_forking"] = allow_forking
             __props__.__dict__["allow_merge_commit"] = allow_merge_commit
             __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
             __props__.__dict__["allow_squash_merge"] = allow_squash_merge
@@ -1764,6 +1812,7 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_auto_merge: Optional[pulumi.Input[_builtins.bool]] = None,
+            allow_forking: Optional[pulumi.Input[_builtins.bool]] = None,
             allow_merge_commit: Optional[pulumi.Input[_builtins.bool]] = None,
             allow_rebase_merge: Optional[pulumi.Input[_builtins.bool]] = None,
             allow_squash_merge: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1818,6 +1867,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
+        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1835,7 +1885,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] git_clone_url: URL that can be provided to `git clone` to clone the repository anonymously via the git protocol.
         :param pulumi.Input[_builtins.str] gitignore_template: Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell".
         :param pulumi.Input[_builtins.bool] has_discussions: Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] has_downloads: Set to `true` to enable the (deprecated) downloads features on the repository.
+        :param pulumi.Input[_builtins.bool] has_downloads: (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         :param pulumi.Input[_builtins.bool] has_issues: Set to `true` to enable the GitHub Issues features
                on the repository.
         :param pulumi.Input[_builtins.bool] has_projects: Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub [documentation](https://developer.github.com/v3/repos/#create) when in an organization that has disabled repository projects it will default to `false` and will otherwise default to `true`. If you specify `true` when it has been disabled it will return an error.
@@ -1874,6 +1924,7 @@ class Repository(pulumi.CustomResource):
         __props__ = _RepositoryState.__new__(_RepositoryState)
 
         __props__.__dict__["allow_auto_merge"] = allow_auto_merge
+        __props__.__dict__["allow_forking"] = allow_forking
         __props__.__dict__["allow_merge_commit"] = allow_merge_commit
         __props__.__dict__["allow_rebase_merge"] = allow_rebase_merge
         __props__.__dict__["allow_squash_merge"] = allow_squash_merge
@@ -1929,6 +1980,14 @@ class Repository(pulumi.CustomResource):
         Set to `true` to allow auto-merging pull requests on the repository.
         """
         return pulumi.get(self, "allow_auto_merge")
+
+    @_builtins.property
+    @pulumi.getter(name="allowForking")
+    def allow_forking(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        """
+        return pulumi.get(self, "allow_forking")
 
     @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
@@ -2060,9 +2119,10 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
+    @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
     def has_downloads(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Set to `true` to enable the (deprecated) downloads features on the repository.
+        (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 

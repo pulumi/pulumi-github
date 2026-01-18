@@ -8,6 +8,7 @@ import com.pulumi.github.outputs.RepositoryRulesetRulesBranchNamePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.RepositoryRulesetRulesCommitterEmailPattern;
+import com.pulumi.github.outputs.RepositoryRulesetRulesCopilotCodeReview;
 import com.pulumi.github.outputs.RepositoryRulesetRulesFileExtensionRestriction;
 import com.pulumi.github.outputs.RepositoryRulesetRulesFilePathRestriction;
 import com.pulumi.github.outputs.RepositoryRulesetRulesMaxFilePathLength;
@@ -45,6 +46,11 @@ public final class RepositoryRulesetRules {
      * 
      */
     private @Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern;
+    /**
+     * @return (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    private @Nullable RepositoryRulesetRulesCopilotCodeReview copilotCodeReview;
     /**
      * @return (Boolean) Only allow users with bypass permission to create matching refs.
      * 
@@ -159,6 +165,13 @@ public final class RepositoryRulesetRules {
      */
     public Optional<RepositoryRulesetRulesCommitterEmailPattern> committerEmailPattern() {
         return Optional.ofNullable(this.committerEmailPattern);
+    }
+    /**
+     * @return (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    public Optional<RepositoryRulesetRulesCopilotCodeReview> copilotCodeReview() {
+        return Optional.ofNullable(this.copilotCodeReview);
     }
     /**
      * @return (Boolean) Only allow users with bypass permission to create matching refs.
@@ -293,6 +306,7 @@ public final class RepositoryRulesetRules {
         private @Nullable RepositoryRulesetRulesCommitAuthorEmailPattern commitAuthorEmailPattern;
         private @Nullable RepositoryRulesetRulesCommitMessagePattern commitMessagePattern;
         private @Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern;
+        private @Nullable RepositoryRulesetRulesCopilotCodeReview copilotCodeReview;
         private @Nullable Boolean creation;
         private @Nullable Boolean deletion;
         private @Nullable RepositoryRulesetRulesFileExtensionRestriction fileExtensionRestriction;
@@ -317,6 +331,7 @@ public final class RepositoryRulesetRules {
     	      this.commitAuthorEmailPattern = defaults.commitAuthorEmailPattern;
     	      this.commitMessagePattern = defaults.commitMessagePattern;
     	      this.committerEmailPattern = defaults.committerEmailPattern;
+    	      this.copilotCodeReview = defaults.copilotCodeReview;
     	      this.creation = defaults.creation;
     	      this.deletion = defaults.deletion;
     	      this.fileExtensionRestriction = defaults.fileExtensionRestriction;
@@ -358,6 +373,12 @@ public final class RepositoryRulesetRules {
         public Builder committerEmailPattern(@Nullable RepositoryRulesetRulesCommitterEmailPattern committerEmailPattern) {
 
             this.committerEmailPattern = committerEmailPattern;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder copilotCodeReview(@Nullable RepositoryRulesetRulesCopilotCodeReview copilotCodeReview) {
+
+            this.copilotCodeReview = copilotCodeReview;
             return this;
         }
         @CustomType.Setter
@@ -468,6 +489,7 @@ public final class RepositoryRulesetRules {
             _resultValue.commitAuthorEmailPattern = commitAuthorEmailPattern;
             _resultValue.commitMessagePattern = commitMessagePattern;
             _resultValue.committerEmailPattern = committerEmailPattern;
+            _resultValue.copilotCodeReview = copilotCodeReview;
             _resultValue.creation = creation;
             _resultValue.deletion = deletion;
             _resultValue.fileExtensionRestriction = fileExtensionRestriction;
