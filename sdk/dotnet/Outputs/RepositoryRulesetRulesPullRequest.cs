@@ -14,6 +14,10 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetRulesPullRequest
     {
         /// <summary>
+        /// Array of allowed merge methods. Allowed values include `Merge`, `Squash`, and `Rebase`. At least one option must be enabled.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedMergeMethods;
+        /// <summary>
         /// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `False`.
         /// </summary>
         public readonly bool? DismissStaleReviewsOnPush;
@@ -36,6 +40,8 @@ namespace Pulumi.Github.Outputs
 
         [OutputConstructor]
         private RepositoryRulesetRulesPullRequest(
+            ImmutableArray<string> allowedMergeMethods,
+
             bool? dismissStaleReviewsOnPush,
 
             bool? requireCodeOwnerReview,
@@ -46,6 +52,7 @@ namespace Pulumi.Github.Outputs
 
             bool? requiredReviewThreadResolution)
         {
+            AllowedMergeMethods = allowedMergeMethods;
             DismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
             RequireCodeOwnerReview = requireCodeOwnerReview;
             RequireLastPushApproval = requireLastPushApproval;

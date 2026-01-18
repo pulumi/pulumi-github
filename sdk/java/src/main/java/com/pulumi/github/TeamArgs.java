@@ -17,16 +17,24 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     public static final TeamArgs Empty = new TeamArgs();
 
     /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * 
+     * @deprecated
+     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
+    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
     @Import(name="createDefaultMaintainer")
     private @Nullable Output<Boolean> createDefaultMaintainer;
 
     /**
-     * @return Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * @return (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * 
+     * @deprecated
+     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
+    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
     public Optional<Output<Boolean>> createDefaultMaintainer() {
         return Optional.ofNullable(this.createDefaultMaintainer);
     }
@@ -77,6 +85,21 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * 
+     */
+    @Import(name="notificationSetting")
+    private @Nullable Output<String> notificationSetting;
+
+    /**
+     * @return The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * 
+     */
+    public Optional<Output<String>> notificationSetting() {
+        return Optional.ofNullable(this.notificationSetting);
+    }
+
+    /**
      * The ID or slug of the parent team, if this is a nested team.
      * 
      */
@@ -122,16 +145,14 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      * 
      */
     @Import(name="privacy")
     private @Nullable Output<String> privacy;
 
     /**
-     * @return The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * @return The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      * 
      */
     public Optional<Output<String>> privacy() {
@@ -145,6 +166,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.ldapDn = $.ldapDn;
         this.name = $.name;
+        this.notificationSetting = $.notificationSetting;
         this.parentTeamId = $.parentTeamId;
         this.parentTeamReadId = $.parentTeamReadId;
         this.parentTeamReadSlug = $.parentTeamReadSlug;
@@ -170,22 +192,30 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createDefaultMaintainer Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+         * @param createDefaultMaintainer (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+         * 
          */
+        @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
         public Builder createDefaultMaintainer(@Nullable Output<Boolean> createDefaultMaintainer) {
             $.createDefaultMaintainer = createDefaultMaintainer;
             return this;
         }
 
         /**
-         * @param createDefaultMaintainer Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+         * @param createDefaultMaintainer (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
+         * 
          */
+        @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
         public Builder createDefaultMaintainer(Boolean createDefaultMaintainer) {
             return createDefaultMaintainer(Output.of(createDefaultMaintainer));
         }
@@ -254,6 +284,27 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationSetting(@Nullable Output<String> notificationSetting) {
+            $.notificationSetting = notificationSetting;
+            return this;
+        }
+
+        /**
+         * @param notificationSetting The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationSetting(String notificationSetting) {
+            return notificationSetting(Output.of(notificationSetting));
+        }
+
+        /**
          * @param parentTeamId The ID or slug of the parent team, if this is a nested team.
          * 
          * @return builder
@@ -317,8 +368,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` or `closed`.
-         * Defaults to `secret`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
          * 
          * @return builder
          * 
@@ -329,8 +379,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privacy The level of privacy for the team. Must be one of `secret` or `closed`.
-         * Defaults to `secret`.
+         * @param privacy The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
          * 
          * @return builder
          * 

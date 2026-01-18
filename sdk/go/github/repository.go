@@ -117,6 +117,8 @@ import (
 //
 // Repositories can be imported using the `name`, e.g.
 //
+// text
+//
 // ```sh
 // $ pulumi import github:index/repository:Repository terraform terraform
 // ```
@@ -125,6 +127,8 @@ type Repository struct {
 
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrOutput `pulumi:"allowAutoMerge"`
+	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking pulumi.BoolOutput `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrOutput `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -160,7 +164,9 @@ type Repository struct {
 	GitignoreTemplate pulumi.StringPtrOutput `pulumi:"gitignoreTemplate"`
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
 	HasDiscussions pulumi.BoolPtrOutput `pulumi:"hasDiscussions"`
-	// Set to `true` to enable the (deprecated) downloads features on the repository.
+	// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrOutput `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
 	// on the repository.
@@ -259,6 +265,8 @@ func GetRepository(ctx *pulumi.Context,
 type repositoryState struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
+	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking *bool `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -294,7 +302,9 @@ type repositoryState struct {
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
 	HasDiscussions *bool `pulumi:"hasDiscussions"`
-	// Set to `true` to enable the (deprecated) downloads features on the repository.
+	// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads *bool `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
 	// on the repository.
@@ -364,6 +374,8 @@ type repositoryState struct {
 type RepositoryState struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrInput
+	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
 	// Set to `false` to disable rebase merges on the repository.
@@ -399,7 +411,9 @@ type RepositoryState struct {
 	GitignoreTemplate pulumi.StringPtrInput
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
 	HasDiscussions pulumi.BoolPtrInput
-	// Set to `true` to enable the (deprecated) downloads features on the repository.
+	// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Issues features
 	// on the repository.
@@ -473,6 +487,8 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
+	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking *bool `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
 	// Set to `false` to disable rebase merges on the repository.
@@ -504,7 +520,9 @@ type repositoryArgs struct {
 	GitignoreTemplate *string `pulumi:"gitignoreTemplate"`
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
 	HasDiscussions *bool `pulumi:"hasDiscussions"`
-	// Set to `true` to enable the (deprecated) downloads features on the repository.
+	// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads *bool `pulumi:"hasDownloads"`
 	// Set to `true` to enable the GitHub Issues features
 	// on the repository.
@@ -561,6 +579,8 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrInput
+	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
 	// Set to `false` to disable rebase merges on the repository.
@@ -592,7 +612,9 @@ type RepositoryArgs struct {
 	GitignoreTemplate pulumi.StringPtrInput
 	// Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`.
 	HasDiscussions pulumi.BoolPtrInput
-	// Set to `true` to enable the (deprecated) downloads features on the repository.
+	// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads pulumi.BoolPtrInput
 	// Set to `true` to enable the GitHub Issues features
 	// on the repository.
@@ -737,6 +759,11 @@ func (o RepositoryOutput) AllowAutoMerge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowAutoMerge }).(pulumi.BoolPtrOutput)
 }
 
+// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+func (o RepositoryOutput) AllowForking() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.AllowForking }).(pulumi.BoolOutput)
+}
+
 // Set to `false` to disable merge commits on the repository.
 func (o RepositoryOutput) AllowMergeCommit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowMergeCommit }).(pulumi.BoolPtrOutput)
@@ -820,7 +847,9 @@ func (o RepositoryOutput) HasDiscussions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDiscussions }).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to enable the (deprecated) downloads features on the repository.
+// (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+//
+// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 func (o RepositoryOutput) HasDownloads() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.HasDownloads }).(pulumi.BoolPtrOutput)
 }

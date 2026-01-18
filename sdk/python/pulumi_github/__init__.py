@@ -15,6 +15,7 @@ from .actions_organization_secret import *
 from .actions_organization_secret_repositories import *
 from .actions_organization_secret_repository import *
 from .actions_organization_variable import *
+from .actions_organization_workflow_permissions import *
 from .actions_repository_access_level import *
 from .actions_repository_oidc_subject_claim_customization_template import *
 from .actions_repository_permissions import *
@@ -243,6 +244,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/actionsOrganizationVariable:ActionsOrganizationVariable": "ActionsOrganizationVariable"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsOrganizationWorkflowPermissions",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions": "ActionsOrganizationWorkflowPermissions"
   }
  },
  {

@@ -9,6 +9,7 @@ import com.pulumi.github.inputs.RepositoryRulesetRulesBranchNamePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitAuthorEmailPatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitMessagePatternArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesCommitterEmailPatternArgs;
+import com.pulumi.github.inputs.RepositoryRulesetRulesCopilotCodeReviewArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesFileExtensionRestrictionArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesFilePathRestrictionArgs;
 import com.pulumi.github.inputs.RepositoryRulesetRulesMaxFilePathLengthArgs;
@@ -87,6 +88,21 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<RepositoryRulesetRulesCommitterEmailPatternArgs>> committerEmailPattern() {
         return Optional.ofNullable(this.committerEmailPattern);
+    }
+
+    /**
+     * (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    @Import(name="copilotCodeReview")
+    private @Nullable Output<RepositoryRulesetRulesCopilotCodeReviewArgs> copilotCodeReview;
+
+    /**
+     * @return (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    public Optional<Output<RepositoryRulesetRulesCopilotCodeReviewArgs>> copilotCodeReview() {
+        return Optional.ofNullable(this.copilotCodeReview);
     }
 
     /**
@@ -351,6 +367,7 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
         this.commitAuthorEmailPattern = $.commitAuthorEmailPattern;
         this.commitMessagePattern = $.commitMessagePattern;
         this.committerEmailPattern = $.committerEmailPattern;
+        this.copilotCodeReview = $.copilotCodeReview;
         this.creation = $.creation;
         this.deletion = $.deletion;
         this.fileExtensionRestriction = $.fileExtensionRestriction;
@@ -470,6 +487,27 @@ public final class RepositoryRulesetRulesArgs extends com.pulumi.resources.Resou
          */
         public Builder committerEmailPattern(RepositoryRulesetRulesCommitterEmailPatternArgs committerEmailPattern) {
             return committerEmailPattern(Output.of(committerEmailPattern));
+        }
+
+        /**
+         * @param copilotCodeReview (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copilotCodeReview(@Nullable Output<RepositoryRulesetRulesCopilotCodeReviewArgs> copilotCodeReview) {
+            $.copilotCodeReview = copilotCodeReview;
+            return this;
+        }
+
+        /**
+         * @param copilotCodeReview (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copilotCodeReview(RepositoryRulesetRulesCopilotCodeReviewArgs copilotCodeReview) {
+            return copilotCodeReview(Output.of(copilotCodeReview));
         }
 
         /**

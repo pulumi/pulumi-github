@@ -81,24 +81,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+ * This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
  * 
  * ```sh
- * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+ * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
  * ```
  * 
  */
 @ResourceType(type="github:index/repositoryEnvironment:RepositoryEnvironment")
 public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
     /**
-     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * Can repository admins bypass the environment protections. Defaults to `true`.
      * 
      */
     @Export(name="canAdminsBypass", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> canAdminsBypass;
 
     /**
-     * @return Can repository admins bypass the environment protections.  Defaults to `true`.
+     * @return Can repository admins bypass the environment protections. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> canAdminsBypass() {

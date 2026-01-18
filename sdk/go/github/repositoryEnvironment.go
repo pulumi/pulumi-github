@@ -68,15 +68,15 @@ import (
 //
 // ## Import
 //
-// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+// This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
 //
 // ```sh
-// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
 // ```
 type RepositoryEnvironment struct {
 	pulumi.CustomResourceState
 
-	// Can repository admins bypass the environment protections.  Defaults to `true`.
+	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass pulumi.BoolPtrOutput `pulumi:"canAdminsBypass"`
 	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrOutput `pulumi:"deploymentBranchPolicy"`
@@ -128,7 +128,7 @@ func GetRepositoryEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryEnvironment resources.
 type repositoryEnvironmentState struct {
-	// Can repository admins bypass the environment protections.  Defaults to `true`.
+	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass *bool `pulumi:"canAdminsBypass"`
 	// The deployment branch policy configuration
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
@@ -145,7 +145,7 @@ type repositoryEnvironmentState struct {
 }
 
 type RepositoryEnvironmentState struct {
-	// Can repository admins bypass the environment protections.  Defaults to `true`.
+	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass pulumi.BoolPtrInput
 	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
@@ -166,7 +166,7 @@ func (RepositoryEnvironmentState) ElementType() reflect.Type {
 }
 
 type repositoryEnvironmentArgs struct {
-	// Can repository admins bypass the environment protections.  Defaults to `true`.
+	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass *bool `pulumi:"canAdminsBypass"`
 	// The deployment branch policy configuration
 	DeploymentBranchPolicy *RepositoryEnvironmentDeploymentBranchPolicy `pulumi:"deploymentBranchPolicy"`
@@ -184,7 +184,7 @@ type repositoryEnvironmentArgs struct {
 
 // The set of arguments for constructing a RepositoryEnvironment resource.
 type RepositoryEnvironmentArgs struct {
-	// Can repository admins bypass the environment protections.  Defaults to `true`.
+	// Can repository admins bypass the environment protections. Defaults to `true`.
 	CanAdminsBypass pulumi.BoolPtrInput
 	// The deployment branch policy configuration
 	DeploymentBranchPolicy RepositoryEnvironmentDeploymentBranchPolicyPtrInput
@@ -287,7 +287,7 @@ func (o RepositoryEnvironmentOutput) ToRepositoryEnvironmentOutputWithContext(ct
 	return o
 }
 
-// Can repository admins bypass the environment protections.  Defaults to `true`.
+// Can repository admins bypass the environment protections. Defaults to `true`.
 func (o RepositoryEnvironmentOutput) CanAdminsBypass() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.BoolPtrOutput { return v.CanAdminsBypass }).(pulumi.BoolPtrOutput)
 }

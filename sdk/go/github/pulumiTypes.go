@@ -2625,8 +2625,8 @@ type OrganizationRulesetBypassActor struct {
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
-	// * `OrganizationAdmin` > `1`
-	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+	// - `OrganizationAdmin` > `1`
+	// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode string `pulumi:"bypassMode"`
 }
 
@@ -2650,8 +2650,8 @@ type OrganizationRulesetBypassActorArgs struct {
 	//
 	// ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
-	// * `OrganizationAdmin` > `1`
-	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+	// - `OrganizationAdmin` > `1`
+	// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
@@ -2720,8 +2720,8 @@ func (o OrganizationRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 //
 // ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 //
-// * `OrganizationAdmin` > `1`
-// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+// - `OrganizationAdmin` > `1`
+// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 func (o OrganizationRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }
@@ -3271,6 +3271,8 @@ type OrganizationRulesetRules struct {
 	CommitMessagePattern *OrganizationRulesetRulesCommitMessagePattern `pulumi:"commitMessagePattern"`
 	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
 	CommitterEmailPattern *OrganizationRulesetRulesCommitterEmailPattern `pulumi:"committerEmailPattern"`
+	// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+	CopilotCodeReview *OrganizationRulesetRulesCopilotCodeReview `pulumi:"copilotCodeReview"`
 	// (Boolean) Only allow users with bypass permission to create matching refs.
 	Creation *bool `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
@@ -3323,6 +3325,8 @@ type OrganizationRulesetRulesArgs struct {
 	CommitMessagePattern OrganizationRulesetRulesCommitMessagePatternPtrInput `pulumi:"commitMessagePattern"`
 	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
 	CommitterEmailPattern OrganizationRulesetRulesCommitterEmailPatternPtrInput `pulumi:"committerEmailPattern"`
+	// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+	CopilotCodeReview OrganizationRulesetRulesCopilotCodeReviewPtrInput `pulumi:"copilotCodeReview"`
 	// (Boolean) Only allow users with bypass permission to create matching refs.
 	Creation pulumi.BoolPtrInput `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
@@ -3458,6 +3462,13 @@ func (o OrganizationRulesetRulesOutput) CommitterEmailPattern() OrganizationRule
 	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesCommitterEmailPattern {
 		return v.CommitterEmailPattern
 	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+func (o OrganizationRulesetRulesOutput) CopilotCodeReview() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRules) *OrganizationRulesetRulesCopilotCodeReview {
+		return v.CopilotCodeReview
+	}).(OrganizationRulesetRulesCopilotCodeReviewPtrOutput)
 }
 
 // (Boolean) Only allow users with bypass permission to create matching refs.
@@ -3609,6 +3620,16 @@ func (o OrganizationRulesetRulesPtrOutput) CommitterEmailPattern() OrganizationR
 		}
 		return v.CommitterEmailPattern
 	}).(OrganizationRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+func (o OrganizationRulesetRulesPtrOutput) CopilotCodeReview() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRules) *OrganizationRulesetRulesCopilotCodeReview {
+		if v == nil {
+			return nil
+		}
+		return v.CopilotCodeReview
+	}).(OrganizationRulesetRulesCopilotCodeReviewPtrOutput)
 }
 
 // (Boolean) Only allow users with bypass permission to create matching refs.
@@ -4537,6 +4558,162 @@ func (o OrganizationRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrganizationRulesetRulesCopilotCodeReview struct {
+	// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+	ReviewDraftPullRequests *bool `pulumi:"reviewDraftPullRequests"`
+	// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+	ReviewOnPush *bool `pulumi:"reviewOnPush"`
+}
+
+// OrganizationRulesetRulesCopilotCodeReviewInput is an input type that accepts OrganizationRulesetRulesCopilotCodeReviewArgs and OrganizationRulesetRulesCopilotCodeReviewOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCopilotCodeReviewInput` via:
+//
+//	OrganizationRulesetRulesCopilotCodeReviewArgs{...}
+type OrganizationRulesetRulesCopilotCodeReviewInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCopilotCodeReviewOutput() OrganizationRulesetRulesCopilotCodeReviewOutput
+	ToOrganizationRulesetRulesCopilotCodeReviewOutputWithContext(context.Context) OrganizationRulesetRulesCopilotCodeReviewOutput
+}
+
+type OrganizationRulesetRulesCopilotCodeReviewArgs struct {
+	// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+	ReviewDraftPullRequests pulumi.BoolPtrInput `pulumi:"reviewDraftPullRequests"`
+	// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+	ReviewOnPush pulumi.BoolPtrInput `pulumi:"reviewOnPush"`
+}
+
+func (OrganizationRulesetRulesCopilotCodeReviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesCopilotCodeReviewArgs) ToOrganizationRulesetRulesCopilotCodeReviewOutput() OrganizationRulesetRulesCopilotCodeReviewOutput {
+	return i.ToOrganizationRulesetRulesCopilotCodeReviewOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCopilotCodeReviewArgs) ToOrganizationRulesetRulesCopilotCodeReviewOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCopilotCodeReviewOutput)
+}
+
+func (i OrganizationRulesetRulesCopilotCodeReviewArgs) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutput() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return i.ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesCopilotCodeReviewArgs) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCopilotCodeReviewOutput).ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetRulesCopilotCodeReviewPtrInput is an input type that accepts OrganizationRulesetRulesCopilotCodeReviewArgs, OrganizationRulesetRulesCopilotCodeReviewPtr and OrganizationRulesetRulesCopilotCodeReviewPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesCopilotCodeReviewPtrInput` via:
+//
+//	        OrganizationRulesetRulesCopilotCodeReviewArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetRulesCopilotCodeReviewPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesCopilotCodeReviewPtrOutput() OrganizationRulesetRulesCopilotCodeReviewPtrOutput
+	ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Context) OrganizationRulesetRulesCopilotCodeReviewPtrOutput
+}
+
+type organizationRulesetRulesCopilotCodeReviewPtrType OrganizationRulesetRulesCopilotCodeReviewArgs
+
+func OrganizationRulesetRulesCopilotCodeReviewPtr(v *OrganizationRulesetRulesCopilotCodeReviewArgs) OrganizationRulesetRulesCopilotCodeReviewPtrInput {
+	return (*organizationRulesetRulesCopilotCodeReviewPtrType)(v)
+}
+
+func (*organizationRulesetRulesCopilotCodeReviewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (i *organizationRulesetRulesCopilotCodeReviewPtrType) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutput() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return i.ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetRulesCopilotCodeReviewPtrType) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesCopilotCodeReviewPtrOutput)
+}
+
+type OrganizationRulesetRulesCopilotCodeReviewOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCopilotCodeReviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ToOrganizationRulesetRulesCopilotCodeReviewOutput() OrganizationRulesetRulesCopilotCodeReviewOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ToOrganizationRulesetRulesCopilotCodeReviewOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutput() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetRulesCopilotCodeReview) *OrganizationRulesetRulesCopilotCodeReview {
+		return &v
+	}).(OrganizationRulesetRulesCopilotCodeReviewPtrOutput)
+}
+
+// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ReviewDraftPullRequests() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCopilotCodeReview) *bool { return v.ReviewDraftPullRequests }).(pulumi.BoolPtrOutput)
+}
+
+// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+func (o OrganizationRulesetRulesCopilotCodeReviewOutput) ReviewOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesCopilotCodeReview) *bool { return v.ReviewOnPush }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetRulesCopilotCodeReviewPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesCopilotCodeReviewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewPtrOutput) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutput() OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewPtrOutput) ToOrganizationRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) OrganizationRulesetRulesCopilotCodeReviewPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesCopilotCodeReviewPtrOutput) Elem() OrganizationRulesetRulesCopilotCodeReviewOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCopilotCodeReview) OrganizationRulesetRulesCopilotCodeReview {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetRulesCopilotCodeReview
+		return ret
+	}).(OrganizationRulesetRulesCopilotCodeReviewOutput)
+}
+
+// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+func (o OrganizationRulesetRulesCopilotCodeReviewPtrOutput) ReviewDraftPullRequests() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCopilotCodeReview) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewDraftPullRequests
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+func (o OrganizationRulesetRulesCopilotCodeReviewPtrOutput) ReviewOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesCopilotCodeReview) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OrganizationRulesetRulesFileExtensionRestriction struct {
 	// The file extensions that are restricted from being pushed to the commit graph.
 	RestrictedFileExtensions []string `pulumi:"restrictedFileExtensions"`
@@ -5086,6 +5263,8 @@ func (o OrganizationRulesetRulesMaxFileSizePtrOutput) MaxFileSize() pulumi.IntPt
 }
 
 type OrganizationRulesetRulesPullRequest struct {
+	// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+	AllowedMergeMethods []string `pulumi:"allowedMergeMethods"`
 	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
 	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
@@ -5110,6 +5289,8 @@ type OrganizationRulesetRulesPullRequestInput interface {
 }
 
 type OrganizationRulesetRulesPullRequestArgs struct {
+	// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+	AllowedMergeMethods pulumi.StringArrayInput `pulumi:"allowedMergeMethods"`
 	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
 	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
@@ -5199,6 +5380,11 @@ func (o OrganizationRulesetRulesPullRequestOutput) ToOrganizationRulesetRulesPul
 	}).(OrganizationRulesetRulesPullRequestPtrOutput)
 }
 
+// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+func (o OrganizationRulesetRulesPullRequestOutput) AllowedMergeMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) []string { return v.AllowedMergeMethods }).(pulumi.StringArrayOutput)
+}
+
 // New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o OrganizationRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
@@ -5246,6 +5432,16 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) Elem() OrganizationRuleset
 		var ret OrganizationRulesetRulesPullRequest
 		return ret
 	}).(OrganizationRulesetRulesPullRequestOutput)
+}
+
+// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) AllowedMergeMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMergeMethods
+	}).(pulumi.StringArrayOutput)
 }
 
 // New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -7670,8 +7866,8 @@ type RepositoryRulesetBypassActor struct {
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
-	// * `OrganizationAdmin` > `1`
-	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+	// - `OrganizationAdmin` > `1`
+	// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode string `pulumi:"bypassMode"`
 }
 
@@ -7695,8 +7891,8 @@ type RepositoryRulesetBypassActorArgs struct {
 	//
 	// > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 	//
-	// * `OrganizationAdmin` > `1`
-	// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+	// - `OrganizationAdmin` > `1`
+	// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 	BypassMode pulumi.StringInput `pulumi:"bypassMode"`
 }
 
@@ -7765,8 +7961,8 @@ func (o RepositoryRulesetBypassActorOutput) ActorType() pulumi.StringOutput {
 //
 // > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 //
-// * `OrganizationAdmin` > `1`
-// * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+// - `OrganizationAdmin` > `1`
+// - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
 func (o RepositoryRulesetBypassActorOutput) BypassMode() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) string { return v.BypassMode }).(pulumi.StringOutput)
 }
@@ -8093,6 +8289,8 @@ type RepositoryRulesetRules struct {
 	CommitMessagePattern *RepositoryRulesetRulesCommitMessagePattern `pulumi:"commitMessagePattern"`
 	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
 	CommitterEmailPattern *RepositoryRulesetRulesCommitterEmailPattern `pulumi:"committerEmailPattern"`
+	// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+	CopilotCodeReview *RepositoryRulesetRulesCopilotCodeReview `pulumi:"copilotCodeReview"`
 	// (Boolean) Only allow users with bypass permission to create matching refs.
 	Creation *bool `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
@@ -8149,6 +8347,8 @@ type RepositoryRulesetRulesArgs struct {
 	CommitMessagePattern RepositoryRulesetRulesCommitMessagePatternPtrInput `pulumi:"commitMessagePattern"`
 	// (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
 	CommitterEmailPattern RepositoryRulesetRulesCommitterEmailPatternPtrInput `pulumi:"committerEmailPattern"`
+	// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+	CopilotCodeReview RepositoryRulesetRulesCopilotCodeReviewPtrInput `pulumi:"copilotCodeReview"`
 	// (Boolean) Only allow users with bypass permission to create matching refs.
 	Creation pulumi.BoolPtrInput `pulumi:"creation"`
 	// (Boolean) Only allow users with bypass permissions to delete matching refs.
@@ -8286,6 +8486,11 @@ func (o RepositoryRulesetRulesOutput) CommitterEmailPattern() RepositoryRulesetR
 	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesCommitterEmailPattern {
 		return v.CommitterEmailPattern
 	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+func (o RepositoryRulesetRulesOutput) CopilotCodeReview() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRules) *RepositoryRulesetRulesCopilotCodeReview { return v.CopilotCodeReview }).(RepositoryRulesetRulesCopilotCodeReviewPtrOutput)
 }
 
 // (Boolean) Only allow users with bypass permission to create matching refs.
@@ -8445,6 +8650,16 @@ func (o RepositoryRulesetRulesPtrOutput) CommitterEmailPattern() RepositoryRules
 		}
 		return v.CommitterEmailPattern
 	}).(RepositoryRulesetRulesCommitterEmailPatternPtrOutput)
+}
+
+// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+func (o RepositoryRulesetRulesPtrOutput) CopilotCodeReview() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRules) *RepositoryRulesetRulesCopilotCodeReview {
+		if v == nil {
+			return nil
+		}
+		return v.CopilotCodeReview
+	}).(RepositoryRulesetRulesCopilotCodeReviewPtrOutput)
 }
 
 // (Boolean) Only allow users with bypass permission to create matching refs.
@@ -9393,6 +9608,162 @@ func (o RepositoryRulesetRulesCommitterEmailPatternPtrOutput) Pattern() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositoryRulesetRulesCopilotCodeReview struct {
+	// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+	ReviewDraftPullRequests *bool `pulumi:"reviewDraftPullRequests"`
+	// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+	ReviewOnPush *bool `pulumi:"reviewOnPush"`
+}
+
+// RepositoryRulesetRulesCopilotCodeReviewInput is an input type that accepts RepositoryRulesetRulesCopilotCodeReviewArgs and RepositoryRulesetRulesCopilotCodeReviewOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCopilotCodeReviewInput` via:
+//
+//	RepositoryRulesetRulesCopilotCodeReviewArgs{...}
+type RepositoryRulesetRulesCopilotCodeReviewInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCopilotCodeReviewOutput() RepositoryRulesetRulesCopilotCodeReviewOutput
+	ToRepositoryRulesetRulesCopilotCodeReviewOutputWithContext(context.Context) RepositoryRulesetRulesCopilotCodeReviewOutput
+}
+
+type RepositoryRulesetRulesCopilotCodeReviewArgs struct {
+	// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+	ReviewDraftPullRequests pulumi.BoolPtrInput `pulumi:"reviewDraftPullRequests"`
+	// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+	ReviewOnPush pulumi.BoolPtrInput `pulumi:"reviewOnPush"`
+}
+
+func (RepositoryRulesetRulesCopilotCodeReviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesCopilotCodeReviewArgs) ToRepositoryRulesetRulesCopilotCodeReviewOutput() RepositoryRulesetRulesCopilotCodeReviewOutput {
+	return i.ToRepositoryRulesetRulesCopilotCodeReviewOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCopilotCodeReviewArgs) ToRepositoryRulesetRulesCopilotCodeReviewOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCopilotCodeReviewOutput)
+}
+
+func (i RepositoryRulesetRulesCopilotCodeReviewArgs) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutput() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return i.ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesCopilotCodeReviewArgs) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCopilotCodeReviewOutput).ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx)
+}
+
+// RepositoryRulesetRulesCopilotCodeReviewPtrInput is an input type that accepts RepositoryRulesetRulesCopilotCodeReviewArgs, RepositoryRulesetRulesCopilotCodeReviewPtr and RepositoryRulesetRulesCopilotCodeReviewPtrOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesCopilotCodeReviewPtrInput` via:
+//
+//	        RepositoryRulesetRulesCopilotCodeReviewArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryRulesetRulesCopilotCodeReviewPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesCopilotCodeReviewPtrOutput() RepositoryRulesetRulesCopilotCodeReviewPtrOutput
+	ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Context) RepositoryRulesetRulesCopilotCodeReviewPtrOutput
+}
+
+type repositoryRulesetRulesCopilotCodeReviewPtrType RepositoryRulesetRulesCopilotCodeReviewArgs
+
+func RepositoryRulesetRulesCopilotCodeReviewPtr(v *RepositoryRulesetRulesCopilotCodeReviewArgs) RepositoryRulesetRulesCopilotCodeReviewPtrInput {
+	return (*repositoryRulesetRulesCopilotCodeReviewPtrType)(v)
+}
+
+func (*repositoryRulesetRulesCopilotCodeReviewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (i *repositoryRulesetRulesCopilotCodeReviewPtrType) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutput() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return i.ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryRulesetRulesCopilotCodeReviewPtrType) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesCopilotCodeReviewPtrOutput)
+}
+
+type RepositoryRulesetRulesCopilotCodeReviewOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCopilotCodeReviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ToRepositoryRulesetRulesCopilotCodeReviewOutput() RepositoryRulesetRulesCopilotCodeReviewOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ToRepositoryRulesetRulesCopilotCodeReviewOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutput() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryRulesetRulesCopilotCodeReview) *RepositoryRulesetRulesCopilotCodeReview {
+		return &v
+	}).(RepositoryRulesetRulesCopilotCodeReviewPtrOutput)
+}
+
+// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ReviewDraftPullRequests() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCopilotCodeReview) *bool { return v.ReviewDraftPullRequests }).(pulumi.BoolPtrOutput)
+}
+
+// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+func (o RepositoryRulesetRulesCopilotCodeReviewOutput) ReviewOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesCopilotCodeReview) *bool { return v.ReviewOnPush }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryRulesetRulesCopilotCodeReviewPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesCopilotCodeReviewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryRulesetRulesCopilotCodeReview)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewPtrOutput) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutput() RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewPtrOutput) ToRepositoryRulesetRulesCopilotCodeReviewPtrOutputWithContext(ctx context.Context) RepositoryRulesetRulesCopilotCodeReviewPtrOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesCopilotCodeReviewPtrOutput) Elem() RepositoryRulesetRulesCopilotCodeReviewOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCopilotCodeReview) RepositoryRulesetRulesCopilotCodeReview {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryRulesetRulesCopilotCodeReview
+		return ret
+	}).(RepositoryRulesetRulesCopilotCodeReviewOutput)
+}
+
+// Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+func (o RepositoryRulesetRulesCopilotCodeReviewPtrOutput) ReviewDraftPullRequests() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCopilotCodeReview) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewDraftPullRequests
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+func (o RepositoryRulesetRulesCopilotCodeReviewPtrOutput) ReviewOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesCopilotCodeReview) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RepositoryRulesetRulesFileExtensionRestriction struct {
 	// A list of file extensions.
 	RestrictedFileExtensions []string `pulumi:"restrictedFileExtensions"`
@@ -10193,6 +10564,8 @@ func (o RepositoryRulesetRulesMergeQueuePtrOutput) MinEntriesToMergeWaitMinutes(
 }
 
 type RepositoryRulesetRulesPullRequest struct {
+	// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+	AllowedMergeMethods []string `pulumi:"allowedMergeMethods"`
 	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush *bool `pulumi:"dismissStaleReviewsOnPush"`
 	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
@@ -10217,6 +10590,8 @@ type RepositoryRulesetRulesPullRequestInput interface {
 }
 
 type RepositoryRulesetRulesPullRequestArgs struct {
+	// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+	AllowedMergeMethods pulumi.StringArrayInput `pulumi:"allowedMergeMethods"`
 	// New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 	DismissStaleReviewsOnPush pulumi.BoolPtrInput `pulumi:"dismissStaleReviewsOnPush"`
 	// Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
@@ -10306,6 +10681,11 @@ func (o RepositoryRulesetRulesPullRequestOutput) ToRepositoryRulesetRulesPullReq
 	}).(RepositoryRulesetRulesPullRequestPtrOutput)
 }
 
+// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+func (o RepositoryRulesetRulesPullRequestOutput) AllowedMergeMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) []string { return v.AllowedMergeMethods }).(pulumi.StringArrayOutput)
+}
+
 // New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
 func (o RepositoryRulesetRulesPullRequestOutput) DismissStaleReviewsOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.DismissStaleReviewsOnPush }).(pulumi.BoolPtrOutput)
@@ -10353,6 +10733,16 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) Elem() RepositoryRulesetRule
 		var ret RepositoryRulesetRulesPullRequest
 		return ret
 	}).(RepositoryRulesetRulesPullRequestOutput)
+}
+
+// Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) AllowedMergeMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMergeMethods
+	}).(pulumi.StringArrayOutput)
 }
 
 // New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -11933,7 +12323,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningPtrOutput) Status() pulumi.St
 }
 
 type RepositorySecurityAndAnalysisSecretScanningAiDetection struct {
-	// The GitHub Pages site's build status e.g. `building` or `built`.
+	// Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
 	Status string `pulumi:"status"`
 }
 
@@ -11949,7 +12339,7 @@ type RepositorySecurityAndAnalysisSecretScanningAiDetectionInput interface {
 }
 
 type RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs struct {
-	// The GitHub Pages site's build status e.g. `building` or `built`.
+	// Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -12030,7 +12420,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) ToReposito
 	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput)
 }
 
-// The GitHub Pages site's build status e.g. `building` or `built`.
+// Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
 func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositorySecurityAndAnalysisSecretScanningAiDetection) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -12059,7 +12449,7 @@ func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) Elem() 
 	}).(RepositorySecurityAndAnalysisSecretScanningAiDetectionOutput)
 }
 
-// The GitHub Pages site's build status e.g. `building` or `built`.
+// Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
 func (o RepositorySecurityAndAnalysisSecretScanningAiDetectionPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositorySecurityAndAnalysisSecretScanningAiDetection) *string {
 		if v == nil {
@@ -18782,6 +19172,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitMessagePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), OrganizationRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCopilotCodeReviewInput)(nil)).Elem(), OrganizationRulesetRulesCopilotCodeReviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesCopilotCodeReviewPtrInput)(nil)).Elem(), OrganizationRulesetRulesCopilotCodeReviewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestrictionInput)(nil)).Elem(), OrganizationRulesetRulesFileExtensionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFileExtensionRestrictionPtrInput)(nil)).Elem(), OrganizationRulesetRulesFileExtensionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesFilePathRestrictionInput)(nil)).Elem(), OrganizationRulesetRulesFilePathRestrictionArgs{})
@@ -18840,6 +19232,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitMessagePatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitMessagePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCommitterEmailPatternPtrInput)(nil)).Elem(), RepositoryRulesetRulesCommitterEmailPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCopilotCodeReviewInput)(nil)).Elem(), RepositoryRulesetRulesCopilotCodeReviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesCopilotCodeReviewPtrInput)(nil)).Elem(), RepositoryRulesetRulesCopilotCodeReviewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestrictionInput)(nil)).Elem(), RepositoryRulesetRulesFileExtensionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFileExtensionRestrictionPtrInput)(nil)).Elem(), RepositoryRulesetRulesFileExtensionRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesFilePathRestrictionInput)(nil)).Elem(), RepositoryRulesetRulesFilePathRestrictionArgs{})
@@ -19024,6 +19418,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitMessagePatternPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCopilotCodeReviewOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesCopilotCodeReviewPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesFileExtensionRestrictionOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesFileExtensionRestrictionPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesFilePathRestrictionOutput{})
@@ -19082,6 +19478,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitMessagePatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesCommitterEmailPatternPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCopilotCodeReviewOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesCopilotCodeReviewPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFileExtensionRestrictionOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFileExtensionRestrictionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesFilePathRestrictionOutput{})

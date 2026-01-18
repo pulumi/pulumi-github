@@ -65,7 +65,9 @@ export class Team extends pulumi.CustomResource {
     }
 
     /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     *
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      */
     declare public readonly createDefaultMaintainer: pulumi.Output<boolean | undefined>;
     /**
@@ -87,6 +89,10 @@ export class Team extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
+     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     */
+    declare public readonly notificationSetting: pulumi.Output<string | undefined>;
+    /**
      * The ID or slug of the parent team, if this is a nested team.
      */
     declare public readonly parentTeamId: pulumi.Output<string | undefined>;
@@ -99,8 +105,7 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly parentTeamReadSlug: pulumi.Output<string>;
     /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      */
     declare public readonly privacy: pulumi.Output<string | undefined>;
     /**
@@ -130,6 +135,7 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["membersCount"] = state?.membersCount;
             resourceInputs["name"] = state?.name;
             resourceInputs["nodeId"] = state?.nodeId;
+            resourceInputs["notificationSetting"] = state?.notificationSetting;
             resourceInputs["parentTeamId"] = state?.parentTeamId;
             resourceInputs["parentTeamReadId"] = state?.parentTeamReadId;
             resourceInputs["parentTeamReadSlug"] = state?.parentTeamReadSlug;
@@ -141,6 +147,7 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["ldapDn"] = args?.ldapDn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["notificationSetting"] = args?.notificationSetting;
             resourceInputs["parentTeamId"] = args?.parentTeamId;
             resourceInputs["parentTeamReadId"] = args?.parentTeamReadId;
             resourceInputs["parentTeamReadSlug"] = args?.parentTeamReadSlug;
@@ -160,7 +167,9 @@ export class Team extends pulumi.CustomResource {
  */
 export interface TeamState {
     /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     *
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      */
     createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
@@ -182,6 +191,10 @@ export interface TeamState {
      */
     nodeId?: pulumi.Input<string>;
     /**
+     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     */
+    notificationSetting?: pulumi.Input<string>;
+    /**
      * The ID or slug of the parent team, if this is a nested team.
      */
     parentTeamId?: pulumi.Input<string>;
@@ -194,8 +207,7 @@ export interface TeamState {
      */
     parentTeamReadSlug?: pulumi.Input<string>;
     /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      */
     privacy?: pulumi.Input<string>;
     /**
@@ -211,7 +223,9 @@ export interface TeamState {
  */
 export interface TeamArgs {
     /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     *
+     * @deprecated Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      */
     createDefaultMaintainer?: pulumi.Input<boolean>;
     /**
@@ -227,6 +241,10 @@ export interface TeamArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     */
+    notificationSetting?: pulumi.Input<string>;
+    /**
      * The ID or slug of the parent team, if this is a nested team.
      */
     parentTeamId?: pulumi.Input<string>;
@@ -239,8 +257,7 @@ export interface TeamArgs {
      */
     parentTeamReadSlug?: pulumi.Input<string>;
     /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      */
     privacy?: pulumi.Input<string>;
 }

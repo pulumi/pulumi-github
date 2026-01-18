@@ -64,6 +64,8 @@ type LookupRepositoryArgs struct {
 type LookupRepositoryResult struct {
 	// Whether the repository allows auto-merging pull requests.
 	AllowAutoMerge bool `pulumi:"allowAutoMerge"`
+	// Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+	AllowForking bool `pulumi:"allowForking"`
 	// Whether the repository allows merge commits.
 	AllowMergeCommit bool `pulumi:"allowMergeCommit"`
 	// Whether the repository allows rebase merges.
@@ -85,7 +87,9 @@ type LookupRepositoryResult struct {
 	GitCloneUrl string `pulumi:"gitCloneUrl"`
 	// Whether the repository has GitHub Discussions enabled.
 	HasDiscussions bool `pulumi:"hasDiscussions"`
-	// Whether the repository has Downloads feature enabled.
+	// (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+	//
+	// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 	HasDownloads bool `pulumi:"hasDownloads"`
 	// Whether the repository has GitHub Issues enabled.
 	HasIssues bool `pulumi:"hasIssues"`
@@ -182,6 +186,11 @@ func (o LookupRepositoryResultOutput) AllowAutoMerge() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.AllowAutoMerge }).(pulumi.BoolOutput)
 }
 
+// Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+func (o LookupRepositoryResultOutput) AllowForking() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.AllowForking }).(pulumi.BoolOutput)
+}
+
 // Whether the repository allows merge commits.
 func (o LookupRepositoryResultOutput) AllowMergeCommit() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.AllowMergeCommit }).(pulumi.BoolOutput)
@@ -239,7 +248,9 @@ func (o LookupRepositoryResultOutput) HasDiscussions() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.HasDiscussions }).(pulumi.BoolOutput)
 }
 
-// Whether the repository has Downloads feature enabled.
+// (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+//
+// Deprecated: This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
 func (o LookupRepositoryResultOutput) HasDownloads() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) bool { return v.HasDownloads }).(pulumi.BoolOutput)
 }

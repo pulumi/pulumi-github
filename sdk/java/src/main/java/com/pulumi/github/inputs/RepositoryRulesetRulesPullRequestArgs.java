@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +17,21 @@ import javax.annotation.Nullable;
 public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryRulesetRulesPullRequestArgs Empty = new RepositoryRulesetRulesPullRequestArgs();
+
+    /**
+     * Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     * 
+     */
+    @Import(name="allowedMergeMethods")
+    private @Nullable Output<List<String>> allowedMergeMethods;
+
+    /**
+     * @return Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedMergeMethods() {
+        return Optional.ofNullable(this.allowedMergeMethods);
+    }
 
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -94,6 +111,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
     private RepositoryRulesetRulesPullRequestArgs() {}
 
     private RepositoryRulesetRulesPullRequestArgs(RepositoryRulesetRulesPullRequestArgs $) {
+        this.allowedMergeMethods = $.allowedMergeMethods;
         this.dismissStaleReviewsOnPush = $.dismissStaleReviewsOnPush;
         this.requireCodeOwnerReview = $.requireCodeOwnerReview;
         this.requireLastPushApproval = $.requireLastPushApproval;
@@ -117,6 +135,37 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
 
         public Builder(RepositoryRulesetRulesPullRequestArgs defaults) {
             $ = new RepositoryRulesetRulesPullRequestArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedMergeMethods Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedMergeMethods(@Nullable Output<List<String>> allowedMergeMethods) {
+            $.allowedMergeMethods = allowedMergeMethods;
+            return this;
+        }
+
+        /**
+         * @param allowedMergeMethods Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedMergeMethods(List<String> allowedMergeMethods) {
+            return allowedMergeMethods(Output.of(allowedMergeMethods));
+        }
+
+        /**
+         * @param allowedMergeMethods Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedMergeMethods(String... allowedMergeMethods) {
+            return allowedMergeMethods(List.of(allowedMergeMethods));
         }
 
         /**

@@ -59,7 +59,9 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
-	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	//
+	// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 	CreateDefaultMaintainer pulumi.BoolPtrOutput `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -71,14 +73,15 @@ type Team struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
+	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	NotificationSetting pulumi.StringPtrOutput `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrOutput `pulumi:"parentTeamId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadId pulumi.StringOutput `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringOutput `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` or `closed`.
-	// Defaults to `secret`.
+	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 	Privacy pulumi.StringPtrOutput `pulumi:"privacy"`
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
@@ -116,7 +119,9 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
-	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	//
+	// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
@@ -128,14 +133,15 @@ type teamState struct {
 	Name *string `pulumi:"name"`
 	// The Node ID of the created team.
 	NodeId *string `pulumi:"nodeId"`
+	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	NotificationSetting *string `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId *string `pulumi:"parentTeamId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadId *string `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug *string `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` or `closed`.
-	// Defaults to `secret`.
+	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 	Privacy *string `pulumi:"privacy"`
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
@@ -144,7 +150,9 @@ type teamState struct {
 }
 
 type TeamState struct {
-	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	//
+	// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput
@@ -156,14 +164,15 @@ type TeamState struct {
 	Name pulumi.StringPtrInput
 	// The Node ID of the created team.
 	NodeId pulumi.StringPtrInput
+	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	NotificationSetting pulumi.StringPtrInput
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringPtrInput
-	// The level of privacy for the team. Must be one of `secret` or `closed`.
-	// Defaults to `secret`.
+	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 	Privacy pulumi.StringPtrInput
 	// The slug of the created team, which may or may not differ from `name`,
 	// depending on whether `name` contains "URL-unsafe" characters.
@@ -176,7 +185,9 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
-	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	//
+	// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 	CreateDefaultMaintainer *bool `pulumi:"createDefaultMaintainer"`
 	// A description of the team.
 	Description *string `pulumi:"description"`
@@ -184,20 +195,23 @@ type teamArgs struct {
 	LdapDn *string `pulumi:"ldapDn"`
 	// The name of the team.
 	Name *string `pulumi:"name"`
+	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	NotificationSetting *string `pulumi:"notificationSetting"`
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId *string `pulumi:"parentTeamId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadId *string `pulumi:"parentTeamReadId"`
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug *string `pulumi:"parentTeamReadSlug"`
-	// The level of privacy for the team. Must be one of `secret` or `closed`.
-	// Defaults to `secret`.
+	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 	Privacy *string `pulumi:"privacy"`
 }
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
-	// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+	//
+	// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 	CreateDefaultMaintainer pulumi.BoolPtrInput
 	// A description of the team.
 	Description pulumi.StringPtrInput
@@ -205,14 +219,15 @@ type TeamArgs struct {
 	LdapDn pulumi.StringPtrInput
 	// The name of the team.
 	Name pulumi.StringPtrInput
+	// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+	NotificationSetting pulumi.StringPtrInput
 	// The ID or slug of the parent team, if this is a nested team.
 	ParentTeamId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadId pulumi.StringPtrInput
 	// The id of the parent team read in Github.
 	ParentTeamReadSlug pulumi.StringPtrInput
-	// The level of privacy for the team. Must be one of `secret` or `closed`.
-	// Defaults to `secret`.
+	// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 	Privacy pulumi.StringPtrInput
 }
 
@@ -303,7 +318,9 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
-// Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+// (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+//
+// Deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.
 func (o TeamOutput) CreateDefaultMaintainer() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.CreateDefaultMaintainer }).(pulumi.BoolPtrOutput)
 }
@@ -336,6 +353,11 @@ func (o TeamOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
+// The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+func (o TeamOutput) NotificationSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.NotificationSetting }).(pulumi.StringPtrOutput)
+}
+
 // The ID or slug of the parent team, if this is a nested team.
 func (o TeamOutput) ParentTeamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.ParentTeamId }).(pulumi.StringPtrOutput)
@@ -351,8 +373,7 @@ func (o TeamOutput) ParentTeamReadSlug() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.ParentTeamReadSlug }).(pulumi.StringOutput)
 }
 
-// The level of privacy for the team. Must be one of `secret` or `closed`.
-// Defaults to `secret`.
+// The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
 func (o TeamOutput) Privacy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Privacy }).(pulumi.StringPtrOutput)
 }

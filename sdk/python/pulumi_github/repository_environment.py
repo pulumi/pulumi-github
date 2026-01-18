@@ -32,7 +32,7 @@ class RepositoryEnvironmentArgs:
         The set of arguments for constructing a RepositoryEnvironment resource.
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
-        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
@@ -79,7 +79,7 @@ class RepositoryEnvironmentArgs:
     @pulumi.getter(name="canAdminsBypass")
     def can_admins_bypass(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Can repository admins bypass the environment protections.  Defaults to `true`.
+        Can repository admins bypass the environment protections. Defaults to `true`.
         """
         return pulumi.get(self, "can_admins_bypass")
 
@@ -148,7 +148,7 @@ class _RepositoryEnvironmentState:
                  wait_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironment resources.
-        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
@@ -175,7 +175,7 @@ class _RepositoryEnvironmentState:
     @pulumi.getter(name="canAdminsBypass")
     def can_admins_bypass(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Can repository admins bypass the environment protections.  Defaults to `true`.
+        Can repository admins bypass the environment protections. Defaults to `true`.
         """
         return pulumi.get(self, "can_admins_bypass")
 
@@ -298,15 +298,15 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+        This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
 
         ```sh
-        $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+        $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
         :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
@@ -348,10 +348,10 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+        This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
 
         ```sh
-        $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+        $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,7 +420,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections.  Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
         :param pulumi.Input[Union['RepositoryEnvironmentDeploymentBranchPolicyArgs', 'RepositoryEnvironmentDeploymentBranchPolicyArgsDict']] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
@@ -445,7 +445,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="canAdminsBypass")
     def can_admins_bypass(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Can repository admins bypass the environment protections.  Defaults to `true`.
+        Can repository admins bypass the environment protections. Defaults to `true`.
         """
         return pulumi.get(self, "can_admins_bypass")
 

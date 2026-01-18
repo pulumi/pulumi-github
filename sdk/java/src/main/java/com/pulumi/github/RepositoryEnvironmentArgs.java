@@ -22,14 +22,14 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
     public static final RepositoryEnvironmentArgs Empty = new RepositoryEnvironmentArgs();
 
     /**
-     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * Can repository admins bypass the environment protections. Defaults to `true`.
      * 
      */
     @Import(name="canAdminsBypass")
     private @Nullable Output<Boolean> canAdminsBypass;
 
     /**
-     * @return Can repository admins bypass the environment protections.  Defaults to `true`.
+     * @return Can repository admins bypass the environment protections. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> canAdminsBypass() {
@@ -157,7 +157,7 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param canAdminsBypass Can repository admins bypass the environment protections.  Defaults to `true`.
+         * @param canAdminsBypass Can repository admins bypass the environment protections. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RepositoryEnvironmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param canAdminsBypass Can repository admins bypass the environment protections.  Defaults to `true`.
+         * @param canAdminsBypass Can repository admins bypass the environment protections. Defaults to `true`.
          * 
          * @return builder
          * 

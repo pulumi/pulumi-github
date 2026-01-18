@@ -90,6 +90,10 @@
                     }
                 }
             },
+            "github_actions_organization_workflow_permissions": {
+                "current": "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions",
+                "majorVersion": 6
+            },
             "github_actions_repository_access_level": {
                 "current": "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel",
                 "majorVersion": 6
@@ -525,6 +529,9 @@
                                 "committer_email_pattern": {
                                     "maxItemsOne": true
                                 },
+                                "copilot_code_review": {
+                                    "maxItemsOne": true
+                                },
                                 "file_extension_restriction": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -552,7 +559,14 @@
                                     "maxItemsOne": true
                                 },
                                 "pull_request": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_merge_methods": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "required_code_scanning": {
                                     "maxItemsOne": true,
@@ -805,6 +819,9 @@
                                 "committer_email_pattern": {
                                     "maxItemsOne": true
                                 },
+                                "copilot_code_review": {
+                                    "maxItemsOne": true
+                                },
                                 "file_extension_restriction": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -835,7 +852,14 @@
                                     "maxItemsOne": true
                                 },
                                 "pull_request": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_merge_methods": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "required_code_scanning": {
                                     "maxItemsOne": true,
