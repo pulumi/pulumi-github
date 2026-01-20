@@ -162,6 +162,7 @@ class GetIpRangesResult:
 
     @_builtins.property
     @pulumi.getter(name="dependabotIpv4s")
+    @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabot_ipv4s(self) -> Sequence[_builtins.str]:
         """
         A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
@@ -170,6 +171,7 @@ class GetIpRangesResult:
 
     @_builtins.property
     @pulumi.getter(name="dependabotIpv6s")
+    @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabot_ipv6s(self) -> Sequence[_builtins.str]:
         """
         A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
@@ -178,6 +180,7 @@ class GetIpRangesResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabots(self) -> Sequence[_builtins.str]:
         """
         An array of IP addresses in CIDR format specifying the A records for dependabot.

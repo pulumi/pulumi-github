@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsOrganizationSecretRepository{}
 	case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
 		r = &ActionsOrganizationVariable{}
+	case "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions":
+		r = &ActionsOrganizationWorkflowPermissions{}
 	case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
 		r = &ActionsRepositoryAccessLevel{}
 	case "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate":
@@ -257,6 +259,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/actionsOrganizationVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationWorkflowPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

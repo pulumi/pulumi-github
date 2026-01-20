@@ -23,22 +23,26 @@ class TeamArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
                  privacy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
-        :param pulumi.Input[_builtins.bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
+        if create_default_maintainer is not None:
+            warnings.warn("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""", DeprecationWarning)
+            pulumi.log.warn("""create_default_maintainer is deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
         if create_default_maintainer is not None:
             pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
         if description is not None:
@@ -47,6 +51,8 @@ class TeamArgs:
             pulumi.set(__self__, "ldap_dn", ldap_dn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if parent_team_id is not None:
             pulumi.set(__self__, "parent_team_id", parent_team_id)
         if parent_team_read_id is not None:
@@ -58,9 +64,10 @@ class TeamArgs:
 
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
+    @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
     def create_default_maintainer(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
@@ -105,6 +112,18 @@ class TeamArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @notification_setting.setter
+    def notification_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "notification_setting", value)
+
+    @_builtins.property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -144,8 +163,7 @@ class TeamArgs:
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
+        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         return pulumi.get(self, "privacy")
 
@@ -164,6 +182,7 @@ class _TeamState:
                  members_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  node_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -171,20 +190,23 @@ class _TeamState:
                  slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
-        :param pulumi.Input[_builtins.bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
         :param pulumi.Input[_builtins.str] node_id: The Node ID of the created team.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`,
                depending on whether `name` contains "URL-unsafe" characters.
                Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
         """
+        if create_default_maintainer is not None:
+            warnings.warn("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""", DeprecationWarning)
+            pulumi.log.warn("""create_default_maintainer is deprecated: Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
         if create_default_maintainer is not None:
             pulumi.set(__self__, "create_default_maintainer", create_default_maintainer)
         if description is not None:
@@ -199,6 +221,8 @@ class _TeamState:
             pulumi.set(__self__, "name", name)
         if node_id is not None:
             pulumi.set(__self__, "node_id", node_id)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if parent_team_id is not None:
             pulumi.set(__self__, "parent_team_id", parent_team_id)
         if parent_team_read_id is not None:
@@ -212,9 +236,10 @@ class _TeamState:
 
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
+    @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
     def create_default_maintainer(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
@@ -289,6 +314,18 @@ class _TeamState:
         pulumi.set(self, "node_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @notification_setting.setter
+    def notification_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "notification_setting", value)
+
+    @_builtins.property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -328,8 +365,7 @@ class _TeamState:
     @pulumi.getter
     def privacy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
+        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         return pulumi.get(self, "privacy")
 
@@ -362,6 +398,7 @@ class Team(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -400,15 +437,15 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         ...
     @overload
@@ -466,6 +503,7 @@ class Team(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  ldap_dn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -483,6 +521,7 @@ class Team(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["ldap_dn"] = ldap_dn
             __props__.__dict__["name"] = name
+            __props__.__dict__["notification_setting"] = notification_setting
             __props__.__dict__["parent_team_id"] = parent_team_id
             __props__.__dict__["parent_team_read_id"] = parent_team_read_id
             __props__.__dict__["parent_team_read_slug"] = parent_team_read_slug
@@ -508,6 +547,7 @@ class Team(pulumi.CustomResource):
             members_count: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             node_id: Optional[pulumi.Input[_builtins.str]] = None,
+            notification_setting: Optional[pulumi.Input[_builtins.str]] = None,
             parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
             parent_team_read_id: Optional[pulumi.Input[_builtins.str]] = None,
             parent_team_read_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -520,16 +560,16 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] create_default_maintainer: Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
         :param pulumi.Input[_builtins.str] name: The name of the team.
         :param pulumi.Input[_builtins.str] node_id: The Node ID of the created team.
+        :param pulumi.Input[_builtins.str] notification_setting: The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
         :param pulumi.Input[_builtins.str] parent_team_id: The ID or slug of the parent team, if this is a nested team.
         :param pulumi.Input[_builtins.str] parent_team_read_id: The id of the parent team read in Github.
         :param pulumi.Input[_builtins.str] parent_team_read_slug: The id of the parent team read in Github.
-        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` or `closed`.
-               Defaults to `secret`.
+        :param pulumi.Input[_builtins.str] privacy: The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         :param pulumi.Input[_builtins.str] slug: The slug of the created team, which may or may not differ from `name`,
                depending on whether `name` contains "URL-unsafe" characters.
                Useful when referencing the team in [`BranchProtection`](https://www.terraform.io/docs/providers/github/r/branch_protection.html).
@@ -545,6 +585,7 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["members_count"] = members_count
         __props__.__dict__["name"] = name
         __props__.__dict__["node_id"] = node_id
+        __props__.__dict__["notification_setting"] = notification_setting
         __props__.__dict__["parent_team_id"] = parent_team_id
         __props__.__dict__["parent_team_read_id"] = parent_team_read_id
         __props__.__dict__["parent_team_read_slug"] = parent_team_read_slug
@@ -554,9 +595,10 @@ class Team(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="createDefaultMaintainer")
+    @_utilities.deprecated("""Use TeamMembership or TeamMembers resource to manage team memberships explicitly.""")
     def create_default_maintainer(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+        (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         """
         return pulumi.get(self, "create_default_maintainer")
 
@@ -603,6 +645,14 @@ class Team(pulumi.CustomResource):
         return pulumi.get(self, "node_id")
 
     @_builtins.property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The notification setting for the team. Must be one of `notifications_enabled` _(default)_ or `notifications_disabled`.
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @_builtins.property
     @pulumi.getter(name="parentTeamId")
     def parent_team_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -630,8 +680,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter
     def privacy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The level of privacy for the team. Must be one of `secret` or `closed`.
-        Defaults to `secret`.
+        The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
         """
         return pulumi.get(self, "privacy")
 

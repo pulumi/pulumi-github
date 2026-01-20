@@ -24,6 +24,11 @@ public final class GetRepositoryResult {
      */
     private Boolean allowAutoMerge;
     /**
+     * @return Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    private Boolean allowForking;
+    /**
      * @return Whether the repository allows merge commits.
      * 
      */
@@ -72,9 +77,13 @@ public final class GetRepositoryResult {
      */
     private Boolean hasDiscussions;
     /**
-     * @return Whether the repository has Downloads feature enabled.
+     * @return (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     * 
+     * @deprecated
+     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
+    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
     private Boolean hasDownloads;
     /**
      * @return Whether the repository has GitHub Issues enabled.
@@ -206,6 +215,13 @@ public final class GetRepositoryResult {
         return this.allowAutoMerge;
     }
     /**
+     * @return Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    public Boolean allowForking() {
+        return this.allowForking;
+    }
+    /**
      * @return Whether the repository allows merge commits.
      * 
      */
@@ -278,9 +294,13 @@ public final class GetRepositoryResult {
         return this.hasDiscussions;
     }
     /**
-     * @return Whether the repository has Downloads feature enabled.
+     * @return (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     * 
+     * @deprecated
+     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
+    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
     public Boolean hasDownloads() {
         return this.hasDownloads;
     }
@@ -463,6 +483,7 @@ public final class GetRepositoryResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean allowAutoMerge;
+        private Boolean allowForking;
         private Boolean allowMergeCommit;
         private Boolean allowRebaseMerge;
         private Boolean allowSquashMerge;
@@ -504,6 +525,7 @@ public final class GetRepositoryResult {
         public Builder(GetRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowAutoMerge = defaults.allowAutoMerge;
+    	      this.allowForking = defaults.allowForking;
     	      this.allowMergeCommit = defaults.allowMergeCommit;
     	      this.allowRebaseMerge = defaults.allowRebaseMerge;
     	      this.allowSquashMerge = defaults.allowSquashMerge;
@@ -549,6 +571,14 @@ public final class GetRepositoryResult {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "allowAutoMerge");
             }
             this.allowAutoMerge = allowAutoMerge;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder allowForking(Boolean allowForking) {
+            if (allowForking == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "allowForking");
+            }
+            this.allowForking = allowForking;
             return this;
         }
         @CustomType.Setter
@@ -858,6 +888,7 @@ public final class GetRepositoryResult {
         public GetRepositoryResult build() {
             final var _resultValue = new GetRepositoryResult();
             _resultValue.allowAutoMerge = allowAutoMerge;
+            _resultValue.allowForking = allowForking;
             _resultValue.allowMergeCommit = allowMergeCommit;
             _resultValue.allowRebaseMerge = allowRebaseMerge;
             _resultValue.allowSquashMerge = allowSquashMerge;

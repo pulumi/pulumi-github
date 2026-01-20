@@ -50,6 +50,11 @@ export type ActionsOrganizationVariable = import("./actionsOrganizationVariable"
 export const ActionsOrganizationVariable: typeof import("./actionsOrganizationVariable").ActionsOrganizationVariable = null as any;
 utilities.lazyLoad(exports, ["ActionsOrganizationVariable"], () => require("./actionsOrganizationVariable"));
 
+export { ActionsOrganizationWorkflowPermissionsArgs, ActionsOrganizationWorkflowPermissionsState } from "./actionsOrganizationWorkflowPermissions";
+export type ActionsOrganizationWorkflowPermissions = import("./actionsOrganizationWorkflowPermissions").ActionsOrganizationWorkflowPermissions;
+export const ActionsOrganizationWorkflowPermissions: typeof import("./actionsOrganizationWorkflowPermissions").ActionsOrganizationWorkflowPermissions = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationWorkflowPermissions"], () => require("./actionsOrganizationWorkflowPermissions"));
+
 export { ActionsRepositoryAccessLevelArgs, ActionsRepositoryAccessLevelState } from "./actionsRepositoryAccessLevel";
 export type ActionsRepositoryAccessLevel = import("./actionsRepositoryAccessLevel").ActionsRepositoryAccessLevel;
 export const ActionsRepositoryAccessLevel: typeof import("./actionsRepositoryAccessLevel").ActionsRepositoryAccessLevel = null as any;
@@ -805,6 +810,8 @@ const _module = {
                 return new ActionsOrganizationSecretRepository(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
                 return new ActionsOrganizationVariable(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions":
+                return new ActionsOrganizationWorkflowPermissions(name, <any>undefined, { urn })
             case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
                 return new ActionsRepositoryAccessLevel(name, <any>undefined, { urn })
             case "github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate":
@@ -963,6 +970,7 @@ pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationVariable", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationWorkflowPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryAccessLevel", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryOidcSubjectClaimCustomizationTemplate", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryPermissions", _module)

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the API detailed [here](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
-//
 // ## Example Usage
 //
 // ```go
@@ -43,10 +41,10 @@ import (
 //
 // ## Import
 //
-// GitHub EMU External Group Mappings can be imported using the external `group_id`, e.g.
+// GitHub EMU External Group Mappings can be imported using the external `group_id` and `team_slug` separated by a colon, e.g.
 //
 // ```sh
-// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836
+// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
 // ```
 type EmuGroupMapping struct {
 	pulumi.CustomResourceState

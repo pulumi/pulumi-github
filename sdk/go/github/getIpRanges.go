@@ -61,10 +61,16 @@ type GetIpRangesResult struct {
 	// An Array of IP addresses in CIDR format for the GitHub API.
 	Apis []string `pulumi:"apis"`
 	// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+	//
+	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	DependabotIpv4s []string `pulumi:"dependabotIpv4s"`
 	// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+	//
+	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	DependabotIpv6s []string `pulumi:"dependabotIpv6s"`
 	// An array of IP addresses in CIDR format specifying the A records for dependabot.
+	//
+	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	Dependabots []string `pulumi:"dependabots"`
 	// A subset of the `git` array that contains IP addresses in IPv4 CIDR format.
 	GitIpv4s []string `pulumi:"gitIpv4s"`
@@ -159,16 +165,22 @@ func (o GetIpRangesResultOutput) Apis() pulumi.StringArrayOutput {
 }
 
 // A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+//
+// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) DependabotIpv4s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv4s }).(pulumi.StringArrayOutput)
 }
 
 // A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+//
+// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) DependabotIpv6s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv6s }).(pulumi.StringArrayOutput)
 }
 
 // An array of IP addresses in CIDR format specifying the A records for dependabot.
+//
+// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) Dependabots() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Dependabots }).(pulumi.StringArrayOutput)
 }

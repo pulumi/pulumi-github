@@ -38,10 +38,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+ * This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
  *
  * ```sh
- * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+ * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
  * ```
  */
 export class RepositoryEnvironment extends pulumi.CustomResource {
@@ -73,7 +73,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
     }
 
     /**
-     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * Can repository admins bypass the environment protections. Defaults to `true`.
      */
     declare public readonly canAdminsBypass: pulumi.Output<boolean | undefined>;
     /**
@@ -147,7 +147,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
  */
 export interface RepositoryEnvironmentState {
     /**
-     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * Can repository admins bypass the environment protections. Defaults to `true`.
      */
     canAdminsBypass?: pulumi.Input<boolean>;
     /**
@@ -181,7 +181,7 @@ export interface RepositoryEnvironmentState {
  */
 export interface RepositoryEnvironmentArgs {
     /**
-     * Can repository admins bypass the environment protections.  Defaults to `true`.
+     * Can repository admins bypass the environment protections. Defaults to `true`.
      */
     canAdminsBypass?: pulumi.Input<boolean>;
     /**
