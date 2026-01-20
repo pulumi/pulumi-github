@@ -5,10 +5,10 @@ Subject: [PATCH] Work around
  https://github.com/pulumi/pulumi-terraform-bridge/issues/1667
 
 
-diff --git a/github/migrate_github_branch_protection.go b/github/migrate_github_branch_protection.go
+diff --git a/github/resource_github_branch_protection_migration.go b/github/resource_github_branch_protection_migration.go
 index 09808970..0dd0ff6c 100644
---- a/github/migrate_github_branch_protection.go
-+++ b/github/migrate_github_branch_protection.go
+--- a/github/resource_github_branch_protection_migration.go
++++ b/github/resource_github_branch_protection_migration.go
 @@ -64,7 +64,9 @@ func resourceGithubBranchProtectionUpgradeV1(_ context.Context, rawState map[str
  	blocksCreations := false
  
