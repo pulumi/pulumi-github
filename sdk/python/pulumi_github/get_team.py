@@ -27,7 +27,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, permission=None, privacy=None, repositories=None, repositories_detaileds=None, results_per_page=None, slug=None, summary_only=None):
+    def __init__(__self__, description=None, id=None, members=None, membership_type=None, name=None, node_id=None, notification_setting=None, permission=None, privacy=None, repositories=None, repositories_detaileds=None, results_per_page=None, slug=None, summary_only=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -46,6 +46,9 @@ class GetTeamResult:
         if node_id and not isinstance(node_id, str):
             raise TypeError("Expected argument 'node_id' to be a str")
         pulumi.set(__self__, "node_id", node_id)
+        if notification_setting and not isinstance(notification_setting, str):
+            raise TypeError("Expected argument 'notification_setting' to be a str")
+        pulumi.set(__self__, "notification_setting", notification_setting)
         if permission and not isinstance(permission, str):
             raise TypeError("Expected argument 'permission' to be a str")
         pulumi.set(__self__, "permission", permission)
@@ -72,7 +75,7 @@ class GetTeamResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        the team's description.
+        Team's description.
         """
         return pulumi.get(self, "description")
 
@@ -88,7 +91,7 @@ class GetTeamResult:
     @pulumi.getter
     def members(self) -> Sequence[_builtins.str]:
         """
-        List of team members (list of GitHub usernames). Not returned if `summary_only = true`
+        List of team members (list of GitHub usernames). Not returned if `summary_only = true`.
         """
         return pulumi.get(self, "members")
 
@@ -101,7 +104,7 @@ class GetTeamResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        the team's full name.
+        Team's full name.
         """
         return pulumi.get(self, "name")
 
@@ -109,15 +112,24 @@ class GetTeamResult:
     @pulumi.getter(name="nodeId")
     def node_id(self) -> _builtins.str:
         """
-        the Node ID of the team.
+        Node ID of the team.
         """
         return pulumi.get(self, "node_id")
 
     @_builtins.property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> _builtins.str:
+        """
+        Teams's notification setting. Can be either `notifications_enabled` or `notifications_disabled`.
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Closing down notice.""")
     def permission(self) -> _builtins.str:
         """
-        the team's permission level.
+        (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
         """
         return pulumi.get(self, "permission")
 
@@ -125,7 +137,7 @@ class GetTeamResult:
     @pulumi.getter
     def privacy(self) -> _builtins.str:
         """
-        the team's privacy type.
+        Team's privacy type. Can either be `closed` or `secret`.
         """
         return pulumi.get(self, "privacy")
 
@@ -134,7 +146,7 @@ class GetTeamResult:
     @_utilities.deprecated("""Use repositories_detailed instead.""")
     def repositories(self) -> Sequence[_builtins.str]:
         """
-        (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summary_only = true`
+        (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summary_only = true`.
         """
         return pulumi.get(self, "repositories")
 
@@ -142,12 +154,13 @@ class GetTeamResult:
     @pulumi.getter(name="repositoriesDetaileds")
     def repositories_detaileds(self) -> Sequence['outputs.GetTeamRepositoriesDetailedResult']:
         """
-        List of team repositories (each item comprises of `repo_id`, `repo_name` & `role_name`). Not returned if `summary_only = true`
+        List of team repositories (each item comprises of `repo_id`, `repo_name` & `role_name`). Not returned if `summary_only = true`.
         """
         return pulumi.get(self, "repositories_detaileds")
 
     @_builtins.property
     @pulumi.getter(name="resultsPerPage")
+    @_utilities.deprecated("""This is deprecated and will be removed in a future release.""")
     def results_per_page(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "results_per_page")
 
@@ -174,6 +187,7 @@ class AwaitableGetTeamResult(GetTeamResult):
             membership_type=self.membership_type,
             name=self.name,
             node_id=self.node_id,
+            notification_setting=self.notification_setting,
             permission=self.permission,
             privacy=self.privacy,
             repositories=self.repositories,
@@ -201,8 +215,8 @@ def get_team(membership_type: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
-    :param _builtins.int results_per_page: Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
     :param _builtins.str slug: The team slug.
     :param _builtins.bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """
@@ -221,6 +235,7 @@ def get_team(membership_type: Optional[_builtins.str] = None,
         membership_type=pulumi.get(__ret__, 'membership_type'),
         name=pulumi.get(__ret__, 'name'),
         node_id=pulumi.get(__ret__, 'node_id'),
+        notification_setting=pulumi.get(__ret__, 'notification_setting'),
         permission=pulumi.get(__ret__, 'permission'),
         privacy=pulumi.get(__ret__, 'privacy'),
         repositories=pulumi.get(__ret__, 'repositories'),
@@ -246,8 +261,8 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
-    :param _builtins.int results_per_page: Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+    :param _builtins.str membership_type: Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
+    :param _builtins.int results_per_page: (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
     :param _builtins.str slug: The team slug.
     :param _builtins.bool summary_only: Exclude the members and repositories of the team from the returned result. Defaults to `false`.
     """
@@ -265,6 +280,7 @@ def get_team_output(membership_type: Optional[pulumi.Input[Optional[_builtins.st
         membership_type=pulumi.get(__response__, 'membership_type'),
         name=pulumi.get(__response__, 'name'),
         node_id=pulumi.get(__response__, 'node_id'),
+        notification_setting=pulumi.get(__response__, 'notification_setting'),
         permission=pulumi.get(__response__, 'permission'),
         privacy=pulumi.get(__response__, 'privacy'),
         repositories=pulumi.get(__response__, 'repositories'),

@@ -37,6 +37,12 @@ namespace Pulumi.Github.Inputs
         public Input<Inputs.OrganizationRulesetRulesCommitterEmailPatternArgs>? CommitterEmailPattern { get; set; }
 
         /// <summary>
+        /// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        /// </summary>
+        [Input("copilotCodeReview")]
+        public Input<Inputs.OrganizationRulesetRulesCopilotCodeReviewArgs>? CopilotCodeReview { get; set; }
+
+        /// <summary>
         /// (Boolean) Only allow users with bypass permission to create matching refs.
         /// </summary>
         [Input("creation")]

@@ -18,14 +18,14 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
 
     /**
-     * Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
      * 
      */
     @Import(name="membershipType")
     private @Nullable String membershipType;
 
     /**
-     * @return Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+     * @return Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
      * 
      */
     public Optional<String> membershipType() {
@@ -33,16 +33,24 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * 
+     * @deprecated
+     * This is deprecated and will be removed in a future release.
      * 
      */
+    @Deprecated /* This is deprecated and will be removed in a future release. */
     @Import(name="resultsPerPage")
     private @Nullable Integer resultsPerPage;
 
     /**
-     * @return Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * @return (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     * 
+     * @deprecated
+     * This is deprecated and will be removed in a future release.
      * 
      */
+    @Deprecated /* This is deprecated and will be removed in a future release. */
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
@@ -105,7 +113,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param membershipType Type of membership to be requested to fill the list of members. Can be either &#34;all&#34; or &#34;immediate&#34;. Default: &#34;all&#34;
+         * @param membershipType Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
          * 
          * @return builder
          * 
@@ -116,11 +124,15 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resultsPerPage Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+         * @param resultsPerPage (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This is deprecated and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This is deprecated and will be removed in a future release. */
         public Builder resultsPerPage(@Nullable Integer resultsPerPage) {
             $.resultsPerPage = resultsPerPage;
             return this;

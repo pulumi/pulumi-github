@@ -88,13 +88,13 @@ namespace Pulumi.Github
     public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// Type of membership to be requested to fill the list of members. Can be either `All` _(default)_ or `Immediate`.
         /// </summary>
         [Input("membershipType")]
         public string? MembershipType { get; set; }
 
         /// <summary>
-        /// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
         /// </summary>
         [Input("resultsPerPage")]
         public int? ResultsPerPage { get; set; }
@@ -120,13 +120,13 @@ namespace Pulumi.Github
     public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+        /// Type of membership to be requested to fill the list of members. Can be either `All` _(default)_ or `Immediate`.
         /// </summary>
         [Input("membershipType")]
         public Input<string>? MembershipType { get; set; }
 
         /// <summary>
-        /// Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+        /// (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
         /// </summary>
         [Input("resultsPerPage")]
         public Input<int>? ResultsPerPage { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Github
     public sealed class GetTeamResult
     {
         /// <summary>
-        /// the team's description.
+        /// Team's description.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -162,32 +162,36 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of team members (list of GitHub usernames). Not returned if `SummaryOnly = true`
+        /// List of team members (list of GitHub usernames). Not returned if `SummaryOnly = true`.
         /// </summary>
         public readonly ImmutableArray<string> Members;
         public readonly string? MembershipType;
         /// <summary>
-        /// the team's full name.
+        /// Team's full name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the Node ID of the team.
+        /// Node ID of the team.
         /// </summary>
         public readonly string NodeId;
         /// <summary>
-        /// the team's permission level.
+        /// Teams's notification setting. Can be either `NotificationsEnabled` or `NotificationsDisabled`.
+        /// </summary>
+        public readonly string NotificationSetting;
+        /// <summary>
+        /// (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
         /// </summary>
         public readonly string Permission;
         /// <summary>
-        /// the team's privacy type.
+        /// Team's privacy type. Can either be `Closed` or `Secret`.
         /// </summary>
         public readonly string Privacy;
         /// <summary>
-        /// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `SummaryOnly = true`
+        /// (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `SummaryOnly = true`.
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
-        /// List of team repositories (each item comprises of `RepoId`, `RepoName` &amp; `RoleName`). Not returned if `SummaryOnly = true`
+        /// List of team repositories (each item comprises of `RepoId`, `RepoName` &amp; `RoleName`). Not returned if `SummaryOnly = true`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamRepositoriesDetailedResult> RepositoriesDetaileds;
         public readonly int? ResultsPerPage;
@@ -207,6 +211,8 @@ namespace Pulumi.Github
             string name,
 
             string nodeId,
+
+            string notificationSetting,
 
             string permission,
 
@@ -228,6 +234,7 @@ namespace Pulumi.Github
             MembershipType = membershipType;
             Name = name;
             NodeId = nodeId;
+            NotificationSetting = notificationSetting;
             Permission = permission;
             Privacy = privacy;
             Repositories = repositories;

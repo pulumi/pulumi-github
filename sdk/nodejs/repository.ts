@@ -68,6 +68,8 @@ import * as utilities from "./utilities";
  *
  * Repositories can be imported using the `name`, e.g.
  *
+ * text
+ *
  * ```sh
  * $ pulumi import github:index/repository:Repository terraform terraform
  * ```
@@ -104,6 +106,10 @@ export class Repository extends pulumi.CustomResource {
      * Set to `true` to allow auto-merging pull requests on the repository.
      */
     declare public readonly allowAutoMerge: pulumi.Output<boolean | undefined>;
+    /**
+     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     */
+    declare public readonly allowForking: pulumi.Output<boolean>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */
@@ -170,7 +176,9 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly hasDiscussions: pulumi.Output<boolean | undefined>;
     /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
+     * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     *
+     * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
     declare public readonly hasDownloads: pulumi.Output<boolean | undefined>;
     /**
@@ -309,6 +317,7 @@ export class Repository extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             resourceInputs["allowAutoMerge"] = state?.allowAutoMerge;
+            resourceInputs["allowForking"] = state?.allowForking;
             resourceInputs["allowMergeCommit"] = state?.allowMergeCommit;
             resourceInputs["allowRebaseMerge"] = state?.allowRebaseMerge;
             resourceInputs["allowSquashMerge"] = state?.allowSquashMerge;
@@ -358,6 +367,7 @@ export class Repository extends pulumi.CustomResource {
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             resourceInputs["allowAutoMerge"] = args?.allowAutoMerge;
+            resourceInputs["allowForking"] = args?.allowForking;
             resourceInputs["allowMergeCommit"] = args?.allowMergeCommit;
             resourceInputs["allowRebaseMerge"] = args?.allowRebaseMerge;
             resourceInputs["allowSquashMerge"] = args?.allowSquashMerge;
@@ -418,6 +428,10 @@ export interface RepositoryState {
      * Set to `true` to allow auto-merging pull requests on the repository.
      */
     allowAutoMerge?: pulumi.Input<boolean>;
+    /**
+     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     */
+    allowForking?: pulumi.Input<boolean>;
     /**
      * Set to `false` to disable merge commits on the repository.
      */
@@ -484,7 +498,9 @@ export interface RepositoryState {
      */
     hasDiscussions?: pulumi.Input<boolean>;
     /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
+     * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     *
+     * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
     hasDownloads?: pulumi.Input<boolean>;
     /**
@@ -619,6 +635,10 @@ export interface RepositoryArgs {
      */
     allowAutoMerge?: pulumi.Input<boolean>;
     /**
+     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     */
+    allowForking?: pulumi.Input<boolean>;
+    /**
      * Set to `false` to disable merge commits on the repository.
      */
     allowMergeCommit?: pulumi.Input<boolean>;
@@ -676,7 +696,9 @@ export interface RepositoryArgs {
      */
     hasDiscussions?: pulumi.Input<boolean>;
     /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
+     * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     *
+     * @deprecated This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      */
     hasDownloads?: pulumi.Input<boolean>;
     /**

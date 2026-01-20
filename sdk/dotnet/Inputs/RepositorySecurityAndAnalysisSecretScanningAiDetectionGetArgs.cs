@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositorySecurityAndAnalysisSecretScanningAiDetectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The GitHub Pages site's build status e.g. `Building` or `Built`.
+        /// Set to `Enabled` to enable secret scanning AI detection on the repository. Can be `Enabled` or `Disabled`. If set to `Enabled`, the repository's visibility must be `Public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `Enabled`, or your Organization must have split licensing for Advanced security.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

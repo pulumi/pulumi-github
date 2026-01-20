@@ -158,6 +158,10 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool AllowAutoMerge;
         /// <summary>
+        /// Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+        /// </summary>
+        public readonly bool AllowForking;
+        /// <summary>
         /// Whether the repository allows merge commits.
         /// </summary>
         public readonly bool AllowMergeCommit;
@@ -197,7 +201,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly bool HasDiscussions;
         /// <summary>
-        /// Whether the repository has Downloads feature enabled.
+        /// (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         /// </summary>
         public readonly bool HasDownloads;
         /// <summary>
@@ -301,6 +305,8 @@ namespace Pulumi.Github
         private GetRepositoryResult(
             bool allowAutoMerge,
 
+            bool allowForking,
+
             bool allowMergeCommit,
 
             bool allowRebaseMerge,
@@ -376,6 +382,7 @@ namespace Pulumi.Github
             string visibility)
         {
             AllowAutoMerge = allowAutoMerge;
+            AllowForking = allowForking;
             AllowMergeCommit = allowMergeCommit;
             AllowRebaseMerge = allowRebaseMerge;
             AllowSquashMerge = allowSquashMerge;

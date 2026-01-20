@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTeamResult {
     /**
-     * @return the team&#39;s description.
+     * @return Team&#39;s description.
      * 
      */
     private String description;
@@ -27,33 +27,42 @@ public final class GetTeamResult {
      */
     private String id;
     /**
-     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
+     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`.
      * 
      */
     private List<String> members;
     private @Nullable String membershipType;
     /**
-     * @return the team&#39;s full name.
+     * @return Team&#39;s full name.
      * 
      */
     private String name;
     /**
-     * @return the Node ID of the team.
+     * @return Node ID of the team.
      * 
      */
     private String nodeId;
     /**
-     * @return the team&#39;s permission level.
+     * @return Teams&#39;s notification setting. Can be either `notificationsEnabled` or `notificationsDisabled`.
      * 
      */
+    private String notificationSetting;
+    /**
+     * @return (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
+     * 
+     * @deprecated
+     * Closing down notice.
+     * 
+     */
+    @Deprecated /* Closing down notice. */
     private String permission;
     /**
-     * @return the team&#39;s privacy type.
+     * @return Team&#39;s privacy type. Can either be `closed` or `secret`.
      * 
      */
     private String privacy;
     /**
-     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
      * 
      * @deprecated
      * Use repositoriesDetailed instead.
@@ -62,17 +71,23 @@ public final class GetTeamResult {
     @Deprecated /* Use repositoriesDetailed instead. */
     private List<String> repositories;
     /**
-     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`
+     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`.
      * 
      */
     private List<GetTeamRepositoriesDetailed> repositoriesDetaileds;
+    /**
+     * @deprecated
+     * This is deprecated and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This is deprecated and will be removed in a future release. */
     private @Nullable Integer resultsPerPage;
     private String slug;
     private @Nullable Boolean summaryOnly;
 
     private GetTeamResult() {}
     /**
-     * @return the team&#39;s description.
+     * @return Team&#39;s description.
      * 
      */
     public String description() {
@@ -86,7 +101,7 @@ public final class GetTeamResult {
         return this.id;
     }
     /**
-     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
+     * @return List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`.
      * 
      */
     public List<String> members() {
@@ -96,35 +111,46 @@ public final class GetTeamResult {
         return Optional.ofNullable(this.membershipType);
     }
     /**
-     * @return the team&#39;s full name.
+     * @return Team&#39;s full name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return the Node ID of the team.
+     * @return Node ID of the team.
      * 
      */
     public String nodeId() {
         return this.nodeId;
     }
     /**
-     * @return the team&#39;s permission level.
+     * @return Teams&#39;s notification setting. Can be either `notificationsEnabled` or `notificationsDisabled`.
      * 
      */
+    public String notificationSetting() {
+        return this.notificationSetting;
+    }
+    /**
+     * @return (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
+     * 
+     * @deprecated
+     * Closing down notice.
+     * 
+     */
+    @Deprecated /* Closing down notice. */
     public String permission() {
         return this.permission;
     }
     /**
-     * @return the team&#39;s privacy type.
+     * @return Team&#39;s privacy type. Can either be `closed` or `secret`.
      * 
      */
     public String privacy() {
         return this.privacy;
     }
     /**
-     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * @return (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
      * 
      * @deprecated
      * Use repositoriesDetailed instead.
@@ -135,12 +161,18 @@ public final class GetTeamResult {
         return this.repositories;
     }
     /**
-     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`
+     * @return List of team repositories (each item comprises of `repoId`, `repoName` &amp; `roleName`). Not returned if `summaryOnly = true`.
      * 
      */
     public List<GetTeamRepositoriesDetailed> repositoriesDetaileds() {
         return this.repositoriesDetaileds;
     }
+    /**
+     * @deprecated
+     * This is deprecated and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This is deprecated and will be removed in a future release. */
     public Optional<Integer> resultsPerPage() {
         return Optional.ofNullable(this.resultsPerPage);
     }
@@ -166,6 +198,7 @@ public final class GetTeamResult {
         private @Nullable String membershipType;
         private String name;
         private String nodeId;
+        private String notificationSetting;
         private String permission;
         private String privacy;
         private List<String> repositories;
@@ -182,6 +215,7 @@ public final class GetTeamResult {
     	      this.membershipType = defaults.membershipType;
     	      this.name = defaults.name;
     	      this.nodeId = defaults.nodeId;
+    	      this.notificationSetting = defaults.notificationSetting;
     	      this.permission = defaults.permission;
     	      this.privacy = defaults.privacy;
     	      this.repositories = defaults.repositories;
@@ -238,6 +272,14 @@ public final class GetTeamResult {
               throw new MissingRequiredPropertyException("GetTeamResult", "nodeId");
             }
             this.nodeId = nodeId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notificationSetting(String notificationSetting) {
+            if (notificationSetting == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "notificationSetting");
+            }
+            this.notificationSetting = notificationSetting;
             return this;
         }
         @CustomType.Setter
@@ -306,6 +348,7 @@ public final class GetTeamResult {
             _resultValue.membershipType = membershipType;
             _resultValue.name = name;
             _resultValue.nodeId = nodeId;
+            _resultValue.notificationSetting = notificationSetting;
             _resultValue.permission = permission;
             _resultValue.privacy = privacy;
             _resultValue.repositories = repositories;
