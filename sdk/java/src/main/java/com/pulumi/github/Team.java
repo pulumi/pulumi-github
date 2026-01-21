@@ -74,14 +74,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/team:Team")
 public class Team extends com.pulumi.resources.CustomResource {
     /**
-     * Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * 
+     * @deprecated
+     * Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly.
      * 
      */
+    @Deprecated /* Use github.TeamMembership or github.TeamMembers resource to manage team memberships explicitly. */
     @Export(name="createDefaultMaintainer", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createDefaultMaintainer;
 
     /**
-     * @return Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
+     * @return (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
      * 
      */
     public Output<Optional<Boolean>> createDefaultMaintainer() {
@@ -156,6 +160,20 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.nodeId;
     }
     /**
+     * The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * 
+     */
+    @Export(name="notificationSetting", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> notificationSetting;
+
+    /**
+     * @return The notification setting for the team. Must be one of `notificationsEnabled` _(default)_ or `notificationsDisabled`.
+     * 
+     */
+    public Output<Optional<String>> notificationSetting() {
+        return Codegen.optional(this.notificationSetting);
+    }
+    /**
      * The ID or slug of the parent team, if this is a nested team.
      * 
      */
@@ -198,16 +216,14 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.parentTeamReadSlug;
     }
     /**
-     * The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      * 
      */
     @Export(name="privacy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacy;
 
     /**
-     * @return The level of privacy for the team. Must be one of `secret` or `closed`.
-     * Defaults to `secret`.
+     * @return The level of privacy for the team. Must be one of `secret` _(default)_ or `closed`.
      * 
      */
     public Output<Optional<String>> privacy() {

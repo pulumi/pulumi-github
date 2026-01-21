@@ -37,6 +37,21 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    @Import(name="allowForking")
+    private @Nullable Output<Boolean> allowForking;
+
+    /**
+     * @return Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    public Optional<Output<Boolean>> allowForking() {
+        return Optional.ofNullable(this.allowForking);
+    }
+
+    /**
      * Set to `false` to disable merge commits on the repository.
      * 
      */
@@ -281,16 +296,24 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
+     * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     * 
+     * @deprecated
+     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
+    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
     @Import(name="hasDownloads")
     private @Nullable Output<Boolean> hasDownloads;
 
     /**
-     * @return Set to `true` to enable the (deprecated) downloads features on the repository.
+     * @return (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     * 
+     * @deprecated
+     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
+    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
     public Optional<Output<Boolean>> hasDownloads() {
         return Optional.ofNullable(this.hasDownloads);
     }
@@ -748,6 +771,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
 
     private RepositoryState(RepositoryState $) {
         this.allowAutoMerge = $.allowAutoMerge;
+        this.allowForking = $.allowForking;
         this.allowMergeCommit = $.allowMergeCommit;
         this.allowRebaseMerge = $.allowRebaseMerge;
         this.allowSquashMerge = $.allowSquashMerge;
@@ -833,6 +857,27 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allowAutoMerge(Boolean allowAutoMerge) {
             return allowAutoMerge(Output.of(allowAutoMerge));
+        }
+
+        /**
+         * @param allowForking Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowForking(@Nullable Output<Boolean> allowForking) {
+            $.allowForking = allowForking;
+            return this;
+        }
+
+        /**
+         * @param allowForking Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowForking(Boolean allowForking) {
+            return allowForking(Output.of(allowForking));
         }
 
         /**
@@ -1172,22 +1217,30 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hasDownloads Set to `true` to enable the (deprecated) downloads features on the repository.
+         * @param hasDownloads (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+         * 
          */
+        @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
         public Builder hasDownloads(@Nullable Output<Boolean> hasDownloads) {
             $.hasDownloads = hasDownloads;
             return this;
         }
 
         /**
-         * @param hasDownloads Set to `true` to enable the (deprecated) downloads features on the repository.
+         * @param hasDownloads (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
+         * 
          */
+        @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
         public Builder hasDownloads(Boolean hasDownloads) {
             return hasDownloads(Output.of(hasDownloads));
         }

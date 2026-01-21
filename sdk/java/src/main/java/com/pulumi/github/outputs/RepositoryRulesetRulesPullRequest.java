@@ -6,12 +6,19 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryRulesetRulesPullRequest {
+    /**
+     * @return Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     * 
+     */
+    private @Nullable List<String> allowedMergeMethods;
     /**
      * @return New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
@@ -39,6 +46,13 @@ public final class RepositoryRulesetRulesPullRequest {
     private @Nullable Boolean requiredReviewThreadResolution;
 
     private RepositoryRulesetRulesPullRequest() {}
+    /**
+     * @return Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     * 
+     */
+    public List<String> allowedMergeMethods() {
+        return this.allowedMergeMethods == null ? List.of() : this.allowedMergeMethods;
+    }
     /**
      * @return New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      * 
@@ -84,6 +98,7 @@ public final class RepositoryRulesetRulesPullRequest {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> allowedMergeMethods;
         private @Nullable Boolean dismissStaleReviewsOnPush;
         private @Nullable Boolean requireCodeOwnerReview;
         private @Nullable Boolean requireLastPushApproval;
@@ -92,6 +107,7 @@ public final class RepositoryRulesetRulesPullRequest {
         public Builder() {}
         public Builder(RepositoryRulesetRulesPullRequest defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowedMergeMethods = defaults.allowedMergeMethods;
     	      this.dismissStaleReviewsOnPush = defaults.dismissStaleReviewsOnPush;
     	      this.requireCodeOwnerReview = defaults.requireCodeOwnerReview;
     	      this.requireLastPushApproval = defaults.requireLastPushApproval;
@@ -99,6 +115,15 @@ public final class RepositoryRulesetRulesPullRequest {
     	      this.requiredReviewThreadResolution = defaults.requiredReviewThreadResolution;
         }
 
+        @CustomType.Setter
+        public Builder allowedMergeMethods(@Nullable List<String> allowedMergeMethods) {
+
+            this.allowedMergeMethods = allowedMergeMethods;
+            return this;
+        }
+        public Builder allowedMergeMethods(String... allowedMergeMethods) {
+            return allowedMergeMethods(List.of(allowedMergeMethods));
+        }
         @CustomType.Setter
         public Builder dismissStaleReviewsOnPush(@Nullable Boolean dismissStaleReviewsOnPush) {
 
@@ -131,6 +156,7 @@ public final class RepositoryRulesetRulesPullRequest {
         }
         public RepositoryRulesetRulesPullRequest build() {
             final var _resultValue = new RepositoryRulesetRulesPullRequest();
+            _resultValue.allowedMergeMethods = allowedMergeMethods;
             _resultValue.dismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
             _resultValue.requireCodeOwnerReview = requireCodeOwnerReview;
             _resultValue.requireLastPushApproval = requireLastPushApproval;

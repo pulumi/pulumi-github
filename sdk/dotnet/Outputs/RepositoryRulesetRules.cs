@@ -30,6 +30,10 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.RepositoryRulesetRulesCommitterEmailPattern? CommitterEmailPattern;
         /// <summary>
+        /// (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.RepositoryRulesetRulesCopilotCodeReview? CopilotCodeReview;
+        /// <summary>
         /// (Boolean) Only allow users with bypass permission to create matching refs.
         /// </summary>
         public readonly bool? Creation;
@@ -108,6 +112,8 @@ namespace Pulumi.Github.Outputs
 
             Outputs.RepositoryRulesetRulesCommitterEmailPattern? committerEmailPattern,
 
+            Outputs.RepositoryRulesetRulesCopilotCodeReview? copilotCodeReview,
+
             bool? creation,
 
             bool? deletion,
@@ -146,6 +152,7 @@ namespace Pulumi.Github.Outputs
             CommitAuthorEmailPattern = commitAuthorEmailPattern;
             CommitMessagePattern = commitMessagePattern;
             CommitterEmailPattern = committerEmailPattern;
+            CopilotCodeReview = copilotCodeReview;
             Creation = creation;
             Deletion = deletion;
             FileExtensionRestriction = fileExtensionRestriction;

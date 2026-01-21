@@ -22,6 +22,7 @@
         "actionsOrganizationSecretRepositories.ts",
         "actionsOrganizationSecretRepository.ts",
         "actionsOrganizationVariable.ts",
+        "actionsOrganizationWorkflowPermissions.ts",
         "actionsRepositoryAccessLevel.ts",
         "actionsRepositoryOidcSubjectClaimCustomizationTemplate.ts",
         "actionsRepositoryPermissions.ts",

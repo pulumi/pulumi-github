@@ -151,6 +151,8 @@ import javax.annotation.Nullable;
  * 
  * Repositories can be imported using the `name`, e.g.
  * 
+ * text
+ * 
  * ```sh
  * $ pulumi import github:index/repository:Repository terraform terraform
  * ```
@@ -171,6 +173,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> allowAutoMerge() {
         return Codegen.optional(this.allowAutoMerge);
+    }
+    /**
+     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    @Export(name="allowForking", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> allowForking;
+
+    /**
+     * @return Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * 
+     */
+    public Output<Boolean> allowForking() {
+        return this.allowForking;
     }
     /**
      * Set to `false` to disable merge commits on the repository.
@@ -397,14 +413,18 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hasDiscussions);
     }
     /**
-     * Set to `true` to enable the (deprecated) downloads features on the repository.
+     * (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
+     * 
+     * @deprecated
+     * This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756
      * 
      */
+    @Deprecated /* This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756 */
     @Export(name="hasDownloads", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasDownloads;
 
     /**
-     * @return Set to `true` to enable the (deprecated) downloads features on the repository.
+     * @return (Optional) Set to `true` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn&#39;t been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
      * 
      */
     public Output<Optional<Boolean>> hasDownloads() {

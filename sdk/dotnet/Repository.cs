@@ -95,6 +95,8 @@ namespace Pulumi.Github
     /// 
     /// Repositories can be imported using the `name`, e.g.
     /// 
+    /// text
+    /// 
     /// ```sh
     /// $ pulumi import github:index/repository:Repository terraform terraform
     /// ```
@@ -107,6 +109,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("allowAutoMerge")]
         public Output<bool?> AllowAutoMerge { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to `True` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        /// </summary>
+        [Output("allowForking")]
+        public Output<bool> AllowForking { get; private set; } = null!;
 
         /// <summary>
         /// Set to `False` to disable merge commits on the repository.
@@ -204,7 +212,7 @@ namespace Pulumi.Github
         public Output<bool?> HasDiscussions { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `True` to enable the (deprecated) downloads features on the repository.
+        /// (Optional) Set to `True` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         /// </summary>
         [Output("hasDownloads")]
         public Output<bool?> HasDownloads { get; private set; } = null!;
@@ -439,6 +447,12 @@ namespace Pulumi.Github
         public Input<bool>? AllowAutoMerge { get; set; }
 
         /// <summary>
+        /// Set to `True` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        /// </summary>
+        [Input("allowForking")]
+        public Input<bool>? AllowForking { get; set; }
+
+        /// <summary>
         /// Set to `False` to disable merge commits on the repository.
         /// </summary>
         [Input("allowMergeCommit")]
@@ -522,7 +536,7 @@ namespace Pulumi.Github
         public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the (deprecated) downloads features on the repository.
+        /// (Optional) Set to `True` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         /// </summary>
         [Input("hasDownloads")]
         public Input<bool>? HasDownloads { get; set; }
@@ -683,6 +697,12 @@ namespace Pulumi.Github
         public Input<bool>? AllowAutoMerge { get; set; }
 
         /// <summary>
+        /// Set to `True` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        /// </summary>
+        [Input("allowForking")]
+        public Input<bool>? AllowForking { get; set; }
+
+        /// <summary>
         /// Set to `False` to disable merge commits on the repository.
         /// </summary>
         [Input("allowMergeCommit")]
@@ -778,7 +798,7 @@ namespace Pulumi.Github
         public Input<bool>? HasDiscussions { get; set; }
 
         /// <summary>
-        /// Set to `True` to enable the (deprecated) downloads features on the repository.
+        /// (Optional) Set to `True` to enable the (deprecated) downloads features on the repository. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         /// </summary>
         [Input("hasDownloads")]
         public Input<bool>? HasDownloads { get; set; }

@@ -60,17 +60,17 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Repository Environment can be imported using an ID made up of `name` of the repository combined with the `environment` name of the environment, separated by a `:` character, e.g.
+    /// This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment daily terraform:daily
+    /// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryEnvironment:RepositoryEnvironment")]
     public partial class RepositoryEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `True`.
+        /// Can repository admins bypass the environment protections. Defaults to `True`.
         /// </summary>
         [Output("canAdminsBypass")]
         public Output<bool?> CanAdminsBypass { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `True`.
+        /// Can repository admins bypass the environment protections. Defaults to `True`.
         /// </summary>
         [Input("canAdminsBypass")]
         public Input<bool>? CanAdminsBypass { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Github
     public sealed class RepositoryEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can repository admins bypass the environment protections.  Defaults to `True`.
+        /// Can repository admins bypass the environment protections. Defaults to `True`.
         /// </summary>
         [Input("canAdminsBypass")]
         public Input<bool>? CanAdminsBypass { get; set; }
