@@ -1221,8 +1221,8 @@ export interface OrganizationRulesetBypassActor {
      *
      * ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
-     * * `OrganizationAdmin` > `1`
-     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+     * - `OrganizationAdmin` > `1`
+     * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: string;
 }
@@ -1287,6 +1287,10 @@ export interface OrganizationRulesetRules {
      * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
     committerEmailPattern?: outputs.OrganizationRulesetRulesCommitterEmailPattern;
+    /**
+     * (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     */
+    copilotCodeReview?: outputs.OrganizationRulesetRulesCopilotCodeReview;
     /**
      * (Boolean) Only allow users with bypass permission to create matching refs.
      */
@@ -1425,6 +1429,17 @@ export interface OrganizationRulesetRulesCommitterEmailPattern {
     pattern: string;
 }
 
+export interface OrganizationRulesetRulesCopilotCodeReview {
+    /**
+     * Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+     */
+    reviewDraftPullRequests?: boolean;
+    /**
+     * Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+     */
+    reviewOnPush?: boolean;
+}
+
 export interface OrganizationRulesetRulesFileExtensionRestriction {
     /**
      * The file extensions that are restricted from being pushed to the commit graph.
@@ -1454,6 +1469,10 @@ export interface OrganizationRulesetRulesMaxFileSize {
 }
 
 export interface OrganizationRulesetRulesPullRequest {
+    /**
+     * Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     */
+    allowedMergeMethods?: string[];
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
@@ -1696,8 +1715,8 @@ export interface RepositoryRulesetBypassActor {
      *
      * > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
      *
-     * * `OrganizationAdmin` > `1`
-     * * `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+     * - `OrganizationAdmin` > `1`
+     * - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
      */
     bypassMode: string;
 }
@@ -1737,6 +1756,10 @@ export interface RepositoryRulesetRules {
      * (Block List, Max: 1) Parameters to be used for the committerEmailPattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
      */
     committerEmailPattern?: outputs.RepositoryRulesetRulesCommitterEmailPattern;
+    /**
+     * (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     */
+    copilotCodeReview?: outputs.RepositoryRulesetRulesCopilotCodeReview;
     /**
      * (Boolean) Only allow users with bypass permission to create matching refs.
      */
@@ -1883,6 +1906,17 @@ export interface RepositoryRulesetRulesCommitterEmailPattern {
     pattern: string;
 }
 
+export interface RepositoryRulesetRulesCopilotCodeReview {
+    /**
+     * Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+     */
+    reviewDraftPullRequests?: boolean;
+    /**
+     * Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+     */
+    reviewOnPush?: boolean;
+}
+
 export interface RepositoryRulesetRulesFileExtensionRestriction {
     /**
      * A list of file extensions.
@@ -1943,6 +1977,10 @@ export interface RepositoryRulesetRulesMergeQueue {
 }
 
 export interface RepositoryRulesetRulesPullRequest {
+    /**
+     * Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+     */
+    allowedMergeMethods?: string[];
     /**
      * New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
      */
@@ -2089,7 +2127,7 @@ export interface RepositorySecurityAndAnalysisSecretScanning {
 
 export interface RepositorySecurityAndAnalysisSecretScanningAiDetection {
     /**
-     * The GitHub Pages site's build status e.g. `building` or `built`.
+     * Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
      */
     status: string;
 }

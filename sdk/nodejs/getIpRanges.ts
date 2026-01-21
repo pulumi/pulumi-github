@@ -52,14 +52,20 @@ export interface GetIpRangesResult {
     readonly apis: string[];
     /**
      * A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     *
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
     readonly dependabotIpv4s: string[];
     /**
      * A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     *
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
     readonly dependabotIpv6s: string[];
     /**
      * An array of IP addresses in CIDR format specifying the A records for dependabot.
+     *
+     * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
     readonly dependabots: string[];
     /**

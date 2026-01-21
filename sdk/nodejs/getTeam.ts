@@ -35,11 +35,13 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetTeamArgs {
     /**
-     * Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
      */
     membershipType?: string;
     /**
-     * Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     *
+     * @deprecated This is deprecated and will be removed in a future release.
      */
     resultsPerPage?: number;
     /**
@@ -57,7 +59,7 @@ export interface GetTeamArgs {
  */
 export interface GetTeamResult {
     /**
-     * the team's description.
+     * Team's description.
      */
     readonly description: string;
     /**
@@ -65,36 +67,45 @@ export interface GetTeamResult {
      */
     readonly id: string;
     /**
-     * List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`
+     * List of team members (list of GitHub usernames). Not returned if `summaryOnly = true`.
      */
     readonly members: string[];
     readonly membershipType?: string;
     /**
-     * the team's full name.
+     * Team's full name.
      */
     readonly name: string;
     /**
-     * the Node ID of the team.
+     * Node ID of the team.
      */
     readonly nodeId: string;
     /**
-     * the team's permission level.
+     * Teams's notification setting. Can be either `notificationsEnabled` or `notificationsDisabled`.
+     */
+    readonly notificationSetting: string;
+    /**
+     * (**DEPRECATED**) The permission that new repositories will be added to the team with when none is specified.
+     *
+     * @deprecated Closing down notice.
      */
     readonly permission: string;
     /**
-     * the team's privacy type.
+     * Team's privacy type. Can either be `closed` or `secret`.
      */
     readonly privacy: string;
     /**
-     * (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`
+     * (**DEPRECATED**) List of team repositories (list of repo names). Not returned if `summaryOnly = true`.
      *
      * @deprecated Use repositoriesDetailed instead.
      */
     readonly repositories: string[];
     /**
-     * List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`
+     * List of team repositories (each item comprises of `repoId`, `repoName` & `roleName`). Not returned if `summaryOnly = true`.
      */
     readonly repositoriesDetaileds: outputs.GetTeamRepositoriesDetailed[];
+    /**
+     * @deprecated This is deprecated and will be removed in a future release.
+     */
     readonly resultsPerPage?: number;
     readonly slug: string;
     readonly summaryOnly?: boolean;
@@ -128,11 +139,13 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOutpu
  */
 export interface GetTeamOutputArgs {
     /**
-     * Type of membership to be requested to fill the list of members. Can be either "all" or "immediate". Default: "all"
+     * Type of membership to be requested to fill the list of members. Can be either `all` _(default)_ or `immediate`.
      */
     membershipType?: pulumi.Input<string>;
     /**
-     * Set the number of results per graphql query. Reducing this number can alleviate timeout errors. Accepts a value between 0 - 100. Defaults to `100`.
+     * (Optional) Set the number of results per REST API query. Accepts a value between 0 - 100 _(defaults to `100`)_.
+     *
+     * @deprecated This is deprecated and will be removed in a future release.
      */
     resultsPerPage?: pulumi.Input<number>;
     /**

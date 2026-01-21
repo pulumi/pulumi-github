@@ -232,10 +232,10 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the repository name, environment name, and variable name:
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
 
         ```sh
-        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
+        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,10 +284,10 @@ class ActionsEnvironmentVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the repository name, environment name, and variable name:
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
 
         ```sh
-        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable test_variable myrepo:myenv:myvariable
+        $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
         ```
 
         :param str resource_name: The name of the resource.

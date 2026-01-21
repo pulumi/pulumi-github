@@ -8,6 +8,7 @@ import com.pulumi.github.outputs.OrganizationRulesetRulesBranchNamePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitAuthorEmailPattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitMessagePattern;
 import com.pulumi.github.outputs.OrganizationRulesetRulesCommitterEmailPattern;
+import com.pulumi.github.outputs.OrganizationRulesetRulesCopilotCodeReview;
 import com.pulumi.github.outputs.OrganizationRulesetRulesFileExtensionRestriction;
 import com.pulumi.github.outputs.OrganizationRulesetRulesFilePathRestriction;
 import com.pulumi.github.outputs.OrganizationRulesetRulesMaxFilePathLength;
@@ -44,6 +45,11 @@ public final class OrganizationRulesetRules {
      * 
      */
     private @Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern;
+    /**
+     * @return (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    private @Nullable OrganizationRulesetRulesCopilotCodeReview copilotCodeReview;
     /**
      * @return (Boolean) Only allow users with bypass permission to create matching refs.
      * 
@@ -148,6 +154,13 @@ public final class OrganizationRulesetRules {
      */
     public Optional<OrganizationRulesetRulesCommitterEmailPattern> committerEmailPattern() {
         return Optional.ofNullable(this.committerEmailPattern);
+    }
+    /**
+     * @return (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+     * 
+     */
+    public Optional<OrganizationRulesetRulesCopilotCodeReview> copilotCodeReview() {
+        return Optional.ofNullable(this.copilotCodeReview);
     }
     /**
      * @return (Boolean) Only allow users with bypass permission to create matching refs.
@@ -268,6 +281,7 @@ public final class OrganizationRulesetRules {
         private @Nullable OrganizationRulesetRulesCommitAuthorEmailPattern commitAuthorEmailPattern;
         private @Nullable OrganizationRulesetRulesCommitMessagePattern commitMessagePattern;
         private @Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern;
+        private @Nullable OrganizationRulesetRulesCopilotCodeReview copilotCodeReview;
         private @Nullable Boolean creation;
         private @Nullable Boolean deletion;
         private @Nullable OrganizationRulesetRulesFileExtensionRestriction fileExtensionRestriction;
@@ -290,6 +304,7 @@ public final class OrganizationRulesetRules {
     	      this.commitAuthorEmailPattern = defaults.commitAuthorEmailPattern;
     	      this.commitMessagePattern = defaults.commitMessagePattern;
     	      this.committerEmailPattern = defaults.committerEmailPattern;
+    	      this.copilotCodeReview = defaults.copilotCodeReview;
     	      this.creation = defaults.creation;
     	      this.deletion = defaults.deletion;
     	      this.fileExtensionRestriction = defaults.fileExtensionRestriction;
@@ -329,6 +344,12 @@ public final class OrganizationRulesetRules {
         public Builder committerEmailPattern(@Nullable OrganizationRulesetRulesCommitterEmailPattern committerEmailPattern) {
 
             this.committerEmailPattern = committerEmailPattern;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder copilotCodeReview(@Nullable OrganizationRulesetRulesCopilotCodeReview copilotCodeReview) {
+
+            this.copilotCodeReview = copilotCodeReview;
             return this;
         }
         @CustomType.Setter
@@ -427,6 +448,7 @@ public final class OrganizationRulesetRules {
             _resultValue.commitAuthorEmailPattern = commitAuthorEmailPattern;
             _resultValue.commitMessagePattern = commitMessagePattern;
             _resultValue.committerEmailPattern = committerEmailPattern;
+            _resultValue.copilotCodeReview = copilotCodeReview;
             _resultValue.creation = creation;
             _resultValue.deletion = deletion;
             _resultValue.fileExtensionRestriction = fileExtensionRestriction;

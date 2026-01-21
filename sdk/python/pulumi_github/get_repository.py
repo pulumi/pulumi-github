@@ -27,10 +27,13 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, allow_auto_merge=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, allow_update_branch=None, archived=None, default_branch=None, delete_branch_on_merge=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, templates=None, topics=None, visibility=None):
+    def __init__(__self__, allow_auto_merge=None, allow_forking=None, allow_merge_commit=None, allow_rebase_merge=None, allow_squash_merge=None, allow_update_branch=None, archived=None, default_branch=None, delete_branch_on_merge=None, description=None, fork=None, full_name=None, git_clone_url=None, has_discussions=None, has_downloads=None, has_issues=None, has_projects=None, has_wiki=None, homepage_url=None, html_url=None, http_clone_url=None, id=None, is_template=None, merge_commit_message=None, merge_commit_title=None, name=None, node_id=None, pages=None, primary_language=None, private=None, repo_id=None, repository_licenses=None, squash_merge_commit_message=None, squash_merge_commit_title=None, ssh_clone_url=None, svn_url=None, templates=None, topics=None, visibility=None):
         if allow_auto_merge and not isinstance(allow_auto_merge, bool):
             raise TypeError("Expected argument 'allow_auto_merge' to be a bool")
         pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
+        if allow_forking and not isinstance(allow_forking, bool):
+            raise TypeError("Expected argument 'allow_forking' to be a bool")
+        pulumi.set(__self__, "allow_forking", allow_forking)
         if allow_merge_commit and not isinstance(allow_merge_commit, bool):
             raise TypeError("Expected argument 'allow_merge_commit' to be a bool")
         pulumi.set(__self__, "allow_merge_commit", allow_merge_commit)
@@ -152,6 +155,14 @@ class GetRepositoryResult:
         return pulumi.get(self, "allow_auto_merge")
 
     @_builtins.property
+    @pulumi.getter(name="allowForking")
+    def allow_forking(self) -> _builtins.bool:
+        """
+        Whether the repository allows private forking; this is only relevant if the repository is owned by an organization and is private or internal.
+        """
+        return pulumi.get(self, "allow_forking")
+
+    @_builtins.property
     @pulumi.getter(name="allowMergeCommit")
     def allow_merge_commit(self) -> _builtins.bool:
         """
@@ -240,9 +251,10 @@ class GetRepositoryResult:
 
     @_builtins.property
     @pulumi.getter(name="hasDownloads")
+    @_utilities.deprecated("""This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See https://github.com/orgs/community/discussions/102145#discussioncomment-8351756""")
     def has_downloads(self) -> _builtins.bool:
         """
-        Whether the repository has Downloads feature enabled.
+        (**DEPRECATED**) Whether the repository has Downloads feature enabled. This attribute is no longer in use, but it hasn't been removed yet. It will be removed in a future version. See [this discussion](https://github.com/orgs/community/discussions/102145#discussioncomment-8351756).
         """
         return pulumi.get(self, "has_downloads")
 
@@ -446,6 +458,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             yield self
         return GetRepositoryResult(
             allow_auto_merge=self.allow_auto_merge,
+            allow_forking=self.allow_forking,
             allow_merge_commit=self.allow_merge_commit,
             allow_rebase_merge=self.allow_rebase_merge,
             allow_squash_merge=self.allow_squash_merge,
@@ -518,6 +531,7 @@ def get_repository(description: Optional[_builtins.str] = None,
 
     return AwaitableGetRepositoryResult(
         allow_auto_merge=pulumi.get(__ret__, 'allow_auto_merge'),
+        allow_forking=pulumi.get(__ret__, 'allow_forking'),
         allow_merge_commit=pulumi.get(__ret__, 'allow_merge_commit'),
         allow_rebase_merge=pulumi.get(__ret__, 'allow_rebase_merge'),
         allow_squash_merge=pulumi.get(__ret__, 'allow_squash_merge'),
@@ -587,6 +601,7 @@ def get_repository_output(description: Optional[pulumi.Input[Optional[_builtins.
     __ret__ = pulumi.runtime.invoke_output('github:index/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
     return __ret__.apply(lambda __response__: GetRepositoryResult(
         allow_auto_merge=pulumi.get(__response__, 'allow_auto_merge'),
+        allow_forking=pulumi.get(__response__, 'allow_forking'),
         allow_merge_commit=pulumi.get(__response__, 'allow_merge_commit'),
         allow_rebase_merge=pulumi.get(__response__, 'allow_rebase_merge'),
         allow_squash_merge=pulumi.get(__response__, 'allow_squash_merge'),
