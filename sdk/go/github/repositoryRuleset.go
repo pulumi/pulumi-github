@@ -131,7 +131,7 @@ type RepositoryRuleset struct {
 
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors RepositoryRulesetBypassActorArrayOutput `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 	Conditions RepositoryRulesetConditionsPtrOutput `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringOutput `pulumi:"enforcement"`
@@ -195,7 +195,7 @@ func GetRepositoryRuleset(ctx *pulumi.Context,
 type repositoryRulesetState struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []RepositoryRulesetBypassActor `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 	Conditions *RepositoryRulesetConditions `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement *string `pulumi:"enforcement"`
@@ -218,7 +218,7 @@ type repositoryRulesetState struct {
 type RepositoryRulesetState struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors RepositoryRulesetBypassActorArrayInput
-	// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 	Conditions RepositoryRulesetConditionsPtrInput
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringPtrInput
@@ -245,7 +245,7 @@ func (RepositoryRulesetState) ElementType() reflect.Type {
 type repositoryRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors []RepositoryRulesetBypassActor `pulumi:"bypassActors"`
-	// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 	Conditions *RepositoryRulesetConditions `pulumi:"conditions"`
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement string `pulumi:"enforcement"`
@@ -263,7 +263,7 @@ type repositoryRulesetArgs struct {
 type RepositoryRulesetArgs struct {
 	// (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
 	BypassActors RepositoryRulesetBypassActorArrayInput
-	// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+	// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 	Conditions RepositoryRulesetConditionsPtrInput
 	// (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
 	Enforcement pulumi.StringInput
@@ -369,7 +369,7 @@ func (o RepositoryRulesetOutput) BypassActors() RepositoryRulesetBypassActorArra
 	return o.ApplyT(func(v *RepositoryRuleset) RepositoryRulesetBypassActorArrayOutput { return v.BypassActors }).(RepositoryRulesetBypassActorArrayOutput)
 }
 
-// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+// (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
 func (o RepositoryRulesetOutput) Conditions() RepositoryRulesetConditionsPtrOutput {
 	return o.ApplyT(func(v *RepositoryRuleset) RepositoryRulesetConditionsPtrOutput { return v.Conditions }).(RepositoryRulesetConditionsPtrOutput)
 }

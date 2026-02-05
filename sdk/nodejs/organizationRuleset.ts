@@ -61,16 +61,13 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
- * // Example with push ruleset  
+ * // Example with push ruleset
+ * // Note: Push targets must NOT have ref_name in conditions, only repository_name or repository_id
  * const examplePush = new github.OrganizationRuleset("example_push", {
  *     name: "example_push",
  *     target: "push",
  *     enforcement: "active",
  *     conditions: {
- *         refName: {
- *             includes: ["~ALL"],
- *             excludes: [],
- *         },
  *         repositoryName: {
  *             includes: ["~ALL"],
  *             excludes: [],
@@ -141,7 +138,7 @@ export class OrganizationRuleset extends pulumi.CustomResource {
      */
     declare public readonly bypassActors: pulumi.Output<outputs.OrganizationRulesetBypassActor[] | undefined>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      */
     declare public readonly conditions: pulumi.Output<outputs.OrganizationRulesetConditions | undefined>;
     /**
@@ -230,7 +227,7 @@ export interface OrganizationRulesetState {
      */
     bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      */
     conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
     /**
@@ -272,7 +269,7 @@ export interface OrganizationRulesetArgs {
      */
     bypassActors?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetBypassActor>[]>;
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      */
     conditions?: pulumi.Input<inputs.OrganizationRulesetConditions>;
     /**

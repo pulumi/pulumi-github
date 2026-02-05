@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+ * This resource allows you to manage the repositories allowed to access a Dependabot secret within your GitHub organization.
  * You must have write access to an organization secret to use this resource.
  *
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -16,26 +16,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const repo = github.getRepository({
- *     fullName: "my-org/repo",
+ * const example = new github.DependabotOrganizationSecret("example", {
+ *     secretName: "mysecret",
+ *     plaintextValue: "foo",
+ *     visibility: "selected",
  * });
- * const exampleSecret = new github.DependabotOrganizationSecret("example_secret", {
- *     secretName: "example_secret_name",
- *     visibility: "private",
- *     plaintextValue: someSecretString,
+ * const exampleRepository = new github.Repository("example", {
+ *     name: "myrepo",
+ *     visibility: "public",
  * });
- * const orgSecretRepos = new github.DependabotOrganizationSecretRepositories("org_secret_repos", {
- *     secretName: exampleSecret.secretName,
- *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * const exampleDependabotOrganizationSecretRepositories = new github.DependabotOrganizationSecretRepositories("example", {
+ *     secretName: example.name,
+ *     selectedRepositoryIds: [exampleRepository.repoId],
  * });
  * ```
  *
  * ## Import
  *
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ *
+ * The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+ * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret
  * ```
  */
 export class DependabotOrganizationSecretRepositories extends pulumi.CustomResource {
@@ -67,11 +70,11 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
     }
 
     /**
-     * Name of the existing secret
+     * Name of the Dependabot organization secret.
      */
     declare public readonly secretName: pulumi.Output<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * List of IDs for the repositories that should be able to access the secret.
      */
     declare public readonly selectedRepositoryIds: pulumi.Output<number[]>;
 
@@ -111,11 +114,11 @@ export class DependabotOrganizationSecretRepositories extends pulumi.CustomResou
  */
 export interface DependabotOrganizationSecretRepositoriesState {
     /**
-     * Name of the existing secret
+     * Name of the Dependabot organization secret.
      */
     secretName?: pulumi.Input<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * List of IDs for the repositories that should be able to access the secret.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
 }
@@ -125,11 +128,11 @@ export interface DependabotOrganizationSecretRepositoriesState {
  */
 export interface DependabotOrganizationSecretRepositoriesArgs {
     /**
-     * Name of the existing secret
+     * Name of the Dependabot organization secret.
      */
     secretName: pulumi.Input<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * List of IDs for the repositories that should be able to access the secret.
      */
     selectedRepositoryIds: pulumi.Input<pulumi.Input<number>[]>;
 }

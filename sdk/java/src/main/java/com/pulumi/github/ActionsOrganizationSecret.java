@@ -18,38 +18,52 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
  * ## Import
  * 
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ * 
+ * The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
  * 
  * ```sh
- * $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+ * $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
  * ```
- * NOTE: the implementation is limited in that it won&#39;t fetch the value of the
- * `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  * 
  */
 @ResourceType(type="github:index/actionsOrganizationSecret:ActionsOrganizationSecret")
 public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actionsSecret creation.
+     * Date the secret was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actionsSecret creation.
+     * @return Date the secret was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     @Export(name="destroyOnDrift", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> destroyOnDrift;
 
+    /**
+     * @return (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     */
     public Output<Optional<Boolean>> destroyOnDrift() {
         return Codegen.optional(this.destroyOnDrift);
     }
@@ -68,72 +82,102 @@ public class ActionsOrganizationSecret extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.encryptedValue);
     }
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Export(name="keyId", refs={String.class}, tree="[0]")
+    private Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Output<String> keyId() {
+        return this.keyId;
+    }
+    /**
+     * Plaintext value of the secret to be encrypted.
      * 
      */
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted
+     * @return Plaintext value of the secret to be encrypted.
      * 
      */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
     }
     /**
-     * Name of the secret
+     * Date the secret was last updated in GitHub.
+     * 
+     */
+    @Export(name="remoteUpdatedAt", refs={String.class}, tree="[0]")
+    private Output<String> remoteUpdatedAt;
+
+    /**
+     * @return Date the secret was last updated in GitHub.
+     * 
+     */
+    public Output<String> remoteUpdatedAt() {
+        return this.remoteUpdatedAt;
+    }
+    /**
+     * Name of the secret.
      * 
      */
     @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret
+     * @return Name of the secret.
      * 
      */
     public Output<String> secretName() {
         return this.secretName;
     }
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
     @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization secret.
+     * @return An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
      */
     public Output<Optional<List<Integer>>> selectedRepositoryIds() {
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of actionsSecret update.
+     * Date the secret was last updated by the provider.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actionsSecret update.
+     * @return Date the secret was last updated by the provider.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     public Output<String> visibility() {

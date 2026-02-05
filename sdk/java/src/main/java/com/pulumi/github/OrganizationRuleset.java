@@ -105,16 +105,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         // Example with push ruleset  
+ *         // Example with push ruleset
+ *         // Note: Push targets must NOT have ref_name in conditions, only repository_name or repository_id
  *         var examplePush = new OrganizationRuleset("examplePush", OrganizationRulesetArgs.builder()
  *             .name("example_push")
  *             .target("push")
  *             .enforcement("active")
  *             .conditions(OrganizationRulesetConditionsArgs.builder()
- *                 .refName(OrganizationRulesetConditionsRefNameArgs.builder()
- *                     .includes("~ALL")
- *                     .excludes()
- *                     .build())
  *                 .repositoryName(OrganizationRulesetConditionsRepositoryNameArgs.builder()
  *                     .includes("~ALL")
  *                     .excludes()
@@ -172,14 +169,14 @@ public class OrganizationRuleset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassActors);
     }
     /**
-     * (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      * 
      */
     @Export(name="conditions", refs={OrganizationRulesetConditions.class}, tree="[0]")
     private Output</* @Nullable */ OrganizationRulesetConditions> conditions;
 
     /**
-     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. `refName` is required alongside one of `repositoryName` or `repositoryId`. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `refName` is required alongside one of `repositoryName` or `repositoryId`. For `push` targets, `refName` must NOT be set - only `repositoryName` or `repositoryId` should be used. (see below for nested schema)
      * 
      */
     public Output<Optional<OrganizationRulesetConditions>> conditions() {

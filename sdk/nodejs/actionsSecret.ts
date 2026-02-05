@@ -5,17 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
- * This resource can be imported using an ID made up of the `repository` and `secret_name`:
+ * ### Import Command
+ *
+ * The following command imports a GitHub actions secret named `mysecret` for the repo `myrepo` to a `github_actions_secret` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/actionsSecret:ActionsSecret example_secret repository/secret_name
+ * $ pulumi import github:index/actionsSecret:ActionsSecret example myrepo:mysecret
  * ```
- * NOTE: the implementation is limited in that it won't fetch the value of the
- * `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  */
 export class ActionsSecret extends pulumi.CustomResource {
     /**
@@ -46,28 +44,47 @@ export class ActionsSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsSecret creation.
+     * Date the secret was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     *
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     */
     declare public readonly destroyOnDrift: pulumi.Output<boolean | undefined>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    declare public readonly keyId: pulumi.Output<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
-     * Name of the repository
+     * Date the secret was last updated in GitHub.
+     */
+    declare public /*out*/ readonly remoteUpdatedAt: pulumi.Output<string>;
+    /**
+     * Name of the repository.
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
-     * Name of the secret
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
+     * Name of the secret.
      */
     declare public readonly secretName: pulumi.Output<string>;
     /**
-     * Date of actionsSecret update.
+     * Date the secret was last updated by the provider.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -87,8 +104,11 @@ export class ActionsSecret extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["destroyOnDrift"] = state?.destroyOnDrift;
             resourceInputs["encryptedValue"] = state?.encryptedValue;
+            resourceInputs["keyId"] = state?.keyId;
             resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["remoteUpdatedAt"] = state?.remoteUpdatedAt;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["secretName"] = state?.secretName;
             resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
@@ -101,10 +121,13 @@ export class ActionsSecret extends pulumi.CustomResource {
             }
             resourceInputs["destroyOnDrift"] = args?.destroyOnDrift;
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
+            resourceInputs["keyId"] = args?.keyId;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["repository"] = args?.repository;
             resourceInputs["secretName"] = args?.secretName;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["remoteUpdatedAt"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -119,28 +142,47 @@ export class ActionsSecret extends pulumi.CustomResource {
  */
 export interface ActionsSecretState {
     /**
-     * Date of actionsSecret creation.
+     * Date the secret was created.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     *
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     */
     destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the repository
+     * Date the secret was last updated in GitHub.
+     */
+    remoteUpdatedAt?: pulumi.Input<string>;
+    /**
+     * Name of the repository.
      */
     repository?: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
+    /**
+     * Name of the secret.
      */
     secretName?: pulumi.Input<string>;
     /**
-     * Date of actionsSecret update.
+     * Date the secret was last updated by the provider.
      */
     updatedAt?: pulumi.Input<string>;
 }
@@ -149,21 +191,32 @@ export interface ActionsSecretState {
  * The set of arguments for constructing a ActionsSecret resource.
  */
 export interface ActionsSecretArgs {
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     *
+     * @deprecated This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     */
     destroyOnDrift?: pulumi.Input<boolean>;
     /**
      * Encrypted value of the secret using the GitHub public key in Base64 format.
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the repository
+     * Name of the repository.
      */
     repository: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * Name of the secret.
      */
     secretName: pulumi.Input<string>;
 }

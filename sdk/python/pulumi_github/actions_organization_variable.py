@@ -25,11 +25,10 @@ class ActionsOrganizationVariableArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationVariable resource.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization variable.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         pulumi.set(__self__, "value", value)
         pulumi.set(__self__, "variable_name", variable_name)
@@ -41,7 +40,7 @@ class ActionsOrganizationVariableArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -53,7 +52,7 @@ class ActionsOrganizationVariableArgs:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -65,8 +64,7 @@ class ActionsOrganizationVariableArgs:
     @pulumi.getter
     def visibility(self) -> pulumi.Input[_builtins.str]:
         """
-        Configures the access that repositories have to the organization variable.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 
@@ -78,7 +76,7 @@ class ActionsOrganizationVariableArgs:
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        An array of repository ids that can access the organization variable.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -98,13 +96,12 @@ class _ActionsOrganizationVariableState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationVariable resources.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_variable creation.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization variable.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_variable update.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] created_at: Date the variable was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] updated_at: Date the variable was last updated.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -123,7 +120,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_variable creation.
+        Date the variable was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -135,7 +132,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        An array of repository ids that can access the organization variable.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -147,7 +144,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_variable update.
+        Date the variable was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -159,7 +156,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -171,7 +168,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -183,8 +180,7 @@ class _ActionsOrganizationVariableState:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Configures the access that repositories have to the organization variable.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 
@@ -234,19 +230,20 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the variable name:
+        ### Import Command
+
+        The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization variable.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         ...
     @overload
@@ -284,10 +281,12 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made up of the variable name:
+        ### Import Command
+
+        The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+        $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,13 +352,12 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_variable creation.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization variable.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_variable update.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] created_at: Date the variable was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] updated_at: Date the variable was last updated.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,7 +375,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_variable creation.
+        Date the variable was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -385,7 +383,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter(name="selectedRepositoryIds")
     def selected_repository_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         """
-        An array of repository ids that can access the organization variable.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -393,7 +391,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_variable update.
+        Date the variable was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -401,7 +399,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -409,7 +407,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -417,8 +415,7 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
     @pulumi.getter
     def visibility(self) -> pulumi.Output[_builtins.str]:
         """
-        Configures the access that repositories have to the organization variable.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 

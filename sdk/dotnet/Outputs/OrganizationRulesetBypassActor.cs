@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetBypassActor
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset.
+        /// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
         /// </summary>
         public readonly int? ActorId;
         /// <summary>

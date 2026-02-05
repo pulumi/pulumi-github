@@ -17,14 +17,14 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
     public static final ActionsOrganizationSecretRepositoryState Empty = new ActionsOrganizationSecretRepositoryState();
 
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      * 
      */
     @Import(name="repositoryId")
     private @Nullable Output<Integer> repositoryId;
 
     /**
-     * @return Repository id that can access the organization secret.
+     * @return ID of the repository that should be able to access the secret.
      * 
      */
     public Optional<Output<Integer>> repositoryId() {
@@ -32,14 +32,14 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
     }
 
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the existing secret
+     * @return Name of the actions organization secret.
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -72,7 +72,7 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
         }
 
         /**
-         * @param repositoryId Repository id that can access the organization secret.
+         * @param repositoryId ID of the repository that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
         }
 
         /**
-         * @param repositoryId Repository id that can access the organization secret.
+         * @param repositoryId ID of the repository that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the actions organization secret.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ActionsOrganizationSecretRepositoryState extends com.pulumi.r
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the actions organization secret.
          * 
          * @return builder
          * 

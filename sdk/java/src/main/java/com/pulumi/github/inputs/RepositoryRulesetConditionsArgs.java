@@ -15,14 +15,18 @@ public final class RepositoryRulesetConditionsArgs extends com.pulumi.resources.
     public static final RepositoryRulesetConditionsArgs Empty = new RepositoryRulesetConditionsArgs();
 
     /**
-     * (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
      * 
      */
     @Import(name="refName", required=true)
     private Output<RepositoryRulesetConditionsRefNameArgs> refName;
 
     /**
-     * @return (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * @return (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
      * 
      */
     public Output<RepositoryRulesetConditionsRefNameArgs> refName() {
@@ -54,7 +58,9 @@ public final class RepositoryRulesetConditionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param refName (Block List, Min: 1, Max: 1) (see below for nested schema)
+         * @param refName (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+         * 
+         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
          * 
          * @return builder
          * 
@@ -65,7 +71,9 @@ public final class RepositoryRulesetConditionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param refName (Block List, Min: 1, Max: 1) (see below for nested schema)
+         * @param refName (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+         * 
+         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
          * 
          * @return builder
          * 

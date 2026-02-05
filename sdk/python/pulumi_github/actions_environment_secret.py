@@ -23,6 +23,7 @@ class ActionsEnvironmentSecretArgs:
                  repository: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionsEnvironmentSecret resource.
@@ -30,13 +31,18 @@ class ActionsEnvironmentSecretArgs:
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         """
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "secret_name", secret_name)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
 
@@ -89,10 +95,24 @@ class ActionsEnvironmentSecretArgs:
         pulumi.set(self, "encrypted_value", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Plaintext value of the secret to be encrypted.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -107,19 +127,27 @@ class _ActionsEnvironmentSecretState:
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsEnvironmentSecret resources.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_environment_secret creation.
+        :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] environment: Name of the environment.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_environment_secret update.
+        :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -127,10 +155,16 @@ class _ActionsEnvironmentSecretState:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if remote_updated_at is not None:
+            pulumi.set(__self__, "remote_updated_at", remote_updated_at)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if secret_name is not None:
             pulumi.set(__self__, "secret_name", secret_name)
         if updated_at is not None:
@@ -140,7 +174,7 @@ class _ActionsEnvironmentSecretState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_environment_secret creation.
+        Date the secret was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -173,16 +207,42 @@ class _ActionsEnvironmentSecretState:
         pulumi.set(self, "environment", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Plaintext value of the secret to be encrypted.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
     def plaintext_value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "plaintext_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteUpdatedAt")
+    def remote_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Date the secret was last updated in GitHub.
+        """
+        return pulumi.get(self, "remote_updated_at")
+
+    @remote_updated_at.setter
+    def remote_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "remote_updated_at", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,6 +255,18 @@ class _ActionsEnvironmentSecretState:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
@@ -212,7 +284,7 @@ class _ActionsEnvironmentSecretState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_environment_secret update.
+        Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
 
@@ -229,6 +301,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -236,13 +309,22 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         """
         ## Import
 
-        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
+        ### Import Command
+
+        The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+
+        ```sh
+        $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] environment: Name of the environment.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         """
@@ -255,7 +337,13 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         """
         ## Import
 
-        This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
+        ### Import Command
+
+        The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+
+        ```sh
+        $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+        ```
 
         :param str resource_name: The name of the resource.
         :param ActionsEnvironmentSecretArgs args: The arguments to use to populate this resource's properties.
@@ -274,6 +362,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -286,10 +375,11 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionsEnvironmentSecretArgs.__new__(ActionsEnvironmentSecretArgs)
 
-            __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
+            __props__.__dict__["encrypted_value"] = encrypted_value
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["key_id"] = key_id
             __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
@@ -298,8 +388,10 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'secret_name'")
             __props__.__dict__["secret_name"] = secret_name
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["remote_updated_at"] = None
+            __props__.__dict__["repository_id"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["plaintextValue"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ActionsEnvironmentSecret, __self__).__init__(
             'github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret',
@@ -314,8 +406,11 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
             environment: Optional[pulumi.Input[_builtins.str]] = None,
+            key_id: Optional[pulumi.Input[_builtins.str]] = None,
             plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
+            remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             secret_name: Optional[pulumi.Input[_builtins.str]] = None,
             updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsEnvironmentSecret':
         """
@@ -325,13 +420,18 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_environment_secret creation.
+        :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] environment: Name of the environment.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_environment_secret update.
+        :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,8 +440,11 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["encrypted_value"] = encrypted_value
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["key_id"] = key_id
         __props__.__dict__["plaintext_value"] = plaintext_value
+        __props__.__dict__["remote_updated_at"] = remote_updated_at
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["secret_name"] = secret_name
         __props__.__dict__["updated_at"] = updated_at
         return ActionsEnvironmentSecret(resource_name, opts=opts, __props__=__props__)
@@ -350,7 +453,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_environment_secret creation.
+        Date the secret was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -371,12 +474,30 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         return pulumi.get(self, "environment")
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Plaintext value of the secret to be encrypted.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
+
+    @_builtins.property
+    @pulumi.getter(name="remoteUpdatedAt")
+    def remote_updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        Date the secret was last updated in GitHub.
+        """
+        return pulumi.get(self, "remote_updated_at")
 
     @_builtins.property
     @pulumi.getter
@@ -385,6 +506,14 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
         Name of the repository.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter(name="secretName")
@@ -398,7 +527,7 @@ class ActionsEnvironmentSecret(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_environment_secret update.
+        Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
 

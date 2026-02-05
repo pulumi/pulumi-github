@@ -78,6 +78,21 @@ public final class ActionsRepositoryPermissionsArgs extends com.pulumi.resources
         return this.repository;
     }
 
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     * 
+     */
+    @Import(name="shaPinningRequired")
+    private @Nullable Output<Boolean> shaPinningRequired;
+
+    /**
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     * 
+     */
+    public Optional<Output<Boolean>> shaPinningRequired() {
+        return Optional.ofNullable(this.shaPinningRequired);
+    }
+
     private ActionsRepositoryPermissionsArgs() {}
 
     private ActionsRepositoryPermissionsArgs(ActionsRepositoryPermissionsArgs $) {
@@ -85,6 +100,7 @@ public final class ActionsRepositoryPermissionsArgs extends com.pulumi.resources
         this.allowedActionsConfig = $.allowedActionsConfig;
         this.enabled = $.enabled;
         this.repository = $.repository;
+        this.shaPinningRequired = $.shaPinningRequired;
     }
 
     public static Builder builder() {
@@ -187,6 +203,27 @@ public final class ActionsRepositoryPermissionsArgs extends com.pulumi.resources
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shaPinningRequired(@Nullable Output<Boolean> shaPinningRequired) {
+            $.shaPinningRequired = shaPinningRequired;
+            return this;
+        }
+
+        /**
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shaPinningRequired(Boolean shaPinningRequired) {
+            return shaPinningRequired(Output.of(shaPinningRequired));
         }
 
         public ActionsRepositoryPermissionsArgs build() {

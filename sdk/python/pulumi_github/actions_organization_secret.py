@@ -23,25 +23,37 @@ class ActionsOrganizationSecretArgs:
                  visibility: pulumi.Input[_builtins.str],
                  destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationSecret resource.
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
+        :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "visibility", visibility)
         if destroy_on_drift is not None:
+            warnings.warn("""This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""", DeprecationWarning)
+            pulumi.log.warn("""destroy_on_drift is deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""")
+        if destroy_on_drift is not None:
             pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if selected_repository_ids is not None:
+            warnings.warn("""This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""", DeprecationWarning)
+            pulumi.log.warn("""selected_repository_ids is deprecated: This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""")
         if selected_repository_ids is not None:
             pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
 
@@ -49,7 +61,7 @@ class ActionsOrganizationSecretArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret
+        Name of the secret.
         """
         return pulumi.get(self, "secret_name")
 
@@ -61,8 +73,7 @@ class ActionsOrganizationSecretArgs:
     @pulumi.getter
     def visibility(self) -> pulumi.Input[_builtins.str]:
         """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 
@@ -72,7 +83,13 @@ class ActionsOrganizationSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="destroyOnDrift")
+    @_utilities.deprecated("""This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""")
     def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Optional) This is ignored as drift detection is built into the resource.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        """
         return pulumi.get(self, "destroy_on_drift")
 
     @destroy_on_drift.setter
@@ -92,10 +109,22 @@ class ActionsOrganizationSecretArgs:
         pulumi.set(self, "encrypted_value", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted
+        Plaintext value of the secret to be encrypted.
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -105,9 +134,10 @@ class ActionsOrganizationSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        An array of repository ids that can access the organization secret.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -122,32 +152,48 @@ class _ActionsOrganizationSecretState:
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None,
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationSecret resources.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
+        :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_secret update.
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if destroy_on_drift is not None:
+            warnings.warn("""This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""", DeprecationWarning)
+            pulumi.log.warn("""destroy_on_drift is deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""")
+        if destroy_on_drift is not None:
             pulumi.set(__self__, "destroy_on_drift", destroy_on_drift)
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if remote_updated_at is not None:
+            pulumi.set(__self__, "remote_updated_at", remote_updated_at)
         if secret_name is not None:
             pulumi.set(__self__, "secret_name", secret_name)
+        if selected_repository_ids is not None:
+            warnings.warn("""This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""", DeprecationWarning)
+            pulumi.log.warn("""selected_repository_ids is deprecated: This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""")
         if selected_repository_ids is not None:
             pulumi.set(__self__, "selected_repository_ids", selected_repository_ids)
         if updated_at is not None:
@@ -159,7 +205,7 @@ class _ActionsOrganizationSecretState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_secret creation.
+        Date the secret was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -169,7 +215,13 @@ class _ActionsOrganizationSecretState:
 
     @_builtins.property
     @pulumi.getter(name="destroyOnDrift")
+    @_utilities.deprecated("""This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""")
     def destroy_on_drift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Optional) This is ignored as drift detection is built into the resource.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        """
         return pulumi.get(self, "destroy_on_drift")
 
     @destroy_on_drift.setter
@@ -189,10 +241,22 @@ class _ActionsOrganizationSecretState:
         pulumi.set(self, "encrypted_value", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted
+        Plaintext value of the secret to be encrypted.
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -201,10 +265,22 @@ class _ActionsOrganizationSecretState:
         pulumi.set(self, "plaintext_value", value)
 
     @_builtins.property
+    @pulumi.getter(name="remoteUpdatedAt")
+    def remote_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Date the secret was last updated in GitHub.
+        """
+        return pulumi.get(self, "remote_updated_at")
+
+    @remote_updated_at.setter
+    def remote_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "remote_updated_at", value)
+
+    @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the secret
+        Name of the secret.
         """
         return pulumi.get(self, "secret_name")
 
@@ -214,9 +290,10 @@ class _ActionsOrganizationSecretState:
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""")
     def selected_repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        An array of repository ids that can access the organization secret.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -228,7 +305,7 @@ class _ActionsOrganizationSecretState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_secret update.
+        Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
 
@@ -240,8 +317,7 @@ class _ActionsOrganizationSecretState:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 
@@ -258,32 +334,34 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  visibility: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
-        This resource can be imported using an ID made up of the secret name:
+        ### Import Command
+
+        The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
         ```
-        NOTE: the implementation is limited in that it won't fetch the value of the
-        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         ...
     @overload
@@ -292,17 +370,15 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                  args: ActionsOrganizationSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
-        This resource can be imported using an ID made up of the secret name:
+        ### Import Command
+
+        The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+        $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
         ```
-        NOTE: the implementation is limited in that it won't fetch the value of the
-        `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.
@@ -321,6 +397,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
@@ -336,6 +413,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
 
             __props__.__dict__["destroy_on_drift"] = destroy_on_drift
             __props__.__dict__["encrypted_value"] = None if encrypted_value is None else pulumi.Output.secret(encrypted_value)
+            __props__.__dict__["key_id"] = key_id
             __props__.__dict__["plaintext_value"] = None if plaintext_value is None else pulumi.Output.secret(plaintext_value)
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
@@ -345,6 +423,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'visibility'")
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["remote_updated_at"] = None
             __props__.__dict__["updated_at"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -361,7 +440,9 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             destroy_on_drift: Optional[pulumi.Input[_builtins.bool]] = None,
             encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
+            key_id: Optional[pulumi.Input[_builtins.str]] = None,
             plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
+            remote_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
             secret_name: Optional[pulumi.Input[_builtins.str]] = None,
             selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
             updated_at: Optional[pulumi.Input[_builtins.str]] = None,
@@ -373,14 +454,18 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_secret creation.
+        :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
+        :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
+               
+               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_secret update.
-        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret.
-               Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+        :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
+        :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,7 +474,9 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["destroy_on_drift"] = destroy_on_drift
         __props__.__dict__["encrypted_value"] = encrypted_value
+        __props__.__dict__["key_id"] = key_id
         __props__.__dict__["plaintext_value"] = plaintext_value
+        __props__.__dict__["remote_updated_at"] = remote_updated_at
         __props__.__dict__["secret_name"] = secret_name
         __props__.__dict__["selected_repository_ids"] = selected_repository_ids
         __props__.__dict__["updated_at"] = updated_at
@@ -400,13 +487,19 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_secret creation.
+        Date the secret was created.
         """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="destroyOnDrift")
+    @_utilities.deprecated("""This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignore_changes` on the `remote_updated_at` field.""")
     def destroy_on_drift(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Optional) This is ignored as drift detection is built into the resource.
+
+        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        """
         return pulumi.get(self, "destroy_on_drift")
 
     @_builtins.property
@@ -418,26 +511,43 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         return pulumi.get(self, "encrypted_value")
 
     @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        """
+        return pulumi.get(self, "key_id")
+
+    @_builtins.property
     @pulumi.getter(name="plaintextValue")
     def plaintext_value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted
+        Plaintext value of the secret to be encrypted.
         """
         return pulumi.get(self, "plaintext_value")
+
+    @_builtins.property
+    @pulumi.getter(name="remoteUpdatedAt")
+    def remote_updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        Date the secret was last updated in GitHub.
+        """
+        return pulumi.get(self, "remote_updated_at")
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the secret
+        Name of the secret.
         """
         return pulumi.get(self, "secret_name")
 
     @_builtins.property
     @pulumi.getter(name="selectedRepositoryIds")
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.""")
     def selected_repository_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         """
-        An array of repository ids that can access the organization secret.
+        An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
         """
         return pulumi.get(self, "selected_repository_ids")
 
@@ -445,7 +555,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_secret update.
+        Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
 
@@ -453,8 +563,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
     @pulumi.getter
     def visibility(self) -> pulumi.Output[_builtins.str]:
         """
-        Configures the access that repositories have to the organization secret.
-        Must be one of `all`, `private`, `selected`. `selected_repository_ids` is required if set to `selected`.
+        Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         """
         return pulumi.get(self, "visibility")
 

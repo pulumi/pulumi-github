@@ -15,6 +15,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the [Teams#ExternalGroups API](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -51,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub EMU External Group Mappings can be imported using the external `group_id` and `team_slug` separated by a colon, e.g.
+ * GitHub EMU External Group Mappings can be imported using the `team_slug` and external `group_id` separated by a colon, e.g.
  * 
  * ```sh
- * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
+ * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
  * ```
  * 
  */
@@ -79,6 +81,34 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> groupId() {
         return this.groupId;
+    }
+    /**
+     * Name of the external group.
+     * 
+     */
+    @Export(name="groupName", refs={String.class}, tree="[0]")
+    private Output<String> groupName;
+
+    /**
+     * @return Name of the external group.
+     * 
+     */
+    public Output<String> groupName() {
+        return this.groupName;
+    }
+    /**
+     * ID of the GitHub team.
+     * 
+     */
+    @Export(name="teamId", refs={String.class}, tree="[0]")
+    private Output<String> teamId;
+
+    /**
+     * @return ID of the GitHub team.
+     * 
+     */
+    public Output<String> teamId() {
+        return this.teamId;
     }
     /**
      * Slug of the GitHub team

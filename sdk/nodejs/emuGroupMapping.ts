@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the [Teams#ExternalGroups API](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -19,10 +21,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub EMU External Group Mappings can be imported using the external `group_id` and `team_slug` separated by a colon, e.g.
+ * GitHub EMU External Group Mappings can be imported using the `team_slug` and external `group_id` separated by a colon, e.g.
  *
  * ```sh
- * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
+ * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
  * ```
  */
 export class EmuGroupMapping extends pulumi.CustomResource {
@@ -59,6 +61,14 @@ export class EmuGroupMapping extends pulumi.CustomResource {
      */
     declare public readonly groupId: pulumi.Output<number>;
     /**
+     * Name of the external group.
+     */
+    declare public /*out*/ readonly groupName: pulumi.Output<string>;
+    /**
+     * ID of the GitHub team.
+     */
+    declare public /*out*/ readonly teamId: pulumi.Output<string>;
+    /**
      * Slug of the GitHub team
      */
     declare public readonly teamSlug: pulumi.Output<string>;
@@ -78,6 +88,8 @@ export class EmuGroupMapping extends pulumi.CustomResource {
             const state = argsOrState as EmuGroupMappingState | undefined;
             resourceInputs["etag"] = state?.etag;
             resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["teamId"] = state?.teamId;
             resourceInputs["teamSlug"] = state?.teamSlug;
         } else {
             const args = argsOrState as EmuGroupMappingArgs | undefined;
@@ -90,6 +102,8 @@ export class EmuGroupMapping extends pulumi.CustomResource {
             resourceInputs["groupId"] = args?.groupId;
             resourceInputs["teamSlug"] = args?.teamSlug;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["teamId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmuGroupMapping.__pulumiType, name, resourceInputs, opts);
@@ -105,6 +119,14 @@ export interface EmuGroupMappingState {
      * Integer corresponding to the external group ID to be linked
      */
     groupId?: pulumi.Input<number>;
+    /**
+     * Name of the external group.
+     */
+    groupName?: pulumi.Input<string>;
+    /**
+     * ID of the GitHub team.
+     */
+    teamId?: pulumi.Input<string>;
     /**
      * Slug of the GitHub team
      */

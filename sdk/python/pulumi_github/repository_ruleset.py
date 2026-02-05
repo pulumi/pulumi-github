@@ -35,7 +35,7 @@ class RepositoryRulesetArgs:
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         """
         pulumi.set(__self__, "enforcement", enforcement)
@@ -113,7 +113,7 @@ class RepositoryRulesetArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]:
         """
-        (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
@@ -150,7 +150,7 @@ class _RepositoryRulesetState:
         """
         Input properties used for looking up and filtering RepositoryRuleset resources.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
@@ -197,7 +197,7 @@ class _RepositoryRulesetState:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['RepositoryRulesetConditionsArgs']]:
         """
-        (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
@@ -403,7 +403,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
@@ -577,7 +577,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        :param pulumi.Input[Union['RepositoryRulesetConditionsArgs', 'RepositoryRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
@@ -615,7 +615,7 @@ class RepositoryRuleset(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional['outputs.RepositoryRulesetConditions']]:
         """
-        (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 

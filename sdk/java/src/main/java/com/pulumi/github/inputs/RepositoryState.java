@@ -37,14 +37,14 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      * 
      */
     @Import(name="allowForking")
     private @Nullable Output<Boolean> allowForking;
 
     /**
-     * @return Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * @return Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      * 
      */
     public Optional<Output<Boolean>> allowForking() {
@@ -413,16 +413,24 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * 
+     * @deprecated
+     * This is ignored as the provider now handles lack of permissions automatically.
      * 
      */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
     @Import(name="ignoreVulnerabilityAlertsDuringRead")
     private @Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
-     * @return Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * 
+     * @deprecated
+     * This is ignored as the provider now handles lack of permissions automatically.
      * 
      */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
     public Optional<Output<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
         return Optional.ofNullable(this.ignoreVulnerabilityAlertsDuringRead);
     }
@@ -738,14 +746,14 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      * 
      */
     @Import(name="vulnerabilityAlerts")
     private @Nullable Output<Boolean> vulnerabilityAlerts;
 
     /**
-     * @return Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * @return Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      * 
      */
     public Optional<Output<Boolean>> vulnerabilityAlerts() {
@@ -860,7 +868,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowForking Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+         * @param allowForking Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
          * 
          * @return builder
          * 
@@ -871,7 +879,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowForking Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+         * @param allowForking Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
          * 
          * @return builder
          * 
@@ -1376,22 +1384,30 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreVulnerabilityAlertsDuringRead Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This is ignored as the provider now handles lack of permissions automatically.
+         * 
          */
+        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
         public Builder ignoreVulnerabilityAlertsDuringRead(@Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead) {
             $.ignoreVulnerabilityAlertsDuringRead = ignoreVulnerabilityAlertsDuringRead;
             return this;
         }
 
         /**
-         * @param ignoreVulnerabilityAlertsDuringRead Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This is ignored as the provider now handles lack of permissions automatically.
+         * 
          */
+        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
         public Builder ignoreVulnerabilityAlertsDuringRead(Boolean ignoreVulnerabilityAlertsDuringRead) {
             return ignoreVulnerabilityAlertsDuringRead(Output.of(ignoreVulnerabilityAlertsDuringRead));
         }
@@ -1837,7 +1853,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vulnerabilityAlerts Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+         * @param vulnerabilityAlerts Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
          * 
          * @return builder
          * 
@@ -1848,7 +1864,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vulnerabilityAlerts Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+         * @param vulnerabilityAlerts Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
          * 
          * @return builder
          * 

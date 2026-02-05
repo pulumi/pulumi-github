@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * This resource help you to allow/unallow a repository to use an existing GitHub Actions secrets within your GitHub organization.
+ * This resource adds permission for a repository to use an actions secret within your GitHub organization.
  * You must have write access to an organization secret to use this resource.
  * 
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -29,8 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.ActionsOrganizationSecretRepository;
  * import com.pulumi.github.ActionsOrganizationSecretRepositoryArgs;
  * import java.util.List;
@@ -46,13 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName("my-org/repo")
+ *         var example = new ActionsOrganizationSecret("example", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("mysecret")
+ *             .plaintextValue("foo")
+ *             .visibility("selected")
  *             .build());
  * 
- *         var orgSecretRepos = new ActionsOrganizationSecretRepository("orgSecretRepos", ActionsOrganizationSecretRepositoryArgs.builder()
- *             .secretName("EXAMPLE_SECRET_NAME")
- *             .repositoryId(repoGithubRepository.repoId())
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
+ *             .name("myrepo")
+ *             .visibility("public")
+ *             .build());
+ * 
+ *         var exampleActionsOrganizationSecretRepository = new ActionsOrganizationSecretRepository("exampleActionsOrganizationSecretRepository", ActionsOrganizationSecretRepositoryArgs.builder()
+ *             .secretName(example.name())
+ *             .repositoryId(exampleRepository.repoId())
  *             .build());
  * 
  *     }
@@ -62,38 +71,40 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ * 
+ * The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
  * 
  * ```sh
- * $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository test_secret_repos test_secret_name:repo_id
+ * $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456
  * ```
  * 
  */
 @ResourceType(type="github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository")
 public class ActionsOrganizationSecretRepository extends com.pulumi.resources.CustomResource {
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      * 
      */
     @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
     private Output<Integer> repositoryId;
 
     /**
-     * @return Repository id that can access the organization secret.
+     * @return ID of the repository that should be able to access the secret.
      * 
      */
     public Output<Integer> repositoryId() {
         return this.repositoryId;
     }
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      * 
      */
     @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
-     * @return Name of the existing secret
+     * @return Name of the actions organization secret.
      * 
      */
     public Output<String> secretName() {

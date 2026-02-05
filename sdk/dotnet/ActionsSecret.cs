@@ -10,27 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made up of the `repository` and `secret_name`:
+    /// ### Import Command
+    /// 
+    /// The following command imports a GitHub actions secret named `mysecret` for the repo `myrepo` to a `github_actions_secret` resource named `example`.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/actionsSecret:ActionsSecret example_secret repository/secret_name
+    /// $ pulumi import github:index/actionsSecret:ActionsSecret example myrepo:mysecret
     /// ```
-    /// NOTE: the implementation is limited in that it won't fetch the value of the
-    /// `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/actionsSecret:ActionsSecret")]
     public partial class ActionsSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of ActionsSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Output("destroyOnDrift")]
         public Output<bool?> DestroyOnDrift { get; private set; } = null!;
 
@@ -41,25 +44,43 @@ namespace Pulumi.Github
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Output("keyId")]
+        public Output<string> KeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the repository
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Output("remoteUpdatedAt")]
+        public Output<string> RemoteUpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the secret
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the secret.
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// Date of ActionsSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -115,6 +136,11 @@ namespace Pulumi.Github
 
     public sealed class ActionsSecretArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Input("destroyOnDrift")]
         public Input<bool>? DestroyOnDrift { get; set; }
 
@@ -134,11 +160,17 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -151,13 +183,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the repository
+        /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Name of the secret
+        /// Name of the secret.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -171,11 +203,16 @@ namespace Pulumi.Github
     public sealed class ActionsSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of ActionsSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Input("destroyOnDrift")]
         public Input<bool>? DestroyOnDrift { get; set; }
 
@@ -195,11 +232,17 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -212,19 +255,31 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the repository
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Input("remoteUpdatedAt")]
+        public Input<string>? RemoteUpdatedAt { get; set; }
+
+        /// <summary>
+        /// Name of the repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Name of the secret
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
+
+        /// <summary>
+        /// Name of the secret.
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
 
         /// <summary>
-        /// Date of ActionsSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

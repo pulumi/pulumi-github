@@ -151,10 +151,8 @@ import javax.annotation.Nullable;
  * 
  * Repositories can be imported using the `name`, e.g.
  * 
- * text
- * 
  * ```sh
- * $ pulumi import github:index/repository:Repository terraform terraform
+ * $ pulumi import github:index/repository:Repository terraform myrepo
  * ```
  * 
  */
@@ -175,14 +173,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowAutoMerge);
     }
     /**
-     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      * 
      */
     @Export(name="allowForking", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowForking;
 
     /**
-     * @return Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * @return Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      * 
      */
     public Output<Boolean> allowForking() {
@@ -519,14 +517,18 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.httpCloneUrl;
     }
     /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * 
+     * @deprecated
+     * This is ignored as the provider now handles lack of permissions automatically.
      * 
      */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
     @Export(name="ignoreVulnerabilityAlertsDuringRead", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
-     * @return Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically.
      * 
      */
     public Output<Optional<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
@@ -819,14 +821,14 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.visibility;
     }
     /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      * 
      */
     @Export(name="vulnerabilityAlerts", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vulnerabilityAlerts;
 
     /**
-     * @return Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * @return Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      * 
      */
     public Output<Boolean> vulnerabilityAlerts() {

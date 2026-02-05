@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the [Teams#ExternalGroups API](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `TeamSyncGroupMapping`. `EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `TeamSyncGroupMapping` is specific to Identity Provider Groups.
+//
 // ## Example Usage
 //
 // ```go
@@ -41,10 +43,10 @@ import (
 //
 // ## Import
 //
-// GitHub EMU External Group Mappings can be imported using the external `group_id` and `team_slug` separated by a colon, e.g.
+// GitHub EMU External Group Mappings can be imported using the `team_slug` and external `group_id` separated by a colon, e.g.
 //
 // ```sh
-// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
+// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
 // ```
 type EmuGroupMapping struct {
 	pulumi.CustomResourceState
@@ -52,6 +54,10 @@ type EmuGroupMapping struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Integer corresponding to the external group ID to be linked
 	GroupId pulumi.IntOutput `pulumi:"groupId"`
+	// Name of the external group.
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// ID of the GitHub team.
+	TeamId pulumi.StringOutput `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
 }
@@ -95,6 +101,10 @@ type emuGroupMappingState struct {
 	Etag *string `pulumi:"etag"`
 	// Integer corresponding to the external group ID to be linked
 	GroupId *int `pulumi:"groupId"`
+	// Name of the external group.
+	GroupName *string `pulumi:"groupName"`
+	// ID of the GitHub team.
+	TeamId *string `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug *string `pulumi:"teamSlug"`
 }
@@ -103,6 +113,10 @@ type EmuGroupMappingState struct {
 	Etag pulumi.StringPtrInput
 	// Integer corresponding to the external group ID to be linked
 	GroupId pulumi.IntPtrInput
+	// Name of the external group.
+	GroupName pulumi.StringPtrInput
+	// ID of the GitHub team.
+	TeamId pulumi.StringPtrInput
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringPtrInput
 }
@@ -220,6 +234,16 @@ func (o EmuGroupMappingOutput) Etag() pulumi.StringOutput {
 // Integer corresponding to the external group ID to be linked
 func (o EmuGroupMappingOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmuGroupMapping) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// Name of the external group.
+func (o EmuGroupMappingOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+// ID of the GitHub team.
+func (o EmuGroupMappingOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
 // Slug of the GitHub team

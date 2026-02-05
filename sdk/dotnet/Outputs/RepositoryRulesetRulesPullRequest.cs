@@ -37,6 +37,10 @@ namespace Pulumi.Github.Outputs
         /// All conversations on code must be resolved before a pull request can be merged. Defaults to `False`.
         /// </summary>
         public readonly bool? RequiredReviewThreadResolution;
+        /// <summary>
+        /// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RepositoryRulesetRulesPullRequestRequiredReviewer> RequiredReviewers;
 
         [OutputConstructor]
         private RepositoryRulesetRulesPullRequest(
@@ -50,7 +54,9 @@ namespace Pulumi.Github.Outputs
 
             int? requiredApprovingReviewCount,
 
-            bool? requiredReviewThreadResolution)
+            bool? requiredReviewThreadResolution,
+
+            ImmutableArray<Outputs.RepositoryRulesetRulesPullRequestRequiredReviewer> requiredReviewers)
         {
             AllowedMergeMethods = allowedMergeMethods;
             DismissStaleReviewsOnPush = dismissStaleReviewsOnPush;
@@ -58,6 +64,7 @@ namespace Pulumi.Github.Outputs
             RequireLastPushApproval = requireLastPushApproval;
             RequiredApprovingReviewCount = requiredApprovingReviewCount;
             RequiredReviewThreadResolution = requiredReviewThreadResolution;
+            RequiredReviewers = requiredReviewers;
         }
     }
 }

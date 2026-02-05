@@ -20,12 +20,16 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
     /**
      * Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
      * 
+     * &gt; **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = &#34;internal&#34;`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = &#34;internal&#34;` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
+     * 
      */
     @Import(name="includeAllBranches")
     private @Nullable Output<Boolean> includeAllBranches;
 
     /**
      * @return Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+     * 
+     * &gt; **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = &#34;internal&#34;`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = &#34;internal&#34;` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
      * 
      */
     public Optional<Output<Boolean>> includeAllBranches() {
@@ -91,6 +95,8 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
         /**
          * @param includeAllBranches Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
          * 
+         * &gt; **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = &#34;internal&#34;`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = &#34;internal&#34;` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +107,8 @@ public final class RepositoryTemplateArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param includeAllBranches Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+         * 
+         * &gt; **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = &#34;internal&#34;`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = &#34;internal&#34;` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
          * 
          * @return builder
          * 

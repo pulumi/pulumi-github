@@ -86,6 +86,10 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
     declare public readonly enabledRepositoriesConfig: pulumi.Output<outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     */
+    declare public readonly shaPinningRequired: pulumi.Output<boolean>;
 
     /**
      * Create a ActionsOrganizationPermissions resource with the given unique name, arguments, and options.
@@ -104,6 +108,7 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
             resourceInputs["allowedActionsConfig"] = state?.allowedActionsConfig;
             resourceInputs["enabledRepositories"] = state?.enabledRepositories;
             resourceInputs["enabledRepositoriesConfig"] = state?.enabledRepositoriesConfig;
+            resourceInputs["shaPinningRequired"] = state?.shaPinningRequired;
         } else {
             const args = argsOrState as ActionsOrganizationPermissionsArgs | undefined;
             if (args?.enabledRepositories === undefined && !opts.urn) {
@@ -113,6 +118,7 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
             resourceInputs["allowedActionsConfig"] = args?.allowedActionsConfig;
             resourceInputs["enabledRepositories"] = args?.enabledRepositories;
             resourceInputs["enabledRepositoriesConfig"] = args?.enabledRepositoriesConfig;
+            resourceInputs["shaPinningRequired"] = args?.shaPinningRequired;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsOrganizationPermissions.__pulumiType, name, resourceInputs, opts);
@@ -139,6 +145,10 @@ export interface ActionsOrganizationPermissionsState {
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     */
+    shaPinningRequired?: pulumi.Input<boolean>;
 }
 
 /**
@@ -161,4 +171,8 @@ export interface ActionsOrganizationPermissionsArgs {
      * Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
      */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     */
+    shaPinningRequired?: pulumi.Input<boolean>;
 }

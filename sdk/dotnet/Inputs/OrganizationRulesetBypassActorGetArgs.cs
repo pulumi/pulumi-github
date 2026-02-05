@@ -13,7 +13,7 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetBypassActorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Number) The ID of the actor that can bypass a ruleset.
+        /// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
         /// </summary>
         [Input("actorId")]
         public Input<int>? ActorId { get; set; }

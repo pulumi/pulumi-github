@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.github.inputs.RepositoryRulesetRulesPullRequestRequiredReviewerArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -108,6 +109,21 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         return Optional.ofNullable(this.requiredReviewThreadResolution);
     }
 
+    /**
+     * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    @Import(name="requiredReviewers")
+    private @Nullable Output<List<RepositoryRulesetRulesPullRequestRequiredReviewerArgs>> requiredReviewers;
+
+    /**
+     * @return Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    public Optional<Output<List<RepositoryRulesetRulesPullRequestRequiredReviewerArgs>>> requiredReviewers() {
+        return Optional.ofNullable(this.requiredReviewers);
+    }
+
     private RepositoryRulesetRulesPullRequestArgs() {}
 
     private RepositoryRulesetRulesPullRequestArgs(RepositoryRulesetRulesPullRequestArgs $) {
@@ -117,6 +133,7 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
         this.requireLastPushApproval = $.requireLastPushApproval;
         this.requiredApprovingReviewCount = $.requiredApprovingReviewCount;
         this.requiredReviewThreadResolution = $.requiredReviewThreadResolution;
+        this.requiredReviewers = $.requiredReviewers;
     }
 
     public static Builder builder() {
@@ -271,6 +288,37 @@ public final class RepositoryRulesetRulesPullRequestArgs extends com.pulumi.reso
          */
         public Builder requiredReviewThreadResolution(Boolean requiredReviewThreadResolution) {
             return requiredReviewThreadResolution(Output.of(requiredReviewThreadResolution));
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(@Nullable Output<List<RepositoryRulesetRulesPullRequestRequiredReviewerArgs>> requiredReviewers) {
+            $.requiredReviewers = requiredReviewers;
+            return this;
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(List<RepositoryRulesetRulesPullRequestRequiredReviewerArgs> requiredReviewers) {
+            return requiredReviewers(Output.of(requiredReviewers));
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(RepositoryRulesetRulesPullRequestRequiredReviewerArgs... requiredReviewers) {
+            return requiredReviewers(List.of(requiredReviewers));
         }
 
         public RepositoryRulesetRulesPullRequestArgs build() {

@@ -47,7 +47,24 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
      * Plaintext value of the secret to be encrypted.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
      */
     @Import(name="plaintextValue")
@@ -55,6 +72,8 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
 
     /**
      * @return Plaintext value of the secret to be encrypted.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -96,6 +115,7 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
     private ActionsEnvironmentSecretArgs(ActionsEnvironmentSecretArgs $) {
         this.encryptedValue = $.encryptedValue;
         this.environment = $.environment;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
         this.repository = $.repository;
         this.secretName = $.secretName;
@@ -162,7 +182,30 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
          * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
          * 
          * @return builder
          * 
@@ -174,6 +217,8 @@ public final class ActionsEnvironmentSecretArgs extends com.pulumi.resources.Res
 
         /**
          * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
          * 
          * @return builder
          * 

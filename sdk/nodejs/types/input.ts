@@ -292,7 +292,7 @@ export interface IssueLabelsLabel {
 
 export interface OrganizationRulesetBypassActor {
     /**
-     * (Number) The ID of the actor that can bypass a ruleset.
+     * (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      */
     actorId?: pulumi.Input<number>;
     /**
@@ -312,9 +312,9 @@ export interface OrganizationRulesetBypassActor {
 
 export interface OrganizationRulesetConditions {
     /**
-     * (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
      */
-    refName: pulumi.Input<inputs.OrganizationRulesetConditionsRefName>;
+    refName?: pulumi.Input<inputs.OrganizationRulesetConditionsRefName>;
     /**
      * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      */
@@ -323,6 +323,8 @@ export interface OrganizationRulesetConditions {
      * Conflicts with `repositoryId`. (see below for nested schema)
      *
      * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     *
+     * > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      */
     repositoryName?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryName>;
 }
@@ -576,6 +578,36 @@ export interface OrganizationRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
+    /**
+     * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     */
+    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetRulesPullRequestRequiredReviewer>[]>;
+}
+
+export interface OrganizationRulesetRulesPullRequestRequiredReviewer {
+    /**
+     * File patterns (fnmatch syntax) that this reviewer must approve.
+     */
+    filePatterns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+     */
+    minimumApprovals: pulumi.Input<number>;
+    /**
+     * The reviewer that must review matching files.
+     */
+    reviewer: pulumi.Input<inputs.OrganizationRulesetRulesPullRequestRequiredReviewerReviewer>;
+}
+
+export interface OrganizationRulesetRulesPullRequestRequiredReviewerReviewer {
+    /**
+     * The ID of the reviewer that must review.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * The type of reviewer. Currently only `Team` is supported.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface OrganizationRulesetRulesRequiredCodeScanning {
@@ -801,7 +833,7 @@ export interface RepositoryPagesSource {
 
 export interface RepositoryRulesetBypassActor {
     /**
-     * The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
      */
     actorId?: pulumi.Input<number>;
     /**
@@ -821,7 +853,9 @@ export interface RepositoryRulesetBypassActor {
 
 export interface RepositoryRulesetConditions {
     /**
-     * (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+     *
+     * > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
      */
     refName: pulumi.Input<inputs.RepositoryRulesetConditionsRefName>;
 }
@@ -1099,6 +1133,36 @@ export interface RepositoryRulesetRulesPullRequest {
      * All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
      */
     requiredReviewThreadResolution?: pulumi.Input<boolean>;
+    /**
+     * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     */
+    requiredReviewers?: pulumi.Input<pulumi.Input<inputs.RepositoryRulesetRulesPullRequestRequiredReviewer>[]>;
+}
+
+export interface RepositoryRulesetRulesPullRequestRequiredReviewer {
+    /**
+     * File patterns (fnmatch syntax) that this reviewer must approve.
+     */
+    filePatterns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+     */
+    minimumApprovals: pulumi.Input<number>;
+    /**
+     * The reviewer that must review matching files.
+     */
+    reviewer: pulumi.Input<inputs.RepositoryRulesetRulesPullRequestRequiredReviewerReviewer>;
+}
+
+export interface RepositoryRulesetRulesPullRequestRequiredReviewerReviewer {
+    /**
+     * The ID of the reviewer that must review.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * The type of reviewer. Currently only `Team` is supported.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface RepositoryRulesetRulesRequiredCodeScanning {
@@ -1247,6 +1311,8 @@ export interface RepositorySecurityAndAnalysisSecretScanningPushProtection {
 export interface RepositoryTemplate {
     /**
      * Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+     *
+     * > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
      */
     includeAllBranches?: pulumi.Input<boolean>;
     /**

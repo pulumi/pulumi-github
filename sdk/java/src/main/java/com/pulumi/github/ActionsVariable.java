@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.ActionsVariableArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ActionsVariableState;
+import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -54,80 +55,96 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+ * ### Import Command
+ * 
+ * The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
  * 
  * ```sh
- * $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+ * $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
  * ```
  * 
  */
 @ResourceType(type="github:index/actionsVariable:ActionsVariable")
 public class ActionsVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actionsVariable creation.
+     * @return Date the variable was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Name of the repository
+     * Name of the repository.
      * 
      */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
-     * @return Name of the repository
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
         return this.repository;
     }
     /**
-     * Date of actionsVariable update.
+     * ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
+    }
+    /**
+     * Date the variable was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actionsVariable update.
+     * @return Date the variable was last updated.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Output<String> value() {
         return this.value;
     }
     /**
-     * Name of the variable
+     * Name of the variable.
      * 
      */
     @Export(name="variableName", refs={String.class}, tree="[0]")
     private Output<String> variableName;
 
     /**
-     * @return Name of the variable
+     * @return Name of the variable.
      * 
      */
     public Output<String> variableName() {

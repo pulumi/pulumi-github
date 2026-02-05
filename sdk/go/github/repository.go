@@ -117,17 +117,15 @@ import (
 //
 // Repositories can be imported using the `name`, e.g.
 //
-// text
-//
 // ```sh
-// $ pulumi import github:index/repository:Repository terraform terraform
+// $ pulumi import github:index/repository:Repository terraform myrepo
 // ```
 type Repository struct {
 	pulumi.CustomResourceState
 
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrOutput `pulumi:"allowAutoMerge"`
-	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 	AllowForking pulumi.BoolOutput `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrOutput `pulumi:"allowMergeCommit"`
@@ -182,7 +180,9 @@ type Repository struct {
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringOutput `pulumi:"httpCloneUrl"`
-	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	//
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrOutput `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrOutput `pulumi:"isTemplate"`
@@ -227,7 +227,7 @@ type Repository struct {
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
-	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 	VulnerabilityAlerts pulumi.BoolOutput `pulumi:"vulnerabilityAlerts"`
 	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
 	WebCommitSignoffRequired pulumi.BoolPtrOutput `pulumi:"webCommitSignoffRequired"`
@@ -265,7 +265,7 @@ func GetRepository(ctx *pulumi.Context,
 type repositoryState struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
-	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 	AllowForking *bool `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
@@ -320,7 +320,9 @@ type repositoryState struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl *string `pulumi:"httpCloneUrl"`
-	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	//
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
@@ -365,7 +367,7 @@ type repositoryState struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
-	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
 	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
 	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
@@ -374,7 +376,7 @@ type repositoryState struct {
 type RepositoryState struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrInput
-	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 	AllowForking pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
@@ -429,7 +431,9 @@ type RepositoryState struct {
 	HtmlUrl pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringPtrInput
-	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	//
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
@@ -474,7 +478,7 @@ type RepositoryState struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
-	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 	VulnerabilityAlerts pulumi.BoolPtrInput
 	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
 	WebCommitSignoffRequired pulumi.BoolPtrInput
@@ -487,7 +491,7 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge *bool `pulumi:"allowAutoMerge"`
-	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 	AllowForking *bool `pulumi:"allowForking"`
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit *bool `pulumi:"allowMergeCommit"`
@@ -534,7 +538,9 @@ type repositoryArgs struct {
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
-	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	//
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
@@ -569,7 +575,7 @@ type repositoryArgs struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
-	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
 	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
 	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
@@ -579,7 +585,7 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	// Set to `true` to allow auto-merging pull requests on the repository.
 	AllowAutoMerge pulumi.BoolPtrInput
-	// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+	// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 	AllowForking pulumi.BoolPtrInput
 	// Set to `false` to disable merge commits on the repository.
 	AllowMergeCommit pulumi.BoolPtrInput
@@ -626,7 +632,9 @@ type RepositoryArgs struct {
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
-	// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	//
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
@@ -661,7 +669,7 @@ type RepositoryArgs struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
-	// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 	VulnerabilityAlerts pulumi.BoolPtrInput
 	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
 	WebCommitSignoffRequired pulumi.BoolPtrInput
@@ -759,7 +767,7 @@ func (o RepositoryOutput) AllowAutoMerge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.AllowAutoMerge }).(pulumi.BoolPtrOutput)
 }
 
-// Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+// Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
 func (o RepositoryOutput) AllowForking() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.AllowForking }).(pulumi.BoolOutput)
 }
@@ -886,7 +894,9 @@ func (o RepositoryOutput) HttpCloneUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.HttpCloneUrl }).(pulumi.StringOutput)
 }
 
-// Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+//
+// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
 func (o RepositoryOutput) IgnoreVulnerabilityAlertsDuringRead() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.IgnoreVulnerabilityAlertsDuringRead }).(pulumi.BoolPtrOutput)
 }
@@ -994,7 +1004,7 @@ func (o RepositoryOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
 }
 
-// Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
 func (o RepositoryOutput) VulnerabilityAlerts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.VulnerabilityAlerts }).(pulumi.BoolOutput)
 }

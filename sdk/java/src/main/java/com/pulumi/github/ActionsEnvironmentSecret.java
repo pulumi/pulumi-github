@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.ActionsEnvironmentSecretArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ActionsEnvironmentSecretState;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -18,20 +19,26 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * This resource does not support importing. If you&#39;d like to help contribute it, please visit our GitHub page!
+ * ### Import Command
+ * 
+ * The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+ * 
+ * ```sh
+ * $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+ * ```
  * 
  */
 @ResourceType(type="github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")
 public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the secret was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret creation.
+     * @return Date the secret was created.
      * 
      */
     public Output<String> createdAt() {
@@ -66,7 +73,23 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
         return this.environment;
     }
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Export(name="keyId", refs={String.class}, tree="[0]")
+    private Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Output<String> keyId() {
+        return this.keyId;
+    }
+    /**
      * Plaintext value of the secret to be encrypted.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
      */
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
@@ -75,9 +98,25 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
     /**
      * @return Plaintext value of the secret to be encrypted.
      * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
      */
     public Output<Optional<String>> plaintextValue() {
         return Codegen.optional(this.plaintextValue);
+    }
+    /**
+     * Date the secret was last updated in GitHub.
+     * 
+     */
+    @Export(name="remoteUpdatedAt", refs={String.class}, tree="[0]")
+    private Output<String> remoteUpdatedAt;
+
+    /**
+     * @return Date the secret was last updated in GitHub.
+     * 
+     */
+    public Output<String> remoteUpdatedAt() {
+        return this.remoteUpdatedAt;
     }
     /**
      * Name of the repository.
@@ -94,6 +133,20 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
         return this.repository;
     }
     /**
+     * ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
+    }
+    /**
      * Name of the secret.
      * 
      */
@@ -108,14 +161,14 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
         return this.secretName;
     }
     /**
-     * Date of actionsEnvironmentSecret update.
+     * Date the secret was last updated by the provider.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret update.
+     * @return Date the secret was last updated by the provider.
      * 
      */
     public Output<String> updatedAt() {
@@ -162,7 +215,6 @@ public class ActionsEnvironmentSecret extends com.pulumi.resources.CustomResourc
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "encryptedValue",
                 "plaintextValue"
             ))
             .build();

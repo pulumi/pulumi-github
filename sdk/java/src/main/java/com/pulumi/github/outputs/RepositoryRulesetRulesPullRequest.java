@@ -4,6 +4,7 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.github.outputs.RepositoryRulesetRulesPullRequestRequiredReviewer;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -44,6 +45,11 @@ public final class RepositoryRulesetRulesPullRequest {
      * 
      */
     private @Nullable Boolean requiredReviewThreadResolution;
+    /**
+     * @return Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    private @Nullable List<RepositoryRulesetRulesPullRequestRequiredReviewer> requiredReviewers;
 
     private RepositoryRulesetRulesPullRequest() {}
     /**
@@ -88,6 +94,13 @@ public final class RepositoryRulesetRulesPullRequest {
     public Optional<Boolean> requiredReviewThreadResolution() {
         return Optional.ofNullable(this.requiredReviewThreadResolution);
     }
+    /**
+     * @return Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    public List<RepositoryRulesetRulesPullRequestRequiredReviewer> requiredReviewers() {
+        return this.requiredReviewers == null ? List.of() : this.requiredReviewers;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -104,6 +117,7 @@ public final class RepositoryRulesetRulesPullRequest {
         private @Nullable Boolean requireLastPushApproval;
         private @Nullable Integer requiredApprovingReviewCount;
         private @Nullable Boolean requiredReviewThreadResolution;
+        private @Nullable List<RepositoryRulesetRulesPullRequestRequiredReviewer> requiredReviewers;
         public Builder() {}
         public Builder(RepositoryRulesetRulesPullRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,6 +127,7 @@ public final class RepositoryRulesetRulesPullRequest {
     	      this.requireLastPushApproval = defaults.requireLastPushApproval;
     	      this.requiredApprovingReviewCount = defaults.requiredApprovingReviewCount;
     	      this.requiredReviewThreadResolution = defaults.requiredReviewThreadResolution;
+    	      this.requiredReviewers = defaults.requiredReviewers;
         }
 
         @CustomType.Setter
@@ -154,6 +169,15 @@ public final class RepositoryRulesetRulesPullRequest {
             this.requiredReviewThreadResolution = requiredReviewThreadResolution;
             return this;
         }
+        @CustomType.Setter
+        public Builder requiredReviewers(@Nullable List<RepositoryRulesetRulesPullRequestRequiredReviewer> requiredReviewers) {
+
+            this.requiredReviewers = requiredReviewers;
+            return this;
+        }
+        public Builder requiredReviewers(RepositoryRulesetRulesPullRequestRequiredReviewer... requiredReviewers) {
+            return requiredReviewers(List.of(requiredReviewers));
+        }
         public RepositoryRulesetRulesPullRequest build() {
             final var _resultValue = new RepositoryRulesetRulesPullRequest();
             _resultValue.allowedMergeMethods = allowedMergeMethods;
@@ -162,6 +186,7 @@ public final class RepositoryRulesetRulesPullRequest {
             _resultValue.requireLastPushApproval = requireLastPushApproval;
             _resultValue.requiredApprovingReviewCount = requiredApprovingReviewCount;
             _resultValue.requiredReviewThreadResolution = requiredReviewThreadResolution;
+            _resultValue.requiredReviewers = requiredReviewers;
             return _resultValue;
         }
     }

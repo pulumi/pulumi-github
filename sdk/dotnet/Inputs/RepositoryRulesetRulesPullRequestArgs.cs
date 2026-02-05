@@ -54,6 +54,18 @@ namespace Pulumi.Github.Inputs
         [Input("requiredReviewThreadResolution")]
         public Input<bool>? RequiredReviewThreadResolution { get; set; }
 
+        [Input("requiredReviewers")]
+        private InputList<Inputs.RepositoryRulesetRulesPullRequestRequiredReviewerArgs>? _requiredReviewers;
+
+        /// <summary>
+        /// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+        /// </summary>
+        public InputList<Inputs.RepositoryRulesetRulesPullRequestRequiredReviewerArgs> RequiredReviewers
+        {
+            get => _requiredReviewers ?? (_requiredReviewers = new InputList<Inputs.RepositoryRulesetRulesPullRequestRequiredReviewerArgs>());
+            set => _requiredReviewers = value;
+        }
+
         public RepositoryRulesetRulesPullRequestArgs()
         {
         }

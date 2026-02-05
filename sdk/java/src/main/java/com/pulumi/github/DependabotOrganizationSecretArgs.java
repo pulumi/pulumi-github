@@ -34,14 +34,29 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
+     * Plaintext value of the secret to be encrypted.
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted
+     * @return Plaintext value of the secret to be encrypted.
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -49,14 +64,14 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the secret
+     * Name of the secret.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret
+     * @return Name of the secret.
      * 
      */
     public Output<String> secretName() {
@@ -64,31 +79,37 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
     }
 
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization secret.
+     * @return An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
     }
 
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     public Output<String> visibility() {
@@ -99,6 +120,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
 
     private DependabotOrganizationSecretArgs(DependabotOrganizationSecretArgs $) {
         this.encryptedValue = $.encryptedValue;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
         this.secretName = $.secretName;
         this.selectedRepositoryIds = $.selectedRepositoryIds;
@@ -145,7 +167,28 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -156,7 +199,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -166,7 +209,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -177,7 +220,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -187,39 +230,50 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(@Nullable Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 
@@ -230,8 +284,7 @@ public final class DependabotOrganizationSecretArgs extends com.pulumi.resources
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 

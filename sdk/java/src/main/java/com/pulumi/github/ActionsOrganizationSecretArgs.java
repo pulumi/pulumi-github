@@ -19,9 +19,29 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
 
     public static final ActionsOrganizationSecretArgs Empty = new ActionsOrganizationSecretArgs();
 
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     @Import(name="destroyOnDrift")
     private @Nullable Output<Boolean> destroyOnDrift;
 
+    /**
+     * @return (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     public Optional<Output<Boolean>> destroyOnDrift() {
         return Optional.ofNullable(this.destroyOnDrift);
     }
@@ -42,14 +62,29 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
+     * Plaintext value of the secret to be encrypted.
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted
+     * @return Plaintext value of the secret to be encrypted.
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -57,14 +92,14 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name of the secret
+     * Name of the secret.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret
+     * @return Name of the secret.
      * 
      */
     public Output<String> secretName() {
@@ -72,31 +107,37 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization secret.
+     * @return An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
         return Optional.ofNullable(this.selectedRepositoryIds);
     }
 
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      * 
      */
     public Output<String> visibility() {
@@ -108,6 +149,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
     private ActionsOrganizationSecretArgs(ActionsOrganizationSecretArgs $) {
         this.destroyOnDrift = $.destroyOnDrift;
         this.encryptedValue = $.encryptedValue;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
         this.secretName = $.secretName;
         this.selectedRepositoryIds = $.selectedRepositoryIds;
@@ -132,11 +174,35 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
             $ = new ActionsOrganizationSecretArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
             $.destroyOnDrift = destroyOnDrift;
             return this;
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(Boolean destroyOnDrift) {
             return destroyOnDrift(Output.of(destroyOnDrift));
         }
@@ -163,7 +229,28 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -174,7 +261,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -184,7 +271,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -195,7 +282,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -205,39 +292,50 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(@Nullable Output<List<Integer>> selectedRepositoryIds) {
             $.selectedRepositoryIds = selectedRepositoryIds;
             return this;
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(List<Integer> selectedRepositoryIds) {
             return selectedRepositoryIds(Output.of(selectedRepositoryIds));
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets. */
         public Builder selectedRepositoryIds(Integer... selectedRepositoryIds) {
             return selectedRepositoryIds(List.of(selectedRepositoryIds));
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 
@@ -248,8 +346,7 @@ public final class ActionsOrganizationSecretArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization secret.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 

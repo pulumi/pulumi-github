@@ -14,10 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const exampleVariable = new github.ActionsEnvironmentVariable("example_variable", {
- *     environment: "example_environment",
+ * const example = new github.ActionsEnvironmentVariable("example", {
+ *     repository: "example-repo",
+ *     environment: "example-environment",
  *     variableName: "example_variable_name",
- *     value: "example_variable_value",
+ *     value: "example-value",
  * });
  * ```
  *
@@ -25,24 +26,26 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const repo = github.getRepository({
+ * const example = github.getRepository({
  *     fullName: "my-org/repo",
  * });
- * const repoEnvironment = new github.RepositoryEnvironment("repo_environment", {
- *     repository: repo.then(repo => repo.name),
+ * const exampleRepositoryEnvironment = new github.RepositoryEnvironment("example", {
+ *     repository: example.then(example => example.name),
  *     environment: "example_environment",
  * });
- * const exampleVariable = new github.ActionsEnvironmentVariable("example_variable", {
- *     repository: repo.then(repo => repo.name),
- *     environment: repoEnvironment.environment,
+ * const exampleActionsEnvironmentVariable = new github.ActionsEnvironmentVariable("example", {
+ *     repository: example.then(example => example.name),
+ *     environment: exampleRepositoryEnvironment.environment,
  *     variableName: "example_variable_name",
- *     value: "example_variable_value",
+ *     value: "example-value",
  * });
  * ```
  *
  * ## Import
  *
- * This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
+ * ### Import Command
+ *
+ * The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_variable` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
@@ -77,7 +80,7 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the variable was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -89,11 +92,15 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
-     * Date of actionsEnvironmentSecret update.
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
+     * Date the variable was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     declare public readonly value: pulumi.Output<string>;
     /**
@@ -117,6 +124,7 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["environment"] = state?.environment;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["updatedAt"] = state?.updatedAt;
             resourceInputs["value"] = state?.value;
             resourceInputs["variableName"] = state?.variableName;
@@ -139,6 +147,7 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
             resourceInputs["value"] = args?.value;
             resourceInputs["variableName"] = args?.variableName;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -151,7 +160,7 @@ export class ActionsEnvironmentVariable extends pulumi.CustomResource {
  */
 export interface ActionsEnvironmentVariableState {
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the variable was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -163,11 +172,15 @@ export interface ActionsEnvironmentVariableState {
      */
     repository?: pulumi.Input<string>;
     /**
-     * Date of actionsEnvironmentSecret update.
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
+    /**
+     * Date the variable was last updated.
      */
     updatedAt?: pulumi.Input<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value?: pulumi.Input<string>;
     /**
@@ -189,7 +202,7 @@ export interface ActionsEnvironmentVariableArgs {
      */
     repository: pulumi.Input<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value: pulumi.Input<string>;
     /**

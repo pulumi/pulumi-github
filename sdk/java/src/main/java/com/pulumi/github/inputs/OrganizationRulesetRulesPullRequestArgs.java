@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.github.inputs.OrganizationRulesetRulesPullRequestRequiredReviewerArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -108,6 +109,21 @@ public final class OrganizationRulesetRulesPullRequestArgs extends com.pulumi.re
         return Optional.ofNullable(this.requiredReviewThreadResolution);
     }
 
+    /**
+     * Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    @Import(name="requiredReviewers")
+    private @Nullable Output<List<OrganizationRulesetRulesPullRequestRequiredReviewerArgs>> requiredReviewers;
+
+    /**
+     * @return Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+     * 
+     */
+    public Optional<Output<List<OrganizationRulesetRulesPullRequestRequiredReviewerArgs>>> requiredReviewers() {
+        return Optional.ofNullable(this.requiredReviewers);
+    }
+
     private OrganizationRulesetRulesPullRequestArgs() {}
 
     private OrganizationRulesetRulesPullRequestArgs(OrganizationRulesetRulesPullRequestArgs $) {
@@ -117,6 +133,7 @@ public final class OrganizationRulesetRulesPullRequestArgs extends com.pulumi.re
         this.requireLastPushApproval = $.requireLastPushApproval;
         this.requiredApprovingReviewCount = $.requiredApprovingReviewCount;
         this.requiredReviewThreadResolution = $.requiredReviewThreadResolution;
+        this.requiredReviewers = $.requiredReviewers;
     }
 
     public static Builder builder() {
@@ -271,6 +288,37 @@ public final class OrganizationRulesetRulesPullRequestArgs extends com.pulumi.re
          */
         public Builder requiredReviewThreadResolution(Boolean requiredReviewThreadResolution) {
             return requiredReviewThreadResolution(Output.of(requiredReviewThreadResolution));
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(@Nullable Output<List<OrganizationRulesetRulesPullRequestRequiredReviewerArgs>> requiredReviewers) {
+            $.requiredReviewers = requiredReviewers;
+            return this;
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(List<OrganizationRulesetRulesPullRequestRequiredReviewerArgs> requiredReviewers) {
+            return requiredReviewers(Output.of(requiredReviewers));
+        }
+
+        /**
+         * @param requiredReviewers Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requiredReviewers(OrganizationRulesetRulesPullRequestRequiredReviewerArgs... requiredReviewers) {
+            return requiredReviewers(List.of(requiredReviewers));
         }
 
         public OrganizationRulesetRulesPullRequestArgs build() {

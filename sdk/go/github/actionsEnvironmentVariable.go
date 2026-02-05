@@ -29,10 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewActionsEnvironmentVariable(ctx, "example_variable", &github.ActionsEnvironmentVariableArgs{
-//				Environment:  pulumi.String("example_environment"),
+//			_, err := github.NewActionsEnvironmentVariable(ctx, "example", &github.ActionsEnvironmentVariableArgs{
+//				Repository:   pulumi.String("example-repo"),
+//				Environment:  pulumi.String("example-environment"),
 //				VariableName: pulumi.String("example_variable_name"),
-//				Value:        pulumi.String("example_variable_value"),
+//				Value:        pulumi.String("example-value"),
 //			})
 //			if err != nil {
 //				return err
@@ -55,24 +56,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			example, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
 //				FullName: pulumi.StringRef("my-org/repo"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			repoEnvironment, err := github.NewRepositoryEnvironment(ctx, "repo_environment", &github.RepositoryEnvironmentArgs{
-//				Repository:  pulumi.String(repo.Name),
+//			exampleRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "example", &github.RepositoryEnvironmentArgs{
+//				Repository:  pulumi.String(example.Name),
 //				Environment: pulumi.String("example_environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsEnvironmentVariable(ctx, "example_variable", &github.ActionsEnvironmentVariableArgs{
-//				Repository:   pulumi.String(repo.Name),
-//				Environment:  repoEnvironment.Environment,
+//			_, err = github.NewActionsEnvironmentVariable(ctx, "example", &github.ActionsEnvironmentVariableArgs{
+//				Repository:   pulumi.String(example.Name),
+//				Environment:  exampleRepositoryEnvironment.Environment,
 //				VariableName: pulumi.String("example_variable_name"),
-//				Value:        pulumi.String("example_variable_value"),
+//				Value:        pulumi.String("example-value"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +86,9 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
+// ### Import Command
+//
+// The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_variable` resource named `example`.
 //
 // ```sh
 // $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
@@ -93,15 +96,17 @@ import (
 type ActionsEnvironmentVariable struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsEnvironmentSecret creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
 	// Name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Date of actionsEnvironmentSecret update.
+	// ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringOutput `pulumi:"value"`
 	// Name of the variable.
 	VariableName pulumi.StringOutput `pulumi:"variableName"`
@@ -149,30 +154,34 @@ func GetActionsEnvironmentVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsEnvironmentVariable resources.
 type actionsEnvironmentVariableState struct {
-	// Date of actionsEnvironmentSecret creation.
+	// Date the variable was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Name of the environment.
 	Environment *string `pulumi:"environment"`
 	// Name of the repository.
 	Repository *string `pulumi:"repository"`
-	// Date of actionsEnvironmentSecret update.
+	// ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
+	// Date the variable was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value *string `pulumi:"value"`
 	// Name of the variable.
 	VariableName *string `pulumi:"variableName"`
 }
 
 type ActionsEnvironmentVariableState struct {
-	// Date of actionsEnvironmentSecret creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringPtrInput
 	// Name of the repository.
 	Repository pulumi.StringPtrInput
-	// Date of actionsEnvironmentSecret update.
+	// ID of the repository.
+	RepositoryId pulumi.IntPtrInput
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringPtrInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringPtrInput
 	// Name of the variable.
 	VariableName pulumi.StringPtrInput
@@ -187,7 +196,7 @@ type actionsEnvironmentVariableArgs struct {
 	Environment string `pulumi:"environment"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
-	// Value of the variable
+	// Value of the variable.
 	Value string `pulumi:"value"`
 	// Name of the variable.
 	VariableName string `pulumi:"variableName"`
@@ -199,7 +208,7 @@ type ActionsEnvironmentVariableArgs struct {
 	Environment pulumi.StringInput
 	// Name of the repository.
 	Repository pulumi.StringInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringInput
 	// Name of the variable.
 	VariableName pulumi.StringInput
@@ -292,7 +301,7 @@ func (o ActionsEnvironmentVariableOutput) ToActionsEnvironmentVariableOutputWith
 	return o
 }
 
-// Date of actionsEnvironmentSecret creation.
+// Date the variable was created.
 func (o ActionsEnvironmentVariableOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentVariable) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -307,12 +316,17 @@ func (o ActionsEnvironmentVariableOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentVariable) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// Date of actionsEnvironmentSecret update.
+// ID of the repository.
+func (o ActionsEnvironmentVariableOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentVariable) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
+}
+
+// Date the variable was last updated.
 func (o ActionsEnvironmentVariableOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentVariable) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Value of the variable
+// Value of the variable.
 func (o ActionsEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

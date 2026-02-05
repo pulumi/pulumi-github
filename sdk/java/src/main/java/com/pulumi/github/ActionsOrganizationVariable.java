@@ -97,96 +97,96 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made up of the variable name:
+ * ### Import Command
+ * 
+ * The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
  * 
  * ```sh
- * $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+ * $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
  * ```
  * 
  */
 @ResourceType(type="github:index/actionsOrganizationVariable:ActionsOrganizationVariable")
 public class ActionsOrganizationVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actionsVariable creation.
+     * @return Date the variable was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * An array of repository ids that can access the organization variable.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
      */
     @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization variable.
+     * @return An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
      */
     public Output<Optional<List<Integer>>> selectedRepositoryIds() {
         return Codegen.optional(this.selectedRepositoryIds);
     }
     /**
-     * Date of actionsVariable update.
+     * Date the variable was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actionsVariable update.
+     * @return Date the variable was last updated.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Output<String> value() {
         return this.value;
     }
     /**
-     * Name of the variable
+     * Name of the variable.
      * 
      */
     @Export(name="variableName", refs={String.class}, tree="[0]")
     private Output<String> variableName;
 
     /**
-     * @return Name of the variable
+     * @return Name of the variable.
      * 
      */
     public Output<String> variableName() {
         return this.variableName;
     }
     /**
-     * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      * 
      */
     public Output<String> visibility() {

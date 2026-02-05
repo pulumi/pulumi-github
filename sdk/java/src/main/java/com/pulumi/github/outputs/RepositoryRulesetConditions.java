@@ -11,14 +11,18 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryRulesetConditions {
     /**
-     * @return (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * @return (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
      * 
      */
     private RepositoryRulesetConditionsRefName refName;
 
     private RepositoryRulesetConditions() {}
     /**
-     * @return (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * @return (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
      * 
      */
     public RepositoryRulesetConditionsRefName refName() {

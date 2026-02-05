@@ -83,6 +83,10 @@ export class ActionsRepositoryPermissions extends pulumi.CustomResource {
      * The GitHub repository
      */
     declare public readonly repository: pulumi.Output<string>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     */
+    declare public readonly shaPinningRequired: pulumi.Output<boolean>;
 
     /**
      * Create a ActionsRepositoryPermissions resource with the given unique name, arguments, and options.
@@ -101,6 +105,7 @@ export class ActionsRepositoryPermissions extends pulumi.CustomResource {
             resourceInputs["allowedActionsConfig"] = state?.allowedActionsConfig;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["shaPinningRequired"] = state?.shaPinningRequired;
         } else {
             const args = argsOrState as ActionsRepositoryPermissionsArgs | undefined;
             if (args?.repository === undefined && !opts.urn) {
@@ -110,6 +115,7 @@ export class ActionsRepositoryPermissions extends pulumi.CustomResource {
             resourceInputs["allowedActionsConfig"] = args?.allowedActionsConfig;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["repository"] = args?.repository;
+            resourceInputs["shaPinningRequired"] = args?.shaPinningRequired;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionsRepositoryPermissions.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface ActionsRepositoryPermissionsState {
      * The GitHub repository
      */
     repository?: pulumi.Input<string>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     */
+    shaPinningRequired?: pulumi.Input<boolean>;
 }
 
 /**
@@ -158,4 +168,8 @@ export interface ActionsRepositoryPermissionsArgs {
      * The GitHub repository
      */
     repository: pulumi.Input<string>;
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     */
+    shaPinningRequired?: pulumi.Input<boolean>;
 }

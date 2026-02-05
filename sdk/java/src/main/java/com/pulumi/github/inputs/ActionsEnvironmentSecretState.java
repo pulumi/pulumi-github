@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     public static final ActionsEnvironmentSecretState Empty = new ActionsEnvironmentSecretState();
 
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the secret was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret creation.
+     * @return Date the secret was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -61,7 +62,24 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     }
 
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
      * Plaintext value of the secret to be encrypted.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      * 
      */
     @Import(name="plaintextValue")
@@ -70,9 +88,26 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     /**
      * @return Plaintext value of the secret to be encrypted.
      * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
      */
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
+    }
+
+    /**
+     * Date the secret was last updated in GitHub.
+     * 
+     */
+    @Import(name="remoteUpdatedAt")
+    private @Nullable Output<String> remoteUpdatedAt;
+
+    /**
+     * @return Date the secret was last updated in GitHub.
+     * 
+     */
+    public Optional<Output<String>> remoteUpdatedAt() {
+        return Optional.ofNullable(this.remoteUpdatedAt);
     }
 
     /**
@@ -91,6 +126,21 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     }
 
     /**
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
      * Name of the secret.
      * 
      */
@@ -106,14 +156,14 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
     }
 
     /**
-     * Date of actionsEnvironmentSecret update.
+     * Date the secret was last updated by the provider.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret update.
+     * @return Date the secret was last updated by the provider.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -126,8 +176,11 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         this.createdAt = $.createdAt;
         this.encryptedValue = $.encryptedValue;
         this.environment = $.environment;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
+        this.remoteUpdatedAt = $.remoteUpdatedAt;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.secretName = $.secretName;
         this.updatedAt = $.updatedAt;
     }
@@ -151,7 +204,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Date of actionsEnvironmentSecret creation.
+         * @param createdAt Date the secret was created.
          * 
          * @return builder
          * 
@@ -162,7 +215,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Date of actionsEnvironmentSecret creation.
+         * @param createdAt Date the secret was created.
          * 
          * @return builder
          * 
@@ -214,7 +267,30 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
          * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
          * 
          * @return builder
          * 
@@ -227,11 +303,34 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         /**
          * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
          * @return builder
          * 
          */
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
+        }
+
+        /**
+         * @param remoteUpdatedAt Date the secret was last updated in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteUpdatedAt(@Nullable Output<String> remoteUpdatedAt) {
+            $.remoteUpdatedAt = remoteUpdatedAt;
+            return this;
+        }
+
+        /**
+         * @param remoteUpdatedAt Date the secret was last updated in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteUpdatedAt(String remoteUpdatedAt) {
+            return remoteUpdatedAt(Output.of(remoteUpdatedAt));
         }
 
         /**
@@ -256,6 +355,27 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
+        }
+
+        /**
          * @param secretName Name of the secret.
          * 
          * @return builder
@@ -277,7 +397,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updatedAt Date of actionsEnvironmentSecret update.
+         * @param updatedAt Date the secret was last updated by the provider.
          * 
          * @return builder
          * 
@@ -288,7 +408,7 @@ public final class ActionsEnvironmentSecretState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updatedAt Date of actionsEnvironmentSecret update.
+         * @param updatedAt Date the secret was last updated by the provider.
          * 
          * @return builder
          * 

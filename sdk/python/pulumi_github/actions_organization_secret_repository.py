@@ -23,8 +23,8 @@ class ActionsOrganizationSecretRepositoryArgs:
                  secret_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActionsOrganizationSecretRepository resource.
-        :param pulumi.Input[_builtins.int] repository_id: Repository id that can access the organization secret.
-        :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         """
         pulumi.set(__self__, "repository_id", repository_id)
         pulumi.set(__self__, "secret_name", secret_name)
@@ -33,7 +33,7 @@ class ActionsOrganizationSecretRepositoryArgs:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Input[_builtins.int]:
         """
-        Repository id that can access the organization secret.
+        ID of the repository that should be able to access the secret.
         """
         return pulumi.get(self, "repository_id")
 
@@ -45,7 +45,7 @@ class ActionsOrganizationSecretRepositoryArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the existing secret
+        Name of the actions organization secret.
         """
         return pulumi.get(self, "secret_name")
 
@@ -61,8 +61,8 @@ class _ActionsOrganizationSecretRepositoryState:
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationSecretRepository resources.
-        :param pulumi.Input[_builtins.int] repository_id: Repository id that can access the organization secret.
-        :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         """
         if repository_id is not None:
             pulumi.set(__self__, "repository_id", repository_id)
@@ -73,7 +73,7 @@ class _ActionsOrganizationSecretRepositoryState:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Repository id that can access the organization secret.
+        ID of the repository that should be able to access the secret.
         """
         return pulumi.get(self, "repository_id")
 
@@ -85,7 +85,7 @@ class _ActionsOrganizationSecretRepositoryState:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the existing secret
+        Name of the actions organization secret.
         """
         return pulumi.get(self, "secret_name")
 
@@ -104,7 +104,7 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource help you to allow/unallow a repository to use an existing GitHub Actions secrets within your GitHub organization.
+        This resource adds permission for a repository to use an actions secret within your GitHub organization.
         You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -115,24 +115,32 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepository("org_secret_repos",
-            secret_name="EXAMPLE_SECRET_NAME",
-            repository_id=repo_github_repository["repoId"])
+        example = github.ActionsOrganizationSecret("example",
+            secret_name="mysecret",
+            plaintext_value="foo",
+            visibility="selected")
+        example_repository = github.Repository("example",
+            name="myrepo",
+            visibility="public")
+        example_actions_organization_secret_repository = github.ActionsOrganizationSecretRepository("example",
+            secret_name=example.name,
+            repository_id=example_repository.repo_id)
         ```
 
         ## Import
 
-        This resource can be imported using an ID made up of the secret name:
+        ### Import Command
+
+        The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository test_secret_repos test_secret_name:repo_id
+        $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] repository_id: Repository id that can access the organization secret.
-        :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         """
         ...
     @overload
@@ -141,7 +149,7 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
                  args: ActionsOrganizationSecretRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource help you to allow/unallow a repository to use an existing GitHub Actions secrets within your GitHub organization.
+        This resource adds permission for a repository to use an actions secret within your GitHub organization.
         You must have write access to an organization secret to use this resource.
 
         This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -152,18 +160,26 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_github as github
 
-        repo = github.get_repository(full_name="my-org/repo")
-        org_secret_repos = github.ActionsOrganizationSecretRepository("org_secret_repos",
-            secret_name="EXAMPLE_SECRET_NAME",
-            repository_id=repo_github_repository["repoId"])
+        example = github.ActionsOrganizationSecret("example",
+            secret_name="mysecret",
+            plaintext_value="foo",
+            visibility="selected")
+        example_repository = github.Repository("example",
+            name="myrepo",
+            visibility="public")
+        example_actions_organization_secret_repository = github.ActionsOrganizationSecretRepository("example",
+            secret_name=example.name,
+            repository_id=example_repository.repo_id)
         ```
 
         ## Import
 
-        This resource can be imported using an ID made up of the secret name:
+        ### Import Command
+
+        The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository test_secret_repos test_secret_name:repo_id
+        $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,8 +233,8 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] repository_id: Repository id that can access the organization secret.
-        :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,7 +248,7 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Output[_builtins.int]:
         """
-        Repository id that can access the organization secret.
+        ID of the repository that should be able to access the secret.
         """
         return pulumi.get(self, "repository_id")
 
@@ -240,7 +256,7 @@ class ActionsOrganizationSecretRepository(pulumi.CustomResource):
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the existing secret
+        Name of the actions organization secret.
         """
         return pulumi.get(self, "secret_name")
 

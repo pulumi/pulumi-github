@@ -38,10 +38,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using an ID made up of the variable name:
+ * ### Import Command
+ *
+ * The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+ * $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
  * ```
  */
 export class ActionsOrganizationVariable extends pulumi.CustomResource {
@@ -73,28 +75,27 @@ export class ActionsOrganizationVariable extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * An array of repository ids that can access the organization variable.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      */
     declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
-     * Date of actionsVariable update.
+     * Date the variable was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     declare public readonly value: pulumi.Output<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     declare public readonly variableName: pulumi.Output<string>;
     /**
-     * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      */
     declare public readonly visibility: pulumi.Output<string>;
 
@@ -145,28 +146,27 @@ export class ActionsOrganizationVariable extends pulumi.CustomResource {
  */
 export interface ActionsOrganizationVariableState {
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * An array of repository ids that can access the organization variable.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Date of actionsVariable update.
+     * Date the variable was last updated.
      */
     updatedAt?: pulumi.Input<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value?: pulumi.Input<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     variableName?: pulumi.Input<string>;
     /**
-     * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      */
     visibility?: pulumi.Input<string>;
 }
@@ -176,20 +176,19 @@ export interface ActionsOrganizationVariableState {
  */
 export interface ActionsOrganizationVariableArgs {
     /**
-     * An array of repository ids that can access the organization variable.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value: pulumi.Input<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     variableName: pulumi.Input<string>;
     /**
-     * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      */
     visibility: pulumi.Input<string>;
 }

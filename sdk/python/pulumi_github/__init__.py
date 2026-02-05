@@ -15,6 +15,8 @@ from .actions_organization_secret import *
 from .actions_organization_secret_repositories import *
 from .actions_organization_secret_repository import *
 from .actions_organization_variable import *
+from .actions_organization_variable_repositories import *
+from .actions_organization_variable_repository import *
 from .actions_organization_workflow_permissions import *
 from .actions_repository_access_level import *
 from .actions_repository_oidc_subject_claim_customization_template import *
@@ -34,6 +36,7 @@ from .codespaces_secret import *
 from .codespaces_user_secret import *
 from .dependabot_organization_secret import *
 from .dependabot_organization_secret_repositories import *
+from .dependabot_organization_secret_repository import *
 from .dependabot_secret import *
 from .emu_group_mapping import *
 from .enterprise_actions_permissions import *
@@ -91,6 +94,7 @@ from .get_organization_teams import *
 from .get_organization_webhooks import *
 from .get_ref import *
 from .get_release import *
+from .get_release_asset import *
 from .get_repositories import *
 from .get_repository import *
 from .get_repository_autolink_references import *
@@ -248,6 +252,22 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/actionsOrganizationVariableRepositories",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories": "ActionsOrganizationVariableRepositories"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/actionsOrganizationVariableRepository",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/actionsOrganizationVariableRepository:ActionsOrganizationVariableRepository": "ActionsOrganizationVariableRepository"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/actionsOrganizationWorkflowPermissions",
   "fqn": "pulumi_github",
   "classes": {
@@ -396,6 +416,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories": "DependabotOrganizationSecretRepositories"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/dependabotOrganizationSecretRepository",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository": "DependabotOrganizationSecretRepository"
   }
  },
  {

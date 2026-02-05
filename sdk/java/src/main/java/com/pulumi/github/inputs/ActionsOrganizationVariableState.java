@@ -18,14 +18,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     public static final ActionsOrganizationVariableState Empty = new ActionsOrganizationVariableState();
 
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actionsVariable creation.
+     * @return Date the variable was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -33,14 +33,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * An array of repository ids that can access the organization variable.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
      */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization variable.
+     * @return An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
      * 
      */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
@@ -48,14 +48,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * Date of actionsVariable update.
+     * Date the variable was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actionsVariable update.
+     * @return Date the variable was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -63,14 +63,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Optional<Output<String>> value() {
@@ -78,14 +78,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * Name of the variable
+     * Name of the variable.
      * 
      */
     @Import(name="variableName")
     private @Nullable Output<String> variableName;
 
     /**
-     * @return Name of the variable
+     * @return Name of the variable.
      * 
      */
     public Optional<Output<String>> variableName() {
@@ -93,16 +93,14 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
     }
 
     /**
-     * Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      * 
      */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
     /**
-     * @return Configures the access that repositories have to the organization variable.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * @return Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -139,7 +137,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param createdAt Date of actionsVariable creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -150,7 +148,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param createdAt Date of actionsVariable creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -160,7 +158,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization variable.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
@@ -171,7 +169,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization variable.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
@@ -181,7 +179,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization variable.
+         * @param selectedRepositoryIds An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
          * 
          * @return builder
          * 
@@ -191,7 +189,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param updatedAt Date of actionsVariable update.
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -202,7 +200,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param updatedAt Date of actionsVariable update.
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -212,7 +210,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -223,7 +221,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -233,7 +231,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 
@@ -244,7 +242,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 
@@ -254,8 +252,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization variable.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 
@@ -266,8 +263,7 @@ public final class ActionsOrganizationVariableState extends com.pulumi.resources
         }
 
         /**
-         * @param visibility Configures the access that repositories have to the organization variable.
-         * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+         * @param visibility Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
     public static final ActionsVariableArgs Empty = new ActionsVariableArgs();
 
     /**
-     * Name of the repository
+     * Name of the repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return Name of the repository
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
@@ -30,14 +30,14 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Output<String> value() {
@@ -45,14 +45,14 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the variable
+     * Name of the variable.
      * 
      */
     @Import(name="variableName", required=true)
     private Output<String> variableName;
 
     /**
-     * @return Name of the variable
+     * @return Name of the variable.
      * 
      */
     public Output<String> variableName() {
@@ -86,7 +86,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ActionsVariableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 

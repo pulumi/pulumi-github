@@ -45,14 +45,14 @@ public final class ActionsEnvironmentVariableArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Output<String> value() {
@@ -144,7 +144,7 @@ public final class ActionsEnvironmentVariableArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ActionsEnvironmentVariableArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 

@@ -143,7 +143,7 @@ namespace Pulumi.Github
         public Output<ImmutableArray<Outputs.RepositoryRulesetBypassActor>> BypassActors { get; private set; } = null!;
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for a repository ruleset condition. For `Branch` and `Tag` targets, `RefName` is required. For `Push` targets, `RefName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.RepositoryRulesetConditions?> Conditions { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for a repository ruleset condition. For `Branch` and `Tag` targets, `RefName` is required. For `Push` targets, `RefName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.RepositoryRulesetConditionsArgs>? Conditions { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+        /// (Block List, Max: 1) Parameters for a repository ruleset condition. For `Branch` and `Tag` targets, `RefName` is required. For `Push` targets, `RefName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.RepositoryRulesetConditionsGetArgs>? Conditions { get; set; }

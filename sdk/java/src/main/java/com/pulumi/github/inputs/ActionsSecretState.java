@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,23 +18,43 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     public static final ActionsSecretState Empty = new ActionsSecretState();
 
     /**
-     * Date of actionsSecret creation.
+     * Date the secret was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actionsSecret creation.
+     * @return Date the secret was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     @Import(name="destroyOnDrift")
     private @Nullable Output<Boolean> destroyOnDrift;
 
+    /**
+     * @return (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     public Optional<Output<Boolean>> destroyOnDrift() {
         return Optional.ofNullable(this.destroyOnDrift);
     }
@@ -54,14 +75,29 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
+     * Plaintext value of the secret to be encrypted.
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted
+     * @return Plaintext value of the secret to be encrypted.
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -69,14 +105,29 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the repository
+     * Date the secret was last updated in GitHub.
+     * 
+     */
+    @Import(name="remoteUpdatedAt")
+    private @Nullable Output<String> remoteUpdatedAt;
+
+    /**
+     * @return Date the secret was last updated in GitHub.
+     * 
+     */
+    public Optional<Output<String>> remoteUpdatedAt() {
+        return Optional.ofNullable(this.remoteUpdatedAt);
+    }
+
+    /**
+     * Name of the repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return Name of the repository
+     * @return Name of the repository.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -84,14 +135,29 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the secret
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
+     * Name of the secret.
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the secret
+     * @return Name of the secret.
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -99,14 +165,14 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Date of actionsSecret update.
+     * Date the secret was last updated by the provider.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actionsSecret update.
+     * @return Date the secret was last updated by the provider.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -119,8 +185,11 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         this.createdAt = $.createdAt;
         this.destroyOnDrift = $.destroyOnDrift;
         this.encryptedValue = $.encryptedValue;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
+        this.remoteUpdatedAt = $.remoteUpdatedAt;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.secretName = $.secretName;
         this.updatedAt = $.updatedAt;
     }
@@ -144,7 +213,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt Date of actionsSecret creation.
+         * @param createdAt Date the secret was created.
          * 
          * @return builder
          * 
@@ -155,7 +224,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt Date of actionsSecret creation.
+         * @param createdAt Date the secret was created.
          * 
          * @return builder
          * 
@@ -164,11 +233,35 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
             return createdAt(Output.of(createdAt));
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
             $.destroyOnDrift = destroyOnDrift;
             return this;
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(Boolean destroyOnDrift) {
             return destroyOnDrift(Output.of(destroyOnDrift));
         }
@@ -195,7 +288,28 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -206,7 +320,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -216,7 +330,28 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository Name of the repository
+         * @param remoteUpdatedAt Date the secret was last updated in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteUpdatedAt(@Nullable Output<String> remoteUpdatedAt) {
+            $.remoteUpdatedAt = remoteUpdatedAt;
+            return this;
+        }
+
+        /**
+         * @param remoteUpdatedAt Date the secret was last updated in GitHub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteUpdatedAt(String remoteUpdatedAt) {
+            return remoteUpdatedAt(Output.of(remoteUpdatedAt));
+        }
+
+        /**
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -227,7 +362,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -237,7 +372,28 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
+        }
+
+        /**
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -248,7 +404,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -258,7 +414,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param updatedAt Date of actionsSecret update.
+         * @param updatedAt Date the secret was last updated by the provider.
          * 
          * @return builder
          * 
@@ -269,7 +425,7 @@ public final class ActionsSecretState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param updatedAt Date of actionsSecret update.
+         * @param updatedAt Date the secret was last updated by the provider.
          * 
          * @return builder
          * 

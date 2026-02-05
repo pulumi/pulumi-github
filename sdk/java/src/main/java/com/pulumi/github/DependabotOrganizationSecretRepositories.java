@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+ * This resource allows you to manage the repositories allowed to access a Dependabot secret within your GitHub organization.
  * You must have write access to an organization secret to use this resource.
  * 
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -30,10 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.github.GithubFunctions;
- * import com.pulumi.github.inputs.GetRepositoryArgs;
  * import com.pulumi.github.DependabotOrganizationSecret;
  * import com.pulumi.github.DependabotOrganizationSecretArgs;
+ * import com.pulumi.github.Repository;
+ * import com.pulumi.github.RepositoryArgs;
  * import com.pulumi.github.DependabotOrganizationSecretRepositories;
  * import com.pulumi.github.DependabotOrganizationSecretRepositoriesArgs;
  * import java.util.List;
@@ -49,19 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
- *             .fullName("my-org/repo")
+ *         var example = new DependabotOrganizationSecret("example", DependabotOrganizationSecretArgs.builder()
+ *             .secretName("mysecret")
+ *             .plaintextValue("foo")
+ *             .visibility("selected")
  *             .build());
  * 
- *         var exampleSecret = new DependabotOrganizationSecret("exampleSecret", DependabotOrganizationSecretArgs.builder()
- *             .secretName("example_secret_name")
- *             .visibility("private")
- *             .plaintextValue(someSecretString)
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
+ *             .name("myrepo")
+ *             .visibility("public")
  *             .build());
  * 
- *         var orgSecretRepos = new DependabotOrganizationSecretRepositories("orgSecretRepos", DependabotOrganizationSecretRepositoriesArgs.builder()
- *             .secretName(exampleSecret.secretName())
- *             .selectedRepositoryIds(repo.repoId())
+ *         var exampleDependabotOrganizationSecretRepositories = new DependabotOrganizationSecretRepositories("exampleDependabotOrganizationSecretRepositories", DependabotOrganizationSecretRepositoriesArgs.builder()
+ *             .secretName(example.name())
+ *             .selectedRepositoryIds(exampleRepository.repoId())
  *             .build());
  * 
  *     }
@@ -71,38 +72,40 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ * 
+ * The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
  * 
  * ```sh
- * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+ * $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret
  * ```
  * 
  */
 @ResourceType(type="github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories")
 public class DependabotOrganizationSecretRepositories extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the existing secret
+     * Name of the Dependabot organization secret.
      * 
      */
     @Export(name="secretName", refs={String.class}, tree="[0]")
     private Output<String> secretName;
 
     /**
-     * @return Name of the existing secret
+     * @return Name of the Dependabot organization secret.
      * 
      */
     public Output<String> secretName() {
         return this.secretName;
     }
     /**
-     * An array of repository ids that can access the organization secret.
+     * List of IDs for the repositories that should be able to access the secret.
      * 
      */
     @Export(name="selectedRepositoryIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization secret.
+     * @return List of IDs for the repositories that should be able to access the secret.
      * 
      */
     public Output<List<Integer>> selectedRepositoryIds() {

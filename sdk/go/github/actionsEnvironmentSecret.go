@@ -14,23 +14,37 @@ import (
 
 // ## Import
 //
-// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
+// ### Import Command
+//
+// The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+//
+// ```sh
+// $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+// ```
 type ActionsEnvironmentSecret struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsEnvironmentSecret creation.
+	// Date the secret was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
+	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Plaintext value of the secret to be encrypted.
+	//
+	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
+	// Date the secret was last updated in GitHub.
+	RemoteUpdatedAt pulumi.StringOutput `pulumi:"remoteUpdatedAt"`
 	// Name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 	// Name of the secret.
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
-	// Date of actionsEnvironmentSecret update.
+	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -50,14 +64,10 @@ func NewActionsEnvironmentSecret(ctx *pulumi.Context,
 	if args.SecretName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretName'")
 	}
-	if args.EncryptedValue != nil {
-		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrInput)
-	}
 	if args.PlaintextValue != nil {
 		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"encryptedValue",
 		"plaintextValue",
 	})
 	opts = append(opts, secrets)
@@ -84,36 +94,52 @@ func GetActionsEnvironmentSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsEnvironmentSecret resources.
 type actionsEnvironmentSecretState struct {
-	// Date of actionsEnvironmentSecret creation.
+	// Date the secret was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment *string `pulumi:"environment"`
+	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	KeyId *string `pulumi:"keyId"`
 	// Plaintext value of the secret to be encrypted.
+	//
+	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 	PlaintextValue *string `pulumi:"plaintextValue"`
+	// Date the secret was last updated in GitHub.
+	RemoteUpdatedAt *string `pulumi:"remoteUpdatedAt"`
 	// Name of the repository.
 	Repository *string `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 	// Name of the secret.
 	SecretName *string `pulumi:"secretName"`
-	// Date of actionsEnvironmentSecret update.
+	// Date the secret was last updated by the provider.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type ActionsEnvironmentSecretState struct {
-	// Date of actionsEnvironmentSecret creation.
+	// Date the secret was created.
 	CreatedAt pulumi.StringPtrInput
 	// Encrypted value of the secret using the GitHub public key in Base64 format.
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringPtrInput
+	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	KeyId pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted.
+	//
+	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 	PlaintextValue pulumi.StringPtrInput
+	// Date the secret was last updated in GitHub.
+	RemoteUpdatedAt pulumi.StringPtrInput
 	// Name of the repository.
 	Repository pulumi.StringPtrInput
+	// ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 	// Name of the secret.
 	SecretName pulumi.StringPtrInput
-	// Date of actionsEnvironmentSecret update.
+	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -126,7 +152,11 @@ type actionsEnvironmentSecretArgs struct {
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment string `pulumi:"environment"`
+	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	KeyId *string `pulumi:"keyId"`
 	// Plaintext value of the secret to be encrypted.
+	//
+	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
@@ -140,7 +170,11 @@ type ActionsEnvironmentSecretArgs struct {
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringInput
+	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	KeyId pulumi.StringPtrInput
 	// Plaintext value of the secret to be encrypted.
+	//
+	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the repository.
 	Repository pulumi.StringInput
@@ -235,7 +269,7 @@ func (o ActionsEnvironmentSecretOutput) ToActionsEnvironmentSecretOutputWithCont
 	return o
 }
 
-// Date of actionsEnvironmentSecret creation.
+// Date the secret was created.
 func (o ActionsEnvironmentSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -250,9 +284,21 @@ func (o ActionsEnvironmentSecretOutput) Environment() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
 }
 
+// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+func (o ActionsEnvironmentSecretOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
+}
+
 // Plaintext value of the secret to be encrypted.
+//
+// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
 func (o ActionsEnvironmentSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
+}
+
+// Date the secret was last updated in GitHub.
+func (o ActionsEnvironmentSecretOutput) RemoteUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.RemoteUpdatedAt }).(pulumi.StringOutput)
 }
 
 // Name of the repository.
@@ -260,12 +306,17 @@ func (o ActionsEnvironmentSecretOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// ID of the repository.
+func (o ActionsEnvironmentSecretOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
+}
+
 // Name of the secret.
 func (o ActionsEnvironmentSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// Date of actionsEnvironmentSecret update.
+// Date the secret was last updated by the provider.
 func (o ActionsEnvironmentSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

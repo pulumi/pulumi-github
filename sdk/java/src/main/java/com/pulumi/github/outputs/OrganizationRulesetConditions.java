@@ -4,7 +4,6 @@
 package com.pulumi.github.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRefName;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRepositoryName;
 import java.lang.Integer;
@@ -16,10 +15,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetConditions {
     /**
-     * @return (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * @return (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
      * 
      */
-    private OrganizationRulesetConditionsRefName refName;
+    private @Nullable OrganizationRulesetConditionsRefName refName;
     /**
      * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
      * 
@@ -30,16 +29,18 @@ public final class OrganizationRulesetConditions {
      * 
      * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
      * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * 
      */
     private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
 
     private OrganizationRulesetConditions() {}
     /**
-     * @return (Block List, Min: 1, Max: 1) (see below for nested schema)
+     * @return (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
      * 
      */
-    public OrganizationRulesetConditionsRefName refName() {
-        return this.refName;
+    public Optional<OrganizationRulesetConditionsRefName> refName() {
+        return Optional.ofNullable(this.refName);
     }
     /**
      * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
@@ -52,6 +53,8 @@ public final class OrganizationRulesetConditions {
      * @return Conflicts with `repositoryId`. (see below for nested schema)
      * 
      * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      * 
      */
     public Optional<OrganizationRulesetConditionsRepositoryName> repositoryName() {
@@ -67,7 +70,7 @@ public final class OrganizationRulesetConditions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private OrganizationRulesetConditionsRefName refName;
+        private @Nullable OrganizationRulesetConditionsRefName refName;
         private @Nullable List<Integer> repositoryIds;
         private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
         public Builder() {}
@@ -79,10 +82,8 @@ public final class OrganizationRulesetConditions {
         }
 
         @CustomType.Setter
-        public Builder refName(OrganizationRulesetConditionsRefName refName) {
-            if (refName == null) {
-              throw new MissingRequiredPropertyException("OrganizationRulesetConditions", "refName");
-            }
+        public Builder refName(@Nullable OrganizationRulesetConditionsRefName refName) {
+
             this.refName = refName;
             return this;
         }

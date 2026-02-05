@@ -50,6 +50,16 @@ export type ActionsOrganizationVariable = import("./actionsOrganizationVariable"
 export const ActionsOrganizationVariable: typeof import("./actionsOrganizationVariable").ActionsOrganizationVariable = null as any;
 utilities.lazyLoad(exports, ["ActionsOrganizationVariable"], () => require("./actionsOrganizationVariable"));
 
+export { ActionsOrganizationVariableRepositoriesArgs, ActionsOrganizationVariableRepositoriesState } from "./actionsOrganizationVariableRepositories";
+export type ActionsOrganizationVariableRepositories = import("./actionsOrganizationVariableRepositories").ActionsOrganizationVariableRepositories;
+export const ActionsOrganizationVariableRepositories: typeof import("./actionsOrganizationVariableRepositories").ActionsOrganizationVariableRepositories = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationVariableRepositories"], () => require("./actionsOrganizationVariableRepositories"));
+
+export { ActionsOrganizationVariableRepositoryArgs, ActionsOrganizationVariableRepositoryState } from "./actionsOrganizationVariableRepository";
+export type ActionsOrganizationVariableRepository = import("./actionsOrganizationVariableRepository").ActionsOrganizationVariableRepository;
+export const ActionsOrganizationVariableRepository: typeof import("./actionsOrganizationVariableRepository").ActionsOrganizationVariableRepository = null as any;
+utilities.lazyLoad(exports, ["ActionsOrganizationVariableRepository"], () => require("./actionsOrganizationVariableRepository"));
+
 export { ActionsOrganizationWorkflowPermissionsArgs, ActionsOrganizationWorkflowPermissionsState } from "./actionsOrganizationWorkflowPermissions";
 export type ActionsOrganizationWorkflowPermissions = import("./actionsOrganizationWorkflowPermissions").ActionsOrganizationWorkflowPermissions;
 export const ActionsOrganizationWorkflowPermissions: typeof import("./actionsOrganizationWorkflowPermissions").ActionsOrganizationWorkflowPermissions = null as any;
@@ -144,6 +154,11 @@ export { DependabotOrganizationSecretRepositoriesArgs, DependabotOrganizationSec
 export type DependabotOrganizationSecretRepositories = import("./dependabotOrganizationSecretRepositories").DependabotOrganizationSecretRepositories;
 export const DependabotOrganizationSecretRepositories: typeof import("./dependabotOrganizationSecretRepositories").DependabotOrganizationSecretRepositories = null as any;
 utilities.lazyLoad(exports, ["DependabotOrganizationSecretRepositories"], () => require("./dependabotOrganizationSecretRepositories"));
+
+export { DependabotOrganizationSecretRepositoryArgs, DependabotOrganizationSecretRepositoryState } from "./dependabotOrganizationSecretRepository";
+export type DependabotOrganizationSecretRepository = import("./dependabotOrganizationSecretRepository").DependabotOrganizationSecretRepository;
+export const DependabotOrganizationSecretRepository: typeof import("./dependabotOrganizationSecretRepository").DependabotOrganizationSecretRepository = null as any;
+utilities.lazyLoad(exports, ["DependabotOrganizationSecretRepository"], () => require("./dependabotOrganizationSecretRepository"));
 
 export { DependabotSecretArgs, DependabotSecretState } from "./dependabotSecret";
 export type DependabotSecret = import("./dependabotSecret").DependabotSecret;
@@ -429,6 +444,11 @@ export { GetReleaseArgs, GetReleaseResult, GetReleaseOutputArgs } from "./getRel
 export const getRelease: typeof import("./getRelease").getRelease = null as any;
 export const getReleaseOutput: typeof import("./getRelease").getReleaseOutput = null as any;
 utilities.lazyLoad(exports, ["getRelease","getReleaseOutput"], () => require("./getRelease"));
+
+export { GetReleaseAssetArgs, GetReleaseAssetResult, GetReleaseAssetOutputArgs } from "./getReleaseAsset";
+export const getReleaseAsset: typeof import("./getReleaseAsset").getReleaseAsset = null as any;
+export const getReleaseAssetOutput: typeof import("./getReleaseAsset").getReleaseAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getReleaseAsset","getReleaseAssetOutput"], () => require("./getReleaseAsset"));
 
 export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
 export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
@@ -810,6 +830,10 @@ const _module = {
                 return new ActionsOrganizationSecretRepository(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
                 return new ActionsOrganizationVariable(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories":
+                return new ActionsOrganizationVariableRepositories(name, <any>undefined, { urn })
+            case "github:index/actionsOrganizationVariableRepository:ActionsOrganizationVariableRepository":
+                return new ActionsOrganizationVariableRepository(name, <any>undefined, { urn })
             case "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions":
                 return new ActionsOrganizationWorkflowPermissions(name, <any>undefined, { urn })
             case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
@@ -848,6 +872,8 @@ const _module = {
                 return new DependabotOrganizationSecret(name, <any>undefined, { urn })
             case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
                 return new DependabotOrganizationSecretRepositories(name, <any>undefined, { urn })
+            case "github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository":
+                return new DependabotOrganizationSecretRepository(name, <any>undefined, { urn })
             case "github:index/dependabotSecret:DependabotSecret":
                 return new DependabotSecret(name, <any>undefined, { urn })
             case "github:index/emuGroupMapping:EmuGroupMapping":
@@ -970,6 +996,8 @@ pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecret
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepositories", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationSecretRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationVariable", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationVariableRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationVariableRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsOrganizationWorkflowPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryAccessLevel", _module)
 pulumi.runtime.registerResourceModule("github", "index/actionsRepositoryOidcSubjectClaimCustomizationTemplate", _module)
@@ -989,6 +1017,7 @@ pulumi.runtime.registerResourceModule("github", "index/codespacesSecret", _modul
 pulumi.runtime.registerResourceModule("github", "index/codespacesUserSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecretRepositories", _module)
+pulumi.runtime.registerResourceModule("github", "index/dependabotOrganizationSecretRepository", _module)
 pulumi.runtime.registerResourceModule("github", "index/dependabotSecret", _module)
 pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsPermissions", _module)
