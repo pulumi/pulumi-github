@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// This resource help you to allow/unallow a repository to use an existing GitHub Actions secrets within your GitHub organization.
+    /// This resource adds permission for a repository to use an actions secret within your GitHub organization.
     /// You must have write access to an organization secret to use this resource.
     /// 
     /// This resource is only applicable when `Visibility` of the existing organization secret has been set to `Selected`.
@@ -25,15 +25,23 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     var example = new Github.ActionsOrganizationSecret("example", new()
     ///     {
-    ///         FullName = "my-org/repo",
+    ///         SecretName = "mysecret",
+    ///         PlaintextValue = "foo",
+    ///         Visibility = "selected",
     ///     });
     /// 
-    ///     var orgSecretRepos = new Github.ActionsOrganizationSecretRepository("org_secret_repos", new()
+    ///     var exampleRepository = new Github.Repository("example", new()
     ///     {
-    ///         SecretName = "EXAMPLE_SECRET_NAME",
-    ///         RepositoryId = repoGithubRepository.RepoId,
+    ///         Name = "myrepo",
+    ///         Visibility = "public",
+    ///     });
+    /// 
+    ///     var exampleActionsOrganizationSecretRepository = new Github.ActionsOrganizationSecretRepository("example", new()
+    ///     {
+    ///         SecretName = example.Name,
+    ///         RepositoryId = exampleRepository.RepoId,
     ///     });
     /// 
     /// });
@@ -41,23 +49,25 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made up of the secret name:
+    /// ### Import Command
+    /// 
+    /// The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository test_secret_repos test_secret_name:repo_id
+    /// $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository")]
     public partial class ActionsOrganizationSecretRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Repository id that can access the organization secret.
+        /// ID of the repository that should be able to access the secret.
         /// </summary>
         [Output("repositoryId")]
         public Output<int> RepositoryId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the existing secret
+        /// Name of the actions organization secret.
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
@@ -109,13 +119,13 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationSecretRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Repository id that can access the organization secret.
+        /// ID of the repository that should be able to access the secret.
         /// </summary>
         [Input("repositoryId", required: true)]
         public Input<int> RepositoryId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the existing secret
+        /// Name of the actions organization secret.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -129,13 +139,13 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationSecretRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Repository id that can access the organization secret.
+        /// ID of the repository that should be able to access the secret.
         /// </summary>
         [Input("repositoryId")]
         public Input<int>? RepositoryId { get; set; }
 
         /// <summary>
-        /// Name of the existing secret
+        /// Name of the actions organization secret.
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

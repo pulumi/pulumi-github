@@ -5,19 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ *
+ * The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret test_secret test_secret_name
+ * $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret
  * ```
- *
- * NOTE: the implementation is limited in that it won't fetch the value of the
- *
- * `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
  */
 export class DependabotOrganizationSecret extends pulumi.CustomResource {
     /**
@@ -48,7 +44,7 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of dependabotSecret creation.
+     * Date the secret was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -56,24 +52,33 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
      */
     declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    declare public readonly keyId: pulumi.Output<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
-     * Name of the secret
+     * Date the secret was last updated in GitHub.
+     */
+    declare public /*out*/ readonly remoteUpdatedAt: pulumi.Output<string>;
+    /**
+     * Name of the secret.
      */
     declare public readonly secretName: pulumi.Output<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      */
     declare public readonly selectedRepositoryIds: pulumi.Output<number[] | undefined>;
     /**
-     * Date of dependabotSecret update.
+     * Date the secret was last updated by the provider.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      */
     declare public readonly visibility: pulumi.Output<string>;
 
@@ -92,7 +97,9 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
             const state = argsOrState as DependabotOrganizationSecretState | undefined;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["encryptedValue"] = state?.encryptedValue;
+            resourceInputs["keyId"] = state?.keyId;
             resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["remoteUpdatedAt"] = state?.remoteUpdatedAt;
             resourceInputs["secretName"] = state?.secretName;
             resourceInputs["selectedRepositoryIds"] = state?.selectedRepositoryIds;
             resourceInputs["updatedAt"] = state?.updatedAt;
@@ -106,11 +113,13 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
                 throw new Error("Missing required property 'visibility'");
             }
             resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
+            resourceInputs["keyId"] = args?.keyId;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["secretName"] = args?.secretName;
             resourceInputs["selectedRepositoryIds"] = args?.selectedRepositoryIds;
             resourceInputs["visibility"] = args?.visibility;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["remoteUpdatedAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,7 +134,7 @@ export class DependabotOrganizationSecret extends pulumi.CustomResource {
  */
 export interface DependabotOrganizationSecretState {
     /**
-     * Date of dependabotSecret creation.
+     * Date the secret was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -133,24 +142,33 @@ export interface DependabotOrganizationSecretState {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * Date the secret was last updated in GitHub.
+     */
+    remoteUpdatedAt?: pulumi.Input<string>;
+    /**
+     * Name of the secret.
      */
     secretName?: pulumi.Input<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Date of dependabotSecret update.
+     * Date the secret was last updated by the provider.
      */
     updatedAt?: pulumi.Input<string>;
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      */
     visibility?: pulumi.Input<string>;
 }
@@ -164,20 +182,25 @@ export interface DependabotOrganizationSecretArgs {
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * Name of the secret.
      */
     secretName: pulumi.Input<string>;
     /**
-     * An array of repository ids that can access the organization secret.
+     * An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release. Please use the `github.DependabotOrganizationSecretRepositories` or `github.DependabotOrganizationSecretRepository` resources to manage repository access to organization secrets.
      */
     selectedRepositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Configures the access that repositories have to the organization secret.
-     * Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+     * Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
      */
     visibility: pulumi.Input<string>;
 }

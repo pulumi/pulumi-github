@@ -13,10 +13,10 @@ namespace Pulumi.Github.Inputs
     public sealed class OrganizationRulesetConditionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Block List, Min: 1, Max: 1) (see below for nested schema)
+        /// (Block List, Max: 1) Required for `Branch` and `Tag` targets. Must NOT be set for `Push` targets. (see below for nested schema)
         /// </summary>
-        [Input("refName", required: true)]
-        public Input<Inputs.OrganizationRulesetConditionsRefNameGetArgs> RefName { get; set; } = null!;
+        [Input("refName")]
+        public Input<Inputs.OrganizationRulesetConditionsRefNameGetArgs>? RefName { get; set; }
 
         [Input("repositoryIds")]
         private InputList<int>? _repositoryIds;
@@ -34,6 +34,8 @@ namespace Pulumi.Github.Inputs
         /// Conflicts with `RepositoryId`. (see below for nested schema)
         /// 
         /// One of `RepositoryId` and `RepositoryName` must be set for the rule to target any repositories.
+        /// 
+        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs.
         /// </summary>
         [Input("repositoryName")]
         public Input<Inputs.OrganizationRulesetConditionsRepositoryNameGetArgs>? RepositoryName { get; set; }

@@ -36,14 +36,14 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<RepositoryRulesetConditionsArgs> conditions;
 
     /**
-     * @return (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
      * 
      */
     public Optional<Output<RepositoryRulesetConditionsArgs>> conditions() {
@@ -235,7 +235,7 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conditions (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+         * @param conditions (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class RepositoryRulesetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conditions (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+         * @param conditions (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
          * 
          * @return builder
          * 

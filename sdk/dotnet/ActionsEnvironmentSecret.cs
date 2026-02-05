@@ -12,13 +12,19 @@ namespace Pulumi.Github
     /// <summary>
     /// ## Import
     /// 
-    /// This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
+    /// ### Import Command
+    /// 
+    /// The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+    /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret")]
     public partial class ActionsEnvironmentSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of ActionsEnvironmentSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -36,10 +42,24 @@ namespace Pulumi.Github
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Output("keyId")]
+        public Output<string> KeyId { get; private set; } = null!;
+
+        /// <summary>
         /// Plaintext value of the secret to be encrypted.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
+
+        /// <summary>
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Output("remoteUpdatedAt")]
+        public Output<string> RemoteUpdatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Name of the repository.
@@ -48,13 +68,19 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the secret.
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// Date of ActionsEnvironmentSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -84,7 +110,6 @@ namespace Pulumi.Github
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "encryptedValue",
                     "plaintextValue",
                 },
             };
@@ -110,21 +135,11 @@ namespace Pulumi.Github
 
     public sealed class ActionsEnvironmentSecretArgs : global::Pulumi.ResourceArgs
     {
-        [Input("encryptedValue")]
-        private Input<string>? _encryptedValue;
-
         /// <summary>
         /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
-        public Input<string>? EncryptedValue
-        {
-            get => _encryptedValue;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _encryptedValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
 
         /// <summary>
         /// Name of the environment.
@@ -132,11 +147,19 @@ namespace Pulumi.Github
         [Input("environment", required: true)]
         public Input<string> Environment { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
         /// Plaintext value of the secret to be encrypted.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -169,26 +192,16 @@ namespace Pulumi.Github
     public sealed class ActionsEnvironmentSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of ActionsEnvironmentSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        [Input("encryptedValue")]
-        private Input<string>? _encryptedValue;
-
         /// <summary>
         /// Encrypted value of the secret using the GitHub public key in Base64 format.
         /// </summary>
-        public Input<string>? EncryptedValue
-        {
-            get => _encryptedValue;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _encryptedValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("encryptedValue")]
+        public Input<string>? EncryptedValue { get; set; }
 
         /// <summary>
         /// Name of the environment.
@@ -196,11 +209,19 @@ namespace Pulumi.Github
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
         /// Plaintext value of the secret to be encrypted.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -213,10 +234,22 @@ namespace Pulumi.Github
         }
 
         /// <summary>
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Input("remoteUpdatedAt")]
+        public Input<string>? RemoteUpdatedAt { get; set; }
+
+        /// <summary>
         /// Name of the repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         /// <summary>
         /// Name of the secret.
@@ -225,7 +258,7 @@ namespace Pulumi.Github
         public Input<string>? SecretName { get; set; }
 
         /// <summary>
-        /// Date of ActionsEnvironmentSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

@@ -80,26 +80,27 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the variable name:
+// ### Import Command
+//
+// The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
 //
 // ```sh
-// $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable test_variable test_variable_name
+// $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
 // ```
 type ActionsOrganizationVariable struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// An array of repository ids that can access the organization variable.
+	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
-	// Date of actionsVariable update.
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringOutput `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringOutput `pulumi:"variableName"`
-	// Configures the access that repositories have to the organization variable.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
 
@@ -142,34 +143,32 @@ func GetActionsOrganizationVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsOrganizationVariable resources.
 type actionsOrganizationVariableState struct {
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// An array of repository ids that can access the organization variable.
+	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Date of actionsVariable update.
+	// Date the variable was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value *string `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName *string `pulumi:"variableName"`
-	// Configures the access that repositories have to the organization variable.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 	Visibility *string `pulumi:"visibility"`
 }
 
 type ActionsOrganizationVariableState struct {
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringPtrInput
-	// An array of repository ids that can access the organization variable.
+	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Date of actionsVariable update.
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringPtrInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringPtrInput
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringPtrInput
-	// Configures the access that repositories have to the organization variable.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringPtrInput
 }
 
@@ -178,27 +177,25 @@ func (ActionsOrganizationVariableState) ElementType() reflect.Type {
 }
 
 type actionsOrganizationVariableArgs struct {
-	// An array of repository ids that can access the organization variable.
+	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
-	// Value of the variable
+	// Value of the variable.
 	Value string `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName string `pulumi:"variableName"`
-	// Configures the access that repositories have to the organization variable.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 	Visibility string `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationVariable resource.
 type ActionsOrganizationVariableArgs struct {
-	// An array of repository ids that can access the organization variable.
+	// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 	SelectedRepositoryIds pulumi.IntArrayInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringInput
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringInput
-	// Configures the access that repositories have to the organization variable.
-	// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+	// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringInput
 }
 
@@ -289,33 +286,32 @@ func (o ActionsOrganizationVariableOutput) ToActionsOrganizationVariableOutputWi
 	return o
 }
 
-// Date of actionsVariable creation.
+// Date the variable was created.
 func (o ActionsOrganizationVariableOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// An array of repository ids that can access the organization variable.
+// An array of repository IDs that can access the organization variable; this requires `visibility` to be set to `selected`.
 func (o ActionsOrganizationVariableOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
 }
 
-// Date of actionsVariable update.
+// Date the variable was last updated.
 func (o ActionsOrganizationVariableOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Value of the variable
+// Value of the variable.
 func (o ActionsOrganizationVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }
 
-// Name of the variable
+// Name of the variable.
 func (o ActionsOrganizationVariableOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.StringOutput { return v.VariableName }).(pulumi.StringOutput)
 }
 
-// Configures the access that repositories have to the organization variable.
-// Must be one of `all`, `private`, `selected`. `selectedRepositoryIds` is required if set to `selected`.
+// Configures the access that repositories have to the organization variable; must be one of `all`, `private`, or `selected`.
 func (o ActionsOrganizationVariableOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationVariable) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
 }

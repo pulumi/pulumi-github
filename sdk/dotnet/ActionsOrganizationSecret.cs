@@ -10,27 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made up of the secret name:
+    /// ### Import Command
+    /// 
+    /// The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret test_secret test_secret_name
+    /// $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
     /// ```
-    /// NOTE: the implementation is limited in that it won't fetch the value of the
-    /// `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/actionsOrganizationSecret:ActionsOrganizationSecret")]
     public partial class ActionsOrganizationSecret : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of ActionsSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Output("destroyOnDrift")]
         public Output<bool?> DestroyOnDrift { get; private set; } = null!;
 
@@ -41,32 +44,43 @@ namespace Pulumi.Github
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Output("keyId")]
+        public Output<string> KeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the secret
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Output("remoteUpdatedAt")]
+        public Output<string> RemoteUpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the secret.
         /// </summary>
         [Output("secretName")]
         public Output<string> SecretName { get; private set; } = null!;
 
         /// <summary>
-        /// An array of repository ids that can access the organization secret.
+        /// An array of repository IDs that can access the organization variable; this requires `Visibility` to be set to `Selected`.
         /// </summary>
         [Output("selectedRepositoryIds")]
         public Output<ImmutableArray<int>> SelectedRepositoryIds { get; private set; } = null!;
 
         /// <summary>
-        /// Date of ActionsSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
+        /// Configures the access that repositories have to the organization secret; must be one of `All`, `Private`, or `Selected`.
         /// </summary>
         [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
@@ -122,6 +136,11 @@ namespace Pulumi.Github
 
     public sealed class ActionsOrganizationSecretArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Input("destroyOnDrift")]
         public Input<bool>? DestroyOnDrift { get; set; }
 
@@ -141,11 +160,17 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -158,7 +183,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the secret
+        /// Name of the secret.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
@@ -167,8 +192,9 @@ namespace Pulumi.Github
         private InputList<int>? _selectedRepositoryIds;
 
         /// <summary>
-        /// An array of repository ids that can access the organization secret.
+        /// An array of repository IDs that can access the organization variable; this requires `Visibility` to be set to `Selected`.
         /// </summary>
+        [Obsolete(@"This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.")]
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
@@ -176,8 +202,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
+        /// Configures the access that repositories have to the organization secret; must be one of `All`, `Private`, or `Selected`.
         /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;
@@ -191,11 +216,16 @@ namespace Pulumi.Github
     public sealed class ActionsOrganizationSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of ActionsSecret creation.
+        /// Date the secret was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// (Optional) This is ignored as drift detection is built into the resource.
+        /// 
+        /// &gt; **Note**: One of either `EncryptedValue` or `PlaintextValue` must be specified.
+        /// </summary>
         [Input("destroyOnDrift")]
         public Input<bool>? DestroyOnDrift { get; set; }
 
@@ -215,11 +245,17 @@ namespace Pulumi.Github
             }
         }
 
+        /// <summary>
+        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
         [Input("plaintextValue")]
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted
+        /// Plaintext value of the secret to be encrypted.
         /// </summary>
         public Input<string>? PlaintextValue
         {
@@ -232,7 +268,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Name of the secret
+        /// Date the secret was last updated in GitHub.
+        /// </summary>
+        [Input("remoteUpdatedAt")]
+        public Input<string>? RemoteUpdatedAt { get; set; }
+
+        /// <summary>
+        /// Name of the secret.
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }
@@ -241,8 +283,9 @@ namespace Pulumi.Github
         private InputList<int>? _selectedRepositoryIds;
 
         /// <summary>
-        /// An array of repository ids that can access the organization secret.
+        /// An array of repository IDs that can access the organization variable; this requires `Visibility` to be set to `Selected`.
         /// </summary>
+        [Obsolete(@"This field is deprecated and will be removed in a future release. Please use the `github.ActionsOrganizationSecretRepositories` or `github.ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.")]
         public InputList<int> SelectedRepositoryIds
         {
             get => _selectedRepositoryIds ?? (_selectedRepositoryIds = new InputList<int>());
@@ -250,14 +293,13 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// Date of ActionsSecret update.
+        /// Date the secret was last updated by the provider.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Configures the access that repositories have to the organization secret.
-        /// Must be one of `All`, `Private`, `Selected`. `SelectedRepositoryIds` is required if set to `Selected`.
+        /// Configures the access that repositories have to the organization secret; must be one of `All`, `Private`, or `Selected`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

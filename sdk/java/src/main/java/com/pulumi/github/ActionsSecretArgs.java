@@ -17,9 +17,29 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ActionsSecretArgs Empty = new ActionsSecretArgs();
 
+    /**
+     * (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     @Import(name="destroyOnDrift")
     private @Nullable Output<Boolean> destroyOnDrift;
 
+    /**
+     * @return (Optional) This is ignored as drift detection is built into the resource.
+     * 
+     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+     * 
+     */
+    @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
     public Optional<Output<Boolean>> destroyOnDrift() {
         return Optional.ofNullable(this.destroyOnDrift);
     }
@@ -40,14 +60,29 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Plaintext value of the secret to be encrypted
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
+    }
+
+    /**
+     * Plaintext value of the secret to be encrypted.
      * 
      */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted
+     * @return Plaintext value of the secret to be encrypted.
      * 
      */
     public Optional<Output<String>> plaintextValue() {
@@ -55,14 +90,14 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the repository
+     * Name of the repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return Name of the repository
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
@@ -70,14 +105,14 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the secret
+     * Name of the secret.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret
+     * @return Name of the secret.
      * 
      */
     public Output<String> secretName() {
@@ -89,6 +124,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
     private ActionsSecretArgs(ActionsSecretArgs $) {
         this.destroyOnDrift = $.destroyOnDrift;
         this.encryptedValue = $.encryptedValue;
+        this.keyId = $.keyId;
         this.plaintextValue = $.plaintextValue;
         this.repository = $.repository;
         this.secretName = $.secretName;
@@ -112,11 +148,35 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ActionsSecretArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(@Nullable Output<Boolean> destroyOnDrift) {
             $.destroyOnDrift = destroyOnDrift;
             return this;
         }
 
+        /**
+         * @param destroyOnDrift (Optional) This is ignored as drift detection is built into the resource.
+         * 
+         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
+         * 
+         */
+        @Deprecated /* This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field. */
         public Builder destroyOnDrift(Boolean destroyOnDrift) {
             return destroyOnDrift(Output.of(destroyOnDrift));
         }
@@ -143,7 +203,28 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
+        }
+
+        /**
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -154,7 +235,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted
+         * @param plaintextValue Plaintext value of the secret to be encrypted.
          * 
          * @return builder
          * 
@@ -164,7 +245,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -175,7 +256,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -185,7 +266,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 
@@ -196,7 +277,7 @@ public final class ActionsSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretName Name of the secret
+         * @param secretName Name of the secret.
          * 
          * @return builder
          * 

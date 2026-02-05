@@ -18,14 +18,14 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
     public static final OrganizationRulesetBypassActorArgs Empty = new OrganizationRulesetBypassActorArgs();
 
     /**
-     * (Number) The ID of the actor that can bypass a ruleset.
+     * (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     @Import(name="actorId")
     private @Nullable Output<Integer> actorId;
 
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset.
+     * @return (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     public Optional<Output<Integer>> actorId() {
@@ -99,7 +99,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset.
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class OrganizationRulesetBypassActorArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param actorId (Number) The ID of the actor that can bypass a ruleset.
+         * @param actorId (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
          * 
          * @return builder
          * 

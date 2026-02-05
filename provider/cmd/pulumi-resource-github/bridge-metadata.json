@@ -90,6 +90,19 @@
                     }
                 }
             },
+            "github_actions_organization_variable_repositories": {
+                "current": "github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories",
+                "majorVersion": 6,
+                "fields": {
+                    "selected_repository_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "github_actions_organization_variable_repository": {
+                "current": "github:index/actionsOrganizationVariableRepository:ActionsOrganizationVariableRepository",
+                "majorVersion": 6
+            },
             "github_actions_organization_workflow_permissions": {
                 "current": "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions",
                 "majorVersion": 6
@@ -321,6 +334,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "github_dependabot_organization_secret_repository": {
+                "current": "github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository",
+                "majorVersion": 6
             },
             "github_dependabot_secret": {
                 "current": "github:index/dependabotSecret:DependabotSecret",
@@ -564,6 +581,19 @@
                                         "fields": {
                                             "allowed_merge_methods": {
                                                 "maxItemsOne": false
+                                            },
+                                            "required_reviewers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "file_patterns": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "reviewer": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -857,6 +887,19 @@
                                         "fields": {
                                             "allowed_merge_methods": {
                                                 "maxItemsOne": false
+                                            },
+                                            "required_reviewers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "file_patterns": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "reviewer": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -1454,6 +1497,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "github_release_asset": {
+                "current": "github:index/getReleaseAsset:getReleaseAsset",
+                "majorVersion": 6
             },
             "github_repositories": {
                 "current": "github:index/getRepositories:getRepositories",

@@ -18,14 +18,14 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
     public static final DependabotOrganizationSecretRepositoriesState Empty = new DependabotOrganizationSecretRepositoriesState();
 
     /**
-     * Name of the existing secret
+     * Name of the Dependabot organization secret.
      * 
      */
     @Import(name="secretName")
     private @Nullable Output<String> secretName;
 
     /**
-     * @return Name of the existing secret
+     * @return Name of the Dependabot organization secret.
      * 
      */
     public Optional<Output<String>> secretName() {
@@ -33,14 +33,14 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
     }
 
     /**
-     * An array of repository ids that can access the organization secret.
+     * List of IDs for the repositories that should be able to access the secret.
      * 
      */
     @Import(name="selectedRepositoryIds")
     private @Nullable Output<List<Integer>> selectedRepositoryIds;
 
     /**
-     * @return An array of repository ids that can access the organization secret.
+     * @return List of IDs for the repositories that should be able to access the secret.
      * 
      */
     public Optional<Output<List<Integer>>> selectedRepositoryIds() {
@@ -73,7 +73,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the Dependabot organization secret.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the Dependabot organization secret.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds List of IDs for the repositories that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds List of IDs for the repositories that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DependabotOrganizationSecretRepositoriesState extends com.pul
         }
 
         /**
-         * @param selectedRepositoryIds An array of repository ids that can access the organization secret.
+         * @param selectedRepositoryIds List of IDs for the repositories that should be able to access the secret.
          * 
          * @return builder
          * 

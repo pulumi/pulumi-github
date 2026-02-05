@@ -68,10 +68,8 @@ import * as utilities from "./utilities";
  *
  * Repositories can be imported using the `name`, e.g.
  *
- * text
- *
  * ```sh
- * $ pulumi import github:index/repository:Repository terraform terraform
+ * $ pulumi import github:index/repository:Repository terraform myrepo
  * ```
  */
 export class Repository extends pulumi.CustomResource {
@@ -107,7 +105,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly allowAutoMerge: pulumi.Output<boolean | undefined>;
     /**
-     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      */
     declare public readonly allowForking: pulumi.Output<boolean>;
     /**
@@ -208,7 +206,9 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly httpCloneUrl: pulumi.Output<string>;
     /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     *
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
      */
     declare public readonly ignoreVulnerabilityAlertsDuringRead: pulumi.Output<boolean | undefined>;
     /**
@@ -295,7 +295,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly visibility: pulumi.Output<string>;
     /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      */
     declare public readonly vulnerabilityAlerts: pulumi.Output<boolean>;
     /**
@@ -429,7 +429,7 @@ export interface RepositoryState {
      */
     allowAutoMerge?: pulumi.Input<boolean>;
     /**
-     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      */
     allowForking?: pulumi.Input<boolean>;
     /**
@@ -530,7 +530,9 @@ export interface RepositoryState {
      */
     httpCloneUrl?: pulumi.Input<string>;
     /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     *
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
      */
     ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
@@ -617,7 +619,7 @@ export interface RepositoryState {
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
     /**
@@ -635,7 +637,7 @@ export interface RepositoryArgs {
      */
     allowAutoMerge?: pulumi.Input<boolean>;
     /**
-     * Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+     * Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
      */
     allowForking?: pulumi.Input<boolean>;
     /**
@@ -720,7 +722,9 @@ export interface RepositoryArgs {
      */
     homepageUrl?: pulumi.Input<string>;
     /**
-     * Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     *
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
      */
     ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
@@ -787,7 +791,7 @@ export interface RepositoryArgs {
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
     /**

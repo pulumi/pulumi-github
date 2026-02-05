@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to manage the repository allow list for existing GitHub Dependabot secrets within your GitHub organization.
+// This resource allows you to manage the repositories allowed to access a Dependabot secret within your GitHub organization.
 // You must have write access to an organization secret to use this resource.
 //
 // This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -31,24 +31,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
-//				FullName: pulumi.StringRef("my-org/repo"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleSecret, err := github.NewDependabotOrganizationSecret(ctx, "example_secret", &github.DependabotOrganizationSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				Visibility:     pulumi.String("private"),
-//				PlaintextValue: pulumi.Any(someSecretString),
+//			example, err := github.NewDependabotOrganizationSecret(ctx, "example", &github.DependabotOrganizationSecretArgs{
+//				SecretName:     pulumi.String("mysecret"),
+//				PlaintextValue: pulumi.String("foo"),
+//				Visibility:     pulumi.String("selected"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewDependabotOrganizationSecretRepositories(ctx, "org_secret_repos", &github.DependabotOrganizationSecretRepositoriesArgs{
-//				SecretName: exampleSecret.SecretName,
+//			exampleRepository, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:       pulumi.String("myrepo"),
+//				Visibility: pulumi.String("public"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewDependabotOrganizationSecretRepositories(ctx, "example", &github.DependabotOrganizationSecretRepositoriesArgs{
+//				SecretName: example.Name,
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
+//					exampleRepository.RepoId,
 //				},
 //			})
 //			if err != nil {
@@ -62,17 +63,19 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the secret name:
+// ### Import Command
+//
+// The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
 //
 // ```sh
-// $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories test_secret_repos test_secret_name
+// $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret
 // ```
 type DependabotOrganizationSecretRepositories struct {
 	pulumi.CustomResourceState
 
-	// Name of the existing secret
+	// Name of the Dependabot organization secret.
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 }
 
@@ -112,16 +115,16 @@ func GetDependabotOrganizationSecretRepositories(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DependabotOrganizationSecretRepositories resources.
 type dependabotOrganizationSecretRepositoriesState struct {
-	// Name of the existing secret
+	// Name of the Dependabot organization secret.
 	SecretName *string `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 }
 
 type DependabotOrganizationSecretRepositoriesState struct {
-	// Name of the existing secret
+	// Name of the Dependabot organization secret.
 	SecretName pulumi.StringPtrInput
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 }
 
@@ -130,17 +133,17 @@ func (DependabotOrganizationSecretRepositoriesState) ElementType() reflect.Type 
 }
 
 type dependabotOrganizationSecretRepositoriesArgs struct {
-	// Name of the existing secret
+	// Name of the Dependabot organization secret.
 	SecretName string `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 }
 
 // The set of arguments for constructing a DependabotOrganizationSecretRepositories resource.
 type DependabotOrganizationSecretRepositoriesArgs struct {
-	// Name of the existing secret
+	// Name of the Dependabot organization secret.
 	SecretName pulumi.StringInput
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 }
 
@@ -231,12 +234,12 @@ func (o DependabotOrganizationSecretRepositoriesOutput) ToDependabotOrganization
 	return o
 }
 
-// Name of the existing secret
+// Name of the Dependabot organization secret.
 func (o DependabotOrganizationSecretRepositoriesOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecretRepositories) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// An array of repository ids that can access the organization secret.
+// List of IDs for the repositories that should be able to access the secret.
 func (o DependabotOrganizationSecretRepositoriesOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DependabotOrganizationSecretRepositories) pulumi.IntArrayOutput {
 		return v.SelectedRepositoryIds

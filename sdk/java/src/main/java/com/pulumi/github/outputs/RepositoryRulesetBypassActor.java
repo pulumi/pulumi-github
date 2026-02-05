@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryRulesetBypassActor {
     /**
-     * @return The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     private @Nullable Integer actorId;
@@ -36,7 +36,7 @@ public final class RepositoryRulesetBypassActor {
 
     private RepositoryRulesetBypassActor() {}
     /**
-     * @return The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+     * @return (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     public Optional<Integer> actorId() {

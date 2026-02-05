@@ -39,6 +39,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionsOrganizationSecretRepository{}
 	case "github:index/actionsOrganizationVariable:ActionsOrganizationVariable":
 		r = &ActionsOrganizationVariable{}
+	case "github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories":
+		r = &ActionsOrganizationVariableRepositories{}
+	case "github:index/actionsOrganizationVariableRepository:ActionsOrganizationVariableRepository":
+		r = &ActionsOrganizationVariableRepository{}
 	case "github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions":
 		r = &ActionsOrganizationWorkflowPermissions{}
 	case "github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel":
@@ -77,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DependabotOrganizationSecret{}
 	case "github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories":
 		r = &DependabotOrganizationSecretRepositories{}
+	case "github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository":
+		r = &DependabotOrganizationSecretRepository{}
 	case "github:index/dependabotSecret:DependabotSecret":
 		r = &DependabotSecret{}
 	case "github:index/emuGroupMapping:EmuGroupMapping":
@@ -263,6 +269,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/actionsOrganizationVariableRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/actionsOrganizationVariableRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/actionsOrganizationWorkflowPermissions",
 		&module{version},
 	)
@@ -354,6 +370,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/dependabotOrganizationSecretRepositories",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/dependabotOrganizationSecretRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

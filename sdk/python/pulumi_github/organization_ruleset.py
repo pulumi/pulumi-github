@@ -33,7 +33,7 @@ class OrganizationRulesetArgs:
         :param pulumi.Input['OrganizationRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input['OrganizationRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input['OrganizationRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         """
         pulumi.set(__self__, "enforcement", enforcement)
@@ -98,7 +98,7 @@ class OrganizationRulesetArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]:
         """
-        (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
@@ -134,7 +134,7 @@ class _OrganizationRulesetState:
         """
         Input properties used for looking up and filtering OrganizationRuleset resources.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input['OrganizationRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input['OrganizationRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
@@ -178,7 +178,7 @@ class _OrganizationRulesetState:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsArgs']]:
         """
-        (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 
@@ -338,16 +338,13 @@ class OrganizationRuleset(pulumi.CustomResource):
                     }],
                 },
             })
-        # Example with push ruleset  
+        # Example with push ruleset
+        # Note: Push targets must NOT have ref_name in conditions, only repository_name or repository_id
         example_push = github.OrganizationRuleset("example_push",
             name="example_push",
             target="push",
             enforcement="active",
             conditions={
-                "ref_name": {
-                    "includes": ["~ALL"],
-                    "excludes": [],
-                },
                 "repository_name": {
                     "includes": ["~ALL"],
                     "excludes": [],
@@ -387,7 +384,7 @@ class OrganizationRuleset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
         :param pulumi.Input[Union['OrganizationRulesetRulesArgs', 'OrganizationRulesetRulesArgsDict']] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
@@ -453,16 +450,13 @@ class OrganizationRuleset(pulumi.CustomResource):
                     }],
                 },
             })
-        # Example with push ruleset  
+        # Example with push ruleset
+        # Note: Push targets must NOT have ref_name in conditions, only repository_name or repository_id
         example_push = github.OrganizationRuleset("example_push",
             name="example_push",
             target="push",
             enforcement="active",
             conditions={
-                "ref_name": {
-                    "includes": ["~ALL"],
-                    "excludes": [],
-                },
                 "repository_name": {
                     "includes": ["~ALL"],
                     "excludes": [],
@@ -571,7 +565,7 @@ class OrganizationRuleset(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
-        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        :param pulumi.Input[Union['OrganizationRulesetConditionsArgs', 'OrganizationRulesetConditionsArgsDict']] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] etag: (String)
         :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
@@ -607,7 +601,7 @@ class OrganizationRuleset(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional['outputs.OrganizationRulesetConditions']]:
         """
-        (Block List, Max: 1) Parameters for an organization ruleset condition. `ref_name` is required alongside one of `repository_name` or `repository_id`. (see below for nested schema)
+        (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         """
         return pulumi.get(self, "conditions")
 

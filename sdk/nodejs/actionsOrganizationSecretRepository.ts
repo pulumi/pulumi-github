@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * This resource help you to allow/unallow a repository to use an existing GitHub Actions secrets within your GitHub organization.
+ * This resource adds permission for a repository to use an actions secret within your GitHub organization.
  * You must have write access to an organization secret to use this resource.
  *
  * This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -16,21 +16,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * const repo = github.getRepository({
- *     fullName: "my-org/repo",
+ * const example = new github.ActionsOrganizationSecret("example", {
+ *     secretName: "mysecret",
+ *     plaintextValue: "foo",
+ *     visibility: "selected",
  * });
- * const orgSecretRepos = new github.ActionsOrganizationSecretRepository("org_secret_repos", {
- *     secretName: "EXAMPLE_SECRET_NAME",
- *     repositoryId: repoGithubRepository.repoId,
+ * const exampleRepository = new github.Repository("example", {
+ *     name: "myrepo",
+ *     visibility: "public",
+ * });
+ * const exampleActionsOrganizationSecretRepository = new github.ActionsOrganizationSecretRepository("example", {
+ *     secretName: example.name,
+ *     repositoryId: exampleRepository.repoId,
  * });
  * ```
  *
  * ## Import
  *
- * This resource can be imported using an ID made up of the secret name:
+ * ### Import Command
+ *
+ * The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository test_secret_repos test_secret_name:repo_id
+ * $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456
  * ```
  */
 export class ActionsOrganizationSecretRepository extends pulumi.CustomResource {
@@ -62,11 +70,11 @@ export class ActionsOrganizationSecretRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      */
     declare public readonly repositoryId: pulumi.Output<number>;
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      */
     declare public readonly secretName: pulumi.Output<string>;
 
@@ -106,11 +114,11 @@ export class ActionsOrganizationSecretRepository extends pulumi.CustomResource {
  */
 export interface ActionsOrganizationSecretRepositoryState {
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      */
     repositoryId?: pulumi.Input<number>;
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      */
     secretName?: pulumi.Input<string>;
 }
@@ -120,11 +128,11 @@ export interface ActionsOrganizationSecretRepositoryState {
  */
 export interface ActionsOrganizationSecretRepositoryArgs {
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      */
     repositoryId: pulumi.Input<number>;
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      */
     secretName: pulumi.Input<string>;
 }

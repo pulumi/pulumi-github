@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// This resource manages mappings between external groups for enterprise managed users and GitHub teams. It wraps the [Teams#ExternalGroups API](https://docs.github.com/en/rest/reference/teams#external-groups). Note that this is a distinct resource from `github.TeamSyncGroupMapping`. `github.EmuGroupMapping` is special to the Enterprise Managed User (EMU) external group feature, whereas `github.TeamSyncGroupMapping` is specific to Identity Provider Groups.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -31,10 +33,10 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub EMU External Group Mappings can be imported using the external `group_id` and `team_slug` separated by a colon, e.g.
+    /// GitHub EMU External Group Mappings can be imported using the `team_slug` and external `group_id` separated by a colon, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
+    /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
     /// ```
     /// </summary>
     [GithubResourceType("github:index/emuGroupMapping:EmuGroupMapping")]
@@ -48,6 +50,18 @@ namespace Pulumi.Github
         /// </summary>
         [Output("groupId")]
         public Output<int> GroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the external group.
+        /// </summary>
+        [Output("groupName")]
+        public Output<string> GroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the GitHub team.
+        /// </summary>
+        [Output("teamId")]
+        public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
         /// Slug of the GitHub team
@@ -129,6 +143,18 @@ namespace Pulumi.Github
         /// </summary>
         [Input("groupId")]
         public Input<int>? GroupId { get; set; }
+
+        /// <summary>
+        /// Name of the external group.
+        /// </summary>
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// ID of the GitHub team.
+        /// </summary>
+        [Input("teamId")]
+        public Input<string>? TeamId { get; set; }
 
         /// <summary>
         /// Slug of the GitHub team

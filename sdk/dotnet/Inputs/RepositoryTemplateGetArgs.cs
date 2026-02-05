@@ -14,6 +14,8 @@ namespace Pulumi.Github.Inputs
     {
         /// <summary>
         /// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+        /// 
+        /// &gt; **Note on `Internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `Private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
         /// </summary>
         [Input("includeAllBranches")]
         public Input<bool>? IncludeAllBranches { get; set; }

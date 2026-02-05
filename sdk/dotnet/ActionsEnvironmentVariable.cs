@@ -23,11 +23,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("example_variable", new()
+    ///     var example = new Github.ActionsEnvironmentVariable("example", new()
     ///     {
-    ///         Environment = "example_environment",
+    ///         Repository = "example-repo",
+    ///         Environment = "example-environment",
     ///         VariableName = "example_variable_name",
-    ///         Value = "example_variable_value",
+    ///         Value = "example-value",
     ///     });
     /// 
     /// });
@@ -41,23 +42,23 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     var example = Github.GetRepository.Invoke(new()
     ///     {
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var repoEnvironment = new Github.RepositoryEnvironment("repo_environment", new()
+    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("example", new()
     ///     {
-    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Repository = example.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
     ///         Environment = "example_environment",
     ///     });
     /// 
-    ///     var exampleVariable = new Github.ActionsEnvironmentVariable("example_variable", new()
+    ///     var exampleActionsEnvironmentVariable = new Github.ActionsEnvironmentVariable("example", new()
     ///     {
-    ///         Repository = repo.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
-    ///         Environment = repoEnvironment.Environment,
+    ///         Repository = example.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
+    ///         Environment = exampleRepositoryEnvironment.Environment,
     ///         VariableName = "example_variable_name",
-    ///         Value = "example_variable_value",
+    ///         Value = "example-value",
     ///     });
     /// 
     /// });
@@ -65,7 +66,9 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
+    /// ### Import Command
+    /// 
+    /// The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_variable` resource named `example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
@@ -75,7 +78,7 @@ namespace Pulumi.Github
     public partial class ActionsEnvironmentVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of ActionsEnvironmentSecret creation.
+        /// Date the variable was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -93,13 +96,19 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Date of ActionsEnvironmentSecret update.
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// Date the variable was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -169,7 +178,7 @@ namespace Pulumi.Github
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -189,7 +198,7 @@ namespace Pulumi.Github
     public sealed class ActionsEnvironmentVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of ActionsEnvironmentSecret creation.
+        /// Date the variable was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -207,13 +216,19 @@ namespace Pulumi.Github
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Date of ActionsEnvironmentSecret update.
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
+
+        /// <summary>
+        /// Date the variable was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

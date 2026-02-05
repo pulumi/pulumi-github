@@ -39,6 +39,36 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Name of the external group.
+     * 
+     */
+    @Import(name="groupName")
+    private @Nullable Output<String> groupName;
+
+    /**
+     * @return Name of the external group.
+     * 
+     */
+    public Optional<Output<String>> groupName() {
+        return Optional.ofNullable(this.groupName);
+    }
+
+    /**
+     * ID of the GitHub team.
+     * 
+     */
+    @Import(name="teamId")
+    private @Nullable Output<String> teamId;
+
+    /**
+     * @return ID of the GitHub team.
+     * 
+     */
+    public Optional<Output<String>> teamId() {
+        return Optional.ofNullable(this.teamId);
+    }
+
+    /**
      * Slug of the GitHub team
      * 
      */
@@ -58,6 +88,8 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
     private EmuGroupMappingState(EmuGroupMappingState $) {
         this.etag = $.etag;
         this.groupId = $.groupId;
+        this.groupName = $.groupName;
+        this.teamId = $.teamId;
         this.teamSlug = $.teamSlug;
     }
 
@@ -107,6 +139,48 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
          */
         public Builder groupId(Integer groupId) {
             return groupId(Output.of(groupId));
+        }
+
+        /**
+         * @param groupName Name of the external group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupName(@Nullable Output<String> groupName) {
+            $.groupName = groupName;
+            return this;
+        }
+
+        /**
+         * @param groupName Name of the external group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupName(String groupName) {
+            return groupName(Output.of(groupName));
+        }
+
+        /**
+         * @param teamId ID of the GitHub team.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder teamId(@Nullable Output<String> teamId) {
+            $.teamId = teamId;
+            return this;
+        }
+
+        /**
+         * @param teamId ID of the GitHub team.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder teamId(String teamId) {
+            return teamId(Output.of(teamId));
         }
 
         /**

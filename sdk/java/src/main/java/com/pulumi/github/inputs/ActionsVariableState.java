@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     public static final ActionsVariableState Empty = new ActionsVariableState();
 
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actionsVariable creation.
+     * @return Date the variable was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -31,14 +32,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the repository
+     * Name of the repository.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return Name of the repository
+     * @return Name of the repository.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -46,14 +47,29 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Date of actionsVariable update.
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
+     * Date the variable was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actionsVariable update.
+     * @return Date the variable was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -61,14 +77,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Optional<Output<String>> value() {
@@ -76,14 +92,14 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the variable
+     * Name of the variable.
      * 
      */
     @Import(name="variableName")
     private @Nullable Output<String> variableName;
 
     /**
-     * @return Name of the variable
+     * @return Name of the variable.
      * 
      */
     public Optional<Output<String>> variableName() {
@@ -95,6 +111,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
     private ActionsVariableState(ActionsVariableState $) {
         this.createdAt = $.createdAt;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.updatedAt = $.updatedAt;
         this.value = $.value;
         this.variableName = $.variableName;
@@ -119,7 +136,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt Date of actionsVariable creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -130,7 +147,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt Date of actionsVariable creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -140,7 +157,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -151,7 +168,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repository Name of the repository
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -161,7 +178,28 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedAt Date of actionsVariable update.
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
+        }
+
+        /**
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -172,7 +210,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedAt Date of actionsVariable update.
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -182,7 +220,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -193,7 +231,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -203,7 +241,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 
@@ -214,7 +252,7 @@ public final class ActionsVariableState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param variableName Name of the variable
+         * @param variableName Name of the variable.
          * 
          * @return builder
          * 

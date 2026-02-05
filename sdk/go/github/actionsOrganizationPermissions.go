@@ -79,6 +79,8 @@ type ActionsOrganizationPermissions struct {
 	EnabledRepositories pulumi.StringOutput `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput `pulumi:"enabledRepositoriesConfig"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	ShaPinningRequired pulumi.BoolOutput `pulumi:"shaPinningRequired"`
 }
 
 // NewActionsOrganizationPermissions registers a new resource with the given unique name, arguments, and options.
@@ -122,6 +124,8 @@ type actionsOrganizationPermissionsState struct {
 	EnabledRepositories *string `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
 type ActionsOrganizationPermissionsState struct {
@@ -133,6 +137,8 @@ type ActionsOrganizationPermissionsState struct {
 	EnabledRepositories pulumi.StringPtrInput
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	ShaPinningRequired pulumi.BoolPtrInput
 }
 
 func (ActionsOrganizationPermissionsState) ElementType() reflect.Type {
@@ -148,6 +154,8 @@ type actionsOrganizationPermissionsArgs struct {
 	EnabledRepositories string `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationPermissions resource.
@@ -160,6 +168,8 @@ type ActionsOrganizationPermissionsArgs struct {
 	EnabledRepositories pulumi.StringInput
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	ShaPinningRequired pulumi.BoolPtrInput
 }
 
 func (ActionsOrganizationPermissionsArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o ActionsOrganizationPermissionsOutput) EnabledRepositoriesConfig() Action
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput {
 		return v.EnabledRepositoriesConfig
 	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
+}
+
+// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+func (o ActionsOrganizationPermissionsOutput) ShaPinningRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.BoolOutput { return v.ShaPinningRequired }).(pulumi.BoolOutput)
 }
 
 type ActionsOrganizationPermissionsArrayOutput struct{ *pulumi.OutputState }

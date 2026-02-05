@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource allows you to manage repository allow list for existing GitHub Actions secrets within your GitHub organization.
+// This resource allows you to manage the repositories allowed to access an actions secret within your GitHub organization.
 // You must have write access to an organization secret to use this resource.
 //
 // This resource is only applicable when `visibility` of the existing organization secret has been set to `selected`.
@@ -31,16 +31,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
-//				FullName: pulumi.StringRef("my-org/repo"),
-//			}, nil)
+//			example, err := github.NewActionsOrganizationSecret(ctx, "example", &github.ActionsOrganizationSecretArgs{
+//				SecretName:     pulumi.String("mysecret"),
+//				PlaintextValue: pulumi.String("foo"),
+//				Visibility:     pulumi.String("selected"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.NewActionsOrganizationSecretRepositories(ctx, "org_secret_repos", &github.ActionsOrganizationSecretRepositoriesArgs{
-//				SecretName: pulumi.String("existing_secret_name"),
+//			exampleRepository, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
+//				Name:       pulumi.String("myrepo"),
+//				Visibility: pulumi.String("public"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewActionsOrganizationSecretRepositories(ctx, "example", &github.ActionsOrganizationSecretRepositoriesArgs{
+//				SecretName: example.Name,
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
+//					exampleRepository.RepoId,
 //				},
 //			})
 //			if err != nil {
@@ -54,17 +63,19 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made up of the secret name:
+// ### Import Command
+//
+// The following command imports the repositories able to access the actions organization secret named `mysecret` to a `github_actions_organization_secret_repositories` resource named `example`.
 //
 // ```sh
-// $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories test_secret_repos test_secret_name
+// $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories example mysecret
 // ```
 type ActionsOrganizationSecretRepositories struct {
 	pulumi.CustomResourceState
 
-	// Name of the existing secret
+	// Name of the actions organization secret.
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 }
 
@@ -104,16 +115,16 @@ func GetActionsOrganizationSecretRepositories(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsOrganizationSecretRepositories resources.
 type actionsOrganizationSecretRepositoriesState struct {
-	// Name of the existing secret
+	// Name of the actions organization secret.
 	SecretName *string `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 }
 
 type ActionsOrganizationSecretRepositoriesState struct {
-	// Name of the existing secret
+	// Name of the actions organization secret.
 	SecretName pulumi.StringPtrInput
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 }
 
@@ -122,17 +133,17 @@ func (ActionsOrganizationSecretRepositoriesState) ElementType() reflect.Type {
 }
 
 type actionsOrganizationSecretRepositoriesArgs struct {
-	// Name of the existing secret
+	// Name of the actions organization secret.
 	SecretName string `pulumi:"secretName"`
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 }
 
 // The set of arguments for constructing a ActionsOrganizationSecretRepositories resource.
 type ActionsOrganizationSecretRepositoriesArgs struct {
-	// Name of the existing secret
+	// Name of the actions organization secret.
 	SecretName pulumi.StringInput
-	// An array of repository ids that can access the organization secret.
+	// List of IDs for the repositories that should be able to access the secret.
 	SelectedRepositoryIds pulumi.IntArrayInput
 }
 
@@ -223,12 +234,12 @@ func (o ActionsOrganizationSecretRepositoriesOutput) ToActionsOrganizationSecret
 	return o
 }
 
-// Name of the existing secret
+// Name of the actions organization secret.
 func (o ActionsOrganizationSecretRepositoriesOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecretRepositories) pulumi.StringOutput { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// An array of repository ids that can access the organization secret.
+// List of IDs for the repositories that should be able to access the secret.
 func (o ActionsOrganizationSecretRepositoriesOutput) SelectedRepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecretRepositories) pulumi.IntArrayOutput { return v.SelectedRepositoryIds }).(pulumi.IntArrayOutput)
 }

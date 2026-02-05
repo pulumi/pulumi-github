@@ -158,14 +158,14 @@ public class RepositoryRuleset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassActors);
     }
     /**
-     * (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+     * (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
      * 
      */
     @Export(name="conditions", refs={RepositoryRulesetConditions.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryRulesetConditions> conditions;
 
     /**
-     * @return (Block List, Max: 1) Parameters for a repository ruleset ref name condition. (see below for nested schema)
+     * @return (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `refName` is required. For `push` targets, `refName` must NOT be set - conditions are optional for push targets. (see below for nested schema)
      * 
      */
     public Output<Optional<RepositoryRulesetConditions>> conditions() {

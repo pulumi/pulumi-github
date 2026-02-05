@@ -14,9 +14,9 @@ namespace Pulumi.Github.Outputs
     public sealed class OrganizationRulesetConditions
     {
         /// <summary>
-        /// (Block List, Min: 1, Max: 1) (see below for nested schema)
+        /// (Block List, Max: 1) Required for `Branch` and `Tag` targets. Must NOT be set for `Push` targets. (see below for nested schema)
         /// </summary>
-        public readonly Outputs.OrganizationRulesetConditionsRefName RefName;
+        public readonly Outputs.OrganizationRulesetConditionsRefName? RefName;
         /// <summary>
         /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `RepositoryName`.
         /// </summary>
@@ -25,12 +25,14 @@ namespace Pulumi.Github.Outputs
         /// Conflicts with `RepositoryId`. (see below for nested schema)
         /// 
         /// One of `RepositoryId` and `RepositoryName` must be set for the rule to target any repositories.
+        /// 
+        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs.
         /// </summary>
         public readonly Outputs.OrganizationRulesetConditionsRepositoryName? RepositoryName;
 
         [OutputConstructor]
         private OrganizationRulesetConditions(
-            Outputs.OrganizationRulesetConditionsRefName refName,
+            Outputs.OrganizationRulesetConditionsRefName? refName,
 
             ImmutableArray<int> repositoryIds,
 

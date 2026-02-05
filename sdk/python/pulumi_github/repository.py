@@ -63,7 +63,7 @@ class RepositoryArgs:
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -86,7 +86,7 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
@@ -103,7 +103,7 @@ class RepositoryArgs:
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         if allow_auto_merge is not None:
@@ -154,6 +154,9 @@ class RepositoryArgs:
             pulumi.set(__self__, "has_wiki", has_wiki)
         if homepage_url is not None:
             pulumi.set(__self__, "homepage_url", homepage_url)
+        if ignore_vulnerability_alerts_during_read is not None:
+            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically.""", DeprecationWarning)
+            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically.""")
         if ignore_vulnerability_alerts_during_read is not None:
             pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
@@ -210,7 +213,7 @@ class RepositoryArgs:
     @pulumi.getter(name="allowForking")
     def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "allow_forking")
 
@@ -451,9 +454,10 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -647,7 +651,7 @@ class RepositoryArgs:
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -722,7 +726,7 @@ class _RepositoryState:
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -749,7 +753,7 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
@@ -771,7 +775,7 @@ class _RepositoryState:
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         if allow_auto_merge is not None:
@@ -830,6 +834,9 @@ class _RepositoryState:
             pulumi.set(__self__, "html_url", html_url)
         if http_clone_url is not None:
             pulumi.set(__self__, "http_clone_url", http_clone_url)
+        if ignore_vulnerability_alerts_during_read is not None:
+            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically.""", DeprecationWarning)
+            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically.""")
         if ignore_vulnerability_alerts_during_read is not None:
             pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
@@ -896,7 +903,7 @@ class _RepositoryState:
     @pulumi.getter(name="allowForking")
     def allow_forking(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "allow_forking")
 
@@ -1185,9 +1192,10 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -1441,7 +1449,7 @@ class _RepositoryState:
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -1567,16 +1575,14 @@ class Repository(pulumi.CustomResource):
 
         Repositories can be imported using the `name`, e.g.
 
-        text
-
         ```sh
-        $ pulumi import github:index/repository:Repository terraform terraform
+        $ pulumi import github:index/repository:Repository terraform myrepo
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1599,7 +1605,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
@@ -1616,7 +1622,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         ...
@@ -1684,10 +1690,8 @@ class Repository(pulumi.CustomResource):
 
         Repositories can be imported using the `name`, e.g.
 
-        text
-
         ```sh
-        $ pulumi import github:index/repository:Repository terraform terraform
+        $ pulumi import github:index/repository:Repository terraform myrepo
         ```
 
         :param str resource_name: The name of the resource.
@@ -1867,7 +1871,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
-        :param pulumi.Input[_builtins.bool] allow_forking: Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
         :param pulumi.Input[_builtins.bool] allow_rebase_merge: Set to `false` to disable rebase merges on the repository.
         :param pulumi.Input[_builtins.bool] allow_squash_merge: Set to `false` to disable squash merges on the repository.
@@ -1894,7 +1898,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
@@ -1916,7 +1920,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1985,7 +1989,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="allowForking")
     def allow_forking(self) -> pulumi.Output[_builtins.bool]:
         """
-        Set to `true` to allow private forking on the repository; this is only relevant if the repository is owned by an organization and is private or internal.
+        Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "allow_forking")
 
@@ -2178,9 +2182,10 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
     def ignore_vulnerability_alerts_during_read(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Set to `true` to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -2350,7 +2355,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="vulnerabilityAlerts")
     def vulnerability_alerts(self) -> pulumi.Output[_builtins.bool]:
         """
-        Set to `true` to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See [GitHub Documentation](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings.
+        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         """
         return pulumi.get(self, "vulnerability_alerts")
 

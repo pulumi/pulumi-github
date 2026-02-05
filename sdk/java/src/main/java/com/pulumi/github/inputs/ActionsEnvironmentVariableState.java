@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
     public static final ActionsEnvironmentVariableState Empty = new ActionsEnvironmentVariableState();
 
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the variable was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret creation.
+     * @return Date the variable was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -61,14 +62,29 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
     }
 
     /**
-     * Date of actionsEnvironmentSecret update.
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
+     * Date the variable was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret update.
+     * @return Date the variable was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -76,14 +92,14 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
     }
 
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Optional<Output<String>> value() {
@@ -111,6 +127,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         this.createdAt = $.createdAt;
         this.environment = $.environment;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.updatedAt = $.updatedAt;
         this.value = $.value;
         this.variableName = $.variableName;
@@ -135,7 +152,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param createdAt Date of actionsEnvironmentSecret creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -146,7 +163,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param createdAt Date of actionsEnvironmentSecret creation.
+         * @param createdAt Date the variable was created.
          * 
          * @return builder
          * 
@@ -198,7 +215,28 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param updatedAt Date of actionsEnvironmentSecret update.
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
+        }
+
+        /**
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -209,7 +247,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param updatedAt Date of actionsEnvironmentSecret update.
+         * @param updatedAt Date the variable was last updated.
          * 
          * @return builder
          * 
@@ -219,7 +257,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 
@@ -230,7 +268,7 @@ public final class ActionsEnvironmentVariableState extends com.pulumi.resources.
         }
 
         /**
-         * @param value Value of the variable
+         * @param value Value of the variable.
          * 
          * @return builder
          * 

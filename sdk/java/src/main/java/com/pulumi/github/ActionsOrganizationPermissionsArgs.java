@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.ActionsOrganizationPermissionsAllowedActionsConfigArgs;
 import com.pulumi.github.inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,6 +79,21 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.enabledRepositoriesConfig);
     }
 
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * 
+     */
+    @Import(name="shaPinningRequired")
+    private @Nullable Output<Boolean> shaPinningRequired;
+
+    /**
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * 
+     */
+    public Optional<Output<Boolean>> shaPinningRequired() {
+        return Optional.ofNullable(this.shaPinningRequired);
+    }
+
     private ActionsOrganizationPermissionsArgs() {}
 
     private ActionsOrganizationPermissionsArgs(ActionsOrganizationPermissionsArgs $) {
@@ -85,6 +101,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         this.allowedActionsConfig = $.allowedActionsConfig;
         this.enabledRepositories = $.enabledRepositories;
         this.enabledRepositoriesConfig = $.enabledRepositoriesConfig;
+        this.shaPinningRequired = $.shaPinningRequired;
     }
 
     public static Builder builder() {
@@ -187,6 +204,27 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
          */
         public Builder enabledRepositoriesConfig(ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs enabledRepositoriesConfig) {
             return enabledRepositoriesConfig(Output.of(enabledRepositoriesConfig));
+        }
+
+        /**
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shaPinningRequired(@Nullable Output<Boolean> shaPinningRequired) {
+            $.shaPinningRequired = shaPinningRequired;
+            return this;
+        }
+
+        /**
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shaPinningRequired(Boolean shaPinningRequired) {
+            return shaPinningRequired(Output.of(shaPinningRequired));
         }
 
         public ActionsOrganizationPermissionsArgs build() {

@@ -14,7 +14,9 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetConditions
     {
         /// <summary>
-        /// (Block List, Min: 1, Max: 1) (see below for nested schema)
+        /// (Block List, Max: 1) Required for `Branch` and `Tag` targets. Must NOT be set for `Push` targets. (see below for nested schema)
+        /// 
+        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs. The `Conditions` block is optional for push targets.
         /// </summary>
         public readonly Outputs.RepositoryRulesetConditionsRefName RefName;
 

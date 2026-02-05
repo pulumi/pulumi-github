@@ -12,6 +12,7 @@ import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ActionsOrganizationPermissionsState;
 import com.pulumi.github.outputs.ActionsOrganizationPermissionsAllowedActionsConfig;
 import com.pulumi.github.outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -138,6 +139,20 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
      */
     public Output<Optional<ActionsOrganizationPermissionsEnabledRepositoriesConfig>> enabledRepositoriesConfig() {
         return Codegen.optional(this.enabledRepositoriesConfig);
+    }
+    /**
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * 
+     */
+    @Export(name="shaPinningRequired", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> shaPinningRequired;
+
+    /**
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * 
+     */
+    public Output<Boolean> shaPinningRequired() {
+        return this.shaPinningRequired;
     }
 
     /**

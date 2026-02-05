@@ -45,23 +45,27 @@ import (
 //
 // ## Import
 //
-// GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+// ### Import Command
+//
+// The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
 //
 // ```sh
-// $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+// $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
 // ```
 type ActionsVariable struct {
 	pulumi.CustomResourceState
 
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Name of the repository
+	// Name of the repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Date of actionsVariable update.
+	// ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringOutput `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringOutput `pulumi:"variableName"`
 }
 
@@ -104,28 +108,32 @@ func GetActionsVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionsVariable resources.
 type actionsVariableState struct {
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Name of the repository
+	// Name of the repository.
 	Repository *string `pulumi:"repository"`
-	// Date of actionsVariable update.
+	// ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
+	// Date the variable was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Value of the variable
+	// Value of the variable.
 	Value *string `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName *string `pulumi:"variableName"`
 }
 
 type ActionsVariableState struct {
-	// Date of actionsVariable creation.
+	// Date the variable was created.
 	CreatedAt pulumi.StringPtrInput
-	// Name of the repository
+	// Name of the repository.
 	Repository pulumi.StringPtrInput
-	// Date of actionsVariable update.
+	// ID of the repository.
+	RepositoryId pulumi.IntPtrInput
+	// Date the variable was last updated.
 	UpdatedAt pulumi.StringPtrInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringPtrInput
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringPtrInput
 }
 
@@ -134,21 +142,21 @@ func (ActionsVariableState) ElementType() reflect.Type {
 }
 
 type actionsVariableArgs struct {
-	// Name of the repository
+	// Name of the repository.
 	Repository string `pulumi:"repository"`
-	// Value of the variable
+	// Value of the variable.
 	Value string `pulumi:"value"`
-	// Name of the variable
+	// Name of the variable.
 	VariableName string `pulumi:"variableName"`
 }
 
 // The set of arguments for constructing a ActionsVariable resource.
 type ActionsVariableArgs struct {
-	// Name of the repository
+	// Name of the repository.
 	Repository pulumi.StringInput
-	// Value of the variable
+	// Value of the variable.
 	Value pulumi.StringInput
-	// Name of the variable
+	// Name of the variable.
 	VariableName pulumi.StringInput
 }
 
@@ -239,27 +247,32 @@ func (o ActionsVariableOutput) ToActionsVariableOutputWithContext(ctx context.Co
 	return o
 }
 
-// Date of actionsVariable creation.
+// Date the variable was created.
 func (o ActionsVariableOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsVariable) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the repository
+// Name of the repository.
 func (o ActionsVariableOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsVariable) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// Date of actionsVariable update.
+// ID of the repository.
+func (o ActionsVariableOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ActionsVariable) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
+}
+
+// Date the variable was last updated.
 func (o ActionsVariableOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsVariable) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Value of the variable
+// Value of the variable.
 func (o ActionsVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsVariable) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }
 
-// Name of the variable
+// Name of the variable.
 func (o ActionsVariableOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsVariable) pulumi.StringOutput { return v.VariableName }).(pulumi.StringOutput)
 }

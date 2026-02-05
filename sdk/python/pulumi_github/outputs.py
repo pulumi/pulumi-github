@@ -47,6 +47,8 @@ __all__ = [
     'OrganizationRulesetRulesMaxFilePathLength',
     'OrganizationRulesetRulesMaxFileSize',
     'OrganizationRulesetRulesPullRequest',
+    'OrganizationRulesetRulesPullRequestRequiredReviewer',
+    'OrganizationRulesetRulesPullRequestRequiredReviewerReviewer',
     'OrganizationRulesetRulesRequiredCodeScanning',
     'OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
     'OrganizationRulesetRulesRequiredStatusChecks',
@@ -77,6 +79,8 @@ __all__ = [
     'RepositoryRulesetRulesMaxFileSize',
     'RepositoryRulesetRulesMergeQueue',
     'RepositoryRulesetRulesPullRequest',
+    'RepositoryRulesetRulesPullRequestRequiredReviewer',
+    'RepositoryRulesetRulesPullRequestRequiredReviewerReviewer',
     'RepositoryRulesetRulesRequiredCodeScanning',
     'RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningTool',
     'RepositoryRulesetRulesRequiredDeployments',
@@ -1197,7 +1201,7 @@ class OrganizationRulesetBypassActor(dict):
                
                - `OrganizationAdmin` > `1`
                - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        :param _builtins.int actor_id: (Number) The ID of the actor that can bypass a ruleset.
+        :param _builtins.int actor_id: (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
         """
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
@@ -1229,7 +1233,7 @@ class OrganizationRulesetBypassActor(dict):
     @pulumi.getter(name="actorId")
     def actor_id(self) -> Optional[_builtins.int]:
         """
-        (Number) The ID of the actor that can bypass a ruleset.
+        (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
         """
         return pulumi.get(self, "actor_id")
 
@@ -1258,17 +1262,20 @@ class OrganizationRulesetConditions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ref_name: 'outputs.OrganizationRulesetConditionsRefName',
+                 ref_name: Optional['outputs.OrganizationRulesetConditionsRefName'] = None,
                  repository_ids: Optional[Sequence[_builtins.int]] = None,
                  repository_name: Optional['outputs.OrganizationRulesetConditionsRepositoryName'] = None):
         """
-        :param 'OrganizationRulesetConditionsRefNameArgs' ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
+        :param 'OrganizationRulesetConditionsRefNameArgs' ref_name: (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
         :param Sequence[_builtins.int] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
         :param 'OrganizationRulesetConditionsRepositoryNameArgs' repository_name: Conflicts with `repository_id`. (see below for nested schema)
                
                One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+               
+               > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
         """
-        pulumi.set(__self__, "ref_name", ref_name)
+        if ref_name is not None:
+            pulumi.set(__self__, "ref_name", ref_name)
         if repository_ids is not None:
             pulumi.set(__self__, "repository_ids", repository_ids)
         if repository_name is not None:
@@ -1276,9 +1283,9 @@ class OrganizationRulesetConditions(dict):
 
     @_builtins.property
     @pulumi.getter(name="refName")
-    def ref_name(self) -> 'outputs.OrganizationRulesetConditionsRefName':
+    def ref_name(self) -> Optional['outputs.OrganizationRulesetConditionsRefName']:
         """
-        (Block List, Min: 1, Max: 1) (see below for nested schema)
+        (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
         """
         return pulumi.get(self, "ref_name")
 
@@ -1297,6 +1304,8 @@ class OrganizationRulesetConditions(dict):
         Conflicts with `repository_id`. (see below for nested schema)
 
         One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+
+        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
         """
         return pulumi.get(self, "repository_name")
 
@@ -2086,6 +2095,8 @@ class OrganizationRulesetRulesPullRequest(dict):
             suggest = "required_approving_review_count"
         elif key == "requiredReviewThreadResolution":
             suggest = "required_review_thread_resolution"
+        elif key == "requiredReviewers":
+            suggest = "required_reviewers"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesPullRequest. Access the value via the '{suggest}' property getter instead.")
@@ -2104,7 +2115,8 @@ class OrganizationRulesetRulesPullRequest(dict):
                  require_code_owner_review: Optional[_builtins.bool] = None,
                  require_last_push_approval: Optional[_builtins.bool] = None,
                  required_approving_review_count: Optional[_builtins.int] = None,
-                 required_review_thread_resolution: Optional[_builtins.bool] = None):
+                 required_review_thread_resolution: Optional[_builtins.bool] = None,
+                 required_reviewers: Optional[Sequence['outputs.OrganizationRulesetRulesPullRequestRequiredReviewer']] = None):
         """
         :param Sequence[_builtins.str] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param _builtins.bool dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -2112,6 +2124,7 @@ class OrganizationRulesetRulesPullRequest(dict):
         :param _builtins.bool require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         :param _builtins.int required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param _builtins.bool required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        :param Sequence['OrganizationRulesetRulesPullRequestRequiredReviewerArgs'] required_reviewers: Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
         """
         if allowed_merge_methods is not None:
             pulumi.set(__self__, "allowed_merge_methods", allowed_merge_methods)
@@ -2125,6 +2138,8 @@ class OrganizationRulesetRulesPullRequest(dict):
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
             pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+        if required_reviewers is not None:
+            pulumi.set(__self__, "required_reviewers", required_reviewers)
 
     @_builtins.property
     @pulumi.getter(name="allowedMergeMethods")
@@ -2173,6 +2188,102 @@ class OrganizationRulesetRulesPullRequest(dict):
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredReviewers")
+    def required_reviewers(self) -> Optional[Sequence['outputs.OrganizationRulesetRulesPullRequestRequiredReviewer']]:
+        """
+        Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+        """
+        return pulumi.get(self, "required_reviewers")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesPullRequestRequiredReviewer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePatterns":
+            suggest = "file_patterns"
+        elif key == "minimumApprovals":
+            suggest = "minimum_approvals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetRulesPullRequestRequiredReviewer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetRulesPullRequestRequiredReviewer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetRulesPullRequestRequiredReviewer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_patterns: Sequence[_builtins.str],
+                 minimum_approvals: _builtins.int,
+                 reviewer: 'outputs.OrganizationRulesetRulesPullRequestRequiredReviewerReviewer'):
+        """
+        :param Sequence[_builtins.str] file_patterns: File patterns (fnmatch syntax) that this reviewer must approve.
+        :param _builtins.int minimum_approvals: Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+        :param 'OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs' reviewer: The reviewer that must review matching files.
+        """
+        pulumi.set(__self__, "file_patterns", file_patterns)
+        pulumi.set(__self__, "minimum_approvals", minimum_approvals)
+        pulumi.set(__self__, "reviewer", reviewer)
+
+    @_builtins.property
+    @pulumi.getter(name="filePatterns")
+    def file_patterns(self) -> Sequence[_builtins.str]:
+        """
+        File patterns (fnmatch syntax) that this reviewer must approve.
+        """
+        return pulumi.get(self, "file_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumApprovals")
+    def minimum_approvals(self) -> _builtins.int:
+        """
+        Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+        """
+        return pulumi.get(self, "minimum_approvals")
+
+    @_builtins.property
+    @pulumi.getter
+    def reviewer(self) -> 'outputs.OrganizationRulesetRulesPullRequestRequiredReviewerReviewer':
+        """
+        The reviewer that must review matching files.
+        """
+        return pulumi.get(self, "reviewer")
+
+
+@pulumi.output_type
+class OrganizationRulesetRulesPullRequestRequiredReviewerReviewer(dict):
+    def __init__(__self__, *,
+                 id: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int id: The ID of the reviewer that must review.
+        :param _builtins.str type: The type of reviewer. Currently only `Team` is supported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        The ID of the reviewer that must review.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of reviewer. Currently only `Team` is supported.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2982,7 +3093,7 @@ class RepositoryRulesetBypassActor(dict):
                
                - `OrganizationAdmin` > `1`
                - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        :param _builtins.int actor_id: The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+        :param _builtins.int actor_id: (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
         """
         pulumi.set(__self__, "actor_type", actor_type)
         pulumi.set(__self__, "bypass_mode", bypass_mode)
@@ -3014,7 +3125,7 @@ class RepositoryRulesetBypassActor(dict):
     @pulumi.getter(name="actorId")
     def actor_id(self) -> Optional[_builtins.int]:
         """
-        The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
         """
         return pulumi.get(self, "actor_id")
 
@@ -3041,7 +3152,9 @@ class RepositoryRulesetConditions(dict):
     def __init__(__self__, *,
                  ref_name: 'outputs.RepositoryRulesetConditionsRefName'):
         """
-        :param 'RepositoryRulesetConditionsRefNameArgs' ref_name: (Block List, Min: 1, Max: 1) (see below for nested schema)
+        :param 'RepositoryRulesetConditionsRefNameArgs' ref_name: (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+               
+               > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
         """
         pulumi.set(__self__, "ref_name", ref_name)
 
@@ -3049,7 +3162,9 @@ class RepositoryRulesetConditions(dict):
     @pulumi.getter(name="refName")
     def ref_name(self) -> 'outputs.RepositoryRulesetConditionsRefName':
         """
-        (Block List, Min: 1, Max: 1) (see below for nested schema)
+        (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+
+        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
         """
         return pulumi.get(self, "ref_name")
 
@@ -3946,6 +4061,8 @@ class RepositoryRulesetRulesPullRequest(dict):
             suggest = "required_approving_review_count"
         elif key == "requiredReviewThreadResolution":
             suggest = "required_review_thread_resolution"
+        elif key == "requiredReviewers":
+            suggest = "required_reviewers"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesPullRequest. Access the value via the '{suggest}' property getter instead.")
@@ -3964,7 +4081,8 @@ class RepositoryRulesetRulesPullRequest(dict):
                  require_code_owner_review: Optional[_builtins.bool] = None,
                  require_last_push_approval: Optional[_builtins.bool] = None,
                  required_approving_review_count: Optional[_builtins.int] = None,
-                 required_review_thread_resolution: Optional[_builtins.bool] = None):
+                 required_review_thread_resolution: Optional[_builtins.bool] = None,
+                 required_reviewers: Optional[Sequence['outputs.RepositoryRulesetRulesPullRequestRequiredReviewer']] = None):
         """
         :param Sequence[_builtins.str] allowed_merge_methods: Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
         :param _builtins.bool dismiss_stale_reviews_on_push: New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
@@ -3972,6 +4090,7 @@ class RepositoryRulesetRulesPullRequest(dict):
         :param _builtins.bool require_last_push_approval: Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
         :param _builtins.int required_approving_review_count: The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
         :param _builtins.bool required_review_thread_resolution: All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+        :param Sequence['RepositoryRulesetRulesPullRequestRequiredReviewerArgs'] required_reviewers: Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
         """
         if allowed_merge_methods is not None:
             pulumi.set(__self__, "allowed_merge_methods", allowed_merge_methods)
@@ -3985,6 +4104,8 @@ class RepositoryRulesetRulesPullRequest(dict):
             pulumi.set(__self__, "required_approving_review_count", required_approving_review_count)
         if required_review_thread_resolution is not None:
             pulumi.set(__self__, "required_review_thread_resolution", required_review_thread_resolution)
+        if required_reviewers is not None:
+            pulumi.set(__self__, "required_reviewers", required_reviewers)
 
     @_builtins.property
     @pulumi.getter(name="allowedMergeMethods")
@@ -4033,6 +4154,102 @@ class RepositoryRulesetRulesPullRequest(dict):
         All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
         """
         return pulumi.get(self, "required_review_thread_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredReviewers")
+    def required_reviewers(self) -> Optional[Sequence['outputs.RepositoryRulesetRulesPullRequestRequiredReviewer']]:
+        """
+        Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+        """
+        return pulumi.get(self, "required_reviewers")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesPullRequestRequiredReviewer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePatterns":
+            suggest = "file_patterns"
+        elif key == "minimumApprovals":
+            suggest = "minimum_approvals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryRulesetRulesPullRequestRequiredReviewer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryRulesetRulesPullRequestRequiredReviewer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryRulesetRulesPullRequestRequiredReviewer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_patterns: Sequence[_builtins.str],
+                 minimum_approvals: _builtins.int,
+                 reviewer: 'outputs.RepositoryRulesetRulesPullRequestRequiredReviewerReviewer'):
+        """
+        :param Sequence[_builtins.str] file_patterns: File patterns (fnmatch syntax) that this reviewer must approve.
+        :param _builtins.int minimum_approvals: Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+        :param 'RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs' reviewer: The reviewer that must review matching files.
+        """
+        pulumi.set(__self__, "file_patterns", file_patterns)
+        pulumi.set(__self__, "minimum_approvals", minimum_approvals)
+        pulumi.set(__self__, "reviewer", reviewer)
+
+    @_builtins.property
+    @pulumi.getter(name="filePatterns")
+    def file_patterns(self) -> Sequence[_builtins.str]:
+        """
+        File patterns (fnmatch syntax) that this reviewer must approve.
+        """
+        return pulumi.get(self, "file_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumApprovals")
+    def minimum_approvals(self) -> _builtins.int:
+        """
+        Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+        """
+        return pulumi.get(self, "minimum_approvals")
+
+    @_builtins.property
+    @pulumi.getter
+    def reviewer(self) -> 'outputs.RepositoryRulesetRulesPullRequestRequiredReviewerReviewer':
+        """
+        The reviewer that must review matching files.
+        """
+        return pulumi.get(self, "reviewer")
+
+
+@pulumi.output_type
+class RepositoryRulesetRulesPullRequestRequiredReviewerReviewer(dict):
+    def __init__(__self__, *,
+                 id: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int id: The ID of the reviewer that must review.
+        :param _builtins.str type: The type of reviewer. Currently only `Team` is supported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        The ID of the reviewer that must review.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of reviewer. Currently only `Team` is supported.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4568,6 +4785,8 @@ class RepositoryTemplate(dict):
         :param _builtins.str owner: The GitHub organization or user the template repository is owned by.
         :param _builtins.str repository: The name of the template repository.
         :param _builtins.bool include_all_branches: Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+               
+               > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
         """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "repository", repository)
@@ -4595,6 +4814,8 @@ class RepositoryTemplate(dict):
     def include_all_branches(self) -> Optional[_builtins.bool]:
         """
         Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+
+        > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
         """
         return pulumi.get(self, "include_all_branches")
 

@@ -7,7 +7,13 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * This resource does not support importing. If you'd like to help contribute it, please visit our GitHub page!
+ * ### Import Command
+ *
+ * The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+ *
+ * ```sh
+ * $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret
+ * ```
  */
 export class ActionsEnvironmentSecret extends pulumi.CustomResource {
     /**
@@ -38,7 +44,7 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the secret was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -50,19 +56,33 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
      */
     declare public readonly environment: pulumi.Output<string>;
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    declare public readonly keyId: pulumi.Output<string>;
+    /**
      * Plaintext value of the secret to be encrypted.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      */
     declare public readonly plaintextValue: pulumi.Output<string | undefined>;
+    /**
+     * Date the secret was last updated in GitHub.
+     */
+    declare public /*out*/ readonly remoteUpdatedAt: pulumi.Output<string>;
     /**
      * Name of the repository.
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
      * Name of the secret.
      */
     declare public readonly secretName: pulumi.Output<string>;
     /**
-     * Date of actionsEnvironmentSecret update.
+     * Date the secret was last updated by the provider.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -82,8 +102,11 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["encryptedValue"] = state?.encryptedValue;
             resourceInputs["environment"] = state?.environment;
+            resourceInputs["keyId"] = state?.keyId;
             resourceInputs["plaintextValue"] = state?.plaintextValue;
+            resourceInputs["remoteUpdatedAt"] = state?.remoteUpdatedAt;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["secretName"] = state?.secretName;
             resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
@@ -97,16 +120,19 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
             if (args?.secretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretName'");
             }
-            resourceInputs["encryptedValue"] = args?.encryptedValue ? pulumi.secret(args.encryptedValue) : undefined;
+            resourceInputs["encryptedValue"] = args?.encryptedValue;
             resourceInputs["environment"] = args?.environment;
+            resourceInputs["keyId"] = args?.keyId;
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["repository"] = args?.repository;
             resourceInputs["secretName"] = args?.secretName;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["remoteUpdatedAt"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["encryptedValue", "plaintextValue"] };
+        const secretOpts = { additionalSecretOutputs: ["plaintextValue"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ActionsEnvironmentSecret.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +143,7 @@ export class ActionsEnvironmentSecret extends pulumi.CustomResource {
  */
 export interface ActionsEnvironmentSecretState {
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the secret was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -129,19 +155,33 @@ export interface ActionsEnvironmentSecretState {
      */
     environment?: pulumi.Input<string>;
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
      * Plaintext value of the secret to be encrypted.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      */
     plaintextValue?: pulumi.Input<string>;
+    /**
+     * Date the secret was last updated in GitHub.
+     */
+    remoteUpdatedAt?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */
     repository?: pulumi.Input<string>;
     /**
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
+    /**
      * Name of the secret.
      */
     secretName?: pulumi.Input<string>;
     /**
-     * Date of actionsEnvironmentSecret update.
+     * Date the secret was last updated by the provider.
      */
     updatedAt?: pulumi.Input<string>;
 }
@@ -159,7 +199,13 @@ export interface ActionsEnvironmentSecretArgs {
      */
     environment: pulumi.Input<string>;
     /**
+     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
      * Plaintext value of the secret to be encrypted.
+     *
+     * > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
      */
     plaintextValue?: pulumi.Input<string>;
     /**

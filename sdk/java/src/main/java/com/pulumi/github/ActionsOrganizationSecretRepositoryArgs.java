@@ -16,14 +16,14 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
     public static final ActionsOrganizationSecretRepositoryArgs Empty = new ActionsOrganizationSecretRepositoryArgs();
 
     /**
-     * Repository id that can access the organization secret.
+     * ID of the repository that should be able to access the secret.
      * 
      */
     @Import(name="repositoryId", required=true)
     private Output<Integer> repositoryId;
 
     /**
-     * @return Repository id that can access the organization secret.
+     * @return ID of the repository that should be able to access the secret.
      * 
      */
     public Output<Integer> repositoryId() {
@@ -31,14 +31,14 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
     }
 
     /**
-     * Name of the existing secret
+     * Name of the actions organization secret.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the existing secret
+     * @return Name of the actions organization secret.
      * 
      */
     public Output<String> secretName() {
@@ -71,7 +71,7 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param repositoryId Repository id that can access the organization secret.
+         * @param repositoryId ID of the repository that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param repositoryId Repository id that can access the organization secret.
+         * @param repositoryId ID of the repository that should be able to access the secret.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the actions organization secret.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ActionsOrganizationSecretRepositoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param secretName Name of the existing secret
+         * @param secretName Name of the actions organization secret.
          * 
          * @return builder
          * 

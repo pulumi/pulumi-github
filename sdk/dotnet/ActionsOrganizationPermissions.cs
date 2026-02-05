@@ -89,6 +89,12 @@ namespace Pulumi.Github
         [Output("enabledRepositoriesConfig")]
         public Output<Outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig?> EnabledRepositoriesConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+        /// </summary>
+        [Output("shaPinningRequired")]
+        public Output<bool> ShaPinningRequired { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ActionsOrganizationPermissions resource with the given unique name, arguments, and options.
@@ -159,6 +165,12 @@ namespace Pulumi.Github
         [Input("enabledRepositoriesConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs>? EnabledRepositoriesConfig { get; set; }
 
+        /// <summary>
+        /// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+        /// </summary>
+        [Input("shaPinningRequired")]
+        public Input<bool>? ShaPinningRequired { get; set; }
+
         public ActionsOrganizationPermissionsArgs()
         {
         }
@@ -190,6 +202,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("enabledRepositoriesConfig")]
         public Input<Inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfigGetArgs>? EnabledRepositoriesConfig { get; set; }
+
+        /// <summary>
+        /// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+        /// </summary>
+        [Input("shaPinningRequired")]
+        public Input<bool>? ShaPinningRequired { get; set; }
 
         public ActionsOrganizationPermissionsState()
         {

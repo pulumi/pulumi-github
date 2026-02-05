@@ -13,7 +13,9 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryRulesetConditionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Block List, Min: 1, Max: 1) (see below for nested schema)
+        /// (Block List, Max: 1) Required for `Branch` and `Tag` targets. Must NOT be set for `Push` targets. (see below for nested schema)
+        /// 
+        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs. The `Conditions` block is optional for push targets.
         /// </summary>
         [Input("refName", required: true)]
         public Input<Inputs.RepositoryRulesetConditionsRefNameArgs> RefName { get; set; } = null!;

@@ -74,6 +74,8 @@ type ActionsRepositoryPermissions struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	ShaPinningRequired pulumi.BoolOutput `pulumi:"shaPinningRequired"`
 }
 
 // NewActionsRepositoryPermissions registers a new resource with the given unique name, arguments, and options.
@@ -117,6 +119,8 @@ type actionsRepositoryPermissionsState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
 type ActionsRepositoryPermissionsState struct {
@@ -128,6 +132,8 @@ type ActionsRepositoryPermissionsState struct {
 	Enabled pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	ShaPinningRequired pulumi.BoolPtrInput
 }
 
 func (ActionsRepositoryPermissionsState) ElementType() reflect.Type {
@@ -143,6 +149,8 @@ type actionsRepositoryPermissionsArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
 // The set of arguments for constructing a ActionsRepositoryPermissions resource.
@@ -155,6 +163,8 @@ type ActionsRepositoryPermissionsArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	ShaPinningRequired pulumi.BoolPtrInput
 }
 
 func (ActionsRepositoryPermissionsArgs) ElementType() reflect.Type {
@@ -264,6 +274,11 @@ func (o ActionsRepositoryPermissionsOutput) Enabled() pulumi.BoolPtrOutput {
 // The GitHub repository
 func (o ActionsRepositoryPermissionsOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRepositoryPermissions) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+func (o ActionsRepositoryPermissionsOutput) ShaPinningRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ActionsRepositoryPermissions) pulumi.BoolOutput { return v.ShaPinningRequired }).(pulumi.BoolOutput)
 }
 
 type ActionsRepositoryPermissionsArrayOutput struct{ *pulumi.OutputState }

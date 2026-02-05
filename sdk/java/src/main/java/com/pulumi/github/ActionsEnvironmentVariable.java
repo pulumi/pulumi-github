@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.ActionsEnvironmentVariableArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.ActionsEnvironmentVariableState;
+import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -41,10 +42,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()
- *             .environment("example_environment")
+ *         var example = new ActionsEnvironmentVariable("example", ActionsEnvironmentVariableArgs.builder()
+ *             .repository("example-repo")
+ *             .environment("example-environment")
  *             .variableName("example_variable_name")
- *             .value("example_variable_value")
+ *             .value("example-value")
  *             .build());
  * 
  *     }
@@ -78,20 +80,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *         final var example = GithubFunctions.getRepository(GetRepositoryArgs.builder()
  *             .fullName("my-org/repo")
  *             .build());
  * 
- *         var repoEnvironment = new RepositoryEnvironment("repoEnvironment", RepositoryEnvironmentArgs.builder()
- *             .repository(repo.name())
+ *         var exampleRepositoryEnvironment = new RepositoryEnvironment("exampleRepositoryEnvironment", RepositoryEnvironmentArgs.builder()
+ *             .repository(example.name())
  *             .environment("example_environment")
  *             .build());
  * 
- *         var exampleVariable = new ActionsEnvironmentVariable("exampleVariable", ActionsEnvironmentVariableArgs.builder()
- *             .repository(repo.name())
- *             .environment(repoEnvironment.environment())
+ *         var exampleActionsEnvironmentVariable = new ActionsEnvironmentVariable("exampleActionsEnvironmentVariable", ActionsEnvironmentVariableArgs.builder()
+ *             .repository(example.name())
+ *             .environment(exampleRepositoryEnvironment.environment())
  *             .variableName("example_variable_name")
- *             .value("example_variable_value")
+ *             .value("example-value")
  *             .build());
  * 
  *     }
@@ -101,7 +103,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and variable name all separated by a `:`.
+ * ### Import Command
+ * 
+ * The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_variable` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable
@@ -111,14 +115,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable")
 public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Date of actionsEnvironmentSecret creation.
+     * Date the variable was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret creation.
+     * @return Date the variable was created.
      * 
      */
     public Output<String> createdAt() {
@@ -153,28 +157,42 @@ public class ActionsEnvironmentVariable extends com.pulumi.resources.CustomResou
         return this.repository;
     }
     /**
-     * Date of actionsEnvironmentSecret update.
+     * ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
+    }
+    /**
+     * Date the variable was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return Date of actionsEnvironmentSecret update.
+     * @return Date the variable was last updated.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * Value of the variable
+     * Value of the variable.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value of the variable
+     * @return Value of the variable.
      * 
      */
     public Output<String> value() {

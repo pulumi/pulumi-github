@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationRulesetBypassActor {
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset.
+     * @return (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     private @Nullable Integer actorId;
@@ -36,7 +36,7 @@ public final class OrganizationRulesetBypassActor {
 
     private OrganizationRulesetBypassActor() {}
     /**
-     * @return (Number) The ID of the actor that can bypass a ruleset.
+     * @return (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
      * 
      */
     public Optional<Integer> actorId() {

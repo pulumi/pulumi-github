@@ -2617,7 +2617,7 @@ func (o IssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) IssueLabelsLabelOu
 }
 
 type OrganizationRulesetBypassActor struct {
-	// (Number) The ID of the actor that can bypass a ruleset.
+	// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
 	ActorId *int `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType string `pulumi:"actorType"`
@@ -2642,7 +2642,7 @@ type OrganizationRulesetBypassActorInput interface {
 }
 
 type OrganizationRulesetBypassActorArgs struct {
-	// (Number) The ID of the actor that can bypass a ruleset.
+	// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
 	ActorId pulumi.IntPtrInput `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
@@ -2706,7 +2706,7 @@ func (o OrganizationRulesetBypassActorOutput) ToOrganizationRulesetBypassActorOu
 	return o
 }
 
-// (Number) The ID of the actor that can bypass a ruleset.
+// (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
 func (o OrganizationRulesetBypassActorOutput) ActorId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetBypassActor) *int { return v.ActorId }).(pulumi.IntPtrOutput)
 }
@@ -2747,13 +2747,15 @@ func (o OrganizationRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) Orga
 }
 
 type OrganizationRulesetConditions struct {
-	// (Block List, Min: 1, Max: 1) (see below for nested schema)
-	RefName OrganizationRulesetConditionsRefName `pulumi:"refName"`
+	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+	RefName *OrganizationRulesetConditionsRefName `pulumi:"refName"`
 	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 	RepositoryIds []int `pulumi:"repositoryIds"`
 	// Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	//
+	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
 	RepositoryName *OrganizationRulesetConditionsRepositoryName `pulumi:"repositoryName"`
 }
 
@@ -2769,13 +2771,15 @@ type OrganizationRulesetConditionsInput interface {
 }
 
 type OrganizationRulesetConditionsArgs struct {
-	// (Block List, Min: 1, Max: 1) (see below for nested schema)
-	RefName OrganizationRulesetConditionsRefNameInput `pulumi:"refName"`
+	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+	RefName OrganizationRulesetConditionsRefNamePtrInput `pulumi:"refName"`
 	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
 	RepositoryIds pulumi.IntArrayInput `pulumi:"repositoryIds"`
 	// Conflicts with `repositoryId`. (see below for nested schema)
 	//
 	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	//
+	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
 	RepositoryName OrganizationRulesetConditionsRepositoryNamePtrInput `pulumi:"repositoryName"`
 }
 
@@ -2856,9 +2860,9 @@ func (o OrganizationRulesetConditionsOutput) ToOrganizationRulesetConditionsPtrO
 	}).(OrganizationRulesetConditionsPtrOutput)
 }
 
-// (Block List, Min: 1, Max: 1) (see below for nested schema)
-func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetConditionsRefNameOutput {
-	return o.ApplyT(func(v OrganizationRulesetConditions) OrganizationRulesetConditionsRefName { return v.RefName }).(OrganizationRulesetConditionsRefNameOutput)
+// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetConditionsRefNamePtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRefName { return v.RefName }).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
 // The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
@@ -2869,6 +2873,8 @@ func (o OrganizationRulesetConditionsOutput) RepositoryIds() pulumi.IntArrayOutp
 // Conflicts with `repositoryId`. (see below for nested schema)
 //
 // One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
 func (o OrganizationRulesetConditionsOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
 		return v.RepositoryName
@@ -2899,13 +2905,13 @@ func (o OrganizationRulesetConditionsPtrOutput) Elem() OrganizationRulesetCondit
 	}).(OrganizationRulesetConditionsOutput)
 }
 
-// (Block List, Min: 1, Max: 1) (see below for nested schema)
+// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
 func (o OrganizationRulesetConditionsPtrOutput) RefName() OrganizationRulesetConditionsRefNamePtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRefName {
 		if v == nil {
 			return nil
 		}
-		return &v.RefName
+		return v.RefName
 	}).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
@@ -2922,6 +2928,8 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryIds() pulumi.IntArrayO
 // Conflicts with `repositoryId`. (see below for nested schema)
 //
 // One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
 func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
 		if v == nil {
@@ -5275,6 +5283,8 @@ type OrganizationRulesetRulesPullRequest struct {
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
 	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
+	// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+	RequiredReviewers []OrganizationRulesetRulesPullRequestRequiredReviewer `pulumi:"requiredReviewers"`
 }
 
 // OrganizationRulesetRulesPullRequestInput is an input type that accepts OrganizationRulesetRulesPullRequestArgs and OrganizationRulesetRulesPullRequestOutput values.
@@ -5301,6 +5311,8 @@ type OrganizationRulesetRulesPullRequestArgs struct {
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
 	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
+	// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+	RequiredReviewers OrganizationRulesetRulesPullRequestRequiredReviewerArrayInput `pulumi:"requiredReviewers"`
 }
 
 func (OrganizationRulesetRulesPullRequestArgs) ElementType() reflect.Type {
@@ -5410,6 +5422,13 @@ func (o OrganizationRulesetRulesPullRequestOutput) RequiredReviewThreadResolutio
 	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
 }
 
+// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+func (o OrganizationRulesetRulesPullRequestOutput) RequiredReviewers() OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequest) []OrganizationRulesetRulesPullRequestRequiredReviewer {
+		return v.RequiredReviewers
+	}).(OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
 type OrganizationRulesetRulesPullRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRulesetRulesPullRequestPtrOutput) ElementType() reflect.Type {
@@ -5492,6 +5511,194 @@ func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResolu
 		}
 		return v.RequiredReviewThreadResolution
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+func (o OrganizationRulesetRulesPullRequestPtrOutput) RequiredReviewers() OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetRulesPullRequest) []OrganizationRulesetRulesPullRequestRequiredReviewer {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredReviewers
+	}).(OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewer struct {
+	// File patterns (fnmatch syntax) that this reviewer must approve.
+	FilePatterns []string `pulumi:"filePatterns"`
+	// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+	MinimumApprovals int `pulumi:"minimumApprovals"`
+	// The reviewer that must review matching files.
+	Reviewer OrganizationRulesetRulesPullRequestRequiredReviewerReviewer `pulumi:"reviewer"`
+}
+
+// OrganizationRulesetRulesPullRequestRequiredReviewerInput is an input type that accepts OrganizationRulesetRulesPullRequestRequiredReviewerArgs and OrganizationRulesetRulesPullRequestRequiredReviewerOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPullRequestRequiredReviewerInput` via:
+//
+//	OrganizationRulesetRulesPullRequestRequiredReviewerArgs{...}
+type OrganizationRulesetRulesPullRequestRequiredReviewerInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerOutput
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerOutputWithContext(context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerOutput
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerArgs struct {
+	// File patterns (fnmatch syntax) that this reviewer must approve.
+	FilePatterns pulumi.StringArrayInput `pulumi:"filePatterns"`
+	// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+	MinimumApprovals pulumi.IntInput `pulumi:"minimumApprovals"`
+	// The reviewer that must review matching files.
+	Reviewer OrganizationRulesetRulesPullRequestRequiredReviewerReviewerInput `pulumi:"reviewer"`
+}
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerArgs) ToOrganizationRulesetRulesPullRequestRequiredReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerOutput {
+	return i.ToOrganizationRulesetRulesPullRequestRequiredReviewerOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerArgs) ToOrganizationRulesetRulesPullRequestRequiredReviewerOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestRequiredReviewerOutput)
+}
+
+// OrganizationRulesetRulesPullRequestRequiredReviewerArrayInput is an input type that accepts OrganizationRulesetRulesPullRequestRequiredReviewerArray and OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPullRequestRequiredReviewerArrayInput` via:
+//
+//	OrganizationRulesetRulesPullRequestRequiredReviewerArray{ OrganizationRulesetRulesPullRequestRequiredReviewerArgs{...} }
+type OrganizationRulesetRulesPullRequestRequiredReviewerArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput() OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerArray []OrganizationRulesetRulesPullRequestRequiredReviewerInput
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerArray) ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput() OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return i.ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerArray) ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerOutput {
+	return o
+}
+
+// File patterns (fnmatch syntax) that this reviewer must approve.
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerOutput) FilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequestRequiredReviewer) []string { return v.FilePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerOutput) MinimumApprovals() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequestRequiredReviewer) int { return v.MinimumApprovals }).(pulumi.IntOutput)
+}
+
+// The reviewer that must review matching files.
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerOutput) Reviewer() OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequestRequiredReviewer) OrganizationRulesetRulesPullRequestRequiredReviewerReviewer {
+		return v.Reviewer
+	}).(OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput)
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput() OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetRulesPullRequestRequiredReviewerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetRulesPullRequestRequiredReviewer {
+		return vs[0].([]OrganizationRulesetRulesPullRequestRequiredReviewer)[vs[1].(int)]
+	}).(OrganizationRulesetRulesPullRequestRequiredReviewerOutput)
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerReviewer struct {
+	// The ID of the reviewer that must review.
+	Id int `pulumi:"id"`
+	// The type of reviewer. Currently only `Team` is supported.
+	Type string `pulumi:"type"`
+}
+
+// OrganizationRulesetRulesPullRequestRequiredReviewerReviewerInput is an input type that accepts OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs and OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput values.
+// You can construct a concrete instance of `OrganizationRulesetRulesPullRequestRequiredReviewerReviewerInput` via:
+//
+//	OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs{...}
+type OrganizationRulesetRulesPullRequestRequiredReviewerReviewerInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput
+	ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs struct {
+	// The ID of the reviewer that must review.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The type of reviewer. Currently only `Team` is supported.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewerReviewer)(nil)).Elem()
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs) ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return i.ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs) ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput)
+}
+
+type OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewerReviewer)(nil)).Elem()
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput() OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o
+}
+
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput) ToOrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(ctx context.Context) OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o
+}
+
+// The ID of the reviewer that must review.
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequestRequiredReviewerReviewer) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The type of reviewer. Currently only `Team` is supported.
+func (o OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetRulesPullRequestRequiredReviewerReviewer) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type OrganizationRulesetRulesRequiredCodeScanning struct {
@@ -7858,7 +8065,7 @@ func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 }
 
 type RepositoryRulesetBypassActor struct {
-	// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
 	ActorId *int `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
 	ActorType string `pulumi:"actorType"`
@@ -7883,7 +8090,7 @@ type RepositoryRulesetBypassActorInput interface {
 }
 
 type RepositoryRulesetBypassActorArgs struct {
-	// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+	// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
 	ActorId pulumi.IntPtrInput `pulumi:"actorId"`
 	// The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
 	ActorType pulumi.StringInput `pulumi:"actorType"`
@@ -7947,7 +8154,7 @@ func (o RepositoryRulesetBypassActorOutput) ToRepositoryRulesetBypassActorOutput
 	return o
 }
 
-// The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+// (Number) The ID of the actor that can bypass a ruleset. If `actorType` is `Integration`, `actorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
 func (o RepositoryRulesetBypassActorOutput) ActorId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RepositoryRulesetBypassActor) *int { return v.ActorId }).(pulumi.IntPtrOutput)
 }
@@ -7988,7 +8195,9 @@ func (o RepositoryRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) Reposi
 }
 
 type RepositoryRulesetConditions struct {
-	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+	//
+	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
 	RefName RepositoryRulesetConditionsRefName `pulumi:"refName"`
 }
 
@@ -8004,7 +8213,9 @@ type RepositoryRulesetConditionsInput interface {
 }
 
 type RepositoryRulesetConditionsArgs struct {
-	// (Block List, Min: 1, Max: 1) (see below for nested schema)
+	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+	//
+	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
 	RefName RepositoryRulesetConditionsRefNameInput `pulumi:"refName"`
 }
 
@@ -8085,7 +8296,9 @@ func (o RepositoryRulesetConditionsOutput) ToRepositoryRulesetConditionsPtrOutpu
 	}).(RepositoryRulesetConditionsPtrOutput)
 }
 
-// (Block List, Min: 1, Max: 1) (see below for nested schema)
+// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
 func (o RepositoryRulesetConditionsOutput) RefName() RepositoryRulesetConditionsRefNameOutput {
 	return o.ApplyT(func(v RepositoryRulesetConditions) RepositoryRulesetConditionsRefName { return v.RefName }).(RepositoryRulesetConditionsRefNameOutput)
 }
@@ -8114,7 +8327,9 @@ func (o RepositoryRulesetConditionsPtrOutput) Elem() RepositoryRulesetConditions
 	}).(RepositoryRulesetConditionsOutput)
 }
 
-// (Block List, Min: 1, Max: 1) (see below for nested schema)
+// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
 func (o RepositoryRulesetConditionsPtrOutput) RefName() RepositoryRulesetConditionsRefNamePtrOutput {
 	return o.ApplyT(func(v *RepositoryRulesetConditions) *RepositoryRulesetConditionsRefName {
 		if v == nil {
@@ -10576,6 +10791,8 @@ type RepositoryRulesetRulesPullRequest struct {
 	RequiredApprovingReviewCount *int `pulumi:"requiredApprovingReviewCount"`
 	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution *bool `pulumi:"requiredReviewThreadResolution"`
+	// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+	RequiredReviewers []RepositoryRulesetRulesPullRequestRequiredReviewer `pulumi:"requiredReviewers"`
 }
 
 // RepositoryRulesetRulesPullRequestInput is an input type that accepts RepositoryRulesetRulesPullRequestArgs and RepositoryRulesetRulesPullRequestOutput values.
@@ -10602,6 +10819,8 @@ type RepositoryRulesetRulesPullRequestArgs struct {
 	RequiredApprovingReviewCount pulumi.IntPtrInput `pulumi:"requiredApprovingReviewCount"`
 	// All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
 	RequiredReviewThreadResolution pulumi.BoolPtrInput `pulumi:"requiredReviewThreadResolution"`
+	// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+	RequiredReviewers RepositoryRulesetRulesPullRequestRequiredReviewerArrayInput `pulumi:"requiredReviewers"`
 }
 
 func (RepositoryRulesetRulesPullRequestArgs) ElementType() reflect.Type {
@@ -10711,6 +10930,13 @@ func (o RepositoryRulesetRulesPullRequestOutput) RequiredReviewThreadResolution(
 	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) *bool { return v.RequiredReviewThreadResolution }).(pulumi.BoolPtrOutput)
 }
 
+// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+func (o RepositoryRulesetRulesPullRequestOutput) RequiredReviewers() RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequest) []RepositoryRulesetRulesPullRequestRequiredReviewer {
+		return v.RequiredReviewers
+	}).(RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
 type RepositoryRulesetRulesPullRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryRulesetRulesPullRequestPtrOutput) ElementType() reflect.Type {
@@ -10793,6 +11019,194 @@ func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewThreadResoluti
 		}
 		return v.RequiredReviewThreadResolution
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+func (o RepositoryRulesetRulesPullRequestPtrOutput) RequiredReviewers() RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o.ApplyT(func(v *RepositoryRulesetRulesPullRequest) []RepositoryRulesetRulesPullRequestRequiredReviewer {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredReviewers
+	}).(RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewer struct {
+	// File patterns (fnmatch syntax) that this reviewer must approve.
+	FilePatterns []string `pulumi:"filePatterns"`
+	// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+	MinimumApprovals int `pulumi:"minimumApprovals"`
+	// The reviewer that must review matching files.
+	Reviewer RepositoryRulesetRulesPullRequestRequiredReviewerReviewer `pulumi:"reviewer"`
+}
+
+// RepositoryRulesetRulesPullRequestRequiredReviewerInput is an input type that accepts RepositoryRulesetRulesPullRequestRequiredReviewerArgs and RepositoryRulesetRulesPullRequestRequiredReviewerOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPullRequestRequiredReviewerInput` via:
+//
+//	RepositoryRulesetRulesPullRequestRequiredReviewerArgs{...}
+type RepositoryRulesetRulesPullRequestRequiredReviewerInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerOutput
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerOutputWithContext(context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerOutput
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerArgs struct {
+	// File patterns (fnmatch syntax) that this reviewer must approve.
+	FilePatterns pulumi.StringArrayInput `pulumi:"filePatterns"`
+	// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+	MinimumApprovals pulumi.IntInput `pulumi:"minimumApprovals"`
+	// The reviewer that must review matching files.
+	Reviewer RepositoryRulesetRulesPullRequestRequiredReviewerReviewerInput `pulumi:"reviewer"`
+}
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerArgs) ToRepositoryRulesetRulesPullRequestRequiredReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerOutput {
+	return i.ToRepositoryRulesetRulesPullRequestRequiredReviewerOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerArgs) ToRepositoryRulesetRulesPullRequestRequiredReviewerOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestRequiredReviewerOutput)
+}
+
+// RepositoryRulesetRulesPullRequestRequiredReviewerArrayInput is an input type that accepts RepositoryRulesetRulesPullRequestRequiredReviewerArray and RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPullRequestRequiredReviewerArrayInput` via:
+//
+//	RepositoryRulesetRulesPullRequestRequiredReviewerArray{ RepositoryRulesetRulesPullRequestRequiredReviewerArgs{...} }
+type RepositoryRulesetRulesPullRequestRequiredReviewerArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput() RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerArray []RepositoryRulesetRulesPullRequestRequiredReviewerInput
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerArray) ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput() RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return i.ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerArray) ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput)
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerOutput {
+	return o
+}
+
+// File patterns (fnmatch syntax) that this reviewer must approve.
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerOutput) FilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequestRequiredReviewer) []string { return v.FilePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerOutput) MinimumApprovals() pulumi.IntOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequestRequiredReviewer) int { return v.MinimumApprovals }).(pulumi.IntOutput)
+}
+
+// The reviewer that must review matching files.
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerOutput) Reviewer() RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequestRequiredReviewer) RepositoryRulesetRulesPullRequestRequiredReviewerReviewer {
+		return v.Reviewer
+	}).(RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput)
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryRulesetRulesPullRequestRequiredReviewer)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput() RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerArrayOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput) Index(i pulumi.IntInput) RepositoryRulesetRulesPullRequestRequiredReviewerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryRulesetRulesPullRequestRequiredReviewer {
+		return vs[0].([]RepositoryRulesetRulesPullRequestRequiredReviewer)[vs[1].(int)]
+	}).(RepositoryRulesetRulesPullRequestRequiredReviewerOutput)
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerReviewer struct {
+	// The ID of the reviewer that must review.
+	Id int `pulumi:"id"`
+	// The type of reviewer. Currently only `Team` is supported.
+	Type string `pulumi:"type"`
+}
+
+// RepositoryRulesetRulesPullRequestRequiredReviewerReviewerInput is an input type that accepts RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs and RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput values.
+// You can construct a concrete instance of `RepositoryRulesetRulesPullRequestRequiredReviewerReviewerInput` via:
+//
+//	RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs{...}
+type RepositoryRulesetRulesPullRequestRequiredReviewerReviewerInput interface {
+	pulumi.Input
+
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput
+	ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs struct {
+	// The ID of the reviewer that must review.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The type of reviewer. Currently only `Team` is supported.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewerReviewer)(nil)).Elem()
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs) ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return i.ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(context.Background())
+}
+
+func (i RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs) ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput)
+}
+
+type RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput struct{ *pulumi.OutputState }
+
+func (RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewerReviewer)(nil)).Elem()
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput() RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o
+}
+
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput) ToRepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutputWithContext(ctx context.Context) RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput {
+	return o
+}
+
+// The ID of the reviewer that must review.
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequestRequiredReviewerReviewer) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The type of reviewer. Currently only `Team` is supported.
+func (o RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryRulesetRulesPullRequestRequiredReviewerReviewer) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type RepositoryRulesetRulesRequiredCodeScanning struct {
@@ -12735,6 +13149,8 @@ func (o RepositorySecurityAndAnalysisSecretScanningPushProtectionPtrOutput) Stat
 
 type RepositoryTemplate struct {
 	// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+	//
+	// > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
 	IncludeAllBranches *bool `pulumi:"includeAllBranches"`
 	// The GitHub organization or user the template repository is owned by.
 	Owner string `pulumi:"owner"`
@@ -12755,6 +13171,8 @@ type RepositoryTemplateInput interface {
 
 type RepositoryTemplateArgs struct {
 	// Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+	//
+	// > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
 	IncludeAllBranches pulumi.BoolPtrInput `pulumi:"includeAllBranches"`
 	// The GitHub organization or user the template repository is owned by.
 	Owner pulumi.StringInput `pulumi:"owner"`
@@ -12840,6 +13258,8 @@ func (o RepositoryTemplateOutput) ToRepositoryTemplatePtrOutputWithContext(ctx c
 }
 
 // Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+//
+// > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
 func (o RepositoryTemplateOutput) IncludeAllBranches() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryTemplate) *bool { return v.IncludeAllBranches }).(pulumi.BoolPtrOutput)
 }
@@ -12879,6 +13299,8 @@ func (o RepositoryTemplatePtrOutput) Elem() RepositoryTemplateOutput {
 }
 
 // Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+//
+// > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
 func (o RepositoryTemplatePtrOutput) IncludeAllBranches() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryTemplate) *bool {
 		if v == nil {
@@ -19184,6 +19606,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesMaxFileSizePtrInput)(nil)).Elem(), OrganizationRulesetRulesMaxFileSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestPtrInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewerInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestRequiredReviewerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewerArrayInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestRequiredReviewerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPullRequestRequiredReviewerReviewerInput)(nil)).Elem(), OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningPtrInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput)(nil)).Elem(), OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{})
@@ -19246,6 +19671,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesMergeQueuePtrInput)(nil)).Elem(), RepositoryRulesetRulesMergeQueueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestPtrInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewerInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestRequiredReviewerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewerArrayInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestRequiredReviewerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesPullRequestRequiredReviewerReviewerInput)(nil)).Elem(), RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningPtrInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolInput)(nil)).Elem(), RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs{})
@@ -19430,6 +19858,9 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetRulesMaxFileSizePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestRequiredReviewerOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestRequiredReviewerArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetRulesPullRequestRequiredReviewerReviewerOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput{})
@@ -19492,6 +19923,9 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryRulesetRulesMergeQueuePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestRequiredReviewerOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestRequiredReviewerArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryRulesetRulesPullRequestRequiredReviewerReviewerOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolOutput{})

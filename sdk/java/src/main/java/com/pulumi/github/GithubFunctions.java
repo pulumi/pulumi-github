@@ -68,6 +68,8 @@ import com.pulumi.github.inputs.GetOrganizationTeamsPlainArgs;
 import com.pulumi.github.inputs.GetRefArgs;
 import com.pulumi.github.inputs.GetRefPlainArgs;
 import com.pulumi.github.inputs.GetReleaseArgs;
+import com.pulumi.github.inputs.GetReleaseAssetArgs;
+import com.pulumi.github.inputs.GetReleaseAssetPlainArgs;
 import com.pulumi.github.inputs.GetReleasePlainArgs;
 import com.pulumi.github.inputs.GetRepositoriesArgs;
 import com.pulumi.github.inputs.GetRepositoriesPlainArgs;
@@ -160,6 +162,7 @@ import com.pulumi.github.outputs.GetOrganizationTeamSyncGroupsResult;
 import com.pulumi.github.outputs.GetOrganizationTeamsResult;
 import com.pulumi.github.outputs.GetOrganizationWebhooksResult;
 import com.pulumi.github.outputs.GetRefResult;
+import com.pulumi.github.outputs.GetReleaseAssetResult;
 import com.pulumi.github.outputs.GetReleaseResult;
 import com.pulumi.github.outputs.GetRepositoriesResult;
 import com.pulumi.github.outputs.GetRepositoryAutolinkReferencesResult;
@@ -12546,6 +12549,461 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release asset.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve a specific release asset from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve a specific release asset from a repository, and download the file
+     * into a `file` attribute on the data source:
+     * 
+     * To retrieve the first release asset associated with the latest release in a repository:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *         final var exampleGetReleaseAsset = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(example.assets()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve all release assets associated with the the latest release in a repository:
+     * 
+     */
+    public static Output<GetReleaseAssetResult> getReleaseAsset(GetReleaseAssetArgs args) {
+        return getReleaseAsset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release asset.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve a specific release asset from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve a specific release asset from a repository, and download the file
+     * into a `file` attribute on the data source:
+     * 
+     * To retrieve the first release asset associated with the latest release in a repository:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *         final var exampleGetReleaseAsset = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(example.assets()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve all release assets associated with the the latest release in a repository:
+     * 
+     */
+    public static CompletableFuture<GetReleaseAssetResult> getReleaseAssetPlain(GetReleaseAssetPlainArgs args) {
+        return getReleaseAssetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release asset.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve a specific release asset from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve a specific release asset from a repository, and download the file
+     * into a `file` attribute on the data source:
+     * 
+     * To retrieve the first release asset associated with the latest release in a repository:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *         final var exampleGetReleaseAsset = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(example.assets()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve all release assets associated with the the latest release in a repository:
+     * 
+     */
+    public static Output<GetReleaseAssetResult> getReleaseAsset(GetReleaseAssetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getReleaseAsset:getReleaseAsset", TypeShape.of(GetReleaseAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release asset.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve a specific release asset from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve a specific release asset from a repository, and download the file
+     * into a `file` attribute on the data source:
+     * 
+     * To retrieve the first release asset associated with the latest release in a repository:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *         final var exampleGetReleaseAsset = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(example.assets()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve all release assets associated with the the latest release in a repository:
+     * 
+     */
+    public static Output<GetReleaseAssetResult> getReleaseAsset(GetReleaseAssetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getReleaseAsset:getReleaseAsset", TypeShape.of(GetReleaseAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a GitHub release asset.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve a specific release asset from a repository based on its ID:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(12345)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve a specific release asset from a repository, and download the file
+     * into a `file` attribute on the data source:
+     * 
+     * To retrieve the first release asset associated with the latest release in a repository:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetReleaseArgs;
+     * import com.pulumi.github.inputs.GetReleaseAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRelease(GetReleaseArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .retrieveBy("latest")
+     *             .build());
+     * 
+     *         final var exampleGetReleaseAsset = GithubFunctions.getReleaseAsset(GetReleaseAssetArgs.builder()
+     *             .repository("example-repository")
+     *             .owner("example-owner")
+     *             .assetId(example.assets()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * To retrieve all release assets associated with the the latest release in a repository:
+     * 
+     */
+    public static CompletableFuture<GetReleaseAssetResult> getReleaseAssetPlain(GetReleaseAssetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getReleaseAsset:getReleaseAsset", TypeShape.of(GetReleaseAssetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **Note:** The data source will return a maximum of `1000` repositories

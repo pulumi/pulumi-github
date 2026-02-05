@@ -23,10 +23,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+ * ### Import Command
+ *
+ * The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
  *
  * ```sh
- * $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+ * $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
  * ```
  */
 export class ActionsVariable extends pulumi.CustomResource {
@@ -58,23 +60,27 @@ export class ActionsVariable extends pulumi.CustomResource {
     }
 
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Name of the repository
+     * Name of the repository.
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
-     * Date of actionsVariable update.
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
+     * Date the variable was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     declare public readonly value: pulumi.Output<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     declare public readonly variableName: pulumi.Output<string>;
 
@@ -93,6 +99,7 @@ export class ActionsVariable extends pulumi.CustomResource {
             const state = argsOrState as ActionsVariableState | undefined;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["updatedAt"] = state?.updatedAt;
             resourceInputs["value"] = state?.value;
             resourceInputs["variableName"] = state?.variableName;
@@ -111,6 +118,7 @@ export class ActionsVariable extends pulumi.CustomResource {
             resourceInputs["value"] = args?.value;
             resourceInputs["variableName"] = args?.variableName;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,23 +131,27 @@ export class ActionsVariable extends pulumi.CustomResource {
  */
 export interface ActionsVariableState {
     /**
-     * Date of actionsVariable creation.
+     * Date the variable was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * Name of the repository
+     * Name of the repository.
      */
     repository?: pulumi.Input<string>;
     /**
-     * Date of actionsVariable update.
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
+    /**
+     * Date the variable was last updated.
      */
     updatedAt?: pulumi.Input<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value?: pulumi.Input<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     variableName?: pulumi.Input<string>;
 }
@@ -149,15 +161,15 @@ export interface ActionsVariableState {
  */
 export interface ActionsVariableArgs {
     /**
-     * Name of the repository
+     * Name of the repository.
      */
     repository: pulumi.Input<string>;
     /**
-     * Value of the variable
+     * Value of the variable.
      */
     value: pulumi.Input<string>;
     /**
-     * Name of the variable
+     * Name of the variable.
      */
     variableName: pulumi.Input<string>;
 }

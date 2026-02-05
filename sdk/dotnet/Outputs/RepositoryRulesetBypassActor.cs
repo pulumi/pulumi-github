@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class RepositoryRulesetBypassActor
     {
         /// <summary>
-        /// The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app)
+        /// (Number) The ID of the actor that can bypass a ruleset. If `ActorType` is `Integration`, `ActorId` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
         /// </summary>
         public readonly int? ActorId;
         /// <summary>

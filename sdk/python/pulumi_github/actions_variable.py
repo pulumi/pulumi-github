@@ -24,9 +24,9 @@ class ActionsVariableArgs:
                  variable_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActionsVariable resource.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "value", value)
@@ -36,7 +36,7 @@ class ActionsVariableArgs:
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the repository
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -48,7 +48,7 @@ class ActionsVariableArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -60,7 +60,7 @@ class ActionsVariableArgs:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -74,21 +74,25 @@ class _ActionsVariableState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  variable_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsVariable resources.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_variable creation.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_variable update.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
+        :param pulumi.Input[_builtins.str] created_at: Date the variable was created.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
+        :param pulumi.Input[_builtins.str] updated_at: Date the variable was last updated.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if updated_at is not None:
             pulumi.set(__self__, "updated_at", updated_at)
         if value is not None:
@@ -100,7 +104,7 @@ class _ActionsVariableState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_variable creation.
+        Date the variable was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -112,7 +116,7 @@ class _ActionsVariableState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the repository
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
 
@@ -121,10 +125,22 @@ class _ActionsVariableState:
         pulumi.set(self, "repository", value)
 
     @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Date of actions_variable update.
+        Date the variable was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -136,7 +152,7 @@ class _ActionsVariableState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -148,7 +164,7 @@ class _ActionsVariableState:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -185,17 +201,19 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+        ### Import Command
+
+        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+        $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
         """
         ...
     @overload
@@ -221,10 +239,12 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Import
 
-        GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+        ### Import Command
+
+        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
 
         ```sh
-        $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+        $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,6 +284,7 @@ class ActionsVariable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'variable_name'")
             __props__.__dict__["variable_name"] = variable_name
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["repository_id"] = None
             __props__.__dict__["updated_at"] = None
         super(ActionsVariable, __self__).__init__(
             'github:index/actionsVariable:ActionsVariable',
@@ -277,6 +298,7 @@ class ActionsVariable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             updated_at: Optional[pulumi.Input[_builtins.str]] = None,
             value: Optional[pulumi.Input[_builtins.str]] = None,
             variable_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionsVariable':
@@ -287,11 +309,12 @@ class ActionsVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Date of actions_variable creation.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository
-        :param pulumi.Input[_builtins.str] updated_at: Date of actions_variable update.
-        :param pulumi.Input[_builtins.str] value: Value of the variable
-        :param pulumi.Input[_builtins.str] variable_name: Name of the variable
+        :param pulumi.Input[_builtins.str] created_at: Date the variable was created.
+        :param pulumi.Input[_builtins.str] repository: Name of the repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
+        :param pulumi.Input[_builtins.str] updated_at: Date the variable was last updated.
+        :param pulumi.Input[_builtins.str] value: Value of the variable.
+        :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,6 +322,7 @@ class ActionsVariable(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["value"] = value
         __props__.__dict__["variable_name"] = variable_name
@@ -308,7 +332,7 @@ class ActionsVariable(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_variable creation.
+        Date the variable was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -316,15 +340,23 @@ class ActionsVariable(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the repository
+        Name of the repository.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date of actions_variable update.
+        Date the variable was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -332,7 +364,7 @@ class ActionsVariable(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
         """
-        Value of the variable
+        Value of the variable.
         """
         return pulumi.get(self, "value")
 
@@ -340,7 +372,7 @@ class ActionsVariable(pulumi.CustomResource):
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the variable
+        Name of the variable.
         """
         return pulumi.get(self, "variable_name")
 

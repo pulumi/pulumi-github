@@ -35,41 +35,49 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Actions variables can be imported using an ID made up of `repository:variable_name`, e.g.
+    /// ### Import Command
+    /// 
+    /// The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/actionsVariable:ActionsVariable myvariable myrepo:myvariable
+    /// $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
     /// ```
     /// </summary>
     [GithubResourceType("github:index/actionsVariable:ActionsVariable")]
     public partial class ActionsVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date of ActionsVariable creation.
+        /// Date the variable was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the repository
+        /// Name of the repository.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Date of ActionsVariable update.
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// Date the variable was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the variable
+        /// Name of the variable.
         /// </summary>
         [Output("variableName")]
         public Output<string> VariableName { get; private set; } = null!;
@@ -121,19 +129,19 @@ namespace Pulumi.Github
     public sealed class ActionsVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the repository
+        /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
         /// <summary>
-        /// Name of the variable
+        /// Name of the variable.
         /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;
@@ -147,31 +155,37 @@ namespace Pulumi.Github
     public sealed class ActionsVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date of ActionsVariable creation.
+        /// Date the variable was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Name of the repository
+        /// Name of the repository.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         /// <summary>
-        /// Date of ActionsVariable update.
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
+
+        /// <summary>
+        /// Date the variable was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Value of the variable
+        /// Value of the variable.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// Name of the variable
+        /// Name of the variable.
         /// </summary>
         [Input("variableName")]
         public Input<string>? VariableName { get; set; }
