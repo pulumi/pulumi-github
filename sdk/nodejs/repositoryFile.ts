@@ -8,12 +8,13 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Existing Branch
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const foo = new github.Repository("foo", {
- *     name: "tf-acc-test-%s",
+ *     name: "example",
  *     autoInit: true,
  * });
  * const fooRepositoryFile = new github.RepositoryFile("foo", {
@@ -29,12 +30,13 @@ import * as utilities from "./utilities";
  * ```
  *
  * ### Auto Created Branch
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
  * const foo = new github.Repository("foo", {
- *     name: "tf-acc-test-%s",
+ *     name: "example",
  *     autoInit: true,
  * });
  * const fooRepositoryFile = new github.RepositoryFile("foo", {
@@ -52,15 +54,16 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Repository files can be imported using a combination of the `repo` and `file`, e.g.
+ * Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
  *
  * ```sh
- * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
  * ```
- * To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+ *
+ * and using default branch:
  *
  * ```sh
- * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
  * ```
  */
 export class RepositoryFile extends pulumi.CustomResource {
@@ -92,22 +95,28 @@ export class RepositoryFile extends pulumi.CustomResource {
     }
 
     /**
-     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     declare public readonly autocreateBranch: pulumi.Output<boolean | undefined>;
     /**
-     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     * **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     declare public readonly autocreateBranchSourceBranch: pulumi.Output<string | undefined>;
     /**
-     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     * **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     declare public readonly autocreateBranchSourceSha: pulumi.Output<string>;
     /**
      * Git branch (defaults to the repository's default branch).
      * The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
      */
-    declare public readonly branch: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
      */
@@ -145,6 +154,10 @@ export class RepositoryFile extends pulumi.CustomResource {
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
+     * The ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
      * The SHA blob of the file.
      */
     declare public /*out*/ readonly sha: pulumi.Output<string>;
@@ -175,6 +188,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             resourceInputs["overwriteOnCreate"] = state?.overwriteOnCreate;
             resourceInputs["ref"] = state?.ref;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["sha"] = state?.sha;
         } else {
             const args = argsOrState as RepositoryFileArgs | undefined;
@@ -200,6 +214,7 @@ export class RepositoryFile extends pulumi.CustomResource {
             resourceInputs["repository"] = args?.repository;
             resourceInputs["commitSha"] = undefined /*out*/;
             resourceInputs["ref"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["sha"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -212,15 +227,21 @@ export class RepositoryFile extends pulumi.CustomResource {
  */
 export interface RepositoryFileState {
     /**
-     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranch?: pulumi.Input<boolean>;
     /**
-     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     * **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranchSourceBranch?: pulumi.Input<string>;
     /**
-     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     * **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranchSourceSha?: pulumi.Input<string>;
     /**
@@ -265,6 +286,10 @@ export interface RepositoryFileState {
      */
     repository?: pulumi.Input<string>;
     /**
+     * The ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
+    /**
      * The SHA blob of the file.
      */
     sha?: pulumi.Input<string>;
@@ -275,15 +300,21 @@ export interface RepositoryFileState {
  */
 export interface RepositoryFileArgs {
     /**
-     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+     * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranch?: pulumi.Input<boolean>;
     /**
-     * The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+     * **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranchSourceBranch?: pulumi.Input<string>;
     /**
-     * The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+     * **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
+     *
+     * @deprecated Use `github.Branch` resource instead
      */
     autocreateBranchSourceSha?: pulumi.Input<string>;
     /**

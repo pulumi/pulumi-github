@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,46 +18,70 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     public static final RepositoryFileState Empty = new RepositoryFileState();
 
     /**
-     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Import(name="autocreateBranch")
     private @Nullable Output<Boolean> autocreateBranch;
 
     /**
-     * @return Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * @return **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     public Optional<Output<Boolean>> autocreateBranch() {
         return Optional.ofNullable(this.autocreateBranch);
     }
 
     /**
-     * The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Import(name="autocreateBranchSourceBranch")
     private @Nullable Output<String> autocreateBranchSourceBranch;
 
     /**
-     * @return The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * @return **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     public Optional<Output<String>> autocreateBranchSourceBranch() {
         return Optional.ofNullable(this.autocreateBranchSourceBranch);
     }
 
     /**
-     * The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Import(name="autocreateBranchSourceSha")
     private @Nullable Output<String> autocreateBranchSourceSha;
 
     /**
-     * @return The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * @return **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     public Optional<Output<String>> autocreateBranchSourceSha() {
         return Optional.ofNullable(this.autocreateBranchSourceSha);
     }
@@ -214,6 +239,21 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
      * The SHA blob of the file.
      * 
      */
@@ -244,6 +284,7 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         this.overwriteOnCreate = $.overwriteOnCreate;
         this.ref = $.ref;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.sha = $.sha;
     }
 
@@ -266,64 +307,88 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autocreateBranch Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+         * @param autocreateBranch **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranch(@Nullable Output<Boolean> autocreateBranch) {
             $.autocreateBranch = autocreateBranch;
             return this;
         }
 
         /**
-         * @param autocreateBranch Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+         * @param autocreateBranch **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranch(Boolean autocreateBranch) {
             return autocreateBranch(Output.of(autocreateBranch));
         }
 
         /**
-         * @param autocreateBranchSourceBranch The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+         * @param autocreateBranchSourceBranch **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranchSourceBranch(@Nullable Output<String> autocreateBranchSourceBranch) {
             $.autocreateBranchSourceBranch = autocreateBranchSourceBranch;
             return this;
         }
 
         /**
-         * @param autocreateBranchSourceBranch The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+         * @param autocreateBranchSourceBranch **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranchSourceBranch(String autocreateBranchSourceBranch) {
             return autocreateBranchSourceBranch(Output.of(autocreateBranchSourceBranch));
         }
 
         /**
-         * @param autocreateBranchSourceSha The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+         * @param autocreateBranchSourceSha **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranchSourceSha(@Nullable Output<String> autocreateBranchSourceSha) {
             $.autocreateBranchSourceSha = autocreateBranchSourceSha;
             return this;
         }
 
         /**
-         * @param autocreateBranchSourceSha The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+         * @param autocreateBranchSourceSha **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `github.Branch` resource instead
+         * 
          */
+        @Deprecated /* Use `github.Branch` resource instead */
         public Builder autocreateBranchSourceSha(String autocreateBranchSourceSha) {
             return autocreateBranchSourceSha(Output.of(autocreateBranchSourceSha));
         }
@@ -538,6 +603,27 @@ public final class RepositoryFileState extends com.pulumi.resources.ResourceArgs
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
         }
 
         /**

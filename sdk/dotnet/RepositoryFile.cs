@@ -13,6 +13,7 @@ namespace Pulumi.Github
     /// ## Example Usage
     /// 
     /// ### Existing Branch
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,7 +24,7 @@ namespace Pulumi.Github
     /// {
     ///     var foo = new Github.Repository("foo", new()
     ///     {
-    ///         Name = "tf-acc-test-%s",
+    ///         Name = "example",
     ///         AutoInit = true,
     ///     });
     /// 
@@ -43,6 +44,7 @@ namespace Pulumi.Github
     /// ```
     /// 
     /// ### Auto Created Branch
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +55,7 @@ namespace Pulumi.Github
     /// {
     ///     var foo = new Github.Repository("foo", new()
     ///     {
-    ///         Name = "tf-acc-test-%s",
+    ///         Name = "example",
     ///         AutoInit = true,
     ///     });
     /// 
@@ -75,34 +77,35 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository files can be imported using a combination of the `repo` and `file`, e.g.
+    /// Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
     /// ```
-    /// To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+    /// 
+    /// and using default branch:
     /// 
     /// ```sh
-    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+    /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
     /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryFile:RepositoryFile")]
     public partial class RepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
         /// </summary>
         [Output("autocreateBranch")]
         public Output<bool?> AutocreateBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
         /// </summary>
         [Output("autocreateBranchSourceBranch")]
         public Output<string?> AutocreateBranchSourceBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
         /// </summary>
         [Output("autocreateBranchSourceSha")]
         public Output<string> AutocreateBranchSourceSha { get; private set; } = null!;
@@ -112,7 +115,7 @@ namespace Pulumi.Github
         /// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         /// </summary>
         [Output("branch")]
-        public Output<string?> Branch { get; private set; } = null!;
+        public Output<string> Branch { get; private set; } = null!;
 
         /// <summary>
         /// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -169,6 +172,12 @@ namespace Pulumi.Github
         public Output<string> Repository { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
         /// The SHA blob of the file.
         /// </summary>
         [Output("sha")]
@@ -221,19 +230,19 @@ namespace Pulumi.Github
     public sealed class RepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranch")]
         public Input<bool>? AutocreateBranch { get; set; }
 
         /// <summary>
-        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranchSourceBranch")]
         public Input<string>? AutocreateBranchSourceBranch { get; set; }
 
         /// <summary>
-        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranchSourceSha")]
         public Input<string>? AutocreateBranchSourceSha { get; set; }
@@ -296,19 +305,19 @@ namespace Pulumi.Github
     public sealed class RepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        /// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranch")]
         public Input<bool>? AutocreateBranch { get; set; }
 
         /// <summary>
-        /// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        /// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranchSourceBranch")]
         public Input<string>? AutocreateBranchSourceBranch { get; set; }
 
         /// <summary>
-        /// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        /// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `github.Branch` resource instead.
         /// </summary>
         [Input("autocreateBranchSourceSha")]
         public Input<string>? AutocreateBranchSourceSha { get; set; }
@@ -373,6 +382,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         /// <summary>
         /// The SHA blob of the file.

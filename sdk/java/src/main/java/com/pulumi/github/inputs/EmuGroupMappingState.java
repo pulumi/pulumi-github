@@ -58,13 +58,13 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="teamId")
-    private @Nullable Output<String> teamId;
+    private @Nullable Output<Integer> teamId;
 
     /**
      * @return ID of the GitHub team.
      * 
      */
-    public Optional<Output<String>> teamId() {
+    public Optional<Output<Integer>> teamId() {
         return Optional.ofNullable(this.teamId);
     }
 
@@ -168,7 +168,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder teamId(@Nullable Output<String> teamId) {
+        public Builder teamId(@Nullable Output<Integer> teamId) {
             $.teamId = teamId;
             return this;
         }
@@ -179,7 +179,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder teamId(String teamId) {
+        public Builder teamId(Integer teamId) {
             return teamId(Output.of(teamId));
         }
 
