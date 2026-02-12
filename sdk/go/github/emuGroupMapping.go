@@ -57,7 +57,7 @@ type EmuGroupMapping struct {
 	// Name of the external group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// ID of the GitHub team.
-	TeamId pulumi.StringOutput `pulumi:"teamId"`
+	TeamId pulumi.IntOutput `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
 }
@@ -104,7 +104,7 @@ type emuGroupMappingState struct {
 	// Name of the external group.
 	GroupName *string `pulumi:"groupName"`
 	// ID of the GitHub team.
-	TeamId *string `pulumi:"teamId"`
+	TeamId *int `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug *string `pulumi:"teamSlug"`
 }
@@ -116,7 +116,7 @@ type EmuGroupMappingState struct {
 	// Name of the external group.
 	GroupName pulumi.StringPtrInput
 	// ID of the GitHub team.
-	TeamId pulumi.StringPtrInput
+	TeamId pulumi.IntPtrInput
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringPtrInput
 }
@@ -242,8 +242,8 @@ func (o EmuGroupMappingOutput) GroupName() pulumi.StringOutput {
 }
 
 // ID of the GitHub team.
-func (o EmuGroupMappingOutput) TeamId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+func (o EmuGroupMappingOutput) TeamId() pulumi.IntOutput {
+	return o.ApplyT(func(v *EmuGroupMapping) pulumi.IntOutput { return v.TeamId }).(pulumi.IntOutput)
 }
 
 // Slug of the GitHub team

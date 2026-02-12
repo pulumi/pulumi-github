@@ -61,7 +61,7 @@ namespace Pulumi.Github
         /// ID of the GitHub team.
         /// </summary>
         [Output("teamId")]
-        public Output<string> TeamId { get; private set; } = null!;
+        public Output<int> TeamId { get; private set; } = null!;
 
         /// <summary>
         /// Slug of the GitHub team
@@ -154,7 +154,7 @@ namespace Pulumi.Github
         /// ID of the GitHub team.
         /// </summary>
         [Input("teamId")]
-        public Input<string>? TeamId { get; set; }
+        public Input<int>? TeamId { get; set; }
 
         /// <summary>
         /// Slug of the GitHub team

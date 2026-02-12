@@ -100,14 +100,14 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
      * ID of the GitHub team.
      * 
      */
-    @Export(name="teamId", refs={String.class}, tree="[0]")
-    private Output<String> teamId;
+    @Export(name="teamId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> teamId;
 
     /**
      * @return ID of the GitHub team.
      * 
      */
-    public Output<String> teamId() {
+    public Output<Integer> teamId() {
         return this.teamId;
     }
     /**

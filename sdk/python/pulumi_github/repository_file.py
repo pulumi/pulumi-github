@@ -35,9 +35,9 @@ class RepositoryFileArgs:
         :param pulumi.Input[_builtins.str] content: The file content.
         :param pulumi.Input[_builtins.str] file: The path of the file to manage.
         :param pulumi.Input[_builtins.str] repository: The repository to create the file in.
-        :param pulumi.Input[_builtins.bool] autocreate_branch: Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -49,9 +49,18 @@ class RepositoryFileArgs:
         pulumi.set(__self__, "file", file)
         pulumi.set(__self__, "repository", repository)
         if autocreate_branch is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch is deprecated: Use `Branch` resource instead""")
+        if autocreate_branch is not None:
             pulumi.set(__self__, "autocreate_branch", autocreate_branch)
         if autocreate_branch_source_branch is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch_source_branch is deprecated: Use `Branch` resource instead""")
+        if autocreate_branch_source_branch is not None:
             pulumi.set(__self__, "autocreate_branch_source_branch", autocreate_branch_source_branch)
+        if autocreate_branch_source_sha is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch_source_sha is deprecated: Use `Branch` resource instead""")
         if autocreate_branch_source_sha is not None:
             pulumi.set(__self__, "autocreate_branch_source_sha", autocreate_branch_source_sha)
         if branch is not None:
@@ -103,9 +112,10 @@ class RepositoryFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch")
 
@@ -115,9 +125,10 @@ class RepositoryFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_branch")
 
@@ -127,9 +138,10 @@ class RepositoryFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceSha")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_sha")
 
@@ -215,12 +227,13 @@ class _RepositoryFileState:
                  overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
                  ref: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  sha: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryFile resources.
-        :param pulumi.Input[_builtins.bool] autocreate_branch: Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -232,12 +245,22 @@ class _RepositoryFileState:
         :param pulumi.Input[_builtins.bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         :param pulumi.Input[_builtins.str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[_builtins.str] repository: The repository to create the file in.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[_builtins.str] sha: The SHA blob of the file.
         """
         if autocreate_branch is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch is deprecated: Use `Branch` resource instead""")
+        if autocreate_branch is not None:
             pulumi.set(__self__, "autocreate_branch", autocreate_branch)
         if autocreate_branch_source_branch is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch_source_branch is deprecated: Use `Branch` resource instead""")
+        if autocreate_branch_source_branch is not None:
             pulumi.set(__self__, "autocreate_branch_source_branch", autocreate_branch_source_branch)
+        if autocreate_branch_source_sha is not None:
+            warnings.warn("""Use `Branch` resource instead""", DeprecationWarning)
+            pulumi.log.warn("""autocreate_branch_source_sha is deprecated: Use `Branch` resource instead""")
         if autocreate_branch_source_sha is not None:
             pulumi.set(__self__, "autocreate_branch_source_sha", autocreate_branch_source_sha)
         if branch is not None:
@@ -260,14 +283,17 @@ class _RepositoryFileState:
             pulumi.set(__self__, "ref", ref)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if sha is not None:
             pulumi.set(__self__, "sha", sha)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch")
 
@@ -277,9 +303,10 @@ class _RepositoryFileState:
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_branch")
 
@@ -289,9 +316,10 @@ class _RepositoryFileState:
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceSha")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_sha(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_sha")
 
@@ -421,6 +449,18 @@ class _RepositoryFileState:
         pulumi.set(self, "repository", value)
 
     @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def sha(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -455,12 +495,13 @@ class RepositoryFile(pulumi.CustomResource):
         ## Example Usage
 
         ### Existing Branch
+
         ```python
         import pulumi
         import pulumi_github as github
 
         foo = github.Repository("foo",
-            name="tf-acc-test-%s",
+            name="example",
             auto_init=True)
         foo_repository_file = github.RepositoryFile("foo",
             repository=foo.name,
@@ -474,12 +515,13 @@ class RepositoryFile(pulumi.CustomResource):
         ```
 
         ### Auto Created Branch
+
         ```python
         import pulumi
         import pulumi_github as github
 
         foo = github.Repository("foo",
-            name="tf-acc-test-%s",
+            name="example",
             auto_init=True)
         foo_repository_file = github.RepositoryFile("foo",
             repository=foo.name,
@@ -495,22 +537,23 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Import
 
-        Repository files can be imported using a combination of the `repo` and `file`, e.g.
+        Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
 
         ```sh
-        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
         ```
-        To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+
+        and using default branch:
 
         ```sh
-        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] autocreate_branch: Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -531,12 +574,13 @@ class RepositoryFile(pulumi.CustomResource):
         ## Example Usage
 
         ### Existing Branch
+
         ```python
         import pulumi
         import pulumi_github as github
 
         foo = github.Repository("foo",
-            name="tf-acc-test-%s",
+            name="example",
             auto_init=True)
         foo_repository_file = github.RepositoryFile("foo",
             repository=foo.name,
@@ -550,12 +594,13 @@ class RepositoryFile(pulumi.CustomResource):
         ```
 
         ### Auto Created Branch
+
         ```python
         import pulumi
         import pulumi_github as github
 
         foo = github.Repository("foo",
-            name="tf-acc-test-%s",
+            name="example",
             auto_init=True)
         foo_repository_file = github.RepositoryFile("foo",
             repository=foo.name,
@@ -571,15 +616,16 @@ class RepositoryFile(pulumi.CustomResource):
 
         ## Import
 
-        Repository files can be imported using a combination of the `repo` and `file`, e.g.
+        Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
 
         ```sh
-        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
         ```
-        To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+
+        and using default branch:
 
         ```sh
-        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+        $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
         ```
 
         :param str resource_name: The name of the resource.
@@ -636,6 +682,7 @@ class RepositoryFile(pulumi.CustomResource):
             __props__.__dict__["repository"] = repository
             __props__.__dict__["commit_sha"] = None
             __props__.__dict__["ref"] = None
+            __props__.__dict__["repository_id"] = None
             __props__.__dict__["sha"] = None
         super(RepositoryFile, __self__).__init__(
             'github:index/repositoryFile:RepositoryFile',
@@ -660,6 +707,7 @@ class RepositoryFile(pulumi.CustomResource):
             overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
             ref: Optional[pulumi.Input[_builtins.str]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             sha: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryFile':
         """
         Get an existing RepositoryFile resource's state with the given name, id, and optional extra
@@ -668,9 +716,9 @@ class RepositoryFile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] autocreate_branch: Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
-        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+        :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] branch: Git branch (defaults to the repository's default branch).
                The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
         :param pulumi.Input[_builtins.str] commit_author: Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -682,6 +730,7 @@ class RepositoryFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] overwrite_on_create: Enable overwriting existing files. If set to `true` it will overwrite an existing file with the same name. If set to `false` it will fail if there is an existing file with the same name.
         :param pulumi.Input[_builtins.str] ref: The name of the commit/branch/tag.
         :param pulumi.Input[_builtins.str] repository: The repository to create the file in.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[_builtins.str] sha: The SHA blob of the file.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -701,36 +750,40 @@ class RepositoryFile(pulumi.CustomResource):
         __props__.__dict__["overwrite_on_create"] = overwrite_on_create
         __props__.__dict__["ref"] = ref
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["sha"] = sha
         return RepositoryFile(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+        **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch")
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceBranch")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_branch(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+        **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_branch")
 
     @_builtins.property
     @pulumi.getter(name="autocreateBranchSourceSha")
+    @_utilities.deprecated("""Use `Branch` resource instead""")
     def autocreate_branch_source_sha(self) -> pulumi.Output[_builtins.str]:
         """
-        The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+        **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
         """
         return pulumi.get(self, "autocreate_branch_source_sha")
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def branch(self) -> pulumi.Output[_builtins.str]:
         """
         Git branch (defaults to the repository's default branch).
         The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -808,6 +861,14 @@ class RepositoryFile(pulumi.CustomResource):
         The repository to create the file in.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter

@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // ### Existing Branch
+//
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := github.NewRepository(ctx, "foo", &github.RepositoryArgs{
-//				Name:     pulumi.String("tf-acc-test-%s"),
+//				Name:     pulumi.String("example"),
 //				AutoInit: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -54,6 +55,7 @@ import (
 // ```
 //
 // ### Auto Created Branch
+//
 // ```go
 // package main
 //
@@ -67,7 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := github.NewRepository(ctx, "foo", &github.RepositoryArgs{
-//				Name:     pulumi.String("tf-acc-test-%s"),
+//				Name:     pulumi.String("example"),
 //				AutoInit: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -95,28 +97,35 @@ import (
 //
 // ## Import
 //
-// Repository files can be imported using a combination of the `repo` and `file`, e.g.
+// Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
 //
 // ```sh
-// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
 // ```
-// To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+//
+// and using default branch:
 //
 // ```sh
-// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
 // ```
 type RepositoryFile struct {
 	pulumi.CustomResourceState
 
-	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranch pulumi.BoolPtrOutput `pulumi:"autocreateBranch"`
-	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceBranch pulumi.StringPtrOutput `pulumi:"autocreateBranchSourceBranch"`
-	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringOutput `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
-	Branch pulumi.StringPtrOutput `pulumi:"branch"`
+	Branch pulumi.StringOutput `pulumi:"branch"`
 	// Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
 	CommitAuthor pulumi.StringPtrOutput `pulumi:"commitAuthor"`
 	// Committer email address to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.
@@ -135,6 +144,8 @@ type RepositoryFile struct {
 	Ref pulumi.StringOutput `pulumi:"ref"`
 	// The repository to create the file in.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 	// The SHA blob of the file.
 	Sha pulumi.StringOutput `pulumi:"sha"`
 }
@@ -178,11 +189,17 @@ func GetRepositoryFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryFile resources.
 type repositoryFileState struct {
-	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranch *bool `pulumi:"autocreateBranch"`
-	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceBranch *string `pulumi:"autocreateBranchSourceBranch"`
-	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -205,16 +222,24 @@ type repositoryFileState struct {
 	Ref *string `pulumi:"ref"`
 	// The repository to create the file in.
 	Repository *string `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 	// The SHA blob of the file.
 	Sha *string `pulumi:"sha"`
 }
 
 type RepositoryFileState struct {
-	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranch pulumi.BoolPtrInput
-	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceBranch pulumi.StringPtrInput
-	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringPtrInput
 	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -237,6 +262,8 @@ type RepositoryFileState struct {
 	Ref pulumi.StringPtrInput
 	// The repository to create the file in.
 	Repository pulumi.StringPtrInput
+	// The ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 	// The SHA blob of the file.
 	Sha pulumi.StringPtrInput
 }
@@ -246,11 +273,17 @@ func (RepositoryFileState) ElementType() reflect.Type {
 }
 
 type repositoryFileArgs struct {
-	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranch *bool `pulumi:"autocreateBranch"`
-	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceBranch *string `pulumi:"autocreateBranchSourceBranch"`
-	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha *string `pulumi:"autocreateBranchSourceSha"`
 	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -273,11 +306,17 @@ type repositoryFileArgs struct {
 
 // The set of arguments for constructing a RepositoryFile resource.
 type RepositoryFileArgs struct {
-	// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+	// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranch pulumi.BoolPtrInput
-	// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+	// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceBranch pulumi.StringPtrInput
-	// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+	// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+	//
+	// Deprecated: Use `Branch` resource instead
 	AutocreateBranchSourceSha pulumi.StringPtrInput
 	// Git branch (defaults to the repository's default branch).
 	// The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
@@ -385,25 +424,31 @@ func (o RepositoryFileOutput) ToRepositoryFileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'.
+// **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
+//
+// Deprecated: Use `Branch` resource instead
 func (o RepositoryFileOutput) AutocreateBranch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.BoolPtrOutput { return v.AutocreateBranch }).(pulumi.BoolPtrOutput)
 }
 
-// The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'.
+// **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
+//
+// Deprecated: Use `Branch` resource instead
 func (o RepositoryFileOutput) AutocreateBranchSourceBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.AutocreateBranchSourceBranch }).(pulumi.StringPtrOutput)
 }
 
-// The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored.
+// **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
+//
+// Deprecated: Use `Branch` resource instead
 func (o RepositoryFileOutput) AutocreateBranchSourceSha() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.AutocreateBranchSourceSha }).(pulumi.StringOutput)
 }
 
 // Git branch (defaults to the repository's default branch).
 // The branch must already exist, it will only be created automatically if 'autocreate_branch' is set true.
-func (o RepositoryFileOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryFile) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+func (o RepositoryFileOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }
 
 // Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -449,6 +494,11 @@ func (o RepositoryFileOutput) Ref() pulumi.StringOutput {
 // The repository to create the file in.
 func (o RepositoryFileOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryFile) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The ID of the repository.
+func (o RepositoryFileOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryFile) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
 }
 
 // The SHA blob of the file.

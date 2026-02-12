@@ -67,7 +67,7 @@ export class EmuGroupMapping extends pulumi.CustomResource {
     /**
      * ID of the GitHub team.
      */
-    declare public /*out*/ readonly teamId: pulumi.Output<string>;
+    declare public /*out*/ readonly teamId: pulumi.Output<number>;
     /**
      * Slug of the GitHub team
      */
@@ -126,7 +126,7 @@ export interface EmuGroupMappingState {
     /**
      * ID of the GitHub team.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<number>;
     /**
      * Slug of the GitHub team
      */

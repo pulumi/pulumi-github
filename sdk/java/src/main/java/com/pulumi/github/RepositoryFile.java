@@ -11,6 +11,7 @@ import com.pulumi.github.RepositoryFileArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryFileState;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,6 +20,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ### Existing Branch
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -44,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .name("tf-acc-test-%s")
+ *             .name("example")
  *             .autoInit(true)
  *             .build());
  * 
@@ -65,6 +67,7 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ### Auto Created Branch
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -90,7 +93,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .name("tf-acc-test-%s")
+ *             .name("example")
  *             .autoInit(true)
  *             .build());
  * 
@@ -113,57 +116,70 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Repository files can be imported using a combination of the `repo` and `file`, e.g.
+ * Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
  * 
  * ```sh
- * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch
  * ```
- * To import a file from a branch other than the default branch, append `:` and the branch name, e.g.
+ * 
+ * and using default branch:
  * 
  * ```sh
- * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example/.gitignore:dev
+ * $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
  * ```
  * 
  */
 @ResourceType(type="github:index/repositoryFile:RepositoryFile")
 public class RepositoryFile extends com.pulumi.resources.CustomResource {
     /**
-     * Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Export(name="autocreateBranch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autocreateBranch;
 
     /**
-     * @return Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;.
+     * @return **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from &#39;autocreate_branch_source_branch&#39;. Use the `github.Branch` resource instead.
      * 
      */
     public Output<Optional<Boolean>> autocreateBranch() {
         return Codegen.optional(this.autocreateBranch);
     }
     /**
-     * The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Export(name="autocreateBranchSourceBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autocreateBranchSourceBranch;
 
     /**
-     * @return The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;.
+     * @return **Deprecated** The branch name to start from, if &#39;autocreate_branch&#39; is set. Defaults to &#39;main&#39;. Use the `github.Branch` resource instead.
      * 
      */
     public Output<Optional<String>> autocreateBranchSourceBranch() {
         return Codegen.optional(this.autocreateBranchSourceBranch);
     }
     /**
-     * The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
+     * 
+     * @deprecated
+     * Use `github.Branch` resource instead
      * 
      */
+    @Deprecated /* Use `github.Branch` resource instead */
     @Export(name="autocreateBranchSourceSha", refs={String.class}, tree="[0]")
     private Output<String> autocreateBranchSourceSha;
 
     /**
-     * @return The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored.
+     * @return **Deprecated** The commit hash to start from, if &#39;autocreate_branch&#39; is set. Defaults to the tip of &#39;autocreate_branch_source_branch&#39;. If provided, &#39;autocreate_branch_source_branch&#39; is ignored. Use the `github.Branch` resource instead.
      * 
      */
     public Output<String> autocreateBranchSourceSha() {
@@ -175,15 +191,15 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="branch", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> branch;
+    private Output<String> branch;
 
     /**
      * @return Git branch (defaults to the repository&#39;s default branch).
      * The branch must already exist, it will only be created automatically if &#39;autocreate_branch&#39; is set true.
      * 
      */
-    public Output<Optional<String>> branch() {
-        return Codegen.optional(this.branch);
+    public Output<String> branch() {
+        return this.branch;
     }
     /**
      * Committer author name to use. **NOTE:** GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.
@@ -310,6 +326,20 @@ public class RepositoryFile extends com.pulumi.resources.CustomResource {
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * The ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
     }
     /**
      * The SHA blob of the file.
