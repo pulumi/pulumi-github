@@ -68,12 +68,6 @@ import javax.annotation.Nullable;
  * 
  * GitHub Team Organization Role Assignment can be imported using an ID made up of `team_slug:role_id`
  * 
- * text
- * 
- * ```sh
- * $ pulumi import github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment role_assignment test-team:8132
- * ```
- * 
  */
 @ResourceType(type="github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment")
 public class OrganizationRoleTeamAssignment extends com.pulumi.resources.CustomResource {

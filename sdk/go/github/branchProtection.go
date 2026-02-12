@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Protects a GitHub branch.
+//
+// This resource allows you to configure branch protection for repositories in your organization. When applied, the branch will be protected from forced pushes and deletion. Additional constraints, such as required status checks or restrictions on users, teams, and apps, can also be configured.
+//
+// Note: for the `pushAllowances` a given user or team must have specific write access to the repository. If specific write access not provided, github will reject the given actor, which will be the cause of terraform drift.
+//
 // ## Example Usage
 //
 // ```go

@@ -201,9 +201,11 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using an ID made of the repository name, and variable name separated by a `:`.
+
         ### Import Command
 
-        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
+        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `ActionsVariable` resource named `example`.
 
         ```sh
         $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
@@ -239,9 +241,11 @@ class ActionsVariable(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using an ID made of the repository name, and variable name separated by a `:`.
+
         ### Import Command
 
-        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `github_actions_variable` resource named `example`.
+        The following command imports a GitHub actions variable named `myvariable` for the repo `myrepo` to a `ActionsVariable` resource named `example`.
 
         ```sh
         $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable

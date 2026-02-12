@@ -10,6 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// This resource allows you to create and manage files within a
+    /// GitHub repository.
+    /// 
+    /// &gt; **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Existing Branch
@@ -77,7 +82,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository files can be imported using a combination of the `repo`, `file` and `branch` or empty branch for the default branch, e.g.
+    /// Repository files can be imported using a combination of the `Repo`, `File` and `Branch` or empty branch for the default branch, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:feature-branch

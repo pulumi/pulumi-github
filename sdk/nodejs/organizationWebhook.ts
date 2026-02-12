@@ -35,6 +35,7 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import github:index/organizationWebhook:OrganizationWebhook terraform 123456789
  * ```
+ *
  * If secret is populated in the webhook's configuration, the value will be imported as "********".
  */
 export class OrganizationWebhook extends pulumi.CustomResource {

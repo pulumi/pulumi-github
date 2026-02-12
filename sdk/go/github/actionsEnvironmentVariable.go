@@ -86,9 +86,11 @@ import (
 //
 // ## Import
 //
+// This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and variable name all separated by a `:`.
+//
 // ### Import Command
 //
-// The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_variable` resource named `example`.
+// The following command imports a GitHub actions environment variable named `myvariable` for the repo `myrepo` and environment `myenv` to a `ActionsEnvironmentVariable` resource named `example`.
 //
 // ```sh
 // $ pulumi import github:index/actionsEnvironmentVariable:ActionsEnvironmentVariable example myrepo:myenv:myvariable

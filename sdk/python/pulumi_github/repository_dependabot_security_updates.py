@@ -126,6 +126,8 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
 
         ## Import
 
+        Automated security references can be imported using the `name` of the repository
+
         ### Import by name
 
         ```sh
@@ -165,6 +167,8 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         ```
 
         ## Import
+
+        Automated security references can be imported using the `name` of the repository
 
         ### Import by name
 

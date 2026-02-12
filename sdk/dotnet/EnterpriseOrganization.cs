@@ -40,7 +40,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Enterprise Organization can be imported using the `slug` of the enterprise, combined with the `orgname` of the organization, separated by a `/` character.
+    /// GitHub Enterprise Organization can be imported using the `Slug` of the enterprise, combined with the `Orgname` of the organization, separated by a `/` character.
     /// 
     /// ```sh
     /// $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org

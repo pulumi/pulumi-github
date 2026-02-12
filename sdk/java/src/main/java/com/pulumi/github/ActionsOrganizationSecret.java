@@ -18,11 +18,152 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * This resource allows you to create and manage GitHub Actions secrets within your GitHub organization.
+ * You must have write access to a repository to use this resource.
+ * 
+ * Secret values are encrypted using the [Go &#39;/crypto/box&#39; module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+ * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+ * 
+ * For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+ * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+ * It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+ * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+ * in your code. See below for an example of this abstraction.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplePlaintext = new ActionsOrganizationSecret("examplePlaintext", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("all")
+ *             .plaintextValue(someSecretString)
+ *             .build());
+ * 
+ *         var exampleEncrypted = new ActionsOrganizationSecret("exampleEncrypted", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("all")
+ *             .encryptedValue(someEncryptedSecretString)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.GithubFunctions;
+ * import com.pulumi.github.inputs.GetRepositoryArgs;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var repo = GithubFunctions.getRepository(GetRepositoryArgs.builder()
+ *             .fullName("my-org/repo")
+ *             .build());
+ * 
+ *         var exampleEncrypted = new ActionsOrganizationSecret("exampleEncrypted", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("selected")
+ *             .plaintextValue(someSecretString)
+ *             .selectedRepositoryIds(repo.repoId())
+ *             .build());
+ * 
+ *         var exampleSecret = new ActionsOrganizationSecret("exampleSecret", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("selected")
+ *             .encryptedValue(someEncryptedSecretString)
+ *             .selectedRepositoryIds(repo.repoId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Example Lifecycle Ignore Changes
+ * 
+ * This resource supports using the `lifecycle` `ignoreChanges` block on `remoteUpdatedAt` to support use cases where a secret value is created using a placeholder value and then modified after creation outside the scope of Terraform. This approach ensures only the initial placeholder value is referenced in your code and in the resulting state file.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.ActionsOrganizationSecret;
+ * import com.pulumi.github.ActionsOrganizationSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAllowDrift = new ActionsOrganizationSecret("exampleAllowDrift", ActionsOrganizationSecretArgs.builder()
+ *             .secretName("example_secret_name")
+ *             .visibility("all")
+ *             .plaintextValue("placeholder")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
+ * 
+ * This resource can be imported using the secret name as the ID.
+ * 
+ * &gt; **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you&#39;re not planning on updating the secret through Terraform.
  * 
  * ### Import Command
  * 
- * The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
+ * The following command imports a GitHub actions organization secret named `mysecret` to a `github.ActionsOrganizationSecret` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret

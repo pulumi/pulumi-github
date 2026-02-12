@@ -52,12 +52,6 @@ namespace Pulumi.Github
     /// ```
     /// 
     /// ## Import
-    /// 
-    /// text
-    /// 
-    /// ```sh
-    /// $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy")]
     public partial class RepositoryDeploymentBranchPolicy : global::Pulumi.CustomResource

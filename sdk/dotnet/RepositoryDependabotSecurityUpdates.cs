@@ -43,6 +43,8 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
+    /// Automated security references can be imported using the `Name` of the repository
+    /// 
     /// ### Import by name
     /// 
     /// ```sh

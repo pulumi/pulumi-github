@@ -50,12 +50,6 @@ import (
 // ## Import
 //
 // GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
-//
-// text
-//
-// ```sh
-// $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
-// ```
 type OrganizationSecurityManager struct {
 	pulumi.CustomResourceState
 

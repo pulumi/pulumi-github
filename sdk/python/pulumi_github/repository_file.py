@@ -492,6 +492,11 @@ class RepositoryFile(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        This resource allows you to create and manage files within a
+        GitHub repository.
+
+        > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
+
         ## Example Usage
 
         ### Existing Branch
@@ -571,6 +576,11 @@ class RepositoryFile(pulumi.CustomResource):
                  args: RepositoryFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        This resource allows you to create and manage files within a
+        GitHub repository.
+
+        > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
+
         ## Example Usage
 
         ### Existing Branch

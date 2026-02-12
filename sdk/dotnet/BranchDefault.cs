@@ -79,7 +79,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Branch Defaults can be imported using an ID made up of `repository`, e.g.
+    /// GitHub Branch Defaults can be imported using an ID made up of `Repository`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo

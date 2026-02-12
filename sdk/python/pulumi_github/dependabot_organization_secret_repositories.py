@@ -129,9 +129,11 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using the secret name as the ID.
+
         ### Import Command
 
-        The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
+        The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `DependabotOrganizationSecretRepositories` resource named `example`.
 
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret
@@ -174,9 +176,11 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using the secret name as the ID.
+
         ### Import Command
 
-        The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
+        The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `DependabotOrganizationSecretRepositories` resource named `example`.
 
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret

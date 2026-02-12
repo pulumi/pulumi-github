@@ -185,24 +185,19 @@ __all__ = [
     'TeamSyncGroupMappingGroupArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActionsHostedRunnerImageArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
-        """
-        size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the image in gigabytes.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
-        """
-elif False:
-    ActionsHostedRunnerImageArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsHostedRunnerImageArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The image ID. For GitHub-owned images, use numeric IDs like "2306" for Ubuntu Latest 24.04. To get available images, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/images/github-owned`.
+    """
+    size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the image in gigabytes.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image source. Valid values are "github", "partner", or "custom". Defaults to "github".
+    """
 
 @pulumi.input_type
 class ActionsHostedRunnerImageArgs:
@@ -258,26 +253,23 @@ class ActionsHostedRunnerImageArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class ActionsHostedRunnerMachineSizeDetailArgsDict(TypedDict):
-        cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of CPU cores.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Machine size identifier.
-        """
-        memory_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of memory in gigabytes.
-        """
-        storage_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of storage in gigabytes.
-        """
-elif False:
-    ActionsHostedRunnerMachineSizeDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsHostedRunnerMachineSizeDetailArgsDict(TypedDict):
+    cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of CPU cores.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Machine size identifier.
+    """
+    memory_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of memory in gigabytes.
+    """
+    storage_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of storage in gigabytes.
+    """
 
 @pulumi.input_type
 class ActionsHostedRunnerMachineSizeDetailArgs:
@@ -350,22 +342,19 @@ class ActionsHostedRunnerMachineSizeDetailArgs:
         pulumi.set(self, "storage_gb", value)
 
 
-if not MYPY:
-    class ActionsHostedRunnerPublicIpArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this IP range is enabled.
-        """
-        length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Subnet length.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address prefix.
-        """
-elif False:
-    ActionsHostedRunnerPublicIpArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsHostedRunnerPublicIpArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this IP range is enabled.
+    """
+    length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Subnet length.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP address prefix.
+    """
 
 @pulumi.input_type
 class ActionsHostedRunnerPublicIpArgs:
@@ -422,22 +411,19 @@ class ActionsHostedRunnerPublicIpArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ActionsOrganizationPermissionsAllowedActionsConfigArgsDict(TypedDict):
-        github_owned_allowed: pulumi.Input[_builtins.bool]
-        """
-        Whether GitHub-owned actions are allowed in the organization.
-        """
-        patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
-        """
-        verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-        """
-elif False:
-    ActionsOrganizationPermissionsAllowedActionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsOrganizationPermissionsAllowedActionsConfigArgsDict(TypedDict):
+    github_owned_allowed: pulumi.Input[_builtins.bool]
+    """
+    Whether GitHub-owned actions are allowed in the organization.
+    """
+    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+    """
+    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+    """
 
 @pulumi.input_type
 class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
@@ -493,14 +479,11 @@ class ActionsOrganizationPermissionsAllowedActionsConfigArgs:
         pulumi.set(self, "verified_allowed", value)
 
 
-if not MYPY:
-    class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict(TypedDict):
-        repository_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        List of repository IDs to enable for GitHub Actions.
-        """
-elif False:
-    ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgsDict(TypedDict):
+    repository_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    List of repository IDs to enable for GitHub Actions.
+    """
 
 @pulumi.input_type
 class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs:
@@ -524,22 +507,19 @@ class ActionsOrganizationPermissionsEnabledRepositoriesConfigArgs:
         pulumi.set(self, "repository_ids", value)
 
 
-if not MYPY:
-    class ActionsRepositoryPermissionsAllowedActionsConfigArgsDict(TypedDict):
-        github_owned_allowed: pulumi.Input[_builtins.bool]
-        """
-        Whether GitHub-owned actions are allowed in the repository.
-        """
-        patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
-        """
-        verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-        """
-elif False:
-    ActionsRepositoryPermissionsAllowedActionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsRepositoryPermissionsAllowedActionsConfigArgsDict(TypedDict):
+    github_owned_allowed: pulumi.Input[_builtins.bool]
+    """
+    Whether GitHub-owned actions are allowed in the repository.
+    """
+    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+    """
+    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+    """
 
 @pulumi.input_type
 class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
@@ -595,39 +575,36 @@ class ActionsRepositoryPermissionsAllowedActionsConfigArgs:
         pulumi.set(self, "verified_allowed", value)
 
 
-if not MYPY:
-    class BranchProtectionRequiredPullRequestReviewArgsDict(TypedDict):
-        dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
-        """
-        dismissal_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-        """
-        pull_request_bypassers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
-        """
-        require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
-        """
-        require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
-        """
-        required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-        (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-        """
-        restrict_dismissals: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Restrict pull request review dismissals.
-        """
-elif False:
-    BranchProtectionRequiredPullRequestReviewArgsDict: TypeAlias = Mapping[str, Any]
+class BranchProtectionRequiredPullRequestReviewArgsDict(TypedDict):
+    dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+    """
+    dismissal_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of actor Names/IDs with dismissal access. If not empty, `restrict_dismissals` is ignored. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+    """
+    pull_request_bypassers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of actor Names/IDs that are allowed to bypass pull request requirements. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams.
+    """
+    require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+    """
+    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require that The most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+    """
+    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+    (https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+    """
+    restrict_dismissals: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Restrict pull request review dismissals.
+    """
 
 @pulumi.input_type
 class BranchProtectionRequiredPullRequestReviewArgs:
@@ -750,23 +727,20 @@ class BranchProtectionRequiredPullRequestReviewArgs:
         pulumi.set(self, "restrict_dismissals", value)
 
 
-if not MYPY:
-    class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
-        contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of status checks to require in order to merge into this branch. No status checks are required by default.
+class BranchProtectionRequiredStatusCheckArgsDict(TypedDict):
+    contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-        > Note: This attribute can contain multiple string patterns.
-        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
-        """
-        strict: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require branches to be up to date before merging. Defaults to `false`.
-        """
-elif False:
-    BranchProtectionRequiredStatusCheckArgsDict: TypeAlias = Mapping[str, Any]
+    > Note: This attribute can contain multiple string patterns.
+    If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+    For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+    For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+    """
+    strict: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require branches to be up to date before merging. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BranchProtectionRequiredStatusCheckArgs:
@@ -817,18 +791,15 @@ class BranchProtectionRequiredStatusCheckArgs:
         pulumi.set(self, "strict", value)
 
 
-if not MYPY:
-    class BranchProtectionRestrictPushArgsDict(TypedDict):
-        blocks_creations: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
-        """
-        push_allowances: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
-        """
-elif False:
-    BranchProtectionRestrictPushArgsDict: TypeAlias = Mapping[str, Any]
+class BranchProtectionRestrictPushArgsDict(TypedDict):
+    blocks_creations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean, setting this to `false` allows people, teams, or apps to create new branches matching this rule. Defaults to `true`.
+    """
+    push_allowances: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of actor Names/IDs that may push to the branch. Actor names must either begin with a "/" for users or the organization name followed by a "/" for teams. Organization administrators, repository administrators, and users with the Maintain role on the repository can always push when all other requirements have passed.
+    """
 
 @pulumi.input_type
 class BranchProtectionRestrictPushArgs:
@@ -869,44 +840,41 @@ class BranchProtectionRestrictPushArgs:
         pulumi.set(self, "push_allowances", value)
 
 
-if not MYPY:
-    class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
-        bypass_pull_request_allowances: NotRequired[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict']]
-        """
-        Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
-        """
-        dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
-        """
-        dismissal_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of app slugs with dismissal access.
-        """
-        dismissal_teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of team slugs with dismissal access.
-        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
-        """
-        dismissal_users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user logins with dismissal access
-        """
-        include_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
-        """
-        require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
-        """
-        required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
-        """
-elif False:
-    BranchProtectionV3RequiredPullRequestReviewsArgsDict: TypeAlias = Mapping[str, Any]
+class BranchProtectionV3RequiredPullRequestReviewsArgsDict(TypedDict):
+    bypass_pull_request_allowances: NotRequired[pulumi.Input['BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict']]
+    """
+    Allow specific users, teams, or apps to bypass pull request requirements. See Bypass Pull Request Allowances below for details.
+    """
+    dismiss_stale_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Dismiss approved reviews automatically when a new commit is pushed. Defaults to `false`.
+    """
+    dismissal_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of app slugs with dismissal access.
+    """
+    dismissal_teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of team slugs with dismissal access.
+    Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+    """
+    dismissal_users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user logins with dismissal access
+    """
+    include_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    require_code_owner_reviews: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require an approved review in pull requests including files with a designated code owner. Defaults to `false`.
+    """
+    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require that the most recent push must be approved by someone other than the last pusher.  Defaults to `false`
+    """
+    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 0-6. This requirement matches GitHub's API, see the upstream [documentation](https://developer.github.com/v3/repos/branches/#parameters-1) for more information.
+    """
 
 @pulumi.input_type
 class BranchProtectionV3RequiredPullRequestReviewsArgs:
@@ -1061,22 +1029,19 @@ class BranchProtectionV3RequiredPullRequestReviewsArgs:
         pulumi.set(self, "required_approving_review_count", value)
 
 
-if not MYPY:
-    class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict(TypedDict):
-        apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of app slugs allowed to bypass pull request requirements.
-        """
-        teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of team slugs allowed to bypass pull request requirements.
-        """
-        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user logins allowed to bypass pull request requirements.
-        """
-elif False:
-    BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict: TypeAlias = Mapping[str, Any]
+class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgsDict(TypedDict):
+    apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of app slugs allowed to bypass pull request requirements.
+    """
+    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of team slugs allowed to bypass pull request requirements.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user logins allowed to bypass pull request requirements.
+    """
 
 @pulumi.input_type
 class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs:
@@ -1133,28 +1098,25 @@ class BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArg
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
-        checks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
-        """
-        contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
+class BranchProtectionV3RequiredStatusChecksArgsDict(TypedDict):
+    checks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of status checks to require in order to merge into this branch. No status checks are required by default. Checks should be strings containing the context and app_id like so "context:app_id".
+    """
+    contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    [**DEPRECATED**] (Optional) The list of status checks to require in order to merge into this branch. No status checks are required by default.
 
-        > Note: This attribute can contain multiple string patterns.
-        If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
-        For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
-        For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
-        """
-        include_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        strict: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require branches to be up to date before merging. Defaults to `false`.
-        """
-elif False:
-    BranchProtectionV3RequiredStatusChecksArgsDict: TypeAlias = Mapping[str, Any]
+    > Note: This attribute can contain multiple string patterns.
+    If specified, usual value is the [job name](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname). Otherwise, the [job id](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) is defaulted to.
+    For workflows that use matrixes, append the matrix name to the value using the following pattern `(<matrix_value>[, <matrix_value>])`. Matrixes should be specified based on the order of matrix properties in the workflow file. See GitHub Documentation for more information.
+    For workflows that use reusable workflows, the pattern is `<initial_workflow.jobs.job.[name/id]> / <reused-workflow.jobs.job.[name/id]>`. This can extend multiple levels.
+    """
+    include_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    strict: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require branches to be up to date before merging. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class BranchProtectionV3RequiredStatusChecksArgs:
@@ -1241,25 +1203,22 @@ class BranchProtectionV3RequiredStatusChecksArgs:
         pulumi.set(self, "strict", value)
 
 
-if not MYPY:
-    class BranchProtectionV3RestrictionsArgsDict(TypedDict):
-        apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of app slugs with push access.
+class BranchProtectionV3RestrictionsArgsDict(TypedDict):
+    apps: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of app slugs with push access.
 
-        `restrictions` is only available for organization-owned repositories.
-        """
-        teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of team slugs with push access.
-        Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
-        """
-        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user logins with push access.
-        """
-elif False:
-    BranchProtectionV3RestrictionsArgsDict: TypeAlias = Mapping[str, Any]
+    `restrictions` is only available for organization-owned repositories.
+    """
+    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of team slugs with push access.
+    Always use `slug` of the team, **not** its name. Each team already **has** to have access to the repository.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user logins with push access.
+    """
 
 @pulumi.input_type
 class BranchProtectionV3RestrictionsArgs:
@@ -1322,22 +1281,19 @@ class BranchProtectionV3RestrictionsArgs:
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class EnterpriseActionsPermissionsAllowedActionsConfigArgsDict(TypedDict):
-        github_owned_allowed: pulumi.Input[_builtins.bool]
-        """
-        Whether GitHub-owned actions are allowed in the organization.
-        """
-        patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
-        """
-        verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
-        """
-elif False:
-    EnterpriseActionsPermissionsAllowedActionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EnterpriseActionsPermissionsAllowedActionsConfigArgsDict(TypedDict):
+    github_owned_allowed: pulumi.Input[_builtins.bool]
+    """
+    Whether GitHub-owned actions are allowed in the organization.
+    """
+    patterns_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@*, monalisa/octocat@v2, monalisa/*."
+    """
+    verified_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.
+    """
 
 @pulumi.input_type
 class EnterpriseActionsPermissionsAllowedActionsConfigArgs:
@@ -1393,14 +1349,11 @@ class EnterpriseActionsPermissionsAllowedActionsConfigArgs:
         pulumi.set(self, "verified_allowed", value)
 
 
-if not MYPY:
-    class EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict(TypedDict):
-        organization_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        List of organization IDs to enable for GitHub Actions.
-        """
-elif False:
-    EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EnterpriseActionsPermissionsEnabledOrganizationsConfigArgsDict(TypedDict):
+    organization_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    List of organization IDs to enable for GitHub Actions.
+    """
 
 @pulumi.input_type
 class EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs:
@@ -1424,26 +1377,23 @@ class EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs:
         pulumi.set(self, "organization_ids", value)
 
 
-if not MYPY:
-    class IssueLabelsLabelArgsDict(TypedDict):
-        color: pulumi.Input[_builtins.str]
-        """
-        A 6 character hex code, **without the leading #**, identifying the color of the label.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the label.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A short description of the label.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to the issue label
-        """
-elif False:
-    IssueLabelsLabelArgsDict: TypeAlias = Mapping[str, Any]
+class IssueLabelsLabelArgsDict(TypedDict):
+    color: pulumi.Input[_builtins.str]
+    """
+    A 6 character hex code, **without the leading #**, identifying the color of the label.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the label.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A short description of the label.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to the issue label
+    """
 
 @pulumi.input_type
 class IssueLabelsLabelArgs:
@@ -1514,27 +1464,24 @@ class IssueLabelsLabelArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class OrganizationRulesetBypassActorArgsDict(TypedDict):
-        actor_type: pulumi.Input[_builtins.str]
-        """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
-        """
-        bypass_mode: pulumi.Input[_builtins.str]
-        """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
+class OrganizationRulesetBypassActorArgsDict(TypedDict):
+    actor_type: pulumi.Input[_builtins.str]
+    """
+    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`.
+    """
+    bypass_mode: pulumi.Input[_builtins.str]
+    """
+    (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
-        ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+    ~>Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        - `OrganizationAdmin` > `1`
-        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        """
-        actor_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
-        """
-elif False:
-    OrganizationRulesetBypassActorArgsDict: TypeAlias = Mapping[str, Any]
+    - `OrganizationAdmin` > `1`
+    - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+    """
+    actor_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    (Number) The ID of the actor that can bypass a ruleset. Some actor types such as `DeployKey` do not have an ID.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetBypassActorArgs:
@@ -1599,26 +1546,23 @@ class OrganizationRulesetBypassActorArgs:
         pulumi.set(self, "actor_id", value)
 
 
-if not MYPY:
-    class OrganizationRulesetConditionsArgsDict(TypedDict):
-        ref_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRefNameArgsDict']]
-        """
-        (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
-        """
-        repository_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
-        """
-        repository_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgsDict']]
-        """
-        Conflicts with `repository_id`. (see below for nested schema)
+class OrganizationRulesetConditionsArgsDict(TypedDict):
+    ref_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRefNameArgsDict']]
+    """
+    (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+    """
+    repository_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+    """
+    repository_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgsDict']]
+    """
+    Conflicts with `repository_id`. (see below for nested schema)
 
-        One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+    One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
 
-        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
-        """
-elif False:
-    OrganizationRulesetConditionsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetConditionsArgs:
@@ -1683,18 +1627,15 @@ class OrganizationRulesetConditionsArgs:
         pulumi.set(self, "repository_name", value)
 
 
-if not MYPY:
-    class OrganizationRulesetConditionsRefNameArgsDict(TypedDict):
-        excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
-        """
-        includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
-        """
-elif False:
-    OrganizationRulesetConditionsRefNameArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetConditionsRefNameArgsDict(TypedDict):
+    excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+    """
+    includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetConditionsRefNameArgs:
@@ -1733,22 +1674,19 @@ class OrganizationRulesetConditionsRefNameArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class OrganizationRulesetConditionsRepositoryNameArgsDict(TypedDict):
-        excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
-        """
-        includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
-        """
-        protected: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether renaming of target repositories is prevented.
-        """
-elif False:
-    OrganizationRulesetConditionsRepositoryNameArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetConditionsRepositoryNameArgsDict(TypedDict):
+    excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+    """
+    includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~ALL` to include all repositories.
+    """
+    protected: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether renaming of target repositories is prevented.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetConditionsRepositoryNameArgs:
@@ -1803,90 +1741,87 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
         pulumi.set(self, "protected", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesArgsDict(TypedDict):
-        branch_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
-        """
-        commit_author_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        commit_message_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        committer_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        copilot_code_review: NotRequired[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgsDict']]
-        """
-        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
-        """
-        creation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permission to create matching refs.
-        """
-        deletion: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permissions to delete matching refs.
-        """
-        file_extension_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgsDict']]
-        """
-        (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
-        """
-        file_path_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgsDict']]
-        """
-        (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
-        """
-        max_file_path_length: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgsDict']]
-        """
-        (Integer) The maximum number of characters allowed in file paths.
-        """
-        max_file_size: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgsDict']]
-        """
-        (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
-        """
-        non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Prevent users with push access from force pushing to branches.
-        """
-        pull_request: NotRequired[pulumi.Input['OrganizationRulesetRulesPullRequestArgsDict']]
-        """
-        (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
-        """
-        required_code_scanning: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgsDict']]
-        """
-        (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
-        """
-        required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Prevent merge commits from being pushed to matching branches.
-        """
-        required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Commits pushed to matching branches must have verified signatures.
-        """
-        required_status_checks: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgsDict']]
-        """
-        (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
-        """
-        required_workflows: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgsDict']]
-        """
-        (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
-        """
-        tag_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
-        """
-        update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permission to update matching refs.
-        """
-elif False:
-    OrganizationRulesetRulesArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesArgsDict(TypedDict):
+    branch_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesBranchNamePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applies to rulesets with target `branch`. (see below for nested schema)
+    """
+    commit_author_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    commit_message_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitMessagePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    committer_email_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesCommitterEmailPatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    copilot_code_review: NotRequired[pulumi.Input['OrganizationRulesetRulesCopilotCodeReviewArgsDict']]
+    """
+    (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+    """
+    creation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permission to create matching refs.
+    """
+    deletion: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permissions to delete matching refs.
+    """
+    file_extension_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFileExtensionRestrictionArgsDict']]
+    """
+    (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+    """
+    file_path_restriction: NotRequired[pulumi.Input['OrganizationRulesetRulesFilePathRestrictionArgsDict']]
+    """
+    (Block List, Max: 1) Prevent commits that include changes to specified file paths from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+    """
+    max_file_path_length: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFilePathLengthArgsDict']]
+    """
+    (Integer) The maximum number of characters allowed in file paths.
+    """
+    max_file_size: NotRequired[pulumi.Input['OrganizationRulesetRulesMaxFileSizeArgsDict']]
+    """
+    (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
+    """
+    non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Prevent users with push access from force pushing to branches.
+    """
+    pull_request: NotRequired[pulumi.Input['OrganizationRulesetRulesPullRequestArgsDict']]
+    """
+    (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+    """
+    required_code_scanning: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningArgsDict']]
+    """
+    (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+    """
+    required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Prevent merge commits from being pushed to matching branches.
+    """
+    required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Commits pushed to matching branches must have verified signatures.
+    """
+    required_status_checks: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksArgsDict']]
+    """
+    (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+    """
+    required_workflows: NotRequired[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsArgsDict']]
+    """
+    (Block List, Max: 1) Define which Actions workflows must pass before changes can be merged into a branch matching the rule. Multiple workflows can be specified. (see below for nested schema)
+    """
+    tag_name_pattern: NotRequired[pulumi.Input['OrganizationRulesetRulesTagNamePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applies to rulesets with target `tag`. (see below for nested schema)
+    """
+    update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permission to update matching refs.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesArgs:
@@ -2215,26 +2150,23 @@ class OrganizationRulesetRulesArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesBranchNamePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    OrganizationRulesetRulesBranchNamePatternArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesBranchNamePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesBranchNamePatternArgs:
@@ -2305,26 +2237,23 @@ class OrganizationRulesetRulesBranchNamePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesCommitAuthorEmailPatternArgs:
@@ -2395,26 +2324,23 @@ class OrganizationRulesetRulesCommitAuthorEmailPatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesCommitMessagePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    OrganizationRulesetRulesCommitMessagePatternArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesCommitMessagePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesCommitMessagePatternArgs:
@@ -2485,26 +2411,23 @@ class OrganizationRulesetRulesCommitMessagePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    OrganizationRulesetRulesCommitterEmailPatternArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesCommitterEmailPatternArgs:
@@ -2575,18 +2498,15 @@ class OrganizationRulesetRulesCommitterEmailPatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
-        review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
-        """
-        review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
-        """
-elif False:
-    OrganizationRulesetRulesCopilotCodeReviewArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
+    review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+    """
+    review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesCopilotCodeReviewArgs:
@@ -2627,14 +2547,11 @@ class OrganizationRulesetRulesCopilotCodeReviewArgs:
         pulumi.set(self, "review_on_push", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
-        restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The file extensions that are restricted from being pushed to the commit graph.
-        """
-elif False:
-    OrganizationRulesetRulesFileExtensionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
+    restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The file extensions that are restricted from being pushed to the commit graph.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesFileExtensionRestrictionArgs:
@@ -2658,14 +2575,11 @@ class OrganizationRulesetRulesFileExtensionRestrictionArgs:
         pulumi.set(self, "restricted_file_extensions", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesFilePathRestrictionArgsDict(TypedDict):
-        restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The file paths that are restricted from being pushed to the commit graph.
-        """
-elif False:
-    OrganizationRulesetRulesFilePathRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesFilePathRestrictionArgsDict(TypedDict):
+    restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The file paths that are restricted from being pushed to the commit graph.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesFilePathRestrictionArgs:
@@ -2689,14 +2603,11 @@ class OrganizationRulesetRulesFilePathRestrictionArgs:
         pulumi.set(self, "restricted_file_paths", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesMaxFilePathLengthArgsDict(TypedDict):
-        max_file_path_length: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed length of a file path.
-        """
-elif False:
-    OrganizationRulesetRulesMaxFilePathLengthArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesMaxFilePathLengthArgsDict(TypedDict):
+    max_file_path_length: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed length of a file path.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesMaxFilePathLengthArgs:
@@ -2720,14 +2631,11 @@ class OrganizationRulesetRulesMaxFilePathLengthArgs:
         pulumi.set(self, "max_file_path_length", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesMaxFileSizeArgsDict(TypedDict):
-        max_file_size: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
-        """
-elif False:
-    OrganizationRulesetRulesMaxFileSizeArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesMaxFileSizeArgsDict(TypedDict):
+    max_file_size: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesMaxFileSizeArgs:
@@ -2751,38 +2659,35 @@ class OrganizationRulesetRulesMaxFileSizeArgs:
         pulumi.set(self, "max_file_size", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
-        allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
-        """
-        dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
-        """
-        require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
-        """
-        require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
-        """
-        required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
-        """
-        required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
-        """
-        required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
-        """
-        Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
-        """
-elif False:
-    OrganizationRulesetRulesPullRequestArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesPullRequestArgsDict(TypedDict):
+    allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+    """
+    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+    """
+    require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+    """
+    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+    """
+    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+    """
+    required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+    """
+    required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
+    """
+    Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesPullRequestArgs:
@@ -2903,22 +2808,19 @@ class OrganizationRulesetRulesPullRequestArgs:
         pulumi.set(self, "required_reviewers", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict(TypedDict):
-        file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        File patterns (fnmatch syntax) that this reviewer must approve.
-        """
-        minimum_approvals: pulumi.Input[_builtins.int]
-        """
-        Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
-        """
-        reviewer: pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgsDict']
-        """
-        The reviewer that must review matching files.
-        """
-elif False:
-    OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesPullRequestRequiredReviewerArgsDict(TypedDict):
+    file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    File patterns (fnmatch syntax) that this reviewer must approve.
+    """
+    minimum_approvals: pulumi.Input[_builtins.int]
+    """
+    Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+    """
+    reviewer: pulumi.Input['OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgsDict']
+    """
+    The reviewer that must review matching files.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesPullRequestRequiredReviewerArgs:
@@ -2972,18 +2874,15 @@ class OrganizationRulesetRulesPullRequestRequiredReviewerArgs:
         pulumi.set(self, "reviewer", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.int]
-        """
-        The ID of the reviewer that must review.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of reviewer. Currently only `Team` is supported.
-        """
-elif False:
-    OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.int]
+    """
+    The ID of the reviewer that must review.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of reviewer. Currently only `Team` is supported.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs:
@@ -3022,14 +2921,11 @@ class OrganizationRulesetRulesPullRequestRequiredReviewerReviewerArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredCodeScanningArgsDict(TypedDict):
-        required_code_scanning_tools: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict']]]
-        """
-        Tools that must provide code scanning results for this rule to pass.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredCodeScanningArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredCodeScanningArgsDict(TypedDict):
+    required_code_scanning_tools: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict']]]
+    """
+    Tools that must provide code scanning results for this rule to pass.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredCodeScanningArgs:
@@ -3053,22 +2949,19 @@ class OrganizationRulesetRulesRequiredCodeScanningArgs:
         pulumi.set(self, "required_code_scanning_tools", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict(TypedDict):
-        alerts_threshold: pulumi.Input[_builtins.str]
-        """
-        The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
-        """
-        security_alerts_threshold: pulumi.Input[_builtins.str]
-        """
-        The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
-        """
-        tool: pulumi.Input[_builtins.str]
-        """
-        The name of a code scanning tool.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict(TypedDict):
+    alerts_threshold: pulumi.Input[_builtins.str]
+    """
+    The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+    """
+    security_alerts_threshold: pulumi.Input[_builtins.str]
+    """
+    The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+    """
+    tool: pulumi.Input[_builtins.str]
+    """
+    The name of a code scanning tool.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs:
@@ -3122,22 +3015,19 @@ class OrganizationRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs:
         pulumi.set(self, "tool", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
-        required_checks: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict']]]
-        """
-        Status checks that are required. Several can be defined.
-        """
-        do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
-        """
-        strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredStatusChecksArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
+    required_checks: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict']]]
+    """
+    Status checks that are required. Several can be defined.
+    """
+    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Allow repositories and branches to be created if a check would otherwise prohibit it. Defaults to `false`.
+    """
+    strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredStatusChecksArgs:
@@ -3193,18 +3083,15 @@ class OrganizationRulesetRulesRequiredStatusChecksArgs:
         pulumi.set(self, "strict_required_status_checks_policy", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict):
-        context: pulumi.Input[_builtins.str]
-        """
-        The status check context name that must be present on the commit.
-        """
-        integration_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The optional integration ID that this status check must originate from.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict):
+    context: pulumi.Input[_builtins.str]
+    """
+    The status check context name that must be present on the commit.
+    """
+    integration_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The optional integration ID that this status check must originate from.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
@@ -3244,18 +3131,15 @@ class OrganizationRulesetRulesRequiredStatusChecksRequiredCheckArgs:
         pulumi.set(self, "integration_id", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredWorkflowsArgsDict(TypedDict):
-        required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict']]]
-        """
-        Actions workflows that are required. Several can be defined.
-        """
-        do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow repositories and branches to be created if a check would otherwise prohibit it.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredWorkflowsArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredWorkflowsArgsDict(TypedDict):
+    required_workflows: pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict']]]
+    """
+    Actions workflows that are required. Several can be defined.
+    """
+    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow repositories and branches to be created if a check would otherwise prohibit it.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredWorkflowsArgs:
@@ -3295,22 +3179,19 @@ class OrganizationRulesetRulesRequiredWorkflowsArgs:
         pulumi.set(self, "do_not_enforce_on_create", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        The path to the workflow YAML definition file.
-        """
-        repository_id: pulumi.Input[_builtins.int]
-        """
-        The repository in which the workflow is defined.
-        """
-        ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ref (branch or tag) of the workflow file to use.
-        """
-elif False:
-    OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    The path to the workflow YAML definition file.
+    """
+    repository_id: pulumi.Input[_builtins.int]
+    """
+    The repository in which the workflow is defined.
+    """
+    ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ref (branch or tag) of the workflow file to use.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs:
@@ -3365,26 +3246,23 @@ class OrganizationRulesetRulesRequiredWorkflowsRequiredWorkflowArgs:
         pulumi.set(self, "ref", value)
 
 
-if not MYPY:
-    class OrganizationRulesetRulesTagNamePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    OrganizationRulesetRulesTagNamePatternArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRulesetRulesTagNamePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class OrganizationRulesetRulesTagNamePatternArgs:
@@ -3455,26 +3333,23 @@ class OrganizationRulesetRulesTagNamePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class OrganizationWebhookConfigurationArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        URL of the webhook
-        """
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content type for the payload. Valid values are either 'form' or 'json'.
-        """
-        insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Insecure SSL boolean toggle. Defaults to 'false'.
-        """
-        secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared secret for the webhook
-        """
-elif False:
-    OrganizationWebhookConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationWebhookConfigurationArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    URL of the webhook
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content type for the payload. Valid values are either 'form' or 'json'.
+    """
+    insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Insecure SSL boolean toggle. Defaults to 'false'.
+    """
+    secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared secret for the webhook
+    """
 
 @pulumi.input_type
 class OrganizationWebhookConfigurationArgs:
@@ -3546,22 +3421,19 @@ class OrganizationWebhookConfigurationArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class ProviderAppAuthArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The GitHub App ID.
-        """
-        installation_id: pulumi.Input[_builtins.str]
-        """
-        The GitHub App installation instance ID.
-        """
-        pem_file: pulumi.Input[_builtins.str]
-        """
-        The GitHub App PEM file contents.
-        """
-elif False:
-    ProviderAppAuthArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderAppAuthArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The GitHub App ID.
+    """
+    installation_id: pulumi.Input[_builtins.str]
+    """
+    The GitHub App installation instance ID.
+    """
+    pem_file: pulumi.Input[_builtins.str]
+    """
+    The GitHub App PEM file contents.
+    """
 
 @pulumi.input_type
 class ProviderAppAuthArgs:
@@ -3615,14 +3487,11 @@ class ProviderAppAuthArgs:
         pulumi.set(self, "pem_file", value)
 
 
-if not MYPY:
-    class RepositoryCollaboratorsIgnoreTeamArgsDict(TypedDict):
-        team_id: pulumi.Input[_builtins.str]
-        """
-        The GitHub team id or the GitHub team slug.
-        """
-elif False:
-    RepositoryCollaboratorsIgnoreTeamArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCollaboratorsIgnoreTeamArgsDict(TypedDict):
+    team_id: pulumi.Input[_builtins.str]
+    """
+    The GitHub team id or the GitHub team slug.
+    """
 
 @pulumi.input_type
 class RepositoryCollaboratorsIgnoreTeamArgs:
@@ -3646,20 +3515,17 @@ class RepositoryCollaboratorsIgnoreTeamArgs:
         pulumi.set(self, "team_id", value)
 
 
-if not MYPY:
-    class RepositoryCollaboratorsTeamArgsDict(TypedDict):
-        team_id: pulumi.Input[_builtins.str]
-        """
-        The GitHub team id or the GitHub team slug.
-        """
-        permission: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The permission of the outside collaborators for the repository.
-        Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
-        Must be `push` for personal repositories. Defaults to `push`.
-        """
-elif False:
-    RepositoryCollaboratorsTeamArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCollaboratorsTeamArgsDict(TypedDict):
+    team_id: pulumi.Input[_builtins.str]
+    """
+    The GitHub team id or the GitHub team slug.
+    """
+    permission: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The permission of the outside collaborators for the repository.
+    Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
+    Must be `push` for personal repositories. Defaults to `push`.
+    """
 
 @pulumi.input_type
 class RepositoryCollaboratorsTeamArgs:
@@ -3703,20 +3569,17 @@ class RepositoryCollaboratorsTeamArgs:
         pulumi.set(self, "permission", value)
 
 
-if not MYPY:
-    class RepositoryCollaboratorsUserArgsDict(TypedDict):
-        username: pulumi.Input[_builtins.str]
-        """
-        The user to add to the repository as a collaborator.
-        """
-        permission: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The permission of the outside collaborators for the repository.
-        Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
-        Must be `push` for personal repositories. Defaults to `push`.
-        """
-elif False:
-    RepositoryCollaboratorsUserArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCollaboratorsUserArgsDict(TypedDict):
+    username: pulumi.Input[_builtins.str]
+    """
+    The user to add to the repository as a collaborator.
+    """
+    permission: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The permission of the outside collaborators for the repository.
+    Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
+    Must be `push` for personal repositories. Defaults to `push`.
+    """
 
 @pulumi.input_type
 class RepositoryCollaboratorsUserArgs:
@@ -3760,18 +3623,15 @@ class RepositoryCollaboratorsUserArgs:
         pulumi.set(self, "permission", value)
 
 
-if not MYPY:
-    class RepositoryEnvironmentDeploymentBranchPolicyArgsDict(TypedDict):
-        custom_branch_policies: pulumi.Input[_builtins.bool]
-        """
-        Whether only branches that match the specified name patterns can deploy to this environment.
-        """
-        protected_branches: pulumi.Input[_builtins.bool]
-        """
-        Whether only branches with branch protection rules can deploy to this environment.
-        """
-elif False:
-    RepositoryEnvironmentDeploymentBranchPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryEnvironmentDeploymentBranchPolicyArgsDict(TypedDict):
+    custom_branch_policies: pulumi.Input[_builtins.bool]
+    """
+    Whether only branches that match the specified name patterns can deploy to this environment.
+    """
+    protected_branches: pulumi.Input[_builtins.bool]
+    """
+    Whether only branches with branch protection rules can deploy to this environment.
+    """
 
 @pulumi.input_type
 class RepositoryEnvironmentDeploymentBranchPolicyArgs:
@@ -3810,18 +3670,15 @@ class RepositoryEnvironmentDeploymentBranchPolicyArgs:
         pulumi.set(self, "protected_branches", value)
 
 
-if not MYPY:
-    class RepositoryEnvironmentReviewerArgsDict(TypedDict):
-        teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-        """
-        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-        """
-elif False:
-    RepositoryEnvironmentReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryEnvironmentReviewerArgsDict(TypedDict):
+    teams: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Up to 6 IDs for teams who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Up to 6 IDs for users who may review jobs that reference the environment. Reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+    """
 
 @pulumi.input_type
 class RepositoryEnvironmentReviewerArgs:
@@ -3862,35 +3719,32 @@ class RepositoryEnvironmentReviewerArgs:
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class RepositoryPagesArgsDict(TypedDict):
-        build_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
-        """
-        cname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The custom domain for the repository. This can only be set after the repository has been created.
-        """
-        custom404: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the rendered GitHub Pages site has a custom 404 page.
-        """
-        html_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-        """
-        source: NotRequired[pulumi.Input['RepositoryPagesSourceArgsDict']]
-        """
-        The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The GitHub Pages site's build status e.g. `building` or `built`.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RepositoryPagesArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryPagesArgsDict(TypedDict):
+    build_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
+    """
+    cname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The custom domain for the repository. This can only be set after the repository has been created.
+    """
+    custom404: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the rendered GitHub Pages site has a custom 404 page.
+    """
+    html_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
+    """
+    source: NotRequired[pulumi.Input['RepositoryPagesSourceArgsDict']]
+    """
+    The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The GitHub Pages site's build status e.g. `building` or `built`.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RepositoryPagesArgs:
@@ -4007,18 +3861,15 @@ class RepositoryPagesArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class RepositoryPagesSourceArgsDict(TypedDict):
-        branch: pulumi.Input[_builtins.str]
-        """
-        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository directory from which the site publishes (Default: `/`).
-        """
-elif False:
-    RepositoryPagesSourceArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryPagesSourceArgsDict(TypedDict):
+    branch: pulumi.Input[_builtins.str]
+    """
+    The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository directory from which the site publishes (Default: `/`).
+    """
 
 @pulumi.input_type
 class RepositoryPagesSourceArgs:
@@ -4058,27 +3909,24 @@ class RepositoryPagesSourceArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class RepositoryRulesetBypassActorArgsDict(TypedDict):
-        actor_type: pulumi.Input[_builtins.str]
-        """
-        The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
-        """
-        bypass_mode: pulumi.Input[_builtins.str]
-        """
-        (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
+class RepositoryRulesetBypassActorArgsDict(TypedDict):
+    actor_type: pulumi.Input[_builtins.str]
+    """
+    The type of actor that can bypass a ruleset. Can be one of: `RepositoryRole`, `Team`, `Integration`, `OrganizationAdmin`, `DeployKey`.
+    """
+    bypass_mode: pulumi.Input[_builtins.str]
+    """
+    (String) When the specified actor can bypass the ruleset. pull_request means that an actor can only bypass rules on pull requests. Can be one of: `always`, `pull_request`, `exempt`.
 
-        > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
+    > Note: at the time of writing this, the following actor types correspond to the following actor IDs:
 
-        - `OrganizationAdmin` > `1`
-        - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
-        """
-        actor_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
-        """
-elif False:
-    RepositoryRulesetBypassActorArgsDict: TypeAlias = Mapping[str, Any]
+    - `OrganizationAdmin` > `1`
+    - `RepositoryRole` (This is the actor type, the following are the base repository roles and their associated IDs.)
+    """
+    actor_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    (Number) The ID of the actor that can bypass a ruleset. If `actor_type` is `Integration`, `actor_id` is a GitHub App ID. App ID can be obtained by following instructions from the [Get an App API docs](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-app). Some actor types such as `DeployKey` do not have an ID.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetBypassActorArgs:
@@ -4143,16 +3991,13 @@ class RepositoryRulesetBypassActorArgs:
         pulumi.set(self, "actor_id", value)
 
 
-if not MYPY:
-    class RepositoryRulesetConditionsArgsDict(TypedDict):
-        ref_name: pulumi.Input['RepositoryRulesetConditionsRefNameArgsDict']
-        """
-        (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
+class RepositoryRulesetConditionsArgsDict(TypedDict):
+    ref_name: pulumi.Input['RepositoryRulesetConditionsRefNameArgsDict']
+    """
+    (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
 
-        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
-        """
-elif False:
-    RepositoryRulesetConditionsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs. The `conditions` block is optional for push targets.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetConditionsArgs:
@@ -4180,18 +4025,15 @@ class RepositoryRulesetConditionsArgs:
         pulumi.set(self, "ref_name", value)
 
 
-if not MYPY:
-    class RepositoryRulesetConditionsRefNameArgsDict(TypedDict):
-        excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
-        """
-        includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
-        """
-elif False:
-    RepositoryRulesetConditionsRefNameArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetConditionsRefNameArgsDict(TypedDict):
+    excludes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+    """
+    includes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of ref names or patterns to include. One of these patterns must match for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the default branch or `~ALL` to include all branches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetConditionsRefNameArgs:
@@ -4230,98 +4072,95 @@ class RepositoryRulesetConditionsRefNameArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesArgsDict(TypedDict):
-        branch_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
-        """
-        commit_author_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        commit_message_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        committer_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
-        """
-        copilot_code_review: NotRequired[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgsDict']]
-        """
-        (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
-        """
-        creation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permission to create matching refs.
-        """
-        deletion: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permissions to delete matching refs.
-        """
-        file_extension_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgsDict']]
-        """
-        (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
-        """
-        file_path_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgsDict']]
-        """
-        (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
-        """
-        max_file_path_length: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgsDict']]
-        """
-        (Integer) The maximum number of characters allowed in file paths.
-        """
-        max_file_size: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgsDict']]
-        """
-        (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
-        """
-        merge_queue: NotRequired[pulumi.Input['RepositoryRulesetRulesMergeQueueArgsDict']]
-        """
-        (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
-        """
-        non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Prevent users with push access from force pushing to branches.
-        """
-        pull_request: NotRequired[pulumi.Input['RepositoryRulesetRulesPullRequestArgsDict']]
-        """
-        (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
-        """
-        required_code_scanning: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgsDict']]
-        """
-        (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
-        """
-        required_deployments: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgsDict']]
-        """
-        (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
-        """
-        required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Prevent merge commits from being pushed to matching branches.
-        """
-        required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Commits pushed to matching branches must have verified signatures.
-        """
-        required_status_checks: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgsDict']]
-        """
-        (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
-        """
-        tag_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgsDict']]
-        """
-        (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
-        """
-        update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Only allow users with bypass permission to update matching refs.
-        """
-        update_allows_fetch_and_merge: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
-        """
-elif False:
-    RepositoryRulesetRulesArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesArgsDict(TypedDict):
+    branch_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesBranchNamePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the branch_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `tag_name_pattern` as it only applied to rulesets with target `branch`. (see below for nested schema)
+    """
+    commit_author_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the commit_author_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    commit_message_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitMessagePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the commit_message_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    committer_email_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesCommitterEmailPatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the committer_email_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. (see below for nested schema)
+    """
+    copilot_code_review: NotRequired[pulumi.Input['RepositoryRulesetRulesCopilotCodeReviewArgsDict']]
+    """
+    (Block List, Max: 1) Automatically request Copilot code review for new pull requests if the author has access to Copilot code review and their premium requests quota has not reached the limit. (see below for nested schema)
+    """
+    creation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permission to create matching refs.
+    """
+    deletion: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permissions to delete matching refs.
+    """
+    file_extension_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFileExtensionRestrictionArgsDict']]
+    """
+    (Block List, Max: 1) Prevent commits that include files with specified file extensions from being pushed to the commit graph. This rule only applies to rulesets with target `push`. (see below for nested schema)
+    """
+    file_path_restriction: NotRequired[pulumi.Input['RepositoryRulesetRulesFilePathRestrictionArgsDict']]
+    """
+    (Block List, Max 1) Parameters to be used for the file_path_restriction rule. When enabled restricts access to files within the repository. (See below for nested schema)
+    """
+    max_file_path_length: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFilePathLengthArgsDict']]
+    """
+    (Integer) The maximum number of characters allowed in file paths.
+    """
+    max_file_size: NotRequired[pulumi.Input['RepositoryRulesetRulesMaxFileSizeArgsDict']]
+    """
+    (Integer) The maximum allowed size, in megabytes (MB), of a file. Valid range is 1-100 MB.
+    """
+    merge_queue: NotRequired[pulumi.Input['RepositoryRulesetRulesMergeQueueArgsDict']]
+    """
+    (Block List, Max: 1) Merges must be performed via a merge queue. (see below for nested schema)
+    """
+    non_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Prevent users with push access from force pushing to branches.
+    """
+    pull_request: NotRequired[pulumi.Input['RepositoryRulesetRulesPullRequestArgsDict']]
+    """
+    (Block List, Max: 1) Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. (see below for nested schema)
+    """
+    required_code_scanning: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningArgsDict']]
+    """
+    (Block List, Max: 1) Define which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Multiple code scanning tools can be specified. (see below for nested schema)
+    """
+    required_deployments: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredDeploymentsArgsDict']]
+    """
+    (Block List, Max: 1) Choose which environments must be successfully deployed to before branches can be merged into a branch that matches this rule. (see below for nested schema)
+    """
+    required_linear_history: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Prevent merge commits from being pushed to matching branches.
+    """
+    required_signatures: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Commits pushed to matching branches must have verified signatures.
+    """
+    required_status_checks: NotRequired[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksArgsDict']]
+    """
+    (Block List, Max: 1) Choose which status checks must pass before branches can be merged into a branch that matches this rule. When enabled, commits must first be pushed to another branch, then merged or pushed directly to a branch that matches this rule after status checks have passed. (see below for nested schema)
+    """
+    tag_name_pattern: NotRequired[pulumi.Input['RepositoryRulesetRulesTagNamePatternArgsDict']]
+    """
+    (Block List, Max: 1) Parameters to be used for the tag_name_pattern rule. This rule only applies to repositories within an enterprise, it cannot be applied to repositories owned by individuals or regular organizations. Conflicts with `branch_name_pattern` as it only applied to rulesets with target `tag`. (see below for nested schema)
+    """
+    update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Only allow users with bypass permission to update matching refs.
+    """
+    update_allows_fetch_and_merge: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Boolean) Branch can pull changes from its upstream repository. This is only applicable to forked repositories. Requires `update` to be set to `true`. Note: behaviour is affected by a known bug on the GitHub side which may cause issues when using this parameter.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesArgs:
@@ -4682,26 +4521,23 @@ class RepositoryRulesetRulesArgs:
         pulumi.set(self, "update_allows_fetch_and_merge", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesBranchNamePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    RepositoryRulesetRulesBranchNamePatternArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesBranchNamePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesBranchNamePatternArgs:
@@ -4772,26 +4608,23 @@ class RepositoryRulesetRulesBranchNamePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesCommitAuthorEmailPatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesCommitAuthorEmailPatternArgs:
@@ -4862,26 +4695,23 @@ class RepositoryRulesetRulesCommitAuthorEmailPatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesCommitMessagePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    RepositoryRulesetRulesCommitMessagePatternArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesCommitMessagePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesCommitMessagePatternArgs:
@@ -4952,26 +4782,23 @@ class RepositoryRulesetRulesCommitMessagePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    RepositoryRulesetRulesCommitterEmailPatternArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesCommitterEmailPatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesCommitterEmailPatternArgs:
@@ -5042,18 +4869,15 @@ class RepositoryRulesetRulesCommitterEmailPatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
-        review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
-        """
-        review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Copilot automatically reviews each new push to the pull request. Defaults to `false`.
-        """
-elif False:
-    RepositoryRulesetRulesCopilotCodeReviewArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesCopilotCodeReviewArgsDict(TypedDict):
+    review_draft_pull_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Copilot automatically reviews draft pull requests before they are marked as ready for review. Defaults to `false`.
+    """
+    review_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Copilot automatically reviews each new push to the pull request. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesCopilotCodeReviewArgs:
@@ -5094,14 +4918,11 @@ class RepositoryRulesetRulesCopilotCodeReviewArgs:
         pulumi.set(self, "review_on_push", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
-        restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of file extensions.
-        """
-elif False:
-    RepositoryRulesetRulesFileExtensionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesFileExtensionRestrictionArgsDict(TypedDict):
+    restricted_file_extensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of file extensions.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesFileExtensionRestrictionArgs:
@@ -5125,14 +4946,11 @@ class RepositoryRulesetRulesFileExtensionRestrictionArgs:
         pulumi.set(self, "restricted_file_extensions", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesFilePathRestrictionArgsDict(TypedDict):
-        restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The file paths that are restricted from being pushed to the commit graph.
-        """
-elif False:
-    RepositoryRulesetRulesFilePathRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesFilePathRestrictionArgsDict(TypedDict):
+    restricted_file_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The file paths that are restricted from being pushed to the commit graph.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesFilePathRestrictionArgs:
@@ -5156,14 +4974,11 @@ class RepositoryRulesetRulesFilePathRestrictionArgs:
         pulumi.set(self, "restricted_file_paths", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesMaxFilePathLengthArgsDict(TypedDict):
-        max_file_path_length: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed length of a file path.
-        """
-elif False:
-    RepositoryRulesetRulesMaxFilePathLengthArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesMaxFilePathLengthArgsDict(TypedDict):
+    max_file_path_length: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed length of a file path.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesMaxFilePathLengthArgs:
@@ -5187,14 +5002,11 @@ class RepositoryRulesetRulesMaxFilePathLengthArgs:
         pulumi.set(self, "max_file_path_length", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesMaxFileSizeArgsDict(TypedDict):
-        max_file_size: pulumi.Input[_builtins.int]
-        """
-        The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
-        """
-elif False:
-    RepositoryRulesetRulesMaxFileSizeArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesMaxFileSizeArgsDict(TypedDict):
+    max_file_size: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed size of a file in megabytes (MB). Valid range is 1-100 MB.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesMaxFileSizeArgs:
@@ -5218,38 +5030,35 @@ class RepositoryRulesetRulesMaxFileSizeArgs:
         pulumi.set(self, "max_file_size", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesMergeQueueArgsDict(TypedDict):
-        check_response_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
-        """
-        grouping_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
-        """
-        max_entries_to_build: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
-        """
-        max_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of PRs that will be merged together in a group. Defaults to `5`.
-        """
-        merge_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
-        """
-        min_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of PRs that will be merged together in a group. Defaults to `1`.
-        """
-        min_entries_to_merge_wait_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
-        """
-elif False:
-    RepositoryRulesetRulesMergeQueueArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesMergeQueueArgsDict(TypedDict):
+    check_response_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed. Defaults to `60`.
+    """
+    grouping_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN. Defaults to `ALLGREEN`.
+    """
+    max_entries_to_build: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Limit the number of queued pull requests requesting checks and workflow runs at the same time. Defaults to `5`.
+    """
+    max_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of PRs that will be merged together in a group. Defaults to `5`.
+    """
+    merge_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE. Defaults to `MERGE`.
+    """
+    min_entries_to_merge: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of PRs that will be merged together in a group. Defaults to `1`.
+    """
+    min_entries_to_merge_wait_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged. Defaults to `5`.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesMergeQueueArgs:
@@ -5370,38 +5179,35 @@ class RepositoryRulesetRulesMergeQueueArgs:
         pulumi.set(self, "min_entries_to_merge_wait_minutes", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
-        allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
-        """
-        dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
-        """
-        require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
-        """
-        require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
-        """
-        required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
-        """
-        required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
-        """
-        required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
-        """
-        Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
-        """
-elif False:
-    RepositoryRulesetRulesPullRequestArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesPullRequestArgsDict(TypedDict):
+    allowed_merge_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
+    """
+    dismiss_stale_reviews_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    New, reviewable commits pushed will dismiss previous pull request review approvals. Defaults to `false`.
+    """
+    require_code_owner_review: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Require an approving review in pull requests that modify files that have a designated code owner. Defaults to `false`.
+    """
+    require_last_push_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Defaults to `false`.
+    """
+    required_approving_review_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of approving reviews that are required before a pull request can be merged. Defaults to `0`.
+    """
+    required_review_thread_resolution: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    All conversations on code must be resolved before a pull request can be merged. Defaults to `false`.
+    """
+    required_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict']]]]
+    """
+    Require specific reviewers to approve pull requests targeting matching branches. Note: This feature is in beta and subject to change.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesPullRequestArgs:
@@ -5522,22 +5328,19 @@ class RepositoryRulesetRulesPullRequestArgs:
         pulumi.set(self, "required_reviewers", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict(TypedDict):
-        file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        File patterns (fnmatch syntax) that this reviewer must approve.
-        """
-        minimum_approvals: pulumi.Input[_builtins.int]
-        """
-        Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
-        """
-        reviewer: pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgsDict']
-        """
-        The reviewer that must review matching files.
-        """
-elif False:
-    RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesPullRequestRequiredReviewerArgsDict(TypedDict):
+    file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    File patterns (fnmatch syntax) that this reviewer must approve.
+    """
+    minimum_approvals: pulumi.Input[_builtins.int]
+    """
+    Minimum number of approvals required from this reviewer. Set to 0 to make approval optional.
+    """
+    reviewer: pulumi.Input['RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgsDict']
+    """
+    The reviewer that must review matching files.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesPullRequestRequiredReviewerArgs:
@@ -5591,18 +5394,15 @@ class RepositoryRulesetRulesPullRequestRequiredReviewerArgs:
         pulumi.set(self, "reviewer", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.int]
-        """
-        The ID of the reviewer that must review.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of reviewer. Currently only `Team` is supported.
-        """
-elif False:
-    RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.int]
+    """
+    The ID of the reviewer that must review.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of reviewer. Currently only `Team` is supported.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs:
@@ -5641,14 +5441,11 @@ class RepositoryRulesetRulesPullRequestRequiredReviewerReviewerArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesRequiredCodeScanningArgsDict(TypedDict):
-        required_code_scanning_tools: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict']]]
-        """
-        Tools that must provide code scanning results for this rule to pass.
-        """
-elif False:
-    RepositoryRulesetRulesRequiredCodeScanningArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesRequiredCodeScanningArgsDict(TypedDict):
+    required_code_scanning_tools: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict']]]
+    """
+    Tools that must provide code scanning results for this rule to pass.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesRequiredCodeScanningArgs:
@@ -5672,22 +5469,19 @@ class RepositoryRulesetRulesRequiredCodeScanningArgs:
         pulumi.set(self, "required_code_scanning_tools", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict(TypedDict):
-        alerts_threshold: pulumi.Input[_builtins.str]
-        """
-        The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
-        """
-        security_alerts_threshold: pulumi.Input[_builtins.str]
-        """
-        The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
-        """
-        tool: pulumi.Input[_builtins.str]
-        """
-        The name of a code scanning tool
-        """
-elif False:
-    RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgsDict(TypedDict):
+    alerts_threshold: pulumi.Input[_builtins.str]
+    """
+    The severity level at which code scanning results that raise alerts block a reference update. Can be one of: `none`, `errors`, `errors_and_warnings`, `all`.
+    """
+    security_alerts_threshold: pulumi.Input[_builtins.str]
+    """
+    The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: `none`, `critical`, `high_or_higher`, `medium_or_higher`, `all`.
+    """
+    tool: pulumi.Input[_builtins.str]
+    """
+    The name of a code scanning tool
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs:
@@ -5741,14 +5535,11 @@ class RepositoryRulesetRulesRequiredCodeScanningRequiredCodeScanningToolArgs:
         pulumi.set(self, "tool", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesRequiredDeploymentsArgsDict(TypedDict):
-        required_deployment_environments: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The environments that must be successfully deployed to before branches can be merged.
-        """
-elif False:
-    RepositoryRulesetRulesRequiredDeploymentsArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesRequiredDeploymentsArgsDict(TypedDict):
+    required_deployment_environments: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The environments that must be successfully deployed to before branches can be merged.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesRequiredDeploymentsArgs:
@@ -5772,22 +5563,19 @@ class RepositoryRulesetRulesRequiredDeploymentsArgs:
         pulumi.set(self, "required_deployment_environments", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
-        required_checks: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict']]]
-        """
-        Status checks that are required. Several can be defined.
-        """
-        do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow repositories and branches to be created if a check would otherwise prohibit it.
-        """
-        strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
-        """
-elif False:
-    RepositoryRulesetRulesRequiredStatusChecksArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesRequiredStatusChecksArgsDict(TypedDict):
+    required_checks: pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict']]]
+    """
+    Status checks that are required. Several can be defined.
+    """
+    do_not_enforce_on_create: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow repositories and branches to be created if a check would otherwise prohibit it.
+    """
+    strict_required_status_checks_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesRequiredStatusChecksArgs:
@@ -5843,18 +5631,15 @@ class RepositoryRulesetRulesRequiredStatusChecksArgs:
         pulumi.set(self, "strict_required_status_checks_policy", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict):
-        context: pulumi.Input[_builtins.str]
-        """
-        The status check context name that must be present on the commit.
-        """
-        integration_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The optional integration ID that this status check must originate from.
-        """
-elif False:
-    RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgsDict(TypedDict):
+    context: pulumi.Input[_builtins.str]
+    """
+    The status check context name that must be present on the commit.
+    """
+    integration_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The optional integration ID that this status check must originate from.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs:
@@ -5894,26 +5679,23 @@ class RepositoryRulesetRulesRequiredStatusChecksRequiredCheckArgs:
         pulumi.set(self, "integration_id", value)
 
 
-if not MYPY:
-    class RepositoryRulesetRulesTagNamePatternArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern to match with.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (String) The name of the ruleset.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, the rule will fail if the pattern matches.
-        """
-elif False:
-    RepositoryRulesetRulesTagNamePatternArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryRulesetRulesTagNamePatternArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern to match with.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (String) The name of the ruleset.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, the rule will fail if the pattern matches.
+    """
 
 @pulumi.input_type
 class RepositoryRulesetRulesTagNamePatternArgs:
@@ -5984,34 +5766,31 @@ class RepositoryRulesetRulesTagNamePatternArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisArgsDict(TypedDict):
-        advanced_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgsDict']]
-        """
-        The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
-        """
-        code_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgsDict']]
-        """
-        The code security configuration for the repository. See Code Security below for details.
-        """
-        secret_scanning: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgsDict']]
-        """
-        The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
-        """
-        secret_scanning_ai_detection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict']]
-        """
-        The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
-        """
-        secret_scanning_non_provider_patterns: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict']]
-        """
-        The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
-        """
-        secret_scanning_push_protection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict']]
-        """
-        The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
-        """
-elif False:
-    RepositorySecurityAndAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisArgsDict(TypedDict):
+    advanced_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisAdvancedSecurityArgsDict']]
+    """
+    The advanced security configuration for the repository. See Advanced Security Configuration below for details. If a repository's visibility is `public`, advanced security is always enabled and cannot be changed, so this setting cannot be supplied.
+    """
+    code_security: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisCodeSecurityArgsDict']]
+    """
+    The code security configuration for the repository. See Code Security below for details.
+    """
+    secret_scanning: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningArgsDict']]
+    """
+    The secret scanning configuration for the repository. See Secret Scanning Configuration below for details.
+    """
+    secret_scanning_ai_detection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict']]
+    """
+    The secret scanning ai detection configuration for the repository. See Secret Scanning AI Detection Configuration below for details.
+    """
+    secret_scanning_non_provider_patterns: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict']]
+    """
+    The secret scanning non-provider patterns configuration for this repository. See Secret Scanning Non-Provider Patterns Configuration below for more details.
+    """
+    secret_scanning_push_protection: NotRequired[pulumi.Input['RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict']]
+    """
+    The secret scanning push protection configuration for the repository. See Secret Scanning Push Protection Configuration below for details.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisArgs:
@@ -6116,14 +5895,11 @@ class RepositorySecurityAndAnalysisArgs:
         pulumi.set(self, "secret_scanning_push_protection", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisAdvancedSecurityArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
-        """
-elif False:
-    RepositorySecurityAndAnalysisAdvancedSecurityArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisAdvancedSecurityArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    Set to `enabled` to enable advanced security features on the repository. Can be `enabled` or `disabled`.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisAdvancedSecurityArgs:
@@ -6147,14 +5923,11 @@ class RepositorySecurityAndAnalysisAdvancedSecurityArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisCodeSecurityArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        The GitHub Pages site's build status e.g. `building` or `built`.
-        """
-elif False:
-    RepositorySecurityAndAnalysisCodeSecurityArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisCodeSecurityArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    The GitHub Pages site's build status e.g. `building` or `built`.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisCodeSecurityArgs:
@@ -6178,14 +5951,11 @@ class RepositorySecurityAndAnalysisCodeSecurityArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisSecretScanningArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        The GitHub Pages site's build status e.g. `building` or `built`.
-        """
-elif False:
-    RepositorySecurityAndAnalysisSecretScanningArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisSecretScanningArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    The GitHub Pages site's build status e.g. `building` or `built`.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisSecretScanningArgs:
@@ -6209,14 +5979,11 @@ class RepositorySecurityAndAnalysisSecretScanningArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
-        """
-elif False:
-    RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    Set to `enabled` to enable secret scanning AI detection on the repository. Can be `enabled` or `disabled`. If set to `enabled`, the repository's visibility must be `public`, `security_and_analysis[0].advanced_security[0].status` must also be set to `enabled`, or your Organization must have split licensing for Advanced security.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs:
@@ -6240,14 +6007,11 @@ class RepositorySecurityAndAnalysisSecretScanningAiDetectionArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        The GitHub Pages site's build status e.g. `building` or `built`.
-        """
-elif False:
-    RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    The GitHub Pages site's build status e.g. `building` or `built`.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs:
@@ -6271,14 +6035,11 @@ class RepositorySecurityAndAnalysisSecretScanningNonProviderPatternsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        The GitHub Pages site's build status e.g. `building` or `built`.
-        """
-elif False:
-    RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict: TypeAlias = Mapping[str, Any]
+class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    The GitHub Pages site's build status e.g. `building` or `built`.
+    """
 
 @pulumi.input_type
 class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs:
@@ -6302,24 +6063,21 @@ class RepositorySecurityAndAnalysisSecretScanningPushProtectionArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositoryTemplateArgsDict(TypedDict):
-        owner: pulumi.Input[_builtins.str]
-        """
-        The GitHub organization or user the template repository is owned by.
-        """
-        repository: pulumi.Input[_builtins.str]
-        """
-        The name of the template repository.
-        """
-        include_all_branches: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
+class RepositoryTemplateArgsDict(TypedDict):
+    owner: pulumi.Input[_builtins.str]
+    """
+    The GitHub organization or user the template repository is owned by.
+    """
+    repository: pulumi.Input[_builtins.str]
+    """
+    The name of the template repository.
+    """
+    include_all_branches: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template).
 
-        > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
-        """
-elif False:
-    RepositoryTemplateArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note on `internal` visibility with templates**: When creating a repository from a template with `visibility = "internal"`, the provider uses a two-step process due to GitHub API limitations. The template creation API only supports a `private` boolean parameter. Therefore, repositories with `visibility = "internal"` are initially created as private and then immediately updated to internal visibility. This ensures internal repositories are never exposed publicly during creation.
+    """
 
 @pulumi.input_type
 class RepositoryTemplateArgs:
@@ -6378,26 +6136,23 @@ class RepositoryTemplateArgs:
         pulumi.set(self, "include_all_branches", value)
 
 
-if not MYPY:
-    class RepositoryWebhookConfigurationArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        The URL of the webhook.
-        """
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content type for the payload. Valid values are either `form` or `json`.
-        """
-        insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Insecure SSL boolean toggle. Defaults to `false`.
-        """
-        secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
-        """
-elif False:
-    RepositoryWebhookConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryWebhookConfigurationArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL of the webhook.
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content type for the payload. Valid values are either `form` or `json`.
+    """
+    insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Insecure SSL boolean toggle. Defaults to `false`.
+    """
+    secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared secret for the webhook. [See API documentation](https://developer.github.com/v3/repos/hooks/#create-a-hook).
+    """
 
 @pulumi.input_type
 class RepositoryWebhookConfigurationArgs:
@@ -6469,19 +6224,16 @@ class RepositoryWebhookConfigurationArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class TeamMembersMemberArgsDict(TypedDict):
-        username: pulumi.Input[_builtins.str]
-        """
-        The user to add to the team.
-        """
-        role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The role of the user within the team.
-        Must be one of `member` or `maintainer`. Defaults to `member`.
-        """
-elif False:
-    TeamMembersMemberArgsDict: TypeAlias = Mapping[str, Any]
+class TeamMembersMemberArgsDict(TypedDict):
+    username: pulumi.Input[_builtins.str]
+    """
+    The user to add to the team.
+    """
+    role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The role of the user within the team.
+    Must be one of `member` or `maintainer`. Defaults to `member`.
+    """
 
 @pulumi.input_type
 class TeamMembersMemberArgs:
@@ -6523,22 +6275,19 @@ class TeamMembersMemberArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
-        algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
-        """
-        member_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of team members to assign to a pull request.
-        """
-        notify: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        whether to notify the entire team when at least one member is also assigned to the pull request.
-        """
-elif False:
-    TeamSettingsReviewRequestDelegationArgsDict: TypeAlias = Mapping[str, Any]
+class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
+    algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+    """
+    member_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of team members to assign to a pull request.
+    """
+    notify: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    whether to notify the entire team when at least one member is also assigned to the pull request.
+    """
 
 @pulumi.input_type
 class TeamSettingsReviewRequestDelegationArgs:
@@ -6595,22 +6344,19 @@ class TeamSettingsReviewRequestDelegationArgs:
         pulumi.set(self, "notify", value)
 
 
-if not MYPY:
-    class TeamSyncGroupMappingGroupArgsDict(TypedDict):
-        group_description: pulumi.Input[_builtins.str]
-        """
-        The description of the IdP group.
-        """
-        group_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the IdP group.
-        """
-        group_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IdP group.
-        """
-elif False:
-    TeamSyncGroupMappingGroupArgsDict: TypeAlias = Mapping[str, Any]
+class TeamSyncGroupMappingGroupArgsDict(TypedDict):
+    group_description: pulumi.Input[_builtins.str]
+    """
+    The description of the IdP group.
+    """
+    group_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the IdP group.
+    """
+    group_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IdP group.
+    """
 
 @pulumi.input_type
 class TeamSyncGroupMappingGroupArgs:

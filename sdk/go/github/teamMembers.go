@@ -12,6 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GitHub team members resource.
+//
+// This resource allows you to manage members of teams in your organization. It sets the requested team members for the team and removes all users not managed by Terraform.
+//
+// When applied, if the user hasn't accepted their invitation to the organization, they won't be part of the team until they do.
+//
+// When destroyed, all users will be removed from the team.
+//
+// > **Note** This resource is not compatible with `TeamMembership`. Use either `TeamMembers` or `TeamMembership`.
+//
+// > **Note** You can accidentally lock yourself out of your team using this resource. Deleting a `TeamMembers` resource removes access from anyone without organization-level access to the team. Proceed with caution. It should generally only be used with teams fully managed by Terraform.
+//
+// > **Note** Attempting to set a user who is an organization owner to "member" will result in the user being granted "maintainer" instead; this can result in a perpetual `terraform plan` diff that changes their status back to "member".
+//
 // ## Example Usage
 //
 // ```go
@@ -72,15 +86,12 @@ import (
 //
 // ## Import
 //
-// ~> **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
+// > **Note** Although the team id or team slug can be used it is recommended to use the team id.  Using the team slug will result in terraform doing conversions between the team slug and team id.  This will cause team members associations to the team to be destroyed and recreated on import.
 //
 // GitHub Team Membership can be imported using the team ID team id or team slug, e.g.
 //
 // ```sh
 // $ pulumi import github:index/teamMembers:TeamMembers some_team 1234567
-// ```
-//
-// ```sh
 // $ pulumi import github:index/teamMembers:TeamMembers some_team Administrators
 // ```
 type TeamMembers struct {

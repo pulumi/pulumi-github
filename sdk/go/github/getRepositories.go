@@ -67,12 +67,14 @@ type GetRepositoriesArgs struct {
 
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
+	// A list of full names of found repositories (e.g. `hashicorp/terraform`)
 	FullNames []string `pulumi:"fullNames"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string   `pulumi:"id"`
-	IncludeRepoId *bool    `pulumi:"includeRepoId"`
-	Names         []string `pulumi:"names"`
-	Query         string   `pulumi:"query"`
+	Id            string `pulumi:"id"`
+	IncludeRepoId *bool  `pulumi:"includeRepoId"`
+	// A list of found repository names (e.g. `terraform`)
+	Names []string `pulumi:"names"`
+	Query string   `pulumi:"query"`
 	// (Optional) A list of found repository IDs (e.g. `449898861`)
 	RepoIds        []int   `pulumi:"repoIds"`
 	ResultsPerPage *int    `pulumi:"resultsPerPage"`
@@ -119,6 +121,7 @@ func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ct
 	return o
 }
 
+// A list of full names of found repositories (e.g. `hashicorp/terraform`)
 func (o GetRepositoriesResultOutput) FullNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.FullNames }).(pulumi.StringArrayOutput)
 }
@@ -132,6 +135,7 @@ func (o GetRepositoriesResultOutput) IncludeRepoId() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) *bool { return v.IncludeRepoId }).(pulumi.BoolPtrOutput)
 }
 
+// A list of found repository names (e.g. `terraform`)
 func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

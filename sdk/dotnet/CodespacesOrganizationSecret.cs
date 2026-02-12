@@ -10,7 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Example Usage
+    /// This resource allows you to create and manage GitHub Codespaces secrets within your GitHub organization.
+    /// You must have write access to a repository to use this resource.
+    /// 
+    /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+    /// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+    /// 
+    /// For the purposes of security, the contents of the `PlaintextValue` field have been marked as `Sensitive` to Terraform,
+    /// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+    /// It is also advised that you do not store plaintext values in your code but rather populate the `EncryptedValue`
+    /// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+    /// in your code. See below for an example of this abstraction.
     /// 
     /// ## Import
     /// 
@@ -21,8 +31,7 @@ namespace Pulumi.Github
     /// ```
     /// 
     /// NOTE: the implementation is limited in that it won't fetch the value of the
-    /// 
-    /// `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+    /// `PlaintextValue` or `EncryptedValue` fields when importing. You may need to ignore changes for these as a workaround.
     /// </summary>
     [GithubResourceType("github:index/codespacesOrganizationSecret:CodespacesOrganizationSecret")]
     public partial class CodespacesOrganizationSecret : global::Pulumi.CustomResource

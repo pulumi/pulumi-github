@@ -71,9 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * This resource can be imported using an ID made of the variable name and repository name separated by a `:`.
+ * 
  * ### Import Command
  * 
- * The following command imports the access of repository ID `123456` for the actions organization variable named `myvariable` to a `github_actions_organization_variable_repository` resource named `example`.
+ * The following command imports the access of repository ID `123456` for the actions organization variable named `myvariable` to a `github.ActionsOrganizationVariableRepository` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/actionsOrganizationVariableRepository:ActionsOrganizationVariableRepository example myvariable:123456

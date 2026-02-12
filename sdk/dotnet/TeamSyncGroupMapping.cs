@@ -39,7 +39,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub Team Sync Group Mappings can be imported using the GitHub team `slug` e.g.
+    /// GitHub Team Sync Group Mappings can be imported using the GitHub team `Slug` e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team

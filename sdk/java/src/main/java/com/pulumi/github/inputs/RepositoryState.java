@@ -718,12 +718,16 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     /**
      * The list of topics of the repository.
      * 
+     * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
+     * 
      */
     @Import(name="topics")
     private @Nullable Output<List<String>> topics;
 
     /**
      * @return The list of topics of the repository.
+     * 
+     * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
      * 
      */
     public Optional<Output<List<String>>> topics() {
@@ -1803,6 +1807,8 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param topics The list of topics of the repository.
          * 
+         * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
+         * 
          * @return builder
          * 
          */
@@ -1814,6 +1820,8 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param topics The list of topics of the repository.
          * 
+         * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
+         * 
          * @return builder
          * 
          */
@@ -1823,6 +1831,8 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param topics The list of topics of the repository.
+         * 
+         * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
          * 
          * @return builder
          * 

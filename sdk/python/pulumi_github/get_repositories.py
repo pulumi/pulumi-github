@@ -55,6 +55,9 @@ class GetRepositoriesResult:
     @_builtins.property
     @pulumi.getter(name="fullNames")
     def full_names(self) -> Sequence[_builtins.str]:
+        """
+        A list of full names of found repositories (e.g. `hashicorp/terraform`)
+        """
         return pulumi.get(self, "full_names")
 
     @_builtins.property
@@ -73,6 +76,9 @@ class GetRepositoriesResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
+        """
+        A list of found repository names (e.g. `terraform`)
+        """
         return pulumi.get(self, "names")
 
     @_builtins.property

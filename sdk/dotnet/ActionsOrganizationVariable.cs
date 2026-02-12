@@ -62,9 +62,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
+    /// This resource can be imported using the variable name as the ID.
+    /// 
     /// ### Import Command
     /// 
-    /// The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
+    /// The following command imports a GitHub actions organization variable named `Myvariable` to a `github.ActionsOrganizationVariable` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable

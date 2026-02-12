@@ -147,9 +147,7 @@ import javax.annotation.Nullable;
  * 
  * GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
  * 
- * ```sh
- * $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
- * ```
+ * `$ terraform import github_organization_ruleset.example 12345`
  * 
  */
 @ResourceType(type="github:index/organizationRuleset:OrganizationRuleset")
