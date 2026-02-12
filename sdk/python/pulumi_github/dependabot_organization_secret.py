@@ -292,11 +292,54 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
                  visibility: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
+        This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization.
+        You must have write access to a repository to use this resource.
+
+        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+        interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+
+        For the purposes of security, the contents of the `plaintext_value` field have been marked as `sensitive` to Terraform,
+        but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+        It is also advised that you do not store plaintext values in your code but rather populate the `encrypted_value`
+        using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+        in your code. See below for an example of this abstraction.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_plaintext = github.DependabotOrganizationSecret("example_plaintext",
+            secret_name="example_secret_name",
+            visibility="all",
+            plaintext_value=some_secret_string)
+        example_secret = github.DependabotOrganizationSecret("example_secret",
+            secret_name="example_secret_name",
+            visibility="all",
+            encrypted_value=some_encrypted_secret_string)
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_plaintext = github.DependabotOrganizationSecret("example_plaintext",
+            secret_name="example_secret_name",
+            visibility="selected",
+            plaintext_value=some_secret_string,
+            selected_repository_ids=[repo.repo_id])
+        example_encrypted = github.DependabotOrganizationSecret("example_encrypted",
+            secret_name="example_secret_name",
+            visibility="selected",
+            encrypted_value=some_encrypted_secret_string,
+            selected_repository_ids=[repo.repo_id])
+        ```
 
         ### Import Command
 
-        The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret` resource named `example`.
+        The following command imports a GitHub Dependabot organization secret named `mysecret` to a `DependabotOrganizationSecret` resource named `example`.
 
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret
@@ -318,11 +361,54 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
                  args: DependabotOrganizationSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
+        This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization.
+        You must have write access to a repository to use this resource.
+
+        Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+        interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+
+        For the purposes of security, the contents of the `plaintext_value` field have been marked as `sensitive` to Terraform,
+        but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+        It is also advised that you do not store plaintext values in your code but rather populate the `encrypted_value`
+        using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+        in your code. See below for an example of this abstraction.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        example_plaintext = github.DependabotOrganizationSecret("example_plaintext",
+            secret_name="example_secret_name",
+            visibility="all",
+            plaintext_value=some_secret_string)
+        example_secret = github.DependabotOrganizationSecret("example_secret",
+            secret_name="example_secret_name",
+            visibility="all",
+            encrypted_value=some_encrypted_secret_string)
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        repo = github.get_repository(full_name="my-org/repo")
+        example_plaintext = github.DependabotOrganizationSecret("example_plaintext",
+            secret_name="example_secret_name",
+            visibility="selected",
+            plaintext_value=some_secret_string,
+            selected_repository_ids=[repo.repo_id])
+        example_encrypted = github.DependabotOrganizationSecret("example_encrypted",
+            secret_name="example_secret_name",
+            visibility="selected",
+            encrypted_value=some_encrypted_secret_string,
+            selected_repository_ids=[repo.repo_id])
+        ```
 
         ### Import Command
 
-        The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret` resource named `example`.
+        The following command imports a GitHub Dependabot organization secret named `mysecret` to a `DependabotOrganizationSecret` resource named `example`.
 
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret

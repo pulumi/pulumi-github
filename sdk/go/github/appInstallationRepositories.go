@@ -27,7 +27,7 @@ import (
 // ## Import
 //
 // GitHub App Installation Repositories can be imported
-// using an ID made up of `installation_id`, e.g.
+// using an ID made up of `installationId`, e.g.
 //
 // ```sh
 // $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567

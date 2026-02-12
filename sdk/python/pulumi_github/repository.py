@@ -102,6 +102,8 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
+               
+               > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
@@ -628,6 +630,8 @@ class RepositoryArgs:
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of topics of the repository.
+
+        > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         """
         return pulumi.get(self, "topics")
 
@@ -774,6 +778,8 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input['RepositoryTemplateArgs'] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
+               
+               > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
@@ -1426,6 +1432,8 @@ class _RepositoryState:
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of topics of the repository.
+
+        > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         """
         return pulumi.get(self, "topics")
 
@@ -1621,6 +1629,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] squash_merge_commit_title: Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`.
         :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
+               
+               > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
@@ -1919,6 +1929,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] svn_url: URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.
         :param pulumi.Input[Union['RepositoryTemplateArgs', 'RepositoryTemplateArgsDict']] template: Use a template repository to create this resource. See Template Repositories below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: The list of topics of the repository.
+               
+               > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
         :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
@@ -2340,6 +2352,8 @@ class Repository(pulumi.CustomResource):
     def topics(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         The list of topics of the repository.
+
+        > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         """
         return pulumi.get(self, "topics")
 

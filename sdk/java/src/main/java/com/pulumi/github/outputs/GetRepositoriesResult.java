@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRepositoriesResult {
+    /**
+     * @return A list of full names of found repositories (e.g. `hashicorp/terraform`)
+     * 
+     */
     private List<String> fullNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,6 +26,10 @@ public final class GetRepositoriesResult {
      */
     private String id;
     private @Nullable Boolean includeRepoId;
+    /**
+     * @return A list of found repository names (e.g. `terraform`)
+     * 
+     */
     private List<String> names;
     private String query;
     /**
@@ -33,6 +41,10 @@ public final class GetRepositoriesResult {
     private @Nullable String sort;
 
     private GetRepositoriesResult() {}
+    /**
+     * @return A list of full names of found repositories (e.g. `hashicorp/terraform`)
+     * 
+     */
     public List<String> fullNames() {
         return this.fullNames;
     }
@@ -46,6 +58,10 @@ public final class GetRepositoriesResult {
     public Optional<Boolean> includeRepoId() {
         return Optional.ofNullable(this.includeRepoId);
     }
+    /**
+     * @return A list of found repository names (e.g. `terraform`)
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

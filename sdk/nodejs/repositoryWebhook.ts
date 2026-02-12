@@ -7,6 +7,11 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * This resource allows you to create and manage webhooks for repositories within your
+ * GitHub organization or personal account.
+ *
+ * > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -41,6 +46,7 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
  * ```
+ *
  * If secret is populated in the webhook's configuration, the value will be imported as "********".
  */
 export class RepositoryWebhook extends pulumi.CustomResource {

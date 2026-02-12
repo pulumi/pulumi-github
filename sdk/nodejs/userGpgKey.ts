@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
- *
  * does not return previously uploaded GPG key.
  */
 export class UserGpgKey extends pulumi.CustomResource {

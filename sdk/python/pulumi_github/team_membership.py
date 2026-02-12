@@ -189,9 +189,6 @@ class TeamMembership(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
-        ```
-
-        ```sh
         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
 
@@ -245,9 +242,6 @@ class TeamMembership(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
-        ```
-
-        ```sh
         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
 

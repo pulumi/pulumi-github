@@ -33,7 +33,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub EMU External Group Mappings can be imported using the `team_slug` and external `group_id` separated by a colon, e.g.
+    /// GitHub EMU External Group Mappings can be imported using the `TeamSlug` and external `GroupId` separated by a colon, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836

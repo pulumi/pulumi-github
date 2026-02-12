@@ -146,9 +146,7 @@ namespace Pulumi.Github
     /// 
     /// GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
-    /// ```
+    /// `$ terraform import github_organization_ruleset.example 12345`
     /// </summary>
     [GithubResourceType("github:index/organizationRuleset:OrganizationRuleset")]
     public partial class OrganizationRuleset : global::Pulumi.CustomResource

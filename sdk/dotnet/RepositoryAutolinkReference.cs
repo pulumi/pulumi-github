@@ -41,6 +41,16 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
+    /// Autolink references can be imported using the `Name` of the repository, combined with the `Id` or `key prefix` of the autolink reference and a `/` character for separating components, e.g.
+    /// 
+    /// ### Import by ID
+    /// 
+    /// ```sh
+    /// $ pulumi import github:index/repositoryAutolinkReference:RepositoryAutolinkReference auto my-repo/123
+    /// ```
+    /// 
+    /// See the GitHub documentation for how to [list all autolinks of a repository](https://docs.github.com/en/rest/repos/autolinks#list-all-autolinks-of-a-repository) to learn the autolink ids to use with the import command.
+    /// 
     /// ### Import by key prefix
     /// 
     /// ```sh

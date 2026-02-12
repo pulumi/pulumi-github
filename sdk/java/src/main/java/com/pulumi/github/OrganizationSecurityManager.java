@@ -60,12 +60,6 @@ import javax.annotation.Nullable;
  * 
  * GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
  * 
- * text
- * 
- * ```sh
- * $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
- * ```
- * 
  */
 @ResourceType(type="github:index/organizationSecurityManager:OrganizationSecurityManager")
 public class OrganizationSecurityManager extends com.pulumi.resources.CustomResource {

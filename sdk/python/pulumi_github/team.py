@@ -429,9 +429,6 @@ class Team(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/team:Team core 1234567
-        ```
-
-        ```sh
         $ pulumi import github:index/team:Team core Administrators
         ```
 
@@ -478,9 +475,6 @@ class Team(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/team:Team core 1234567
-        ```
-
-        ```sh
         $ pulumi import github:index/team:Team core Administrators
         ```
 

@@ -64,9 +64,6 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  * $ pulumi import github:index/team:Team core 1234567
- * ```
- * 
- * ```sh
  * $ pulumi import github:index/team:Team core Administrators
  * ```
  * 

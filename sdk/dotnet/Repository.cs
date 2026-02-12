@@ -93,7 +93,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repositories can be imported using the `name`, e.g.
+    /// Repositories can be imported using the `Name`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repository:Repository terraform myrepo
@@ -370,6 +370,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The list of topics of the repository.
+        /// 
+        /// &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
@@ -655,6 +657,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The list of topics of the repository.
+        /// 
+        /// &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         /// </summary>
         public InputList<string> Topics
         {
@@ -959,6 +963,8 @@ namespace Pulumi.Github
 
         /// <summary>
         /// The list of topics of the repository.
+        /// 
+        /// &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         /// </summary>
         public InputList<string> Topics
         {

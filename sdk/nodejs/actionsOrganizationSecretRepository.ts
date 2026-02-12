@@ -33,9 +33,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * This resource can be imported using an ID made of the secret name and repository name separated by a `:`.
+ *
  * ### Import Command
  *
- * The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github_actions_organization_secret_repository` resource named `example`.
+ * The following command imports the access of repository ID `123456` for the actions organization secret named `mysecret` to a `github.ActionsOrganizationSecretRepository` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/actionsOrganizationSecretRepository:ActionsOrganizationSecretRepository example mysecret:123456

@@ -10,11 +10,86 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
-    /// ## Import
+    /// This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization.
+    /// You must have write access to a repository to use this resource.
+    /// 
+    /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+    /// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+    /// 
+    /// For the purposes of security, the contents of the `PlaintextValue` field have been marked as `Sensitive` to Terraform,
+    /// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+    /// It is also advised that you do not store plaintext values in your code but rather populate the `EncryptedValue`
+    /// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+    /// in your code. See below for an example of this abstraction.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePlaintext = new Github.DependabotOrganizationSecret("example_plaintext", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "all",
+    ///         PlaintextValue = someSecretString,
+    ///     });
+    /// 
+    ///     var exampleSecret = new Github.DependabotOrganizationSecret("example_secret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "all",
+    ///         EncryptedValue = someEncryptedSecretString,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var examplePlaintext = new Github.DependabotOrganizationSecret("example_plaintext", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         PlaintextValue = someSecretString,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEncrypted = new Github.DependabotOrganizationSecret("example_encrypted", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         EncryptedValue = someEncryptedSecretString,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ### Import Command
     /// 
-    /// The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret` resource named `example`.
+    /// The following command imports a GitHub Dependabot organization secret named `Mysecret` to a `github.DependabotOrganizationSecret` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret

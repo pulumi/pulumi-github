@@ -10,11 +10,114 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// This resource allows you to create and manage GitHub Actions secrets within your GitHub organization.
+    /// You must have write access to a repository to use this resource.
+    /// 
+    /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+    /// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+    /// 
+    /// For the purposes of security, the contents of the `PlaintextValue` field have been marked as `Sensitive` to Terraform,
+    /// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+    /// It is also advised that you do not store plaintext values in your code but rather populate the `EncryptedValue`
+    /// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+    /// in your code. See below for an example of this abstraction.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePlaintext = new Github.ActionsOrganizationSecret("example_plaintext", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "all",
+    ///         PlaintextValue = someSecretString,
+    ///     });
+    /// 
+    ///     var exampleEncrypted = new Github.ActionsOrganizationSecret("example_encrypted", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "all",
+    ///         EncryptedValue = someEncryptedSecretString,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     {
+    ///         FullName = "my-org/repo",
+    ///     });
+    /// 
+    ///     var exampleEncrypted = new Github.ActionsOrganizationSecret("example_encrypted", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         PlaintextValue = someSecretString,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecret = new Github.ActionsOrganizationSecret("example_secret", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "selected",
+    ///         EncryptedValue = someEncryptedSecretString,
+    ///         SelectedRepositoryIds = new[]
+    ///         {
+    ///             repo.Apply(getRepositoryResult =&gt; getRepositoryResult.RepoId),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example Lifecycle Ignore Changes
+    /// 
+    /// This resource supports using the `Lifecycle` `IgnoreChanges` block on `RemoteUpdatedAt` to support use cases where a secret value is created using a placeholder value and then modified after creation outside the scope of Terraform. This approach ensures only the initial placeholder value is referenced in your code and in the resulting state file.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAllowDrift = new Github.ActionsOrganizationSecret("example_allow_drift", new()
+    ///     {
+    ///         SecretName = "example_secret_name",
+    ///         Visibility = "all",
+    ///         PlaintextValue = "placeholder",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
+    /// 
+    /// This resource can be imported using the secret name as the ID.
+    /// 
+    /// &gt; **Note**: When importing secrets, the `PlaintextValue` or `EncryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
     /// 
     /// ### Import Command
     /// 
-    /// The following command imports a GitHub actions organization secret named `mysecret` to a `github_actions_organization_secret` resource named `example`.
+    /// The following command imports a GitHub actions organization secret named `Mysecret` to a `github.ActionsOrganizationSecret` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret

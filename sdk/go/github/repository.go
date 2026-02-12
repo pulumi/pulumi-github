@@ -224,6 +224,8 @@ type Repository struct {
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrOutput `pulumi:"template"`
 	// The list of topics of the repository.
+	//
+	// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
@@ -364,6 +366,8 @@ type repositoryState struct {
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template *RepositoryTemplate `pulumi:"template"`
 	// The list of topics of the repository.
+	//
+	// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
@@ -475,6 +479,8 @@ type RepositoryState struct {
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrInput
 	// The list of topics of the repository.
+	//
+	// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
@@ -572,6 +578,8 @@ type repositoryArgs struct {
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template *RepositoryTemplate `pulumi:"template"`
 	// The list of topics of the repository.
+	//
+	// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
@@ -666,6 +674,8 @@ type RepositoryArgs struct {
 	// Use a template repository to create this resource. See Template Repositories below for details.
 	Template RepositoryTemplatePtrInput
 	// The list of topics of the repository.
+	//
+	// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
@@ -995,6 +1005,8 @@ func (o RepositoryOutput) Template() RepositoryTemplatePtrOutput {
 }
 
 // The list of topics of the repository.
+//
+// > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
 func (o RepositoryOutput) Topics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
 }

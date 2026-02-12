@@ -165,12 +165,18 @@ namespace Pulumi.Github
     [OutputType]
     public sealed class GetRepositoriesResult
     {
+        /// <summary>
+        /// A list of full names of found repositories (e.g. `hashicorp/terraform`)
+        /// </summary>
         public readonly ImmutableArray<string> FullNames;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeRepoId;
+        /// <summary>
+        /// A list of found repository names (e.g. `Terraform`)
+        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Query;
         /// <summary>

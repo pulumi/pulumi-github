@@ -153,6 +153,24 @@ class TeamRepository(pulumi.CustomResource):
                  team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
+        they will fight over what your policy should be.
+
+        This resource manages relationships between teams and repositories
+        in your GitHub organization.
+
+        Creating this resource grants a particular team permissions on a
+        particular repository.
+
+        The repository and the team must both belong to the same organization
+        on GitHub. This resource does not actually *create* any repositories;
+        to do that, see `Repository`.
+
+        > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
+        instead.
+
         ## Example Usage
 
         ```python
@@ -176,9 +194,6 @@ class TeamRepository(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
-        ```
-
-        ```sh
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
 
@@ -196,6 +211,24 @@ class TeamRepository(pulumi.CustomResource):
                  args: TeamRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > Note: TeamRepository cannot be used in conjunction with RepositoryCollaborators or
+        they will fight over what your policy should be.
+
+        This resource manages relationships between teams and repositories
+        in your GitHub organization.
+
+        Creating this resource grants a particular team permissions on a
+        particular repository.
+
+        The repository and the team must both belong to the same organization
+        on GitHub. This resource does not actually *create* any repositories;
+        to do that, see `Repository`.
+
+        > **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing team permission modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+
+        This resource is non-authoritative, for managing ALL collaborators of a repo, use RepositoryCollaborators
+        instead.
+
         ## Example Usage
 
         ```python
@@ -219,9 +252,6 @@ class TeamRepository(pulumi.CustomResource):
 
         ```sh
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
-        ```
-
-        ```sh
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
 

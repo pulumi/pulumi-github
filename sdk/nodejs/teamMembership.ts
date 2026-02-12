@@ -44,9 +44,6 @@ import * as utilities from "./utilities";
  *
  * ```sh
  * $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
- * ```
- *
- * ```sh
  * $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
  * ```
  */

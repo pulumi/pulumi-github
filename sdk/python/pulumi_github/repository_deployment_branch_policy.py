@@ -196,12 +196,6 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         ## Import
 
-        text
-
-        ```sh
-        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
@@ -241,12 +235,6 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         ```
 
         ## Import
-
-        text
-
-        ```sh
-        $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
-        ```
 
         :param str resource_name: The name of the resource.
         :param RepositoryDeploymentBranchPolicyArgs args: The arguments to use to populate this resource's properties.

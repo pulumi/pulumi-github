@@ -288,6 +288,8 @@ export class Repository extends pulumi.CustomResource {
     declare public readonly template: pulumi.Output<outputs.RepositoryTemplate | undefined>;
     /**
      * The list of topics of the repository.
+     *
+     * > Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
      */
     declare public readonly topics: pulumi.Output<string[]>;
     /**
@@ -612,6 +614,8 @@ export interface RepositoryState {
     template?: pulumi.Input<inputs.RepositoryTemplate>;
     /**
      * The list of topics of the repository.
+     *
+     * > Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
      */
     topics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -784,6 +788,8 @@ export interface RepositoryArgs {
     template?: pulumi.Input<inputs.RepositoryTemplate>;
     /**
      * The list of topics of the repository.
+     *
+     * > Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
      */
     topics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

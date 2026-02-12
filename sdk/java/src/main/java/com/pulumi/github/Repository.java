@@ -795,12 +795,16 @@ public class Repository extends com.pulumi.resources.CustomResource {
     /**
      * The list of topics of the repository.
      * 
+     * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
+     * 
      */
     @Export(name="topics", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> topics;
 
     /**
      * @return The list of topics of the repository.
+     * 
+     * &gt; Note: This attribute is not compatible with the `github.RepositoryTopics` resource. Use one of them. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
      * 
      */
     public Output<List<String>> topics() {

@@ -39,12 +39,6 @@ namespace Pulumi.Github
     /// ## Import
     /// 
     /// GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
-    /// 
-    /// text
-    /// 
-    /// ```sh
-    /// $ pulumi import github:index/organizationSecurityManager:OrganizationSecurityManager core 1234567
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/organizationSecurityManager:OrganizationSecurityManager")]
     public partial class OrganizationSecurityManager : global::Pulumi.CustomResource

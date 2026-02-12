@@ -130,12 +130,6 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
 
         GitHub Team Organization Role Assignment can be imported using an ID made up of `team_slug:role_id`
 
-        text
-
-        ```sh
-        $ pulumi import github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment role_assignment test-team:8132
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role_id: The GitHub organization role id
@@ -173,12 +167,6 @@ class OrganizationRoleTeamAssignment(pulumi.CustomResource):
         ## Import
 
         GitHub Team Organization Role Assignment can be imported using an ID made up of `team_slug:role_id`
-
-        text
-
-        ```sh
-        $ pulumi import github:index/organizationRoleTeamAssignment:OrganizationRoleTeamAssignment role_assignment test-team:8132
-        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationRoleTeamAssignmentArgs args: The arguments to use to populate this resource's properties.

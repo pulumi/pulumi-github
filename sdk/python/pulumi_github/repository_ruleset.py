@@ -396,9 +396,7 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
 
-        ```sh
-        $ pulumi import github:index/repositoryRuleset:RepositoryRuleset example example:12345`
-        ```
+        `$ terraform import github_repository_ruleset.example example:12345`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -496,9 +494,7 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
 
-        ```sh
-        $ pulumi import github:index/repositoryRuleset:RepositoryRuleset example example:12345`
-        ```
+        `$ terraform import github_repository_ruleset.example example:12345`
 
         :param str resource_name: The name of the resource.
         :param RepositoryRulesetArgs args: The arguments to use to populate this resource's properties.

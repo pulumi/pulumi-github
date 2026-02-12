@@ -5,11 +5,60 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * This resource allows you to create and manage GitHub Actions secrets within your GitHub repositories.
+ * You must have write access to a repository to use this resource.
+ *
+ * Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+ * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+ *
+ * For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+ * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+ * It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+ * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+ * in your code. See below for an example of this abstraction.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const examplePlaintext = new github.ActionsSecret("example_plaintext", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     plaintextValue: someSecretString,
+ * });
+ * const exampleEncrypted = new github.ActionsSecret("example_encrypted", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     encryptedValue: someEncryptedSecretString,
+ * });
+ * ```
+ *
+ * ## Example Lifecycle Ignore Changes
+ *
+ * This resource supports using the `lifecycle` `ignoreChanges` block on `remoteUpdatedAt` to support use cases where a secret value is created using a placeholder value and then modified after creation outside the scope of Terraform. This approach ensures only the initial placeholder value is referenced in your code and in the resulting state file.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleAllowDrift = new github.ActionsSecret("example_allow_drift", {
+ *     repository: "example_repository",
+ *     secretName: "example_secret_name",
+ *     plaintextValue: "placeholder",
+ * });
+ * ```
+ *
  * ## Import
+ *
+ * This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
+ *
+ * > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
  *
  * ### Import Command
  *
- * The following command imports a GitHub actions secret named `mysecret` for the repo `myrepo` to a `github_actions_secret` resource named `example`.
+ * The following command imports a GitHub actions secret named `mysecret` for the repo `myrepo` to a `github.ActionsSecret` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/actionsSecret:ActionsSecret example myrepo:mysecret

@@ -72,9 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * This resource can be imported using the secret name as the ID.
+ * 
  * ### Import Command
  * 
- * The following command imports the repositories able to access the actions organization secret named `mysecret` to a `github_actions_organization_secret_repositories` resource named `example`.
+ * The following command imports the repositories able to access the actions organization secret named `mysecret` to a `github.ActionsOrganizationSecretRepositories` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories example mysecret

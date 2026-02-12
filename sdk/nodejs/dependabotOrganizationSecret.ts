@@ -5,11 +5,60 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Import
+ * This resource allows you to create and manage GitHub Dependabot secrets within your GitHub organization.
+ * You must have write access to a repository to use this resource.
+ *
+ * Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+ * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+ *
+ * For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+ * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+ * It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+ * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+ * in your code. See below for an example of this abstraction.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const examplePlaintext = new github.DependabotOrganizationSecret("example_plaintext", {
+ *     secretName: "example_secret_name",
+ *     visibility: "all",
+ *     plaintextValue: someSecretString,
+ * });
+ * const exampleSecret = new github.DependabotOrganizationSecret("example_secret", {
+ *     secretName: "example_secret_name",
+ *     visibility: "all",
+ *     encryptedValue: someEncryptedSecretString,
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const repo = github.getRepository({
+ *     fullName: "my-org/repo",
+ * });
+ * const examplePlaintext = new github.DependabotOrganizationSecret("example_plaintext", {
+ *     secretName: "example_secret_name",
+ *     visibility: "selected",
+ *     plaintextValue: someSecretString,
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * const exampleEncrypted = new github.DependabotOrganizationSecret("example_encrypted", {
+ *     secretName: "example_secret_name",
+ *     visibility: "selected",
+ *     encryptedValue: someEncryptedSecretString,
+ *     selectedRepositoryIds: [repo.then(repo => repo.repoId)],
+ * });
+ * ```
  *
  * ### Import Command
  *
- * The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret` resource named `example`.
+ * The following command imports a GitHub Dependabot organization secret named `mysecret` to a `github.DependabotOrganizationSecret` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret

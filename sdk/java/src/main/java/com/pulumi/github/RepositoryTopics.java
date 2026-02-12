@@ -15,6 +15,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
+ * 
+ * &gt; Note: This resource is not compatible with the `topic` attribute of the `github.Repository` Use either ``github.RepositoryTopics``
+ * or ``topic`` in ``github.Repository``. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it&#39;s only read as a datasource (see issue #1845).
+ * 
  * ## Example Usage
  * 
  * <pre>

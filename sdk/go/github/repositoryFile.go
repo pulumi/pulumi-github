@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage files within a
+// GitHub repository.
+//
+// > **Note:** When a repository is archived, Terraform will skip deletion of repository files to avoid API errors, as archived repositories are read-only. The files will be removed from Terraform state without attempting to delete them from GitHub.
+//
 // ## Example Usage
 //
 // ### Existing Branch

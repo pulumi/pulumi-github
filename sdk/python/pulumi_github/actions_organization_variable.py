@@ -230,9 +230,11 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using the variable name as the ID.
+
         ### Import Command
 
-        The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
+        The following command imports a GitHub actions organization variable named `myvariable` to a `ActionsOrganizationVariable` resource named `example`.
 
         ```sh
         $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable
@@ -281,9 +283,11 @@ class ActionsOrganizationVariable(pulumi.CustomResource):
 
         ## Import
 
+        This resource can be imported using the variable name as the ID.
+
         ### Import Command
 
-        The following command imports a GitHub actions organization variable named `myvariable` to a `github_actions_organization_variable` resource named `example`.
+        The following command imports a GitHub actions organization variable named `myvariable` to a `ActionsOrganizationVariable` resource named `example`.
 
         ```sh
         $ pulumi import github:index/actionsOrganizationVariable:ActionsOrganizationVariable example myvariable

@@ -44,7 +44,6 @@ import * as utilities from "./utilities";
  * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
  * ```
  * or,
- *
  * ```sh
  * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
  * ```

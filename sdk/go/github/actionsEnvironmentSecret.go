@@ -12,11 +12,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource allows you to create and manage GitHub Actions secrets within your GitHub repository environments.
+// You must have write access to a repository to use this resource.
+//
+// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
+// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
+//
+// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
+// It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
+// in your code. See below for an example of this abstraction.
+//
+// ## Example Lifecycle Ignore Changes
+//
+// This resource supports using the `lifecycle` `ignoreChanges` block on `remoteUpdatedAt` to support use cases where a secret value is created using a placeholder value and then modified after creation outside the scope of Terraform. This approach ensures only the initial placeholder value is referenced in your code and in the resulting state file.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := github.NewActionsEnvironmentSecret(ctx, "example_allow_drift", &github.ActionsEnvironmentSecretArgs{
+//				Repository:     pulumi.String("example-repo"),
+//				Environment:    pulumi.String("example-environment"),
+//				SecretName:     pulumi.String("example_secret_name"),
+//				PlaintextValue: pulumi.String("placeholder"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
+//
+// This resource can be imported using an ID made of the repository name, environment name (URL escaped), and secret name all separated by a `:`.
+//
+// > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 //
 // ### Import Command
 //
-// The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `github_actions_environment_secret` resource named `example`.
+// The following command imports a GitHub actions environment secret named `mysecret` for the repo `myrepo` and environment `myenv` to a `ActionsEnvironmentSecret` resource named `example`.
 //
 // ```sh
 // $ pulumi import github:index/actionsEnvironmentSecret:ActionsEnvironmentSecret example myrepo:myenv:mysecret

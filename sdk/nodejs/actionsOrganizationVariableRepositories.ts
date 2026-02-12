@@ -33,9 +33,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * This resource can be imported using the variable name as the ID.
+ *
  * ### Import Command
  *
- * The following command imports the repositories able to access the actions organization variable named `myvariable` to a `github_actions_organization_variable_repositories` resource named `example`.
+ * The following command imports the repositories able to access the actions organization variable named `myvariable` to a `github.ActionsOrganizationVariableRepositories` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/actionsOrganizationVariableRepositories:ActionsOrganizationVariableRepositories example myvariable

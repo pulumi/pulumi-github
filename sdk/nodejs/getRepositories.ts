@@ -58,12 +58,18 @@ export interface GetRepositoriesArgs {
  * A collection of values returned by getRepositories.
  */
 export interface GetRepositoriesResult {
+    /**
+     * A list of full names of found repositories (e.g. `hashicorp/terraform`)
+     */
     readonly fullNames: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly includeRepoId?: boolean;
+    /**
+     * A list of found repository names (e.g. `terraform`)
+     */
     readonly names: string[];
     readonly query: string;
     /**

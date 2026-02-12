@@ -10,6 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// This resource allows you to create and manage topics for repositories within your GitHub organization or personal account.
+    /// 
+    /// &gt; Note: This resource is not compatible with the `Topic` attribute of the `github.Repository` Use either ``github.RepositoryTopics``
+    /// or ``Topic`` in ``github.Repository``. `github.RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -40,7 +45,7 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository topics can be imported using the `name` of the repository.
+    /// Repository topics can be imported using the `Name` of the repository.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform

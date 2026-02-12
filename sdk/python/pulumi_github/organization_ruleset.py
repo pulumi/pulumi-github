@@ -377,9 +377,7 @@ class OrganizationRuleset(pulumi.CustomResource):
 
         GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
 
-        ```sh
-        $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
-        ```
+        `$ terraform import github_organization_ruleset.example 12345`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -489,9 +487,7 @@ class OrganizationRuleset(pulumi.CustomResource):
 
         GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
 
-        ```sh
-        $ pulumi import github:index/organizationRuleset:OrganizationRuleset example 12345`
-        ```
+        `$ terraform import github_organization_ruleset.example 12345`
 
         :param str resource_name: The name of the resource.
         :param OrganizationRulesetArgs args: The arguments to use to populate this resource's properties.

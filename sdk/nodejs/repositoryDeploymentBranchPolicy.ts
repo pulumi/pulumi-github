@@ -33,12 +33,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * text
- *
- * ```sh
- * $ pulumi import github:index/repositoryDeploymentBranchPolicy:RepositoryDeploymentBranchPolicy foo repo:env:id
- * ```
  */
 export class RepositoryDeploymentBranchPolicy extends pulumi.CustomResource {
     /**

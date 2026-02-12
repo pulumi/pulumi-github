@@ -52,9 +52,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
+    /// This resource can be imported using the secret name as the ID.
+    /// 
     /// ### Import Command
     /// 
-    /// The following command imports the repositories able to access the Dependabot organization secret named `mysecret` to a `github_dependabot_organization_secret_repositories` resource named `example`.
+    /// The following command imports the repositories able to access the Dependabot organization secret named `Mysecret` to a `github.DependabotOrganizationSecretRepositories` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/dependabotOrganizationSecretRepositories:DependabotOrganizationSecretRepositories example mysecret

@@ -71,6 +71,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * This resource can be imported using an ID made of the secret name and repository name separated by a `:`.
+ * 
  * ### Import Command
  * 
  * The following command imports the access of repository ID `123456` for the Dependabot organization secret named `mysecret` to a `v` resource named `example`.

@@ -10,6 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Github
 {
     /// <summary>
+    /// This resource allows you to create and manage webhooks for repositories within your
+    /// GitHub organization or personal account.
+    /// 
+    /// &gt; **Note on Archived Repositories**: When a repository is archived, GitHub makes it read-only, preventing webhook modifications. If you attempt to destroy resources associated with archived repositories, the provider will gracefully handle the operation by logging an informational message and removing the resource from Terraform state without attempting to modify the archived repository.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -49,14 +54,15 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// Repository webhooks can be imported using the `name` of the repository, combined with the `id` of the webhook, separated by a `/` character.
-    /// The `id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
+    /// Repository webhooks can be imported using the `Name` of the repository, combined with the `Id` of the webhook, separated by a `/` character.
+    /// The `Id` of the webhook can be found in the URL of the webhook. For example: `"https://github.com/foo-org/foo-repo/settings/hooks/14711452"`.
     /// 
     /// Importing uses the name of the repository, as well as the ID of the webhook, e.g.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryWebhook:RepositoryWebhook terraform terraform/11235813
     /// ```
+    /// 
     /// If secret is populated in the webhook's configuration, the value will be imported as "********".
     /// </summary>
     [GithubResourceType("github:index/repositoryWebhook:RepositoryWebhook")]
