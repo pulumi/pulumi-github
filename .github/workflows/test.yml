@@ -12,6 +12,7 @@ on:
 
 env:
   PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
+  GO_TEST_EXEC: gotestsum --format github-actions --
   MISE_ENV: test
 
   PULUMI_API: https://api.pulumi-staging.io
@@ -98,14 +99,14 @@ jobs:
       run: make install_${{ matrix.language}}_sdk
     - name: Run tests
       if: matrix.testTarget == 'local'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
+      run: cd examples && $GO_TEST_EXEC -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
       env:
         GH_ORGANIZATION: ${{ steps.esc-secrets.outputs.GH_ORGANIZATION }}
         GH_TESTING_TOKEN: ${{ steps.esc-secrets.outputs.GH_TESTING_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
+      run: cd examples && $GO_TEST_EXEC -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
       env:
         GH_ORGANIZATION: ${{ steps.esc-secrets.outputs.GH_ORGANIZATION }}
         GH_TESTING_TOKEN: ${{ steps.esc-secrets.outputs.GH_TESTING_TOKEN }}
