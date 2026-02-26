@@ -24,6 +24,7 @@ class TeamRepositoryArgs:
                  permission: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamRepository resource.
+
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
@@ -81,6 +82,7 @@ class _TeamRepositoryState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamRepository resources.
+
         :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
                Must be one of `pull`, `triage`, `push`, `maintain`, `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organisation. Defaults to `pull`.
         :param pulumi.Input[_builtins.str] repository: The repository to add to the team.
@@ -197,6 +199,7 @@ class TeamRepository(pulumi.CustomResource):
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] permission: The permissions of team members regarding the repository.
@@ -254,6 +257,7 @@ class TeamRepository(pulumi.CustomResource):
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo 1234567:terraform
         $ pulumi import github:index/teamRepository:TeamRepository terraform_repo Administrators:terraform
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamRepositoryArgs args: The arguments to use to populate this resource's properties.

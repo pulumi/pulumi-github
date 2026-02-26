@@ -27,6 +27,7 @@ class EnterpriseSecurityAnalysisSettingsArgs:
                  secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnterpriseSecurityAnalysisSettings resource.
+
         :param pulumi.Input[_builtins.str] enterprise_slug: The slug of the enterprise.
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
         :param pulumi.Input[_builtins.bool] secret_scanning_enabled_for_new_repositories: Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
@@ -130,6 +131,7 @@ class _EnterpriseSecurityAnalysisSettingsState:
                  secret_scanning_validity_checks_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EnterpriseSecurityAnalysisSettings resources.
+
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
         :param pulumi.Input[_builtins.str] enterprise_slug: The slug of the enterprise.
         :param pulumi.Input[_builtins.bool] secret_scanning_enabled_for_new_repositories: Whether secret scanning is automatically enabled for new repositories. Defaults to `false`.
@@ -288,6 +290,7 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
         $ pulumi import github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings example my-enterprise
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether GitHub Advanced Security is automatically enabled for new repositories. Defaults to `false`. Requires Advanced Security license.
@@ -354,6 +357,7 @@ class EnterpriseSecurityAnalysisSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings example my-enterprise
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseSecurityAnalysisSettingsArgs args: The arguments to use to populate this resource's properties.

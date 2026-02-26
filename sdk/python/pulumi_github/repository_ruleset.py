@@ -30,6 +30,7 @@ class RepositoryRulesetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryRuleset resource.
+
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input[_builtins.str] repository: (String) Name of the repository to apply ruleset to.
         :param pulumi.Input['RepositoryRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
@@ -149,6 +150,7 @@ class _RepositoryRulesetState:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryRuleset resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         :param pulumi.Input['RepositoryRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for a repository ruleset condition. For `branch` and `tag` targets, `ref_name` is required. For `push` targets, `ref_name` must NOT be set - conditions are optional for push targets. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
@@ -398,6 +400,7 @@ class RepositoryRuleset(pulumi.CustomResource):
 
         `$ terraform import github_repository_ruleset.example example:12345`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryRulesetBypassActorArgs', 'RepositoryRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
@@ -495,6 +498,7 @@ class RepositoryRuleset(pulumi.CustomResource):
         GitHub Repository Rulesets can be imported using the GitHub repository name and ruleset ID e.g.
 
         `$ terraform import github_repository_ruleset.example example:12345`
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryRulesetArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class EnterpriseActionsRunnerGroupArgs:
                  selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseActionsRunnerGroup resource.
+
         :param pulumi.Input[_builtins.str] enterprise_slug: The slug of the enterprise.
         :param pulumi.Input[_builtins.str] visibility: Visibility of a runner group to enterprise organizations. Whether the runner group can include `all` or `selected`
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
@@ -150,6 +151,7 @@ class _EnterpriseActionsRunnerGroupState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseActionsRunnerGroup resources.
+
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[_builtins.bool] default: Whether this is the default runner group
         :param pulumi.Input[_builtins.str] enterprise_slug: The slug of the enterprise.
@@ -366,6 +368,7 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
         $ pulumi import github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup test enterprise-slug/42
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
@@ -415,6 +418,7 @@ class EnterpriseActionsRunnerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/enterpriseActionsRunnerGroup:EnterpriseActionsRunnerGroup test enterprise-slug/42
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseActionsRunnerGroupArgs args: The arguments to use to populate this resource's properties.

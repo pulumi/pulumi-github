@@ -26,6 +26,7 @@ class DependabotSecretArgs:
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DependabotSecret resource.
+
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -120,6 +121,7 @@ class _DependabotSecretState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DependabotSecret resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
@@ -331,6 +333,7 @@ class DependabotSecret(pulumi.CustomResource):
         $ pulumi import github:index/dependabotSecret:DependabotSecret example myrepo:mysecret
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -403,6 +406,7 @@ class DependabotSecret(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/dependabotSecret:DependabotSecret example myrepo:mysecret
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DependabotSecretArgs args: The arguments to use to populate this resource's properties.

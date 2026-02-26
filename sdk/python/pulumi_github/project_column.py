@@ -23,6 +23,7 @@ class ProjectColumnArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectColumn resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of an existing project that the column will be created in.
         :param pulumi.Input[_builtins.str] name: The name of the column.
         """
@@ -64,6 +65,7 @@ class _ProjectColumnState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProjectColumn resources.
+
         :param pulumi.Input[_builtins.int] column_id: The ID of the column.
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] project_id: The ID of an existing project that the column will be created in.
@@ -151,6 +153,7 @@ class ProjectColumn(pulumi.CustomResource):
             name="a column")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the column.
@@ -180,6 +183,7 @@ class ProjectColumn(pulumi.CustomResource):
             project_id=project.id,
             name="a column")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectColumnArgs args: The arguments to use to populate this resource's properties.

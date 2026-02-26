@@ -23,6 +23,7 @@ class AppInstallationRepositoriesArgs:
                  selected_repositories: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a AppInstallationRepositories resource.
+
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] selected_repositories: A list of repository names to install the app on.
                
@@ -65,6 +66,7 @@ class _AppInstallationRepositoriesState:
                  selected_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppInstallationRepositories resources.
+
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] selected_repositories: A list of repository names to install the app on.
                
@@ -133,6 +135,7 @@ class AppInstallationRepositories(pulumi.CustomResource):
         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
@@ -167,6 +170,7 @@ class AppInstallationRepositories(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/appInstallationRepositories:AppInstallationRepositories some_app_repos 1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppInstallationRepositoriesArgs args: The arguments to use to populate this resource's properties.

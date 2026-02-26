@@ -25,6 +25,7 @@ class CodespacesSecretArgs:
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CodespacesSecret resource.
+
         :param pulumi.Input[_builtins.str] repository: Name of the repository
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -97,6 +98,7 @@ class _CodespacesSecretState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CodespacesSecret resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date of codespaces_secret creation.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
@@ -225,6 +227,7 @@ class CodespacesSecret(pulumi.CustomResource):
         NOTE: the implementation is limited in that it won't fetch the value of the
         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -261,6 +264,7 @@ class CodespacesSecret(pulumi.CustomResource):
 
         NOTE: the implementation is limited in that it won't fetch the value of the
         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+
 
         :param str resource_name: The name of the resource.
         :param CodespacesSecretArgs args: The arguments to use to populate this resource's properties.

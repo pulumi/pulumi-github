@@ -23,6 +23,7 @@ class EmuGroupMappingArgs:
                  team_slug: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EmuGroupMapping resource.
+
         :param pulumi.Input[_builtins.int] group_id: Integer corresponding to the external group ID to be linked
         :param pulumi.Input[_builtins.str] team_slug: Slug of the GitHub team
         """
@@ -64,6 +65,7 @@ class _EmuGroupMappingState:
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmuGroupMapping resources.
+
         :param pulumi.Input[_builtins.int] group_id: Integer corresponding to the external group ID to be linked
         :param pulumi.Input[_builtins.str] group_name: Name of the external group.
         :param pulumi.Input[_builtins.int] team_id: ID of the GitHub team.
@@ -169,6 +171,7 @@ class EmuGroupMapping(pulumi.CustomResource):
         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] group_id: Integer corresponding to the external group ID to be linked
@@ -201,6 +204,7 @@ class EmuGroupMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmuGroupMappingArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class AppInstallationRepositoryArgs:
                  repository: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AppInstallationRepository resource.
+
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
         :param pulumi.Input[_builtins.str] repository: The repository to install the app on.
         """
@@ -62,6 +63,7 @@ class _AppInstallationRepositoryState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppInstallationRepository resources.
+
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
         :param pulumi.Input[_builtins.str] repository: The repository to install the app on.
         """
@@ -150,6 +152,7 @@ class AppInstallationRepository(pulumi.CustomResource):
         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] installation_id: The GitHub app installation id.
@@ -195,6 +198,7 @@ class AppInstallationRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/appInstallationRepository:AppInstallationRepository terraform_repo 1234567:terraform
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppInstallationRepositoryArgs args: The arguments to use to populate this resource's properties.

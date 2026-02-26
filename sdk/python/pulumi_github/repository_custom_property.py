@@ -25,6 +25,7 @@ class RepositoryCustomPropertyArgs:
                  repository: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RepositoryCustomProperty resource.
+
         :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
         :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
@@ -93,6 +94,7 @@ class _RepositoryCustomPropertyState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryCustomProperty resources.
+
         :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
         :param pulumi.Input[_builtins.str] property_type: Type of the custom property. Can be one of `single_select`, `multi_select`, `string`, or `true_false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: Value of the custom property in the form of an array. Properties of type `single_select`, `string`, and `true_false` are represented as a string array of length 1
@@ -196,6 +198,7 @@ class RepositoryCustomProperty(pulumi.CustomResource):
         $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] property_name: Name of the custom property. Note that a pre-requisiste for this resource is that a custom property of this name has already been defined on the organization level
@@ -237,6 +240,7 @@ class RepositoryCustomProperty(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryCustomProperty:RepositoryCustomProperty example organization-name:repo-name:custom-property-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryCustomPropertyArgs args: The arguments to use to populate this resource's properties.

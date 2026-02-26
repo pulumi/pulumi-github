@@ -23,6 +23,7 @@ class RepositoryTopicsArgs:
                  topics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a RepositoryTopics resource.
+
         :param pulumi.Input[_builtins.str] repository: The repository name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: A list of topics to add to the repository.
         """
@@ -61,6 +62,7 @@ class _RepositoryTopicsState:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryTopics resources.
+
         :param pulumi.Input[_builtins.str] repository: The repository name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: A list of topics to add to the repository.
         """
@@ -132,6 +134,7 @@ class RepositoryTopics(pulumi.CustomResource):
         $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] repository: The repository name.
@@ -171,6 +174,7 @@ class RepositoryTopics(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryTopics:RepositoryTopics terraform terraform
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryTopicsArgs args: The arguments to use to populate this resource's properties.

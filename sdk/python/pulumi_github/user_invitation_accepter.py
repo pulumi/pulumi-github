@@ -23,6 +23,7 @@ class UserInvitationAccepterArgs:
                  invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserInvitationAccepter resource.
+
         :param pulumi.Input[_builtins.bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
@@ -63,6 +64,7 @@ class _UserInvitationAccepterState:
                  invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserInvitationAccepter resources.
+
         :param pulumi.Input[_builtins.bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
         :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to accept. Must be set when `allow_empty_id` is `false`.
         """
@@ -134,6 +136,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
 
         This is tracked in #1157.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_empty_id: Allow the ID to be unset. This will result in the resource being skipped when the ID is not set instead of returning an error.
@@ -173,6 +176,7 @@ class UserInvitationAccepter(pulumi.CustomResource):
         the plan will contain the invitation ID, but the apply will receive an HTTP 404 from the API since the invitation has already been accepted.
 
         This is tracked in #1157.
+
 
         :param str resource_name: The name of the resource.
         :param UserInvitationAccepterArgs args: The arguments to use to populate this resource's properties.

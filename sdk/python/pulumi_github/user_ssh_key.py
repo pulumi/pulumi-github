@@ -23,6 +23,7 @@ class UserSshKeyArgs:
                  title: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserSshKey resource.
+
         :param pulumi.Input[_builtins.str] key: The public SSH key to add to your GitHub account.
         :param pulumi.Input[_builtins.str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         """
@@ -63,6 +64,7 @@ class _UserSshKeyState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserSshKey resources.
+
         :param pulumi.Input[_builtins.str] key: The public SSH key to add to your GitHub account.
         :param pulumi.Input[_builtins.str] title: A descriptive name for the new key. e.g. `Personal MacBook Air`
         :param pulumi.Input[_builtins.str] url: The URL of the SSH key
@@ -156,6 +158,7 @@ class UserSshKey(pulumi.CustomResource):
         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: The public SSH key to add to your GitHub account.
@@ -191,6 +194,7 @@ class UserSshKey(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/userSshKey:UserSshKey example 1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserSshKeyArgs args: The arguments to use to populate this resource's properties.

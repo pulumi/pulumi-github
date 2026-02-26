@@ -25,6 +25,7 @@ class TeamSettingsArgs:
                  review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None):
         """
         The set of arguments for constructing a TeamSettings resource.
+
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         """
@@ -66,6 +67,7 @@ class _TeamSettingsState:
                  team_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamSettings resources.
+
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] team_slug: The slug of the Team within the Organization.
@@ -178,6 +180,7 @@ class TeamSettings(pulumi.CustomResource):
         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
@@ -228,6 +231,7 @@ class TeamSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamSettingsArgs args: The arguments to use to populate this resource's properties.

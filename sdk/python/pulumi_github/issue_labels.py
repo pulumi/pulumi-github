@@ -25,6 +25,7 @@ class IssueLabelsArgs:
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]]] = None):
         """
         The set of arguments for constructing a IssueLabels resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         :param pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]] labels: List of labels
         """
@@ -64,6 +65,7 @@ class _IssueLabelsState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IssueLabels resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['IssueLabelsLabelArgs']]] labels: List of labels
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         """
@@ -149,6 +151,7 @@ class IssueLabels(pulumi.CustomResource):
         $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IssueLabelsLabelArgs', 'IssueLabelsLabelArgsDict']]]] labels: List of labels
@@ -202,6 +205,7 @@ class IssueLabels(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/issueLabels:IssueLabels test_repo test_repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IssueLabelsArgs args: The arguments to use to populate this resource's properties.

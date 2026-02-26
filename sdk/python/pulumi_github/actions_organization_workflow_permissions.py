@@ -24,6 +24,7 @@ class ActionsOrganizationWorkflowPermissionsArgs:
                  default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationWorkflowPermissions resource.
+
         :param pulumi.Input[_builtins.str] organization_slug: The slug of the organization.
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
         :param pulumi.Input[_builtins.str] default_workflow_permissions: The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
@@ -79,6 +80,7 @@ class _ActionsOrganizationWorkflowPermissionsState:
                  organization_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationWorkflowPermissions resources.
+
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
         :param pulumi.Input[_builtins.str] default_workflow_permissions: The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be `read` or `write`. Defaults to `read`.
         :param pulumi.Input[_builtins.str] organization_slug: The slug of the organization.
@@ -177,6 +179,7 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
         $ pulumi import github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions example my-organization
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull request reviews. Defaults to `false`.
@@ -228,6 +231,7 @@ class ActionsOrganizationWorkflowPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsOrganizationWorkflowPermissions:ActionsOrganizationWorkflowPermissions example my-organization
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationWorkflowPermissionsArgs args: The arguments to use to populate this resource's properties.

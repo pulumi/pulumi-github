@@ -25,6 +25,7 @@ class RepositoryProjectArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryProject resource.
+
         :param pulumi.Input[_builtins.str] repository: The repository of the project.
         :param pulumi.Input[_builtins.str] body: The body of the project.
         :param pulumi.Input[_builtins.str] name: The name of the project.
@@ -93,6 +94,7 @@ class _RepositoryProjectState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryProject resources.
+
         :param pulumi.Input[_builtins.str] body: The body of the project.
         :param pulumi.Input[_builtins.str] name: The name of the project.
         :param pulumi.Input[_builtins.str] repository: The repository of the project.
@@ -199,6 +201,7 @@ class RepositoryProject(pulumi.CustomResource):
             body="This is a repository project.")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: The body of the project.
@@ -231,6 +234,7 @@ class RepositoryProject(pulumi.CustomResource):
             repository=example.name,
             body="This is a repository project.")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryProjectArgs args: The arguments to use to populate this resource's properties.

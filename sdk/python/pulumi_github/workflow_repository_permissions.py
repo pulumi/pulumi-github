@@ -24,6 +24,7 @@ class WorkflowRepositoryPermissionsArgs:
                  default_workflow_permissions: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowRepositoryPermissions resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
         :param pulumi.Input[_builtins.str] default_workflow_permissions: The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be one of: `read` or `write`.
@@ -79,6 +80,7 @@ class _WorkflowRepositoryPermissionsState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkflowRepositoryPermissions resources.
+
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
         :param pulumi.Input[_builtins.str] default_workflow_permissions: The default workflow permissions granted to the GITHUB_TOKEN when running workflows. Can be one of: `read` or `write`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
@@ -162,6 +164,7 @@ class WorkflowRepositoryPermissions(pulumi.CustomResource):
         $ pulumi import github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions test my-repository
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] can_approve_pull_request_reviews: Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.
@@ -198,6 +201,7 @@ class WorkflowRepositoryPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/workflowRepositoryPermissions:WorkflowRepositoryPermissions test my-repository
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowRepositoryPermissionsArgs args: The arguments to use to populate this resource's properties.

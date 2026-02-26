@@ -27,6 +27,7 @@ class ActionsRunnerGroupArgs:
                  selected_workflows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActionsRunnerGroup resource.
+
         :param pulumi.Input[_builtins.str] visibility: Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of `private` is not currently supported due to limitations in the GitHub API.
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[_builtins.str] name: Name of the runner group
@@ -135,6 +136,7 @@ class _ActionsRunnerGroupState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsRunnerGroup resources.
+
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
         :param pulumi.Input[_builtins.bool] default: Whether this is the default runner group
         :param pulumi.Input[_builtins.str] etag: An etag representing the runner group object
@@ -341,6 +343,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allows_public_repositories: Whether public repositories can be added to the runner group. Defaults to false.
@@ -380,6 +383,7 @@ class ActionsRunnerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsRunnerGroup:ActionsRunnerGroup test 7
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsRunnerGroupArgs args: The arguments to use to populate this resource's properties.

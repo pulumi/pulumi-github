@@ -30,6 +30,7 @@ class ReleaseArgs:
                  target_commitish: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Release resource.
+
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag.
         :param pulumi.Input[_builtins.str] body: Text describing the contents of the tag.
@@ -191,6 +192,7 @@ class _ReleaseState:
                  zipball_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Release resources.
+
         :param pulumi.Input[_builtins.str] assets_url: URL that can be provided to API calls displaying the attached assets to this release.
         :param pulumi.Input[_builtins.str] body: Text describing the contents of the tag.
         :param pulumi.Input[_builtins.str] created_at: This is the date of the commit used for the release, and not the date when the release was drafted or published.
@@ -554,6 +556,7 @@ class Release(pulumi.CustomResource):
         $ pulumi import github:index/release:Release example repo:12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Text describing the contents of the tag.
@@ -619,6 +622,7 @@ class Release(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/release:Release example repo:12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseArgs args: The arguments to use to populate this resource's properties.

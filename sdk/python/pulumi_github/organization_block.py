@@ -22,6 +22,7 @@ class OrganizationBlockArgs:
                  username: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationBlock resource.
+
         :param pulumi.Input[_builtins.str] username: The name of the user to block.
         """
         pulumi.set(__self__, "username", username)
@@ -46,6 +47,7 @@ class _OrganizationBlockState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationBlock resources.
+
         :param pulumi.Input[_builtins.str] username: The name of the user to block.
         """
         if etag is not None:
@@ -103,6 +105,7 @@ class OrganizationBlock(pulumi.CustomResource):
         $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] username: The name of the user to block.
@@ -132,6 +135,7 @@ class OrganizationBlock(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationBlock:OrganizationBlock example someuser
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationBlockArgs args: The arguments to use to populate this resource's properties.

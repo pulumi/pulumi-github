@@ -30,6 +30,7 @@ class RepositoryEnvironmentArgs:
                  wait_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a RepositoryEnvironment resource.
+
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
         :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
@@ -148,6 +149,7 @@ class _RepositoryEnvironmentState:
                  wait_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironment resources.
+
         :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
         :param pulumi.Input['RepositoryEnvironmentDeploymentBranchPolicyArgs'] deployment_branch_policy: The deployment branch policy configuration
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
@@ -304,6 +306,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] can_admins_bypass: Can repository admins bypass the environment protections. Defaults to `true`.
@@ -353,6 +356,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryEnvironmentArgs args: The arguments to use to populate this resource's properties.

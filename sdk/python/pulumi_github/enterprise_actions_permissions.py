@@ -28,6 +28,7 @@ class EnterpriseActionsPermissionsArgs:
                  enabled_organizations_config: Optional[pulumi.Input['EnterpriseActionsPermissionsEnabledOrganizationsConfigArgs']] = None):
         """
         The set of arguments for constructing a EnterpriseActionsPermissions resource.
+
         :param pulumi.Input[_builtins.str] enabled_organizations: The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
         :param pulumi.Input[_builtins.str] enterprise_slug: The slug of the enterprise.
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -114,6 +115,7 @@ class _EnterpriseActionsPermissionsState:
                  enterprise_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseActionsPermissions resources.
+
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['EnterpriseActionsPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an enterprise. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.str] enabled_organizations: The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
@@ -240,6 +242,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
         $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -289,6 +292,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/enterpriseActionsPermissions:EnterpriseActionsPermissions test github_enterprise_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseActionsPermissionsArgs args: The arguments to use to populate this resource's properties.

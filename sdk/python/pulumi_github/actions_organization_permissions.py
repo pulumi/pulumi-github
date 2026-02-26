@@ -28,6 +28,7 @@ class ActionsOrganizationPermissionsArgs:
                  sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationPermissions resource.
+
         :param pulumi.Input[_builtins.str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
@@ -115,6 +116,7 @@ class _ActionsOrganizationPermissionsState:
                  sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationPermissions resources.
+
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['ActionsOrganizationPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an organization. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.str] enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
@@ -240,6 +242,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -288,6 +291,7 @@ class ActionsOrganizationPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsOrganizationPermissions:ActionsOrganizationPermissions test github_organization_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationPermissionsArgs args: The arguments to use to populate this resource's properties.

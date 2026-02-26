@@ -28,6 +28,7 @@ class RepositoryWebhookArgs:
                  etag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryWebhook resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
         :param pulumi.Input[_builtins.str] repository: The repository of the webhook.
         :param pulumi.Input[_builtins.bool] active: Indicate if the webhook should receive events. Defaults to `true`.
@@ -111,6 +112,7 @@ class _RepositoryWebhookState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryWebhook resources.
+
         :param pulumi.Input[_builtins.bool] active: Indicate if the webhook should receive events. Defaults to `true`.
         :param pulumi.Input['RepositoryWebhookConfigurationArgs'] configuration: Configuration block for the webhook. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list of events which should trigger the webhook. See a list of [available events](https://developer.github.com/v3/activity/events/types/).
@@ -253,6 +255,7 @@ class RepositoryWebhook(pulumi.CustomResource):
 
         If secret is populated in the webhook's configuration, the value will be imported as "********".
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicate if the webhook should receive events. Defaults to `true`.
@@ -306,6 +309,7 @@ class RepositoryWebhook(pulumi.CustomResource):
         ```
 
         If secret is populated in the webhook's configuration, the value will be imported as "********".
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryWebhookArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class MembershipArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Membership resource.
+
         :param pulumi.Input[_builtins.str] username: The user to add to the organization.
         :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
                when this resource is destroyed, the member will not be removed
@@ -90,6 +91,7 @@ class _MembershipState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
+
         :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
                when this resource is destroyed, the member will not be removed
                from the organization. Instead, the member's role will be
@@ -196,6 +198,7 @@ class Membership(pulumi.CustomResource):
         $ pulumi import github:index/membership:Membership member hashicorp:someuser
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] downgrade_on_destroy: Defaults to `false`. If set to true,
@@ -239,6 +242,7 @@ class Membership(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/membership:Membership member hashicorp:someuser
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.

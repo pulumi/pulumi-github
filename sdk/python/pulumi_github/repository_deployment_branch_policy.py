@@ -25,6 +25,7 @@ class RepositoryDeploymentBranchPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryDeploymentBranchPolicy resource.
+
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[_builtins.str] repository: The repository to create the policy in.
         :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
@@ -95,6 +96,7 @@ class _RepositoryDeploymentBranchPolicyState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryDeploymentBranchPolicy resources.
+
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
         :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] name: The name pattern that branches must match in order to deploy to the environment.
@@ -196,6 +198,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
 
         ## Import
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_name: The name of the environment. This environment must have `deployment_branch_policy.custom_branch_policies` set to true or a 404 error will be thrown.
@@ -235,6 +238,7 @@ class RepositoryDeploymentBranchPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryDeploymentBranchPolicyArgs args: The arguments to use to populate this resource's properties.

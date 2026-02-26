@@ -25,6 +25,7 @@ class CodespacesUserSecretArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a CodespacesUserSecret resource.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
@@ -98,6 +99,7 @@ class _CodespacesUserSecretState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CodespacesUserSecret resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date of codespaces_secret creation.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted
@@ -226,6 +228,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
         NOTE: the implementation is limited in that it won't fetch the value of the
         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -262,6 +265,7 @@ class CodespacesUserSecret(pulumi.CustomResource):
 
         NOTE: the implementation is limited in that it won't fetch the value of the
         `plaintext_value` or `encrypted_value` fields when importing. You may need to ignore changes for these as a workaround.
+
 
         :param str resource_name: The name of the resource.
         :param CodespacesUserSecretArgs args: The arguments to use to populate this resource's properties.

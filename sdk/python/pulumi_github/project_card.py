@@ -25,6 +25,7 @@ class ProjectCardArgs:
                  note: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectCard resource.
+
         :param pulumi.Input[_builtins.str] column_id: The ID of the card.
         :param pulumi.Input[_builtins.int] content_id: `github_issue.issue_id`.
         :param pulumi.Input[_builtins.str] content_type: Must be either `Issue` or `PullRequest`
@@ -104,6 +105,7 @@ class _ProjectCardState:
                  note: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProjectCard resources.
+
         :param pulumi.Input[_builtins.int] card_id: The ID of the card.
         :param pulumi.Input[_builtins.str] column_id: The ID of the card.
         :param pulumi.Input[_builtins.int] content_id: `github_issue.issue_id`.
@@ -267,6 +269,7 @@ class ProjectCard(pulumi.CustomResource):
         $ pulumi import github:index/projectCard:ProjectCard card 01234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] column_id: The ID of the card.
@@ -339,6 +342,7 @@ class ProjectCard(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/projectCard:ProjectCard card 01234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectCardArgs args: The arguments to use to populate this resource's properties.

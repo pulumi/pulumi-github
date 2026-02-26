@@ -30,6 +30,7 @@ class TeamArgs:
                  privacy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
+
         :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
@@ -190,6 +191,7 @@ class _TeamState:
                  slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+
         :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
         :param pulumi.Input[_builtins.str] description: A description of the team.
         :param pulumi.Input[_builtins.str] ldap_dn: The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server.
@@ -432,6 +434,7 @@ class Team(pulumi.CustomResource):
         $ pulumi import github:index/team:Team core Administrators
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] create_default_maintainer: (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`.
@@ -477,6 +480,7 @@ class Team(pulumi.CustomResource):
         $ pulumi import github:index/team:Team core 1234567
         $ pulumi import github:index/team:Team core Administrators
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.

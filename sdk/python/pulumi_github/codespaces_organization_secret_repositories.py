@@ -23,6 +23,7 @@ class CodespacesOrganizationSecretRepositoriesArgs:
                  selected_repository_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]):
         """
         The set of arguments for constructing a CodespacesOrganizationSecretRepositories resource.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
@@ -61,6 +62,7 @@ class _CodespacesOrganizationSecretRepositoriesState:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Input properties used for looking up and filtering CodespacesOrganizationSecretRepositories resources.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: An array of repository ids that can access the organization secret.
         """
@@ -130,6 +132,7 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
         $ pulumi import github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories org_secret_repos existing_secret_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] secret_name: Name of the existing secret
@@ -167,6 +170,7 @@ class CodespacesOrganizationSecretRepositories(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/codespacesOrganizationSecretRepositories:CodespacesOrganizationSecretRepositories org_secret_repos existing_secret_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CodespacesOrganizationSecretRepositoriesArgs args: The arguments to use to populate this resource's properties.

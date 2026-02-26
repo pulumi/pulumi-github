@@ -22,6 +22,7 @@ class UserGpgKeyArgs:
                  armored_public_key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserGpgKey resource.
+
         :param pulumi.Input[_builtins.str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
                See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         """
@@ -49,6 +50,7 @@ class _UserGpgKeyState:
                  key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGpgKey resources.
+
         :param pulumi.Input[_builtins.str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
                See [Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/) for help on creating a GPG key.
         :param pulumi.Input[_builtins.str] key_id: The key ID of the GPG key, e.g. `3262EFF25BA0D270`
@@ -124,6 +126,7 @@ class UserGpgKey(pulumi.CustomResource):
         GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
         does not return previously uploaded GPG key.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] armored_public_key: Your public GPG key, generated in ASCII-armored format.
@@ -155,6 +158,7 @@ class UserGpgKey(pulumi.CustomResource):
 
         GPG keys are not importable due to the fact that [API](https://developer.github.com/v3/users/gpg_keys/#gpg-keys)
         does not return previously uploaded GPG key.
+
 
         :param str resource_name: The name of the resource.
         :param UserGpgKeyArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ActionsHostedRunnerArgs:
                  public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ActionsHostedRunner resource.
+
         :param pulumi.Input['ActionsHostedRunnerImageArgs'] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
         :param pulumi.Input[_builtins.int] runner_group_id: The ID of the runner group to assign this runner to.
         :param pulumi.Input[_builtins.str] size: Machine size for the hosted runner (e.g., "4-core", "8-core"). Can be updated to scale the runner. To list available sizes, use the GitHub API: `GET /orgs/{org}/actions/hosted-runners/machine-sizes`.
@@ -169,6 +170,7 @@ class _ActionsHostedRunnerState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsHostedRunner resources.
+
         :param pulumi.Input['ActionsHostedRunnerImageArgs'] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
         :param pulumi.Input[_builtins.bool] image_gen: Whether this runner should be used to generate custom images. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] image_version: The version of the runner image to deploy. This is only relevant for runners using custom images.
@@ -454,6 +456,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
         $ pulumi import github:index/actionsHostedRunner:ActionsHostedRunner example 123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionsHostedRunnerImageArgs', 'ActionsHostedRunnerImageArgsDict']] image: Image configuration for the hosted runner. Cannot be changed after creation. Block supports:
@@ -542,6 +545,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsHostedRunner:ActionsHostedRunner example 123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsHostedRunnerArgs args: The arguments to use to populate this resource's properties.

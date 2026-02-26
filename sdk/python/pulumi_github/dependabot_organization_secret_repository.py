@@ -23,6 +23,7 @@ class DependabotOrganizationSecretRepositoryArgs:
                  secret_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DependabotOrganizationSecretRepository resource.
+
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
         :param pulumi.Input[_builtins.str] secret_name: Name of the Dependabot organization secret.
         """
@@ -61,6 +62,7 @@ class _DependabotOrganizationSecretRepositoryState:
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DependabotOrganizationSecretRepository resources.
+
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
         :param pulumi.Input[_builtins.str] secret_name: Name of the Dependabot organization secret.
         """
@@ -139,6 +141,7 @@ class DependabotOrganizationSecretRepository(pulumi.CustomResource):
         $ pulumi import github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository example mysecret:123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository that should be able to access the secret.
@@ -185,6 +188,7 @@ class DependabotOrganizationSecretRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecretRepository:DependabotOrganizationSecretRepository example mysecret:123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DependabotOrganizationSecretRepositoryArgs args: The arguments to use to populate this resource's properties.

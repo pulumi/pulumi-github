@@ -32,6 +32,7 @@ class RepositoryFileArgs:
                  overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryFile resource.
+
         :param pulumi.Input[_builtins.str] content: The file content.
         :param pulumi.Input[_builtins.str] file: The path of the file to manage.
         :param pulumi.Input[_builtins.str] repository: The repository to create the file in.
@@ -231,6 +232,7 @@ class _RepositoryFileState:
                  sha: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryFile resources.
+
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_branch: **Deprecated** The branch name to start from, if 'autocreate_branch' is set. Defaults to 'main'. Use the `Branch` resource instead.
         :param pulumi.Input[_builtins.str] autocreate_branch_source_sha: **Deprecated** The commit hash to start from, if 'autocreate_branch' is set. Defaults to the tip of 'autocreate_branch_source_branch'. If provided, 'autocreate_branch_source_branch' is ignored. Use the `Branch` resource instead.
@@ -554,6 +556,7 @@ class RepositoryFile(pulumi.CustomResource):
         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] autocreate_branch: **Deprecated** Automatically create the branch if it could not be found. Defaults to false. Subsequent reads if the branch is deleted will occur from 'autocreate_branch_source_branch'. Use the `Branch` resource instead.
@@ -637,6 +640,7 @@ class RepositoryFile(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryFile:RepositoryFile gitignore example:.gitignore:
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryFileArgs args: The arguments to use to populate this resource's properties.

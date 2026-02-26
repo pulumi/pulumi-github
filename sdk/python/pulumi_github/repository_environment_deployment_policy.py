@@ -25,6 +25,7 @@ class RepositoryEnvironmentDeploymentPolicyArgs:
                  tag_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryEnvironmentDeploymentPolicy resource.
+
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
         :param pulumi.Input[_builtins.str] branch_pattern: The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
@@ -95,6 +96,7 @@ class _RepositoryEnvironmentDeploymentPolicyState:
                  tag_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironmentDeploymentPolicy resources.
+
         :param pulumi.Input[_builtins.str] branch_pattern: The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
@@ -232,6 +234,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_pattern: The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
@@ -307,6 +310,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryEnvironmentDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.

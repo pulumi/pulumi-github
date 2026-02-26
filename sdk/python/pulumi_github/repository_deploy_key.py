@@ -25,6 +25,7 @@ class RepositoryDeployKeyArgs:
                  read_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryDeployKey resource.
+
         :param pulumi.Input[_builtins.str] key: A SSH key.
         :param pulumi.Input[_builtins.str] repository: Name of the GitHub repository.
         :param pulumi.Input[_builtins.str] title: A title.
@@ -99,6 +100,7 @@ class _RepositoryDeployKeyState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryDeployKey resources.
+
         :param pulumi.Input[_builtins.str] key: A SSH key.
         :param pulumi.Input[_builtins.bool] read_only: A boolean qualifying the key to be either read only or read/write.
         :param pulumi.Input[_builtins.str] repository: Name of the GitHub repository.
@@ -228,6 +230,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: A SSH key.
@@ -282,6 +285,7 @@ class RepositoryDeployKey(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryDeployKey:RepositoryDeployKey foo test-repo:23824728
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryDeployKeyArgs args: The arguments to use to populate this resource's properties.

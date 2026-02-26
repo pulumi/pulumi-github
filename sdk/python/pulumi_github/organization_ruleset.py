@@ -29,6 +29,7 @@ class OrganizationRulesetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationRuleset resource.
+
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
         :param pulumi.Input['OrganizationRulesetRulesArgs'] rules: (Block List, Min: 1, Max: 1) Rules within the ruleset. (see below for nested schema)
         :param pulumi.Input[_builtins.str] target: (String) Possible values are `branch`, `tag` and `push`.
@@ -133,6 +134,7 @@ class _OrganizationRulesetState:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationRuleset resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetBypassActorArgs']]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
         :param pulumi.Input['OrganizationRulesetConditionsArgs'] conditions: (Block List, Max: 1) Parameters for an organization ruleset condition. For `branch` and `tag` targets, `ref_name` is required alongside one of `repository_name` or `repository_id`. For `push` targets, `ref_name` must NOT be set - only `repository_name` or `repository_id` should be used. (see below for nested schema)
         :param pulumi.Input[_builtins.str] enforcement: (String) Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`.
@@ -379,6 +381,7 @@ class OrganizationRuleset(pulumi.CustomResource):
 
         `$ terraform import github_organization_ruleset.example 12345`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRulesetBypassActorArgs', 'OrganizationRulesetBypassActorArgsDict']]]] bypass_actors: (Block List) The actors that can bypass the rules in this ruleset. (see below for nested schema)
@@ -488,6 +491,7 @@ class OrganizationRuleset(pulumi.CustomResource):
         GitHub Organization Rulesets can be imported using the GitHub ruleset ID e.g.
 
         `$ terraform import github_organization_ruleset.example 12345`
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationRulesetArgs args: The arguments to use to populate this resource's properties.

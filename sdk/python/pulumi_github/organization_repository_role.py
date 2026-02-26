@@ -25,6 +25,7 @@ class OrganizationRepositoryRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationRepositoryRole resource.
+
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role.
         :param pulumi.Input[_builtins.str] description: The description of the organization repository role.
@@ -96,6 +97,7 @@ class _OrganizationRepositoryRoleState:
                  role_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering OrganizationRepositoryRole resources.
+
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
         :param pulumi.Input[_builtins.str] description: The description of the organization repository role.
         :param pulumi.Input[_builtins.str] name: The name of the organization repository role.
@@ -213,6 +215,7 @@ class OrganizationRepositoryRole(pulumi.CustomResource):
         $ pulumi import github:index/organizationRepositoryRole:OrganizationRepositoryRole example 1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions.
@@ -253,6 +256,7 @@ class OrganizationRepositoryRole(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationRepositoryRole:OrganizationRepositoryRole example 1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationRepositoryRoleArgs args: The arguments to use to populate this resource's properties.
