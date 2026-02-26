@@ -25,6 +25,7 @@ class OrganizationCustomRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomRole resource.
+
         :param pulumi.Input[_builtins.str] base_role: The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: A list of additional permissions included in this role. Must have a minimum of 1 additional permission. The list of available permissions can be found using the [list repository fine-grained permissions for an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/custom-roles?apiVersion=2022-11-28#list-repository-fine-grained-permissions-for-an-organization) API.
         :param pulumi.Input[_builtins.str] description: The description for the custom role.
@@ -95,6 +96,7 @@ class _OrganizationCustomRoleState:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomRole resources.
+
         :param pulumi.Input[_builtins.str] base_role: The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
         :param pulumi.Input[_builtins.str] description: The description for the custom role.
         :param pulumi.Input[_builtins.str] name: The name of the custom role.
@@ -218,6 +220,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
         $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_role: The system role from which the role inherits permissions. Can be one of: `read`, `triage`, `write`, or `maintain`.
@@ -279,6 +282,7 @@ class OrganizationCustomRole(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationCustomRole:OrganizationCustomRole example 1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationCustomRoleArgs args: The arguments to use to populate this resource's properties.

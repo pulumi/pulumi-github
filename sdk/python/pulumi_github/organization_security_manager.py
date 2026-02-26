@@ -22,6 +22,7 @@ class OrganizationSecurityManagerArgs:
                  team_slug: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationSecurityManager resource.
+
         :param pulumi.Input[_builtins.str] team_slug: The slug of the team to manage.
         """
         pulumi.set(__self__, "team_slug", team_slug)
@@ -45,6 +46,7 @@ class _OrganizationSecurityManagerState:
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationSecurityManager resources.
+
         :param pulumi.Input[_builtins.str] team_slug: The slug of the team to manage.
         """
         if team_slug is not None:
@@ -90,6 +92,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] team_slug: The slug of the team to manage.
@@ -118,6 +121,7 @@ class OrganizationSecurityManager(pulumi.CustomResource):
         ## Import
 
         GitHub Security Manager Teams can be imported using the GitHub team ID e.g.
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationSecurityManagerArgs args: The arguments to use to populate this resource's properties.

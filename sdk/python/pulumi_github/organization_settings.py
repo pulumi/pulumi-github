@@ -47,6 +47,7 @@ class OrganizationSettingsArgs:
                  web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OrganizationSettings resource.
+
         :param pulumi.Input[_builtins.str] billing_email: The billing email address for the organization.
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether or not advanced security is enabled for new repositories. Defaults to `false`.
         :param pulumi.Input[_builtins.str] blog: The blog URL for the organization.
@@ -470,6 +471,7 @@ class _OrganizationSettingsState:
                  web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationSettings resources.
+
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether or not advanced security is enabled for new repositories. Defaults to `false`.
         :param pulumi.Input[_builtins.str] billing_email: The billing email address for the organization.
         :param pulumi.Input[_builtins.str] blog: The blog URL for the organization.
@@ -943,6 +945,7 @@ class OrganizationSettings(pulumi.CustomResource):
         $ pulumi import github:index/organizationSettings:OrganizationSettings test 123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] advanced_security_enabled_for_new_repositories: Whether or not advanced security is enabled for new repositories. Defaults to `false`.
@@ -1024,6 +1027,7 @@ class OrganizationSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationSettings:OrganizationSettings test 123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationSettingsArgs args: The arguments to use to populate this resource's properties.

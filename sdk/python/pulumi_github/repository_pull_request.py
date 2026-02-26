@@ -28,6 +28,7 @@ class RepositoryPullRequestArgs:
                  owner: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPullRequest resource.
+
         :param pulumi.Input[_builtins.str] base_ref: Name of the branch serving as the base of the Pull Request.
         :param pulumi.Input[_builtins.str] base_repository: Name of the base repository to retrieve the Pull Requests from.
         :param pulumi.Input[_builtins.str] head_ref: Name of the branch serving as the head of the Pull Request.
@@ -153,6 +154,7 @@ class _RepositoryPullRequestState:
                  updated_at: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RepositoryPullRequest resources.
+
         :param pulumi.Input[_builtins.str] base_ref: Name of the branch serving as the base of the Pull Request.
         :param pulumi.Input[_builtins.str] base_repository: Name of the base repository to retrieve the Pull Requests from.
         :param pulumi.Input[_builtins.str] base_sha: Head commit SHA of the Pull Request base.
@@ -427,6 +429,7 @@ class RepositoryPullRequest(pulumi.CustomResource):
             body="This will change everything")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_ref: Name of the branch serving as the base of the Pull Request.
@@ -459,6 +462,7 @@ class RepositoryPullRequest(pulumi.CustomResource):
             title="My newest feature",
             body="This will change everything")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPullRequestArgs args: The arguments to use to populate this resource's properties.

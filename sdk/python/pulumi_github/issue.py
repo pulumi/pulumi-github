@@ -27,6 +27,7 @@ class IssueArgs:
                  milestone_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Issue resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name
         :param pulumi.Input[_builtins.str] title: Title of the issue
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignees: List of Logins to assign the to the issue
@@ -132,6 +133,7 @@ class _IssueState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Issue resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignees: List of Logins to assign the to the issue
         :param pulumi.Input[_builtins.str] body: Body of the issue
         :param pulumi.Input[_builtins.int] issue_id: (Computed) - The issue id
@@ -342,6 +344,7 @@ class Issue(pulumi.CustomResource):
         $ pulumi import github:index/issue:Issue issue_15 myrepo:15
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignees: List of Logins to assign the to the issue
@@ -419,6 +422,7 @@ class Issue(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/issue:Issue issue_15 myrepo:15
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IssueArgs args: The arguments to use to populate this resource's properties.

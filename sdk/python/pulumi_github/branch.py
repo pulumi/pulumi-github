@@ -26,6 +26,7 @@ class BranchArgs:
                  source_sha: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
+
         :param pulumi.Input[_builtins.str] branch: The repository branch to create.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name.
         :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
@@ -114,6 +115,7 @@ class _BranchState:
                  source_sha: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
+
         :param pulumi.Input[_builtins.str] branch: The repository branch to create.
         :param pulumi.Input[_builtins.str] etag: An etag representing the Branch object.
         :param pulumi.Input[_builtins.str] ref: A string representing a branch reference, in the form of `refs/heads/<branch>`.
@@ -272,6 +274,7 @@ class Branch(pulumi.CustomResource):
         $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The repository branch to create.
@@ -323,6 +326,7 @@ class Branch(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/branch:Branch terraform terraform:feature-branch:dev
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.

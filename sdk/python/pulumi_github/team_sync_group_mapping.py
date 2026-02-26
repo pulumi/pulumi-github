@@ -25,6 +25,7 @@ class TeamSyncGroupMappingArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]]] = None):
         """
         The set of arguments for constructing a TeamSyncGroupMapping resource.
+
         :param pulumi.Input[_builtins.str] team_slug: Slug of the team
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
                ___
@@ -71,6 +72,7 @@ class _TeamSyncGroupMappingState:
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamSyncGroupMapping resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncGroupMappingGroupArgs']]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
                ___
                
@@ -161,6 +163,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncGroupMappingGroupArgs', 'TeamSyncGroupMappingGroupArgsDict']]]] groups: An Array of GitHub Identity Provider Groups (or empty []).  Each `group` block consists of the fields documented below.
@@ -205,6 +208,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/teamSyncGroupMapping:TeamSyncGroupMapping example some_team
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamSyncGroupMappingArgs args: The arguments to use to populate this resource's properties.

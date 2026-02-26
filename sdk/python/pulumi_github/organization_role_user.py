@@ -23,6 +23,7 @@ class OrganizationRoleUserArgs:
                  role_id: pulumi.Input[_builtins.int]):
         """
         The set of arguments for constructing a OrganizationRoleUser resource.
+
         :param pulumi.Input[_builtins.str] login: The login for the GitHub user account.
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         """
@@ -61,6 +62,7 @@ class _OrganizationRoleUserState:
                  role_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering OrganizationRoleUser resources.
+
         :param pulumi.Input[_builtins.str] login: The login for the GitHub user account.
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         """
@@ -125,6 +127,7 @@ class OrganizationRoleUser(pulumi.CustomResource):
         $ pulumi import github:index/organizationRoleUser:OrganizationRoleUser example "1234:example-user"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] login: The login for the GitHub user account.
@@ -157,6 +160,7 @@ class OrganizationRoleUser(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationRoleUser:OrganizationRoleUser example "1234:example-user"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationRoleUserArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class OrganizationRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationRole resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions included in this role. Only organization permissions can be set if the `base_role` isn't set or is set to `none`.
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
@@ -97,6 +98,7 @@ class _OrganizationRoleState:
                  role_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering OrganizationRole resources.
+
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
         :param pulumi.Input[_builtins.str] description: The description of the organization role.
         :param pulumi.Input[_builtins.str] name: The name of the organization role.
@@ -214,6 +216,7 @@ class OrganizationRole(pulumi.CustomResource):
         $ pulumi import github:index/organizationRole:OrganizationRole example 1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_role: The system role from which this role inherits permissions; one of `none`, `read`, `triage`, `write`, `maintain`, or `admin`. Defaults to `none`.
@@ -254,6 +257,7 @@ class OrganizationRole(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationRole:OrganizationRole example 1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationRoleArgs args: The arguments to use to populate this resource's properties.

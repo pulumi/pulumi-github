@@ -28,6 +28,7 @@ class OrganizationCustomPropertiesArgs:
                  values_editable_by: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomProperties resource.
+
         :param pulumi.Input[_builtins.str] property_name: The name of the custom property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: List of allowed values for the custom property. Only applicable when `value_type` is `single_select` or `multi_select`.
         :param pulumi.Input[_builtins.str] default_value: The default value of the custom property.
@@ -147,6 +148,7 @@ class _OrganizationCustomPropertiesState:
                  values_editable_by: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomProperties resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: List of allowed values for the custom property. Only applicable when `value_type` is `single_select` or `multi_select`.
         :param pulumi.Input[_builtins.str] default_value: The default value of the custom property.
         :param pulumi.Input[_builtins.str] description: The description of the custom property.
@@ -344,6 +346,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: List of allowed values for the custom property. Only applicable when `value_type` is `single_select` or `multi_select`.
@@ -434,6 +437,7 @@ class OrganizationCustomProperties(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationCustomProperties:OrganizationCustomProperties environment environment
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationCustomPropertiesArgs args: The arguments to use to populate this resource's properties.

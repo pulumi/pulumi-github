@@ -24,6 +24,7 @@ class ActionsVariableArgs:
                  variable_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActionsVariable resource.
+
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] value: Value of the variable.
         :param pulumi.Input[_builtins.str] variable_name: Name of the variable.
@@ -80,6 +81,7 @@ class _ActionsVariableState:
                  variable_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsVariable resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date the variable was created.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
@@ -211,6 +213,7 @@ class ActionsVariable(pulumi.CustomResource):
         $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
@@ -250,6 +253,7 @@ class ActionsVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsVariable:ActionsVariable example myrepo:myvariable
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsVariableArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class EnterpriseOrganizationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EnterpriseOrganization resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_logins: List of organization owner usernames.
         :param pulumi.Input[_builtins.str] billing_email: The billing email address.
         :param pulumi.Input[_builtins.str] enterprise_id: The ID of the enterprise.
@@ -129,6 +130,7 @@ class _EnterpriseOrganizationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseOrganization resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_logins: List of organization owner usernames.
         :param pulumi.Input[_builtins.str] billing_email: The billing email address.
         :param pulumi.Input[_builtins.int] database_id: The ID of the organization.
@@ -276,6 +278,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
         $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_logins: List of organization owner usernames.
@@ -316,6 +319,7 @@ class EnterpriseOrganization(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/enterpriseOrganization:EnterpriseOrganization org enterp/some-awesome-org
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseOrganizationArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class ActionsRepositoryAccessLevelArgs:
                  repository: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActionsRepositoryAccessLevel resource.
+
         :param pulumi.Input[_builtins.str] access_level: Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         """
@@ -61,6 +62,7 @@ class _ActionsRepositoryAccessLevelState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsRepositoryAccessLevel resources.
+
         :param pulumi.Input[_builtins.str] access_level: Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         """
@@ -129,6 +131,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_level: Where the actions or reusable workflows of the repository may be used. Possible values are `none`, `user`, `organization`, or `enterprise`.
@@ -165,6 +168,7 @@ class ActionsRepositoryAccessLevel(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsRepositoryAccessLevel:ActionsRepositoryAccessLevel test my-repository
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsRepositoryAccessLevelArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class BranchDefaultArgs:
                  rename: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchDefault resource.
+
         :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
@@ -91,6 +92,7 @@ class _BranchDefaultState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BranchDefault resources.
+
         :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
         :param pulumi.Input[_builtins.bool] rename: Indicate if it should rename the branch rather than use an existing branch. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
@@ -212,6 +214,7 @@ class BranchDefault(pulumi.CustomResource):
         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The branch (e.g. `main`)
@@ -274,6 +277,7 @@ class BranchDefault(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/branchDefault:BranchDefault branch_default my-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchDefaultArgs args: The arguments to use to populate this resource's properties.

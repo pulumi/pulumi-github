@@ -28,6 +28,7 @@ class ActionsOrganizationSecretArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a ActionsOrganizationSecret resource.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
@@ -161,6 +162,7 @@ class _ActionsOrganizationSecretState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationSecret resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
         :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
                
@@ -414,6 +416,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] destroy_on_drift: (Optional) This is ignored as drift detection is built into the resource.
@@ -505,6 +508,7 @@ class ActionsOrganizationSecret(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsOrganizationSecret:ActionsOrganizationSecret example mysecret
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretArgs args: The arguments to use to populate this resource's properties.

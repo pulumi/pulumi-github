@@ -27,6 +27,7 @@ class DependabotOrganizationSecretArgs:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a DependabotOrganizationSecret resource.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] visibility: Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -136,6 +137,7 @@ class _DependabotOrganizationSecretState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DependabotOrganizationSecret resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
         :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
@@ -345,6 +347,7 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
@@ -413,6 +416,7 @@ class DependabotOrganizationSecret(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/dependabotOrganizationSecret:DependabotOrganizationSecret example mysecret
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DependabotOrganizationSecretArgs args: The arguments to use to populate this resource's properties.

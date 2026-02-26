@@ -27,6 +27,7 @@ class RepositoryMilestoneArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryMilestone resource.
+
         :param pulumi.Input[_builtins.str] owner: The owner of the GitHub Repository.
         :param pulumi.Input[_builtins.str] repository: The name of the GitHub Repository.
         :param pulumi.Input[_builtins.str] title: The title of the milestone.
@@ -129,6 +130,7 @@ class _RepositoryMilestoneState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryMilestone resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the milestone.
         :param pulumi.Input[_builtins.str] due_date: The milestone due date. In `yyyy-mm-dd` format.
         :param pulumi.Input[_builtins.int] number: The number of the milestone.
@@ -276,6 +278,7 @@ class RepositoryMilestone(pulumi.CustomResource):
         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the milestone.
@@ -316,6 +319,7 @@ class RepositoryMilestone(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryMilestone:RepositoryMilestone example example-owner/example-repository/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryMilestoneArgs args: The arguments to use to populate this resource's properties.

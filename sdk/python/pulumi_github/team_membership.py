@@ -24,6 +24,7 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
+
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         :param pulumi.Input[_builtins.str] username: The user to add to the team.
         :param pulumi.Input[_builtins.str] role: The role of the user within the team.
@@ -81,6 +82,7 @@ class _TeamMembershipState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembership resources.
+
         :param pulumi.Input[_builtins.str] role: The role of the user within the team.
                Must be one of `member` or `maintainer`. Defaults to `member`.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
@@ -192,6 +194,7 @@ class TeamMembership(pulumi.CustomResource):
         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role: The role of the user within the team.
@@ -244,6 +247,7 @@ class TeamMembership(pulumi.CustomResource):
         $ pulumi import github:index/teamMembership:TeamMembership member 1234567:someuser
         $ pulumi import github:index/teamMembership:TeamMembership member Administrators:someuser
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamMembershipArgs args: The arguments to use to populate this resource's properties.

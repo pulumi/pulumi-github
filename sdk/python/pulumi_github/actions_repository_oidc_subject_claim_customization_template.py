@@ -24,6 +24,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs:
                  include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActionsRepositoryOidcSubjectClaimCustomizationTemplate resource.
+
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
         :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
                be set.
@@ -80,6 +81,7 @@ class _ActionsRepositoryOidcSubjectClaimCustomizationTemplateState:
                  use_default: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ActionsRepositoryOidcSubjectClaimCustomizationTemplate resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         :param pulumi.Input[_builtins.str] repository: The name of the repository.
         :param pulumi.Input[_builtins.bool] use_default: Whether to use the default template or not. If `true`, `include_claim_keys` must not
@@ -180,6 +182,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         $ pulumi import github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate test example_repository
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
@@ -232,6 +235,7 @@ class ActionsRepositoryOidcSubjectClaimCustomizationTemplate(pulumi.CustomResour
         ```sh
         $ pulumi import github:index/actionsRepositoryOidcSubjectClaimCustomizationTemplate:ActionsRepositoryOidcSubjectClaimCustomizationTemplate test example_repository
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs args: The arguments to use to populate this resource's properties.

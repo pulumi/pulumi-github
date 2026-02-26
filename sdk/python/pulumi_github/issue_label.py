@@ -26,6 +26,7 @@ class IssueLabelArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IssueLabel resource.
+
         :param pulumi.Input[_builtins.str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         :param pulumi.Input[_builtins.str] description: A short description of the label.
@@ -109,6 +110,7 @@ class _IssueLabelState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IssueLabel resources.
+
         :param pulumi.Input[_builtins.str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
         :param pulumi.Input[_builtins.str] description: A short description of the label.
         :param pulumi.Input[_builtins.str] name: The name of the label.
@@ -247,6 +249,7 @@ class IssueLabel(pulumi.CustomResource):
         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] color: A 6 character hex code, **without the leading #**, identifying the color of the label.
@@ -296,6 +299,7 @@ class IssueLabel(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/issueLabel:IssueLabel panic_label terraform:panic
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IssueLabelArgs args: The arguments to use to populate this resource's properties.

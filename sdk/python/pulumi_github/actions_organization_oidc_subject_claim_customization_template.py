@@ -22,6 +22,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs:
                  include_claim_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a ActionsOrganizationOidcSubjectClaimCustomizationTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         """
         pulumi.set(__self__, "include_claim_keys", include_claim_keys)
@@ -45,6 +46,7 @@ class _ActionsOrganizationOidcSubjectClaimCustomizationTemplateState:
                  include_claim_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationOidcSubjectClaimCustomizationTemplate resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
         """
         if include_claim_keys is not None:
@@ -99,6 +101,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_claim_keys: A list of OpenID Connect claims.
@@ -136,6 +139,7 @@ class ActionsOrganizationOidcSubjectClaimCustomizationTemplate(pulumi.CustomReso
         ```sh
         $ pulumi import github:index/actionsOrganizationOidcSubjectClaimCustomizationTemplate:ActionsOrganizationOidcSubjectClaimCustomizationTemplate test example_organization
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationOidcSubjectClaimCustomizationTemplateArgs args: The arguments to use to populate this resource's properties.

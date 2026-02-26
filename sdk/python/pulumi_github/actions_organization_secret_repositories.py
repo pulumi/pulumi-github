@@ -23,6 +23,7 @@ class ActionsOrganizationSecretRepositoriesArgs:
                  selected_repository_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]):
         """
         The set of arguments for constructing a ActionsOrganizationSecretRepositories resource.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: List of IDs for the repositories that should be able to access the secret.
         """
@@ -61,6 +62,7 @@ class _ActionsOrganizationSecretRepositoriesState:
                  selected_repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Input properties used for looking up and filtering ActionsOrganizationSecretRepositories resources.
+
         :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] selected_repository_ids: List of IDs for the repositories that should be able to access the secret.
         """
@@ -139,6 +141,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories example mysecret
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] secret_name: Name of the actions organization secret.
@@ -185,6 +188,7 @@ class ActionsOrganizationSecretRepositories(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsOrganizationSecretRepositories:ActionsOrganizationSecretRepositories example mysecret
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsOrganizationSecretRepositoriesArgs args: The arguments to use to populate this resource's properties.

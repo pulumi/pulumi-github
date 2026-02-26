@@ -25,6 +25,7 @@ class RepositoryCollaboratorArgs:
                  permission_diff_suppression: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RepositoryCollaborator resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
                
                > Note: The owner of the repository can be passed as part of the repository name  e.g. `owner-org-name/repo-name`. If owner is not supplied as part of the repository name, it may also be supplied by setting the environment variable `GITHUB_OWNER`.
@@ -104,6 +105,7 @@ class _RepositoryCollaboratorState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryCollaborator resources.
+
         :param pulumi.Input[_builtins.str] invitation_id: ID of the invitation to be used in `UserInvitationAccepter`
         :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
                Must be one of `pull`, `push`, `maintain`, `triage` or `admin` or the name of an existing [custom repository role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization) within the organization for organization-owned repositories.
@@ -250,6 +252,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
         $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] permission: The permission of the outside collaborator for the repository.
@@ -315,6 +318,7 @@ class RepositoryCollaborator(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryCollaborator:RepositoryCollaborator collaborator terraform:someuser
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryCollaboratorArgs args: The arguments to use to populate this resource's properties.

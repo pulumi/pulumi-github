@@ -23,6 +23,7 @@ class RepositoryDependabotSecurityUpdatesArgs:
                  repository: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RepositoryDependabotSecurityUpdates resource.
+
         :param pulumi.Input[_builtins.bool] enabled: The state of the automated security fixes.
         :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
         """
@@ -61,6 +62,7 @@ class _RepositoryDependabotSecurityUpdatesState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryDependabotSecurityUpdates resources.
+
         :param pulumi.Input[_builtins.bool] enabled: The state of the automated security fixes.
         :param pulumi.Input[_builtins.str] repository: The name of the GitHub repository.
         """
@@ -134,6 +136,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: The state of the automated security fixes.
@@ -175,6 +178,7 @@ class RepositoryDependabotSecurityUpdates(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryDependabotSecurityUpdates:RepositoryDependabotSecurityUpdates example my-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryDependabotSecurityUpdatesArgs args: The arguments to use to populate this resource's properties.

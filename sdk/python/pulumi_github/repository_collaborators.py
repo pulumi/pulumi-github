@@ -27,6 +27,7 @@ class RepositoryCollaboratorsArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCollaborators resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams to grant access to the repository.
@@ -99,6 +100,7 @@ class _RepositoryCollaboratorsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCollaborators resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
                be used in `UserInvitationAccepter`.
@@ -249,6 +251,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]] ignore_teams: List of teams to ignore when checking for repository access. This supports ignoring teams granted access at an organizational level.
@@ -320,6 +323,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryCollaboratorsArgs args: The arguments to use to populate this resource's properties.

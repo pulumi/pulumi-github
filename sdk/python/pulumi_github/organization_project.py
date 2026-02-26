@@ -23,6 +23,7 @@ class OrganizationProjectArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationProject resource.
+
         :param pulumi.Input[_builtins.str] body: The body of the project.
         :param pulumi.Input[_builtins.str] name: The name of the project.
         """
@@ -65,6 +66,7 @@ class _OrganizationProjectState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationProject resources.
+
         :param pulumi.Input[_builtins.str] body: The body of the project.
         :param pulumi.Input[_builtins.str] name: The name of the project.
         :param pulumi.Input[_builtins.str] url: URL of the project
@@ -149,6 +151,7 @@ class OrganizationProject(pulumi.CustomResource):
             body="This is a organization project.")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: The body of the project.
@@ -175,6 +178,7 @@ class OrganizationProject(pulumi.CustomResource):
             name="A Organization Project",
             body="This is a organization project.")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationProjectArgs args: The arguments to use to populate this resource's properties.

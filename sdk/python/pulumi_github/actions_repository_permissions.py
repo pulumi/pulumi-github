@@ -28,6 +28,7 @@ class ActionsRepositoryPermissionsArgs:
                  sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ActionsRepositoryPermissions resource.
+
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
@@ -115,6 +116,7 @@ class _ActionsRepositoryPermissionsState:
                  sha_pinning_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ActionsRepositoryPermissions resources.
+
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.bool] enabled: Should GitHub actions be enabled on this repository?
@@ -237,6 +239,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
@@ -282,6 +285,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/actionsRepositoryPermissions:ActionsRepositoryPermissions test my-repository
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionsRepositoryPermissionsArgs args: The arguments to use to populate this resource's properties.

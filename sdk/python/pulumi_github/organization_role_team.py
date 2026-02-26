@@ -23,6 +23,7 @@ class OrganizationRoleTeamArgs:
                  team_slug: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationRoleTeam resource.
+
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         :param pulumi.Input[_builtins.str] team_slug: The slug of the team name.
         """
@@ -61,6 +62,7 @@ class _OrganizationRoleTeamState:
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationRoleTeam resources.
+
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
         :param pulumi.Input[_builtins.str] team_slug: The slug of the team name.
         """
@@ -125,6 +127,7 @@ class OrganizationRoleTeam(pulumi.CustomResource):
         $ pulumi import github:index/organizationRoleTeam:OrganizationRoleTeam example "1234:example-team"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] role_id: The ID of the organization role.
@@ -157,6 +160,7 @@ class OrganizationRoleTeam(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/organizationRoleTeam:OrganizationRoleTeam example "1234:example-team"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationRoleTeamArgs args: The arguments to use to populate this resource's properties.

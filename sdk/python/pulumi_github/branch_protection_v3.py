@@ -31,6 +31,7 @@ class BranchProtectionV3Args:
                  restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
         """
         The set of arguments for constructing a BranchProtectionV3 resource.
+
         :param pulumi.Input[_builtins.str] branch: The Git branch to protect.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name.
         :param pulumi.Input[_builtins.bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
@@ -166,6 +167,7 @@ class _BranchProtectionV3State:
                  restrictions: Optional[pulumi.Input['BranchProtectionV3RestrictionsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchProtectionV3 resources.
+
         :param pulumi.Input[_builtins.str] branch: The Git branch to protect.
         :param pulumi.Input[_builtins.bool] enforce_admins: Boolean, setting this to `true` enforces status checks for repository administrators.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository name.
@@ -384,6 +386,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The Git branch to protect.
@@ -469,6 +472,7 @@ class BranchProtectionV3(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/branchProtectionV3:BranchProtectionV3 terraform terraform:main
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchProtectionV3Args args: The arguments to use to populate this resource's properties.

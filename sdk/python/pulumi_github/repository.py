@@ -62,6 +62,7 @@ class RepositoryArgs:
                  web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
@@ -729,6 +730,7 @@ class _RepositoryState:
                  web_commit_signoff_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
+
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
         :param pulumi.Input[_builtins.bool] allow_forking: Configure private forking for organization owned private and internal repositories; set to `true` to enable, `false` to disable, and leave unset for the default behaviour. Configuring this requires that private forking is not being explicitly configured at the organization level.
         :param pulumi.Input[_builtins.bool] allow_merge_commit: Set to `false` to disable merge commits on the repository.
@@ -1587,6 +1589,7 @@ class Repository(pulumi.CustomResource):
         $ pulumi import github:index/repository:Repository terraform myrepo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_auto_merge: Set to `true` to allow auto-merging pull requests on the repository.
@@ -1703,6 +1706,7 @@ class Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import github:index/repository:Repository terraform myrepo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
