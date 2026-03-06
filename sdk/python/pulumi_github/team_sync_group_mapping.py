@@ -147,7 +147,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]].apply(lambda entries: [{
+            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"].items()].apply(lambda entries: [{
                 "groupId": entry["value"].group_id,
                 "groupName": entry["value"].group_name,
                 "groupDescription": entry["value"].group_description,
@@ -193,7 +193,7 @@ class TeamSyncGroupMapping(pulumi.CustomResource):
 
         example_groups = github.get_organization_team_sync_groups()
         example_group_mapping = github.TeamSyncGroupMapping("example_group_mapping",
-            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"]].apply(lambda entries: [{
+            groups=[{"key": k, "value": v} for k, v in [g for g in example_groups.groups if g.group_name == "some_team_group"].items()].apply(lambda entries: [{
                 "groupId": entry["value"].group_id,
                 "groupName": entry["value"].group_name,
                 "groupDescription": entry["value"].group_description,
