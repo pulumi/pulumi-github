@@ -63,14 +63,14 @@ import (
 //				return err
 //			}
 //			exampleRepositoryEnvironment, err := github.NewRepositoryEnvironment(ctx, "example", &github.RepositoryEnvironmentArgs{
-//				Repository:  pulumi.String(example.Name),
+//				Repository:  pulumi.String(pulumi.String(example.Name)),
 //				Environment: pulumi.String("example_environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = github.NewActionsEnvironmentVariable(ctx, "example", &github.ActionsEnvironmentVariableArgs{
-//				Repository:   pulumi.String(example.Name),
+//				Repository:   pulumi.String(pulumi.String(example.Name)),
 //				Environment:  exampleRepositoryEnvironment.Environment,
 //				VariableName: pulumi.String("example_variable_name"),
 //				Value:        pulumi.String("example-value"),

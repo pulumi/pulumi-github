@@ -41,7 +41,7 @@ import (
 //			_, err = github.NewCodespacesOrganizationSecretRepositories(ctx, "org_secret_repos", &github.CodespacesOrganizationSecretRepositoriesArgs{
 //				SecretName: pulumi.String("existing_secret_name"),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
+//					pulumi.Int(pulumi.Int(repo.RepoId)),
 //				},
 //			})
 //			if err != nil {
