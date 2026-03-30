@@ -66,7 +66,7 @@ import (
 //				Visibility:   pulumi.String("selected"),
 //				Value:        pulumi.String("example_variable_value"),
 //				SelectedRepositoryIds: pulumi.IntArray{
-//					pulumi.Int(repo.RepoId),
+//					pulumi.Int(pulumi.Int(repo.RepoId)),
 //				},
 //			})
 //			if err != nil {

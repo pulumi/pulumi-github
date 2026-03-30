@@ -88,7 +88,7 @@ import (
 //					},
 //				},
 //				ForcePushBypassers: pulumi.StringArray{
-//					pulumi.String(example.NodeId),
+//					pulumi.String(pulumi.String(example.NodeId)),
 //					pulumi.String("/exampleuser"),
 //					pulumi.String("exampleorganization/exampleteam"),
 //				},
