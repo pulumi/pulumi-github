@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.OrganizationRepositoryRole("example", new()
+    ///     var example = new Github.Index.OrganizationRepositoryRole("example", new()
     ///     {
     ///         Name = "example",
     ///         BaseRole = "read",

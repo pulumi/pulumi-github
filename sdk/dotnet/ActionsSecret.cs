@@ -32,14 +32,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePlaintext = new Github.ActionsSecret("example_plaintext", new()
+    ///     var examplePlaintext = new Github.Index.ActionsSecret("example_plaintext", new()
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",
     ///         PlaintextValue = someSecretString,
     ///     });
     /// 
-    ///     var exampleEncrypted = new Github.ActionsSecret("example_encrypted", new()
+    ///     var exampleEncrypted = new Github.Index.ActionsSecret("example_encrypted", new()
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",
@@ -61,7 +61,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAllowDrift = new Github.ActionsSecret("example_allow_drift", new()
+    ///     var exampleAllowDrift = new Github.Index.ActionsSecret("example_allow_drift", new()
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",

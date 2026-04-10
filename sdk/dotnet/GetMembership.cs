@@ -27,7 +27,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     var membershipForSomeUser = Github.Index.GetMembership.Invoke(new()
         ///     {
         ///         Username = "SomeUser",
         ///     });
@@ -54,7 +54,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     var membershipForSomeUser = Github.Index.GetMembership.Invoke(new()
         ///     {
         ///         Username = "SomeUser",
         ///     });
@@ -81,7 +81,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var membershipForSomeUser = Github.GetMembership.Invoke(new()
+        ///     var membershipForSomeUser = Github.Index.GetMembership.Invoke(new()
         ///     {
         ///         Username = "SomeUser",
         ///     });

@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			this, err := github.GetRepository(ctx, &github.LookupRepositoryArgs{
 //				Name: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			thisGetBranch, err := github.LookupBranch(ctx, &github.LookupBranchArgs{
+//			thisGetBranch, err := github.GetBranch(ctx, &github.LookupBranchArgs{
 //				Branch:     this.DefaultBranch,
 //				Repository: this.Name,
 //			}, nil)

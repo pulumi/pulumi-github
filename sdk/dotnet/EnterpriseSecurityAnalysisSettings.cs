@@ -25,14 +25,14 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic security settings - enable secret scanning only
-    ///     var basic = new Github.EnterpriseSecurityAnalysisSettings("basic", new()
+    ///     var basic = new Github.Index.EnterpriseSecurityAnalysisSettings("basic", new()
     ///     {
     ///         EnterpriseSlug = "my-enterprise",
     ///         SecretScanningEnabledForNewRepositories = true,
     ///     });
     /// 
     ///     // Full security configuration with all features enabled
-    ///     var comprehensive = new Github.EnterpriseSecurityAnalysisSettings("comprehensive", new()
+    ///     var comprehensive = new Github.Index.EnterpriseSecurityAnalysisSettings("comprehensive", new()
     ///     {
     ///         EnterpriseSlug = "my-enterprise",
     ///         AdvancedSecurityEnabledForNewRepositories = true,

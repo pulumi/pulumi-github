@@ -26,12 +26,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     var repo = Github.Index.GetRepository.Invoke(new()
     ///     {
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var orgSecretRepos = new Github.CodespacesOrganizationSecretRepositories("org_secret_repos", new()
+    ///     var orgSecretRepos = new Github.Index.CodespacesOrganizationSecretRepositories("org_secret_repos", new()
     ///     {
     ///         SecretName = "existing_secret_name",
     ///         SelectedRepositoryIds = new[]

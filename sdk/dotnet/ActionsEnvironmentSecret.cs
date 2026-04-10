@@ -34,7 +34,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAllowDrift = new Github.ActionsEnvironmentSecret("example_allow_drift", new()
+    ///     var exampleAllowDrift = new Github.Index.ActionsEnvironmentSecret("example_allow_drift", new()
     ///     {
     ///         Repository = "example-repo",
     ///         Environment = "example-environment",

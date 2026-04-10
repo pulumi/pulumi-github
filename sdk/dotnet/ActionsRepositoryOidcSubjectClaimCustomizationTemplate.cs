@@ -34,12 +34,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example-repository",
     ///     });
     /// 
-    ///     var exampleTemplate = new Github.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template", new()
+    ///     var exampleTemplate = new Github.Index.ActionsRepositoryOidcSubjectClaimCustomizationTemplate("example_template", new()
     ///     {
     ///         Repository = example.Name,
     ///         UseDefault = false,

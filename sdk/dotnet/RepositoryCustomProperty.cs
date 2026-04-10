@@ -24,13 +24,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///     });
     /// 
-    ///     var @string = new Github.RepositoryCustomProperty("string", new()
+    ///     var @string = new Github.Index.RepositoryCustomProperty("string", new()
     ///     {
     ///         Repository = example.Name,
     ///         PropertyName = "my-cool-property",

@@ -24,17 +24,17 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Github.GetUser.Invoke(new()
+    ///     var current = Github.Index.GetUser.Invoke(new()
     ///     {
     ///         Username = "",
     ///     });
     /// 
-    ///     var test = new Github.Repository("test", new()
+    ///     var test = new Github.Index.Repository("test", new()
     ///     {
     ///         Name = "tf-acc-test-%s",
     ///     });
     /// 
-    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("test", new()
+    ///     var testRepositoryEnvironment = new Github.Index.RepositoryEnvironment("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Environment = "environment/test",
@@ -56,7 +56,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("test", new()
+    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.Index.RepositoryEnvironmentDeploymentPolicy("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Environment = testRepositoryEnvironment.Environment,
@@ -76,17 +76,17 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Github.GetUser.Invoke(new()
+    ///     var current = Github.Index.GetUser.Invoke(new()
     ///     {
     ///         Username = "",
     ///     });
     /// 
-    ///     var test = new Github.Repository("test", new()
+    ///     var test = new Github.Index.Repository("test", new()
     ///     {
     ///         Name = "tf-acc-test-%s",
     ///     });
     /// 
-    ///     var testRepositoryEnvironment = new Github.RepositoryEnvironment("test", new()
+    ///     var testRepositoryEnvironment = new Github.Index.RepositoryEnvironment("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Environment = "environment/test",
@@ -108,7 +108,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.RepositoryEnvironmentDeploymentPolicy("test", new()
+    ///     var testRepositoryEnvironmentDeploymentPolicy = new Github.Index.RepositoryEnvironmentDeploymentPolicy("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Environment = testRepositoryEnvironment.Environment,

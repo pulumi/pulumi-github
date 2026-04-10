@@ -27,7 +27,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositories.Invoke(new()
+        ///     var example = Github.Index.GetRepositories.Invoke(new()
         ///     {
         ///         Query = "org:hashicorp language:Go",
         ///         IncludeRepoId = true,
@@ -55,7 +55,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositories.Invoke(new()
+        ///     var example = Github.Index.GetRepositories.Invoke(new()
         ///     {
         ///         Query = "org:hashicorp language:Go",
         ///         IncludeRepoId = true,
@@ -83,7 +83,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositories.Invoke(new()
+        ///     var example = Github.Index.GetRepositories.Invoke(new()
         ///     {
         ///         Query = "org:hashicorp language:Go",
         ///         IncludeRepoId = true,

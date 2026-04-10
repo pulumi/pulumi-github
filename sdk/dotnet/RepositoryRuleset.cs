@@ -24,13 +24,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "Example repository",
     ///     });
     /// 
-    ///     var exampleRepositoryRuleset = new Github.RepositoryRuleset("example", new()
+    ///     var exampleRepositoryRuleset = new Github.Index.RepositoryRuleset("example", new()
     ///     {
     ///         Name = "example",
     ///         Repository = example.Name,
@@ -86,7 +86,7 @@ namespace Pulumi.Github
     ///     });
     /// 
     ///     // Example with push ruleset
-    ///     var examplePush = new Github.RepositoryRuleset("example_push", new()
+    ///     var examplePush = new Github.Index.RepositoryRuleset("example_push", new()
     ///     {
     ///         Name = "example_push",
     ///         Repository = example.Name,

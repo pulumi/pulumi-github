@@ -32,19 +32,19 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membership_for_some_user", new()
+    ///     var membershipForSomeUser = new Github.Index.Membership("membership_for_some_user", new()
     ///     {
     ///         Username = "SomeUser",
     ///         Role = "member",
     ///     });
     /// 
-    ///     var someTeam = new Github.Team("some_team", new()
+    ///     var someTeam = new Github.Index.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var someTeamMembership = new Github.TeamMembership("some_team_membership", new()
+    ///     var someTeamMembership = new Github.Index.TeamMembership("some_team_membership", new()
     ///     {
     ///         TeamId = someTeam.Id,
     ///         Username = "SomeUser",

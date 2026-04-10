@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = new Github.Repository("repo", new()
+    ///     var repo = new Github.Index.Repository("repo", new()
     ///     {
     ///         Name = "my-repo",
     ///         Description = "GitHub repo managed by Terraform",
@@ -32,7 +32,7 @@ namespace Pulumi.Github
     ///         VulnerabilityAlerts = true,
     ///     });
     /// 
-    ///     var example = new Github.RepositoryDependabotSecurityUpdates("example", new()
+    ///     var example = new Github.Index.RepositoryDependabotSecurityUpdates("example", new()
     ///     {
     ///         Repository = test.Name,
     ///         Enabled = true,

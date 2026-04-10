@@ -79,7 +79,7 @@ using Github = Pulumi.Github;
 return await Deployment.RunAsync(() =>
 {
     // Add a user to the organization
-    var membershipForUserX = new Github.Membership("membership_for_user_x");
+    var membershipForUserX = new Github.Index.Membership("membership_for_user_x");
 
 });
 
@@ -224,7 +224,7 @@ using Github = Pulumi.Github;
 return await Deployment.RunAsync(() =>
 {
     // Add a user to the organization
-    var membershipForUserX = new Github.Membership("membership_for_user_x");
+    var membershipForUserX = new Github.Index.Membership("membership_for_user_x");
 
 });
 

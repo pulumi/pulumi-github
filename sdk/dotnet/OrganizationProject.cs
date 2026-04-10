@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var project = new Github.OrganizationProject("project", new()
+    ///     var project = new Github.Index.OrganizationProject("project", new()
     ///     {
     ///         Name = "A Organization Project",
     ///         Body = "This is a organization project.",

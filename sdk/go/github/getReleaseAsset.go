@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupReleaseAsset(ctx, &github.LookupReleaseAssetArgs{
+//			_, err := github.GetReleaseAsset(ctx, &github.LookupReleaseAssetArgs{
 //				Repository: "example-repository",
 //				Owner:      "example-owner",
 //				AssetId:    12345,
@@ -60,7 +60,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
+//			example, err := github.GetRelease(ctx, &github.LookupReleaseArgs{
 //				Repository: "example-repository",
 //				Owner:      "example-owner",
 //				RetrieveBy: "latest",
@@ -68,7 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = github.LookupReleaseAsset(ctx, &github.LookupReleaseAssetArgs{
+//			_, err = github.GetReleaseAsset(ctx, &github.LookupReleaseAssetArgs{
 //				Repository: "example-repository",
 //				Owner:      "example-owner",
 //				AssetId:    example.Assets[0].Id,

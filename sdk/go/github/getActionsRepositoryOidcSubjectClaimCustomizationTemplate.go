@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx, &github.LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs{
+//			_, err := github.GetActionsRepositoryOidcSubjectClaimCustomizationTemplate(ctx, &github.LookupActionsRepositoryOidcSubjectClaimCustomizationTemplateArgs{
 //				Name: "example_repository",
 //			}, nil)
 //			if err != nil {

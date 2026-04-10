@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.UserGpgKey("example", new()
+    ///     var example = new Github.Index.UserGpgKey("example", new()
     ///     {
     ///         ArmoredPublicKey = @"-----BEGIN PGP PUBLIC KEY BLOCK-----
     /// ...

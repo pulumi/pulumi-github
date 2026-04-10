@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic workflow permissions configuration
-    ///     var example = new Github.ActionsOrganizationWorkflowPermissions("example", new()
+    ///     var example = new Github.Index.ActionsOrganizationWorkflowPermissions("example", new()
     ///     {
     ///         OrganizationSlug = "my-organization",
     ///         DefaultWorkflowPermissions = "read",
@@ -33,7 +33,7 @@ namespace Pulumi.Github
     ///     });
     /// 
     ///     // Allow write permissions and PR approvals
-    ///     var permissive = new Github.ActionsOrganizationWorkflowPermissions("permissive", new()
+    ///     var permissive = new Github.Index.ActionsOrganizationWorkflowPermissions("permissive", new()
     ///     {
     ///         OrganizationSlug = "my-organization",
     ///         DefaultWorkflowPermissions = "write",

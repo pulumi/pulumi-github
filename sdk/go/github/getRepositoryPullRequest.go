@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepositoryPullRequest(ctx, &github.LookupRepositoryPullRequestArgs{
+//			_, err := github.GetRepositoryPullRequest(ctx, &github.LookupRepositoryPullRequestArgs{
 //				BaseRepository: "example_repository",
 //				Number:         1,
 //			}, nil)

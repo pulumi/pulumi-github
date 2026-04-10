@@ -23,7 +23,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVariable = new Github.ActionsOrganizationVariable("example_variable", new()
+    ///     var exampleVariable = new Github.Index.ActionsOrganizationVariable("example_variable", new()
     ///     {
     ///         VariableName = "example_variable_name",
     ///         Visibility = "private",
@@ -41,12 +41,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     var repo = Github.Index.GetRepository.Invoke(new()
     ///     {
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var exampleVariable = new Github.ActionsOrganizationVariable("example_variable", new()
+    ///     var exampleVariable = new Github.Index.ActionsOrganizationVariable("example_variable", new()
     ///     {
     ///         VariableName = "example_variable_name",
     ///         Visibility = "selected",

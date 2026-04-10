@@ -26,7 +26,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationWebhooks.Invoke();
+        ///     var all = Github.Index.GetOrganizationWebhooks.Invoke();
         /// 
         /// });
         /// ```
@@ -49,7 +49,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationWebhooks.Invoke();
+        ///     var all = Github.Index.GetOrganizationWebhooks.Invoke();
         /// 
         /// });
         /// ```
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationWebhooks.Invoke();
+        ///     var all = Github.Index.GetOrganizationWebhooks.Invoke();
         /// 
         /// });
         /// ```

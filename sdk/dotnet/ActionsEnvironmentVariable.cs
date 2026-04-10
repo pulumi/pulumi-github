@@ -23,7 +23,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.ActionsEnvironmentVariable("example", new()
+    ///     var example = new Github.Index.ActionsEnvironmentVariable("example", new()
     ///     {
     ///         Repository = "example-repo",
     ///         Environment = "example-environment",
@@ -42,18 +42,18 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Github.GetRepository.Invoke(new()
+    ///     var example = Github.Index.GetRepository.Invoke(new()
     ///     {
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("example", new()
+    ///     var exampleRepositoryEnvironment = new Github.Index.RepositoryEnvironment("example", new()
     ///     {
     ///         Repository = example.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
     ///         Environment = "example_environment",
     ///     });
     /// 
-    ///     var exampleActionsEnvironmentVariable = new Github.ActionsEnvironmentVariable("example", new()
+    ///     var exampleActionsEnvironmentVariable = new Github.Index.ActionsEnvironmentVariable("example", new()
     ///     {
     ///         Repository = example.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
     ///         Environment = exampleRepositoryEnvironment.Environment,

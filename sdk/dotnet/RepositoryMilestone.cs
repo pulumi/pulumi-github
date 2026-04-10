@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a milestone for a repository
-    ///     var example = new Github.RepositoryMilestone("example", new()
+    ///     var example = new Github.Index.RepositoryMilestone("example", new()
     ///     {
     ///         Owner = "example-owner",
     ///         Repository = "example-repository",

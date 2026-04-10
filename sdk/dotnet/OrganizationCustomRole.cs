@@ -26,7 +26,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.OrganizationCustomRole("example", new()
+    ///     var example = new Github.Index.OrganizationCustomRole("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "Example custom role that uses the read role as its base",

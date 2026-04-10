@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetBranchProtectionRules.Invoke(new()
+        ///     var example = Github.Index.GetBranchProtectionRules.Invoke(new()
         ///     {
         ///         Repository = "example",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetBranchProtectionRules.Invoke(new()
+        ///     var example = Github.Index.GetBranchProtectionRules.Invoke(new()
         ///     {
         ///         Repository = "example",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetBranchProtectionRules.Invoke(new()
+        ///     var example = Github.Index.GetBranchProtectionRules.Invoke(new()
         ///     {
         ///         Repository = "example",
         ///     });

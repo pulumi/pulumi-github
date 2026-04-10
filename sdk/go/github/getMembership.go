@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupMembership(ctx, &github.LookupMembershipArgs{
+//			_, err := github.GetMembership(ctx, &github.LookupMembershipArgs{
 //				Username: "SomeUser",
 //			}, nil)
 //			if err != nil {

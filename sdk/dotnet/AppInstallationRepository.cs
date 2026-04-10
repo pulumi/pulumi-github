@@ -33,12 +33,12 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a repository.
-    ///     var someRepo = new Github.Repository("some_repo", new()
+    ///     var someRepo = new Github.Index.Repository("some_repo", new()
     ///     {
     ///         Name = "some-repo",
     ///     });
     /// 
-    ///     var someAppRepo = new Github.AppInstallationRepository("some_app_repo", new()
+    ///     var someAppRepo = new Github.Index.AppInstallationRepository("some_app_repo", new()
     ///     {
     ///         InstallationId = "1234567",
     ///         Repository = someRepo.Name,

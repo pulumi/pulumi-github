@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.OrganizationRuleset("example", new()
+    ///     var example = new Github.Index.OrganizationRuleset("example", new()
     ///     {
     ///         Name = "example",
     ///         Target = "branch",
@@ -93,7 +93,7 @@ namespace Pulumi.Github
     /// 
     ///     // Example with push ruleset
     ///     // Note: Push targets must NOT have ref_name in conditions, only repository_name or repository_id
-    ///     var examplePush = new Github.OrganizationRuleset("example_push", new()
+    ///     var examplePush = new Github.Index.OrganizationRuleset("example_push", new()
     ///     {
     ///         Name = "example_push",
     ///         Target = "push",

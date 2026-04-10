@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var env = new Github.RepositoryEnvironment("env", new()
+    ///     var env = new Github.Index.RepositoryEnvironment("env", new()
     ///     {
     ///         Repository = "my_repo",
     ///         Environment = "my_env",
@@ -35,7 +35,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var foo = new Github.RepositoryDeploymentBranchPolicy("foo", new()
+    ///     var foo = new Github.Index.RepositoryDeploymentBranchPolicy("foo", new()
     ///     {
     ///         Repository = "my_repo",
     ///         EnvironmentName = "my_env",

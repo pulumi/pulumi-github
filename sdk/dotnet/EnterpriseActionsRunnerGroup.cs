@@ -23,12 +23,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var enterprise = Github.GetEnterprise.Invoke(new()
+    ///     var enterprise = Github.Index.GetEnterprise.Invoke(new()
     ///     {
     ///         Slug = "my-enterprise",
     ///     });
     /// 
-    ///     var enterpriseOrganization = new Github.EnterpriseOrganization("enterprise_organization", new()
+    ///     var enterpriseOrganization = new Github.Index.EnterpriseOrganization("enterprise_organization", new()
     ///     {
     ///         EnterpriseId = enterprise.Apply(getEnterpriseResult =&gt; getEnterpriseResult.Id),
     ///         Name = "my-organization",
@@ -39,7 +39,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var example = new Github.EnterpriseActionsRunnerGroup("example", new()
+    ///     var example = new Github.Index.EnterpriseActionsRunnerGroup("example", new()
     ///     {
     ///         Name = "my-awesome-runner-group",
     ///         EnterpriseSlug = enterprise.Apply(getEnterpriseResult =&gt; getEnterpriseResult.Slug),

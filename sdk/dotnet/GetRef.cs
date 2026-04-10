@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var development = Github.GetRef.Invoke(new()
+        ///     var development = Github.Index.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
         ///         Repository = "example",
@@ -50,7 +50,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var development = Github.GetRef.Invoke(new()
+        ///     var development = Github.Index.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
         ///         Repository = "example",
@@ -76,7 +76,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var development = Github.GetRef.Invoke(new()
+        ///     var development = Github.Index.GetRef.Invoke(new()
         ///     {
         ///         Owner = "example",
         ///         Repository = "example",

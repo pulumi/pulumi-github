@@ -27,13 +27,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Github.Repository("foo", new()
+    ///     var foo = new Github.Index.Repository("foo", new()
     ///     {
     ///         Name = "example",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
+    ///     var fooRepositoryFile = new Github.Index.RepositoryFile("foo", new()
     ///     {
     ///         Repository = foo.Name,
     ///         Branch = "main",
@@ -58,13 +58,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Github.Repository("foo", new()
+    ///     var foo = new Github.Index.Repository("foo", new()
     ///     {
     ///         Name = "example",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var fooRepositoryFile = new Github.RepositoryFile("foo", new()
+    ///     var fooRepositoryFile = new Github.Index.RepositoryFile("foo", new()
     ///     {
     ///         Repository = foo.Name,
     ///         Branch = "does/not/exist",

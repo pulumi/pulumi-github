@@ -48,18 +48,18 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add collaborators to a repository
-    ///     var someTeam = new Github.Team("some_team", new()
+    ///     var someTeam = new Github.Index.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var someRepo = new Github.Repository("some_repo", new()
+    ///     var someRepo = new Github.Index.Repository("some_repo", new()
     ///     {
     ///         Name = "some-repo",
     ///     });
     /// 
-    ///     var someRepoCollaborators = new Github.RepositoryCollaborators("some_repo_collaborators", new()
+    ///     var someRepoCollaborators = new Github.Index.RepositoryCollaborators("some_repo_collaborators", new()
     ///     {
     ///         Repository = someRepo.Name,
     ///         Users = new[]

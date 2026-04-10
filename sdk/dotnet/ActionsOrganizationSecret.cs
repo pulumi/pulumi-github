@@ -32,14 +32,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePlaintext = new Github.ActionsOrganizationSecret("example_plaintext", new()
+    ///     var examplePlaintext = new Github.Index.ActionsOrganizationSecret("example_plaintext", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",
     ///         PlaintextValue = someSecretString,
     ///     });
     /// 
-    ///     var exampleEncrypted = new Github.ActionsOrganizationSecret("example_encrypted", new()
+    ///     var exampleEncrypted = new Github.Index.ActionsOrganizationSecret("example_encrypted", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",
@@ -57,12 +57,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = Github.GetRepository.Invoke(new()
+    ///     var repo = Github.Index.GetRepository.Invoke(new()
     ///     {
     ///         FullName = "my-org/repo",
     ///     });
     /// 
-    ///     var exampleEncrypted = new Github.ActionsOrganizationSecret("example_encrypted", new()
+    ///     var exampleEncrypted = new Github.Index.ActionsOrganizationSecret("example_encrypted", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "selected",
@@ -73,7 +73,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var exampleSecret = new Github.ActionsOrganizationSecret("example_secret", new()
+    ///     var exampleSecret = new Github.Index.ActionsOrganizationSecret("example_secret", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "selected",
@@ -99,7 +99,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAllowDrift = new Github.ActionsOrganizationSecret("example_allow_drift", new()
+    ///     var exampleAllowDrift = new Github.Index.ActionsOrganizationSecret("example_allow_drift", new()
     ///     {
     ///         SecretName = "example_secret_name",
     ///         Visibility = "all",

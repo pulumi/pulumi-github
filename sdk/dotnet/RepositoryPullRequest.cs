@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.RepositoryPullRequest("example", new()
+    ///     var example = new Github.Index.RepositoryPullRequest("example", new()
     ///     {
     ///         BaseRepository = "example-repository",
     ///         BaseRef = "main",

@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
@@ -51,7 +51,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome web page",
@@ -79,7 +79,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var forkedRepo = new Github.Repository("forked_repo", new()
+    ///     var forkedRepo = new Github.Index.Repository("forked_repo", new()
     ///     {
     ///         Name = "forked-repository",
     ///         Description = "This is a fork of another repository",

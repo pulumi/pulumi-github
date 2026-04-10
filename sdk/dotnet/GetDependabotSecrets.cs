@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetDependabotSecrets.Invoke(new()
+        ///     var example = Github.Index.GetDependabotSecrets.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetDependabotSecrets.Invoke(new()
+        ///     var example = Github.Index.GetDependabotSecrets.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetDependabotSecrets.Invoke(new()
+        ///     var example = Github.Index.GetDependabotSecrets.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });

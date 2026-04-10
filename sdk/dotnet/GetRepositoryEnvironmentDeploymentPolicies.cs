@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
+        ///     var example = Github.Index.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Environment = "env-name",
@@ -49,7 +49,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
+        ///     var example = Github.Index.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Environment = "env-name",
@@ -74,7 +74,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
+        ///     var example = Github.Index.GetRepositoryEnvironmentDeploymentPolicies.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Environment = "env-name",

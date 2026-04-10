@@ -25,7 +25,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUser = Github.GetUserExternalIdentity.Invoke(new()
+        ///     var exampleUser = Github.Index.GetUserExternalIdentity.Invoke(new()
         ///     {
         ///         Username = "example-user",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUser = Github.GetUserExternalIdentity.Invoke(new()
+        ///     var exampleUser = Github.Index.GetUserExternalIdentity.Invoke(new()
         ///     {
         ///         Username = "example-user",
         ///     });
@@ -75,7 +75,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUser = Github.GetUserExternalIdentity.Invoke(new()
+        ///     var exampleUser = Github.Index.GetUserExternalIdentity.Invoke(new()
         ///     {
         ///         Username = "example-user",
         ///     });

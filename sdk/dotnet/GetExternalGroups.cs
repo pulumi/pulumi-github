@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
+        ///     var exampleExternalGroups = Github.Index.GetExternalGroups.Invoke();
         /// 
         ///     var localGroups = exampleExternalGroups;
         /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
+        ///     var exampleExternalGroups = Github.Index.GetExternalGroups.Invoke();
         /// 
         ///     var localGroups = exampleExternalGroups;
         /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleExternalGroups = Github.GetExternalGroups.Invoke();
+        ///     var exampleExternalGroups = Github.Index.GetExternalGroups.Invoke();
         /// 
         ///     var localGroups = exampleExternalGroups;
         /// 

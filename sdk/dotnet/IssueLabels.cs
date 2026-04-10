@@ -34,7 +34,7 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new, red colored label
-    ///     var testRepo = new Github.IssueLabels("test_repo", new()
+    ///     var testRepo = new Github.Index.IssueLabels("test_repo", new()
     ///     {
     ///         Repository = "test-repo",
     ///         Labels = new[]

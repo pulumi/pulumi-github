@@ -30,12 +30,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_team = new Github.Team("test-team", new()
+    ///     var test_team = new Github.Index.Team("test-team", new()
     ///     {
     ///         Name = "test-team",
     ///     });
     /// 
-    ///     var test_team_role_assignment = new Github.OrganizationRoleTeamAssignment("test-team-role-assignment", new()
+    ///     var test_team_role_assignment = new Github.Index.OrganizationRoleTeamAssignment("test-team-role-assignment", new()
     ///     {
     ///         TeamSlug = test_team.Slug,
     ///         RoleId = "8132",

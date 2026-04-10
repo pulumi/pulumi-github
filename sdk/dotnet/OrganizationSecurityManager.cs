@@ -22,13 +22,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var someTeam = new Github.Team("some_team", new()
+    ///     var someTeam = new Github.Index.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var someTeamOrganizationSecurityManager = new Github.OrganizationSecurityManager("some_team", new()
+    ///     var someTeamOrganizationSecurityManager = new Github.Index.OrganizationSecurityManager("some_team", new()
     ///     {
     ///         TeamSlug = someTeam.Slug,
     ///     });

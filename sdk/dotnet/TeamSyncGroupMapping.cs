@@ -26,9 +26,9 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroups = Github.GetOrganizationTeamSyncGroups.Invoke();
+    ///     var exampleGroups = Github.Index.GetOrganizationTeamSyncGroups.Invoke();
     /// 
-    ///     var exampleGroupMapping = new Github.TeamSyncGroupMapping("example_group_mapping", new()
+    ///     var exampleGroupMapping = new Github.Index.TeamSyncGroupMapping("example_group_mapping", new()
     ///     {
     ///         Groups = ,
     ///         TeamSlug = "example",

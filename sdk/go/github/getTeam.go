@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupTeam(ctx, &github.LookupTeamArgs{
+//			_, err := github.GetTeam(ctx, &github.LookupTeamArgs{
 //				Slug: "example",
 //			}, nil)
 //			if err != nil {

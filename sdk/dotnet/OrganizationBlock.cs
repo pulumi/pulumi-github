@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.OrganizationBlock("example", new()
+    ///     var example = new Github.Index.OrganizationBlock("example", new()
     ///     {
     ///         Username = "paultyng",
     ///     });

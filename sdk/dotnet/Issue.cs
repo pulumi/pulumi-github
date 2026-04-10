@@ -26,14 +26,14 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a simple issue
-    ///     var test = new Github.Repository("test", new()
+    ///     var test = new Github.Index.Repository("test", new()
     ///     {
     ///         Name = "tf-acc-test-%s",
     ///         AutoInit = true,
     ///         HasIssues = true,
     ///     });
     /// 
-    ///     var testIssue = new Github.Issue("test", new()
+    ///     var testIssue = new Github.Index.Issue("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Title = "My issue title",
@@ -55,16 +55,16 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create an issue with milestone and project assignment
-    ///     var test = new Github.Repository("test", new()
+    ///     var test = new Github.Index.Repository("test", new()
     ///     {
     ///         Name = "tf-acc-test-%s",
     ///         AutoInit = true,
     ///         HasIssues = true,
     ///     });
     /// 
-    ///     var testRepositoryMilestone = new Github.RepositoryMilestone("test", new()
+    ///     var testRepositoryMilestone = new Github.Index.RepositoryMilestone("test", new()
     ///     {
-    ///         Owner = Std.Split.Invoke(new()
+    ///         Owner = Std.Index.Split.Invoke(new()
     ///         {
     ///             Separator = "/",
     ///             Text = test.FullName,
@@ -76,7 +76,7 @@ namespace Pulumi.Github
     ///         State = "open",
     ///     });
     /// 
-    ///     var testIssue = new Github.Issue("test", new()
+    ///     var testIssue = new Github.Index.Issue("test", new()
     ///     {
     ///         Repository = test.Name,
     ///         Title = "My issue",

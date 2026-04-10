@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupOrganizationCustomProperties(ctx, &github.LookupOrganizationCustomPropertiesArgs{
+//			_, err := github.GetOrganizationCustomProperties(ctx, &github.LookupOrganizationCustomPropertiesArgs{
 //				PropertyName: "environment",
 //			}, nil)
 //			if err != nil {

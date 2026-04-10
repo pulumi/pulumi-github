@@ -24,19 +24,19 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var project = new Github.OrganizationProject("project", new()
+    ///     var project = new Github.Index.OrganizationProject("project", new()
     ///     {
     ///         Name = "An Organization Project",
     ///         Body = "This is an organization project.",
     ///     });
     /// 
-    ///     var column = new Github.ProjectColumn("column", new()
+    ///     var column = new Github.Index.ProjectColumn("column", new()
     ///     {
     ///         ProjectId = project.Id,
     ///         Name = "Backlog",
     ///     });
     /// 
-    ///     var card = new Github.ProjectCard("card", new()
+    ///     var card = new Github.Index.ProjectCard("card", new()
     ///     {
     ///         ColumnId = column.ColumnId,
     ///         Note = "## Unaccepted 👇",
@@ -55,34 +55,34 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Github.Repository("test", new()
+    ///     var test = new Github.Index.Repository("test", new()
     ///     {
     ///         Name = "myrepo",
     ///         HasProjects = true,
     ///         HasIssues = true,
     ///     });
     /// 
-    ///     var testIssue = new Github.Issue("test", new()
+    ///     var testIssue = new Github.Index.Issue("test", new()
     ///     {
     ///         Repository = test.Id,
     ///         Title = "Test issue title",
     ///         Body = "Test issue body",
     ///     });
     /// 
-    ///     var testRepositoryProject = new Github.RepositoryProject("test", new()
+    ///     var testRepositoryProject = new Github.Index.RepositoryProject("test", new()
     ///     {
     ///         Name = "test",
     ///         Repository = test.Name,
     ///         Body = "this is a test project",
     ///     });
     /// 
-    ///     var testProjectColumn = new Github.ProjectColumn("test", new()
+    ///     var testProjectColumn = new Github.Index.ProjectColumn("test", new()
     ///     {
     ///         ProjectId = testRepositoryProject.Id,
     ///         Name = "Backlog",
     ///     });
     /// 
-    ///     var testProjectCard = new Github.ProjectCard("test", new()
+    ///     var testProjectCard = new Github.Index.ProjectCard("test", new()
     ///     {
     ///         ColumnId = testProjectColumn.ColumnId,
     ///         ContentId = testIssue.IssueId,

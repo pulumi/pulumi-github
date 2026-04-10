@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.OrganizationRoleTeam("example", new()
+    ///     var example = new Github.Index.OrganizationRoleTeam("example", new()
     ///     {
     ///         RoleId = 1234,
     ///         TeamSlug = "example-team",

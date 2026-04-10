@@ -26,7 +26,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Github.GetRepositoryFile.Invoke(new()
+        ///     var foo = Github.Index.GetRepositoryFile.Invoke(new()
         ///     {
         ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
@@ -54,7 +54,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Github.GetRepositoryFile.Invoke(new()
+        ///     var foo = Github.Index.GetRepositoryFile.Invoke(new()
         ///     {
         ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",
@@ -82,7 +82,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Github.GetRepositoryFile.Invoke(new()
+        ///     var foo = Github.Index.GetRepositoryFile.Invoke(new()
         ///     {
         ///         Repository = fooGithubRepository.Name,
         ///         Branch = "main",

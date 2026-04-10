@@ -22,18 +22,18 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Github.GetUser.Invoke(new()
+    ///     var current = Github.Index.GetUser.Invoke(new()
     ///     {
     ///         Username = "",
     ///     });
     /// 
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "A Repository Project",
     ///         Description = "My awesome codebase",
     ///     });
     /// 
-    ///     var exampleRepositoryEnvironment = new Github.RepositoryEnvironment("example", new()
+    ///     var exampleRepositoryEnvironment = new Github.Index.RepositoryEnvironment("example", new()
     ///     {
     ///         Environment = "example",
     ///         Repository = example.Name,

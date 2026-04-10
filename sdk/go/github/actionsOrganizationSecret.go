@@ -72,7 +72,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			repo, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			repo, err := github.GetRepository(ctx, &github.LookupRepositoryArgs{
 //				FullName: pulumi.StringRef("my-org/repo"),
 //			}, nil)
 //			if err != nil {

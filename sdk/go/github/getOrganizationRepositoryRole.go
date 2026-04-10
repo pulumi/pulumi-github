@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupOrganizationRepositoryRole(ctx, &github.LookupOrganizationRepositoryRoleArgs{
+//			_, err := github.GetOrganizationRepositoryRole(ctx, &github.LookupOrganizationRepositoryRoleArgs{
 //				RoleId: 1234,
 //			}, nil)
 //			if err != nil {
