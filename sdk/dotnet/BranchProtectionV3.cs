@@ -27,7 +27,7 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Protect the main branch of the foo repository. Only allow a specific user to merge to the branch.
-    ///     var example = new Github.BranchProtectionV3("example", new()
+    ///     var example = new Github.Index.BranchProtectionV3("example", new()
     ///     {
     ///         Repository = exampleGithubRepository.Name,
     ///         Branch = "main",
@@ -51,12 +51,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     var exampleRepository = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleTeam = new Github.Team("example", new()
+    ///     var exampleTeam = new Github.Index.Team("example", new()
     ///     {
     ///         Name = "Example Name",
     ///     });
@@ -64,7 +64,7 @@ namespace Pulumi.Github
     ///     // Protect the main branch of the foo repository. Additionally, require that
     ///     // the "ci/check" check ran by the Github Actions app is passing and only allow
     ///     // the engineers team merge to the branch.
-    ///     var example = new Github.BranchProtectionV3("example", new()
+    ///     var example = new Github.Index.BranchProtectionV3("example", new()
     ///     {
     ///         Repository = exampleRepository.Name,
     ///         Branch = "main",
@@ -125,7 +125,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var exampleTeamRepository = new Github.TeamRepository("example", new()
+    ///     var exampleTeamRepository = new Github.Index.TeamRepository("example", new()
     ///     {
     ///         TeamId = exampleTeam.Id,
     ///         Repository = exampleRepository.Name,

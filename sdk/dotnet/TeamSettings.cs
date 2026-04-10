@@ -29,13 +29,13 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a repository to the team
-    ///     var someTeam = new Github.Team("some_team", new()
+    ///     var someTeam = new Github.Index.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
     ///         Description = "Some cool team",
     ///     });
     /// 
-    ///     var codeReviewSettings = new Github.TeamSettings("code_review_settings", new()
+    ///     var codeReviewSettings = new Github.Index.TeamSettings("code_review_settings", new()
     ///     {
     ///         TeamId = someTeam.Id,
     ///         ReviewRequestDelegation = new Github.Inputs.TeamSettingsReviewRequestDelegationArgs

@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupOrganizationCustomRole(ctx, &github.LookupOrganizationCustomRoleArgs{
+//			_, err := github.GetOrganizationCustomRole(ctx, &github.LookupOrganizationCustomRoleArgs{
 //				Name: "example",
 //			}, nil)
 //			if err != nil {

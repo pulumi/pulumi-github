@@ -26,7 +26,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -50,7 +50,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -79,7 +79,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -103,7 +103,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -132,7 +132,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -156,7 +156,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",

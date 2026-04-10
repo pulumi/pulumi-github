@@ -24,12 +24,12 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         Name = "example_repository",
         ///     });
         /// 
-        ///     var example2 = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example2 = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         FullName = "org/example_repository",
         ///     });
@@ -53,12 +53,12 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         Name = "example_repository",
         ///     });
         /// 
-        ///     var example2 = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example2 = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         FullName = "org/example_repository",
         ///     });
@@ -82,12 +82,12 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         Name = "example_repository",
         ///     });
         /// 
-        ///     var example2 = Github.GetCodespacesSecrets.Invoke(new()
+        ///     var example2 = Github.Index.GetCodespacesSecrets.Invoke(new()
         ///     {
         ///         FullName = "org/example_repository",
         ///     });

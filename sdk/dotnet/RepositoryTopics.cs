@@ -25,12 +25,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = Github.GetRepository.Invoke(new()
+    ///     var test = Github.Index.GetRepository.Invoke(new()
     ///     {
     ///         Name = "test",
     ///     });
     /// 
-    ///     var testRepositoryTopics = new Github.RepositoryTopics("test", new()
+    ///     var testRepositoryTopics = new Github.Index.RepositoryTopics("test", new()
     ///     {
     ///         Repository = testGithubRepository.Name,
     ///         Topics = new[]

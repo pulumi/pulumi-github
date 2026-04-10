@@ -26,7 +26,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     var example = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -52,14 +52,14 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = Github.GetReleaseAsset.Invoke(new()
+        ///     var exampleGetReleaseAsset = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -79,7 +79,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -109,7 +109,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     var example = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -135,14 +135,14 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = Github.GetReleaseAsset.Invoke(new()
+        ///     var exampleGetReleaseAsset = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -162,7 +162,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -192,7 +192,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetReleaseAsset.Invoke(new()
+        ///     var example = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -218,14 +218,14 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
         ///         RetrieveBy = "latest",
         ///     });
         /// 
-        ///     var exampleGetReleaseAsset = Github.GetReleaseAsset.Invoke(new()
+        ///     var exampleGetReleaseAsset = Github.Index.GetReleaseAsset.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",
@@ -245,7 +245,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRelease.Invoke(new()
+        ///     var example = Github.Index.GetRelease.Invoke(new()
         ///     {
         ///         Repository = "example-repository",
         ///         Owner = "example-owner",

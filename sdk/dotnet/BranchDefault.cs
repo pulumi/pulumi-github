@@ -28,20 +28,20 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var development = new Github.Branch("development", new()
+    ///     var development = new Github.Index.Branch("development", new()
     ///     {
     ///         Repository = example.Name,
     ///         BranchName = "development",
     ///     });
     /// 
-    ///     var @default = new Github.BranchDefault("default", new()
+    ///     var @default = new Github.Index.BranchDefault("default", new()
     ///     {
     ///         Repository = example.Name,
     ///         Branch = development.BranchName,
@@ -60,14 +60,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         AutoInit = true,
     ///     });
     /// 
-    ///     var @default = new Github.BranchDefault("default", new()
+    ///     var @default = new Github.Index.BranchDefault("default", new()
     ///     {
     ///         Repository = example.Name,
     ///         Branch = "development",

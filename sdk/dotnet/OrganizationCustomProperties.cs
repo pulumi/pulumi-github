@@ -24,7 +24,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var environment = new Github.OrganizationCustomProperties("environment", new()
+    ///     var environment = new Github.Index.OrganizationCustomProperties("environment", new()
     ///     {
     ///         PropertyName = "environment",
     ///         ValueType = "single_select",
@@ -54,7 +54,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var teamContact = new Github.OrganizationCustomProperties("team_contact", new()
+    ///     var teamContact = new Github.Index.OrganizationCustomProperties("team_contact", new()
     ///     {
     ///         PropertyName = "team_contact",
     ///         ValueType = "string",
@@ -76,7 +76,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var owner = new Github.OrganizationCustomProperties("owner", new()
+    ///     var owner = new Github.Index.OrganizationCustomProperties("owner", new()
     ///     {
     ///         PropertyName = "owner",
     ///         ValueType = "string",
@@ -97,7 +97,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var archived = new Github.OrganizationCustomProperties("archived", new()
+    ///     var archived = new Github.Index.OrganizationCustomProperties("archived", new()
     ///     {
     ///         PropertyName = "archived",
     ///         ValueType = "true_false",

@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new Github.Branch("development", new()
+    ///     var development = new Github.Index.Branch("development", new()
     ///     {
     ///         Repository = "example",
     ///         BranchName = "development",

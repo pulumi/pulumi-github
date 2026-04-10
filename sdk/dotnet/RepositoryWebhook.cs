@@ -25,7 +25,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = new Github.Repository("repo", new()
+    ///     var repo = new Github.Index.Repository("repo", new()
     ///     {
     ///         Name = "foo",
     ///         Description = "Terraform acceptance tests",
@@ -33,7 +33,7 @@ namespace Pulumi.Github
     ///         Visibility = "public",
     ///     });
     /// 
-    ///     var foo = new Github.RepositoryWebhook("foo", new()
+    ///     var foo = new Github.Index.RepositoryWebhook("foo", new()
     ///     {
     ///         Repository = repo.Name,
     ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs

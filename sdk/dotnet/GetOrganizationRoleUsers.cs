@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetOrganizationRoleUsers.Invoke(new()
+        ///     var example = Github.Index.GetOrganizationRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = 1234,
         ///     });
@@ -55,7 +55,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetOrganizationRoleUsers.Invoke(new()
+        ///     var example = Github.Index.GetOrganizationRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = 1234,
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetOrganizationRoleUsers.Invoke(new()
+        ///     var example = Github.Index.GetOrganizationRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = 1234,
         ///     });

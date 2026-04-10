@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Github.OrganizationSettings("test", new()
+    ///     var test = new Github.Index.OrganizationSettings("test", new()
     ///     {
     ///         BillingEmail = "test@example.com",
     ///         Company = "Test Company",

@@ -27,13 +27,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.ActionsRunnerGroup("example", new()
+    ///     var example = new Github.Index.ActionsRunnerGroup("example", new()
     ///     {
     ///         Name = "example-runner-group",
     ///         Visibility = "all",
     ///     });
     /// 
-    ///     var exampleActionsHostedRunner = new Github.ActionsHostedRunner("example", new()
+    ///     var exampleActionsHostedRunner = new Github.Index.ActionsHostedRunner("example", new()
     ///     {
     ///         Name = "example-hosted-runner",
     ///         Image = new Github.Inputs.ActionsHostedRunnerImageArgs
@@ -58,13 +58,13 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new Github.ActionsRunnerGroup("advanced", new()
+    ///     var advanced = new Github.Index.ActionsRunnerGroup("advanced", new()
     ///     {
     ///         Name = "advanced-runner-group",
     ///         Visibility = "selected",
     ///     });
     /// 
-    ///     var advancedActionsHostedRunner = new Github.ActionsHostedRunner("advanced", new()
+    ///     var advancedActionsHostedRunner = new Github.Index.ActionsHostedRunner("advanced", new()
     ///     {
     ///         Name = "advanced-hosted-runner",
     ///         Image = new Github.Inputs.ActionsHostedRunnerImageArgs

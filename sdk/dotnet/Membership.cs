@@ -27,7 +27,7 @@ namespace Pulumi.Github
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a user to the organization
-    ///     var membershipForSomeUser = new Github.Membership("membership_for_some_user", new()
+    ///     var membershipForSomeUser = new Github.Index.Membership("membership_for_some_user", new()
     ///     {
     ///         Username = "SomeUser",
     ///         Role = "member",

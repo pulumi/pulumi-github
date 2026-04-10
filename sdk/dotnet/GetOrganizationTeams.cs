@@ -26,7 +26,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationTeams.Invoke();
+        ///     var all = Github.Index.GetOrganizationTeams.Invoke();
         /// 
         /// });
         /// ```
@@ -41,7 +41,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
+        ///     var rootTeams = Github.Index.GetOrganizationTeams.Invoke(new()
         ///     {
         ///         RootTeamsOnly = true,
         ///     });
@@ -67,7 +67,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationTeams.Invoke();
+        ///     var all = Github.Index.GetOrganizationTeams.Invoke();
         /// 
         /// });
         /// ```
@@ -82,7 +82,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
+        ///     var rootTeams = Github.Index.GetOrganizationTeams.Invoke(new()
         ///     {
         ///         RootTeamsOnly = true,
         ///     });
@@ -108,7 +108,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Github.GetOrganizationTeams.Invoke();
+        ///     var all = Github.Index.GetOrganizationTeams.Invoke();
         /// 
         /// });
         /// ```
@@ -123,7 +123,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var rootTeams = Github.GetOrganizationTeams.Invoke(new()
+        ///     var rootTeams = Github.Index.GetOrganizationTeams.Invoke(new()
         ///     {
         ///         RootTeamsOnly = true,
         ///     });

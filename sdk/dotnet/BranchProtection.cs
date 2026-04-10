@@ -26,17 +26,17 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     var exampleRepository = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "test",
     ///     });
     /// 
-    ///     var example = Github.GetUser.Invoke(new()
+    ///     var example = Github.Index.GetUser.Invoke(new()
     ///     {
     ///         Username = "example",
     ///     });
     /// 
-    ///     var exampleTeam = new Github.Team("example", new()
+    ///     var exampleTeam = new Github.Index.Team("example", new()
     ///     {
     ///         Name = "Example Name",
     ///     });
@@ -44,7 +44,7 @@ namespace Pulumi.Github
     ///     // Protect the main branch of the foo repository. Additionally, require that
     ///     // the "ci/travis" context to be passing and only allow the engineers team merge
     ///     // to the branch.
-    ///     var exampleBranchProtection = new Github.BranchProtection("example", new()
+    ///     var exampleBranchProtection = new Github.Index.BranchProtection("example", new()
     ///     {
     ///         RepositoryId = exampleRepository.NodeId,
     ///         Pattern = "main",
@@ -96,7 +96,7 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
-    ///     var exampleTeamRepository = new Github.TeamRepository("example", new()
+    ///     var exampleTeamRepository = new Github.Index.TeamRepository("example", new()
     ///     {
     ///         TeamId = exampleTeam.Id,
     ///         Repository = exampleRepository.Name,

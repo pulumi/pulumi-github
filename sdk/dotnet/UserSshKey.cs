@@ -25,10 +25,10 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.UserSshKey("example", new()
+    ///     var example = new Github.Index.UserSshKey("example", new()
     ///     {
     ///         Title = "example title",
-    ///         Key = Std.File.Invoke(new()
+    ///         Key = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

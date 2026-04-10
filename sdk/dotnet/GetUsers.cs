@@ -25,7 +25,7 @@ namespace Pulumi.Github
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Retrieve information about multiple GitHub users.
-        ///     var example = Github.GetUsers.Invoke(new()
+        ///     var example = Github.Index.GetUsers.Invoke(new()
         ///     {
         ///         Usernames = new[]
         ///         {
@@ -60,7 +60,7 @@ namespace Pulumi.Github
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Retrieve information about multiple GitHub users.
-        ///     var example = Github.GetUsers.Invoke(new()
+        ///     var example = Github.Index.GetUsers.Invoke(new()
         ///     {
         ///         Usernames = new[]
         ///         {
@@ -95,7 +95,7 @@ namespace Pulumi.Github
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Retrieve information about multiple GitHub users.
-        ///     var example = Github.GetUsers.Invoke(new()
+        ///     var example = Github.Index.GetUsers.Invoke(new()
         ///     {
         ///         Usernames = new[]
         ///         {

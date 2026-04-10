@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     var foobar = Github.Index.GetGithubApp.Invoke(new()
         ///     {
         ///         Slug = "foobar",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     var foobar = Github.Index.GetGithubApp.Invoke(new()
         ///     {
         ///         Slug = "foobar",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foobar = Github.GetGithubApp.Invoke(new()
+        ///     var foobar = Github.Index.GetGithubApp.Invoke(new()
         ///     {
         ///         Slug = "foobar",
         ///     });

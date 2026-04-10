@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Github.GetOrganizationCustomProperties.Invoke(new()
+        ///     var environment = Github.Index.GetOrganizationCustomProperties.Invoke(new()
         ///     {
         ///         PropertyName = "environment",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Github.GetOrganizationCustomProperties.Invoke(new()
+        ///     var environment = Github.Index.GetOrganizationCustomProperties.Invoke(new()
         ///     {
         ///         PropertyName = "environment",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Github.GetOrganizationCustomProperties.Invoke(new()
+        ///     var environment = Github.Index.GetOrganizationCustomProperties.Invoke(new()
         ///     {
         ///         PropertyName = "environment",
         ///     });

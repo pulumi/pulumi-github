@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			_, err := github.GetRepository(ctx, &github.LookupRepositoryArgs{
 //				Name: pulumi.StringRef("test"),
 //			}, nil)
 //			if err != nil {

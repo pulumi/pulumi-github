@@ -22,19 +22,19 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example-repo",
     ///     });
     /// 
-    ///     var exampleRepositoryCollaborator = new Github.RepositoryCollaborator("example", new()
+    ///     var exampleRepositoryCollaborator = new Github.Index.RepositoryCollaborator("example", new()
     ///     {
     ///         Repository = example.Name,
     ///         Username = "example-username",
     ///         Permission = "push",
     ///     });
     /// 
-    ///     var exampleUserInvitationAccepter = new Github.UserInvitationAccepter("example", new()
+    ///     var exampleUserInvitationAccepter = new Github.Index.UserInvitationAccepter("example", new()
     ///     {
     ///         InvitationId = exampleRepositoryCollaborator.InvitationId,
     ///     });

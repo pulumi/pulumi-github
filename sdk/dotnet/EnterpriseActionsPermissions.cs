@@ -23,12 +23,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example_org = Github.GetOrganization.Invoke(new()
+    ///     var example_org = Github.Index.GetOrganization.Invoke(new()
     ///     {
     ///         Name = "my-org",
     ///     });
     /// 
-    ///     var test = new Github.EnterpriseActionsPermissions("test", new()
+    ///     var test = new Github.Index.EnterpriseActionsPermissions("test", new()
     ///     {
     ///         EnterpriseSlug = "my-enterprise",
     ///         AllowedActions = "selected",

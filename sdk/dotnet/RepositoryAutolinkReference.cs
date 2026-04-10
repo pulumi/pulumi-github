@@ -22,14 +22,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var repo = new Github.Repository("repo", new()
+    ///     var repo = new Github.Index.Repository("repo", new()
     ///     {
     ///         Name = "my-repo",
     ///         Description = "GitHub repo managed by Terraform",
     ///         Private = false,
     ///     });
     /// 
-    ///     var autolink = new Github.RepositoryAutolinkReference("autolink", new()
+    ///     var autolink = new Github.Index.RepositoryAutolinkReference("autolink", new()
     ///     {
     ///         Repository = repo.Name,
     ///         KeyPrefix = "TICKET-",

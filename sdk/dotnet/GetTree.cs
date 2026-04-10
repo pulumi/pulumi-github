@@ -24,18 +24,18 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.GetRepository.Invoke(new()
+        ///     var @this = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
         /// 
-        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
+        ///     var thisGetBranch = Github.Index.GetBranch.Invoke(new()
         ///     {
         ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
         ///     });
         /// 
-        ///     var thisGetTree = Github.GetTree.Invoke(new()
+        ///     var thisGetTree = Github.Index.GetTree.Invoke(new()
         ///     {
         ///         Recursive = false,
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
@@ -65,18 +65,18 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.GetRepository.Invoke(new()
+        ///     var @this = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
         /// 
-        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
+        ///     var thisGetBranch = Github.Index.GetBranch.Invoke(new()
         ///     {
         ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
         ///     });
         /// 
-        ///     var thisGetTree = Github.GetTree.Invoke(new()
+        ///     var thisGetTree = Github.Index.GetTree.Invoke(new()
         ///     {
         ///         Recursive = false,
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
@@ -106,18 +106,18 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Github.GetRepository.Invoke(new()
+        ///     var @this = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         Name = "example",
         ///     });
         /// 
-        ///     var thisGetBranch = Github.GetBranch.Invoke(new()
+        ///     var thisGetBranch = Github.Index.GetBranch.Invoke(new()
         ///     {
         ///         Branch = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.DefaultBranch),
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),
         ///     });
         /// 
-        ///     var thisGetTree = Github.GetTree.Invoke(new()
+        ///     var thisGetTree = Github.Index.GetTree.Invoke(new()
         ///     {
         ///         Recursive = false,
         ///         Repository = @this.Apply(getRepositoryResult =&gt; getRepositoryResult.Name),

@@ -83,7 +83,8 @@ import (
 //					Separator: pulumi.String("/"),
 //					Text:      test.FullName,
 //				}, nil).ApplyT(func(invoke std.SplitResult) (*string, error) {
-//					return invoke.Result[0], nil
+//					val := invoke.Result[0]
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Repository:  test.Name,
 //				Title:       pulumi.String("v1.0.0"),

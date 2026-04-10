@@ -23,7 +23,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVariable = new Github.ActionsVariable("example_variable", new()
+    ///     var exampleVariable = new Github.Index.ActionsVariable("example_variable", new()
     ///     {
     ///         Repository = "example_repository",
     ///         VariableName = "example_variable_name",

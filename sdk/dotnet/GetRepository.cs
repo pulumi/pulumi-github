@@ -24,7 +24,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepository.Invoke(new()
+        ///     var example = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         FullName = "hashicorp/terraform",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepository.Invoke(new()
+        ///     var example = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         FullName = "hashicorp/terraform",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Github
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Github.GetRepository.Invoke(new()
+        ///     var example = Github.Index.GetRepository.Invoke(new()
         ///     {
         ///         FullName = "hashicorp/terraform",
         ///     });

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
+//			_, err := github.GetRelease(ctx, &github.LookupReleaseArgs{
 //				Repository: "example-repository",
 //				Owner:      "example-owner",
 //				RetrieveBy: "latest",
@@ -59,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRelease(ctx, &github.LookupReleaseArgs{
+//			_, err := github.GetRelease(ctx, &github.LookupReleaseArgs{
 //				Repository: "example-repository",
 //				Owner:      "example-owner",
 //				RetrieveBy: "tag",

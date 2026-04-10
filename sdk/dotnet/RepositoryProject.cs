@@ -24,14 +24,14 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "example",
     ///         Description = "My awesome codebase",
     ///         HasProjects = true,
     ///     });
     /// 
-    ///     var project = new Github.RepositoryProject("project", new()
+    ///     var project = new Github.Index.RepositoryProject("project", new()
     ///     {
     ///         Name = "A Repository Project",
     ///         Repository = example.Name,

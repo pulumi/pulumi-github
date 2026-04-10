@@ -23,12 +23,12 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.Repository("example", new()
+    ///     var example = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "my-repository",
     ///     });
     /// 
-    ///     var exampleActionsRunnerGroup = new Github.ActionsRunnerGroup("example", new()
+    ///     var exampleActionsRunnerGroup = new Github.Index.ActionsRunnerGroup("example", new()
     ///     {
     ///         Name = example.Name,
     ///         Visibility = "selected",

@@ -26,7 +26,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTemplate = new Github.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", new()
+    ///     var exampleTemplate = new Github.Index.ActionsOrganizationOidcSubjectClaimCustomizationTemplate("example_template", new()
     ///     {
     ///         IncludeClaimKeys = new[]
     ///         {

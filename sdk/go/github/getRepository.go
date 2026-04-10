@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.LookupRepository(ctx, &github.LookupRepositoryArgs{
+//			_, err := github.GetRepository(ctx, &github.LookupRepositoryArgs{
 //				FullName: pulumi.StringRef("hashicorp/terraform"),
 //			}, nil)
 //			if err != nil {

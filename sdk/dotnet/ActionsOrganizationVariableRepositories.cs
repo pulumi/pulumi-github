@@ -25,20 +25,20 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Github.ActionsOrganizationVariable("example", new()
+    ///     var example = new Github.Index.ActionsOrganizationVariable("example", new()
     ///     {
     ///         VariableName = "myvariable",
     ///         PlaintextValue = "foo",
     ///         Visibility = "selected",
     ///     });
     /// 
-    ///     var exampleRepository = new Github.Repository("example", new()
+    ///     var exampleRepository = new Github.Index.Repository("example", new()
     ///     {
     ///         Name = "myrepo",
     ///         Visibility = "public",
     ///     });
     /// 
-    ///     var exampleActionsOrganizationVariableRepositories = new Github.ActionsOrganizationVariableRepositories("example", new()
+    ///     var exampleActionsOrganizationVariableRepositories = new Github.Index.ActionsOrganizationVariableRepositories("example", new()
     ///     {
     ///         VariableName = example.Name,
     ///         SelectedRepositoryIds = new[]

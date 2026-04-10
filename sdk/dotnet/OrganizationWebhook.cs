@@ -22,7 +22,7 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Github.OrganizationWebhook("foo", new()
+    ///     var foo = new Github.Index.OrganizationWebhook("foo", new()
     ///     {
     ///         Name = "web",
     ///         Configuration = new Github.Inputs.OrganizationWebhookConfigurationArgs
