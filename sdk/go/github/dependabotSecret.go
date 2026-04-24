@@ -18,9 +18,9 @@ import (
 // Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
 // interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 //
-// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+// For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
 // but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-// It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+// It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
 // using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
 // in your code. See below for an example of this abstraction.
 //
@@ -39,9 +39,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewDependabotSecret(ctx, "example_plaintext", &github.DependabotSecretArgs{
-//				Repository:     pulumi.String("example_repository"),
-//				SecretName:     pulumi.String("example_secret_name"),
-//				PlaintextValue: pulumi.Any(someSecretString),
+//				Repository: pulumi.String("example_repository"),
+//				SecretName: pulumi.String("example_secret_name"),
+//				Value:      pulumi.Any(someSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +49,7 @@ import (
 //			_, err = github.NewDependabotSecret(ctx, "example_encrypted", &github.DependabotSecretArgs{
 //				Repository:     pulumi.String("example_repository"),
 //				SecretName:     pulumi.String("example_secret_name"),
-//				EncryptedValue: pulumi.Any(someEncryptedSecretString),
+//				ValueEncrypted: pulumi.Any(someEncryptedSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -77,9 +77,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewDependabotSecret(ctx, "example_allow_drift", &github.DependabotSecretArgs{
-//				Repository:     pulumi.String("example_repository"),
-//				SecretName:     pulumi.String("example_secret_name"),
-//				PlaintextValue: pulumi.String("placeholder"),
+//				Repository: pulumi.String("example_repository"),
+//				SecretName: pulumi.String("example_secret_name"),
+//				Value:      pulumi.String("placeholder"),
 //			})
 //			if err != nil {
 //				return err
@@ -94,7 +94,7 @@ import (
 //
 // This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
 //
-// > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+// > **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 //
 // ### Import Command
 //
@@ -108,13 +108,17 @@ type DependabotSecret struct {
 
 	// Date the secret was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
-	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `valueEncrypted`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// Deprecated: Use valueEncrypted and key_id.
+	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	// (Optional) Please use `value`.
+	//
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringOutput `pulumi:"remoteUpdatedAt"`
@@ -126,6 +130,10 @@ type DependabotSecret struct {
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrOutput `pulumi:"valueEncrypted"`
 }
 
 // NewDependabotSecret registers a new resource with the given unique name, arguments, and options.
@@ -147,9 +155,17 @@ func NewDependabotSecret(ctx *pulumi.Context,
 	if args.PlaintextValue != nil {
 		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrInput)
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
+	}
+	if args.ValueEncrypted != nil {
+		args.ValueEncrypted = pulumi.ToSecret(args.ValueEncrypted).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"encryptedValue",
 		"plaintextValue",
+		"value",
+		"valueEncrypted",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -177,13 +193,17 @@ func GetDependabotSecret(ctx *pulumi.Context,
 type dependabotSecretState struct {
 	// Date the secret was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
-	EncryptedValue *string `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
-	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `valueEncrypted`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// Deprecated: Use valueEncrypted and key_id.
+	EncryptedValue *string `pulumi:"encryptedValue"`
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
+	KeyId *string `pulumi:"keyId"`
+	// (Optional) Please use `value`.
+	//
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt *string `pulumi:"remoteUpdatedAt"`
@@ -195,18 +215,26 @@ type dependabotSecretState struct {
 	SecretName *string `pulumi:"secretName"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 }
 
 type DependabotSecretState struct {
 	// Date the secret was created.
 	CreatedAt pulumi.StringPtrInput
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
-	EncryptedValue pulumi.StringPtrInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
-	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `valueEncrypted`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// Deprecated: Use valueEncrypted and key_id.
+	EncryptedValue pulumi.StringPtrInput
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
+	KeyId pulumi.StringPtrInput
+	// (Optional) Please use `value`.
+	//
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringPtrInput
@@ -218,6 +246,10 @@ type DependabotSecretState struct {
 	SecretName pulumi.StringPtrInput
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringPtrInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 }
 
 func (DependabotSecretState) ElementType() reflect.Type {
@@ -225,34 +257,50 @@ func (DependabotSecretState) ElementType() reflect.Type {
 }
 
 type dependabotSecretArgs struct {
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
-	EncryptedValue *string `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
-	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `valueEncrypted`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// Deprecated: Use valueEncrypted and key_id.
+	EncryptedValue *string `pulumi:"encryptedValue"`
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
+	KeyId *string `pulumi:"keyId"`
+	// (Optional) Please use `value`.
+	//
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
 	// Name of the secret.
 	SecretName string `pulumi:"secretName"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 }
 
 // The set of arguments for constructing a DependabotSecret resource.
 type DependabotSecretArgs struct {
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
-	EncryptedValue pulumi.StringPtrInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
-	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `valueEncrypted`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// Deprecated: Use valueEncrypted and key_id.
+	EncryptedValue pulumi.StringPtrInput
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
+	KeyId pulumi.StringPtrInput
+	// (Optional) Please use `value`.
+	//
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the repository.
 	Repository pulumi.StringInput
 	// Name of the secret.
 	SecretName pulumi.StringInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 }
 
 func (DependabotSecretArgs) ElementType() reflect.Type {
@@ -347,19 +395,23 @@ func (o DependabotSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Encrypted value of the secret using the GitHub public key in Base64 format.
+// (Optional) Please use `valueEncrypted`.
+//
+// Deprecated: Use valueEncrypted and key_id.
 func (o DependabotSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
 
-// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 func (o DependabotSecretOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Plaintext value of the secret to be encrypted.
+// (Optional) Please use `value`.
 //
-// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+//
+// Deprecated: Use value.
 func (o DependabotSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
@@ -387,6 +439,16 @@ func (o DependabotSecretOutput) SecretName() pulumi.StringOutput {
 // Date the secret was last updated by the provider.
 func (o DependabotSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DependabotSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+func (o DependabotSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+func (o DependabotSecretOutput) ValueEncrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DependabotSecret) pulumi.StringPtrOutput { return v.ValueEncrypted }).(pulumi.StringPtrOutput)
 }
 
 type DependabotSecretArrayOutput struct{ *pulumi.OutputState }

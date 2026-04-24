@@ -6,6 +6,7 @@ package com.pulumi.github.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.TeamSettingsReviewRequestDelegationArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamSettingsState Empty = new TeamSettingsState();
+
+    /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    @Import(name="notify")
+    private @Nullable Output<Boolean> notify;
+
+    /**
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> notify_() {
+        return Optional.ofNullable(this.notify);
+    }
 
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub&#39;s documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
@@ -47,14 +63,14 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The slug of the Team within the Organization.
+     * The slug of the Team.
      * 
      */
     @Import(name="teamSlug")
     private @Nullable Output<String> teamSlug;
 
     /**
-     * @return The slug of the Team within the Organization.
+     * @return The slug of the Team.
      * 
      */
     public Optional<Output<String>> teamSlug() {
@@ -62,14 +78,14 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+     * The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      * 
      */
     @Import(name="teamUid")
     private @Nullable Output<String> teamUid;
 
     /**
-     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+     * @return The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      * 
      */
     public Optional<Output<String>> teamUid() {
@@ -79,6 +95,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
     private TeamSettingsState() {}
 
     private TeamSettingsState(TeamSettingsState $) {
+        this.notify = $.notify;
         this.reviewRequestDelegation = $.reviewRequestDelegation;
         this.teamId = $.teamId;
         this.teamSlug = $.teamSlug;
@@ -101,6 +118,27 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TeamSettingsState defaults) {
             $ = new TeamSettingsState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notify_(@Nullable Output<Boolean> notify) {
+            $.notify = notify;
+            return this;
+        }
+
+        /**
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notify_(Boolean notify) {
+            return notify_(Output.of(notify));
         }
 
         /**
@@ -146,7 +184,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamSlug The slug of the Team within the Organization.
+         * @param teamSlug The slug of the Team.
          * 
          * @return builder
          * 
@@ -157,7 +195,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamSlug The slug of the Team within the Organization.
+         * @param teamSlug The slug of the Team.
          * 
          * @return builder
          * 
@@ -167,7 +205,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+         * @param teamUid The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
          * 
          * @return builder
          * 
@@ -178,7 +216,7 @@ public final class TeamSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamUid The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+         * @param teamUid The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
          * 
          * @return builder
          * 

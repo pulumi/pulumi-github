@@ -136,14 +136,14 @@ public class ActionsRepositoryPermissions extends com.pulumi.resources.CustomRes
         return this.repository;
     }
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
      * 
      */
     @Export(name="shaPinningRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shaPinningRequired;
 
     /**
-     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
      * 
      */
     public Output<Boolean> shaPinningRequired() {

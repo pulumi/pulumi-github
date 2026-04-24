@@ -74,7 +74,7 @@ type ActionsRepositoryPermissions struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The GitHub repository
 	Repository pulumi.StringOutput `pulumi:"repository"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 	ShaPinningRequired pulumi.BoolOutput `pulumi:"shaPinningRequired"`
 }
 
@@ -119,7 +119,7 @@ type actionsRepositoryPermissionsState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The GitHub repository
 	Repository *string `pulumi:"repository"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
@@ -132,7 +132,7 @@ type ActionsRepositoryPermissionsState struct {
 	Enabled pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringPtrInput
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 	ShaPinningRequired pulumi.BoolPtrInput
 }
 
@@ -149,7 +149,7 @@ type actionsRepositoryPermissionsArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The GitHub repository
 	Repository string `pulumi:"repository"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
@@ -163,7 +163,7 @@ type ActionsRepositoryPermissionsArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The GitHub repository
 	Repository pulumi.StringInput
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 	ShaPinningRequired pulumi.BoolPtrInput
 }
 
@@ -276,7 +276,7 @@ func (o ActionsRepositoryPermissionsOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsRepositoryPermissions) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+// Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
 func (o ActionsRepositoryPermissionsOutput) ShaPinningRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ActionsRepositoryPermissions) pulumi.BoolOutput { return v.ShaPinningRequired }).(pulumi.BoolOutput)
 }

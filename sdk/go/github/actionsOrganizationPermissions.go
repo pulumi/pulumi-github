@@ -79,7 +79,7 @@ type ActionsOrganizationPermissions struct {
 	EnabledRepositories pulumi.StringOutput `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput `pulumi:"enabledRepositoriesConfig"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 	ShaPinningRequired pulumi.BoolOutput `pulumi:"shaPinningRequired"`
 }
 
@@ -124,7 +124,7 @@ type actionsOrganizationPermissionsState struct {
 	EnabledRepositories *string `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
@@ -137,7 +137,7 @@ type ActionsOrganizationPermissionsState struct {
 	EnabledRepositories pulumi.StringPtrInput
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 	ShaPinningRequired pulumi.BoolPtrInput
 }
 
@@ -154,7 +154,7 @@ type actionsOrganizationPermissionsArgs struct {
 	EnabledRepositories string `pulumi:"enabledRepositories"`
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig *ActionsOrganizationPermissionsEnabledRepositoriesConfig `pulumi:"enabledRepositoriesConfig"`
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 	ShaPinningRequired *bool `pulumi:"shaPinningRequired"`
 }
 
@@ -168,7 +168,7 @@ type ActionsOrganizationPermissionsArgs struct {
 	EnabledRepositories pulumi.StringInput
 	// Sets the list of selected repositories that are enabled for GitHub Actions in an organization. Only available when `enabledRepositories` = `selected`. See Enabled Repositories Config below for details.
 	EnabledRepositoriesConfig ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrInput
-	// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+	// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 	ShaPinningRequired pulumi.BoolPtrInput
 }
 
@@ -283,7 +283,7 @@ func (o ActionsOrganizationPermissionsOutput) EnabledRepositoriesConfig() Action
 	}).(ActionsOrganizationPermissionsEnabledRepositoriesConfigPtrOutput)
 }
 
-// Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+// Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
 func (o ActionsOrganizationPermissionsOutput) ShaPinningRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ActionsOrganizationPermissions) pulumi.BoolOutput { return v.ShaPinningRequired }).(pulumi.BoolOutput)
 }

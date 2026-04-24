@@ -28,7 +28,7 @@ namespace Pulumi.Github
     ///     var example = new Github.Index.ActionsOrganizationVariable("example", new()
     ///     {
     ///         VariableName = "myvariable",
-    ///         PlaintextValue = "foo",
+    ///         Value = "foo",
     ///         Visibility = "selected",
     ///     });
     /// 

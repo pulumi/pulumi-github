@@ -316,17 +316,21 @@ export interface OrganizationRulesetConditions {
      */
     refName?: pulumi.Input<inputs.OrganizationRulesetConditionsRefName>;
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      */
     repositoryIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Conflicts with `repositoryId`. (see below for nested schema)
+     * Targets repositories that match the specified name patterns. (see below for nested schema)
+     */
+    repositoryName?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryName>;
+    /**
+     * Targets repositories by custom or system properties. (see below for nested schema)
      *
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
      *
      * > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      */
-    repositoryName?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryName>;
+    repositoryProperty?: pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryProperty>;
 }
 
 export interface OrganizationRulesetConditionsRefName {
@@ -353,6 +357,47 @@ export interface OrganizationRulesetConditionsRepositoryName {
      * Whether renaming of target repositories is prevented.
      */
     protected?: pulumi.Input<boolean>;
+}
+
+export interface OrganizationRulesetConditionsRepositoryProperty {
+    /**
+     * The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+     */
+    excludes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyExclude>[]>;
+    /**
+     * The repository properties and values to include. All of these properties must match for the condition to pass.
+     */
+    includes?: pulumi.Input<pulumi.Input<inputs.OrganizationRulesetConditionsRepositoryPropertyInclude>[]>;
+}
+
+export interface OrganizationRulesetConditionsRepositoryPropertyExclude {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The values to match for the repository property.
+     */
+    propertyValues: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+     */
+    source?: pulumi.Input<string>;
+}
+
+export interface OrganizationRulesetConditionsRepositoryPropertyInclude {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The values to match for the repository property.
+     */
+    propertyValues: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+     */
+    source?: pulumi.Input<string>;
 }
 
 export interface OrganizationRulesetRules {
@@ -822,11 +867,11 @@ export interface RepositoryPages {
 
 export interface RepositoryPagesSource {
     /**
-     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+     * The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
      */
     branch: pulumi.Input<string>;
     /**
-     * The repository directory from which the site publishes (Default: `/`).
+     * The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      */
     path?: pulumi.Input<string>;
 }
@@ -1358,7 +1403,7 @@ export interface TeamMembersMember {
 
 export interface TeamSettingsReviewRequestDelegation {
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+     * The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      */
     algorithm?: pulumi.Input<string>;
     /**
@@ -1366,7 +1411,9 @@ export interface TeamSettingsReviewRequestDelegation {
      */
     memberCount?: pulumi.Input<number>;
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request.
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     *
+     * @deprecated Use the top-level notify attribute instead.
      */
     notify?: pulumi.Input<boolean>;
 }

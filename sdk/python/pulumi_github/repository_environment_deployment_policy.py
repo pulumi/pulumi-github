@@ -92,22 +92,30 @@ class _RepositoryEnvironmentDeploymentPolicyState:
     def __init__(__self__, *,
                  branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_id: Optional[pulumi.Input[_builtins.int]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  tag_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryEnvironmentDeploymentPolicy resources.
 
         :param pulumi.Input[_builtins.str] branch_pattern: The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
+        :param pulumi.Input[_builtins.int] policy_id: The ID of the deployment policy.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[_builtins.str] tag_pattern: The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
         """
         if branch_pattern is not None:
             pulumi.set(__self__, "branch_pattern", branch_pattern)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if tag_pattern is not None:
             pulumi.set(__self__, "tag_pattern", tag_pattern)
 
@@ -136,6 +144,18 @@ class _RepositoryEnvironmentDeploymentPolicyState:
         pulumi.set(self, "environment", value)
 
     @_builtins.property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the deployment policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "policy_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -146,6 +166,18 @@ class _RepositoryEnvironmentDeploymentPolicyState:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPattern")
@@ -228,7 +260,11 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+
+        ### Import Command
+
+        The following command imports a deployment policy with the ID `123456` for the repo `myrepo` and environment `myenv` to a `RepositoryEnvironmentDeploymentPolicy` resource named `example`.
 
         ```sh
         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -305,7 +341,11 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+        This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+
+        ### Import Command
+
+        The following command imports a deployment policy with the ID `123456` for the repo `myrepo` and environment `myenv` to a `RepositoryEnvironmentDeploymentPolicy` resource named `example`.
 
         ```sh
         $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -348,6 +388,8 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tag_pattern"] = tag_pattern
+            __props__.__dict__["policy_id"] = None
+            __props__.__dict__["repository_id"] = None
         super(RepositoryEnvironmentDeploymentPolicy, __self__).__init__(
             'github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy',
             resource_name,
@@ -360,7 +402,9 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             branch_pattern: Optional[pulumi.Input[_builtins.str]] = None,
             environment: Optional[pulumi.Input[_builtins.str]] = None,
+            policy_id: Optional[pulumi.Input[_builtins.int]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             tag_pattern: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryEnvironmentDeploymentPolicy':
         """
         Get an existing RepositoryEnvironmentDeploymentPolicy resource's state with the given name, id, and optional extra
@@ -371,7 +415,9 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_pattern: The name pattern that branches must match in order to deploy to the environment. If not specified, `tag_pattern` must be specified.
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
+        :param pulumi.Input[_builtins.int] policy_id: The ID of the deployment policy.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[_builtins.str] tag_pattern: The name pattern that tags must match in order to deploy to the environment. If not specified, `branch_pattern` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -380,7 +426,9 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
 
         __props__.__dict__["branch_pattern"] = branch_pattern
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["tag_pattern"] = tag_pattern
         return RepositoryEnvironmentDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -401,12 +449,28 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
         return pulumi.get(self, "environment")
 
     @_builtins.property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the deployment policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
         """
         The repository of the environment.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter(name="tagPattern")

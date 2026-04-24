@@ -253,7 +253,7 @@ namespace Pulumi.Github
         /// </summary>
         public readonly string NodeId;
         /// <summary>
-        /// The repository's GitHub Pages configuration.
+        /// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoryPageResult> Pages;
         /// <summary>

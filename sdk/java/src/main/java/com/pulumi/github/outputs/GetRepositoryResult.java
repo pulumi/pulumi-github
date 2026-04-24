@@ -146,9 +146,13 @@ public final class GetRepositoryResult {
      */
     private String nodeId;
     /**
-     * @return The repository&#39;s GitHub Pages configuration.
+     * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
+     * 
+     * @deprecated
+     * Use the github.RepositoryPages data source instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryPages data source instead. This field will be removed in a future version. */
     private List<GetRepositoryPage> pages;
     /**
      * @return The primary language used in the repository.
@@ -389,9 +393,13 @@ public final class GetRepositoryResult {
         return this.nodeId;
     }
     /**
-     * @return The repository&#39;s GitHub Pages configuration.
+     * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
+     * 
+     * @deprecated
+     * Use the github.RepositoryPages data source instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryPages data source instead. This field will be removed in a future version. */
     public List<GetRepositoryPage> pages() {
         return this.pages;
     }

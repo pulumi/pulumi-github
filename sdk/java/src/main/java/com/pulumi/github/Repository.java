@@ -67,49 +67,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With GitHub Pages Enabled
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.github.Repository;
- * import com.pulumi.github.RepositoryArgs;
- * import com.pulumi.github.inputs.RepositoryPagesArgs;
- * import com.pulumi.github.inputs.RepositoryPagesSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Repository("example", RepositoryArgs.builder()
- *             .name("example")
- *             .description("My awesome web page")
- *             .private_(false)
- *             .pages(RepositoryPagesArgs.builder()
- *                 .source(RepositoryPagesSourceArgs.builder()
- *                     .branch("master")
- *                     .path("/docs")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ### With Repository Forking
  * 
  * <pre>
@@ -517,18 +474,18 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.httpCloneUrl;
     }
     /**
-     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically.
+     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
     @Export(name="ignoreVulnerabilityAlertsDuringRead", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
-     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
     public Output<Optional<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
@@ -619,14 +576,18 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.nodeId;
     }
     /**
-     * The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     * 
+     * @deprecated
+     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
     @Export(name="pages", refs={RepositoryPages.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryPages> pages;
 
     /**
-     * @return The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
      * 
      */
     public Output<Optional<RepositoryPages>> pages() {
@@ -825,32 +786,36 @@ public class Repository extends com.pulumi.resources.CustomResource {
         return this.visibility;
     }
     /**
-     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     * 
+     * @deprecated
+     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
     @Export(name="vulnerabilityAlerts", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vulnerabilityAlerts;
 
     /**
-     * @return Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * @return (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
      * 
      */
     public Output<Boolean> vulnerabilityAlerts() {
         return this.vulnerabilityAlerts;
     }
     /**
-     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      * 
      */
     @Export(name="webCommitSignoffRequired", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> webCommitSignoffRequired;
+    private Output<Boolean> webCommitSignoffRequired;
 
     /**
-     * @return Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * @return Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      * 
      */
-    public Output<Optional<Boolean>> webCommitSignoffRequired() {
-        return Codegen.optional(this.webCommitSignoffRequired);
+    public Output<Boolean> webCommitSignoffRequired() {
+        return this.webCommitSignoffRequired;
     }
 
     /**

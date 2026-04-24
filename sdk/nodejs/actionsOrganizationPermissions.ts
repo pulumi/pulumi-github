@@ -87,7 +87,7 @@ export class ActionsOrganizationPermissions extends pulumi.CustomResource {
      */
     declare public readonly enabledRepositoriesConfig: pulumi.Output<outputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig | undefined>;
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      */
     declare public readonly shaPinningRequired: pulumi.Output<boolean>;
 
@@ -146,7 +146,7 @@ export interface ActionsOrganizationPermissionsState {
      */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      */
     shaPinningRequired?: pulumi.Input<boolean>;
 }
@@ -172,7 +172,7 @@ export interface ActionsOrganizationPermissionsArgs {
      */
     enabledRepositoriesConfig?: pulumi.Input<inputs.ActionsOrganizationPermissionsEnabledRepositoriesConfig>;
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      */
     shaPinningRequired?: pulumi.Input<boolean>;
 }

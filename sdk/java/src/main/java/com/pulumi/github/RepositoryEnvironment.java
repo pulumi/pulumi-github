@@ -81,7 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+ * This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+ * 
+ * ### Import Command
+ * 
+ * The following command imports an environment called `myenv` for the repo `myrepo` to a `github.RepositoryEnvironment` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -159,6 +163,20 @@ public class RepositoryEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * The ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
     }
     /**
      * The environment reviewers configuration.

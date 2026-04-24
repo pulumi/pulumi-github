@@ -49,40 +49,6 @@ import (
 //
 // ```
 //
-// ### With GitHub Pages Enabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := github.NewRepository(ctx, "example", &github.RepositoryArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("My awesome web page"),
-//				Private:     pulumi.Bool(false),
-//				Pages: &github.RepositoryPagesArgs{
-//					Source: &github.RepositoryPagesSourceArgs{
-//						Branch: pulumi.String("master"),
-//						Path:   pulumi.String("/docs"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### With Repository Forking
 //
 // ```go
@@ -180,9 +146,9 @@ type Repository struct {
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringOutput `pulumi:"httpCloneUrl"`
-	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	//
-	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrOutput `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrOutput `pulumi:"isTemplate"`
@@ -196,8 +162,10 @@ type Repository struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringOutput `pulumi:"nodeId"`
-	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-	Pages RepositoryPagesPtrOutput `pulumi:"pages"`
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+	//
+	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+	Pages RepositoryPagesTypePtrOutput `pulumi:"pages"`
 	// The primary language used in the repository.
 	PrimaryLanguage pulumi.StringOutput `pulumi:"primaryLanguage"`
 	// Set to `true` to create a private repository.
@@ -229,10 +197,12 @@ type Repository struct {
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
-	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+	// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+	//
+	// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 	VulnerabilityAlerts pulumi.BoolOutput `pulumi:"vulnerabilityAlerts"`
-	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
-	WebCommitSignoffRequired pulumi.BoolPtrOutput `pulumi:"webCommitSignoffRequired"`
+	// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
+	WebCommitSignoffRequired pulumi.BoolOutput `pulumi:"webCommitSignoffRequired"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -322,9 +292,9 @@ type repositoryState struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl *string `pulumi:"httpCloneUrl"`
-	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	//
-	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
@@ -338,8 +308,10 @@ type repositoryState struct {
 	Name *string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId *string `pulumi:"nodeId"`
-	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-	Pages *RepositoryPages `pulumi:"pages"`
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+	//
+	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+	Pages *RepositoryPagesType `pulumi:"pages"`
 	// The primary language used in the repository.
 	PrimaryLanguage *string `pulumi:"primaryLanguage"`
 	// Set to `true` to create a private repository.
@@ -371,9 +343,11 @@ type repositoryState struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
-	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+	// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+	//
+	// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
-	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
 }
 
@@ -435,9 +409,9 @@ type RepositoryState struct {
 	HtmlUrl pulumi.StringPtrInput
 	// URL that can be provided to `git clone` to clone the repository via HTTPS.
 	HttpCloneUrl pulumi.StringPtrInput
-	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	//
-	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
@@ -451,8 +425,10 @@ type RepositoryState struct {
 	Name pulumi.StringPtrInput
 	// GraphQL global node id for use with v4 API
 	NodeId pulumi.StringPtrInput
-	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-	Pages RepositoryPagesPtrInput
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+	//
+	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+	Pages RepositoryPagesTypePtrInput
 	// The primary language used in the repository.
 	PrimaryLanguage pulumi.StringPtrInput
 	// Set to `true` to create a private repository.
@@ -484,9 +460,11 @@ type RepositoryState struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
-	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+	// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+	//
+	// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 	VulnerabilityAlerts pulumi.BoolPtrInput
-	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 	WebCommitSignoffRequired pulumi.BoolPtrInput
 }
 
@@ -544,9 +522,9 @@ type repositoryArgs struct {
 	HasWiki *bool `pulumi:"hasWiki"`
 	// URL of a page describing the project.
 	HomepageUrl *string `pulumi:"homepageUrl"`
-	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	//
-	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	IgnoreVulnerabilityAlertsDuringRead *bool `pulumi:"ignoreVulnerabilityAlertsDuringRead"`
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate *bool `pulumi:"isTemplate"`
@@ -558,8 +536,10 @@ type repositoryArgs struct {
 	MergeCommitTitle *string `pulumi:"mergeCommitTitle"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
-	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-	Pages *RepositoryPages `pulumi:"pages"`
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+	//
+	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+	Pages *RepositoryPagesType `pulumi:"pages"`
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
@@ -583,9 +563,11 @@ type repositoryArgs struct {
 	Topics []string `pulumi:"topics"`
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility *string `pulumi:"visibility"`
-	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+	// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+	//
+	// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 	VulnerabilityAlerts *bool `pulumi:"vulnerabilityAlerts"`
-	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 	WebCommitSignoffRequired *bool `pulumi:"webCommitSignoffRequired"`
 }
 
@@ -640,9 +622,9 @@ type RepositoryArgs struct {
 	HasWiki pulumi.BoolPtrInput
 	// URL of a page describing the project.
 	HomepageUrl pulumi.StringPtrInput
-	// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+	// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	//
-	// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+	// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 	IgnoreVulnerabilityAlertsDuringRead pulumi.BoolPtrInput
 	// Set to `true` to tell GitHub that this is a template repository.
 	IsTemplate pulumi.BoolPtrInput
@@ -654,8 +636,10 @@ type RepositoryArgs struct {
 	MergeCommitTitle pulumi.StringPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
-	// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-	Pages RepositoryPagesPtrInput
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+	//
+	// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+	Pages RepositoryPagesTypePtrInput
 	// Set to `true` to create a private repository.
 	// Repositories are created as public (e.g. open source) by default.
 	//
@@ -679,9 +663,11 @@ type RepositoryArgs struct {
 	Topics pulumi.StringArrayInput
 	// Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
 	Visibility pulumi.StringPtrInput
-	// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+	// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+	//
+	// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 	VulnerabilityAlerts pulumi.BoolPtrInput
-	// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+	// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 	WebCommitSignoffRequired pulumi.BoolPtrInput
 }
 
@@ -904,9 +890,9 @@ func (o RepositoryOutput) HttpCloneUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.HttpCloneUrl }).(pulumi.StringOutput)
 }
 
-// (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+// (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 //
-// Deprecated: This is ignored as the provider now handles lack of permissions automatically.
+// Deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
 func (o RepositoryOutput) IgnoreVulnerabilityAlertsDuringRead() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.IgnoreVulnerabilityAlertsDuringRead }).(pulumi.BoolPtrOutput)
 }
@@ -941,9 +927,11 @@ func (o RepositoryOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
-func (o RepositoryOutput) Pages() RepositoryPagesPtrOutput {
-	return o.ApplyT(func(v *Repository) RepositoryPagesPtrOutput { return v.Pages }).(RepositoryPagesPtrOutput)
+// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+//
+// Deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.
+func (o RepositoryOutput) Pages() RepositoryPagesTypePtrOutput {
+	return o.ApplyT(func(v *Repository) RepositoryPagesTypePtrOutput { return v.Pages }).(RepositoryPagesTypePtrOutput)
 }
 
 // The primary language used in the repository.
@@ -1016,14 +1004,16 @@ func (o RepositoryOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Visibility }).(pulumi.StringOutput)
 }
 
-// Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+// (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+//
+// Deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
 func (o RepositoryOutput) VulnerabilityAlerts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.VulnerabilityAlerts }).(pulumi.BoolOutput)
 }
 
-// Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
-func (o RepositoryOutput) WebCommitSignoffRequired() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.WebCommitSignoffRequired }).(pulumi.BoolPtrOutput)
+// Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
+func (o RepositoryOutput) WebCommitSignoffRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.WebCommitSignoffRequired }).(pulumi.BoolOutput)
 }
 
 type RepositoryArrayOutput struct{ *pulumi.OutputState }

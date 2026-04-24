@@ -145,6 +145,7 @@ class _RepositoryEnvironmentState:
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  prevent_self_review: Optional[pulumi.Input[_builtins.bool]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]]] = None,
                  wait_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
@@ -155,6 +156,7 @@ class _RepositoryEnvironmentState:
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEnvironmentReviewerArgs']]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[_builtins.int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
@@ -168,6 +170,8 @@ class _RepositoryEnvironmentState:
             pulumi.set(__self__, "prevent_self_review", prevent_self_review)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if reviewers is not None:
             pulumi.set(__self__, "reviewers", reviewers)
         if wait_timer is not None:
@@ -232,6 +236,18 @@ class _RepositoryEnvironmentState:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -300,7 +316,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+        This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+
+        ### Import Command
+
+        The following command imports an environment called `myenv` for the repo `myrepo` to a `RepositoryEnvironment` resource named `example`.
 
         ```sh
         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -351,7 +371,11 @@ class RepositoryEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+        This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+
+        ### Import Command
+
+        The following command imports an environment called `myenv` for the repo `myrepo` to a `RepositoryEnvironment` resource named `example`.
 
         ```sh
         $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -400,6 +424,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             __props__.__dict__["repository"] = repository
             __props__.__dict__["reviewers"] = reviewers
             __props__.__dict__["wait_timer"] = wait_timer
+            __props__.__dict__["repository_id"] = None
         super(RepositoryEnvironment, __self__).__init__(
             'github:index/repositoryEnvironment:RepositoryEnvironment',
             resource_name,
@@ -415,6 +440,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             environment: Optional[pulumi.Input[_builtins.str]] = None,
             prevent_self_review: Optional[pulumi.Input[_builtins.bool]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]]] = None,
             wait_timer: Optional[pulumi.Input[_builtins.int]] = None) -> 'RepositoryEnvironment':
         """
@@ -429,6 +455,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment: The name of the environment.
         :param pulumi.Input[_builtins.bool] prevent_self_review: Whether or not a user who created the job is prevented from approving their own job. Defaults to `false`.
         :param pulumi.Input[_builtins.str] repository: The repository of the environment.
+        :param pulumi.Input[_builtins.int] repository_id: The ID of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEnvironmentReviewerArgs', 'RepositoryEnvironmentReviewerArgsDict']]]] reviewers: The environment reviewers configuration.
         :param pulumi.Input[_builtins.int] wait_timer: Amount of time to delay a job after the job is initially triggered.
         """
@@ -441,6 +468,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
         __props__.__dict__["environment"] = environment
         __props__.__dict__["prevent_self_review"] = prevent_self_review
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["reviewers"] = reviewers
         __props__.__dict__["wait_timer"] = wait_timer
         return RepositoryEnvironment(resource_name, opts=opts, __props__=__props__)
@@ -484,6 +512,14 @@ class RepositoryEnvironment(pulumi.CustomResource):
         The repository of the environment.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter

@@ -17,21 +17,38 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Notify without delegation
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as github from "@pulumi/github";
  *
- * // Add a repository to the team
  * const someTeam = new github.Team("some_team", {
  *     name: "SomeTeam",
  *     description: "Some cool team",
  * });
  * const codeReviewSettings = new github.TeamSettings("code_review_settings", {
  *     teamId: someTeam.id,
+ *     notify: true,
+ * });
+ * ```
+ *
+ * ### Notify with delegation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as github from "@pulumi/github";
+ *
+ * const someTeam = new github.Team("some_team", {
+ *     name: "SomeTeam",
+ *     description: "Some cool team",
+ * });
+ * const codeReviewSettings = new github.TeamSettings("code_review_settings", {
+ *     teamId: someTeam.id,
+ *     notify: true,
  *     reviewRequestDelegation: {
  *         algorithm: "ROUND_ROBIN",
  *         memberCount: 1,
- *         notify: true,
  *     },
  * });
  * ```
@@ -40,13 +57,7 @@ import * as utilities from "./utilities";
  *
  * GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
  *
- * ```sh
- * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
- * ```
  * or,
- * ```sh
- * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
- * ```
  */
 export class TeamSettings extends pulumi.CustomResource {
     /**
@@ -77,6 +88,10 @@ export class TeamSettings extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     */
+    declare public readonly notify: pulumi.Output<boolean | undefined>;
+    /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */
     declare public readonly reviewRequestDelegation: pulumi.Output<outputs.TeamSettingsReviewRequestDelegation | undefined>;
@@ -85,11 +100,11 @@ export class TeamSettings extends pulumi.CustomResource {
      */
     declare public readonly teamId: pulumi.Output<string>;
     /**
-     * The slug of the Team within the Organization.
+     * The slug of the Team.
      */
     declare public /*out*/ readonly teamSlug: pulumi.Output<string>;
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+     * The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      */
     declare public /*out*/ readonly teamUid: pulumi.Output<string>;
 
@@ -106,6 +121,7 @@ export class TeamSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamSettingsState | undefined;
+            resourceInputs["notify"] = state?.notify;
             resourceInputs["reviewRequestDelegation"] = state?.reviewRequestDelegation;
             resourceInputs["teamId"] = state?.teamId;
             resourceInputs["teamSlug"] = state?.teamSlug;
@@ -115,6 +131,7 @@ export class TeamSettings extends pulumi.CustomResource {
             if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
+            resourceInputs["notify"] = args?.notify;
             resourceInputs["reviewRequestDelegation"] = args?.reviewRequestDelegation;
             resourceInputs["teamId"] = args?.teamId;
             resourceInputs["teamSlug"] = undefined /*out*/;
@@ -130,6 +147,10 @@ export class TeamSettings extends pulumi.CustomResource {
  */
 export interface TeamSettingsState {
     /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     */
+    notify?: pulumi.Input<boolean>;
+    /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */
     reviewRequestDelegation?: pulumi.Input<inputs.TeamSettingsReviewRequestDelegation>;
@@ -138,11 +159,11 @@ export interface TeamSettingsState {
      */
     teamId?: pulumi.Input<string>;
     /**
-     * The slug of the Team within the Organization.
+     * The slug of the Team.
      */
     teamSlug?: pulumi.Input<string>;
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+     * The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      */
     teamUid?: pulumi.Input<string>;
 }
@@ -151,6 +172,10 @@ export interface TeamSettingsState {
  * The set of arguments for constructing a TeamSettings resource.
  */
 export interface TeamSettingsArgs {
+    /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     */
+    notify?: pulumi.Input<boolean>;
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      */

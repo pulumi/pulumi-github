@@ -42,6 +42,7 @@ from .emu_group_mapping import *
 from .enterprise_actions_permissions import *
 from .enterprise_actions_runner_group import *
 from .enterprise_actions_workflow_permissions import *
+from .enterprise_ip_allow_list_entry import *
 from .enterprise_organization import *
 from .enterprise_security_analysis_settings import *
 from .get_actions_environment_public_key import *
@@ -78,6 +79,7 @@ from .get_ip_ranges import *
 from .get_issue_labels import *
 from .get_membership import *
 from .get_organization import *
+from .get_organization_app_installations import *
 from .get_organization_custom_properties import *
 from .get_organization_custom_role import *
 from .get_organization_external_identities import *
@@ -106,6 +108,7 @@ from .get_repository_environment_deployment_policies import *
 from .get_repository_environments import *
 from .get_repository_file import *
 from .get_repository_milestone import *
+from .get_repository_pages import *
 from .get_repository_pull_request import *
 from .get_repository_pull_requests import *
 from .get_repository_teams import *
@@ -150,10 +153,12 @@ from .repository_environment import *
 from .repository_environment_deployment_policy import *
 from .repository_file import *
 from .repository_milestone import *
+from .repository_pages import *
 from .repository_project import *
 from .repository_pull_request import *
 from .repository_ruleset import *
 from .repository_topics import *
+from .repository_vulnerability_alerts import *
 from .repository_webhook import *
 from .team import *
 from .team_members import *
@@ -468,6 +473,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/enterpriseIpAllowListEntry",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/enterpriseIpAllowListEntry:EnterpriseIpAllowListEntry": "EnterpriseIpAllowListEntry"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/enterpriseOrganization",
   "fqn": "pulumi_github",
   "classes": {
@@ -740,6 +753,14 @@ _utilities.register(
  },
  {
   "pkg": "github",
+  "mod": "index/repositoryPages",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryPages:RepositoryPages": "RepositoryPages"
+  }
+ },
+ {
+  "pkg": "github",
   "mod": "index/repositoryProject",
   "fqn": "pulumi_github",
   "classes": {
@@ -768,6 +789,14 @@ _utilities.register(
   "fqn": "pulumi_github",
   "classes": {
    "github:index/repositoryTopics:RepositoryTopics": "RepositoryTopics"
+  }
+ },
+ {
+  "pkg": "github",
+  "mod": "index/repositoryVulnerabilityAlerts",
+  "fqn": "pulumi_github",
+  "classes": {
+   "github:index/repositoryVulnerabilityAlerts:RepositoryVulnerabilityAlerts": "RepositoryVulnerabilityAlerts"
   }
  },
  {

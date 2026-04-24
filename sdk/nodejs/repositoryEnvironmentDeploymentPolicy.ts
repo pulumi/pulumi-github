@@ -69,7 +69,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+ * This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+ *
+ * ### Import Command
+ *
+ * The following command imports a deployment policy with the ID `123456` for the repo `myrepo` and environment `myenv` to a `github.RepositoryEnvironmentDeploymentPolicy` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -112,9 +116,17 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
      */
     declare public readonly environment: pulumi.Output<string>;
     /**
+     * The ID of the deployment policy.
+     */
+    declare public /*out*/ readonly policyId: pulumi.Output<number>;
+    /**
      * The repository of the environment.
      */
     declare public readonly repository: pulumi.Output<string>;
+    /**
+     * The ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      */
@@ -135,7 +147,9 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
             const state = argsOrState as RepositoryEnvironmentDeploymentPolicyState | undefined;
             resourceInputs["branchPattern"] = state?.branchPattern;
             resourceInputs["environment"] = state?.environment;
+            resourceInputs["policyId"] = state?.policyId;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["tagPattern"] = state?.tagPattern;
         } else {
             const args = argsOrState as RepositoryEnvironmentDeploymentPolicyArgs | undefined;
@@ -149,6 +163,8 @@ export class RepositoryEnvironmentDeploymentPolicy extends pulumi.CustomResource
             resourceInputs["environment"] = args?.environment;
             resourceInputs["repository"] = args?.repository;
             resourceInputs["tagPattern"] = args?.tagPattern;
+            resourceInputs["policyId"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironmentDeploymentPolicy.__pulumiType, name, resourceInputs, opts);
@@ -168,9 +184,17 @@ export interface RepositoryEnvironmentDeploymentPolicyState {
      */
     environment?: pulumi.Input<string>;
     /**
+     * The ID of the deployment policy.
+     */
+    policyId?: pulumi.Input<number>;
+    /**
      * The repository of the environment.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * The ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
      */

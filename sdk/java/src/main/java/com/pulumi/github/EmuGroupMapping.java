@@ -53,18 +53,26 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GitHub EMU External Group Mappings can be imported using the `teamSlug` and external `groupId` separated by a colon, e.g.
+ * GitHub EMU External Group Mappings can be imported using the external `groupId` and `teamSlug` separated by a colon, e.g.
  * 
  * ```sh
- * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
+ * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
  * ```
  * 
  */
 @ResourceType(type="github:index/emuGroupMapping:EmuGroupMapping")
 public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
+    /**
+     * An etag representing the external group state
+     * 
+     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
+    /**
+     * @return An etag representing the external group state
+     * 
+     */
     public Output<String> etag() {
         return this.etag;
     }
@@ -83,28 +91,28 @@ public class EmuGroupMapping extends com.pulumi.resources.CustomResource {
         return this.groupId;
     }
     /**
-     * Name of the external group.
+     * The name of the external group
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
-     * @return Name of the external group.
+     * @return The name of the external group
      * 
      */
     public Output<String> groupName() {
         return this.groupName;
     }
     /**
-     * ID of the GitHub team.
+     * The ID of the GitHub team
      * 
      */
     @Export(name="teamId", refs={Integer.class}, tree="[0]")
     private Output<Integer> teamId;
 
     /**
-     * @return ID of the GitHub team.
+     * @return The ID of the GitHub team
      * 
      */
     public Output<Integer> teamId() {

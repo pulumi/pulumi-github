@@ -373,6 +373,43 @@ class OrganizationRuleset(pulumi.CustomResource):
                     ],
                 },
             })
+        # Example with repository_property targeting
+        example_property = github.OrganizationRuleset("example_property",
+            name="example_property",
+            target="branch",
+            enforcement="active",
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+                "repository_property": {
+                    "includes": [
+                        {
+                            "name": "environment",
+                            "property_values": [
+                                "production",
+                                "staging",
+                            ],
+                            "source": "custom",
+                        },
+                        {
+                            "name": "team",
+                            "property_values": ["backend"],
+                            "source": "custom",
+                        },
+                    ],
+                    "excludes": [{
+                        "name": "archived",
+                        "property_values": ["true"],
+                        "source": "system",
+                    }],
+                },
+            },
+            rules={
+                "required_signatures": True,
+                "pull_request": {},
+            })
         ```
 
         ## Import
@@ -483,6 +520,43 @@ class OrganizationRuleset(pulumi.CustomResource):
                         "*.so",
                     ],
                 },
+            })
+        # Example with repository_property targeting
+        example_property = github.OrganizationRuleset("example_property",
+            name="example_property",
+            target="branch",
+            enforcement="active",
+            conditions={
+                "ref_name": {
+                    "includes": ["~ALL"],
+                    "excludes": [],
+                },
+                "repository_property": {
+                    "includes": [
+                        {
+                            "name": "environment",
+                            "property_values": [
+                                "production",
+                                "staging",
+                            ],
+                            "source": "custom",
+                        },
+                        {
+                            "name": "team",
+                            "property_values": ["backend"],
+                            "source": "custom",
+                        },
+                    ],
+                    "excludes": [{
+                        "name": "archived",
+                        "property_values": ["true"],
+                        "source": "system",
+                    }],
+                },
+            },
+            rules={
+                "required_signatures": True,
+                "pull_request": {},
             })
         ```
 

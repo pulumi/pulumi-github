@@ -139,6 +139,67 @@ namespace Pulumi.Github
     ///         },
     ///     });
     /// 
+    ///     // Example with repository_property targeting
+    ///     var exampleProperty = new Github.Index.OrganizationRuleset("example_property", new()
+    ///     {
+    ///         Name = "example_property",
+    ///         Target = "branch",
+    ///         Enforcement = "active",
+    ///         Conditions = new Github.Inputs.OrganizationRulesetConditionsArgs
+    ///         {
+    ///             RefName = new Github.Inputs.OrganizationRulesetConditionsRefNameArgs
+    ///             {
+    ///                 Includes = new[]
+    ///                 {
+    ///                     "~ALL",
+    ///                 },
+    ///                 Excludes = new() { },
+    ///             },
+    ///             RepositoryProperty = new Github.Inputs.OrganizationRulesetConditionsRepositoryPropertyArgs
+    ///             {
+    ///                 Includes = new[]
+    ///                 {
+    ///                     new Github.Inputs.OrganizationRulesetConditionsRepositoryPropertyIncludeArgs
+    ///                     {
+    ///                         Name = "environment",
+    ///                         PropertyValues = new[]
+    ///                         {
+    ///                             "production",
+    ///                             "staging",
+    ///                         },
+    ///                         Source = "custom",
+    ///                     },
+    ///                     new Github.Inputs.OrganizationRulesetConditionsRepositoryPropertyIncludeArgs
+    ///                     {
+    ///                         Name = "team",
+    ///                         PropertyValues = new[]
+    ///                         {
+    ///                             "backend",
+    ///                         },
+    ///                         Source = "custom",
+    ///                     },
+    ///                 },
+    ///                 Excludes = new[]
+    ///                 {
+    ///                     new Github.Inputs.OrganizationRulesetConditionsRepositoryPropertyExcludeArgs
+    ///                     {
+    ///                         Name = "archived",
+    ///                         PropertyValues = new[]
+    ///                         {
+    ///                             "true",
+    ///                         },
+    ///                         Source = "system",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Rules = new Github.Inputs.OrganizationRulesetRulesArgs
+    ///         {
+    ///             RequiredSignatures = true,
+    ///             PullRequest = null,
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

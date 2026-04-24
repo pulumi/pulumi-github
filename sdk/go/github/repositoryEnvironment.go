@@ -68,7 +68,11 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+// This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+//
+// ### Import Command
+//
+// The following command imports an environment called `myenv` for the repo `myrepo` to a `RepositoryEnvironment` resource named `example`.
 //
 // ```sh
 // $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -86,6 +90,8 @@ type RepositoryEnvironment struct {
 	PreventSelfReview pulumi.BoolPtrOutput `pulumi:"preventSelfReview"`
 	// The repository of the environment.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 	// The environment reviewers configuration.
 	Reviewers RepositoryEnvironmentReviewerArrayOutput `pulumi:"reviewers"`
 	// Amount of time to delay a job after the job is initially triggered.
@@ -138,6 +144,8 @@ type repositoryEnvironmentState struct {
 	PreventSelfReview *bool `pulumi:"preventSelfReview"`
 	// The repository of the environment.
 	Repository *string `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 	// The environment reviewers configuration.
 	Reviewers []RepositoryEnvironmentReviewer `pulumi:"reviewers"`
 	// Amount of time to delay a job after the job is initially triggered.
@@ -155,6 +163,8 @@ type RepositoryEnvironmentState struct {
 	PreventSelfReview pulumi.BoolPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringPtrInput
+	// The ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 	// The environment reviewers configuration.
 	Reviewers RepositoryEnvironmentReviewerArrayInput
 	// Amount of time to delay a job after the job is initially triggered.
@@ -312,6 +322,11 @@ func (o RepositoryEnvironmentOutput) PreventSelfReview() pulumi.BoolPtrOutput {
 // The repository of the environment.
 func (o RepositoryEnvironmentOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The ID of the repository.
+func (o RepositoryEnvironmentOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryEnvironment) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
 }
 
 // The environment reviewers configuration.

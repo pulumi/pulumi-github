@@ -96,6 +96,21 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
      * The environment reviewers configuration.
      * 
      */
@@ -133,6 +148,7 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
         this.environment = $.environment;
         this.preventSelfReview = $.preventSelfReview;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.reviewers = $.reviewers;
         this.waitTimer = $.waitTimer;
     }
@@ -258,6 +274,27 @@ public final class RepositoryEnvironmentState extends com.pulumi.resources.Resou
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
         }
 
         /**

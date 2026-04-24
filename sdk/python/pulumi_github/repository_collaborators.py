@@ -96,6 +96,7 @@ class _RepositoryCollaboratorsState:
                  ignore_teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsIgnoreTeamArgs']]]] = None,
                  invitation_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]]] = None):
         """
@@ -105,6 +106,7 @@ class _RepositoryCollaboratorsState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsTeamArgs']]] teams: List of teams to grant access to the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCollaboratorsUserArgs']]] users: List of users to grant access to the repository.
         """
@@ -114,6 +116,8 @@ class _RepositoryCollaboratorsState:
             pulumi.set(__self__, "invitation_ids", invitation_ids)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
         if teams is not None:
             pulumi.set(__self__, "teams", teams)
         if users is not None:
@@ -155,6 +159,18 @@ class _RepositoryCollaboratorsState:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -243,14 +259,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
             }])
         ```
 
-        ## Import
-
-        GitHub Repository Collaborators can be imported using the name `name`, e.g.
-
-        ```sh
-        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,14 +324,6 @@ class RepositoryCollaborators(pulumi.CustomResource):
             }])
         ```
 
-        ## Import
-
-        GitHub Repository Collaborators can be imported using the name `name`, e.g.
-
-        ```sh
-        $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param RepositoryCollaboratorsArgs args: The arguments to use to populate this resource's properties.
@@ -360,6 +360,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
             __props__.__dict__["teams"] = teams
             __props__.__dict__["users"] = users
             __props__.__dict__["invitation_ids"] = None
+            __props__.__dict__["repository_id"] = None
         super(RepositoryCollaborators, __self__).__init__(
             'github:index/repositoryCollaborators:RepositoryCollaborators',
             resource_name,
@@ -373,6 +374,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
             ignore_teams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsIgnoreTeamArgs', 'RepositoryCollaboratorsIgnoreTeamArgsDict']]]]] = None,
             invitation_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             repository: Optional[pulumi.Input[_builtins.str]] = None,
+            repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             teams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]]] = None) -> 'RepositoryCollaborators':
         """
@@ -386,6 +388,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] invitation_ids: Map of usernames to invitation ID for any users added as part of creation of this resource to
                be used in `UserInvitationAccepter`.
         :param pulumi.Input[_builtins.str] repository: The GitHub repository.
+        :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsTeamArgs', 'RepositoryCollaboratorsTeamArgsDict']]]] teams: List of teams to grant access to the repository.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCollaboratorsUserArgs', 'RepositoryCollaboratorsUserArgsDict']]]] users: List of users to grant access to the repository.
         """
@@ -396,6 +399,7 @@ class RepositoryCollaborators(pulumi.CustomResource):
         __props__.__dict__["ignore_teams"] = ignore_teams
         __props__.__dict__["invitation_ids"] = invitation_ids
         __props__.__dict__["repository"] = repository
+        __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["teams"] = teams
         __props__.__dict__["users"] = users
         return RepositoryCollaborators(resource_name, opts=opts, __props__=__props__)
@@ -424,6 +428,14 @@ class RepositoryCollaborators(pulumi.CustomResource):
         The GitHub repository.
         """
         return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the repository.
+        """
+        return pulumi.get(self, "repository_id")
 
     @_builtins.property
     @pulumi.getter

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RepositoryPagesSource {
     /**
-     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * @return The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
      * 
      */
     private String branch;
     /**
-     * @return The repository directory from which the site publishes (Default: `/`).
+     * @return The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      * 
      */
     private @Nullable String path;
 
     private RepositoryPagesSource() {}
     /**
-     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * @return The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
      * 
      */
     public String branch() {
         return this.branch;
     }
     /**
-     * @return The repository directory from which the site publishes (Default: `/`).
+     * @return The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      * 
      */
     public Optional<String> path() {

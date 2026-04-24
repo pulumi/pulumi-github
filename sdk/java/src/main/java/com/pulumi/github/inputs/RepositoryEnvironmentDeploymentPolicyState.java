@@ -5,6 +5,7 @@ package com.pulumi.github.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +47,21 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
     }
 
     /**
+     * The ID of the deployment policy.
+     * 
+     */
+    @Import(name="policyId")
+    private @Nullable Output<Integer> policyId;
+
+    /**
+     * @return The ID of the deployment policy.
+     * 
+     */
+    public Optional<Output<Integer>> policyId() {
+        return Optional.ofNullable(this.policyId);
+    }
+
+    /**
      * The repository of the environment.
      * 
      */
@@ -58,6 +74,21 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
      */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
+    }
+
+    /**
+     * The ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
     }
 
     /**
@@ -80,7 +111,9 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
     private RepositoryEnvironmentDeploymentPolicyState(RepositoryEnvironmentDeploymentPolicyState $) {
         this.branchPattern = $.branchPattern;
         this.environment = $.environment;
+        this.policyId = $.policyId;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.tagPattern = $.tagPattern;
     }
 
@@ -145,6 +178,27 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
         }
 
         /**
+         * @param policyId The ID of the deployment policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyId(@Nullable Output<Integer> policyId) {
+            $.policyId = policyId;
+            return this;
+        }
+
+        /**
+         * @param policyId The ID of the deployment policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyId(Integer policyId) {
+            return policyId(Output.of(policyId));
+        }
+
+        /**
          * @param repository The repository of the environment.
          * 
          * @return builder
@@ -163,6 +217,27 @@ public final class RepositoryEnvironmentDeploymentPolicyState extends com.pulumi
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId The ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
         }
 
         /**

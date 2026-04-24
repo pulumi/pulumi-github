@@ -16,9 +16,17 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
 
     public static final EmuGroupMappingState Empty = new EmuGroupMappingState();
 
+    /**
+     * An etag representing the external group state
+     * 
+     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
+    /**
+     * @return An etag representing the external group state
+     * 
+     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
@@ -39,14 +47,14 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the external group.
+     * The name of the external group
      * 
      */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
     /**
-     * @return Name of the external group.
+     * @return The name of the external group
      * 
      */
     public Optional<Output<String>> groupName() {
@@ -54,14 +62,14 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * ID of the GitHub team.
+     * The ID of the GitHub team
      * 
      */
     @Import(name="teamId")
     private @Nullable Output<Integer> teamId;
 
     /**
-     * @return ID of the GitHub team.
+     * @return The ID of the GitHub team
      * 
      */
     public Optional<Output<Integer>> teamId() {
@@ -111,11 +119,23 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
             $ = new EmuGroupMappingState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param etag An etag representing the external group state
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
+        /**
+         * @param etag An etag representing the external group state
+         * 
+         * @return builder
+         * 
+         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
@@ -142,7 +162,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupName Name of the external group.
+         * @param groupName The name of the external group
          * 
          * @return builder
          * 
@@ -153,7 +173,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groupName Name of the external group.
+         * @param groupName The name of the external group
          * 
          * @return builder
          * 
@@ -163,7 +183,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param teamId ID of the GitHub team.
+         * @param teamId The ID of the GitHub team
          * 
          * @return builder
          * 
@@ -174,7 +194,7 @@ public final class EmuGroupMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param teamId ID of the GitHub team.
+         * @param teamId The ID of the GitHub team
          * 
          * @return builder
          * 

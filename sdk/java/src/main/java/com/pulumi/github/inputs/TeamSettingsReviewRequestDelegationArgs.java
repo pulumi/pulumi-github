@@ -18,14 +18,14 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     public static final TeamSettingsReviewRequestDelegationArgs Empty = new TeamSettingsReviewRequestDelegationArgs();
 
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+     * The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      * 
      */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      * 
      */
     public Optional<Output<String>> algorithm() {
@@ -48,16 +48,24 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
     }
 
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request.
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     * @deprecated
+     * Use the top-level notify attribute instead.
      * 
      */
+    @Deprecated /* Use the top-level notify attribute instead. */
     @Import(name="notify")
     private @Nullable Output<Boolean> notify;
 
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     * @deprecated
+     * Use the top-level notify attribute instead.
      * 
      */
+    @Deprecated /* Use the top-level notify attribute instead. */
     public Optional<Output<Boolean>> notify_() {
         return Optional.ofNullable(this.notify);
     }
@@ -89,7 +97,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
          * 
          * @return builder
          * 
@@ -100,7 +108,7 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+         * @param algorithm The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
          * 
          * @return builder
          * 
@@ -131,22 +139,30 @@ public final class TeamSettingsReviewRequestDelegationArgs extends com.pulumi.re
         }
 
         /**
-         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request.
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the top-level notify attribute instead.
+         * 
          */
+        @Deprecated /* Use the top-level notify attribute instead. */
         public Builder notify_(@Nullable Output<Boolean> notify) {
             $.notify = notify;
             return this;
         }
 
         /**
-         * @param notify whether to notify the entire team when at least one member is also assigned to the pull request.
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the top-level notify attribute instead.
+         * 
          */
+        @Deprecated /* Use the top-level notify attribute instead. */
         public Builder notify_(Boolean notify) {
             return notify_(Output.of(notify));
         }

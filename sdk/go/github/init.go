@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnterpriseActionsRunnerGroup{}
 	case "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions":
 		r = &EnterpriseActionsWorkflowPermissions{}
+	case "github:index/enterpriseIpAllowListEntry:EnterpriseIpAllowListEntry":
+		r = &EnterpriseIpAllowListEntry{}
 	case "github:index/enterpriseOrganization:EnterpriseOrganization":
 		r = &EnterpriseOrganization{}
 	case "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings":
@@ -161,6 +163,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryFile{}
 	case "github:index/repositoryMilestone:RepositoryMilestone":
 		r = &RepositoryMilestone{}
+	case "github:index/repositoryPages:RepositoryPages":
+		r = &RepositoryPages{}
 	case "github:index/repositoryProject:RepositoryProject":
 		r = &RepositoryProject{}
 	case "github:index/repositoryPullRequest:RepositoryPullRequest":
@@ -169,6 +173,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RepositoryRuleset{}
 	case "github:index/repositoryTopics:RepositoryTopics":
 		r = &RepositoryTopics{}
+	case "github:index/repositoryVulnerabilityAlerts:RepositoryVulnerabilityAlerts":
+		r = &RepositoryVulnerabilityAlerts{}
 	case "github:index/repositoryWebhook:RepositoryWebhook":
 		r = &RepositoryWebhook{}
 	case "github:index/team:Team":
@@ -404,6 +410,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/enterpriseIpAllowListEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/enterpriseOrganization",
 		&module{version},
 	)
@@ -574,6 +585,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"github",
+		"index/repositoryPages",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
 		"index/repositoryProject",
 		&module{version},
 	)
@@ -590,6 +606,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"github",
 		"index/repositoryTopics",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"github",
+		"index/repositoryVulnerabilityAlerts",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

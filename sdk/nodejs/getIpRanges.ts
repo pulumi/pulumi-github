@@ -27,7 +27,7 @@ export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesRes
  */
 export interface GetIpRangesResult {
     /**
-     * An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     * An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
      */
     readonly actions: string[];
     /**
@@ -38,6 +38,18 @@ export interface GetIpRangesResult {
      * A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
      */
     readonly actionsIpv6s: string[];
+    /**
+     * An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+     */
+    readonly actionsMacos: string[];
+    /**
+     * A subset of the `actionsMacos` array that contains IP addresses in IPv4 CIDR format.
+     */
+    readonly actionsMacosIpv4s: string[];
+    /**
+     * A subset of the `actionsMacos` array that contains IP addresses in IPv6 CIDR format.
+     */
+    readonly actionsMacosIpv6s: string[];
     /**
      * A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
      */
@@ -51,19 +63,19 @@ export interface GetIpRangesResult {
      */
     readonly apis: string[];
     /**
-     * A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     * **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      *
      * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
     readonly dependabotIpv4s: string[];
     /**
-     * A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     * **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
      *
      * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
     readonly dependabotIpv6s: string[];
     /**
-     * An array of IP addresses in CIDR format specifying the A records for dependabot.
+     * **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
      *
      * @deprecated This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
      */
@@ -76,6 +88,18 @@ export interface GetIpRangesResult {
      * A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
      */
     readonly gitIpv6s: string[];
+    /**
+     * A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+     */
+    readonly githubEnterpriseImporterIpv4s: string[];
+    /**
+     * A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+     */
+    readonly githubEnterpriseImporterIpv6s: string[];
+    /**
+     * An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+     */
+    readonly githubEnterpriseImporters: string[];
     /**
      * An Array of IP addresses in CIDR format specifying the Git servers.
      */

@@ -2749,14 +2749,16 @@ func (o OrganizationRulesetBypassActorArrayOutput) Index(i pulumi.IntInput) Orga
 type OrganizationRulesetConditions struct {
 	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
 	RefName *OrganizationRulesetConditionsRefName `pulumi:"refName"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
 	RepositoryIds []int `pulumi:"repositoryIds"`
-	// Conflicts with `repositoryId`. (see below for nested schema)
+	// Targets repositories that match the specified name patterns. (see below for nested schema)
+	RepositoryName *OrganizationRulesetConditionsRepositoryName `pulumi:"repositoryName"`
+	// Targets repositories by custom or system properties. (see below for nested schema)
 	//
-	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	// Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
 	//
 	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
-	RepositoryName *OrganizationRulesetConditionsRepositoryName `pulumi:"repositoryName"`
+	RepositoryProperty *OrganizationRulesetConditionsRepositoryProperty `pulumi:"repositoryProperty"`
 }
 
 // OrganizationRulesetConditionsInput is an input type that accepts OrganizationRulesetConditionsArgs and OrganizationRulesetConditionsOutput values.
@@ -2773,14 +2775,16 @@ type OrganizationRulesetConditionsInput interface {
 type OrganizationRulesetConditionsArgs struct {
 	// (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
 	RefName OrganizationRulesetConditionsRefNamePtrInput `pulumi:"refName"`
-	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+	// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
 	RepositoryIds pulumi.IntArrayInput `pulumi:"repositoryIds"`
-	// Conflicts with `repositoryId`. (see below for nested schema)
+	// Targets repositories that match the specified name patterns. (see below for nested schema)
+	RepositoryName OrganizationRulesetConditionsRepositoryNamePtrInput `pulumi:"repositoryName"`
+	// Targets repositories by custom or system properties. (see below for nested schema)
 	//
-	// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+	// Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
 	//
 	// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
-	RepositoryName OrganizationRulesetConditionsRepositoryNamePtrInput `pulumi:"repositoryName"`
+	RepositoryProperty OrganizationRulesetConditionsRepositoryPropertyPtrInput `pulumi:"repositoryProperty"`
 }
 
 func (OrganizationRulesetConditionsArgs) ElementType() reflect.Type {
@@ -2865,20 +2869,27 @@ func (o OrganizationRulesetConditionsOutput) RefName() OrganizationRulesetCondit
 	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRefName { return v.RefName }).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
 func (o OrganizationRulesetConditionsOutput) RepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditions) []int { return v.RepositoryIds }).(pulumi.IntArrayOutput)
 }
 
-// Conflicts with `repositoryId`. (see below for nested schema)
-//
-// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-//
-// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+// Targets repositories that match the specified name patterns. (see below for nested schema)
 func (o OrganizationRulesetConditionsOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
 		return v.RepositoryName
 	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+// Targets repositories by custom or system properties. (see below for nested schema)
+//
+// Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+func (o OrganizationRulesetConditionsOutput) RepositoryProperty() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryProperty {
+		return v.RepositoryProperty
+	}).(OrganizationRulesetConditionsRepositoryPropertyPtrOutput)
 }
 
 type OrganizationRulesetConditionsPtrOutput struct{ *pulumi.OutputState }
@@ -2915,7 +2926,7 @@ func (o OrganizationRulesetConditionsPtrOutput) RefName() OrganizationRulesetCon
 	}).(OrganizationRulesetConditionsRefNamePtrOutput)
 }
 
-// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
 func (o OrganizationRulesetConditionsPtrOutput) RepositoryIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditions) []int {
 		if v == nil {
@@ -2925,11 +2936,7 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryIds() pulumi.IntArrayO
 	}).(pulumi.IntArrayOutput)
 }
 
-// Conflicts with `repositoryId`. (see below for nested schema)
-//
-// One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-//
-// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+// Targets repositories that match the specified name patterns. (see below for nested schema)
 func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRulesetConditionsRepositoryNamePtrOutput {
 	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryName {
 		if v == nil {
@@ -2937,6 +2944,20 @@ func (o OrganizationRulesetConditionsPtrOutput) RepositoryName() OrganizationRul
 		}
 		return v.RepositoryName
 	}).(OrganizationRulesetConditionsRepositoryNamePtrOutput)
+}
+
+// Targets repositories by custom or system properties. (see below for nested schema)
+//
+// Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+//
+// > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+func (o OrganizationRulesetConditionsPtrOutput) RepositoryProperty() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditions) *OrganizationRulesetConditionsRepositoryProperty {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryProperty
+	}).(OrganizationRulesetConditionsRepositoryPropertyPtrOutput)
 }
 
 type OrganizationRulesetConditionsRefName struct {
@@ -3268,6 +3289,396 @@ func (o OrganizationRulesetConditionsRepositoryNamePtrOutput) Protected() pulumi
 		}
 		return v.Protected
 	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryProperty struct {
+	// The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+	Excludes []OrganizationRulesetConditionsRepositoryPropertyExclude `pulumi:"excludes"`
+	// The repository properties and values to include. All of these properties must match for the condition to pass.
+	Includes []OrganizationRulesetConditionsRepositoryPropertyInclude `pulumi:"includes"`
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyArgs and OrganizationRulesetConditionsRepositoryPropertyOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryPropertyArgs{...}
+type OrganizationRulesetConditionsRepositoryPropertyInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyOutput() OrganizationRulesetConditionsRepositoryPropertyOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyOutput
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyArgs struct {
+	// The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+	Excludes OrganizationRulesetConditionsRepositoryPropertyExcludeArrayInput `pulumi:"excludes"`
+	// The repository properties and values to include. All of these properties must match for the condition to pass.
+	Includes OrganizationRulesetConditionsRepositoryPropertyIncludeArrayInput `pulumi:"includes"`
+}
+
+func (OrganizationRulesetConditionsRepositoryPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryProperty)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyArgs) ToOrganizationRulesetConditionsRepositoryPropertyOutput() OrganizationRulesetConditionsRepositoryPropertyOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyArgs) ToOrganizationRulesetConditionsRepositoryPropertyOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyOutput)
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyArgs) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutput() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyArgs) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyOutput).ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(ctx)
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyPtrInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyArgs, OrganizationRulesetConditionsRepositoryPropertyPtr and OrganizationRulesetConditionsRepositoryPropertyPtrOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyPtrInput` via:
+//
+//	        OrganizationRulesetConditionsRepositoryPropertyArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationRulesetConditionsRepositoryPropertyPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyPtrOutput() OrganizationRulesetConditionsRepositoryPropertyPtrOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyPtrOutput
+}
+
+type organizationRulesetConditionsRepositoryPropertyPtrType OrganizationRulesetConditionsRepositoryPropertyArgs
+
+func OrganizationRulesetConditionsRepositoryPropertyPtr(v *OrganizationRulesetConditionsRepositoryPropertyArgs) OrganizationRulesetConditionsRepositoryPropertyPtrInput {
+	return (*organizationRulesetConditionsRepositoryPropertyPtrType)(v)
+}
+
+func (*organizationRulesetConditionsRepositoryPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRepositoryProperty)(nil)).Elem()
+}
+
+func (i *organizationRulesetConditionsRepositoryPropertyPtrType) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutput() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationRulesetConditionsRepositoryPropertyPtrType) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyPtrOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryProperty)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) ToOrganizationRulesetConditionsRepositoryPropertyOutput() OrganizationRulesetConditionsRepositoryPropertyOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) ToOrganizationRulesetConditionsRepositoryPropertyOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutput() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o.ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationRulesetConditionsRepositoryProperty) *OrganizationRulesetConditionsRepositoryProperty {
+		return &v
+	}).(OrganizationRulesetConditionsRepositoryPropertyPtrOutput)
+}
+
+// The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) Excludes() OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryProperty) []OrganizationRulesetConditionsRepositoryPropertyExclude {
+		return v.Excludes
+	}).(OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput)
+}
+
+// The repository properties and values to include. All of these properties must match for the condition to pass.
+func (o OrganizationRulesetConditionsRepositoryPropertyOutput) Includes() OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryProperty) []OrganizationRulesetConditionsRepositoryPropertyInclude {
+		return v.Includes
+	}).(OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationRulesetConditionsRepositoryProperty)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyPtrOutput) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutput() OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyPtrOutput) ToOrganizationRulesetConditionsRepositoryPropertyPtrOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyPtrOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyPtrOutput) Elem() OrganizationRulesetConditionsRepositoryPropertyOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryProperty) OrganizationRulesetConditionsRepositoryProperty {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationRulesetConditionsRepositoryProperty
+		return ret
+	}).(OrganizationRulesetConditionsRepositoryPropertyOutput)
+}
+
+// The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+func (o OrganizationRulesetConditionsRepositoryPropertyPtrOutput) Excludes() OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryProperty) []OrganizationRulesetConditionsRepositoryPropertyExclude {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput)
+}
+
+// The repository properties and values to include. All of these properties must match for the condition to pass.
+func (o OrganizationRulesetConditionsRepositoryPropertyPtrOutput) Includes() OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return o.ApplyT(func(v *OrganizationRulesetConditionsRepositoryProperty) []OrganizationRulesetConditionsRepositoryPropertyInclude {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyExclude struct {
+	// (String) The name of the ruleset.
+	Name string `pulumi:"name"`
+	// The values to match for the repository property.
+	PropertyValues []string `pulumi:"propertyValues"`
+	// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+	Source *string `pulumi:"source"`
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyExcludeInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyExcludeArgs and OrganizationRulesetConditionsRepositoryPropertyExcludeOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyExcludeInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryPropertyExcludeArgs{...}
+type OrganizationRulesetConditionsRepositoryPropertyExcludeInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeOutput
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyExcludeArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The values to match for the repository property.
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+	// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (OrganizationRulesetConditionsRepositoryPropertyExcludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyExclude)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyExcludeArgs) ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyExcludeArgs) ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyExcludeOutput)
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyExcludeArrayInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyExcludeArray and OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyExcludeArrayInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryPropertyExcludeArray{ OrganizationRulesetConditionsRepositoryPropertyExcludeArgs{...} }
+type OrganizationRulesetConditionsRepositoryPropertyExcludeArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyExcludeArray []OrganizationRulesetConditionsRepositoryPropertyExcludeInput
+
+func (OrganizationRulesetConditionsRepositoryPropertyExcludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetConditionsRepositoryPropertyExclude)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyExcludeArray) ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyExcludeArray) ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyExcludeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyExclude)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) ToOrganizationRulesetConditionsRepositoryPropertyExcludeOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeOutput {
+	return o
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyExclude) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The values to match for the repository property.
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyExclude) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyExclude) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetConditionsRepositoryPropertyExclude)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput) ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput) ToOrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetConditionsRepositoryPropertyExcludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetConditionsRepositoryPropertyExclude {
+		return vs[0].([]OrganizationRulesetConditionsRepositoryPropertyExclude)[vs[1].(int)]
+	}).(OrganizationRulesetConditionsRepositoryPropertyExcludeOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyInclude struct {
+	// (String) The name of the ruleset.
+	Name string `pulumi:"name"`
+	// The values to match for the repository property.
+	PropertyValues []string `pulumi:"propertyValues"`
+	// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+	Source *string `pulumi:"source"`
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyIncludeInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyIncludeArgs and OrganizationRulesetConditionsRepositoryPropertyIncludeOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyIncludeInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryPropertyIncludeArgs{...}
+type OrganizationRulesetConditionsRepositoryPropertyIncludeInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeOutput
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyIncludeArgs struct {
+	// (String) The name of the ruleset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The values to match for the repository property.
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+	// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (OrganizationRulesetConditionsRepositoryPropertyIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyInclude)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyIncludeArgs) ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyIncludeArgs) ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyIncludeOutput)
+}
+
+// OrganizationRulesetConditionsRepositoryPropertyIncludeArrayInput is an input type that accepts OrganizationRulesetConditionsRepositoryPropertyIncludeArray and OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput values.
+// You can construct a concrete instance of `OrganizationRulesetConditionsRepositoryPropertyIncludeArrayInput` via:
+//
+//	OrganizationRulesetConditionsRepositoryPropertyIncludeArray{ OrganizationRulesetConditionsRepositoryPropertyIncludeArgs{...} }
+type OrganizationRulesetConditionsRepositoryPropertyIncludeArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput
+	ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutputWithContext(context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyIncludeArray []OrganizationRulesetConditionsRepositoryPropertyIncludeInput
+
+func (OrganizationRulesetConditionsRepositoryPropertyIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetConditionsRepositoryPropertyInclude)(nil)).Elem()
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyIncludeArray) ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return i.ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationRulesetConditionsRepositoryPropertyIncludeArray) ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyIncludeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyInclude)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) ToOrganizationRulesetConditionsRepositoryPropertyIncludeOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeOutput {
+	return o
+}
+
+// (String) The name of the ruleset.
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyInclude) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The values to match for the repository property.
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyInclude) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+// The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationRulesetConditionsRepositoryPropertyInclude) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationRulesetConditionsRepositoryPropertyInclude)(nil)).Elem()
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput) ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput() OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput) ToOrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutputWithContext(ctx context.Context) OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput {
+	return o
+}
+
+func (o OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput) Index(i pulumi.IntInput) OrganizationRulesetConditionsRepositoryPropertyIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRulesetConditionsRepositoryPropertyInclude {
+		return vs[0].([]OrganizationRulesetConditionsRepositoryPropertyInclude)[vs[1].(int)]
+	}).(OrganizationRulesetConditionsRepositoryPropertyIncludeOutput)
 }
 
 type OrganizationRulesetRules struct {
@@ -7661,7 +8072,7 @@ func (o RepositoryEnvironmentReviewerArrayOutput) Index(i pulumi.IntInput) Repos
 	}).(RepositoryEnvironmentReviewerOutput)
 }
 
-type RepositoryPages struct {
+type RepositoryPagesType struct {
 	// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
 	BuildType *string `pulumi:"buildType"`
 	// The custom domain for the repository. This can only be set after the repository has been created.
@@ -7677,18 +8088,18 @@ type RepositoryPages struct {
 	Url    *string `pulumi:"url"`
 }
 
-// RepositoryPagesInput is an input type that accepts RepositoryPagesArgs and RepositoryPagesOutput values.
-// You can construct a concrete instance of `RepositoryPagesInput` via:
+// RepositoryPagesTypeInput is an input type that accepts RepositoryPagesTypeArgs and RepositoryPagesTypeOutput values.
+// You can construct a concrete instance of `RepositoryPagesTypeInput` via:
 //
-//	RepositoryPagesArgs{...}
-type RepositoryPagesInput interface {
+//	RepositoryPagesTypeArgs{...}
+type RepositoryPagesTypeInput interface {
 	pulumi.Input
 
-	ToRepositoryPagesOutput() RepositoryPagesOutput
-	ToRepositoryPagesOutputWithContext(context.Context) RepositoryPagesOutput
+	ToRepositoryPagesTypeOutput() RepositoryPagesTypeOutput
+	ToRepositoryPagesTypeOutputWithContext(context.Context) RepositoryPagesTypeOutput
 }
 
-type RepositoryPagesArgs struct {
+type RepositoryPagesTypeArgs struct {
 	// The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
 	BuildType pulumi.StringPtrInput `pulumi:"buildType"`
 	// The custom domain for the repository. This can only be set after the repository has been created.
@@ -7704,144 +8115,144 @@ type RepositoryPagesArgs struct {
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 }
 
-func (RepositoryPagesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPages)(nil)).Elem()
+func (RepositoryPagesTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPagesType)(nil)).Elem()
 }
 
-func (i RepositoryPagesArgs) ToRepositoryPagesOutput() RepositoryPagesOutput {
-	return i.ToRepositoryPagesOutputWithContext(context.Background())
+func (i RepositoryPagesTypeArgs) ToRepositoryPagesTypeOutput() RepositoryPagesTypeOutput {
+	return i.ToRepositoryPagesTypeOutputWithContext(context.Background())
 }
 
-func (i RepositoryPagesArgs) ToRepositoryPagesOutputWithContext(ctx context.Context) RepositoryPagesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesOutput)
+func (i RepositoryPagesTypeArgs) ToRepositoryPagesTypeOutputWithContext(ctx context.Context) RepositoryPagesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesTypeOutput)
 }
 
-func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
-	return i.ToRepositoryPagesPtrOutputWithContext(context.Background())
+func (i RepositoryPagesTypeArgs) ToRepositoryPagesTypePtrOutput() RepositoryPagesTypePtrOutput {
+	return i.ToRepositoryPagesTypePtrOutputWithContext(context.Background())
 }
 
-func (i RepositoryPagesArgs) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesOutput).ToRepositoryPagesPtrOutputWithContext(ctx)
+func (i RepositoryPagesTypeArgs) ToRepositoryPagesTypePtrOutputWithContext(ctx context.Context) RepositoryPagesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesTypeOutput).ToRepositoryPagesTypePtrOutputWithContext(ctx)
 }
 
-// RepositoryPagesPtrInput is an input type that accepts RepositoryPagesArgs, RepositoryPagesPtr and RepositoryPagesPtrOutput values.
-// You can construct a concrete instance of `RepositoryPagesPtrInput` via:
+// RepositoryPagesTypePtrInput is an input type that accepts RepositoryPagesTypeArgs, RepositoryPagesTypePtr and RepositoryPagesTypePtrOutput values.
+// You can construct a concrete instance of `RepositoryPagesTypePtrInput` via:
 //
-//	        RepositoryPagesArgs{...}
+//	        RepositoryPagesTypeArgs{...}
 //
 //	or:
 //
 //	        nil
-type RepositoryPagesPtrInput interface {
+type RepositoryPagesTypePtrInput interface {
 	pulumi.Input
 
-	ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput
-	ToRepositoryPagesPtrOutputWithContext(context.Context) RepositoryPagesPtrOutput
+	ToRepositoryPagesTypePtrOutput() RepositoryPagesTypePtrOutput
+	ToRepositoryPagesTypePtrOutputWithContext(context.Context) RepositoryPagesTypePtrOutput
 }
 
-type repositoryPagesPtrType RepositoryPagesArgs
+type repositoryPagesTypePtrType RepositoryPagesTypeArgs
 
-func RepositoryPagesPtr(v *RepositoryPagesArgs) RepositoryPagesPtrInput {
-	return (*repositoryPagesPtrType)(v)
+func RepositoryPagesTypePtr(v *RepositoryPagesTypeArgs) RepositoryPagesTypePtrInput {
+	return (*repositoryPagesTypePtrType)(v)
 }
 
-func (*repositoryPagesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPages)(nil)).Elem()
+func (*repositoryPagesTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPagesType)(nil)).Elem()
 }
 
-func (i *repositoryPagesPtrType) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
-	return i.ToRepositoryPagesPtrOutputWithContext(context.Background())
+func (i *repositoryPagesTypePtrType) ToRepositoryPagesTypePtrOutput() RepositoryPagesTypePtrOutput {
+	return i.ToRepositoryPagesTypePtrOutputWithContext(context.Background())
 }
 
-func (i *repositoryPagesPtrType) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesPtrOutput)
+func (i *repositoryPagesTypePtrType) ToRepositoryPagesTypePtrOutputWithContext(ctx context.Context) RepositoryPagesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPagesTypePtrOutput)
 }
 
-type RepositoryPagesOutput struct{ *pulumi.OutputState }
+type RepositoryPagesTypeOutput struct{ *pulumi.OutputState }
 
-func (RepositoryPagesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPages)(nil)).Elem()
+func (RepositoryPagesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPagesType)(nil)).Elem()
 }
 
-func (o RepositoryPagesOutput) ToRepositoryPagesOutput() RepositoryPagesOutput {
+func (o RepositoryPagesTypeOutput) ToRepositoryPagesTypeOutput() RepositoryPagesTypeOutput {
 	return o
 }
 
-func (o RepositoryPagesOutput) ToRepositoryPagesOutputWithContext(ctx context.Context) RepositoryPagesOutput {
+func (o RepositoryPagesTypeOutput) ToRepositoryPagesTypeOutputWithContext(ctx context.Context) RepositoryPagesTypeOutput {
 	return o
 }
 
-func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
-	return o.ToRepositoryPagesPtrOutputWithContext(context.Background())
+func (o RepositoryPagesTypeOutput) ToRepositoryPagesTypePtrOutput() RepositoryPagesTypePtrOutput {
+	return o.ToRepositoryPagesTypePtrOutputWithContext(context.Background())
 }
 
-func (o RepositoryPagesOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPages) *RepositoryPages {
+func (o RepositoryPagesTypeOutput) ToRepositoryPagesTypePtrOutputWithContext(ctx context.Context) RepositoryPagesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPagesType) *RepositoryPagesType {
 		return &v
-	}).(RepositoryPagesPtrOutput)
+	}).(RepositoryPagesTypePtrOutput)
 }
 
 // The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
-func (o RepositoryPagesOutput) BuildType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *string { return v.BuildType }).(pulumi.StringPtrOutput)
+func (o RepositoryPagesTypeOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *string { return v.BuildType }).(pulumi.StringPtrOutput)
 }
 
 // The custom domain for the repository. This can only be set after the repository has been created.
-func (o RepositoryPagesOutput) Cname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *string { return v.Cname }).(pulumi.StringPtrOutput)
+func (o RepositoryPagesTypeOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
 // Whether the rendered GitHub Pages site has a custom 404 page.
-func (o RepositoryPagesOutput) Custom404() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *bool { return v.Custom404 }).(pulumi.BoolPtrOutput)
+func (o RepositoryPagesTypeOutput) Custom404() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *bool { return v.Custom404 }).(pulumi.BoolPtrOutput)
 }
 
 // The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-func (o RepositoryPagesOutput) HtmlUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *string { return v.HtmlUrl }).(pulumi.StringPtrOutput)
+func (o RepositoryPagesTypeOutput) HtmlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *string { return v.HtmlUrl }).(pulumi.StringPtrOutput)
 }
 
 // The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-func (o RepositoryPagesOutput) Source() RepositoryPagesSourcePtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *RepositoryPagesSource { return v.Source }).(RepositoryPagesSourcePtrOutput)
+func (o RepositoryPagesTypeOutput) Source() RepositoryPagesSourcePtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *RepositoryPagesSource { return v.Source }).(RepositoryPagesSourcePtrOutput)
 }
 
 // The GitHub Pages site's build status e.g. `building` or `built`.
-func (o RepositoryPagesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o RepositoryPagesTypeOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-func (o RepositoryPagesOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryPages) *string { return v.Url }).(pulumi.StringPtrOutput)
+func (o RepositoryPagesTypeOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryPagesType) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-type RepositoryPagesPtrOutput struct{ *pulumi.OutputState }
+type RepositoryPagesTypePtrOutput struct{ *pulumi.OutputState }
 
-func (RepositoryPagesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPages)(nil)).Elem()
+func (RepositoryPagesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPagesType)(nil)).Elem()
 }
 
-func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutput() RepositoryPagesPtrOutput {
+func (o RepositoryPagesTypePtrOutput) ToRepositoryPagesTypePtrOutput() RepositoryPagesTypePtrOutput {
 	return o
 }
 
-func (o RepositoryPagesPtrOutput) ToRepositoryPagesPtrOutputWithContext(ctx context.Context) RepositoryPagesPtrOutput {
+func (o RepositoryPagesTypePtrOutput) ToRepositoryPagesTypePtrOutputWithContext(ctx context.Context) RepositoryPagesTypePtrOutput {
 	return o
 }
 
-func (o RepositoryPagesPtrOutput) Elem() RepositoryPagesOutput {
-	return o.ApplyT(func(v *RepositoryPages) RepositoryPages {
+func (o RepositoryPagesTypePtrOutput) Elem() RepositoryPagesTypeOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) RepositoryPagesType {
 		if v != nil {
 			return *v
 		}
-		var ret RepositoryPages
+		var ret RepositoryPagesType
 		return ret
-	}).(RepositoryPagesOutput)
+	}).(RepositoryPagesTypeOutput)
 }
 
 // The type of GitHub Pages site to build. Can be `legacy` or `workflow`. If you use `legacy` as build type you need to set the option `source`.
-func (o RepositoryPagesPtrOutput) BuildType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *string {
+func (o RepositoryPagesTypePtrOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7850,8 +8261,8 @@ func (o RepositoryPagesPtrOutput) BuildType() pulumi.StringPtrOutput {
 }
 
 // The custom domain for the repository. This can only be set after the repository has been created.
-func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *string {
+func (o RepositoryPagesTypePtrOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7860,8 +8271,8 @@ func (o RepositoryPagesPtrOutput) Cname() pulumi.StringPtrOutput {
 }
 
 // Whether the rendered GitHub Pages site has a custom 404 page.
-func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *bool {
+func (o RepositoryPagesTypePtrOutput) Custom404() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -7870,8 +8281,8 @@ func (o RepositoryPagesPtrOutput) Custom404() pulumi.BoolPtrOutput {
 }
 
 // The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
-func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *string {
+func (o RepositoryPagesTypePtrOutput) HtmlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7880,8 +8291,8 @@ func (o RepositoryPagesPtrOutput) HtmlUrl() pulumi.StringPtrOutput {
 }
 
 // The source branch and directory for the rendered Pages site. See GitHub Pages Source below for details.
-func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *RepositoryPagesSource {
+func (o RepositoryPagesTypePtrOutput) Source() RepositoryPagesSourcePtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *RepositoryPagesSource {
 		if v == nil {
 			return nil
 		}
@@ -7890,8 +8301,8 @@ func (o RepositoryPagesPtrOutput) Source() RepositoryPagesSourcePtrOutput {
 }
 
 // The GitHub Pages site's build status e.g. `building` or `built`.
-func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *string {
+func (o RepositoryPagesTypePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7899,8 +8310,8 @@ func (o RepositoryPagesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o RepositoryPagesPtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryPages) *string {
+func (o RepositoryPagesTypePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPagesType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7909,9 +8320,9 @@ func (o RepositoryPagesPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type RepositoryPagesSource struct {
-	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	// The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
 	Branch string `pulumi:"branch"`
-	// The repository directory from which the site publishes (Default: `/`).
+	// The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
 	Path *string `pulumi:"path"`
 }
 
@@ -7927,9 +8338,9 @@ type RepositoryPagesSourceInput interface {
 }
 
 type RepositoryPagesSourceArgs struct {
-	// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+	// The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
 	Branch pulumi.StringInput `pulumi:"branch"`
-	// The repository directory from which the site publishes (Default: `/`).
+	// The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -8010,12 +8421,12 @@ func (o RepositoryPagesSourceOutput) ToRepositoryPagesSourcePtrOutputWithContext
 	}).(RepositoryPagesSourcePtrOutput)
 }
 
-// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+// The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
 func (o RepositoryPagesSourceOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryPagesSource) string { return v.Branch }).(pulumi.StringOutput)
 }
 
-// The repository directory from which the site publishes (Default: `/`).
+// The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
 func (o RepositoryPagesSourceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryPagesSource) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -8044,7 +8455,7 @@ func (o RepositoryPagesSourcePtrOutput) Elem() RepositoryPagesSourceOutput {
 	}).(RepositoryPagesSourceOutput)
 }
 
-// The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+// The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
 func (o RepositoryPagesSourcePtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPagesSource) *string {
 		if v == nil {
@@ -8054,7 +8465,7 @@ func (o RepositoryPagesSourcePtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository directory from which the site publishes (Default: `/`).
+// The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
 func (o RepositoryPagesSourcePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryPagesSource) *string {
 		if v == nil {
@@ -13634,11 +14045,13 @@ func (o TeamMembersMemberArrayOutput) Index(i pulumi.IntInput) TeamMembersMember
 }
 
 type TeamSettingsReviewRequestDelegation struct {
-	// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+	// The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
 	Algorithm *string `pulumi:"algorithm"`
 	// The number of team members to assign to a pull request.
 	MemberCount *int `pulumi:"memberCount"`
-	// whether to notify the entire team when at least one member is also assigned to the pull request.
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	//
+	// Deprecated: Use the top-level notify attribute instead.
 	Notify *bool `pulumi:"notify"`
 }
 
@@ -13654,11 +14067,13 @@ type TeamSettingsReviewRequestDelegationInput interface {
 }
 
 type TeamSettingsReviewRequestDelegationArgs struct {
-	// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+	// The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
 	// The number of team members to assign to a pull request.
 	MemberCount pulumi.IntPtrInput `pulumi:"memberCount"`
-	// whether to notify the entire team when at least one member is also assigned to the pull request.
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	//
+	// Deprecated: Use the top-level notify attribute instead.
 	Notify pulumi.BoolPtrInput `pulumi:"notify"`
 }
 
@@ -13739,7 +14154,7 @@ func (o TeamSettingsReviewRequestDelegationOutput) ToTeamSettingsReviewRequestDe
 	}).(TeamSettingsReviewRequestDelegationPtrOutput)
 }
 
-// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+// The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
 func (o TeamSettingsReviewRequestDelegationOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
@@ -13749,7 +14164,9 @@ func (o TeamSettingsReviewRequestDelegationOutput) MemberCount() pulumi.IntPtrOu
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *int { return v.MemberCount }).(pulumi.IntPtrOutput)
 }
 
-// whether to notify the entire team when at least one member is also assigned to the pull request.
+// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+//
+// Deprecated: Use the top-level notify attribute instead.
 func (o TeamSettingsReviewRequestDelegationOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TeamSettingsReviewRequestDelegation) *bool { return v.Notify }).(pulumi.BoolPtrOutput)
 }
@@ -13778,7 +14195,7 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) Elem() TeamSettingsReviewR
 	}).(TeamSettingsReviewRequestDelegationOutput)
 }
 
-// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+// The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
 func (o TeamSettingsReviewRequestDelegationPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *string {
 		if v == nil {
@@ -13798,7 +14215,9 @@ func (o TeamSettingsReviewRequestDelegationPtrOutput) MemberCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// whether to notify the entire team when at least one member is also assigned to the pull request.
+// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+//
+// Deprecated: Use the top-level notify attribute instead.
 func (o TeamSettingsReviewRequestDelegationPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TeamSettingsReviewRequestDelegation) *bool {
 		if v == nil {
@@ -15826,6 +16245,211 @@ func (o GetIssueLabelsLabelArrayOutput) Index(i pulumi.IntInput) GetIssueLabelsL
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIssueLabelsLabel {
 		return vs[0].([]GetIssueLabelsLabel)[vs[1].(int)]
 	}).(GetIssueLabelsLabelOutput)
+}
+
+type GetOrganizationAppInstallationsInstallation struct {
+	// The ID of the GitHub App.
+	AppId int `pulumi:"appId"`
+	// The URL-friendly name of the GitHub App.
+	AppSlug string `pulumi:"appSlug"`
+	// The OAuth client ID of the GitHub App.
+	ClientId string `pulumi:"clientId"`
+	// The date the GitHub App installation was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The list of events the GitHub App installation subscribes to.
+	Events []string `pulumi:"events"`
+	// The ID of the GitHub App installation.
+	Id int `pulumi:"id"`
+	// A map of the permissions granted to the GitHub App installation.
+	Permissions map[string]string `pulumi:"permissions"`
+	// Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+	RepositorySelection string `pulumi:"repositorySelection"`
+	// The list of single file paths the GitHub App installation has access to.
+	SingleFilePaths []string `pulumi:"singleFilePaths"`
+	// Whether the GitHub App installation is currently suspended.
+	Suspended bool `pulumi:"suspended"`
+	// The ID of the account the GitHub App is installed on.
+	TargetId int `pulumi:"targetId"`
+	// The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+	TargetType string `pulumi:"targetType"`
+	// The date the GitHub App installation was last updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetOrganizationAppInstallationsInstallationInput is an input type that accepts GetOrganizationAppInstallationsInstallationArgs and GetOrganizationAppInstallationsInstallationOutput values.
+// You can construct a concrete instance of `GetOrganizationAppInstallationsInstallationInput` via:
+//
+//	GetOrganizationAppInstallationsInstallationArgs{...}
+type GetOrganizationAppInstallationsInstallationInput interface {
+	pulumi.Input
+
+	ToGetOrganizationAppInstallationsInstallationOutput() GetOrganizationAppInstallationsInstallationOutput
+	ToGetOrganizationAppInstallationsInstallationOutputWithContext(context.Context) GetOrganizationAppInstallationsInstallationOutput
+}
+
+type GetOrganizationAppInstallationsInstallationArgs struct {
+	// The ID of the GitHub App.
+	AppId pulumi.IntInput `pulumi:"appId"`
+	// The URL-friendly name of the GitHub App.
+	AppSlug pulumi.StringInput `pulumi:"appSlug"`
+	// The OAuth client ID of the GitHub App.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The date the GitHub App installation was created.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The list of events the GitHub App installation subscribes to.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// The ID of the GitHub App installation.
+	Id pulumi.IntInput `pulumi:"id"`
+	// A map of the permissions granted to the GitHub App installation.
+	Permissions pulumi.StringMapInput `pulumi:"permissions"`
+	// Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+	RepositorySelection pulumi.StringInput `pulumi:"repositorySelection"`
+	// The list of single file paths the GitHub App installation has access to.
+	SingleFilePaths pulumi.StringArrayInput `pulumi:"singleFilePaths"`
+	// Whether the GitHub App installation is currently suspended.
+	Suspended pulumi.BoolInput `pulumi:"suspended"`
+	// The ID of the account the GitHub App is installed on.
+	TargetId pulumi.IntInput `pulumi:"targetId"`
+	// The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+	TargetType pulumi.StringInput `pulumi:"targetType"`
+	// The date the GitHub App installation was last updated.
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetOrganizationAppInstallationsInstallationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationAppInstallationsInstallation)(nil)).Elem()
+}
+
+func (i GetOrganizationAppInstallationsInstallationArgs) ToGetOrganizationAppInstallationsInstallationOutput() GetOrganizationAppInstallationsInstallationOutput {
+	return i.ToGetOrganizationAppInstallationsInstallationOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationAppInstallationsInstallationArgs) ToGetOrganizationAppInstallationsInstallationOutputWithContext(ctx context.Context) GetOrganizationAppInstallationsInstallationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAppInstallationsInstallationOutput)
+}
+
+// GetOrganizationAppInstallationsInstallationArrayInput is an input type that accepts GetOrganizationAppInstallationsInstallationArray and GetOrganizationAppInstallationsInstallationArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationAppInstallationsInstallationArrayInput` via:
+//
+//	GetOrganizationAppInstallationsInstallationArray{ GetOrganizationAppInstallationsInstallationArgs{...} }
+type GetOrganizationAppInstallationsInstallationArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationAppInstallationsInstallationArrayOutput() GetOrganizationAppInstallationsInstallationArrayOutput
+	ToGetOrganizationAppInstallationsInstallationArrayOutputWithContext(context.Context) GetOrganizationAppInstallationsInstallationArrayOutput
+}
+
+type GetOrganizationAppInstallationsInstallationArray []GetOrganizationAppInstallationsInstallationInput
+
+func (GetOrganizationAppInstallationsInstallationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationAppInstallationsInstallation)(nil)).Elem()
+}
+
+func (i GetOrganizationAppInstallationsInstallationArray) ToGetOrganizationAppInstallationsInstallationArrayOutput() GetOrganizationAppInstallationsInstallationArrayOutput {
+	return i.ToGetOrganizationAppInstallationsInstallationArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationAppInstallationsInstallationArray) ToGetOrganizationAppInstallationsInstallationArrayOutputWithContext(ctx context.Context) GetOrganizationAppInstallationsInstallationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAppInstallationsInstallationArrayOutput)
+}
+
+type GetOrganizationAppInstallationsInstallationOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationAppInstallationsInstallationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationAppInstallationsInstallation)(nil)).Elem()
+}
+
+func (o GetOrganizationAppInstallationsInstallationOutput) ToGetOrganizationAppInstallationsInstallationOutput() GetOrganizationAppInstallationsInstallationOutput {
+	return o
+}
+
+func (o GetOrganizationAppInstallationsInstallationOutput) ToGetOrganizationAppInstallationsInstallationOutputWithContext(ctx context.Context) GetOrganizationAppInstallationsInstallationOutput {
+	return o
+}
+
+// The ID of the GitHub App.
+func (o GetOrganizationAppInstallationsInstallationOutput) AppId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) int { return v.AppId }).(pulumi.IntOutput)
+}
+
+// The URL-friendly name of the GitHub App.
+func (o GetOrganizationAppInstallationsInstallationOutput) AppSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.AppSlug }).(pulumi.StringOutput)
+}
+
+// The OAuth client ID of the GitHub App.
+func (o GetOrganizationAppInstallationsInstallationOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The date the GitHub App installation was created.
+func (o GetOrganizationAppInstallationsInstallationOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The list of events the GitHub App installation subscribes to.
+func (o GetOrganizationAppInstallationsInstallationOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the GitHub App installation.
+func (o GetOrganizationAppInstallationsInstallationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// A map of the permissions granted to the GitHub App installation.
+func (o GetOrganizationAppInstallationsInstallationOutput) Permissions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) map[string]string { return v.Permissions }).(pulumi.StringMapOutput)
+}
+
+// Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+func (o GetOrganizationAppInstallationsInstallationOutput) RepositorySelection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.RepositorySelection }).(pulumi.StringOutput)
+}
+
+// The list of single file paths the GitHub App installation has access to.
+func (o GetOrganizationAppInstallationsInstallationOutput) SingleFilePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) []string { return v.SingleFilePaths }).(pulumi.StringArrayOutput)
+}
+
+// Whether the GitHub App installation is currently suspended.
+func (o GetOrganizationAppInstallationsInstallationOutput) Suspended() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) bool { return v.Suspended }).(pulumi.BoolOutput)
+}
+
+// The ID of the account the GitHub App is installed on.
+func (o GetOrganizationAppInstallationsInstallationOutput) TargetId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) int { return v.TargetId }).(pulumi.IntOutput)
+}
+
+// The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+func (o GetOrganizationAppInstallationsInstallationOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.TargetType }).(pulumi.StringOutput)
+}
+
+// The date the GitHub App installation was last updated.
+func (o GetOrganizationAppInstallationsInstallationOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAppInstallationsInstallation) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetOrganizationAppInstallationsInstallationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationAppInstallationsInstallationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationAppInstallationsInstallation)(nil)).Elem()
+}
+
+func (o GetOrganizationAppInstallationsInstallationArrayOutput) ToGetOrganizationAppInstallationsInstallationArrayOutput() GetOrganizationAppInstallationsInstallationArrayOutput {
+	return o
+}
+
+func (o GetOrganizationAppInstallationsInstallationArrayOutput) ToGetOrganizationAppInstallationsInstallationArrayOutputWithContext(ctx context.Context) GetOrganizationAppInstallationsInstallationArrayOutput {
+	return o
+}
+
+func (o GetOrganizationAppInstallationsInstallationArrayOutput) Index(i pulumi.IntInput) GetOrganizationAppInstallationsInstallationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationAppInstallationsInstallation {
+		return vs[0].([]GetOrganizationAppInstallationsInstallation)[vs[1].(int)]
+	}).(GetOrganizationAppInstallationsInstallationOutput)
 }
 
 type GetOrganizationExternalIdentitiesIdentity struct {
@@ -18347,6 +18971,112 @@ func (o GetRepositoryPageSourceArrayOutput) Index(i pulumi.IntInput) GetReposito
 	}).(GetRepositoryPageSourceOutput)
 }
 
+type GetRepositoryPagesSource struct {
+	// The repository branch used to publish the site's source files.
+	Branch string `pulumi:"branch"`
+	// The repository directory from which the site publishes.
+	Path string `pulumi:"path"`
+}
+
+// GetRepositoryPagesSourceInput is an input type that accepts GetRepositoryPagesSourceArgs and GetRepositoryPagesSourceOutput values.
+// You can construct a concrete instance of `GetRepositoryPagesSourceInput` via:
+//
+//	GetRepositoryPagesSourceArgs{...}
+type GetRepositoryPagesSourceInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPagesSourceOutput() GetRepositoryPagesSourceOutput
+	ToGetRepositoryPagesSourceOutputWithContext(context.Context) GetRepositoryPagesSourceOutput
+}
+
+type GetRepositoryPagesSourceArgs struct {
+	// The repository branch used to publish the site's source files.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// The repository directory from which the site publishes.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetRepositoryPagesSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPagesSource)(nil)).Elem()
+}
+
+func (i GetRepositoryPagesSourceArgs) ToGetRepositoryPagesSourceOutput() GetRepositoryPagesSourceOutput {
+	return i.ToGetRepositoryPagesSourceOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPagesSourceArgs) ToGetRepositoryPagesSourceOutputWithContext(ctx context.Context) GetRepositoryPagesSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPagesSourceOutput)
+}
+
+// GetRepositoryPagesSourceArrayInput is an input type that accepts GetRepositoryPagesSourceArray and GetRepositoryPagesSourceArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryPagesSourceArrayInput` via:
+//
+//	GetRepositoryPagesSourceArray{ GetRepositoryPagesSourceArgs{...} }
+type GetRepositoryPagesSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryPagesSourceArrayOutput() GetRepositoryPagesSourceArrayOutput
+	ToGetRepositoryPagesSourceArrayOutputWithContext(context.Context) GetRepositoryPagesSourceArrayOutput
+}
+
+type GetRepositoryPagesSourceArray []GetRepositoryPagesSourceInput
+
+func (GetRepositoryPagesSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPagesSource)(nil)).Elem()
+}
+
+func (i GetRepositoryPagesSourceArray) ToGetRepositoryPagesSourceArrayOutput() GetRepositoryPagesSourceArrayOutput {
+	return i.ToGetRepositoryPagesSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryPagesSourceArray) ToGetRepositoryPagesSourceArrayOutputWithContext(ctx context.Context) GetRepositoryPagesSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryPagesSourceArrayOutput)
+}
+
+type GetRepositoryPagesSourceOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPagesSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryPagesSource)(nil)).Elem()
+}
+
+func (o GetRepositoryPagesSourceOutput) ToGetRepositoryPagesSourceOutput() GetRepositoryPagesSourceOutput {
+	return o
+}
+
+func (o GetRepositoryPagesSourceOutput) ToGetRepositoryPagesSourceOutputWithContext(ctx context.Context) GetRepositoryPagesSourceOutput {
+	return o
+}
+
+// The repository branch used to publish the site's source files.
+func (o GetRepositoryPagesSourceOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPagesSource) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// The repository directory from which the site publishes.
+func (o GetRepositoryPagesSourceOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryPagesSource) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetRepositoryPagesSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryPagesSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryPagesSource)(nil)).Elem()
+}
+
+func (o GetRepositoryPagesSourceArrayOutput) ToGetRepositoryPagesSourceArrayOutput() GetRepositoryPagesSourceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPagesSourceArrayOutput) ToGetRepositoryPagesSourceArrayOutputWithContext(ctx context.Context) GetRepositoryPagesSourceArrayOutput {
+	return o
+}
+
+func (o GetRepositoryPagesSourceArrayOutput) Index(i pulumi.IntInput) GetRepositoryPagesSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryPagesSource {
+		return vs[0].([]GetRepositoryPagesSource)[vs[1].(int)]
+	}).(GetRepositoryPagesSourceOutput)
+}
+
 type GetRepositoryPullRequestsResult struct {
 	// If set, filters Pull Requests by base branch name.
 	BaseRef string `pulumi:"baseRef"`
@@ -19584,6 +20314,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRefNamePtrInput)(nil)).Elem(), OrganizationRulesetConditionsRefNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryNameInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryNamePtrInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyPtrInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyExcludeInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyExcludeArrayInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyExcludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyIncludeInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetConditionsRepositoryPropertyIncludeArrayInput)(nil)).Elem(), OrganizationRulesetConditionsRepositoryPropertyIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesInput)(nil)).Elem(), OrganizationRulesetRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesPtrInput)(nil)).Elem(), OrganizationRulesetRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationRulesetRulesBranchNamePatternInput)(nil)).Elem(), OrganizationRulesetRulesBranchNamePatternArgs{})
@@ -19637,8 +20373,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentDeploymentBranchPolicyPtrInput)(nil)).Elem(), RepositoryEnvironmentDeploymentBranchPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerInput)(nil)).Elem(), RepositoryEnvironmentReviewerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEnvironmentReviewerArrayInput)(nil)).Elem(), RepositoryEnvironmentReviewerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesInput)(nil)).Elem(), RepositoryPagesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesPtrInput)(nil)).Elem(), RepositoryPagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesTypeInput)(nil)).Elem(), RepositoryPagesTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesTypePtrInput)(nil)).Elem(), RepositoryPagesTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourceInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPagesSourcePtrInput)(nil)).Elem(), RepositoryPagesSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryRulesetBypassActorInput)(nil)).Elem(), RepositoryRulesetBypassActorArgs{})
@@ -19740,6 +20476,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalGroupsExternalGroupArrayInput)(nil)).Elem(), GetExternalGroupsExternalGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelInput)(nil)).Elem(), GetIssueLabelsLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIssueLabelsLabelArrayInput)(nil)).Elem(), GetIssueLabelsLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationAppInstallationsInstallationInput)(nil)).Elem(), GetOrganizationAppInstallationsInstallationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationAppInstallationsInstallationArrayInput)(nil)).Elem(), GetOrganizationAppInstallationsInstallationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentityInput)(nil)).Elem(), GetOrganizationExternalIdentitiesIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationExternalIdentitiesIdentityArrayInput)(nil)).Elem(), GetOrganizationExternalIdentitiesIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationIpAllowListIpAllowListInput)(nil)).Elem(), GetOrganizationIpAllowListIpAllowListArgs{})
@@ -19780,6 +20518,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageArrayInput)(nil)).Elem(), GetRepositoryPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceInput)(nil)).Elem(), GetRepositoryPageSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPageSourceArrayInput)(nil)).Elem(), GetRepositoryPageSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPagesSourceInput)(nil)).Elem(), GetRepositoryPagesSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPagesSourceArrayInput)(nil)).Elem(), GetRepositoryPagesSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultInput)(nil)).Elem(), GetRepositoryPullRequestsResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryPullRequestsResultArrayInput)(nil)).Elem(), GetRepositoryPullRequestsResultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryRepositoryLicenseInput)(nil)).Elem(), GetRepositoryRepositoryLicenseArgs{})
@@ -19836,6 +20576,12 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationRulesetConditionsRefNamePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryNameOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryNamePtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyExcludeOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyExcludeArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyIncludeOutput{})
+	pulumi.RegisterOutputType(OrganizationRulesetConditionsRepositoryPropertyIncludeArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationRulesetRulesBranchNamePatternOutput{})
@@ -19889,8 +20635,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryEnvironmentDeploymentBranchPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerOutput{})
 	pulumi.RegisterOutputType(RepositoryEnvironmentReviewerArrayOutput{})
-	pulumi.RegisterOutputType(RepositoryPagesOutput{})
-	pulumi.RegisterOutputType(RepositoryPagesPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesTypeOutput{})
+	pulumi.RegisterOutputType(RepositoryPagesTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourceOutput{})
 	pulumi.RegisterOutputType(RepositoryPagesSourcePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRulesetBypassActorOutput{})
@@ -19992,6 +20738,8 @@ func init() {
 	pulumi.RegisterOutputType(GetExternalGroupsExternalGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetIssueLabelsLabelOutput{})
 	pulumi.RegisterOutputType(GetIssueLabelsLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationAppInstallationsInstallationOutput{})
+	pulumi.RegisterOutputType(GetOrganizationAppInstallationsInstallationArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationExternalIdentitiesIdentityOutput{})
 	pulumi.RegisterOutputType(GetOrganizationExternalIdentitiesIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationIpAllowListIpAllowListOutput{})
@@ -20032,6 +20780,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRepositoryPageArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPageSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPagesSourceOutput{})
+	pulumi.RegisterOutputType(GetRepositoryPagesSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultOutput{})
 	pulumi.RegisterOutputType(GetRepositoryPullRequestsResultArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryRepositoryLicenseOutput{})

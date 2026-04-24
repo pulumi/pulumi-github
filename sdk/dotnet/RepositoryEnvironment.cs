@@ -60,7 +60,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+    /// This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+    /// 
+    /// ### Import Command
+    /// 
+    /// The following command imports an environment called `Myenv` for the repo `Myrepo` to a `github.RepositoryEnvironment` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -98,6 +102,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
 
         /// <summary>
         /// The environment reviewers configuration.
@@ -242,6 +252,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         [Input("reviewers")]
         private InputList<Inputs.RepositoryEnvironmentReviewerGetArgs>? _reviewers;

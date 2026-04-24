@@ -185,6 +185,11 @@ export type EnterpriseActionsWorkflowPermissions = import("./enterpriseActionsWo
 export const EnterpriseActionsWorkflowPermissions: typeof import("./enterpriseActionsWorkflowPermissions").EnterpriseActionsWorkflowPermissions = null as any;
 utilities.lazyLoad(exports, ["EnterpriseActionsWorkflowPermissions"], () => require("./enterpriseActionsWorkflowPermissions"));
 
+export { EnterpriseIpAllowListEntryArgs, EnterpriseIpAllowListEntryState } from "./enterpriseIpAllowListEntry";
+export type EnterpriseIpAllowListEntry = import("./enterpriseIpAllowListEntry").EnterpriseIpAllowListEntry;
+export const EnterpriseIpAllowListEntry: typeof import("./enterpriseIpAllowListEntry").EnterpriseIpAllowListEntry = null as any;
+utilities.lazyLoad(exports, ["EnterpriseIpAllowListEntry"], () => require("./enterpriseIpAllowListEntry"));
+
 export { EnterpriseOrganizationArgs, EnterpriseOrganizationState } from "./enterpriseOrganization";
 export type EnterpriseOrganization = import("./enterpriseOrganization").EnterpriseOrganization;
 export const EnterpriseOrganization: typeof import("./enterpriseOrganization").EnterpriseOrganization = null as any;
@@ -365,6 +370,11 @@ export const getOrganization: typeof import("./getOrganization").getOrganization
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
+export { GetOrganizationAppInstallationsResult } from "./getOrganizationAppInstallations";
+export const getOrganizationAppInstallations: typeof import("./getOrganizationAppInstallations").getOrganizationAppInstallations = null as any;
+export const getOrganizationAppInstallationsOutput: typeof import("./getOrganizationAppInstallations").getOrganizationAppInstallationsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationAppInstallations","getOrganizationAppInstallationsOutput"], () => require("./getOrganizationAppInstallations"));
+
 export { GetOrganizationCustomPropertiesArgs, GetOrganizationCustomPropertiesResult, GetOrganizationCustomPropertiesOutputArgs } from "./getOrganizationCustomProperties";
 export const getOrganizationCustomProperties: typeof import("./getOrganizationCustomProperties").getOrganizationCustomProperties = null as any;
 export const getOrganizationCustomPropertiesOutput: typeof import("./getOrganizationCustomProperties").getOrganizationCustomPropertiesOutput = null as any;
@@ -504,6 +514,11 @@ export { GetRepositoryMilestoneArgs, GetRepositoryMilestoneResult, GetRepository
 export const getRepositoryMilestone: typeof import("./getRepositoryMilestone").getRepositoryMilestone = null as any;
 export const getRepositoryMilestoneOutput: typeof import("./getRepositoryMilestone").getRepositoryMilestoneOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryMilestone","getRepositoryMilestoneOutput"], () => require("./getRepositoryMilestone"));
+
+export { GetRepositoryPagesArgs, GetRepositoryPagesResult, GetRepositoryPagesOutputArgs } from "./getRepositoryPages";
+export const getRepositoryPages: typeof import("./getRepositoryPages").getRepositoryPages = null as any;
+export const getRepositoryPagesOutput: typeof import("./getRepositoryPages").getRepositoryPagesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryPages","getRepositoryPagesOutput"], () => require("./getRepositoryPages"));
 
 export { GetRepositoryPullRequestArgs, GetRepositoryPullRequestResult, GetRepositoryPullRequestOutputArgs } from "./getRepositoryPullRequest";
 export const getRepositoryPullRequest: typeof import("./getRepositoryPullRequest").getRepositoryPullRequest = null as any;
@@ -723,6 +738,11 @@ export type RepositoryMilestone = import("./repositoryMilestone").RepositoryMile
 export const RepositoryMilestone: typeof import("./repositoryMilestone").RepositoryMilestone = null as any;
 utilities.lazyLoad(exports, ["RepositoryMilestone"], () => require("./repositoryMilestone"));
 
+export { RepositoryPagesArgs, RepositoryPagesState } from "./repositoryPages";
+export type RepositoryPages = import("./repositoryPages").RepositoryPages;
+export const RepositoryPages: typeof import("./repositoryPages").RepositoryPages = null as any;
+utilities.lazyLoad(exports, ["RepositoryPages"], () => require("./repositoryPages"));
+
 export { RepositoryProjectArgs, RepositoryProjectState } from "./repositoryProject";
 export type RepositoryProject = import("./repositoryProject").RepositoryProject;
 export const RepositoryProject: typeof import("./repositoryProject").RepositoryProject = null as any;
@@ -742,6 +762,11 @@ export { RepositoryTopicsArgs, RepositoryTopicsState } from "./repositoryTopics"
 export type RepositoryTopics = import("./repositoryTopics").RepositoryTopics;
 export const RepositoryTopics: typeof import("./repositoryTopics").RepositoryTopics = null as any;
 utilities.lazyLoad(exports, ["RepositoryTopics"], () => require("./repositoryTopics"));
+
+export { RepositoryVulnerabilityAlertsArgs, RepositoryVulnerabilityAlertsState } from "./repositoryVulnerabilityAlerts";
+export type RepositoryVulnerabilityAlerts = import("./repositoryVulnerabilityAlerts").RepositoryVulnerabilityAlerts;
+export const RepositoryVulnerabilityAlerts: typeof import("./repositoryVulnerabilityAlerts").RepositoryVulnerabilityAlerts = null as any;
+utilities.lazyLoad(exports, ["RepositoryVulnerabilityAlerts"], () => require("./repositoryVulnerabilityAlerts"));
 
 export { RepositoryWebhookArgs, RepositoryWebhookState } from "./repositoryWebhook";
 export type RepositoryWebhook = import("./repositoryWebhook").RepositoryWebhook;
@@ -884,6 +909,8 @@ const _module = {
                 return new EnterpriseActionsRunnerGroup(name, <any>undefined, { urn })
             case "github:index/enterpriseActionsWorkflowPermissions:EnterpriseActionsWorkflowPermissions":
                 return new EnterpriseActionsWorkflowPermissions(name, <any>undefined, { urn })
+            case "github:index/enterpriseIpAllowListEntry:EnterpriseIpAllowListEntry":
+                return new EnterpriseIpAllowListEntry(name, <any>undefined, { urn })
             case "github:index/enterpriseOrganization:EnterpriseOrganization":
                 return new EnterpriseOrganization(name, <any>undefined, { urn })
             case "github:index/enterpriseSecurityAnalysisSettings:EnterpriseSecurityAnalysisSettings":
@@ -952,6 +979,8 @@ const _module = {
                 return new RepositoryFile(name, <any>undefined, { urn })
             case "github:index/repositoryMilestone:RepositoryMilestone":
                 return new RepositoryMilestone(name, <any>undefined, { urn })
+            case "github:index/repositoryPages:RepositoryPages":
+                return new RepositoryPages(name, <any>undefined, { urn })
             case "github:index/repositoryProject:RepositoryProject":
                 return new RepositoryProject(name, <any>undefined, { urn })
             case "github:index/repositoryPullRequest:RepositoryPullRequest":
@@ -960,6 +989,8 @@ const _module = {
                 return new RepositoryRuleset(name, <any>undefined, { urn })
             case "github:index/repositoryTopics:RepositoryTopics":
                 return new RepositoryTopics(name, <any>undefined, { urn })
+            case "github:index/repositoryVulnerabilityAlerts:RepositoryVulnerabilityAlerts":
+                return new RepositoryVulnerabilityAlerts(name, <any>undefined, { urn })
             case "github:index/repositoryWebhook:RepositoryWebhook":
                 return new RepositoryWebhook(name, <any>undefined, { urn })
             case "github:index/team:Team":
@@ -1023,6 +1054,7 @@ pulumi.runtime.registerResourceModule("github", "index/emuGroupMapping", _module
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsPermissions", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsRunnerGroup", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseActionsWorkflowPermissions", _module)
+pulumi.runtime.registerResourceModule("github", "index/enterpriseIpAllowListEntry", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseOrganization", _module)
 pulumi.runtime.registerResourceModule("github", "index/enterpriseSecurityAnalysisSettings", _module)
 pulumi.runtime.registerResourceModule("github", "index/issue", _module)
@@ -1057,10 +1089,12 @@ pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironment", _
 pulumi.runtime.registerResourceModule("github", "index/repositoryEnvironmentDeploymentPolicy", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryFile", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryMilestone", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryPages", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryProject", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryPullRequest", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryRuleset", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryTopics", _module)
+pulumi.runtime.registerResourceModule("github", "index/repositoryVulnerabilityAlerts", _module)
 pulumi.runtime.registerResourceModule("github", "index/repositoryWebhook", _module)
 pulumi.runtime.registerResourceModule("github", "index/team", _module)
 pulumi.runtime.registerResourceModule("github", "index/teamMembers", _module)

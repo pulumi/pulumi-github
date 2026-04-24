@@ -38,7 +38,11 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * This resource can be imported using an ID made of the repository name, and environment name (any `:` in the name need to be escaped as `??`) separated by a `:`.
+ * This resource can be imported using an ID made of the repository name and environment name (any `:` in the environment name need to be escaped as `??`) separated by a `:`.
+ *
+ * ### Import Command
+ *
+ * The following command imports an environment called `myenv` for the repo `myrepo` to a `github.RepositoryEnvironment` resource named `example`.
  *
  * ```sh
  * $ pulumi import github:index/repositoryEnvironment:RepositoryEnvironment example myrepo:myenv
@@ -93,6 +97,10 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
+     * The ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
      * The environment reviewers configuration.
      */
     declare public readonly reviewers: pulumi.Output<outputs.RepositoryEnvironmentReviewer[] | undefined>;
@@ -119,6 +127,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             resourceInputs["environment"] = state?.environment;
             resourceInputs["preventSelfReview"] = state?.preventSelfReview;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["reviewers"] = state?.reviewers;
             resourceInputs["waitTimer"] = state?.waitTimer;
         } else {
@@ -136,6 +145,7 @@ export class RepositoryEnvironment extends pulumi.CustomResource {
             resourceInputs["repository"] = args?.repository;
             resourceInputs["reviewers"] = args?.reviewers;
             resourceInputs["waitTimer"] = args?.waitTimer;
+            resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryEnvironment.__pulumiType, name, resourceInputs, opts);
@@ -166,6 +176,10 @@ export interface RepositoryEnvironmentState {
      * The repository of the environment.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * The ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
     /**
      * The environment reviewers configuration.
      */

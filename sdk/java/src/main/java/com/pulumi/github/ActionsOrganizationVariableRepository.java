@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ActionsOrganizationVariable("example", ActionsOrganizationVariableArgs.builder()
  *             .variableName("myvariable")
- *             .plaintextValue("foo")
+ *             .value("foo")
  *             .visibility("selected")
  *             .build());
  * 

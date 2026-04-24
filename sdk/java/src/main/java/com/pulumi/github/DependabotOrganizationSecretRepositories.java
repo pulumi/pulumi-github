@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DependabotOrganizationSecret("example", DependabotOrganizationSecretArgs.builder()
  *             .secretName("mysecret")
- *             .plaintextValue("foo")
+ *             .value("foo")
  *             .visibility("selected")
  *             .build());
  * 

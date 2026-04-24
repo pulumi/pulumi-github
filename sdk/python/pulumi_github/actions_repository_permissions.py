@@ -33,7 +33,7 @@ class ActionsRepositoryPermissionsArgs:
         :param pulumi.Input[_builtins.str] allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
         :param pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.bool] enabled: Should GitHub actions be enabled on this repository?
-        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         pulumi.set(__self__, "repository", repository)
         if allowed_actions is not None:
@@ -97,7 +97,7 @@ class ActionsRepositoryPermissionsArgs:
     @pulumi.getter(name="shaPinningRequired")
     def sha_pinning_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         return pulumi.get(self, "sha_pinning_required")
 
@@ -121,7 +121,7 @@ class _ActionsRepositoryPermissionsState:
         :param pulumi.Input['ActionsRepositoryPermissionsAllowedActionsConfigArgs'] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
-        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         if allowed_actions is not None:
             pulumi.set(__self__, "allowed_actions", allowed_actions)
@@ -186,7 +186,7 @@ class _ActionsRepositoryPermissionsState:
     @pulumi.getter(name="shaPinningRequired")
     def sha_pinning_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         return pulumi.get(self, "sha_pinning_required")
 
@@ -246,7 +246,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
-        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         ...
     @overload
@@ -349,7 +349,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionsRepositoryPermissionsAllowedActionsConfigArgs', 'ActionsRepositoryPermissionsAllowedActionsConfigArgsDict']] allowed_actions_config: Sets the actions that are allowed in an repository. Only available when `allowed_actions` = `selected`. See Allowed Actions Config below for details.
         :param pulumi.Input[_builtins.bool] enabled: Should GitHub actions be enabled on this repository?
         :param pulumi.Input[_builtins.str] repository: The GitHub repository
-        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        :param pulumi.Input[_builtins.bool] sha_pinning_required: Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,7 +398,7 @@ class ActionsRepositoryPermissions(pulumi.CustomResource):
     @pulumi.getter(name="shaPinningRequired")
     def sha_pinning_required(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether pinning to a specific SHA is required for all actions and reusable workflows in a repository.
+        Whether pinning to a specific SHA is required for all actions and reusable workflows in the repository.
         """
         return pulumi.get(self, "sha_pinning_required")
 

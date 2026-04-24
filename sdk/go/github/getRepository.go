@@ -115,7 +115,9 @@ type LookupRepositoryResult struct {
 	Name string `pulumi:"name"`
 	// GraphQL global node id for use with v4 API
 	NodeId string `pulumi:"nodeId"`
-	// The repository's GitHub Pages configuration.
+	// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` data source instead. This field will be removed in a future version.
+	//
+	// Deprecated: Use the RepositoryPages data source instead. This field will be removed in a future version.
 	Pages []GetRepositoryPage `pulumi:"pages"`
 	// The primary language used in the repository.
 	PrimaryLanguage string `pulumi:"primaryLanguage"`
@@ -315,7 +317,9 @@ func (o LookupRepositoryResultOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The repository's GitHub Pages configuration.
+// (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` data source instead. This field will be removed in a future version.
+//
+// Deprecated: Use the RepositoryPages data source instead. This field will be removed in a future version.
 func (o LookupRepositoryResultOutput) Pages() GetRepositoryPageArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryPage { return v.Pages }).(GetRepositoryPageArrayOutput)
 }

@@ -21,10 +21,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * GitHub EMU External Group Mappings can be imported using the `teamSlug` and external `groupId` separated by a colon, e.g.
+ * GitHub EMU External Group Mappings can be imported using the external `groupId` and `teamSlug` separated by a colon, e.g.
  *
  * ```sh
- * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
+ * $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
  * ```
  */
 export class EmuGroupMapping extends pulumi.CustomResource {
@@ -55,17 +55,20 @@ export class EmuGroupMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmuGroupMapping.__pulumiType;
     }
 
+    /**
+     * An etag representing the external group state
+     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Integer corresponding to the external group ID to be linked
      */
     declare public readonly groupId: pulumi.Output<number>;
     /**
-     * Name of the external group.
+     * The name of the external group
      */
     declare public /*out*/ readonly groupName: pulumi.Output<string>;
     /**
-     * ID of the GitHub team.
+     * The ID of the GitHub team
      */
     declare public /*out*/ readonly teamId: pulumi.Output<number>;
     /**
@@ -114,17 +117,20 @@ export class EmuGroupMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmuGroupMapping resources.
  */
 export interface EmuGroupMappingState {
+    /**
+     * An etag representing the external group state
+     */
     etag?: pulumi.Input<string>;
     /**
      * Integer corresponding to the external group ID to be linked
      */
     groupId?: pulumi.Input<number>;
     /**
-     * Name of the external group.
+     * The name of the external group
      */
     groupName?: pulumi.Input<string>;
     /**
-     * ID of the GitHub team.
+     * The ID of the GitHub team
      */
     teamId?: pulumi.Input<number>;
     /**

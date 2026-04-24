@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := github.NewActionsOrganizationVariable(ctx, "example", &github.ActionsOrganizationVariableArgs{
-//				VariableName:   pulumi.String("myvariable"),
-//				PlaintextValue: "foo",
-//				Visibility:     pulumi.String("selected"),
+//				VariableName: pulumi.String("myvariable"),
+//				Value:        pulumi.String("foo"),
+//				Visibility:   pulumi.String("selected"),
 //			})
 //			if err != nil {
 //				return err

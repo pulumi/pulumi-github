@@ -136,7 +136,11 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+// This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+//
+// ### Import Command
+//
+// The following command imports a deployment policy with the ID `123456` for the repo `myrepo` and environment `myenv` to a `RepositoryEnvironmentDeploymentPolicy` resource named `example`.
 //
 // ```sh
 // $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -148,8 +152,12 @@ type RepositoryEnvironmentDeploymentPolicy struct {
 	BranchPattern pulumi.StringPtrOutput `pulumi:"branchPattern"`
 	// The name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
+	// The ID of the deployment policy.
+	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// The repository of the environment.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
 	TagPattern pulumi.StringPtrOutput `pulumi:"tagPattern"`
 }
@@ -194,8 +202,12 @@ type repositoryEnvironmentDeploymentPolicyState struct {
 	BranchPattern *string `pulumi:"branchPattern"`
 	// The name of the environment.
 	Environment *string `pulumi:"environment"`
+	// The ID of the deployment policy.
+	PolicyId *int `pulumi:"policyId"`
 	// The repository of the environment.
 	Repository *string `pulumi:"repository"`
+	// The ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
 	TagPattern *string `pulumi:"tagPattern"`
 }
@@ -205,8 +217,12 @@ type RepositoryEnvironmentDeploymentPolicyState struct {
 	BranchPattern pulumi.StringPtrInput
 	// The name of the environment.
 	Environment pulumi.StringPtrInput
+	// The ID of the deployment policy.
+	PolicyId pulumi.IntPtrInput
 	// The repository of the environment.
 	Repository pulumi.StringPtrInput
+	// The ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 	// The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.
 	TagPattern pulumi.StringPtrInput
 }
@@ -335,9 +351,19 @@ func (o RepositoryEnvironmentDeploymentPolicyOutput) Environment() pulumi.String
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
 }
 
+// The ID of the deployment policy.
+func (o RepositoryEnvironmentDeploymentPolicyOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
 // The repository of the environment.
 func (o RepositoryEnvironmentDeploymentPolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The ID of the repository.
+func (o RepositoryEnvironmentDeploymentPolicyOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryEnvironmentDeploymentPolicy) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
 }
 
 // The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.

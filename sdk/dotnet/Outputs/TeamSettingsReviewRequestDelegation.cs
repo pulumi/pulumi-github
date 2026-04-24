@@ -14,7 +14,7 @@ namespace Pulumi.Github.Outputs
     public sealed class TeamSettingsReviewRequestDelegation
     {
         /// <summary>
-        /// The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        /// The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         /// </summary>
         public readonly string? Algorithm;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly int? MemberCount;
         /// <summary>
-        /// whether to notify the entire team when at least one member is also assigned to the pull request.
+        /// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `ReviewRequestDelegation`. Default value is `False`.
         /// </summary>
         public readonly bool? Notify;
 

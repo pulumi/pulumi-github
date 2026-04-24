@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.OrganizationRulesetConditionsRefNameArgs;
 import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryNameArgs;
+import com.pulumi.github.inputs.OrganizationRulesetConditionsRepositoryPropertyArgs;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -34,14 +35,14 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      * 
      */
     @Import(name="repositoryIds")
     private @Nullable Output<List<Integer>> repositoryIds;
 
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      * 
      */
     public Optional<Output<List<Integer>>> repositoryIds() {
@@ -49,26 +50,41 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Conflicts with `repositoryId`. (see below for nested schema)
-     * 
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-     * 
-     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * Targets repositories that match the specified name patterns. (see below for nested schema)
      * 
      */
     @Import(name="repositoryName")
     private @Nullable Output<OrganizationRulesetConditionsRepositoryNameArgs> repositoryName;
 
     /**
-     * @return Conflicts with `repositoryId`. (see below for nested schema)
-     * 
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-     * 
-     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * @return Targets repositories that match the specified name patterns. (see below for nested schema)
      * 
      */
     public Optional<Output<OrganizationRulesetConditionsRepositoryNameArgs>> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
+    }
+
+    /**
+     * Targets repositories by custom or system properties. (see below for nested schema)
+     * 
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * 
+     */
+    @Import(name="repositoryProperty")
+    private @Nullable Output<OrganizationRulesetConditionsRepositoryPropertyArgs> repositoryProperty;
+
+    /**
+     * @return Targets repositories by custom or system properties. (see below for nested schema)
+     * 
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * 
+     */
+    public Optional<Output<OrganizationRulesetConditionsRepositoryPropertyArgs>> repositoryProperty() {
+        return Optional.ofNullable(this.repositoryProperty);
     }
 
     private OrganizationRulesetConditionsArgs() {}
@@ -77,6 +93,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         this.refName = $.refName;
         this.repositoryIds = $.repositoryIds;
         this.repositoryName = $.repositoryName;
+        this.repositoryProperty = $.repositoryProperty;
     }
 
     public static Builder builder() {
@@ -119,7 +136,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
          * 
          * @return builder
          * 
@@ -130,7 +147,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
          * 
          * @return builder
          * 
@@ -140,7 +157,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+         * @param repositoryIds The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
          * 
          * @return builder
          * 
@@ -150,11 +167,7 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryName Conflicts with `repositoryId`. (see below for nested schema)
-         * 
-         * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-         * 
-         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+         * @param repositoryName Targets repositories that match the specified name patterns. (see below for nested schema)
          * 
          * @return builder
          * 
@@ -165,17 +178,42 @@ public final class OrganizationRulesetConditionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositoryName Conflicts with `repositoryId`. (see below for nested schema)
-         * 
-         * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-         * 
-         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+         * @param repositoryName Targets repositories that match the specified name patterns. (see below for nested schema)
          * 
          * @return builder
          * 
          */
         public Builder repositoryName(OrganizationRulesetConditionsRepositoryNameArgs repositoryName) {
             return repositoryName(Output.of(repositoryName));
+        }
+
+        /**
+         * @param repositoryProperty Targets repositories by custom or system properties. (see below for nested schema)
+         * 
+         * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+         * 
+         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryProperty(@Nullable Output<OrganizationRulesetConditionsRepositoryPropertyArgs> repositoryProperty) {
+            $.repositoryProperty = repositoryProperty;
+            return this;
+        }
+
+        /**
+         * @param repositoryProperty Targets repositories by custom or system properties. (see below for nested schema)
+         * 
+         * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+         * 
+         * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryProperty(OrganizationRulesetConditionsRepositoryPropertyArgs repositoryProperty) {
+            return repositoryProperty(Output.of(repositoryProperty));
         }
 
         public OrganizationRulesetConditionsArgs build() {

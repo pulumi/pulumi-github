@@ -576,6 +576,61 @@ export interface GetIssueLabelsLabel {
     url: string;
 }
 
+export interface GetOrganizationAppInstallationsInstallation {
+    /**
+     * The ID of the GitHub App.
+     */
+    appId: number;
+    /**
+     * The URL-friendly name of the GitHub App.
+     */
+    appSlug: string;
+    /**
+     * The OAuth client ID of the GitHub App.
+     */
+    clientId: string;
+    /**
+     * The date the GitHub App installation was created.
+     */
+    createdAt: string;
+    /**
+     * The list of events the GitHub App installation subscribes to.
+     */
+    events: string[];
+    /**
+     * The ID of the GitHub App installation.
+     */
+    id: number;
+    /**
+     * A map of the permissions granted to the GitHub App installation.
+     */
+    permissions: {[key: string]: string};
+    /**
+     * Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+     */
+    repositorySelection: string;
+    /**
+     * The list of single file paths the GitHub App installation has access to.
+     */
+    singleFilePaths: string[];
+    /**
+     * Whether the GitHub App installation is currently suspended.
+     */
+    suspended: boolean;
+    /**
+     * The ID of the account the GitHub App is installed on.
+     */
+    targetId: number;
+    /**
+     * The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+     */
+    targetType: string;
+    /**
+     * The date the GitHub App installation was last updated.
+     */
+    updatedAt: string;
+}
+
 export interface GetOrganizationExternalIdentitiesIdentity {
     /**
      * The username of the GitHub user
@@ -962,6 +1017,17 @@ export interface GetRepositoryPageSource {
     path: string;
 }
 
+export interface GetRepositoryPagesSource {
+    /**
+     * The repository branch used to publish the site's source files.
+     */
+    branch: string;
+    /**
+     * The repository directory from which the site publishes.
+     */
+    path: string;
+}
+
 export interface GetRepositoryPullRequestsResult {
     /**
      * If set, filters Pull Requests by base branch name.
@@ -1233,17 +1299,21 @@ export interface OrganizationRulesetConditions {
      */
     refName?: outputs.OrganizationRulesetConditionsRefName;
     /**
-     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      */
     repositoryIds?: number[];
     /**
-     * Conflicts with `repositoryId`. (see below for nested schema)
+     * Targets repositories that match the specified name patterns. (see below for nested schema)
+     */
+    repositoryName?: outputs.OrganizationRulesetConditionsRepositoryName;
+    /**
+     * Targets repositories by custom or system properties. (see below for nested schema)
      *
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
      *
      * > **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      */
-    repositoryName?: outputs.OrganizationRulesetConditionsRepositoryName;
+    repositoryProperty?: outputs.OrganizationRulesetConditionsRepositoryProperty;
 }
 
 export interface OrganizationRulesetConditionsRefName {
@@ -1270,6 +1340,47 @@ export interface OrganizationRulesetConditionsRepositoryName {
      * Whether renaming of target repositories is prevented.
      */
     protected?: boolean;
+}
+
+export interface OrganizationRulesetConditionsRepositoryProperty {
+    /**
+     * The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+     */
+    excludes?: outputs.OrganizationRulesetConditionsRepositoryPropertyExclude[];
+    /**
+     * The repository properties and values to include. All of these properties must match for the condition to pass.
+     */
+    includes?: outputs.OrganizationRulesetConditionsRepositoryPropertyInclude[];
+}
+
+export interface OrganizationRulesetConditionsRepositoryPropertyExclude {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name: string;
+    /**
+     * The values to match for the repository property.
+     */
+    propertyValues: string[];
+    /**
+     * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+     */
+    source?: string;
+}
+
+export interface OrganizationRulesetConditionsRepositoryPropertyInclude {
+    /**
+     * (String) The name of the ruleset.
+     */
+    name: string;
+    /**
+     * The values to match for the repository property.
+     */
+    propertyValues: string[];
+    /**
+     * The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+     */
+    source?: string;
 }
 
 export interface OrganizationRulesetRules {
@@ -1724,11 +1835,11 @@ export interface RepositoryPages {
 
 export interface RepositoryPagesSource {
     /**
-     * The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+     * The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
      */
     branch: string;
     /**
-     * The repository directory from which the site publishes (Default: `/`).
+     * The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      */
     path?: string;
 }
@@ -2260,7 +2371,7 @@ export interface TeamMembersMember {
 
 export interface TeamSettingsReviewRequestDelegation {
     /**
-     * The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+     * The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      */
     algorithm?: string;
     /**
@@ -2268,7 +2379,9 @@ export interface TeamSettingsReviewRequestDelegation {
      */
     memberCount?: number;
     /**
-     * whether to notify the entire team when at least one member is also assigned to the pull request.
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     *
+     * @deprecated Use the top-level notify attribute instead.
      */
     notify?: boolean;
 }
