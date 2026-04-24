@@ -26,7 +26,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apis=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, packages=None, packages_ipv4s=None, packages_ipv6s=None, pages=None, pages_ipv4s=None, pages_ipv6s=None, web_ipv4s=None, web_ipv6s=None, webs=None):
+    def __init__(__self__, actions=None, actions_ipv4s=None, actions_ipv6s=None, actions_macos=None, actions_macos_ipv4s=None, actions_macos_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apis=None, dependabot_ipv4s=None, dependabot_ipv6s=None, dependabots=None, git_ipv4s=None, git_ipv6s=None, github_enterprise_importer_ipv4s=None, github_enterprise_importer_ipv6s=None, github_enterprise_importers=None, gits=None, hooks=None, hooks_ipv4s=None, hooks_ipv6s=None, id=None, importer_ipv4s=None, importer_ipv6s=None, importers=None, packages=None, packages_ipv4s=None, packages_ipv6s=None, pages=None, pages_ipv4s=None, pages_ipv6s=None, web_ipv4s=None, web_ipv6s=None, webs=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -36,6 +36,15 @@ class GetIpRangesResult:
         if actions_ipv6s and not isinstance(actions_ipv6s, list):
             raise TypeError("Expected argument 'actions_ipv6s' to be a list")
         pulumi.set(__self__, "actions_ipv6s", actions_ipv6s)
+        if actions_macos and not isinstance(actions_macos, list):
+            raise TypeError("Expected argument 'actions_macos' to be a list")
+        pulumi.set(__self__, "actions_macos", actions_macos)
+        if actions_macos_ipv4s and not isinstance(actions_macos_ipv4s, list):
+            raise TypeError("Expected argument 'actions_macos_ipv4s' to be a list")
+        pulumi.set(__self__, "actions_macos_ipv4s", actions_macos_ipv4s)
+        if actions_macos_ipv6s and not isinstance(actions_macos_ipv6s, list):
+            raise TypeError("Expected argument 'actions_macos_ipv6s' to be a list")
+        pulumi.set(__self__, "actions_macos_ipv6s", actions_macos_ipv6s)
         if api_ipv4s and not isinstance(api_ipv4s, list):
             raise TypeError("Expected argument 'api_ipv4s' to be a list")
         pulumi.set(__self__, "api_ipv4s", api_ipv4s)
@@ -60,6 +69,15 @@ class GetIpRangesResult:
         if git_ipv6s and not isinstance(git_ipv6s, list):
             raise TypeError("Expected argument 'git_ipv6s' to be a list")
         pulumi.set(__self__, "git_ipv6s", git_ipv6s)
+        if github_enterprise_importer_ipv4s and not isinstance(github_enterprise_importer_ipv4s, list):
+            raise TypeError("Expected argument 'github_enterprise_importer_ipv4s' to be a list")
+        pulumi.set(__self__, "github_enterprise_importer_ipv4s", github_enterprise_importer_ipv4s)
+        if github_enterprise_importer_ipv6s and not isinstance(github_enterprise_importer_ipv6s, list):
+            raise TypeError("Expected argument 'github_enterprise_importer_ipv6s' to be a list")
+        pulumi.set(__self__, "github_enterprise_importer_ipv6s", github_enterprise_importer_ipv6s)
+        if github_enterprise_importers and not isinstance(github_enterprise_importers, list):
+            raise TypeError("Expected argument 'github_enterprise_importers' to be a list")
+        pulumi.set(__self__, "github_enterprise_importers", github_enterprise_importers)
         if gits and not isinstance(gits, list):
             raise TypeError("Expected argument 'gits' to be a list")
         pulumi.set(__self__, "gits", gits)
@@ -116,7 +134,7 @@ class GetIpRangesResult:
     @pulumi.getter
     def actions(self) -> Sequence[_builtins.str]:
         """
-        An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+        An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
         """
         return pulumi.get(self, "actions")
 
@@ -135,6 +153,30 @@ class GetIpRangesResult:
         A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
         """
         return pulumi.get(self, "actions_ipv6s")
+
+    @_builtins.property
+    @pulumi.getter(name="actionsMacos")
+    def actions_macos(self) -> Sequence[_builtins.str]:
+        """
+        An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+        """
+        return pulumi.get(self, "actions_macos")
+
+    @_builtins.property
+    @pulumi.getter(name="actionsMacosIpv4s")
+    def actions_macos_ipv4s(self) -> Sequence[_builtins.str]:
+        """
+        A subset of the `actions_macos` array that contains IP addresses in IPv4 CIDR format.
+        """
+        return pulumi.get(self, "actions_macos_ipv4s")
+
+    @_builtins.property
+    @pulumi.getter(name="actionsMacosIpv6s")
+    def actions_macos_ipv6s(self) -> Sequence[_builtins.str]:
+        """
+        A subset of the `actions_macos` array that contains IP addresses in IPv6 CIDR format.
+        """
+        return pulumi.get(self, "actions_macos_ipv6s")
 
     @_builtins.property
     @pulumi.getter(name="apiIpv4s")
@@ -165,7 +207,7 @@ class GetIpRangesResult:
     @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabot_ipv4s(self) -> Sequence[_builtins.str]:
         """
-        A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+        **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
         """
         return pulumi.get(self, "dependabot_ipv4s")
 
@@ -174,7 +216,7 @@ class GetIpRangesResult:
     @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabot_ipv6s(self) -> Sequence[_builtins.str]:
         """
-        A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+        **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
         """
         return pulumi.get(self, "dependabot_ipv6s")
 
@@ -183,7 +225,7 @@ class GetIpRangesResult:
     @_utilities.deprecated("""This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.""")
     def dependabots(self) -> Sequence[_builtins.str]:
         """
-        An array of IP addresses in CIDR format specifying the A records for dependabot.
+        **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
         """
         return pulumi.get(self, "dependabots")
 
@@ -202,6 +244,30 @@ class GetIpRangesResult:
         A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
         """
         return pulumi.get(self, "git_ipv6s")
+
+    @_builtins.property
+    @pulumi.getter(name="githubEnterpriseImporterIpv4s")
+    def github_enterprise_importer_ipv4s(self) -> Sequence[_builtins.str]:
+        """
+        A subset of the `github_enterprise_importer` array that contains IP addresses in IPv4 CIDR format.
+        """
+        return pulumi.get(self, "github_enterprise_importer_ipv4s")
+
+    @_builtins.property
+    @pulumi.getter(name="githubEnterpriseImporterIpv6s")
+    def github_enterprise_importer_ipv6s(self) -> Sequence[_builtins.str]:
+        """
+        A subset of the `github_enterprise_importer` array that contains IP addresses in IPv6 CIDR format.
+        """
+        return pulumi.get(self, "github_enterprise_importer_ipv6s")
+
+    @_builtins.property
+    @pulumi.getter(name="githubEnterpriseImporters")
+    def github_enterprise_importers(self) -> Sequence[_builtins.str]:
+        """
+        An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+        """
+        return pulumi.get(self, "github_enterprise_importers")
 
     @_builtins.property
     @pulumi.getter
@@ -349,6 +415,9 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             actions=self.actions,
             actions_ipv4s=self.actions_ipv4s,
             actions_ipv6s=self.actions_ipv6s,
+            actions_macos=self.actions_macos,
+            actions_macos_ipv4s=self.actions_macos_ipv4s,
+            actions_macos_ipv6s=self.actions_macos_ipv6s,
             api_ipv4s=self.api_ipv4s,
             api_ipv6s=self.api_ipv6s,
             apis=self.apis,
@@ -357,6 +426,9 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             dependabots=self.dependabots,
             git_ipv4s=self.git_ipv4s,
             git_ipv6s=self.git_ipv6s,
+            github_enterprise_importer_ipv4s=self.github_enterprise_importer_ipv4s,
+            github_enterprise_importer_ipv6s=self.github_enterprise_importer_ipv6s,
+            github_enterprise_importers=self.github_enterprise_importers,
             gits=self.gits,
             hooks=self.hooks,
             hooks_ipv4s=self.hooks_ipv4s,
@@ -397,6 +469,9 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         actions=pulumi.get(__ret__, 'actions'),
         actions_ipv4s=pulumi.get(__ret__, 'actions_ipv4s'),
         actions_ipv6s=pulumi.get(__ret__, 'actions_ipv6s'),
+        actions_macos=pulumi.get(__ret__, 'actions_macos'),
+        actions_macos_ipv4s=pulumi.get(__ret__, 'actions_macos_ipv4s'),
+        actions_macos_ipv6s=pulumi.get(__ret__, 'actions_macos_ipv6s'),
         api_ipv4s=pulumi.get(__ret__, 'api_ipv4s'),
         api_ipv6s=pulumi.get(__ret__, 'api_ipv6s'),
         apis=pulumi.get(__ret__, 'apis'),
@@ -405,6 +480,9 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         dependabots=pulumi.get(__ret__, 'dependabots'),
         git_ipv4s=pulumi.get(__ret__, 'git_ipv4s'),
         git_ipv6s=pulumi.get(__ret__, 'git_ipv6s'),
+        github_enterprise_importer_ipv4s=pulumi.get(__ret__, 'github_enterprise_importer_ipv4s'),
+        github_enterprise_importer_ipv6s=pulumi.get(__ret__, 'github_enterprise_importer_ipv6s'),
+        github_enterprise_importers=pulumi.get(__ret__, 'github_enterprise_importers'),
         gits=pulumi.get(__ret__, 'gits'),
         hooks=pulumi.get(__ret__, 'hooks'),
         hooks_ipv4s=pulumi.get(__ret__, 'hooks_ipv4s'),
@@ -442,6 +520,9 @@ def get_ip_ranges_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
         actions=pulumi.get(__response__, 'actions'),
         actions_ipv4s=pulumi.get(__response__, 'actions_ipv4s'),
         actions_ipv6s=pulumi.get(__response__, 'actions_ipv6s'),
+        actions_macos=pulumi.get(__response__, 'actions_macos'),
+        actions_macos_ipv4s=pulumi.get(__response__, 'actions_macos_ipv4s'),
+        actions_macos_ipv6s=pulumi.get(__response__, 'actions_macos_ipv6s'),
         api_ipv4s=pulumi.get(__response__, 'api_ipv4s'),
         api_ipv6s=pulumi.get(__response__, 'api_ipv6s'),
         apis=pulumi.get(__response__, 'apis'),
@@ -450,6 +531,9 @@ def get_ip_ranges_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
         dependabots=pulumi.get(__response__, 'dependabots'),
         git_ipv4s=pulumi.get(__response__, 'git_ipv4s'),
         git_ipv6s=pulumi.get(__response__, 'git_ipv6s'),
+        github_enterprise_importer_ipv4s=pulumi.get(__response__, 'github_enterprise_importer_ipv4s'),
+        github_enterprise_importer_ipv6s=pulumi.get(__response__, 'github_enterprise_importer_ipv6s'),
+        github_enterprise_importers=pulumi.get(__response__, 'github_enterprise_importers'),
         gits=pulumi.get(__response__, 'gits'),
         hooks=pulumi.get(__response__, 'hooks'),
         hooks_ipv4s=pulumi.get(__response__, 'hooks_ipv4s'),

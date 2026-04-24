@@ -159,7 +159,9 @@ export interface GetRepositoryResult {
      */
     readonly nodeId: string;
     /**
-     * The repository's GitHub Pages configuration.
+     * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` data source instead. This field will be removed in a future version.
+     *
+     * @deprecated Use the github.RepositoryPages data source instead. This field will be removed in a future version.
      */
     readonly pages: outputs.GetRepositoryPage[];
     /**

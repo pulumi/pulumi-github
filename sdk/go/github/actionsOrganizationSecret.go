@@ -18,9 +18,9 @@ import (
 // Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
 // interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 //
-// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+// For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
 // but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-// It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+// It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
 // using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
 // in your code. See below for an example of this abstraction.
 //
@@ -39,9 +39,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewActionsOrganizationSecret(ctx, "example_plaintext", &github.ActionsOrganizationSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				Visibility:     pulumi.String("all"),
-//				PlaintextValue: pulumi.Any(someSecretString),
+//				SecretName: pulumi.String("example_secret_name"),
+//				Visibility: pulumi.String("all"),
+//				Value:      pulumi.Any(someSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +49,7 @@ import (
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_encrypted", &github.ActionsOrganizationSecretArgs{
 //				SecretName:     pulumi.String("example_secret_name"),
 //				Visibility:     pulumi.String("all"),
-//				EncryptedValue: pulumi.Any(someEncryptedSecretString),
+//				ValueEncrypted: pulumi.Any(someEncryptedSecretString),
 //			})
 //			if err != nil {
 //				return err
@@ -79,9 +79,9 @@ import (
 //				return err
 //			}
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_encrypted", &github.ActionsOrganizationSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				Visibility:     pulumi.String("selected"),
-//				PlaintextValue: pulumi.Any(someSecretString),
+//				SecretName: pulumi.String("example_secret_name"),
+//				Visibility: pulumi.String("selected"),
+//				Value:      pulumi.Any(someSecretString),
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(pulumi.Int(repo.RepoId)),
 //				},
@@ -92,7 +92,7 @@ import (
 //			_, err = github.NewActionsOrganizationSecret(ctx, "example_secret", &github.ActionsOrganizationSecretArgs{
 //				SecretName:     pulumi.String("example_secret_name"),
 //				Visibility:     pulumi.String("selected"),
-//				EncryptedValue: pulumi.Any(someEncryptedSecretString),
+//				ValueEncrypted: pulumi.Any(someEncryptedSecretString),
 //				SelectedRepositoryIds: pulumi.IntArray{
 //					pulumi.Int(pulumi.Int(repo.RepoId)),
 //				},
@@ -123,9 +123,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewActionsOrganizationSecret(ctx, "example_allow_drift", &github.ActionsOrganizationSecretArgs{
-//				SecretName:     pulumi.String("example_secret_name"),
-//				Visibility:     pulumi.String("all"),
-//				PlaintextValue: pulumi.String("placeholder"),
+//				SecretName: pulumi.String("example_secret_name"),
+//				Visibility: pulumi.String("all"),
+//				Value:      pulumi.String("placeholder"),
 //			})
 //			if err != nil {
 //				return err
@@ -140,7 +140,7 @@ import (
 //
 // This resource can be imported using the secret name as the ID.
 //
-// > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+// > **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 //
 // ### Import Command
 //
@@ -156,15 +156,19 @@ type ActionsOrganizationSecret struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 	//
 	// Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 	DestroyOnDrift pulumi.BoolPtrOutput `pulumi:"destroyOnDrift"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringOutput `pulumi:"remoteUpdatedAt"`
@@ -176,6 +180,10 @@ type ActionsOrganizationSecret struct {
 	SelectedRepositoryIds pulumi.IntArrayOutput `pulumi:"selectedRepositoryIds"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrOutput `pulumi:"valueEncrypted"`
 	// Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringOutput `pulumi:"visibility"`
 }
@@ -199,9 +207,17 @@ func NewActionsOrganizationSecret(ctx *pulumi.Context,
 	if args.PlaintextValue != nil {
 		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrInput)
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
+	}
+	if args.ValueEncrypted != nil {
+		args.ValueEncrypted = pulumi.ToSecret(args.ValueEncrypted).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"encryptedValue",
 		"plaintextValue",
+		"value",
+		"valueEncrypted",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -231,15 +247,19 @@ type actionsOrganizationSecretState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 	//
 	// Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 	DestroyOnDrift *bool `pulumi:"destroyOnDrift"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt *string `pulumi:"remoteUpdatedAt"`
@@ -251,6 +271,10 @@ type actionsOrganizationSecretState struct {
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 	// Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
 	Visibility *string `pulumi:"visibility"`
 }
@@ -260,15 +284,19 @@ type ActionsOrganizationSecretState struct {
 	CreatedAt pulumi.StringPtrInput
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 	//
 	// Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 	DestroyOnDrift pulumi.BoolPtrInput
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringPtrInput
@@ -280,6 +308,10 @@ type ActionsOrganizationSecretState struct {
 	SelectedRepositoryIds pulumi.IntArrayInput
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringPtrInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 	// Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringPtrInput
 }
@@ -291,15 +323,19 @@ func (ActionsOrganizationSecretState) ElementType() reflect.Type {
 type actionsOrganizationSecretArgs struct {
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 	//
 	// Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 	DestroyOnDrift *bool `pulumi:"destroyOnDrift"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue *string `pulumi:"encryptedValue"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the secret.
 	SecretName string `pulumi:"secretName"`
@@ -307,6 +343,10 @@ type actionsOrganizationSecretArgs struct {
 	//
 	// Deprecated: This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
 	SelectedRepositoryIds []int `pulumi:"selectedRepositoryIds"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 	// Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
 	Visibility string `pulumi:"visibility"`
 }
@@ -315,15 +355,19 @@ type actionsOrganizationSecretArgs struct {
 type ActionsOrganizationSecretArgs struct {
 	// (Optional) This is ignored as drift detection is built into the resource.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 	//
 	// Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 	DestroyOnDrift pulumi.BoolPtrInput
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the secret.
 	SecretName pulumi.StringInput
@@ -331,6 +375,10 @@ type ActionsOrganizationSecretArgs struct {
 	//
 	// Deprecated: This field is deprecated and will be removed in a future release. Please use the `ActionsOrganizationSecretRepositories` or `ActionsOrganizationSecretRepository` resources to manage repository access to organization secrets.
 	SelectedRepositoryIds pulumi.IntArrayInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 	// Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.
 	Visibility pulumi.StringInput
 }
@@ -429,24 +477,28 @@ func (o ActionsOrganizationSecretOutput) CreatedAt() pulumi.StringOutput {
 
 // (Optional) This is ignored as drift detection is built into the resource.
 //
-// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
 //
 // Deprecated: This is no longer required and will be removed in a future release. Drift detection is now always performed, and external changes will result in the secret being updated to match the Terraform configuration. If you want to ignore external changes, you can use the `lifecycle` block with `ignoreChanges` on the `remoteUpdatedAt` field.
 func (o ActionsOrganizationSecretOutput) DestroyOnDrift() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.BoolPtrOutput { return v.DestroyOnDrift }).(pulumi.BoolPtrOutput)
 }
 
-// Encrypted value of the secret using the GitHub public key in Base64 format.
+// (Optional) Please use `valueEncrypted`.
+//
+// Deprecated: Use valueEncrypted and key_id.
 func (o ActionsOrganizationSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
 
-// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 func (o ActionsOrganizationSecretOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Plaintext value of the secret to be encrypted.
+// (Optional) Please use `value`.
+//
+// Deprecated: Use value.
 func (o ActionsOrganizationSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
@@ -471,6 +523,16 @@ func (o ActionsOrganizationSecretOutput) SelectedRepositoryIds() pulumi.IntArray
 // Date the secret was last updated by the provider.
 func (o ActionsOrganizationSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+func (o ActionsOrganizationSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+func (o ActionsOrganizationSecretOutput) ValueEncrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsOrganizationSecret) pulumi.StringPtrOutput { return v.ValueEncrypted }).(pulumi.StringPtrOutput)
 }
 
 // Configures the access that repositories have to the organization secret; must be one of `all`, `private`, or `selected`.

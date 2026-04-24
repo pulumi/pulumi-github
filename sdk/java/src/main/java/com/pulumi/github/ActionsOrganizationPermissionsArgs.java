@@ -80,14 +80,14 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      * 
      */
     @Import(name="shaPinningRequired")
     private @Nullable Output<Boolean> shaPinningRequired;
 
     /**
-     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      * 
      */
     public Optional<Output<Boolean>> shaPinningRequired() {
@@ -207,7 +207,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ActionsOrganizationPermissionsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+         * @param shaPinningRequired Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
          * 
          * @return builder
          * 

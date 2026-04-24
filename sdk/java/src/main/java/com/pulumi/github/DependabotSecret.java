@@ -23,9 +23,9 @@ import javax.annotation.Nullable;
  * Secret values are encrypted using the [Go &#39;/crypto/box&#39; module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
  * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
  * 
- * For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+ * For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
  * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
- * It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+ * It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
  * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
  * in your code. See below for an example of this abstraction.
  * 
@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *         var examplePlaintext = new DependabotSecret("examplePlaintext", DependabotSecretArgs.builder()
  *             .repository("example_repository")
  *             .secretName("example_secret_name")
- *             .plaintextValue(someSecretString)
+ *             .value(someSecretString)
  *             .build());
  * 
  *         var exampleEncrypted = new DependabotSecret("exampleEncrypted", DependabotSecretArgs.builder()
  *             .repository("example_repository")
  *             .secretName("example_secret_name")
- *             .encryptedValue(someEncryptedSecretString)
+ *             .valueEncrypted(someEncryptedSecretString)
  *             .build());
  * 
  *     }
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *         var exampleAllowDrift = new DependabotSecret("exampleAllowDrift", DependabotSecretArgs.builder()
  *             .repository("example_repository")
  *             .secretName("example_secret_name")
- *             .plaintextValue("placeholder")
+ *             .value("placeholder")
  *             .build());
  * 
  *     }
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * 
  * This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
  * 
- * &gt; **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you&#39;re not planning on updating the secret through Terraform.
+ * &gt; **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you&#39;re not planning on updating the secret through Terraform.
  * 
  * ### Import Command
  * 
@@ -139,46 +139,54 @@ public class DependabotSecret extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * (Optional) Please use `valueEncrypted`.
+     * 
+     * @deprecated
+     * Use valueEncrypted and key_id.
      * 
      */
+    @Deprecated /* Use valueEncrypted and key_id. */
     @Export(name="encryptedValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptedValue;
 
     /**
-     * @return Encrypted value of the secret using the GitHub public key in Base64 format.
+     * @return (Optional) Please use `valueEncrypted`.
      * 
      */
     public Output<Optional<String>> encryptedValue() {
         return Codegen.optional(this.encryptedValue);
     }
     /**
-     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
-     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * @return ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      * 
      */
     public Output<String> keyId() {
         return this.keyId;
     }
     /**
-     * Plaintext value of the secret to be encrypted.
+     * (Optional) Please use `value`.
      * 
-     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * Use value.
      * 
      */
+    @Deprecated /* Use value. */
     @Export(name="plaintextValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return (Optional) Please use `value`.
      * 
-     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
      * 
      */
     public Output<Optional<String>> plaintextValue() {
@@ -254,6 +262,34 @@ public class DependabotSecret extends com.pulumi.resources.CustomResource {
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
+    /**
+     * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    @Export(name="value", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> value;
+
+    /**
+     * @return Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
+    }
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    @Export(name="valueEncrypted", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> valueEncrypted;
+
+    /**
+     * @return Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    public Output<Optional<String>> valueEncrypted() {
+        return Codegen.optional(this.valueEncrypted);
+    }
 
     /**
      *
@@ -296,7 +332,9 @@ public class DependabotSecret extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "encryptedValue",
-                "plaintextValue"
+                "plaintextValue",
+                "value",
+                "valueEncrypted"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -20,6 +20,8 @@ namespace Pulumi.Github
     /// 
     /// ## Example Usage
     /// 
+    /// ### Notify without delegation
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +30,6 @@ namespace Pulumi.Github
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Add a repository to the team
     ///     var someTeam = new Github.Index.Team("some_team", new()
     ///     {
     ///         Name = "SomeTeam",
@@ -38,11 +39,36 @@ namespace Pulumi.Github
     ///     var codeReviewSettings = new Github.Index.TeamSettings("code_review_settings", new()
     ///     {
     ///         TeamId = someTeam.Id,
+    ///         Notify = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Notify with delegation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var someTeam = new Github.Index.Team("some_team", new()
+    ///     {
+    ///         Name = "SomeTeam",
+    ///         Description = "Some cool team",
+    ///     });
+    /// 
+    ///     var codeReviewSettings = new Github.Index.TeamSettings("code_review_settings", new()
+    ///     {
+    ///         TeamId = someTeam.Id,
+    ///         Notify = true,
     ///         ReviewRequestDelegation = new Github.Inputs.TeamSettingsReviewRequestDelegationArgs
     ///         {
     ///             Algorithm = "ROUND_ROBIN",
     ///             MemberCount = 1,
-    ///             Notify = true,
     ///         },
     ///     });
     /// 
@@ -53,17 +79,17 @@ namespace Pulumi.Github
     /// 
     /// GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
     /// 
-    /// ```sh
-    /// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
-    /// ```
     /// or,
-    /// ```sh
-    /// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/teamSettings:TeamSettings")]
     public partial class TeamSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `ReviewRequestDelegation`. Default value is `False`.
+        /// </summary>
+        [Output("notify")]
+        public Output<bool?> Notify { get; private set; } = null!;
+
         /// <summary>
         /// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         /// </summary>
@@ -77,13 +103,13 @@ namespace Pulumi.Github
         public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The slug of the Team within the Organization.
+        /// The slug of the Team.
         /// </summary>
         [Output("teamSlug")]
         public Output<string> TeamSlug { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        /// The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
         /// </summary>
         [Output("teamUid")]
         public Output<string> TeamUid { get; private set; } = null!;
@@ -135,6 +161,12 @@ namespace Pulumi.Github
     public sealed class TeamSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `ReviewRequestDelegation`. Default value is `False`.
+        /// </summary>
+        [Input("notify")]
+        public Input<bool>? Notify { get; set; }
+
+        /// <summary>
         /// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         /// </summary>
         [Input("reviewRequestDelegation")]
@@ -155,6 +187,12 @@ namespace Pulumi.Github
     public sealed class TeamSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `ReviewRequestDelegation`. Default value is `False`.
+        /// </summary>
+        [Input("notify")]
+        public Input<bool>? Notify { get; set; }
+
+        /// <summary>
         /// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         /// </summary>
         [Input("reviewRequestDelegation")]
@@ -167,13 +205,13 @@ namespace Pulumi.Github
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The slug of the Team within the Organization.
+        /// The slug of the Team.
         /// </summary>
         [Input("teamSlug")]
         public Input<string>? TeamSlug { get; set; }
 
         /// <summary>
-        /// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        /// The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
         /// </summary>
         [Input("teamUid")]
         public Input<string>? TeamUid { get; set; }

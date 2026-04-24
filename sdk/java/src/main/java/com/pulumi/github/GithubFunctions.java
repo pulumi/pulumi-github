@@ -92,6 +92,8 @@ import com.pulumi.github.inputs.GetRepositoryFileArgs;
 import com.pulumi.github.inputs.GetRepositoryFilePlainArgs;
 import com.pulumi.github.inputs.GetRepositoryMilestoneArgs;
 import com.pulumi.github.inputs.GetRepositoryMilestonePlainArgs;
+import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+import com.pulumi.github.inputs.GetRepositoryPagesPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryPlainArgs;
 import com.pulumi.github.inputs.GetRepositoryPullRequestArgs;
 import com.pulumi.github.inputs.GetRepositoryPullRequestPlainArgs;
@@ -146,6 +148,7 @@ import com.pulumi.github.outputs.GetGithubAppResult;
 import com.pulumi.github.outputs.GetIpRangesResult;
 import com.pulumi.github.outputs.GetIssueLabelsResult;
 import com.pulumi.github.outputs.GetMembershipResult;
+import com.pulumi.github.outputs.GetOrganizationAppInstallationsResult;
 import com.pulumi.github.outputs.GetOrganizationCustomPropertiesResult;
 import com.pulumi.github.outputs.GetOrganizationCustomRoleResult;
 import com.pulumi.github.outputs.GetOrganizationExternalIdentitiesResult;
@@ -174,6 +177,7 @@ import com.pulumi.github.outputs.GetRepositoryEnvironmentDeploymentPoliciesResul
 import com.pulumi.github.outputs.GetRepositoryEnvironmentsResult;
 import com.pulumi.github.outputs.GetRepositoryFileResult;
 import com.pulumi.github.outputs.GetRepositoryMilestoneResult;
+import com.pulumi.github.outputs.GetRepositoryPagesResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestResult;
 import com.pulumi.github.outputs.GetRepositoryPullRequestsInvokeResult;
 import com.pulumi.github.outputs.GetRepositoryResult;
@@ -8080,6 +8084,279 @@ public final class GithubFunctions {
         return Deployment.getInstance().invokeAsync("github:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationAppInstallationsResult> getOrganizationAppInstallations() {
+        return getOrganizationAppInstallations(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationAppInstallationsResult> getOrganizationAppInstallationsPlain() {
+        return getOrganizationAppInstallationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationAppInstallationsResult> getOrganizationAppInstallations(InvokeArgs args) {
+        return getOrganizationAppInstallations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationAppInstallationsResult> getOrganizationAppInstallationsPlain(InvokeArgs args) {
+        return getOrganizationAppInstallationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationAppInstallationsResult> getOrganizationAppInstallations(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationAppInstallations:getOrganizationAppInstallations", TypeShape.of(GetOrganizationAppInstallationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrganizationAppInstallationsResult> getOrganizationAppInstallations(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getOrganizationAppInstallations:getOrganizationAppInstallations", TypeShape.of(GetOrganizationAppInstallationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all GitHub App installations of the organization.
+     * 
+     * ## Example Usage
+     * 
+     * To retrieve *all* GitHub App installations of the organization:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = GithubFunctions.getOrganizationAppInstallations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrganizationAppInstallationsResult> getOrganizationAppInstallationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getOrganizationAppInstallations:getOrganizationAppInstallations", TypeShape.of(GetOrganizationAppInstallationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about a GitHub organization custom property.
      * 
      * ## Example Usage
@@ -15349,6 +15626,206 @@ public final class GithubFunctions {
      */
     public static CompletableFuture<GetRepositoryMilestoneResult> getRepositoryMilestonePlain(GetRepositoryMilestonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("github:index/getRepositoryMilestone:getRepositoryMilestone", TypeShape.of(GetRepositoryMilestoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve GitHub Pages configuration for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPages(GetRepositoryPagesArgs.builder()
+     *             .repository("my-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryPagesResult> getRepositoryPages(GetRepositoryPagesArgs args) {
+        return getRepositoryPages(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve GitHub Pages configuration for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPages(GetRepositoryPagesArgs.builder()
+     *             .repository("my-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRepositoryPagesResult> getRepositoryPagesPlain(GetRepositoryPagesPlainArgs args) {
+        return getRepositoryPagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve GitHub Pages configuration for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPages(GetRepositoryPagesArgs.builder()
+     *             .repository("my-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryPagesResult> getRepositoryPages(GetRepositoryPagesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryPages:getRepositoryPages", TypeShape.of(GetRepositoryPagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve GitHub Pages configuration for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPages(GetRepositoryPagesArgs.builder()
+     *             .repository("my-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRepositoryPagesResult> getRepositoryPages(GetRepositoryPagesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("github:index/getRepositoryPages:getRepositoryPages", TypeShape.of(GetRepositoryPagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve GitHub Pages configuration for a repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.github.GithubFunctions;
+     * import com.pulumi.github.inputs.GetRepositoryPagesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GithubFunctions.getRepositoryPages(GetRepositoryPagesArgs.builder()
+     *             .repository("my-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRepositoryPagesResult> getRepositoryPagesPlain(GetRepositoryPagesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("github:index/getRepositoryPages:getRepositoryPages", TypeShape.of(GetRepositoryPagesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a specific GitHub Pull Request in a repository.

@@ -22,7 +22,7 @@ namespace Pulumi.Github.Inputs
         private InputList<int>? _repositoryIds;
 
         /// <summary>
-        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `RepositoryName`.
+        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
         /// </summary>
         public InputList<int> RepositoryIds
         {
@@ -31,14 +31,20 @@ namespace Pulumi.Github.Inputs
         }
 
         /// <summary>
-        /// Conflicts with `RepositoryId`. (see below for nested schema)
-        /// 
-        /// One of `RepositoryId` and `RepositoryName` must be set for the rule to target any repositories.
-        /// 
-        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs.
+        /// Targets repositories that match the specified name patterns. (see below for nested schema)
         /// </summary>
         [Input("repositoryName")]
         public Input<Inputs.OrganizationRulesetConditionsRepositoryNameGetArgs>? RepositoryName { get; set; }
+
+        /// <summary>
+        /// Targets repositories by custom or system properties. (see below for nested schema)
+        /// 
+        /// Exactly one of `RepositoryId`, `RepositoryName`, or `RepositoryProperty` must be set for the rule to target repositories.
+        /// 
+        /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs.
+        /// </summary>
+        [Input("repositoryProperty")]
+        public Input<Inputs.OrganizationRulesetConditionsRepositoryPropertyGetArgs>? RepositoryProperty { get; set; }
 
         public OrganizationRulesetConditionsGetArgs()
         {

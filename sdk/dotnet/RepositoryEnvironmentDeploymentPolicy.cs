@@ -120,7 +120,11 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+    /// This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+    /// 
+    /// ### Import Command
+    /// 
+    /// The following command imports a deployment policy with the ID `123456` for the repo `Myrepo` and environment `Myenv` to a `github.RepositoryEnvironmentDeploymentPolicy` resource named `Example`.
     /// 
     /// ```sh
     /// $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -142,10 +146,22 @@ namespace Pulumi.Github
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the deployment policy.
+        /// </summary>
+        [Output("policyId")]
+        public Output<int> PolicyId { get; private set; } = null!;
+
+        /// <summary>
         /// The repository of the environment.
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
 
         /// <summary>
         /// The name pattern that tags must match in order to deploy to the environment. If not specified, `BranchPattern` must be specified.
@@ -244,10 +260,22 @@ namespace Pulumi.Github
         public Input<string>? Environment { get; set; }
 
         /// <summary>
+        /// The ID of the deployment policy.
+        /// </summary>
+        [Input("policyId")]
+        public Input<int>? PolicyId { get; set; }
+
+        /// <summary>
         /// The repository of the environment.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// The ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         /// <summary>
         /// The name pattern that tags must match in order to deploy to the environment. If not specified, `BranchPattern` must be specified.

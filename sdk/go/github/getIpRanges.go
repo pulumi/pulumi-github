@@ -48,27 +48,33 @@ func GetIpRanges(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIpRanges
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
-	// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+	// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
 	Actions []string `pulumi:"actions"`
 	// A subset of the `actions` array that contains IP addresses in IPv4 CIDR format.
 	ActionsIpv4s []string `pulumi:"actionsIpv4s"`
 	// A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
 	ActionsIpv6s []string `pulumi:"actionsIpv6s"`
+	// An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+	ActionsMacos []string `pulumi:"actionsMacos"`
+	// A subset of the `actionsMacos` array that contains IP addresses in IPv4 CIDR format.
+	ActionsMacosIpv4s []string `pulumi:"actionsMacosIpv4s"`
+	// A subset of the `actionsMacos` array that contains IP addresses in IPv6 CIDR format.
+	ActionsMacosIpv6s []string `pulumi:"actionsMacosIpv6s"`
 	// A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
 	ApiIpv4s []string `pulumi:"apiIpv4s"`
 	// A subset of the `api` array that contains IP addresses in IPv6 CIDR format.
 	ApiIpv6s []string `pulumi:"apiIpv6s"`
 	// An Array of IP addresses in CIDR format for the GitHub API.
 	Apis []string `pulumi:"apis"`
-	// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+	// **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
 	//
 	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	DependabotIpv4s []string `pulumi:"dependabotIpv4s"`
-	// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+	// **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
 	//
 	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	DependabotIpv6s []string `pulumi:"dependabotIpv6s"`
-	// An array of IP addresses in CIDR format specifying the A records for dependabot.
+	// **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
 	//
 	// Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 	Dependabots []string `pulumi:"dependabots"`
@@ -76,6 +82,12 @@ type GetIpRangesResult struct {
 	GitIpv4s []string `pulumi:"gitIpv4s"`
 	// A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
 	GitIpv6s []string `pulumi:"gitIpv6s"`
+	// A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+	GithubEnterpriseImporterIpv4s []string `pulumi:"githubEnterpriseImporterIpv4s"`
+	// A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+	GithubEnterpriseImporterIpv6s []string `pulumi:"githubEnterpriseImporterIpv6s"`
+	// An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+	GithubEnterpriseImporters []string `pulumi:"githubEnterpriseImporters"`
 	// An Array of IP addresses in CIDR format specifying the Git servers.
 	Gits []string `pulumi:"gits"`
 	// An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
@@ -134,7 +146,7 @@ func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx contex
 	return o
 }
 
-// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
 func (o GetIpRangesResultOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
@@ -147,6 +159,21 @@ func (o GetIpRangesResultOutput) ActionsIpv4s() pulumi.StringArrayOutput {
 // A subset of the `actions` array that contains IP addresses in IPv6 CIDR format.
 func (o GetIpRangesResultOutput) ActionsIpv6s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+func (o GetIpRangesResultOutput) ActionsMacos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsMacos }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `actionsMacos` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) ActionsMacosIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsMacosIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `actionsMacos` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) ActionsMacosIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ActionsMacosIpv6s }).(pulumi.StringArrayOutput)
 }
 
 // A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
@@ -164,21 +191,21 @@ func (o GetIpRangesResultOutput) Apis() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Apis }).(pulumi.StringArrayOutput)
 }
 
-// A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+// **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
 //
 // Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) DependabotIpv4s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv4s }).(pulumi.StringArrayOutput)
 }
 
-// A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+// **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
 //
 // Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) DependabotIpv6s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.DependabotIpv6s }).(pulumi.StringArrayOutput)
 }
 
-// An array of IP addresses in CIDR format specifying the A records for dependabot.
+// **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
 //
 // Deprecated: This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
 func (o GetIpRangesResultOutput) Dependabots() pulumi.StringArrayOutput {
@@ -193,6 +220,21 @@ func (o GetIpRangesResultOutput) GitIpv4s() pulumi.StringArrayOutput {
 // A subset of the `git` array that contains IP addresses in IPv6 CIDR format.
 func (o GetIpRangesResultOutput) GitIpv6s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GitIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+func (o GetIpRangesResultOutput) GithubEnterpriseImporterIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GithubEnterpriseImporterIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+func (o GetIpRangesResultOutput) GithubEnterpriseImporterIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GithubEnterpriseImporterIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+func (o GetIpRangesResultOutput) GithubEnterpriseImporters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GithubEnterpriseImporters }).(pulumi.StringArrayOutput)
 }
 
 // An Array of IP addresses in CIDR format specifying the Git servers.

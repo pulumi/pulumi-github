@@ -11,9 +11,9 @@ import * as utilities from "./utilities";
  * Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
  * interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
  *
- * For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+ * For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
  * but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
- * It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+ * It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
  * using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
  * in your code. See below for an example of this abstraction.
  *
@@ -26,12 +26,12 @@ import * as utilities from "./utilities";
  * const examplePlaintext = new github.ActionsSecret("example_plaintext", {
  *     repository: "example_repository",
  *     secretName: "example_secret_name",
- *     plaintextValue: someSecretString,
+ *     value: someSecretString,
  * });
  * const exampleEncrypted = new github.ActionsSecret("example_encrypted", {
  *     repository: "example_repository",
  *     secretName: "example_secret_name",
- *     encryptedValue: someEncryptedSecretString,
+ *     valueEncrypted: someEncryptedSecretString,
  * });
  * ```
  *
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * const exampleAllowDrift = new github.ActionsSecret("example_allow_drift", {
  *     repository: "example_repository",
  *     secretName: "example_secret_name",
- *     plaintextValue: "placeholder",
+ *     value: "placeholder",
  * });
  * ```
  *
@@ -54,7 +54,7 @@ import * as utilities from "./utilities";
  *
  * This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
  *
- * > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+ * > **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
  *
  * ### Import Command
  *
@@ -105,15 +105,19 @@ export class ActionsSecret extends pulumi.CustomResource {
      */
     declare public readonly destroyOnDrift: pulumi.Output<boolean | undefined>;
     /**
-     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * (Optional) Please use `valueEncrypted`.
+     *
+     * @deprecated Use valueEncrypted and key_id.
      */
     declare public readonly encryptedValue: pulumi.Output<string | undefined>;
     /**
-     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      */
     declare public readonly keyId: pulumi.Output<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * (Optional) Please use `value`.
+     *
+     * @deprecated Use value.
      */
     declare public readonly plaintextValue: pulumi.Output<string | undefined>;
     /**
@@ -136,6 +140,14 @@ export class ActionsSecret extends pulumi.CustomResource {
      * Date the secret was last updated by the provider.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    /**
+     * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+     */
+    declare public readonly value: pulumi.Output<string | undefined>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+     */
+    declare public readonly valueEncrypted: pulumi.Output<string | undefined>;
 
     /**
      * Create a ActionsSecret resource with the given unique name, arguments, and options.
@@ -160,6 +172,8 @@ export class ActionsSecret extends pulumi.CustomResource {
             resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["secretName"] = state?.secretName;
             resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["valueEncrypted"] = state?.valueEncrypted;
         } else {
             const args = argsOrState as ActionsSecretArgs | undefined;
             if (args?.repository === undefined && !opts.urn) {
@@ -174,13 +188,15 @@ export class ActionsSecret extends pulumi.CustomResource {
             resourceInputs["plaintextValue"] = args?.plaintextValue ? pulumi.secret(args.plaintextValue) : undefined;
             resourceInputs["repository"] = args?.repository;
             resourceInputs["secretName"] = args?.secretName;
+            resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueEncrypted"] = args?.valueEncrypted ? pulumi.secret(args.valueEncrypted) : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["remoteUpdatedAt"] = undefined /*out*/;
             resourceInputs["repositoryId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["encryptedValue", "plaintextValue"] };
+        const secretOpts = { additionalSecretOutputs: ["encryptedValue", "plaintextValue", "value", "valueEncrypted"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ActionsSecret.__pulumiType, name, resourceInputs, opts);
     }
@@ -203,15 +219,19 @@ export interface ActionsSecretState {
      */
     destroyOnDrift?: pulumi.Input<boolean>;
     /**
-     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * (Optional) Please use `valueEncrypted`.
+     *
+     * @deprecated Use valueEncrypted and key_id.
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      */
     keyId?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * (Optional) Please use `value`.
+     *
+     * @deprecated Use value.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
@@ -234,6 +254,14 @@ export interface ActionsSecretState {
      * Date the secret was last updated by the provider.
      */
     updatedAt?: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+     */
+    valueEncrypted?: pulumi.Input<string>;
 }
 
 /**
@@ -249,15 +277,19 @@ export interface ActionsSecretArgs {
      */
     destroyOnDrift?: pulumi.Input<boolean>;
     /**
-     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * (Optional) Please use `valueEncrypted`.
+     *
+     * @deprecated Use valueEncrypted and key_id.
      */
     encryptedValue?: pulumi.Input<string>;
     /**
-     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      */
     keyId?: pulumi.Input<string>;
     /**
-     * Plaintext value of the secret to be encrypted.
+     * (Optional) Please use `value`.
+     *
+     * @deprecated Use value.
      */
     plaintextValue?: pulumi.Input<string>;
     /**
@@ -268,4 +300,12 @@ export interface ActionsSecretArgs {
      * Name of the secret.
      */
     secretName: pulumi.Input<string>;
+    /**
+     * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+     */
+    valueEncrypted?: pulumi.Input<string>;
 }

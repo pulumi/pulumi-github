@@ -87,13 +87,13 @@ class RepositoryArgs:
         :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
-        :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input['RepositoryPagesArgs'] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input['RepositorySecurityAndAnalysisArgs'] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
@@ -106,8 +106,8 @@ class RepositoryArgs:
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
-        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -158,8 +158,8 @@ class RepositoryArgs:
         if homepage_url is not None:
             pulumi.set(__self__, "homepage_url", homepage_url)
         if ignore_vulnerability_alerts_during_read is not None:
-            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically.""", DeprecationWarning)
-            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically.""")
+            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
         if ignore_vulnerability_alerts_during_read is not None:
             pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
@@ -172,6 +172,9 @@ class RepositoryArgs:
             pulumi.set(__self__, "merge_commit_title", merge_commit_title)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pages is not None:
+            warnings.warn("""Use the RepositoryPages resource instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""pages is deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.""")
         if pages is not None:
             pulumi.set(__self__, "pages", pages)
         if private is not None:
@@ -195,6 +198,9 @@ class RepositoryArgs:
             pulumi.set(__self__, "topics", topics)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
+        if vulnerability_alerts is not None:
+            warnings.warn("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vulnerability_alerts is deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
         if web_commit_signoff_required is not None:
@@ -457,10 +463,10 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
-    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -530,9 +536,10 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the RepositoryPages resource instead. This field will be removed in a future version.""")
     def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
         """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
@@ -654,9 +661,10 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityAlerts")
+    @_utilities.deprecated("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+        (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -668,7 +676,7 @@ class RepositoryArgs:
     @pulumi.getter(name="webCommitSignoffRequired")
     def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
@@ -759,14 +767,14 @@ class _RepositoryState:
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input['RepositoryPagesArgs'] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input['RepositoryPagesArgs'] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.str] primary_language: The primary language used in the repository.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
@@ -783,8 +791,8 @@ class _RepositoryState:
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
-        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         if allow_auto_merge is not None:
             pulumi.set(__self__, "allow_auto_merge", allow_auto_merge)
@@ -843,8 +851,8 @@ class _RepositoryState:
         if http_clone_url is not None:
             pulumi.set(__self__, "http_clone_url", http_clone_url)
         if ignore_vulnerability_alerts_during_read is not None:
-            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically.""", DeprecationWarning)
-            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically.""")
+            warnings.warn("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""ignore_vulnerability_alerts_during_read is deprecated: This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
         if ignore_vulnerability_alerts_during_read is not None:
             pulumi.set(__self__, "ignore_vulnerability_alerts_during_read", ignore_vulnerability_alerts_during_read)
         if is_template is not None:
@@ -859,6 +867,9 @@ class _RepositoryState:
             pulumi.set(__self__, "name", name)
         if node_id is not None:
             pulumi.set(__self__, "node_id", node_id)
+        if pages is not None:
+            warnings.warn("""Use the RepositoryPages resource instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""pages is deprecated: Use the RepositoryPages resource instead. This field will be removed in a future version.""")
         if pages is not None:
             pulumi.set(__self__, "pages", pages)
         if primary_language is not None:
@@ -890,6 +901,9 @@ class _RepositoryState:
             pulumi.set(__self__, "topics", topics)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
+        if vulnerability_alerts is not None:
+            warnings.warn("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vulnerability_alerts is deprecated: Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
         if vulnerability_alerts is not None:
             pulumi.set(__self__, "vulnerability_alerts", vulnerability_alerts)
         if web_commit_signoff_required is not None:
@@ -1200,10 +1214,10 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
-    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
     def ignore_vulnerability_alerts_during_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -1285,9 +1299,10 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the RepositoryPages resource instead. This field will be removed in a future version.""")
     def pages(self) -> Optional[pulumi.Input['RepositoryPagesArgs']]:
         """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
@@ -1457,9 +1472,10 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityAlerts")
+    @_utilities.deprecated("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
     def vulnerability_alerts(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+        (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
@@ -1471,7 +1487,7 @@ class _RepositoryState:
     @pulumi.getter(name="webCommitSignoffRequired")
     def web_commit_signoff_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         return pulumi.get(self, "web_commit_signoff_required")
 
@@ -1549,24 +1565,6 @@ class Repository(pulumi.CustomResource):
             })
         ```
 
-        ### With GitHub Pages Enabled
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            name="example",
-            description="My awesome web page",
-            private=False,
-            pages={
-                "source": {
-                    "branch": "master",
-                    "path": "/docs",
-                },
-            })
-        ```
-
         ### With Repository Forking
 
         ```python
@@ -1616,13 +1614,13 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] has_wiki: Set to `true` to enable the GitHub Wiki features on
                the repository.
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
-        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
         :param pulumi.Input[Union['RepositorySecurityAndAnalysisArgs', 'RepositorySecurityAndAnalysisArgsDict']] security_and_analysis: The repository's [security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) configuration. See Security and Analysis Configuration below for details.
@@ -1635,8 +1633,8 @@ class Repository(pulumi.CustomResource):
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
-        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         ...
     @overload
@@ -1664,24 +1662,6 @@ class Repository(pulumi.CustomResource):
                 "owner": "github",
                 "repository": "terraform-template-module",
                 "include_all_branches": True,
-            })
-        ```
-
-        ### With GitHub Pages Enabled
-
-        ```python
-        import pulumi
-        import pulumi_github as github
-
-        example = github.Repository("example",
-            name="example",
-            description="My awesome web page",
-            private=False,
-            pages={
-                "source": {
-                    "branch": "master",
-                    "path": "/docs",
-                },
             })
         ```
 
@@ -1912,14 +1892,14 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] homepage_url: URL of a page describing the project.
         :param pulumi.Input[_builtins.str] html_url: The absolute URL (including scheme) of the rendered GitHub Pages site e.g. `https://username.github.io`.
         :param pulumi.Input[_builtins.str] http_clone_url: URL that can be provided to `git clone` to clone the repository via HTTPS.
-        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        :param pulumi.Input[_builtins.bool] ignore_vulnerability_alerts_during_read: (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         :param pulumi.Input[_builtins.bool] is_template: Set to `true` to tell GitHub that this is a template repository.
         :param pulumi.Input[_builtins.str] license_template: Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0".
         :param pulumi.Input[_builtins.str] merge_commit_message: Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] merge_commit_title: Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] node_id: GraphQL global node id for use with v4 API
-        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        :param pulumi.Input[Union['RepositoryPagesArgs', 'RepositoryPagesArgsDict']] pages: (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         :param pulumi.Input[_builtins.str] primary_language: The primary language used in the repository.
         :param pulumi.Input[_builtins.bool] private: Set to `true` to create a private repository.
                Repositories are created as public (e.g. open source) by default.
@@ -1936,8 +1916,8 @@ class Repository(pulumi.CustomResource):
                
                > Note: This attribute is not compatible with the `RepositoryTopics` resource. Use one of them. `RepositoryTopics` is only meant to be used if the repository itself is not handled via terraform, for example if it's only read as a datasource (see issue #1845).
         :param pulumi.Input[_builtins.str] visibility: Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be `internal`. The `visibility` parameter overrides the `private` parameter.
-        :param pulumi.Input[_builtins.bool] vulnerability_alerts: Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
-        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] vulnerability_alerts: (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
+        :param pulumi.Input[_builtins.bool] web_commit_signoff_required: Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2198,10 +2178,10 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="ignoreVulnerabilityAlertsDuringRead")
-    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically.""")
+    @_utilities.deprecated("""This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.""")
     def ignore_vulnerability_alerts_during_read(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+        (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
         """
         return pulumi.get(self, "ignore_vulnerability_alerts_during_read")
 
@@ -2255,9 +2235,10 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the RepositoryPages resource instead. This field will be removed in a future version.""")
     def pages(self) -> pulumi.Output[Optional['outputs.RepositoryPages']]:
         """
-        The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+        (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
         """
         return pulumi.get(self, "pages")
 
@@ -2371,17 +2352,18 @@ class Repository(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityAlerts")
+    @_utilities.deprecated("""Use the RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.""")
     def vulnerability_alerts(self) -> pulumi.Output[_builtins.bool]:
         """
-        Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+        (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `RepositoryVulnerabilityAlerts` resource instead.
         """
         return pulumi.get(self, "vulnerability_alerts")
 
     @_builtins.property
     @pulumi.getter(name="webCommitSignoffRequired")
-    def web_commit_signoff_required(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def web_commit_signoff_required(self) -> pulumi.Output[_builtins.bool]:
         """
-        Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+        Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
         """
         return pulumi.get(self, "web_commit_signoff_required")
 

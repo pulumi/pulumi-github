@@ -6,6 +6,7 @@ package com.pulumi.github.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRefName;
 import com.pulumi.github.outputs.OrganizationRulesetConditionsRepositoryName;
+import com.pulumi.github.outputs.OrganizationRulesetConditionsRepositoryProperty;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -20,19 +21,24 @@ public final class OrganizationRulesetConditions {
      */
     private @Nullable OrganizationRulesetConditionsRefName refName;
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      * 
      */
     private @Nullable List<Integer> repositoryIds;
     /**
-     * @return Conflicts with `repositoryId`. (see below for nested schema)
+     * @return Targets repositories that match the specified name patterns. (see below for nested schema)
      * 
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
+     */
+    private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
+    /**
+     * @return Targets repositories by custom or system properties. (see below for nested schema)
+     * 
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
      * 
      * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
      * 
      */
-    private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
+    private @Nullable OrganizationRulesetConditionsRepositoryProperty repositoryProperty;
 
     private OrganizationRulesetConditions() {}
     /**
@@ -43,22 +49,29 @@ public final class OrganizationRulesetConditions {
         return Optional.ofNullable(this.refName);
     }
     /**
-     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repositoryName`.
+     * @return The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
      * 
      */
     public List<Integer> repositoryIds() {
         return this.repositoryIds == null ? List.of() : this.repositoryIds;
     }
     /**
-     * @return Conflicts with `repositoryId`. (see below for nested schema)
-     * 
-     * One of `repositoryId` and `repositoryName` must be set for the rule to target any repositories.
-     * 
-     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * @return Targets repositories that match the specified name patterns. (see below for nested schema)
      * 
      */
     public Optional<OrganizationRulesetConditionsRepositoryName> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
+    }
+    /**
+     * @return Targets repositories by custom or system properties. (see below for nested schema)
+     * 
+     * Exactly one of `repositoryId`, `repositoryName`, or `repositoryProperty` must be set for the rule to target repositories.
+     * 
+     * &gt; **Note:** For `push` targets, do not include `refName` in conditions. Push rulesets operate on file content, not on refs.
+     * 
+     */
+    public Optional<OrganizationRulesetConditionsRepositoryProperty> repositoryProperty() {
+        return Optional.ofNullable(this.repositoryProperty);
     }
 
     public static Builder builder() {
@@ -73,12 +86,14 @@ public final class OrganizationRulesetConditions {
         private @Nullable OrganizationRulesetConditionsRefName refName;
         private @Nullable List<Integer> repositoryIds;
         private @Nullable OrganizationRulesetConditionsRepositoryName repositoryName;
+        private @Nullable OrganizationRulesetConditionsRepositoryProperty repositoryProperty;
         public Builder() {}
         public Builder(OrganizationRulesetConditions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.refName = defaults.refName;
     	      this.repositoryIds = defaults.repositoryIds;
     	      this.repositoryName = defaults.repositoryName;
+    	      this.repositoryProperty = defaults.repositoryProperty;
         }
 
         @CustomType.Setter
@@ -102,11 +117,18 @@ public final class OrganizationRulesetConditions {
             this.repositoryName = repositoryName;
             return this;
         }
+        @CustomType.Setter
+        public Builder repositoryProperty(@Nullable OrganizationRulesetConditionsRepositoryProperty repositoryProperty) {
+
+            this.repositoryProperty = repositoryProperty;
+            return this;
+        }
         public OrganizationRulesetConditions build() {
             final var _resultValue = new OrganizationRulesetConditions();
             _resultValue.refName = refName;
             _resultValue.repositoryIds = repositoryIds;
             _resultValue.repositoryName = repositoryName;
+            _resultValue.repositoryProperty = repositoryProperty;
             return _resultValue;
         }
     }

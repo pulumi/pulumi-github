@@ -18,17 +18,21 @@ namespace Pulumi.Github.Outputs
         /// </summary>
         public readonly Outputs.OrganizationRulesetConditionsRefName? RefName;
         /// <summary>
-        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `RepositoryName`.
+        /// The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
         /// </summary>
         public readonly ImmutableArray<int> RepositoryIds;
         /// <summary>
-        /// Conflicts with `RepositoryId`. (see below for nested schema)
+        /// Targets repositories that match the specified name patterns. (see below for nested schema)
+        /// </summary>
+        public readonly Outputs.OrganizationRulesetConditionsRepositoryName? RepositoryName;
+        /// <summary>
+        /// Targets repositories by custom or system properties. (see below for nested schema)
         /// 
-        /// One of `RepositoryId` and `RepositoryName` must be set for the rule to target any repositories.
+        /// Exactly one of `RepositoryId`, `RepositoryName`, or `RepositoryProperty` must be set for the rule to target repositories.
         /// 
         /// &gt; **Note:** For `Push` targets, do not include `RefName` in conditions. Push rulesets operate on file content, not on refs.
         /// </summary>
-        public readonly Outputs.OrganizationRulesetConditionsRepositoryName? RepositoryName;
+        public readonly Outputs.OrganizationRulesetConditionsRepositoryProperty? RepositoryProperty;
 
         [OutputConstructor]
         private OrganizationRulesetConditions(
@@ -36,11 +40,14 @@ namespace Pulumi.Github.Outputs
 
             ImmutableArray<int> repositoryIds,
 
-            Outputs.OrganizationRulesetConditionsRepositoryName? repositoryName)
+            Outputs.OrganizationRulesetConditionsRepositoryName? repositoryName,
+
+            Outputs.OrganizationRulesetConditionsRepositoryProperty? repositoryProperty)
         {
             RefName = refName;
             RepositoryIds = repositoryIds;
             RepositoryName = repositoryName;
+            RepositoryProperty = repositoryProperty;
         }
     }
 }

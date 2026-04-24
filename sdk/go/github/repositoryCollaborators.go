@@ -90,14 +90,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// GitHub Repository Collaborators can be imported using the name `name`, e.g.
-//
-// ```sh
-// $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
-// ```
 type RepositoryCollaborators struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +100,8 @@ type RepositoryCollaborators struct {
 	InvitationIds pulumi.StringMapOutput `pulumi:"invitationIds"`
 	// The GitHub repository.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId pulumi.IntOutput `pulumi:"repositoryId"`
 	// List of teams to grant access to the repository.
 	Teams RepositoryCollaboratorsTeamArrayOutput `pulumi:"teams"`
 	// List of users to grant access to the repository.
@@ -154,6 +148,8 @@ type repositoryCollaboratorsState struct {
 	InvitationIds map[string]string `pulumi:"invitationIds"`
 	// The GitHub repository.
 	Repository *string `pulumi:"repository"`
+	// ID of the repository.
+	RepositoryId *int `pulumi:"repositoryId"`
 	// List of teams to grant access to the repository.
 	Teams []RepositoryCollaboratorsTeam `pulumi:"teams"`
 	// List of users to grant access to the repository.
@@ -168,6 +164,8 @@ type RepositoryCollaboratorsState struct {
 	InvitationIds pulumi.StringMapInput
 	// The GitHub repository.
 	Repository pulumi.StringPtrInput
+	// ID of the repository.
+	RepositoryId pulumi.IntPtrInput
 	// List of teams to grant access to the repository.
 	Teams RepositoryCollaboratorsTeamArrayInput
 	// List of users to grant access to the repository.
@@ -302,6 +300,11 @@ func (o RepositoryCollaboratorsOutput) InvitationIds() pulumi.StringMapOutput {
 // The GitHub repository.
 func (o RepositoryCollaboratorsOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCollaborators) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
+}
+
+// ID of the repository.
+func (o RepositoryCollaboratorsOutput) RepositoryId() pulumi.IntOutput {
+	return o.ApplyT(func(v *RepositoryCollaborators) pulumi.IntOutput { return v.RepositoryId }).(pulumi.IntOutput)
 }
 
 // List of teams to grant access to the repository.

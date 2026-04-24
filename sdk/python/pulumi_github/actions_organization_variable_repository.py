@@ -119,7 +119,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
 
         example = github.ActionsOrganizationVariable("example",
             variable_name="myvariable",
-            plaintext_value="foo",
+            value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -167,7 +167,7 @@ class ActionsOrganizationVariableRepository(pulumi.CustomResource):
 
         example = github.ActionsOrganizationVariable("example",
             variable_name="myvariable",
-            plaintext_value="foo",
+            value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",

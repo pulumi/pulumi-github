@@ -30,25 +30,6 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With GitHub Pages Enabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as github from "@pulumi/github";
- *
- * const example = new github.Repository("example", {
- *     name: "example",
- *     description: "My awesome web page",
- *     "private": false,
- *     pages: {
- *         source: {
- *             branch: "master",
- *             path: "/docs",
- *         },
- *     },
- * });
- * ```
- *
  * ### With Repository Forking
  *
  * ```typescript
@@ -206,9 +187,9 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly httpCloneUrl: pulumi.Output<string>;
     /**
-     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      *
-     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      */
     declare public readonly ignoreVulnerabilityAlertsDuringRead: pulumi.Output<boolean | undefined>;
     /**
@@ -236,7 +217,9 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeId: pulumi.Output<string>;
     /**
-     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     *
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      */
     declare public readonly pages: pulumi.Output<outputs.RepositoryPages | undefined>;
     /**
@@ -297,13 +280,15 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly visibility: pulumi.Output<string>;
     /**
-     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     *
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      */
     declare public readonly vulnerabilityAlerts: pulumi.Output<boolean>;
     /**
-     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      */
-    declare public readonly webCommitSignoffRequired: pulumi.Output<boolean | undefined>;
+    declare public readonly webCommitSignoffRequired: pulumi.Output<boolean>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -532,9 +517,9 @@ export interface RepositoryState {
      */
     httpCloneUrl?: pulumi.Input<string>;
     /**
-     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      *
-     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      */
     ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
@@ -562,7 +547,9 @@ export interface RepositoryState {
      */
     nodeId?: pulumi.Input<string>;
     /**
-     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     *
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      */
     pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
@@ -623,11 +610,13 @@ export interface RepositoryState {
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     *
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
     /**
-     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      */
     webCommitSignoffRequired?: pulumi.Input<boolean>;
 }
@@ -726,9 +715,9 @@ export interface RepositoryArgs {
      */
     homepageUrl?: pulumi.Input<string>;
     /**
-     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      *
-     * @deprecated This is ignored as the provider now handles lack of permissions automatically.
+     * @deprecated This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      */
     ignoreVulnerabilityAlertsDuringRead?: pulumi.Input<boolean>;
     /**
@@ -752,7 +741,9 @@ export interface RepositoryArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The repository's GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     *
+     * @deprecated Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      */
     pages?: pulumi.Input<inputs.RepositoryPages>;
     /**
@@ -797,11 +788,13 @@ export interface RepositoryArgs {
      */
     visibility?: pulumi.Input<string>;
     /**
-     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     *
+     * @deprecated Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      */
     vulnerabilityAlerts?: pulumi.Input<boolean>;
     /**
-     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      */
     webCommitSignoffRequired?: pulumi.Input<boolean>;
 }

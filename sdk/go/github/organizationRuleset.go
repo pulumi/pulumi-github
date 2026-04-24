@@ -124,6 +124,55 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example with repository_property targeting
+//			_, err = github.NewOrganizationRuleset(ctx, "example_property", &github.OrganizationRulesetArgs{
+//				Name:        pulumi.String("example_property"),
+//				Target:      pulumi.String("branch"),
+//				Enforcement: pulumi.String("active"),
+//				Conditions: &github.OrganizationRulesetConditionsArgs{
+//					RefName: &github.OrganizationRulesetConditionsRefNameArgs{
+//						Includes: pulumi.StringArray{
+//							pulumi.String("~ALL"),
+//						},
+//						Excludes: pulumi.StringArray{},
+//					},
+//					RepositoryProperty: &github.OrganizationRulesetConditionsRepositoryPropertyArgs{
+//						Includes: github.OrganizationRulesetConditionsRepositoryPropertyIncludeArray{
+//							&github.OrganizationRulesetConditionsRepositoryPropertyIncludeArgs{
+//								Name: pulumi.String("environment"),
+//								PropertyValues: pulumi.StringArray{
+//									pulumi.String("production"),
+//									pulumi.String("staging"),
+//								},
+//								Source: pulumi.String("custom"),
+//							},
+//							&github.OrganizationRulesetConditionsRepositoryPropertyIncludeArgs{
+//								Name: pulumi.String("team"),
+//								PropertyValues: pulumi.StringArray{
+//									pulumi.String("backend"),
+//								},
+//								Source: pulumi.String("custom"),
+//							},
+//						},
+//						Excludes: github.OrganizationRulesetConditionsRepositoryPropertyExcludeArray{
+//							&github.OrganizationRulesetConditionsRepositoryPropertyExcludeArgs{
+//								Name: pulumi.String("archived"),
+//								PropertyValues: pulumi.StringArray{
+//									pulumi.String("true"),
+//								},
+//								Source: pulumi.String("system"),
+//							},
+//						},
+//					},
+//				},
+//				Rules: &github.OrganizationRulesetRulesArgs{
+//					RequiredSignatures: pulumi.Bool(true),
+//					PullRequest:        &github.OrganizationRulesetRulesPullRequestArgs{},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}

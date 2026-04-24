@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * const example = new github.DependabotOrganizationSecret("example", {
  *     secretName: "mysecret",
- *     plaintextValue: "foo",
+ *     value: "foo",
  *     visibility: "selected",
  * });
  * const exampleRepository = new github.Repository("example", {

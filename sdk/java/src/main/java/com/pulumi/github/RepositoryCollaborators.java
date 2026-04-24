@@ -13,6 +13,7 @@ import com.pulumi.github.inputs.RepositoryCollaboratorsState;
 import com.pulumi.github.outputs.RepositoryCollaboratorsIgnoreTeam;
 import com.pulumi.github.outputs.RepositoryCollaboratorsTeam;
 import com.pulumi.github.outputs.RepositoryCollaboratorsUser;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -104,14 +105,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Import
- * 
- * GitHub Repository Collaborators can be imported using the name `name`, e.g.
- * 
- * ```sh
- * $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
- * ```
- * 
  */
 @ResourceType(type="github:index/repositoryCollaborators:RepositoryCollaborators")
 public class RepositoryCollaborators extends com.pulumi.resources.CustomResource {
@@ -158,6 +151,20 @@ public class RepositoryCollaborators extends com.pulumi.resources.CustomResource
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
     }
     /**
      * List of teams to grant access to the repository.

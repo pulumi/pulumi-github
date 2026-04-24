@@ -18,9 +18,9 @@ import (
 // Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
 // interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 //
-// For the purposes of security, the contents of the `plaintextValue` field have been marked as `sensitive` to Terraform,
+// For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
 // but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-// It is also advised that you do not store plaintext values in your code but rather populate the `encryptedValue`
+// It is also advised that you do not store plaintext values in your code but rather populate the `valueEncrypted`
 // using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
 // in your code. See below for an example of this abstraction.
 //
@@ -41,10 +41,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := github.NewActionsEnvironmentSecret(ctx, "example_allow_drift", &github.ActionsEnvironmentSecretArgs{
-//				Repository:     pulumi.String("example-repo"),
-//				Environment:    pulumi.String("example-environment"),
-//				SecretName:     pulumi.String("example_secret_name"),
-//				PlaintextValue: pulumi.String("placeholder"),
+//				Repository:  pulumi.String("example-repo"),
+//				Environment: pulumi.String("example-environment"),
+//				SecretName:  pulumi.String("example_secret_name"),
+//				Value:       pulumi.String("placeholder"),
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //
 // This resource can be imported using an ID made of the repository name, environment name (URL escaped), and secret name all separated by a `:`.
 //
-// > **Note**: When importing secrets, the `plaintextValue` or `encryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+// > **Note**: When importing secrets, the `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 //
 // ### Import Command
 //
@@ -73,15 +73,19 @@ type ActionsEnvironmentSecret struct {
 
 	// Date the secret was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrOutput `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment pulumi.StringOutput `pulumi:"environment"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrOutput `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringOutput `pulumi:"remoteUpdatedAt"`
@@ -93,6 +97,10 @@ type ActionsEnvironmentSecret struct {
 	SecretName pulumi.StringOutput `pulumi:"secretName"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrOutput `pulumi:"valueEncrypted"`
 }
 
 // NewActionsEnvironmentSecret registers a new resource with the given unique name, arguments, and options.
@@ -111,11 +119,23 @@ func NewActionsEnvironmentSecret(ctx *pulumi.Context,
 	if args.SecretName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretName'")
 	}
+	if args.EncryptedValue != nil {
+		args.EncryptedValue = pulumi.ToSecret(args.EncryptedValue).(pulumi.StringPtrInput)
+	}
 	if args.PlaintextValue != nil {
 		args.PlaintextValue = pulumi.ToSecret(args.PlaintextValue).(pulumi.StringPtrInput)
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
+	}
+	if args.ValueEncrypted != nil {
+		args.ValueEncrypted = pulumi.ToSecret(args.ValueEncrypted).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"encryptedValue",
 		"plaintextValue",
+		"value",
+		"valueEncrypted",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -143,15 +163,19 @@ func GetActionsEnvironmentSecret(ctx *pulumi.Context,
 type actionsEnvironmentSecretState struct {
 	// Date the secret was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment *string `pulumi:"environment"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt *string `pulumi:"remoteUpdatedAt"`
@@ -163,20 +187,28 @@ type actionsEnvironmentSecretState struct {
 	SecretName *string `pulumi:"secretName"`
 	// Date the secret was last updated by the provider.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 }
 
 type ActionsEnvironmentSecretState struct {
 	// Date the secret was created.
 	CreatedAt pulumi.StringPtrInput
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringPtrInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Date the secret was last updated in GitHub.
 	RemoteUpdatedAt pulumi.StringPtrInput
@@ -188,6 +220,10 @@ type ActionsEnvironmentSecretState struct {
 	SecretName pulumi.StringPtrInput
 	// Date the secret was last updated by the provider.
 	UpdatedAt pulumi.StringPtrInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 }
 
 func (ActionsEnvironmentSecretState) ElementType() reflect.Type {
@@ -195,38 +231,54 @@ func (ActionsEnvironmentSecretState) ElementType() reflect.Type {
 }
 
 type actionsEnvironmentSecretArgs struct {
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue *string `pulumi:"encryptedValue"`
 	// Name of the environment.
 	Environment string `pulumi:"environment"`
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId *string `pulumi:"keyId"`
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue *string `pulumi:"plaintextValue"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
 	// Name of the secret.
 	SecretName string `pulumi:"secretName"`
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value *string `pulumi:"value"`
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted *string `pulumi:"valueEncrypted"`
 }
 
 // The set of arguments for constructing a ActionsEnvironmentSecret resource.
 type ActionsEnvironmentSecretArgs struct {
-	// Encrypted value of the secret using the GitHub public key in Base64 format.
+	// (Optional) Please use `valueEncrypted`.
+	//
+	// Deprecated: Use valueEncrypted and key_id.
 	EncryptedValue pulumi.StringPtrInput
 	// Name of the environment.
 	Environment pulumi.StringInput
-	// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+	// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 	KeyId pulumi.StringPtrInput
-	// Plaintext value of the secret to be encrypted.
+	// (Optional) Please use `value`.
 	//
-	// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+	// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+	//
+	// Deprecated: Use value.
 	PlaintextValue pulumi.StringPtrInput
 	// Name of the repository.
 	Repository pulumi.StringInput
 	// Name of the secret.
 	SecretName pulumi.StringInput
+	// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+	Value pulumi.StringPtrInput
+	// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+	ValueEncrypted pulumi.StringPtrInput
 }
 
 func (ActionsEnvironmentSecretArgs) ElementType() reflect.Type {
@@ -321,7 +373,9 @@ func (o ActionsEnvironmentSecretOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Encrypted value of the secret using the GitHub public key in Base64 format.
+// (Optional) Please use `valueEncrypted`.
+//
+// Deprecated: Use valueEncrypted and key_id.
 func (o ActionsEnvironmentSecretOutput) EncryptedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.EncryptedValue }).(pulumi.StringPtrOutput)
 }
@@ -331,14 +385,16 @@ func (o ActionsEnvironmentSecretOutput) Environment() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.Environment }).(pulumi.StringOutput)
 }
 
-// ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+// ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
 func (o ActionsEnvironmentSecretOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Plaintext value of the secret to be encrypted.
+// (Optional) Please use `value`.
 //
-// > **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+// > **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+//
+// Deprecated: Use value.
 func (o ActionsEnvironmentSecretOutput) PlaintextValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.PlaintextValue }).(pulumi.StringPtrOutput)
 }
@@ -366,6 +422,16 @@ func (o ActionsEnvironmentSecretOutput) SecretName() pulumi.StringOutput {
 // Date the secret was last updated by the provider.
 func (o ActionsEnvironmentSecretOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` & `plaintextValue`.
+func (o ActionsEnvironmentSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` & `plaintextValue`.
+func (o ActionsEnvironmentSecretOutput) ValueEncrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionsEnvironmentSecret) pulumi.StringPtrOutput { return v.ValueEncrypted }).(pulumi.StringPtrOutput)
 }
 
 type ActionsEnvironmentSecretArrayOutput struct{ *pulumi.OutputState }

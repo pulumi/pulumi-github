@@ -80,7 +80,7 @@ namespace Pulumi.Github
     public sealed class GetIpRangesResult
     {
         /// <summary>
-        /// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+        /// An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
@@ -91,6 +91,18 @@ namespace Pulumi.Github
         /// A subset of the `Actions` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> ActionsIpv6s;
+        /// <summary>
+        /// An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+        /// </summary>
+        public readonly ImmutableArray<string> ActionsMacos;
+        /// <summary>
+        /// A subset of the `ActionsMacos` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> ActionsMacosIpv4s;
+        /// <summary>
+        /// A subset of the `ActionsMacos` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> ActionsMacosIpv6s;
         /// <summary>
         /// A subset of the `Api` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
@@ -104,15 +116,15 @@ namespace Pulumi.Github
         /// </summary>
         public readonly ImmutableArray<string> Apis;
         /// <summary>
-        /// A subset of the `Dependabot` array that contains IP addresses in IPv4 CIDR format.
+        /// **Deprecated.** A subset of the `Dependabot` array that contains IP addresses in IPv4 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> DependabotIpv4s;
         /// <summary>
-        /// A subset of the `Dependabot` array that contains IP addresses in IPv6 CIDR format.
+        /// **Deprecated.** A subset of the `Dependabot` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> DependabotIpv6s;
         /// <summary>
-        /// An array of IP addresses in CIDR format specifying the A records for dependabot.
+        /// **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
         /// </summary>
         public readonly ImmutableArray<string> Dependabots;
         /// <summary>
@@ -123,6 +135,18 @@ namespace Pulumi.Github
         /// A subset of the `Git` array that contains IP addresses in IPv6 CIDR format.
         /// </summary>
         public readonly ImmutableArray<string> GitIpv6s;
+        /// <summary>
+        /// A subset of the `GithubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> GithubEnterpriseImporterIpv4s;
+        /// <summary>
+        /// A subset of the `GithubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+        /// </summary>
+        public readonly ImmutableArray<string> GithubEnterpriseImporterIpv6s;
+        /// <summary>
+        /// An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+        /// </summary>
+        public readonly ImmutableArray<string> GithubEnterpriseImporters;
         /// <summary>
         /// An Array of IP addresses in CIDR format specifying the Git servers.
         /// </summary>
@@ -200,6 +224,12 @@ namespace Pulumi.Github
 
             ImmutableArray<string> actionsIpv6s,
 
+            ImmutableArray<string> actionsMacos,
+
+            ImmutableArray<string> actionsMacosIpv4s,
+
+            ImmutableArray<string> actionsMacosIpv6s,
+
             ImmutableArray<string> apiIpv4s,
 
             ImmutableArray<string> apiIpv6s,
@@ -215,6 +245,12 @@ namespace Pulumi.Github
             ImmutableArray<string> gitIpv4s,
 
             ImmutableArray<string> gitIpv6s,
+
+            ImmutableArray<string> githubEnterpriseImporterIpv4s,
+
+            ImmutableArray<string> githubEnterpriseImporterIpv6s,
+
+            ImmutableArray<string> githubEnterpriseImporters,
 
             ImmutableArray<string> gits,
 
@@ -253,6 +289,9 @@ namespace Pulumi.Github
             Actions = actions;
             ActionsIpv4s = actionsIpv4s;
             ActionsIpv6s = actionsIpv6s;
+            ActionsMacos = actionsMacos;
+            ActionsMacosIpv4s = actionsMacosIpv4s;
+            ActionsMacosIpv6s = actionsMacosIpv6s;
             ApiIpv4s = apiIpv4s;
             ApiIpv6s = apiIpv6s;
             Apis = apis;
@@ -261,6 +300,9 @@ namespace Pulumi.Github
             Dependabots = dependabots;
             GitIpv4s = gitIpv4s;
             GitIpv6s = gitIpv6s;
+            GithubEnterpriseImporterIpv4s = githubEnterpriseImporterIpv4s;
+            GithubEnterpriseImporterIpv6s = githubEnterpriseImporterIpv6s;
+            GithubEnterpriseImporters = githubEnterpriseImporters;
             Gits = gits;
             Hooks = hooks;
             HooksIpv4s = hooksIpv4s;

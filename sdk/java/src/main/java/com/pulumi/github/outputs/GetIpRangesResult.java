@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIpRangesResult {
     /**
-     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
      * 
      */
     private List<String> actions;
@@ -26,6 +26,21 @@ public final class GetIpRangesResult {
      * 
      */
     private List<String> actionsIpv6s;
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+     * 
+     */
+    private List<String> actionsMacos;
+    /**
+     * @return A subset of the `actionsMacos` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    private List<String> actionsMacosIpv4s;
+    /**
+     * @return A subset of the `actionsMacos` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    private List<String> actionsMacosIpv6s;
     /**
      * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
      * 
@@ -42,7 +57,7 @@ public final class GetIpRangesResult {
      */
     private List<String> apis;
     /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -51,7 +66,7 @@ public final class GetIpRangesResult {
     @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
     private List<String> dependabotIpv4s;
     /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -60,7 +75,7 @@ public final class GetIpRangesResult {
     @Deprecated /* This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses. */
     private List<String> dependabotIpv6s;
     /**
-     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
+     * @return **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -78,6 +93,21 @@ public final class GetIpRangesResult {
      * 
      */
     private List<String> gitIpv6s;
+    /**
+     * @return A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    private List<String> githubEnterpriseImporterIpv4s;
+    /**
+     * @return A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    private List<String> githubEnterpriseImporterIpv6s;
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+     * 
+     */
+    private List<String> githubEnterpriseImporters;
     /**
      * @return An Array of IP addresses in CIDR format specifying the Git servers.
      * 
@@ -166,7 +196,7 @@ public final class GetIpRangesResult {
 
     private GetIpRangesResult() {}
     /**
-     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub actions will originate from.
+     * @return An array of IP addresses in CIDR format specifying the addresses that incoming requests from GitHub Actions will originate from.
      * 
      */
     public List<String> actions() {
@@ -185,6 +215,27 @@ public final class GetIpRangesResult {
      */
     public List<String> actionsIpv6s() {
         return this.actionsIpv6s;
+    }
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that GitHub Actions macOS runners will originate from.
+     * 
+     */
+    public List<String> actionsMacos() {
+        return this.actionsMacos;
+    }
+    /**
+     * @return A subset of the `actionsMacos` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    public List<String> actionsMacosIpv4s() {
+        return this.actionsMacosIpv4s;
+    }
+    /**
+     * @return A subset of the `actionsMacos` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    public List<String> actionsMacosIpv6s() {
+        return this.actionsMacosIpv6s;
     }
     /**
      * @return A subset of the `api` array that contains IP addresses in IPv4 CIDR format.
@@ -208,7 +259,7 @@ public final class GetIpRangesResult {
         return this.apis;
     }
     /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
+     * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv4 CIDR format.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -219,7 +270,7 @@ public final class GetIpRangesResult {
         return this.dependabotIpv4s;
     }
     /**
-     * @return A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
+     * @return **Deprecated.** A subset of the `dependabot` array that contains IP addresses in IPv6 CIDR format.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -230,7 +281,7 @@ public final class GetIpRangesResult {
         return this.dependabotIpv6s;
     }
     /**
-     * @return An array of IP addresses in CIDR format specifying the A records for dependabot.
+     * @return **Deprecated.** Dependabot now uses GitHub Actions IP addresses. An array of IP addresses in CIDR format specifying the A records for Dependabot.
      * 
      * @deprecated
      * This attribute is no longer returned form the API, Dependabot now uses the GitHub Actions IP addresses.
@@ -253,6 +304,27 @@ public final class GetIpRangesResult {
      */
     public List<String> gitIpv6s() {
         return this.gitIpv6s;
+    }
+    /**
+     * @return A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv4 CIDR format.
+     * 
+     */
+    public List<String> githubEnterpriseImporterIpv4s() {
+        return this.githubEnterpriseImporterIpv4s;
+    }
+    /**
+     * @return A subset of the `githubEnterpriseImporter` array that contains IP addresses in IPv6 CIDR format.
+     * 
+     */
+    public List<String> githubEnterpriseImporterIpv6s() {
+        return this.githubEnterpriseImporterIpv6s;
+    }
+    /**
+     * @return An array of IP addresses in CIDR format specifying the addresses that GitHub Enterprise Importer will originate from.
+     * 
+     */
+    public List<String> githubEnterpriseImporters() {
+        return this.githubEnterpriseImporters;
     }
     /**
      * @return An Array of IP addresses in CIDR format specifying the Git servers.
@@ -386,6 +458,9 @@ public final class GetIpRangesResult {
         private List<String> actions;
         private List<String> actionsIpv4s;
         private List<String> actionsIpv6s;
+        private List<String> actionsMacos;
+        private List<String> actionsMacosIpv4s;
+        private List<String> actionsMacosIpv6s;
         private List<String> apiIpv4s;
         private List<String> apiIpv6s;
         private List<String> apis;
@@ -394,6 +469,9 @@ public final class GetIpRangesResult {
         private List<String> dependabots;
         private List<String> gitIpv4s;
         private List<String> gitIpv6s;
+        private List<String> githubEnterpriseImporterIpv4s;
+        private List<String> githubEnterpriseImporterIpv6s;
+        private List<String> githubEnterpriseImporters;
         private List<String> gits;
         private List<String> hooks;
         private List<String> hooksIpv4s;
@@ -417,6 +495,9 @@ public final class GetIpRangesResult {
     	      this.actions = defaults.actions;
     	      this.actionsIpv4s = defaults.actionsIpv4s;
     	      this.actionsIpv6s = defaults.actionsIpv6s;
+    	      this.actionsMacos = defaults.actionsMacos;
+    	      this.actionsMacosIpv4s = defaults.actionsMacosIpv4s;
+    	      this.actionsMacosIpv6s = defaults.actionsMacosIpv6s;
     	      this.apiIpv4s = defaults.apiIpv4s;
     	      this.apiIpv6s = defaults.apiIpv6s;
     	      this.apis = defaults.apis;
@@ -425,6 +506,9 @@ public final class GetIpRangesResult {
     	      this.dependabots = defaults.dependabots;
     	      this.gitIpv4s = defaults.gitIpv4s;
     	      this.gitIpv6s = defaults.gitIpv6s;
+    	      this.githubEnterpriseImporterIpv4s = defaults.githubEnterpriseImporterIpv4s;
+    	      this.githubEnterpriseImporterIpv6s = defaults.githubEnterpriseImporterIpv6s;
+    	      this.githubEnterpriseImporters = defaults.githubEnterpriseImporters;
     	      this.gits = defaults.gits;
     	      this.hooks = defaults.hooks;
     	      this.hooksIpv4s = defaults.hooksIpv4s;
@@ -476,6 +560,39 @@ public final class GetIpRangesResult {
         }
         public Builder actionsIpv6s(String... actionsIpv6s) {
             return actionsIpv6s(List.of(actionsIpv6s));
+        }
+        @CustomType.Setter
+        public Builder actionsMacos(List<String> actionsMacos) {
+            if (actionsMacos == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actionsMacos");
+            }
+            this.actionsMacos = actionsMacos;
+            return this;
+        }
+        public Builder actionsMacos(String... actionsMacos) {
+            return actionsMacos(List.of(actionsMacos));
+        }
+        @CustomType.Setter
+        public Builder actionsMacosIpv4s(List<String> actionsMacosIpv4s) {
+            if (actionsMacosIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actionsMacosIpv4s");
+            }
+            this.actionsMacosIpv4s = actionsMacosIpv4s;
+            return this;
+        }
+        public Builder actionsMacosIpv4s(String... actionsMacosIpv4s) {
+            return actionsMacosIpv4s(List.of(actionsMacosIpv4s));
+        }
+        @CustomType.Setter
+        public Builder actionsMacosIpv6s(List<String> actionsMacosIpv6s) {
+            if (actionsMacosIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "actionsMacosIpv6s");
+            }
+            this.actionsMacosIpv6s = actionsMacosIpv6s;
+            return this;
+        }
+        public Builder actionsMacosIpv6s(String... actionsMacosIpv6s) {
+            return actionsMacosIpv6s(List.of(actionsMacosIpv6s));
         }
         @CustomType.Setter
         public Builder apiIpv4s(List<String> apiIpv4s) {
@@ -564,6 +681,39 @@ public final class GetIpRangesResult {
         }
         public Builder gitIpv6s(String... gitIpv6s) {
             return gitIpv6s(List.of(gitIpv6s));
+        }
+        @CustomType.Setter
+        public Builder githubEnterpriseImporterIpv4s(List<String> githubEnterpriseImporterIpv4s) {
+            if (githubEnterpriseImporterIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "githubEnterpriseImporterIpv4s");
+            }
+            this.githubEnterpriseImporterIpv4s = githubEnterpriseImporterIpv4s;
+            return this;
+        }
+        public Builder githubEnterpriseImporterIpv4s(String... githubEnterpriseImporterIpv4s) {
+            return githubEnterpriseImporterIpv4s(List.of(githubEnterpriseImporterIpv4s));
+        }
+        @CustomType.Setter
+        public Builder githubEnterpriseImporterIpv6s(List<String> githubEnterpriseImporterIpv6s) {
+            if (githubEnterpriseImporterIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "githubEnterpriseImporterIpv6s");
+            }
+            this.githubEnterpriseImporterIpv6s = githubEnterpriseImporterIpv6s;
+            return this;
+        }
+        public Builder githubEnterpriseImporterIpv6s(String... githubEnterpriseImporterIpv6s) {
+            return githubEnterpriseImporterIpv6s(List.of(githubEnterpriseImporterIpv6s));
+        }
+        @CustomType.Setter
+        public Builder githubEnterpriseImporters(List<String> githubEnterpriseImporters) {
+            if (githubEnterpriseImporters == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "githubEnterpriseImporters");
+            }
+            this.githubEnterpriseImporters = githubEnterpriseImporters;
+            return this;
+        }
+        public Builder githubEnterpriseImporters(String... githubEnterpriseImporters) {
+            return githubEnterpriseImporters(List.of(githubEnterpriseImporters));
         }
         @CustomType.Setter
         public Builder gits(List<String> gits) {
@@ -754,6 +904,9 @@ public final class GetIpRangesResult {
             _resultValue.actions = actions;
             _resultValue.actionsIpv4s = actionsIpv4s;
             _resultValue.actionsIpv6s = actionsIpv6s;
+            _resultValue.actionsMacos = actionsMacos;
+            _resultValue.actionsMacosIpv4s = actionsMacosIpv4s;
+            _resultValue.actionsMacosIpv6s = actionsMacosIpv6s;
             _resultValue.apiIpv4s = apiIpv4s;
             _resultValue.apiIpv6s = apiIpv6s;
             _resultValue.apis = apis;
@@ -762,6 +915,9 @@ public final class GetIpRangesResult {
             _resultValue.dependabots = dependabots;
             _resultValue.gitIpv4s = gitIpv4s;
             _resultValue.gitIpv6s = gitIpv6s;
+            _resultValue.githubEnterpriseImporterIpv4s = githubEnterpriseImporterIpv4s;
+            _resultValue.githubEnterpriseImporterIpv6s = githubEnterpriseImporterIpv6s;
+            _resultValue.githubEnterpriseImporters = githubEnterpriseImporters;
             _resultValue.gits = gits;
             _resultValue.hooks = hooks;
             _resultValue.hooksIpv4s = hooksIpv4s;

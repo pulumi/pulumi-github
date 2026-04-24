@@ -82,14 +82,6 @@ namespace Pulumi.Github
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GitHub Repository Collaborators can be imported using the name `Name`, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
-    /// ```
     /// </summary>
     [GithubResourceType("github:index/repositoryCollaborators:RepositoryCollaborators")]
     public partial class RepositoryCollaborators : global::Pulumi.CustomResource
@@ -112,6 +104,12 @@ namespace Pulumi.Github
         /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Output("repositoryId")]
+        public Output<int> RepositoryId { get; private set; } = null!;
 
         /// <summary>
         /// List of teams to grant access to the repository.
@@ -251,6 +249,12 @@ namespace Pulumi.Github
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
+
+        /// <summary>
+        /// ID of the repository.
+        /// </summary>
+        [Input("repositoryId")]
+        public Input<int>? RepositoryId { get; set; }
 
         [Input("teams")]
         private InputList<Inputs.RepositoryCollaboratorsTeamGetArgs>? _teams;

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TeamSettingsReviewRequestDelegation {
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      * 
      */
     private @Nullable String algorithm;
@@ -24,14 +24,18 @@ public final class TeamSettingsReviewRequestDelegation {
      */
     private @Nullable Integer memberCount;
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     * @deprecated
+     * Use the top-level notify attribute instead.
      * 
      */
+    @Deprecated /* Use the top-level notify attribute instead. */
     private @Nullable Boolean notify;
 
     private TeamSettingsReviewRequestDelegation() {}
     /**
-     * @return The algorithm to use when assigning pull requests to team members. Supported values are &#39;ROUND_ROBIN&#39; and &#39;LOAD_BALANCE&#39;.
+     * @return The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
      * 
      */
     public Optional<String> algorithm() {
@@ -45,9 +49,13 @@ public final class TeamSettingsReviewRequestDelegation {
         return Optional.ofNullable(this.memberCount);
     }
     /**
-     * @return whether to notify the entire team when at least one member is also assigned to the pull request.
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     * @deprecated
+     * Use the top-level notify attribute instead.
      * 
      */
+    @Deprecated /* Use the top-level notify attribute instead. */
     public Optional<Boolean> notify_() {
         return Optional.ofNullable(this.notify);
     }

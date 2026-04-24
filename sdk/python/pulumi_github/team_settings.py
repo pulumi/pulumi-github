@@ -22,14 +22,18 @@ __all__ = ['TeamSettingsArgs', 'TeamSettings']
 class TeamSettingsArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str],
+                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
                  review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None):
         """
         The set of arguments for constructing a TeamSettings resource.
 
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
+        :param pulumi.Input[_builtins.bool] notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         """
         pulumi.set(__self__, "team_id", team_id)
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
         if review_request_delegation is not None:
             pulumi.set(__self__, "review_request_delegation", review_request_delegation)
 
@@ -44,6 +48,18 @@ class TeamSettingsArgs:
     @team_id.setter
     def team_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "team_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewRequestDelegation")
@@ -61,6 +77,7 @@ class TeamSettingsArgs:
 @pulumi.input_type
 class _TeamSettingsState:
     def __init__(__self__, *,
+                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
                  review_request_delegation: Optional[pulumi.Input['TeamSettingsReviewRequestDelegationArgs']] = None,
                  team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  team_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -68,11 +85,14 @@ class _TeamSettingsState:
         """
         Input properties used for looking up and filtering TeamSettings resources.
 
+        :param pulumi.Input[_builtins.bool] notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         :param pulumi.Input['TeamSettingsReviewRequestDelegationArgs'] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[_builtins.str] team_slug: The slug of the Team within the Organization.
-        :param pulumi.Input[_builtins.str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        :param pulumi.Input[_builtins.str] team_slug: The slug of the Team.
+        :param pulumi.Input[_builtins.str] team_uid: The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
         """
+        if notify is not None:
+            pulumi.set(__self__, "notify", notify)
         if review_request_delegation is not None:
             pulumi.set(__self__, "review_request_delegation", review_request_delegation)
         if team_id is not None:
@@ -81,6 +101,18 @@ class _TeamSettingsState:
             pulumi.set(__self__, "team_slug", team_slug)
         if team_uid is not None:
             pulumi.set(__self__, "team_uid", team_uid)
+
+    @_builtins.property
+    @pulumi.getter
+    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewRequestDelegation")
@@ -110,7 +142,7 @@ class _TeamSettingsState:
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The slug of the Team within the Organization.
+        The slug of the Team.
         """
         return pulumi.get(self, "team_slug")
 
@@ -122,7 +154,7 @@ class _TeamSettingsState:
     @pulumi.getter(name="teamUid")
     def team_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
         """
         return pulumi.get(self, "team_uid")
 
@@ -137,6 +169,7 @@ class TeamSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
                  review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
                  team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -151,20 +184,35 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Notify without delegation
+
         ```python
         import pulumi
         import pulumi_github as github
 
-        # Add a repository to the team
         some_team = github.Team("some_team",
             name="SomeTeam",
             description="Some cool team")
         code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
+            notify=True)
+        ```
+
+        ### Notify with delegation
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        code_review_settings = github.TeamSettings("code_review_settings",
+            team_id=some_team.id,
+            notify=True,
             review_request_delegation={
                 "algorithm": "ROUND_ROBIN",
                 "member_count": 1,
-                "notify": True,
             })
         ```
 
@@ -172,17 +220,12 @@ class TeamSettings(pulumi.CustomResource):
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 
-        ```sh
-        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
-        ```
         or,
-        ```sh
-        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
-        ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         :param pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
         """
@@ -203,20 +246,35 @@ class TeamSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Notify without delegation
+
         ```python
         import pulumi
         import pulumi_github as github
 
-        # Add a repository to the team
         some_team = github.Team("some_team",
             name="SomeTeam",
             description="Some cool team")
         code_review_settings = github.TeamSettings("code_review_settings",
             team_id=some_team.id,
+            notify=True)
+        ```
+
+        ### Notify with delegation
+
+        ```python
+        import pulumi
+        import pulumi_github as github
+
+        some_team = github.Team("some_team",
+            name="SomeTeam",
+            description="Some cool team")
+        code_review_settings = github.TeamSettings("code_review_settings",
+            team_id=some_team.id,
+            notify=True,
             review_request_delegation={
                 "algorithm": "ROUND_ROBIN",
                 "member_count": 1,
-                "notify": True,
             })
         ```
 
@@ -224,13 +282,7 @@ class TeamSettings(pulumi.CustomResource):
 
         GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 
-        ```sh
-        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
-        ```
         or,
-        ```sh
-        $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -248,6 +300,7 @@ class TeamSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
                  review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
                  team_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -259,6 +312,7 @@ class TeamSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TeamSettingsArgs.__new__(TeamSettingsArgs)
 
+            __props__.__dict__["notify"] = notify
             __props__.__dict__["review_request_delegation"] = review_request_delegation
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
@@ -275,6 +329,7 @@ class TeamSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            notify: Optional[pulumi.Input[_builtins.bool]] = None,
             review_request_delegation: Optional[pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']]] = None,
             team_id: Optional[pulumi.Input[_builtins.str]] = None,
             team_slug: Optional[pulumi.Input[_builtins.str]] = None,
@@ -286,20 +341,30 @@ class TeamSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         :param pulumi.Input[Union['TeamSettingsReviewRequestDelegationArgs', 'TeamSettingsReviewRequestDelegationArgsDict']] review_request_delegation: The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
         :param pulumi.Input[_builtins.str] team_id: The GitHub team id or the GitHub team slug
-        :param pulumi.Input[_builtins.str] team_slug: The slug of the Team within the Organization.
-        :param pulumi.Input[_builtins.str] team_uid: The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        :param pulumi.Input[_builtins.str] team_slug: The slug of the Team.
+        :param pulumi.Input[_builtins.str] team_uid: The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _TeamSettingsState.__new__(_TeamSettingsState)
 
+        __props__.__dict__["notify"] = notify
         __props__.__dict__["review_request_delegation"] = review_request_delegation
         __props__.__dict__["team_id"] = team_id
         __props__.__dict__["team_slug"] = team_slug
         __props__.__dict__["team_uid"] = team_uid
         return TeamSettings(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def notify(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
+        """
+        return pulumi.get(self, "notify")
 
     @_builtins.property
     @pulumi.getter(name="reviewRequestDelegation")
@@ -321,7 +386,7 @@ class TeamSettings(pulumi.CustomResource):
     @pulumi.getter(name="teamSlug")
     def team_slug(self) -> pulumi.Output[_builtins.str]:
         """
-        The slug of the Team within the Organization.
+        The slug of the Team.
         """
         return pulumi.get(self, "team_slug")
 
@@ -329,7 +394,7 @@ class TeamSettings(pulumi.CustomResource):
     @pulumi.getter(name="teamUid")
     def team_uid(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+        The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
         """
         return pulumi.get(self, "team_uid")
 

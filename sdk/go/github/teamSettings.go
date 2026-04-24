@@ -22,6 +22,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Notify without delegation
+//
 // ```go
 // package main
 //
@@ -34,7 +36,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Add a repository to the team
 //			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
 //				Name:        pulumi.String("SomeTeam"),
 //				Description: pulumi.String("Some cool team"),
@@ -44,10 +45,44 @@ import (
 //			}
 //			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
 //				TeamId: someTeam.ID(),
+//				Notify: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Notify with delegation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			someTeam, err := github.NewTeam(ctx, "some_team", &github.TeamArgs{
+//				Name:        pulumi.String("SomeTeam"),
+//				Description: pulumi.String("Some cool team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = github.NewTeamSettings(ctx, "code_review_settings", &github.TeamSettingsArgs{
+//				TeamId: someTeam.ID(),
+//				Notify: pulumi.Bool(true),
 //				ReviewRequestDelegation: &github.TeamSettingsReviewRequestDelegationArgs{
 //					Algorithm:   pulumi.String("ROUND_ROBIN"),
 //					MemberCount: pulumi.Int(1),
-//					Notify:      pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {
@@ -63,23 +98,19 @@ import (
 //
 // GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
 //
-// ```sh
-// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
-// ```
 // or,
-// ```sh
-// $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
-// ```
 type TeamSettings struct {
 	pulumi.CustomResourceState
 
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	Notify pulumi.BoolPtrOutput `pulumi:"notify"`
 	// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 	ReviewRequestDelegation TeamSettingsReviewRequestDelegationPtrOutput `pulumi:"reviewRequestDelegation"`
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
-	// The slug of the Team within the Organization.
+	// The slug of the Team.
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+	// The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
 	TeamUid pulumi.StringOutput `pulumi:"teamUid"`
 }
 
@@ -116,24 +147,28 @@ func GetTeamSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamSettings resources.
 type teamSettingsState struct {
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	Notify *bool `pulumi:"notify"`
 	// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 	ReviewRequestDelegation *TeamSettingsReviewRequestDelegation `pulumi:"reviewRequestDelegation"`
 	// The GitHub team id or the GitHub team slug
 	TeamId *string `pulumi:"teamId"`
-	// The slug of the Team within the Organization.
+	// The slug of the Team.
 	TeamSlug *string `pulumi:"teamSlug"`
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+	// The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
 	TeamUid *string `pulumi:"teamUid"`
 }
 
 type TeamSettingsState struct {
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	Notify pulumi.BoolPtrInput
 	// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 	ReviewRequestDelegation TeamSettingsReviewRequestDelegationPtrInput
 	// The GitHub team id or the GitHub team slug
 	TeamId pulumi.StringPtrInput
-	// The slug of the Team within the Organization.
+	// The slug of the Team.
 	TeamSlug pulumi.StringPtrInput
-	// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+	// The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
 	TeamUid pulumi.StringPtrInput
 }
 
@@ -142,6 +177,8 @@ func (TeamSettingsState) ElementType() reflect.Type {
 }
 
 type teamSettingsArgs struct {
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	Notify *bool `pulumi:"notify"`
 	// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 	ReviewRequestDelegation *TeamSettingsReviewRequestDelegation `pulumi:"reviewRequestDelegation"`
 	// The GitHub team id or the GitHub team slug
@@ -150,6 +187,8 @@ type teamSettingsArgs struct {
 
 // The set of arguments for constructing a TeamSettings resource.
 type TeamSettingsArgs struct {
+	// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+	Notify pulumi.BoolPtrInput
 	// The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 	ReviewRequestDelegation TeamSettingsReviewRequestDelegationPtrInput
 	// The GitHub team id or the GitHub team slug
@@ -243,6 +282,11 @@ func (o TeamSettingsOutput) ToTeamSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+func (o TeamSettingsOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamSettings) pulumi.BoolPtrOutput { return v.Notify }).(pulumi.BoolPtrOutput)
+}
+
 // The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
 func (o TeamSettingsOutput) ReviewRequestDelegation() TeamSettingsReviewRequestDelegationPtrOutput {
 	return o.ApplyT(func(v *TeamSettings) TeamSettingsReviewRequestDelegationPtrOutput { return v.ReviewRequestDelegation }).(TeamSettingsReviewRequestDelegationPtrOutput)
@@ -253,12 +297,12 @@ func (o TeamSettingsOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
-// The slug of the Team within the Organization.
+// The slug of the Team.
 func (o TeamSettingsOutput) TeamSlug() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamSlug }).(pulumi.StringOutput)
 }
 
-// The unique ID of the Team on GitHub. Corresponds to the ID of the 'github_team_settings' resource.
+// The unique node ID of the Team on GitHub. Corresponds to the ID of the `TeamSettings` resource.
 func (o TeamSettingsOutput) TeamUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSettings) pulumi.StringOutput { return v.TeamUid }).(pulumi.StringOutput)
 }

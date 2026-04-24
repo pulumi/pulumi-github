@@ -352,24 +352,24 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically.
+     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
     @Import(name="ignoreVulnerabilityAlertsDuringRead")
     private @Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead;
 
     /**
-     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+     * @return (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      * @deprecated
-     * This is ignored as the provider now handles lack of permissions automatically.
+     * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
+    @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
     public Optional<Output<Boolean>> ignoreVulnerabilityAlertsDuringRead() {
         return Optional.ofNullable(this.ignoreVulnerabilityAlertsDuringRead);
     }
@@ -450,16 +450,24 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     * 
+     * @deprecated
+     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
     @Import(name="pages")
     private @Nullable Output<RepositoryPagesArgs> pages;
 
     /**
-     * @return The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+     * @return (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
+     * 
+     * @deprecated
+     * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
     public Optional<Output<RepositoryPagesArgs>> pages() {
         return Optional.ofNullable(this.pages);
     }
@@ -614,29 +622,37 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     * 
+     * @deprecated
+     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
     @Import(name="vulnerabilityAlerts")
     private @Nullable Output<Boolean> vulnerabilityAlerts;
 
     /**
-     * @return Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+     * @return (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
+     * 
+     * @deprecated
+     * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
      * 
      */
+    @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
     public Optional<Output<Boolean>> vulnerabilityAlerts() {
         return Optional.ofNullable(this.vulnerabilityAlerts);
     }
 
     /**
-     * Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      * 
      */
     @Import(name="webCommitSignoffRequired")
     private @Nullable Output<Boolean> webCommitSignoffRequired;
 
     /**
-     * @return Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+     * @return Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
      * 
      */
     public Optional<Output<Boolean>> webCommitSignoffRequired() {
@@ -1159,30 +1175,30 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          * @return builder
          * 
          * @deprecated
-         * This is ignored as the provider now handles lack of permissions automatically.
+         * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
+        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
         public Builder ignoreVulnerabilityAlertsDuringRead(@Nullable Output<Boolean> ignoreVulnerabilityAlertsDuringRead) {
             $.ignoreVulnerabilityAlertsDuringRead = ignoreVulnerabilityAlertsDuringRead;
             return this;
         }
 
         /**
-         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically.
+         * @param ignoreVulnerabilityAlertsDuringRead (Optional) - This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          * @return builder
          * 
          * @deprecated
-         * This is ignored as the provider now handles lack of permissions automatically.
+         * This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. */
+        @Deprecated /* This is ignored as the provider now handles lack of permissions automatically. This field will be removed in a future version. */
         public Builder ignoreVulnerabilityAlertsDuringRead(Boolean ignoreVulnerabilityAlertsDuringRead) {
             return ignoreVulnerabilityAlertsDuringRead(Output.of(ignoreVulnerabilityAlertsDuringRead));
         }
@@ -1293,22 +1309,30 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pages The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+         * @param pages (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
         public Builder pages(@Nullable Output<RepositoryPagesArgs> pages) {
             $.pages = pages;
             return this;
         }
 
         /**
-         * @param pages The repository&#39;s GitHub Pages configuration. See GitHub Pages Configuration below for details.
+         * @param pages (**DEPRECATED**) The repository&#39;s GitHub Pages configuration. Use the `github.RepositoryPages` resource instead. This field will be removed in a future version. See GitHub Pages Configuration below for details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the github.RepositoryPages resource instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use the github.RepositoryPages resource instead. This field will be removed in a future version. */
         public Builder pages(RepositoryPagesArgs pages) {
             return pages(Output.of(pages));
         }
@@ -1529,28 +1553,36 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vulnerabilityAlerts Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+         * @param vulnerabilityAlerts (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
         public Builder vulnerabilityAlerts(@Nullable Output<Boolean> vulnerabilityAlerts) {
             $.vulnerabilityAlerts = vulnerabilityAlerts;
             return this;
         }
 
         /**
-         * @param vulnerabilityAlerts Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level.
+         * @param vulnerabilityAlerts (**DEPRECATED**) Configure [Dependabot security alerts](https://help.github.com/en/github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies) for vulnerable dependencies; set to `true` to enable, set to `false` to disable, and leave unset for the default behavior. Configuring this requires that alerts are not being explicitly configured at the organization level. This field will be removed in a future version. Use the `github.RepositoryVulnerabilityAlerts` resource instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use the github.RepositoryVulnerabilityAlerts resource instead. This field will be removed in a future version. */
         public Builder vulnerabilityAlerts(Boolean vulnerabilityAlerts) {
             return vulnerabilityAlerts(Output.of(vulnerabilityAlerts));
         }
 
         /**
-         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
          * 
          * @return builder
          * 
@@ -1561,7 +1593,7 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). Defaults to `false`.
+         * @param webCommitSignoffRequired Require contributors to sign off on web-based commits. See more in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
          * 
          * @return builder
          * 

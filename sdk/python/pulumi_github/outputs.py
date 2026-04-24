@@ -36,6 +36,9 @@ __all__ = [
     'OrganizationRulesetConditions',
     'OrganizationRulesetConditionsRefName',
     'OrganizationRulesetConditionsRepositoryName',
+    'OrganizationRulesetConditionsRepositoryProperty',
+    'OrganizationRulesetConditionsRepositoryPropertyExclude',
+    'OrganizationRulesetConditionsRepositoryPropertyInclude',
     'OrganizationRulesetRules',
     'OrganizationRulesetRulesBranchNamePattern',
     'OrganizationRulesetRulesCommitAuthorEmailPattern',
@@ -114,6 +117,7 @@ __all__ = [
     'GetDependabotSecretsSecretResult',
     'GetExternalGroupsExternalGroupResult',
     'GetIssueLabelsLabelResult',
+    'GetOrganizationAppInstallationsInstallationResult',
     'GetOrganizationExternalIdentitiesIdentityResult',
     'GetOrganizationIpAllowListIpAllowListResult',
     'GetOrganizationRepositoryRolesRoleResult',
@@ -134,6 +138,7 @@ __all__ = [
     'GetRepositoryEnvironmentsEnvironmentResult',
     'GetRepositoryPageResult',
     'GetRepositoryPageSourceResult',
+    'GetRepositoryPagesSourceResult',
     'GetRepositoryPullRequestsResultResult',
     'GetRepositoryRepositoryLicenseResult',
     'GetRepositoryRepositoryLicenseLicenseResult',
@@ -1249,6 +1254,8 @@ class OrganizationRulesetConditions(dict):
             suggest = "repository_ids"
         elif key == "repositoryName":
             suggest = "repository_name"
+        elif key == "repositoryProperty":
+            suggest = "repository_property"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetConditions. Access the value via the '{suggest}' property getter instead.")
@@ -1264,13 +1271,15 @@ class OrganizationRulesetConditions(dict):
     def __init__(__self__, *,
                  ref_name: Optional['outputs.OrganizationRulesetConditionsRefName'] = None,
                  repository_ids: Optional[Sequence[_builtins.int]] = None,
-                 repository_name: Optional['outputs.OrganizationRulesetConditionsRepositoryName'] = None):
+                 repository_name: Optional['outputs.OrganizationRulesetConditionsRepositoryName'] = None,
+                 repository_property: Optional['outputs.OrganizationRulesetConditionsRepositoryProperty'] = None):
         """
         :param 'OrganizationRulesetConditionsRefNameArgs' ref_name: (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
-        :param Sequence[_builtins.int] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
-        :param 'OrganizationRulesetConditionsRepositoryNameArgs' repository_name: Conflicts with `repository_id`. (see below for nested schema)
+        :param Sequence[_builtins.int] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
+        :param 'OrganizationRulesetConditionsRepositoryNameArgs' repository_name: Targets repositories that match the specified name patterns. (see below for nested schema)
+        :param 'OrganizationRulesetConditionsRepositoryPropertyArgs' repository_property: Targets repositories by custom or system properties. (see below for nested schema)
                
-               One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+               Exactly one of `repository_id`, `repository_name`, or `repository_property` must be set for the rule to target repositories.
                
                > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
         """
@@ -1280,6 +1289,8 @@ class OrganizationRulesetConditions(dict):
             pulumi.set(__self__, "repository_ids", repository_ids)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
+        if repository_property is not None:
+            pulumi.set(__self__, "repository_property", repository_property)
 
     @_builtins.property
     @pulumi.getter(name="refName")
@@ -1293,7 +1304,7 @@ class OrganizationRulesetConditions(dict):
     @pulumi.getter(name="repositoryIds")
     def repository_ids(self) -> Optional[Sequence[_builtins.int]]:
         """
-        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
         """
         return pulumi.get(self, "repository_ids")
 
@@ -1301,13 +1312,21 @@ class OrganizationRulesetConditions(dict):
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional['outputs.OrganizationRulesetConditionsRepositoryName']:
         """
-        Conflicts with `repository_id`. (see below for nested schema)
+        Targets repositories that match the specified name patterns. (see below for nested schema)
+        """
+        return pulumi.get(self, "repository_name")
 
-        One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+    @_builtins.property
+    @pulumi.getter(name="repositoryProperty")
+    def repository_property(self) -> Optional['outputs.OrganizationRulesetConditionsRepositoryProperty']:
+        """
+        Targets repositories by custom or system properties. (see below for nested schema)
+
+        Exactly one of `repository_id`, `repository_name`, or `repository_property` must be set for the rule to target repositories.
 
         > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
         """
-        return pulumi.get(self, "repository_name")
+        return pulumi.get(self, "repository_property")
 
 
 @pulumi.output_type
@@ -1378,6 +1397,153 @@ class OrganizationRulesetConditionsRepositoryName(dict):
         Whether renaming of target repositories is prevented.
         """
         return pulumi.get(self, "protected")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditionsRepositoryProperty(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence['outputs.OrganizationRulesetConditionsRepositoryPropertyExclude']] = None,
+                 includes: Optional[Sequence['outputs.OrganizationRulesetConditionsRepositoryPropertyInclude']] = None):
+        """
+        :param Sequence['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs'] excludes: The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+        :param Sequence['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs'] includes: The repository properties and values to include. All of these properties must match for the condition to pass.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence['outputs.OrganizationRulesetConditionsRepositoryPropertyExclude']]:
+        """
+        The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+        """
+        return pulumi.get(self, "excludes")
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence['outputs.OrganizationRulesetConditionsRepositoryPropertyInclude']]:
+        """
+        The repository properties and values to include. All of these properties must match for the condition to pass.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditionsRepositoryPropertyExclude(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyValues":
+            suggest = "property_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetConditionsRepositoryPropertyExclude. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetConditionsRepositoryPropertyExclude.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetConditionsRepositoryPropertyExclude.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 property_values: Sequence[_builtins.str],
+                 source: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: (String) The name of the ruleset.
+        :param Sequence[_builtins.str] property_values: The values to match for the repository property.
+        :param _builtins.str source: The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_values", property_values)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Sequence[_builtins.str]:
+        """
+        The values to match for the repository property.
+        """
+        return pulumi.get(self, "property_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        """
+        The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class OrganizationRulesetConditionsRepositoryPropertyInclude(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyValues":
+            suggest = "property_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationRulesetConditionsRepositoryPropertyInclude. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationRulesetConditionsRepositoryPropertyInclude.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationRulesetConditionsRepositoryPropertyInclude.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 property_values: Sequence[_builtins.str],
+                 source: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: (String) The name of the ruleset.
+        :param Sequence[_builtins.str] property_values: The values to match for the repository property.
+        :param _builtins.str source: The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_values", property_values)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Sequence[_builtins.str]:
+        """
+        The values to match for the repository property.
+        """
+        return pulumi.get(self, "property_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        """
+        The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type
@@ -3034,8 +3200,8 @@ class RepositoryPagesSource(dict):
                  branch: _builtins.str,
                  path: Optional[_builtins.str] = None):
         """
-        :param _builtins.str branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
-        :param _builtins.str path: The repository directory from which the site publishes (Default: `/`).
+        :param _builtins.str branch: The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
+        :param _builtins.str path: The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         """
         pulumi.set(__self__, "branch", branch)
         if path is not None:
@@ -3045,7 +3211,7 @@ class RepositoryPagesSource(dict):
     @pulumi.getter
     def branch(self) -> _builtins.str:
         """
-        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
         """
         return pulumi.get(self, "branch")
 
@@ -3053,7 +3219,7 @@ class RepositoryPagesSource(dict):
     @pulumi.getter
     def path(self) -> Optional[_builtins.str]:
         """
-        The repository directory from which the site publishes (Default: `/`).
+        The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         """
         return pulumi.get(self, "path")
 
@@ -4949,9 +5115,9 @@ class TeamSettingsReviewRequestDelegation(dict):
                  member_count: Optional[_builtins.int] = None,
                  notify: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str algorithm: The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        :param _builtins.str algorithm: The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         :param _builtins.int member_count: The number of team members to assign to a pull request.
-        :param _builtins.bool notify: whether to notify the entire team when at least one member is also assigned to the pull request.
+        :param _builtins.bool notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
@@ -4964,7 +5130,7 @@ class TeamSettingsReviewRequestDelegation(dict):
     @pulumi.getter
     def algorithm(self) -> Optional[_builtins.str]:
         """
-        The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         """
         return pulumi.get(self, "algorithm")
 
@@ -4978,9 +5144,10 @@ class TeamSettingsReviewRequestDelegation(dict):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the top-level notify attribute instead.""")
     def notify(self) -> Optional[_builtins.bool]:
         """
-        whether to notify the entire team when at least one member is also assigned to the pull request.
+        Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         return pulumi.get(self, "notify")
 
@@ -5864,6 +6031,156 @@ class GetIssueLabelsLabelResult(dict):
         The URL of the label.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetOrganizationAppInstallationsInstallationResult(dict):
+    def __init__(__self__, *,
+                 app_id: _builtins.int,
+                 app_slug: _builtins.str,
+                 client_id: _builtins.str,
+                 created_at: _builtins.str,
+                 events: Sequence[_builtins.str],
+                 id: _builtins.int,
+                 permissions: Mapping[str, _builtins.str],
+                 repository_selection: _builtins.str,
+                 single_file_paths: Sequence[_builtins.str],
+                 suspended: _builtins.bool,
+                 target_id: _builtins.int,
+                 target_type: _builtins.str,
+                 updated_at: _builtins.str):
+        """
+        :param _builtins.int app_id: The ID of the GitHub App.
+        :param _builtins.str app_slug: The URL-friendly name of the GitHub App.
+        :param _builtins.str client_id: The OAuth client ID of the GitHub App.
+        :param _builtins.str created_at: The date the GitHub App installation was created.
+        :param Sequence[_builtins.str] events: The list of events the GitHub App installation subscribes to.
+        :param _builtins.int id: The ID of the GitHub App installation.
+        :param Mapping[str, _builtins.str] permissions: A map of the permissions granted to the GitHub App installation.
+        :param _builtins.str repository_selection: Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+        :param Sequence[_builtins.str] single_file_paths: The list of single file paths the GitHub App installation has access to.
+        :param _builtins.bool suspended: Whether the GitHub App installation is currently suspended.
+        :param _builtins.int target_id: The ID of the account the GitHub App is installed on.
+        :param _builtins.str target_type: The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+        :param _builtins.str updated_at: The date the GitHub App installation was last updated.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_slug", app_slug)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "repository_selection", repository_selection)
+        pulumi.set(__self__, "single_file_paths", single_file_paths)
+        pulumi.set(__self__, "suspended", suspended)
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.int:
+        """
+        The ID of the GitHub App.
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="appSlug")
+    def app_slug(self) -> _builtins.str:
+        """
+        The URL-friendly name of the GitHub App.
+        """
+        return pulumi.get(self, "app_slug")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The OAuth client ID of the GitHub App.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        The date the GitHub App installation was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Sequence[_builtins.str]:
+        """
+        The list of events the GitHub App installation subscribes to.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        The ID of the GitHub App installation.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Mapping[str, _builtins.str]:
+        """
+        A map of the permissions granted to the GitHub App installation.
+        """
+        return pulumi.get(self, "permissions")
+
+    @_builtins.property
+    @pulumi.getter(name="repositorySelection")
+    def repository_selection(self) -> _builtins.str:
+        """
+        Whether the installation has access to all repositories or only selected ones. Possible values are `all` or `selected`.
+        """
+        return pulumi.get(self, "repository_selection")
+
+    @_builtins.property
+    @pulumi.getter(name="singleFilePaths")
+    def single_file_paths(self) -> Sequence[_builtins.str]:
+        """
+        The list of single file paths the GitHub App installation has access to.
+        """
+        return pulumi.get(self, "single_file_paths")
+
+    @_builtins.property
+    @pulumi.getter
+    def suspended(self) -> _builtins.bool:
+        """
+        Whether the GitHub App installation is currently suspended.
+        """
+        return pulumi.get(self, "suspended")
+
+    @_builtins.property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> _builtins.int:
+        """
+        The ID of the account the GitHub App is installed on.
+        """
+        return pulumi.get(self, "target_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> _builtins.str:
+        """
+        The type of account the GitHub App is installed on. Possible values are `Organization` or `User`.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> _builtins.str:
+        """
+        The date the GitHub App installation was last updated.
+        """
+        return pulumi.get(self, "updated_at")
 
 
 @pulumi.output_type
@@ -6918,6 +7235,35 @@ class GetRepositoryPageSourceResult(dict):
     def path(self) -> _builtins.str:
         """
         The path to the license file within the repository.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class GetRepositoryPagesSourceResult(dict):
+    def __init__(__self__, *,
+                 branch: _builtins.str,
+                 path: _builtins.str):
+        """
+        :param _builtins.str branch: The repository branch used to publish the site's source files.
+        :param _builtins.str path: The repository directory from which the site publishes.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> _builtins.str:
+        """
+        The repository branch used to publish the site's source files.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The repository directory from which the site publishes.
         """
         return pulumi.get(self, "path")
 

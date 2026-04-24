@@ -32,29 +32,37 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Encrypted value of the secret using the GitHub public key in Base64 format.
+     * (Optional) Please use `valueEncrypted`.
+     * 
+     * @deprecated
+     * Use valueEncrypted and key_id.
      * 
      */
+    @Deprecated /* Use valueEncrypted and key_id. */
     @Import(name="encryptedValue")
     private @Nullable Output<String> encryptedValue;
 
     /**
-     * @return Encrypted value of the secret using the GitHub public key in Base64 format.
+     * @return (Optional) Please use `valueEncrypted`.
+     * 
+     * @deprecated
+     * Use valueEncrypted and key_id.
      * 
      */
+    @Deprecated /* Use valueEncrypted and key_id. */
     public Optional<Output<String>> encryptedValue() {
         return Optional.ofNullable(this.encryptedValue);
     }
 
     /**
-     * ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+     * @return ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -62,20 +70,28 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Plaintext value of the secret to be encrypted.
+     * (Optional) Please use `value`.
      * 
-     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * Use value.
      * 
      */
+    @Deprecated /* Use value. */
     @Import(name="plaintextValue")
     private @Nullable Output<String> plaintextValue;
 
     /**
-     * @return Plaintext value of the secret to be encrypted.
+     * @return (Optional) Please use `value`.
      * 
-     * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+     * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
+     * 
+     * @deprecated
+     * Use value.
      * 
      */
+    @Deprecated /* Use value. */
     public Optional<Output<String>> plaintextValue() {
         return Optional.ofNullable(this.plaintextValue);
     }
@@ -155,6 +171,36 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.updatedAt);
     }
 
+    /**
+     * Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    @Import(name="value")
+    private @Nullable Output<String> value;
+
+    /**
+     * @return Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> value() {
+        return Optional.ofNullable(this.value);
+    }
+
+    /**
+     * Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    @Import(name="valueEncrypted")
+    private @Nullable Output<String> valueEncrypted;
+
+    /**
+     * @return Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+     * 
+     */
+    public Optional<Output<String>> valueEncrypted() {
+        return Optional.ofNullable(this.valueEncrypted);
+    }
+
     private DependabotSecretState() {}
 
     private DependabotSecretState(DependabotSecretState $) {
@@ -167,6 +213,8 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         this.repositoryId = $.repositoryId;
         this.secretName = $.secretName;
         this.updatedAt = $.updatedAt;
+        this.value = $.value;
+        this.valueEncrypted = $.valueEncrypted;
     }
 
     public static Builder builder() {
@@ -209,28 +257,36 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param encryptedValue Encrypted value of the secret using the GitHub public key in Base64 format.
+         * @param encryptedValue (Optional) Please use `valueEncrypted`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use valueEncrypted and key_id.
+         * 
          */
+        @Deprecated /* Use valueEncrypted and key_id. */
         public Builder encryptedValue(@Nullable Output<String> encryptedValue) {
             $.encryptedValue = encryptedValue;
             return this;
         }
 
         /**
-         * @param encryptedValue Encrypted value of the secret using the GitHub public key in Base64 format.
+         * @param encryptedValue (Optional) Please use `valueEncrypted`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use valueEncrypted and key_id.
+         * 
          */
+        @Deprecated /* Use valueEncrypted and key_id. */
         public Builder encryptedValue(String encryptedValue) {
             return encryptedValue(Output.of(encryptedValue));
         }
 
         /**
-         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * @param keyId ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
          * 
          * @return builder
          * 
@@ -241,7 +297,7 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyId ID of the public key used to encrypt the secret. This should be provided when setting `encryptedValue`; if it isn&#39;t then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintextValue`.
+         * @param keyId ID of the public key used to encrypt the secret, required when setting `encryptedValue`.
          * 
          * @return builder
          * 
@@ -251,26 +307,34 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue (Optional) Please use `value`.
          * 
-         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use value.
+         * 
          */
+        @Deprecated /* Use value. */
         public Builder plaintextValue(@Nullable Output<String> plaintextValue) {
             $.plaintextValue = plaintextValue;
             return this;
         }
 
         /**
-         * @param plaintextValue Plaintext value of the secret to be encrypted.
+         * @param plaintextValue (Optional) Please use `value`.
          * 
-         * &gt; **Note**: One of either `encryptedValue` or `plaintextValue` must be specified.
+         * &gt; **Note**: One of either `value`, `valueEncrypted`, `encryptedValue`, or `plaintextValue` must be specified.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use value.
+         * 
          */
+        @Deprecated /* Use value. */
         public Builder plaintextValue(String plaintextValue) {
             return plaintextValue(Output.of(plaintextValue));
         }
@@ -378,6 +442,48 @@ public final class DependabotSecretState extends com.pulumi.resources.ResourceAr
          */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
+        }
+
+        /**
+         * @param value Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(@Nullable Output<String> value) {
+            $.value = value;
+            return this;
+        }
+
+        /**
+         * @param value Plaintext value of the secret to be encrypted. This conflicts with `valueEncrypted`, `encryptedValue` &amp; `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(String value) {
+            return value(Output.of(value));
+        }
+
+        /**
+         * @param valueEncrypted Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueEncrypted(@Nullable Output<String> valueEncrypted) {
+            $.valueEncrypted = valueEncrypted;
+            return this;
+        }
+
+        /**
+         * @param valueEncrypted Encrypted value of the secret using the GitHub public key in Base64 format, `keyId` is required with this value. This conflicts with `value`, `encryptedValue` &amp; `plaintextValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueEncrypted(String valueEncrypted) {
+            return valueEncrypted(Output.of(valueEncrypted));
         }
 
         public DependabotSecretState build() {

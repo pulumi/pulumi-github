@@ -43,20 +43,21 @@ import (
 //
 // ## Import
 //
-// GitHub EMU External Group Mappings can be imported using the `teamSlug` and external `groupId` separated by a colon, e.g.
+// GitHub EMU External Group Mappings can be imported using the external `groupId` and `teamSlug` separated by a colon, e.g.
 //
 // ```sh
-// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
+// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
 // ```
 type EmuGroupMapping struct {
 	pulumi.CustomResourceState
 
+	// An etag representing the external group state
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Integer corresponding to the external group ID to be linked
 	GroupId pulumi.IntOutput `pulumi:"groupId"`
-	// Name of the external group.
+	// The name of the external group
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// ID of the GitHub team.
+	// The ID of the GitHub team
 	TeamId pulumi.IntOutput `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringOutput `pulumi:"teamSlug"`
@@ -98,24 +99,26 @@ func GetEmuGroupMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmuGroupMapping resources.
 type emuGroupMappingState struct {
+	// An etag representing the external group state
 	Etag *string `pulumi:"etag"`
 	// Integer corresponding to the external group ID to be linked
 	GroupId *int `pulumi:"groupId"`
-	// Name of the external group.
+	// The name of the external group
 	GroupName *string `pulumi:"groupName"`
-	// ID of the GitHub team.
+	// The ID of the GitHub team
 	TeamId *int `pulumi:"teamId"`
 	// Slug of the GitHub team
 	TeamSlug *string `pulumi:"teamSlug"`
 }
 
 type EmuGroupMappingState struct {
+	// An etag representing the external group state
 	Etag pulumi.StringPtrInput
 	// Integer corresponding to the external group ID to be linked
 	GroupId pulumi.IntPtrInput
-	// Name of the external group.
+	// The name of the external group
 	GroupName pulumi.StringPtrInput
-	// ID of the GitHub team.
+	// The ID of the GitHub team
 	TeamId pulumi.IntPtrInput
 	// Slug of the GitHub team
 	TeamSlug pulumi.StringPtrInput
@@ -227,6 +230,7 @@ func (o EmuGroupMappingOutput) ToEmuGroupMappingOutputWithContext(ctx context.Co
 	return o
 }
 
+// An etag representing the external group state
 func (o EmuGroupMappingOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
@@ -236,12 +240,12 @@ func (o EmuGroupMappingOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmuGroupMapping) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
 }
 
-// Name of the external group.
+// The name of the external group
 func (o EmuGroupMappingOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmuGroupMapping) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// ID of the GitHub team.
+// The ID of the GitHub team
 func (o EmuGroupMappingOutput) TeamId() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmuGroupMapping) pulumi.IntOutput { return v.TeamId }).(pulumi.IntOutput)
 }

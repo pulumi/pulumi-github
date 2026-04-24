@@ -58,14 +58,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- *
- * ## Import
- *
- * GitHub Repository Collaborators can be imported using the name `name`, e.g.
- *
- * ```sh
- * $ pulumi import github:index/repositoryCollaborators:RepositoryCollaborators collaborators terraform
- * ```
  */
 export class RepositoryCollaborators extends pulumi.CustomResource {
     /**
@@ -109,6 +101,10 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
      */
     declare public readonly repository: pulumi.Output<string>;
     /**
+     * ID of the repository.
+     */
+    declare public /*out*/ readonly repositoryId: pulumi.Output<number>;
+    /**
      * List of teams to grant access to the repository.
      */
     declare public readonly teams: pulumi.Output<outputs.RepositoryCollaboratorsTeam[] | undefined>;
@@ -133,6 +129,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
             resourceInputs["ignoreTeams"] = state?.ignoreTeams;
             resourceInputs["invitationIds"] = state?.invitationIds;
             resourceInputs["repository"] = state?.repository;
+            resourceInputs["repositoryId"] = state?.repositoryId;
             resourceInputs["teams"] = state?.teams;
             resourceInputs["users"] = state?.users;
         } else {
@@ -145,6 +142,7 @@ export class RepositoryCollaborators extends pulumi.CustomResource {
             resourceInputs["teams"] = args?.teams;
             resourceInputs["users"] = args?.users;
             resourceInputs["invitationIds"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryCollaborators.__pulumiType, name, resourceInputs, opts);
@@ -168,6 +166,10 @@ export interface RepositoryCollaboratorsState {
      * The GitHub repository.
      */
     repository?: pulumi.Input<string>;
+    /**
+     * ID of the repository.
+     */
+    repositoryId?: pulumi.Input<number>;
     /**
      * List of teams to grant access to the repository.
      */

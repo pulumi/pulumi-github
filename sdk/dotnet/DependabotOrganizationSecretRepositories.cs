@@ -28,7 +28,7 @@ namespace Pulumi.Github
     ///     var example = new Github.Index.DependabotOrganizationSecret("example", new()
     ///     {
     ///         SecretName = "mysecret",
-    ///         PlaintextValue = "foo",
+    ///         Value = "foo",
     ///         Visibility = "selected",
     ///     });
     /// 

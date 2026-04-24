@@ -356,9 +356,10 @@ class GetRepositoryResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the RepositoryPages data source instead. This field will be removed in a future version.""")
     def pages(self) -> Sequence['outputs.GetRepositoryPageResult']:
         """
-        The repository's GitHub Pages configuration.
+        (**DEPRECATED**) The repository's GitHub Pages configuration. Use the `RepositoryPages` data source instead. This field will be removed in a future version.
         """
         return pulumi.get(self, "pages")
 

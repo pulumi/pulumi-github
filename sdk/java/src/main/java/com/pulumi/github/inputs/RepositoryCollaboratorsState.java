@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.github.inputs.RepositoryCollaboratorsIgnoreTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsTeamArgs;
 import com.pulumi.github.inputs.RepositoryCollaboratorsUserArgs;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,21 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
     }
 
     /**
+     * ID of the repository.
+     * 
+     */
+    @Import(name="repositoryId")
+    private @Nullable Output<Integer> repositoryId;
+
+    /**
+     * @return ID of the repository.
+     * 
+     */
+    public Optional<Output<Integer>> repositoryId() {
+        return Optional.ofNullable(this.repositoryId);
+    }
+
+    /**
      * List of teams to grant access to the repository.
      * 
      */
@@ -103,6 +119,7 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
         this.ignoreTeams = $.ignoreTeams;
         this.invitationIds = $.invitationIds;
         this.repository = $.repository;
+        this.repositoryId = $.repositoryId;
         this.teams = $.teams;
         this.users = $.users;
     }
@@ -198,6 +215,27 @@ public final class RepositoryCollaboratorsState extends com.pulumi.resources.Res
          */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(@Nullable Output<Integer> repositoryId) {
+            $.repositoryId = repositoryId;
+            return this;
+        }
+
+        /**
+         * @param repositoryId ID of the repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryId(Integer repositoryId) {
+            return repositoryId(Output.of(repositoryId));
         }
 
         /**

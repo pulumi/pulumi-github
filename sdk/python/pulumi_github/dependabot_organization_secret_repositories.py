@@ -119,7 +119,7 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         example = github.DependabotOrganizationSecret("example",
             secret_name="mysecret",
-            plaintext_value="foo",
+            value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",
@@ -167,7 +167,7 @@ class DependabotOrganizationSecretRepositories(pulumi.CustomResource):
 
         example = github.DependabotOrganizationSecret("example",
             secret_name="mysecret",
-            plaintext_value="foo",
+            value="foo",
             visibility="selected")
         example_repository = github.Repository("example",
             name="myrepo",

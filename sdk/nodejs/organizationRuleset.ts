@@ -95,6 +95,44 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
+ * // Example with repository_property targeting
+ * const exampleProperty = new github.OrganizationRuleset("example_property", {
+ *     name: "example_property",
+ *     target: "branch",
+ *     enforcement: "active",
+ *     conditions: {
+ *         refName: {
+ *             includes: ["~ALL"],
+ *             excludes: [],
+ *         },
+ *         repositoryProperty: {
+ *             includes: [
+ *                 {
+ *                     name: "environment",
+ *                     propertyValues: [
+ *                         "production",
+ *                         "staging",
+ *                     ],
+ *                     source: "custom",
+ *                 },
+ *                 {
+ *                     name: "team",
+ *                     propertyValues: ["backend"],
+ *                     source: "custom",
+ *                 },
+ *             ],
+ *             excludes: [{
+ *                 name: "archived",
+ *                 propertyValues: ["true"],
+ *                 source: "system",
+ *             }],
+ *         },
+ *     },
+ *     rules: {
+ *         requiredSignatures: true,
+ *         pullRequest: {},
+ *     },
+ * });
  * ```
  *
  * ## Import

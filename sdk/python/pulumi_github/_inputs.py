@@ -55,6 +55,12 @@ __all__ = [
     'OrganizationRulesetConditionsRefNameArgsDict',
     'OrganizationRulesetConditionsRepositoryNameArgs',
     'OrganizationRulesetConditionsRepositoryNameArgsDict',
+    'OrganizationRulesetConditionsRepositoryPropertyArgs',
+    'OrganizationRulesetConditionsRepositoryPropertyArgsDict',
+    'OrganizationRulesetConditionsRepositoryPropertyExcludeArgs',
+    'OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict',
+    'OrganizationRulesetConditionsRepositoryPropertyIncludeArgs',
+    'OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict',
     'OrganizationRulesetRulesArgs',
     'OrganizationRulesetRulesArgsDict',
     'OrganizationRulesetRulesBranchNamePatternArgs',
@@ -1553,13 +1559,17 @@ class OrganizationRulesetConditionsArgsDict(TypedDict):
     """
     repository_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
     """
-    The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+    The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
     """
     repository_name: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgsDict']]
     """
-    Conflicts with `repository_id`. (see below for nested schema)
+    Targets repositories that match the specified name patterns. (see below for nested schema)
+    """
+    repository_property: NotRequired[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgsDict']]
+    """
+    Targets repositories by custom or system properties. (see below for nested schema)
 
-    One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+    Exactly one of `repository_id`, `repository_name`, or `repository_property` must be set for the rule to target repositories.
 
     > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
     """
@@ -1569,13 +1579,15 @@ class OrganizationRulesetConditionsArgs:
     def __init__(__self__, *,
                  ref_name: Optional[pulumi.Input['OrganizationRulesetConditionsRefNameArgs']] = None,
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None):
+                 repository_name: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']] = None,
+                 repository_property: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']] = None):
         """
         :param pulumi.Input['OrganizationRulesetConditionsRefNameArgs'] ref_name: (Block List, Max: 1) Required for `branch` and `tag` targets. Must NOT be set for `push` targets. (see below for nested schema)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
-        :param pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs'] repository_name: Conflicts with `repository_id`. (see below for nested schema)
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] repository_ids: The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
+        :param pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs'] repository_name: Targets repositories that match the specified name patterns. (see below for nested schema)
+        :param pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs'] repository_property: Targets repositories by custom or system properties. (see below for nested schema)
                
-               One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
+               Exactly one of `repository_id`, `repository_name`, or `repository_property` must be set for the rule to target repositories.
                
                > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
         """
@@ -1585,6 +1597,8 @@ class OrganizationRulesetConditionsArgs:
             pulumi.set(__self__, "repository_ids", repository_ids)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
+        if repository_property is not None:
+            pulumi.set(__self__, "repository_property", repository_property)
 
     @_builtins.property
     @pulumi.getter(name="refName")
@@ -1602,7 +1616,7 @@ class OrganizationRulesetConditionsArgs:
     @pulumi.getter(name="repositoryIds")
     def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass. Conflicts with `repository_name`.
+        The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.
         """
         return pulumi.get(self, "repository_ids")
 
@@ -1614,17 +1628,29 @@ class OrganizationRulesetConditionsArgs:
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']]:
         """
-        Conflicts with `repository_id`. (see below for nested schema)
-
-        One of `repository_id` and `repository_name` must be set for the rule to target any repositories.
-
-        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
+        Targets repositories that match the specified name patterns. (see below for nested schema)
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
     def repository_name(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryNameArgs']]):
         pulumi.set(self, "repository_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryProperty")
+    def repository_property(self) -> Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']]:
+        """
+        Targets repositories by custom or system properties. (see below for nested schema)
+
+        Exactly one of `repository_id`, `repository_name`, or `repository_property` must be set for the rule to target repositories.
+
+        > **Note:** For `push` targets, do not include `ref_name` in conditions. Push rulesets operate on file content, not on refs.
+        """
+        return pulumi.get(self, "repository_property")
+
+    @repository_property.setter
+    def repository_property(self, value: Optional[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyArgs']]):
+        pulumi.set(self, "repository_property", value)
 
 
 class OrganizationRulesetConditionsRefNameArgsDict(TypedDict):
@@ -1739,6 +1765,189 @@ class OrganizationRulesetConditionsRepositoryNameArgs:
     @protected.setter
     def protected(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "protected", value)
+
+
+class OrganizationRulesetConditionsRepositoryPropertyArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict']]]]
+    """
+    The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict']]]]
+    """
+    The repository properties and values to include. All of these properties must match for the condition to pass.
+    """
+
+@pulumi.input_type
+class OrganizationRulesetConditionsRepositoryPropertyArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]] excludes: The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]] includes: The repository properties and values to include. All of these properties must match for the condition to pass.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]:
+        """
+        The repository properties and values to exclude. The ruleset will not apply if any of these properties match.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyExcludeArgs']]]]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]:
+        """
+        The repository properties and values to include. All of these properties must match for the condition to pass.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRulesetConditionsRepositoryPropertyIncludeArgs']]]]):
+        pulumi.set(self, "includes", value)
+
+
+class OrganizationRulesetConditionsRepositoryPropertyExcludeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    (String) The name of the ruleset.
+    """
+    property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The values to match for the repository property.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+    """
+
+@pulumi.input_type
+class OrganizationRulesetConditionsRepositoryPropertyExcludeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: The values to match for the repository property.
+        :param pulumi.Input[_builtins.str] source: The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_values", property_values)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The values to match for the repository property.
+        """
+        return pulumi.get(self, "property_values")
+
+    @property_values.setter
+    def property_values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "property_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+class OrganizationRulesetConditionsRepositoryPropertyIncludeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    (String) The name of the ruleset.
+    """
+    property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The values to match for the repository property.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+    """
+
+@pulumi.input_type
+class OrganizationRulesetConditionsRepositoryPropertyIncludeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 property_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: (String) The name of the ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_values: The values to match for the repository property.
+        :param pulumi.Input[_builtins.str] source: The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_values", property_values)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        (String) The name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The values to match for the repository property.
+        """
+        return pulumi.get(self, "property_values")
+
+    @property_values.setter
+    def property_values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "property_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source of the repository property. Defaults to 'custom' if not specified. Can be one of: custom, system
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
 
 
 class OrganizationRulesetRulesArgsDict(TypedDict):
@@ -3864,11 +4073,11 @@ class RepositoryPagesArgs:
 class RepositoryPagesSourceArgsDict(TypedDict):
     branch: pulumi.Input[_builtins.str]
     """
-    The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+    The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
     """
     path: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The repository directory from which the site publishes (Default: `/`).
+    The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
     """
 
 @pulumi.input_type
@@ -3877,8 +4086,8 @@ class RepositoryPagesSourceArgs:
                  branch: pulumi.Input[_builtins.str],
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] branch: The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
-        :param pulumi.Input[_builtins.str] path: The repository directory from which the site publishes (Default: `/`).
+        :param pulumi.Input[_builtins.str] branch: The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
+        :param pulumi.Input[_builtins.str] path: The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         """
         pulumi.set(__self__, "branch", branch)
         if path is not None:
@@ -3888,7 +4097,7 @@ class RepositoryPagesSourceArgs:
     @pulumi.getter
     def branch(self) -> pulumi.Input[_builtins.str]:
         """
-        The repository branch used to publish the site's source files. (i.e. `main` or `gh-pages`.
+        The repository branch used to publish the site's source files (e.g., `main` or `gh-pages`).
         """
         return pulumi.get(self, "branch")
 
@@ -3900,7 +4109,7 @@ class RepositoryPagesSourceArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The repository directory from which the site publishes (Default: `/`).
+        The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         """
         return pulumi.get(self, "path")
 
@@ -6278,7 +6487,7 @@ class TeamMembersMemberArgs:
 class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
     algorithm: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+    The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
     """
     member_count: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -6286,7 +6495,7 @@ class TeamSettingsReviewRequestDelegationArgsDict(TypedDict):
     """
     notify: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    whether to notify the entire team when at least one member is also assigned to the pull request.
+    Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
     """
 
 @pulumi.input_type
@@ -6296,14 +6505,17 @@ class TeamSettingsReviewRequestDelegationArgs:
                  member_count: Optional[pulumi.Input[_builtins.int]] = None,
                  notify: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] algorithm: The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        :param pulumi.Input[_builtins.str] algorithm: The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         :param pulumi.Input[_builtins.int] member_count: The number of team members to assign to a pull request.
-        :param pulumi.Input[_builtins.bool] notify: whether to notify the entire team when at least one member is also assigned to the pull request.
+        :param pulumi.Input[_builtins.bool] notify: Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
         if member_count is not None:
             pulumi.set(__self__, "member_count", member_count)
+        if notify is not None:
+            warnings.warn("""Use the top-level notify attribute instead.""", DeprecationWarning)
+            pulumi.log.warn("""notify is deprecated: Use the top-level notify attribute instead.""")
         if notify is not None:
             pulumi.set(__self__, "notify", notify)
 
@@ -6311,7 +6523,7 @@ class TeamSettingsReviewRequestDelegationArgs:
     @pulumi.getter
     def algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The algorithm to use when assigning pull requests to team members. Supported values are 'ROUND_ROBIN' and 'LOAD_BALANCE'.
+        The algorithm to use when assigning pull requests to team members. Supported values are ROUND_ROBIN and LOAD_BALANCE.
         """
         return pulumi.get(self, "algorithm")
 
@@ -6333,9 +6545,10 @@ class TeamSettingsReviewRequestDelegationArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the top-level notify attribute instead.""")
     def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        whether to notify the entire team when at least one member is also assigned to the pull request.
+        Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `review_request_delegation`. Default value is `false`.
         """
         return pulumi.get(self, "notify")
 

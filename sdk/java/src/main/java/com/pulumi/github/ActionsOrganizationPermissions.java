@@ -141,14 +141,14 @@ public class ActionsOrganizationPermissions extends com.pulumi.resources.CustomR
         return Codegen.optional(this.enabledRepositoriesConfig);
     }
     /**
-     * Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      * 
      */
     @Export(name="shaPinningRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shaPinningRequired;
 
     /**
-     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in an organization.
+     * @return Whether pinning to a specific SHA is required for all actions and reusable workflows in the organization.
      * 
      */
     public Output<Boolean> shaPinningRequired() {

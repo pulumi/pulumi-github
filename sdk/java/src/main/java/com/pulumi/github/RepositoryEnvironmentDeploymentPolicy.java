@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.github.RepositoryEnvironmentDeploymentPolicyArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.RepositoryEnvironmentDeploymentPolicyState;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -149,7 +150,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource can be imported using an ID made of the repository name, environment name (any `:` in the name need to be escaped as `??`), and deployment policy ID all separated by a `:`.
+ * This resource can be imported using an ID made of the repository name, environment name (any `:` in the environment name need to be escaped as `??`), and deployment policy ID name all separated by a `:`.
+ * 
+ * ### Import Command
+ * 
+ * The following command imports a deployment policy with the ID `123456` for the repo `myrepo` and environment `myenv` to a `github.RepositoryEnvironmentDeploymentPolicy` resource named `example`.
  * 
  * ```sh
  * $ pulumi import github:index/repositoryEnvironmentDeploymentPolicy:RepositoryEnvironmentDeploymentPolicy example myrepo:myenv:123456
@@ -187,6 +192,20 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
         return this.environment;
     }
     /**
+     * The ID of the deployment policy.
+     * 
+     */
+    @Export(name="policyId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> policyId;
+
+    /**
+     * @return The ID of the deployment policy.
+     * 
+     */
+    public Output<Integer> policyId() {
+        return this.policyId;
+    }
+    /**
      * The repository of the environment.
      * 
      */
@@ -199,6 +218,20 @@ public class RepositoryEnvironmentDeploymentPolicy extends com.pulumi.resources.
      */
     public Output<String> repository() {
         return this.repository;
+    }
+    /**
+     * The ID of the repository.
+     * 
+     */
+    @Export(name="repositoryId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> repositoryId;
+
+    /**
+     * @return The ID of the repository.
+     * 
+     */
+    public Output<Integer> repositoryId() {
+        return this.repositoryId;
     }
     /**
      * The name pattern that tags must match in order to deploy to the environment. If not specified, `branchPattern` must be specified.

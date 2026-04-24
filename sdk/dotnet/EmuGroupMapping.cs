@@ -33,15 +33,18 @@ namespace Pulumi.Github
     /// 
     /// ## Import
     /// 
-    /// GitHub EMU External Group Mappings can be imported using the `TeamSlug` and external `GroupId` separated by a colon, e.g.
+    /// GitHub EMU External Group Mappings can be imported using the external `GroupId` and `TeamSlug` separated by a colon, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping emu-test-team:28836
+    /// $ pulumi import github:index/emuGroupMapping:EmuGroupMapping example_emu_group_mapping 28836:emu-test-team
     /// ```
     /// </summary>
     [GithubResourceType("github:index/emuGroupMapping:EmuGroupMapping")]
     public partial class EmuGroupMapping : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An etag representing the external group state
+        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
@@ -52,13 +55,13 @@ namespace Pulumi.Github
         public Output<int> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the external group.
+        /// The name of the external group
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the GitHub team.
+        /// The ID of the GitHub team
         /// </summary>
         [Output("teamId")]
         public Output<int> TeamId { get; private set; } = null!;
@@ -135,6 +138,9 @@ namespace Pulumi.Github
 
     public sealed class EmuGroupMappingState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An etag representing the external group state
+        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
@@ -145,13 +151,13 @@ namespace Pulumi.Github
         public Input<int>? GroupId { get; set; }
 
         /// <summary>
-        /// Name of the external group.
+        /// The name of the external group
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// ID of the GitHub team.
+        /// The ID of the GitHub team
         /// </summary>
         [Input("teamId")]
         public Input<int>? TeamId { get; set; }

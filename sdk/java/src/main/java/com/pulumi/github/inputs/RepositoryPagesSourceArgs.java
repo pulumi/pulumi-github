@@ -17,14 +17,14 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
     public static final RepositoryPagesSourceArgs Empty = new RepositoryPagesSourceArgs();
 
     /**
-     * The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
      * 
      */
     @Import(name="branch", required=true)
     private Output<String> branch;
 
     /**
-     * @return The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+     * @return The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
      * 
      */
     public Output<String> branch() {
@@ -32,14 +32,14 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The repository directory from which the site publishes (Default: `/`).
+     * The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The repository directory from which the site publishes (Default: `/`).
+     * @return The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -72,7 +72,7 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param branch The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+         * @param branch The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param branch The repository branch used to publish the site&#39;s source files. (i.e. `main` or `gh-pages`.
+         * @param branch The repository branch used to publish the site&#39;s source files (e.g., `main` or `gh-pages`).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The repository directory from which the site publishes (Default: `/`).
+         * @param path The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RepositoryPagesSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The repository directory from which the site publishes (Default: `/`).
+         * @param path The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
          * 
          * @return builder
          * 

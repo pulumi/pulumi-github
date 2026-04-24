@@ -13,13 +13,13 @@ namespace Pulumi.Github.Inputs
     public sealed class RepositoryPagesSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The repository branch used to publish the site's source files. (i.e. `Main` or `gh-pages`.
+        /// The repository branch used to publish the site's source files (e.g., `Main` or `gh-pages`).
         /// </summary>
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
-        /// The repository directory from which the site publishes (Default: `/`).
+        /// The repository directory from which the site publishes. Defaults to `/`. Can be `/` or `/docs`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

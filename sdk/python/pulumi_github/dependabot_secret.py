@@ -23,26 +23,40 @@ class DependabotSecretArgs:
                  secret_name: pulumi.Input[_builtins.str],
                  encrypted_value: Optional[pulumi.Input[_builtins.str]] = None,
                  key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DependabotSecret resource.
 
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
-        :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] encrypted_value: (Optional) Please use `value_encrypted`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: (Optional) Please use `value`.
                
-               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+               > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
+        :param pulumi.Input[_builtins.str] value: Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        :param pulumi.Input[_builtins.str] value_encrypted: Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         pulumi.set(__self__, "repository", repository)
         pulumi.set(__self__, "secret_name", secret_name)
+        if encrypted_value is not None:
+            warnings.warn("""Use value_encrypted and key_id.""", DeprecationWarning)
+            pulumi.log.warn("""encrypted_value is deprecated: Use value_encrypted and key_id.""")
         if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
         if plaintext_value is not None:
+            warnings.warn("""Use value.""", DeprecationWarning)
+            pulumi.log.warn("""plaintext_value is deprecated: Use value.""")
+        if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_encrypted is not None:
+            pulumi.set(__self__, "value_encrypted", value_encrypted)
 
     @_builtins.property
     @pulumi.getter
@@ -70,9 +84,10 @@ class DependabotSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
+    @_utilities.deprecated("""Use value_encrypted and key_id.""")
     def encrypted_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Encrypted value of the secret using the GitHub public key in Base64 format.
+        (Optional) Please use `value_encrypted`.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -84,7 +99,7 @@ class DependabotSecretArgs:
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
         """
         return pulumi.get(self, "key_id")
 
@@ -94,17 +109,42 @@ class DependabotSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="plaintextValue")
+    @_utilities.deprecated("""Use value.""")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        (Optional) Please use `value`.
 
-        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
 
     @plaintext_value.setter
     def plaintext_value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "plaintext_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueEncrypted")
+    def value_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value_encrypted")
+
+    @value_encrypted.setter
+    def value_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_encrypted", value)
 
 
 @pulumi.input_type
@@ -118,28 +158,38 @@ class _DependabotSecretState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  repository_id: Optional[pulumi.Input[_builtins.int]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DependabotSecret resources.
 
         :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
-        :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] encrypted_value: (Optional) Please use `value_encrypted`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: (Optional) Please use `value`.
                
-               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+               > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
+        :param pulumi.Input[_builtins.str] value: Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        :param pulumi.Input[_builtins.str] value_encrypted: Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if encrypted_value is not None:
+            warnings.warn("""Use value_encrypted and key_id.""", DeprecationWarning)
+            pulumi.log.warn("""encrypted_value is deprecated: Use value_encrypted and key_id.""")
+        if encrypted_value is not None:
             pulumi.set(__self__, "encrypted_value", encrypted_value)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
+        if plaintext_value is not None:
+            warnings.warn("""Use value.""", DeprecationWarning)
+            pulumi.log.warn("""plaintext_value is deprecated: Use value.""")
         if plaintext_value is not None:
             pulumi.set(__self__, "plaintext_value", plaintext_value)
         if remote_updated_at is not None:
@@ -152,6 +202,10 @@ class _DependabotSecretState:
             pulumi.set(__self__, "secret_name", secret_name)
         if updated_at is not None:
             pulumi.set(__self__, "updated_at", updated_at)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_encrypted is not None:
+            pulumi.set(__self__, "value_encrypted", value_encrypted)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -167,9 +221,10 @@ class _DependabotSecretState:
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
+    @_utilities.deprecated("""Use value_encrypted and key_id.""")
     def encrypted_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Encrypted value of the secret using the GitHub public key in Base64 format.
+        (Optional) Please use `value_encrypted`.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -181,7 +236,7 @@ class _DependabotSecretState:
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
         """
         return pulumi.get(self, "key_id")
 
@@ -191,11 +246,12 @@ class _DependabotSecretState:
 
     @_builtins.property
     @pulumi.getter(name="plaintextValue")
+    @_utilities.deprecated("""Use value.""")
     def plaintext_value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        (Optional) Please use `value`.
 
-        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -263,6 +319,30 @@ class _DependabotSecretState:
     def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueEncrypted")
+    def value_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value_encrypted")
+
+    @value_encrypted.setter
+    def value_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_encrypted", value)
+
 
 @pulumi.type_token("github:index/dependabotSecret:DependabotSecret")
 class DependabotSecret(pulumi.CustomResource):
@@ -275,6 +355,8 @@ class DependabotSecret(pulumi.CustomResource):
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and manage GitHub Dependabot secrets within your GitHub repositories.
@@ -283,9 +365,9 @@ class DependabotSecret(pulumi.CustomResource):
         Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
         interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 
-        For the purposes of security, the contents of the `plaintext_value` field have been marked as `sensitive` to Terraform,
+        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
         but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-        It is also advised that you do not store plaintext values in your code but rather populate the `encrypted_value`
+        It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted`
         using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
         in your code. See below for an example of this abstraction.
 
@@ -298,11 +380,11 @@ class DependabotSecret(pulumi.CustomResource):
         example_plaintext = github.DependabotSecret("example_plaintext",
             repository="example_repository",
             secret_name="example_secret_name",
-            plaintext_value=some_secret_string)
+            value=some_secret_string)
         example_encrypted = github.DependabotSecret("example_encrypted",
             repository="example_repository",
             secret_name="example_secret_name",
-            encrypted_value=some_encrypted_secret_string)
+            value_encrypted=some_encrypted_secret_string)
         ```
 
         ## Example Lifecycle Ignore Changes
@@ -316,14 +398,14 @@ class DependabotSecret(pulumi.CustomResource):
         example_allow_drift = github.DependabotSecret("example_allow_drift",
             repository="example_repository",
             secret_name="example_secret_name",
-            plaintext_value="placeholder")
+            value="placeholder")
         ```
 
         ## Import
 
         This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
 
-        > **Note**: When importing secrets, the `plaintext_value` or `encrypted_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+        > **Note**: When importing secrets, the `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 
         ### Import Command
 
@@ -336,13 +418,15 @@ class DependabotSecret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] encrypted_value: (Optional) Please use `value_encrypted`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: (Optional) Please use `value`.
                
-               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+               > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
+        :param pulumi.Input[_builtins.str] value: Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        :param pulumi.Input[_builtins.str] value_encrypted: Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         ...
     @overload
@@ -357,9 +441,9 @@ class DependabotSecret(pulumi.CustomResource):
         Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
         interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
 
-        For the purposes of security, the contents of the `plaintext_value` field have been marked as `sensitive` to Terraform,
+        For the purposes of security, the contents of the `value` field have been marked as `sensitive` to Terraform,
         but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-        It is also advised that you do not store plaintext values in your code but rather populate the `encrypted_value`
+        It is also advised that you do not store plaintext values in your code but rather populate the `value_encrypted`
         using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
         in your code. See below for an example of this abstraction.
 
@@ -372,11 +456,11 @@ class DependabotSecret(pulumi.CustomResource):
         example_plaintext = github.DependabotSecret("example_plaintext",
             repository="example_repository",
             secret_name="example_secret_name",
-            plaintext_value=some_secret_string)
+            value=some_secret_string)
         example_encrypted = github.DependabotSecret("example_encrypted",
             repository="example_repository",
             secret_name="example_secret_name",
-            encrypted_value=some_encrypted_secret_string)
+            value_encrypted=some_encrypted_secret_string)
         ```
 
         ## Example Lifecycle Ignore Changes
@@ -390,14 +474,14 @@ class DependabotSecret(pulumi.CustomResource):
         example_allow_drift = github.DependabotSecret("example_allow_drift",
             repository="example_repository",
             secret_name="example_secret_name",
-            plaintext_value="placeholder")
+            value="placeholder")
         ```
 
         ## Import
 
         This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
 
-        > **Note**: When importing secrets, the `plaintext_value` or `encrypted_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+        > **Note**: When importing secrets, the `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
 
         ### Import Command
 
@@ -428,6 +512,8 @@ class DependabotSecret(pulumi.CustomResource):
                  plaintext_value: Optional[pulumi.Input[_builtins.str]] = None,
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,11 +532,13 @@ class DependabotSecret(pulumi.CustomResource):
             if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
             __props__.__dict__["secret_name"] = secret_name
+            __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
+            __props__.__dict__["value_encrypted"] = None if value_encrypted is None else pulumi.Output.secret(value_encrypted)
             __props__.__dict__["created_at"] = None
             __props__.__dict__["remote_updated_at"] = None
             __props__.__dict__["repository_id"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedValue", "plaintextValue", "value", "valueEncrypted"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DependabotSecret, __self__).__init__(
             'github:index/dependabotSecret:DependabotSecret',
@@ -470,7 +558,9 @@ class DependabotSecret(pulumi.CustomResource):
             repository: Optional[pulumi.Input[_builtins.str]] = None,
             repository_id: Optional[pulumi.Input[_builtins.int]] = None,
             secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'DependabotSecret':
+            updated_at: Optional[pulumi.Input[_builtins.str]] = None,
+            value: Optional[pulumi.Input[_builtins.str]] = None,
+            value_encrypted: Optional[pulumi.Input[_builtins.str]] = None) -> 'DependabotSecret':
         """
         Get an existing DependabotSecret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -479,16 +569,18 @@ class DependabotSecret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_at: Date the secret was created.
-        :param pulumi.Input[_builtins.str] encrypted_value: Encrypted value of the secret using the GitHub public key in Base64 format.
-        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
-        :param pulumi.Input[_builtins.str] plaintext_value: Plaintext value of the secret to be encrypted.
+        :param pulumi.Input[_builtins.str] encrypted_value: (Optional) Please use `value_encrypted`.
+        :param pulumi.Input[_builtins.str] key_id: ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
+        :param pulumi.Input[_builtins.str] plaintext_value: (Optional) Please use `value`.
                
-               > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+               > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         :param pulumi.Input[_builtins.str] remote_updated_at: Date the secret was last updated in GitHub.
         :param pulumi.Input[_builtins.str] repository: Name of the repository.
         :param pulumi.Input[_builtins.int] repository_id: ID of the repository.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] updated_at: Date the secret was last updated by the provider.
+        :param pulumi.Input[_builtins.str] value: Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        :param pulumi.Input[_builtins.str] value_encrypted: Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -503,6 +595,8 @@ class DependabotSecret(pulumi.CustomResource):
         __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["secret_name"] = secret_name
         __props__.__dict__["updated_at"] = updated_at
+        __props__.__dict__["value"] = value
+        __props__.__dict__["value_encrypted"] = value_encrypted
         return DependabotSecret(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -515,9 +609,10 @@ class DependabotSecret(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="encryptedValue")
+    @_utilities.deprecated("""Use value_encrypted and key_id.""")
     def encrypted_value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Encrypted value of the secret using the GitHub public key in Base64 format.
+        (Optional) Please use `value_encrypted`.
         """
         return pulumi.get(self, "encrypted_value")
 
@@ -525,17 +620,18 @@ class DependabotSecret(pulumi.CustomResource):
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the public key used to encrypt the secret. This should be provided when setting `encrypted_value`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `plaintext_value`.
+        ID of the public key used to encrypt the secret, required when setting `encrypted_value`.
         """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter(name="plaintextValue")
+    @_utilities.deprecated("""Use value.""")
     def plaintext_value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Plaintext value of the secret to be encrypted.
+        (Optional) Please use `value`.
 
-        > **Note**: One of either `encrypted_value` or `plaintext_value` must be specified.
+        > **Note**: One of either `value`, `value_encrypted`, `encrypted_value`, or `plaintext_value` must be specified.
         """
         return pulumi.get(self, "plaintext_value")
 
@@ -578,4 +674,20 @@ class DependabotSecret(pulumi.CustomResource):
         Date the secret was last updated by the provider.
         """
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Plaintext value of the secret to be encrypted. This conflicts with `value_encrypted`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueEncrypted")
+    def value_encrypted(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Encrypted value of the secret using the GitHub public key in Base64 format, `key_id` is required with this value. This conflicts with `value`, `encrypted_value` & `plaintext_value`.
+        """
+        return pulumi.get(self, "value_encrypted")
 

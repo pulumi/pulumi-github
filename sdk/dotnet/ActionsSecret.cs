@@ -16,9 +16,9 @@ namespace Pulumi.Github
     /// Secret values are encrypted using the [Go '/crypto/box' module](https://godoc.org/golang.org/x/crypto/nacl/box) which is
     /// interoperable with [libsodium](https://libsodium.gitbook.io/doc/). Libsodium is used by GitHub to decrypt secret values.
     /// 
-    /// For the purposes of security, the contents of the `PlaintextValue` field have been marked as `Sensitive` to Terraform,
+    /// For the purposes of security, the contents of the `Value` field have been marked as `Sensitive` to Terraform,
     /// but it is important to note that **this does not hide it from state files**. You should treat state as sensitive always.
-    /// It is also advised that you do not store plaintext values in your code but rather populate the `EncryptedValue`
+    /// It is also advised that you do not store plaintext values in your code but rather populate the `ValueEncrypted`
     /// using fields from a resource, data source or variable as, while encrypted in state, these will be easily accessible
     /// in your code. See below for an example of this abstraction.
     /// 
@@ -36,14 +36,14 @@ namespace Pulumi.Github
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",
-    ///         PlaintextValue = someSecretString,
+    ///         Value = someSecretString,
     ///     });
     /// 
     ///     var exampleEncrypted = new Github.Index.ActionsSecret("example_encrypted", new()
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",
-    ///         EncryptedValue = someEncryptedSecretString,
+    ///         ValueEncrypted = someEncryptedSecretString,
     ///     });
     /// 
     /// });
@@ -65,7 +65,7 @@ namespace Pulumi.Github
     ///     {
     ///         Repository = "example_repository",
     ///         SecretName = "example_secret_name",
-    ///         PlaintextValue = "placeholder",
+    ///         Value = "placeholder",
     ///     });
     /// 
     /// });
@@ -75,7 +75,7 @@ namespace Pulumi.Github
     /// 
     /// This resource can be imported using an ID made of the repository name, and secret name separated by a `:`.
     /// 
-    /// &gt; **Note**: When importing secrets, the `PlaintextValue` or `EncryptedValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
+    /// &gt; **Note**: When importing secrets, the `Value`, `ValueEncrypted`, `EncryptedValue`, or `PlaintextValue` fields will not be populated in the state. You may need to ignore changes for these as a workaround if you're not planning on updating the secret through Terraform.
     /// 
     /// ### Import Command
     /// 
@@ -103,19 +103,19 @@ namespace Pulumi.Github
         public Output<bool?> DestroyOnDrift { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// (Optional) Please use `ValueEncrypted`.
         /// </summary>
         [Output("encryptedValue")]
         public Output<string?> EncryptedValue { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// ID of the public key used to encrypt the secret, required when setting `EncryptedValue`.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// (Optional) Please use `Value`.
         /// </summary>
         [Output("plaintextValue")]
         public Output<string?> PlaintextValue { get; private set; } = null!;
@@ -150,6 +150,18 @@ namespace Pulumi.Github
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted. This conflicts with `ValueEncrypted`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        [Output("value")]
+        public Output<string?> Value { get; private set; } = null!;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format, `KeyId` is required with this value. This conflicts with `Value`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        [Output("valueEncrypted")]
+        public Output<string?> ValueEncrypted { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ActionsSecret resource with the given unique name, arguments, and options.
@@ -177,6 +189,8 @@ namespace Pulumi.Github
                 {
                     "encryptedValue",
                     "plaintextValue",
+                    "value",
+                    "valueEncrypted",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -213,8 +227,9 @@ namespace Pulumi.Github
         private Input<string>? _encryptedValue;
 
         /// <summary>
-        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// (Optional) Please use `ValueEncrypted`.
         /// </summary>
+        [Obsolete(@"Use ValueEncrypted and key_id.")]
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -226,7 +241,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// ID of the public key used to encrypt the secret, required when setting `EncryptedValue`.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
@@ -235,8 +250,9 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// (Optional) Please use `Value`.
         /// </summary>
+        [Obsolete(@"Use value.")]
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -258,6 +274,38 @@ namespace Pulumi.Github
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
+
+        [Input("value")]
+        private Input<string>? _value;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted. This conflicts with `ValueEncrypted`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("valueEncrypted")]
+        private Input<string>? _valueEncrypted;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format, `KeyId` is required with this value. This conflicts with `Value`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        public Input<string>? ValueEncrypted
+        {
+            get => _valueEncrypted;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueEncrypted = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ActionsSecretArgs()
         {
@@ -285,8 +333,9 @@ namespace Pulumi.Github
         private Input<string>? _encryptedValue;
 
         /// <summary>
-        /// Encrypted value of the secret using the GitHub public key in Base64 format.
+        /// (Optional) Please use `ValueEncrypted`.
         /// </summary>
+        [Obsolete(@"Use ValueEncrypted and key_id.")]
         public Input<string>? EncryptedValue
         {
             get => _encryptedValue;
@@ -298,7 +347,7 @@ namespace Pulumi.Github
         }
 
         /// <summary>
-        /// ID of the public key used to encrypt the secret. This should be provided when setting `EncryptedValue`; if it isn't then the current public key will be looked up, which could cause a missmatch. This conflicts with `PlaintextValue`.
+        /// ID of the public key used to encrypt the secret, required when setting `EncryptedValue`.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
@@ -307,8 +356,9 @@ namespace Pulumi.Github
         private Input<string>? _plaintextValue;
 
         /// <summary>
-        /// Plaintext value of the secret to be encrypted.
+        /// (Optional) Please use `Value`.
         /// </summary>
+        [Obsolete(@"Use value.")]
         public Input<string>? PlaintextValue
         {
             get => _plaintextValue;
@@ -348,6 +398,38 @@ namespace Pulumi.Github
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
+
+        [Input("value")]
+        private Input<string>? _value;
+
+        /// <summary>
+        /// Plaintext value of the secret to be encrypted. This conflicts with `ValueEncrypted`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("valueEncrypted")]
+        private Input<string>? _valueEncrypted;
+
+        /// <summary>
+        /// Encrypted value of the secret using the GitHub public key in Base64 format, `KeyId` is required with this value. This conflicts with `Value`, `EncryptedValue` &amp; `PlaintextValue`.
+        /// </summary>
+        public Input<string>? ValueEncrypted
+        {
+            get => _valueEncrypted;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueEncrypted = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ActionsSecretState()
         {

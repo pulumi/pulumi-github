@@ -11,6 +11,7 @@ import com.pulumi.github.TeamSettingsArgs;
 import com.pulumi.github.Utilities;
 import com.pulumi.github.inputs.TeamSettingsState;
 import com.pulumi.github.outputs.TeamSettingsReviewRequestDelegation;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,6 +26,49 @@ import javax.annotation.Nullable;
  * &gt; **Note**: This resource relies on the v4 GraphQl GitHub API. If this API is not available, or the Stone Crop schema preview is not available, then this resource will not work as intended.
  * 
  * ## Example Usage
+ * 
+ * ### Notify without delegation
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.github.Team;
+ * import com.pulumi.github.TeamArgs;
+ * import com.pulumi.github.TeamSettings;
+ * import com.pulumi.github.TeamSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var someTeam = new Team("someTeam", TeamArgs.builder()
+ *             .name("SomeTeam")
+ *             .description("Some cool team")
+ *             .build());
+ * 
+ *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()
+ *             .teamId(someTeam.id())
+ *             .notify(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Notify with delegation
  * 
  * <pre>
  * {@code
@@ -51,7 +95,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Add a repository to the team
  *         var someTeam = new Team("someTeam", TeamArgs.builder()
  *             .name("SomeTeam")
  *             .description("Some cool team")
@@ -59,10 +102,10 @@ import javax.annotation.Nullable;
  * 
  *         var codeReviewSettings = new TeamSettings("codeReviewSettings", TeamSettingsArgs.builder()
  *             .teamId(someTeam.id())
+ *             .notify(true)
  *             .reviewRequestDelegation(TeamSettingsReviewRequestDelegationArgs.builder()
  *                 .algorithm("ROUND_ROBIN")
  *                 .memberCount(1)
- *                 .notify(true)
  *                 .build())
  *             .build());
  * 
@@ -75,17 +118,25 @@ import javax.annotation.Nullable;
  * 
  * GitHub Teams can be imported using the GitHub team ID, or the team slug e.g.
  * 
- * ```sh
- * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings 1234567
- * ```
  * or,
- * ```sh
- * $ pulumi import github:index/teamSettings:TeamSettings code_review_settings SomeTeam
- * ```
  * 
  */
 @ResourceType(type="github:index/teamSettings:TeamSettings")
 public class TeamSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    @Export(name="notify", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> notify;
+
+    /**
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> notify_() {
+        return Codegen.optional(this.notify);
+    }
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub&#39;s documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
      * 
@@ -115,28 +166,28 @@ public class TeamSettings extends com.pulumi.resources.CustomResource {
         return this.teamId;
     }
     /**
-     * The slug of the Team within the Organization.
+     * The slug of the Team.
      * 
      */
     @Export(name="teamSlug", refs={String.class}, tree="[0]")
     private Output<String> teamSlug;
 
     /**
-     * @return The slug of the Team within the Organization.
+     * @return The slug of the Team.
      * 
      */
     public Output<String> teamSlug() {
         return this.teamSlug;
     }
     /**
-     * The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+     * The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      * 
      */
     @Export(name="teamUid", refs={String.class}, tree="[0]")
     private Output<String> teamUid;
 
     /**
-     * @return The unique ID of the Team on GitHub. Corresponds to the ID of the &#39;github_team_settings&#39; resource.
+     * @return The unique node ID of the Team on GitHub. Corresponds to the ID of the `github.TeamSettings` resource.
      * 
      */
     public Output<String> teamUid() {

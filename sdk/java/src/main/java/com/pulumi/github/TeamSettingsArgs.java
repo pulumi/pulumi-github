@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.github.inputs.TeamSettingsReviewRequestDelegationArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class TeamSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamSettingsArgs Empty = new TeamSettingsArgs();
+
+    /**
+     * Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    @Import(name="notify")
+    private @Nullable Output<Boolean> notify;
+
+    /**
+     * @return Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> notify_() {
+        return Optional.ofNullable(this.notify);
+    }
 
     /**
      * The settings for delegating code reviews to individuals on behalf of the team. If this block is present, even without any fields, then review request delegation will be enabled for the team. See GitHub Review Request Delegation below for details. See [GitHub&#39;s documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#configuring-team-notifications) for more configuration details.
@@ -50,6 +66,7 @@ public final class TeamSettingsArgs extends com.pulumi.resources.ResourceArgs {
     private TeamSettingsArgs() {}
 
     private TeamSettingsArgs(TeamSettingsArgs $) {
+        this.notify = $.notify;
         this.reviewRequestDelegation = $.reviewRequestDelegation;
         this.teamId = $.teamId;
     }
@@ -70,6 +87,27 @@ public final class TeamSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TeamSettingsArgs defaults) {
             $ = new TeamSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notify_(@Nullable Output<Boolean> notify) {
+            $.notify = notify;
+            return this;
+        }
+
+        /**
+         * @param notify Whether to notify the entire team when at least one member is also assigned to the pull request. Can be set independently of `reviewRequestDelegation`. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notify_(Boolean notify) {
+            return notify_(Output.of(notify));
         }
 
         /**
