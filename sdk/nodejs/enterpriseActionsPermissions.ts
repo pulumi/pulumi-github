@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *         verifiedAllowed: true,
  *     },
  *     enabledOrganizationsConfig: {
- *         organizationIds: [example_org.then(example_org => example_org.id)],
+ *         organizationIds: [output(example_org.then(example_org => example_org.id)).apply(x =>Number(x))],
  *     },
  * });
  * ```

@@ -230,7 +230,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 "verified_allowed": True,
             },
             enabled_organizations_config={
-                "organization_ids": [example_org.id],
+                "organization_ids": [output(example_org.id).apply(lambda x: int(x))],
             })
         ```
 
@@ -281,7 +281,7 @@ class EnterpriseActionsPermissions(pulumi.CustomResource):
                 "verified_allowed": True,
             },
             enabled_organizations_config={
-                "organization_ids": [example_org.id],
+                "organization_ids": [output(example_org.id).apply(lambda x: int(x))],
             })
         ```
 

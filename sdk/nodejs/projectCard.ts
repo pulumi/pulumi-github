@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     name: "Backlog",
  * });
  * const card = new github.ProjectCard("card", {
- *     columnId: column.columnId,
+ *     columnId: column.columnId.apply(x =>String(x)),
  *     note: "## Unaccepted 👇",
  * });
  * ```
@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  *     name: "Backlog",
  * });
  * const testProjectCard = new github.ProjectCard("test", {
- *     columnId: testProjectColumn.columnId,
+ *     columnId: testProjectColumn.columnId.apply(x =>String(x)),
  *     contentId: testIssue.issueId,
  *     contentType: "Issue",
  * });

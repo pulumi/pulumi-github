@@ -230,7 +230,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=project.id,
             name="Backlog")
         card = github.ProjectCard("card",
-            column_id=column.column_id,
+            column_id=column.column_id.apply(lambda x: str(x)),
             note="## Unaccepted 👇")
         ```
 
@@ -256,7 +256,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=test_repository_project.id,
             name="Backlog")
         test_project_card = github.ProjectCard("test",
-            column_id=test_project_column.column_id,
+            column_id=test_project_column.column_id.apply(lambda x: str(x)),
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```
@@ -304,7 +304,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=project.id,
             name="Backlog")
         card = github.ProjectCard("card",
-            column_id=column.column_id,
+            column_id=column.column_id.apply(lambda x: str(x)),
             note="## Unaccepted 👇")
         ```
 
@@ -330,7 +330,7 @@ class ProjectCard(pulumi.CustomResource):
             project_id=test_repository_project.id,
             name="Backlog")
         test_project_card = github.ProjectCard("test",
-            column_id=test_project_column.column_id,
+            column_id=test_project_column.column_id.apply(lambda x: str(x)),
             content_id=test_issue.issue_id,
             content_type="Issue")
         ```

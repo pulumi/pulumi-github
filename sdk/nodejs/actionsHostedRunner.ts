@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *         source: "github",
  *     },
  *     size: "4-core",
- *     runnerGroupId: example.id,
+ *     runnerGroupId: example.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  *         source: "github",
  *     },
  *     size: "8-core",
- *     runnerGroupId: advanced.id,
+ *     runnerGroupId: advanced.id.apply(x =>Number(x)),
  *     maximumRunners: 10,
  *     publicIpEnabled: true,
  * });

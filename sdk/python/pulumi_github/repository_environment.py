@@ -306,7 +306,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             repository=example.name,
             prevent_self_review=True,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": True,
@@ -361,7 +361,7 @@ class RepositoryEnvironment(pulumi.CustomResource):
             repository=example.name,
             prevent_self_review=True,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": True,

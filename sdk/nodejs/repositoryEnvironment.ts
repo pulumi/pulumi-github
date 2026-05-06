@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     repository: example.name,
  *     preventSelfReview: true,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: true,

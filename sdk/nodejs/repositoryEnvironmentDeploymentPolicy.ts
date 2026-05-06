@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     environment: "environment/test",
  *     waitTimer: 10000,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: false,
@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  *     environment: "environment/test",
  *     waitTimer: 10000,
  *     reviewers: [{
- *         users: [current.then(current => current.id)],
+ *         users: [output(current.then(current => current.id)).apply(x =>Number(x))],
  *     }],
  *     deploymentBranchPolicy: {
  *         protectedBranches: false,

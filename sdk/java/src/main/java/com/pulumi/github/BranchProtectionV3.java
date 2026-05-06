@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.BranchProtectionV3;
  * import com.pulumi.github.BranchProtectionV3Args;
  * import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -83,8 +83,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.github.inputs.BranchProtectionV3RestrictionsArgs;
  * import com.pulumi.github.TeamRepository;
  * import com.pulumi.github.TeamRepositoryArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *                 .dismissStaleReviews(true)
  *                 .dismissalUsers("foo-user")
  *                 .dismissalTeams(exampleTeam.slug())
- *                 .dismissalApp(List.of("foo-app"))
+ *                 .dismissalApp(Arrays.asList("foo-app"))
  *                 .bypassPullRequestAllowances(BranchProtectionV3RequiredPullRequestReviewsBypassPullRequestAllowancesArgs.builder()
  *                     .users("foo-user")
  *                     .teams(exampleTeam.slug())

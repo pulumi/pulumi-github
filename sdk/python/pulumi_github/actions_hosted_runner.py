@@ -408,7 +408,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="4-core",
-            runner_group_id=example.id)
+            runner_group_id=example.id.apply(lambda x: int(x)))
         ```
 
         ### Advanced Usage with Optional Parameters
@@ -427,7 +427,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="8-core",
-            runner_group_id=advanced.id,
+            runner_group_id=advanced.id.apply(lambda x: int(x)),
             maximum_runners=10,
             public_ip_enabled=True)
         ```
@@ -498,7 +498,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="4-core",
-            runner_group_id=example.id)
+            runner_group_id=example.id.apply(lambda x: int(x)))
         ```
 
         ### Advanced Usage with Optional Parameters
@@ -517,7 +517,7 @@ class ActionsHostedRunner(pulumi.CustomResource):
                 "source": "github",
             },
             size="8-core",
-            runner_group_id=advanced.id,
+            runner_group_id=advanced.id.apply(lambda x: int(x)),
             maximum_runners=10,
             public_ip_enabled=True)
         ```

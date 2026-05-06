@@ -221,7 +221,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -246,7 +246,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -302,7 +302,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
@@ -327,7 +327,7 @@ class RepositoryEnvironmentDeploymentPolicy(pulumi.CustomResource):
             environment="environment/test",
             wait_timer=10000,
             reviewers=[{
-                "users": [current.id],
+                "users": [output(current.id).apply(lambda x: int(x))],
             }],
             deployment_branch_policy={
                 "protected_branches": False,
